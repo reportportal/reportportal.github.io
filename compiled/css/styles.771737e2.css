@@ -18833,7 +18833,8 @@ main {
 .b-header .navbar-default .navbar-nav {
   margin-left: 130px; }
 
-.b-header .navbar-default .navbar-nav > li > a {
+.b-header .navbar-default .navbar-nav > li > a,
+.b-header .navbar-default .navbar-nav > .menu-item > a {
   font-family: "OswaldRegular", sans-serif;
   font-size: 18px;
   font-weight: lighter;
@@ -18841,6 +18842,24 @@ main {
   color: #7b7b7b;
   padding-top: 20px;
   padding-bottom: 18px; }
+
+.b-header .navbar-default .navbar-nav > .menu-item {
+  display: block;
+  position: relative;
+  float: left; }
+  .b-header .navbar-default .navbar-nav > .menu-item > a {
+    display: inline-block;
+    padding-top: 17px;
+    padding-left: 15px;
+    color: white;
+    text-decoration: none; }
+    .b-header .navbar-default .navbar-nav > .menu-item > a svg {
+      width: 21px;
+      height: 21px;
+      display: inline-block;
+      vertical-align: top;
+      fill: white;
+      margin-left: 2px; }
 
 .b-header .navbar-default .navbar-nav > li > a:hover {
   color: #fff; }
@@ -18920,7 +18939,8 @@ main {
     display: block !important; }
   .b-header .navbar-header {
     float: none; }
-  .b-header .navbar-default .navbar-nav > li {
+  .b-header .navbar-default .navbar-nav > li,
+  .b-header .navbar-default .navbar-nav > .menu-item {
     border-left: 5px solid transparent; }
   .b-header .navbar-default .navbar-nav > li.active {
     border-color: #fff; }
@@ -18940,10 +18960,6 @@ main {
   .b-header.b-header--dark .b-header__logo {
     box-shadow: none; } }
 
-@media (max-width: 450px) {
-  .b-header .b-header__logo {
-    display: none; } }
-
 @media (min-width: 768px) and (max-width: 1200px) {
   .b-header .container {
     width: 100%;
@@ -18952,6 +18968,10 @@ main {
 @media (max-width: 992px) {
   .b-header .b-header__logo {
     box-shadow: none; } }
+
+@media (max-width: 1400px) {
+  .rp-btn-landing-header .gh-hide {
+    display: none; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .b-header .navbar > .container .navbar-brand {
@@ -21405,14 +21425,6 @@ h3.docs-heading:hover .glyphicon {
         fill: #7b7b7b; }
       .rp-landing-header-buttons .rp-btn-landing-header:hover i {
         color: #7b7b7b; }
-    .rp-landing-header-buttons .rp-btn-landing-header svg {
-      width: 18px;
-      height: 23px;
-      display: inline-block;
-      vertical-align: top;
-      fill: white;
-      margin-top: -1px;
-      margin-left: 5px; }
     .rp-landing-header-buttons .rp-btn-landing-header i.material-icons {
       vertical-align: top;
       margin-top: 1px; }
