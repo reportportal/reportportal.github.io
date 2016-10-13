@@ -7452,6 +7452,15 @@ main {
   color: #7b7b7b;
   padding-top: 20px;
   padding-bottom: 18px; }
+  .b-header .navbar-default .navbar-nav > li > a svg,
+  .b-header .navbar-default .navbar-nav > .menu-item > a svg {
+    fill: #7b7b7b; }
+  .b-header .navbar-default .navbar-nav > li > a:hover,
+  .b-header .navbar-default .navbar-nav > .menu-item > a:hover {
+    color: #fff; }
+    .b-header .navbar-default .navbar-nav > li > a:hover svg,
+    .b-header .navbar-default .navbar-nav > .menu-item > a:hover svg {
+      fill: #fff; }
 
 .b-header .navbar-default .navbar-nav > .menu-item {
   display: block;
@@ -7461,18 +7470,13 @@ main {
     display: inline-block;
     padding-top: 17px;
     padding-left: 15px;
-    color: white;
     text-decoration: none; }
     .b-header .navbar-default .navbar-nav > .menu-item > a svg {
       width: 21px;
       height: 21px;
       display: inline-block;
       vertical-align: top;
-      fill: white;
       margin-left: 2px; }
-
-.b-header .navbar-default .navbar-nav > li > a:hover {
-  color: #fff; }
 
 .b-header .navbar-default .navbar-nav > .active > a,
 .b-header .navbar-default .navbar-nav > .active > a:hover {
@@ -14609,10 +14613,13 @@ span.rp-role {
     .rp-settings-demo-data .demo-data-form input {
       width: 100%;
       max-width: 320px; }
+  .rp-settings-demo-data .demo-data-submit-mobile {
+    display: none; }
   .rp-settings-demo-data .demo-data-warning-block {
     margin-top: 26px;
     font-size: 12px; }
     .rp-settings-demo-data .demo-data-warning-block .demo-data-warning {
+      display: block;
       color: #f36c4a;
       font-size: 13px;
       padding-left: 20px;
@@ -14628,10 +14635,16 @@ span.rp-role {
 @media (max-width: 767px) {
   .rp-settings-demo-data {
     width: 100%; }
-    .rp-settings-demo-data .demo-data-form input {
-      margin: 0 auto;
-      display: block; }
+    .rp-settings-demo-data .demo-data-form {
+      display: none; }
+      .rp-settings-demo-data .demo-data-form input {
+        margin: 0 auto;
+        display: block; }
     .rp-settings-demo-data .rp-wrap-button {
       text-align: center; }
     .rp-settings-demo-data .demo-data-warning-block {
-      margin-top: 0; } }
+      display: none; }
+    .rp-settings-demo-data .rp-btn-submit {
+      display: none; }
+    .rp-settings-demo-data .demo-data-submit-mobile {
+      display: inline-block; } }
