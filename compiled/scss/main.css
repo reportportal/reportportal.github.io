@@ -10042,10 +10042,14 @@ h3.docs-heading:hover .glyphicon {
     .rp-landing-header-buttons .rp-btn-landing-header i.material-icons {
       vertical-align: top;
       margin-top: 1px; }
+  .rp-landing-header-buttons .return-button {
+    display: none; }
 
-.authorized .rp-btn-show-login,
-.b-return__btn {
+.authorized .rp-landing-header-buttons .login-button {
   display: none; }
+
+.authorized .rp-landing-header-buttons .return-button {
+  display: block; }
 
 #restore-form .btn-login-cancel {
   display: inline-block;
@@ -14624,8 +14628,8 @@ span.rp-role {
       font-size: 13px;
       padding-left: 20px;
       position: relative; }
-      .rp-settings-demo-data .demo-data-warning-block .demo-data-warning span {
-        text-transform: capitalize; }
+      .rp-settings-demo-data .demo-data-warning-block .demo-data-warning span:first-letter {
+        text-transform: uppercase; }
       .rp-settings-demo-data .demo-data-warning-block .demo-data-warning i {
         position: absolute;
         left: 0;

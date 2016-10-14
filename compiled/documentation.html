@@ -61,6 +61,1235 @@ Example of compose descriptor can be found here: <a href="https://github.com/rep
 <li>Rally Service. Interaction with UI.</li>
 <li>TFS Service. Interaction with TFS.</li>
 </ul>
+<h1 id="-test-framework-integration">﻿Test framework integration</h1>
+<h2 id="testng">TestNG</h2>
+<p>TestNG provides support for attaching custom listeners, reporters, annotation transformers and method interceptors to your tests.</p>
+<h3 id="installation">Installation</h3>
+<p>Add to POM.xml</p>
+<p><strong>dependency</strong></p>
+<pre><code>&lt;repositories&gt;
+ &lt;repository&gt;
+  &lt;id&gt;artifactory.epam.com&lt;/id&gt;
+  &lt;name&gt;artifactory.epam.com-releases&lt;/name&gt;
+  &lt;url&gt;http://artifactory.epam.com/artifactory/EPMC-TST&lt;/url&gt;
+  &lt;snapshots&gt;
+   &lt;enabled&gt;false&lt;/enabled&gt;
+  &lt;/snapshots&gt;
+ &lt;/repository&gt;
+&lt;/repositories&gt;
+
+
+
+ &lt;dependency&gt;
+  &lt;groupId&gt;com.epam.ta.reportportal&lt;/groupId&gt;
+  &lt;artifactId&gt;reportportal-client&lt;/artifactId&gt;
+  &lt;version&gt;2.1.12&lt;/version&gt;
+ &lt;/dependency&gt;   
+ &lt;dependency&gt;
+  &lt;groupId&gt;com.epam.ta.reportportal&lt;/groupId&gt;
+  &lt;artifactId&gt;reportportal-log4j-integration&lt;/artifactId&gt;
+  &lt;version&gt;2.5.0&lt;/version&gt;
+ &lt;/dependency&gt;</code></pre>
+<p>To access a Maven repository which uses basic authentication you should create or update ${user.home}/.m2/settings.xml with the following content:</p>
+<p><strong>settings.xml</strong></p>
+<pre><code>&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;
+  &lt;servers&gt;
+    &lt;server&gt;
+      &lt;id&gt;artifactory.epam.com&lt;/id&gt;
+      &lt;username&gt;epmc-tst-shared&lt;/username&gt;
+      &lt;password&gt;epmc-tst-shared2016&lt;/password&gt;
+    &lt;/server&gt;
+  &lt;/servers&gt;
+&lt;/settings&gt;</code></pre>
+<h3 id="install-listener">Install listener</h3>
+<p>Download package <a href="https://bintray.com/epam/reportportal/agent-java-testng">here (EPAM Maven
+repository)</a>.
+Choose latest version.</p>
+<p>By default, TestNG attaches a few basic listeners to generate HTML and XML
+reports. For reporting TestNG test events (ie start of test, successful finish
+of test, test fail) to report portal user should add report portal TestNg
+listener to run and configure input parameters. Description of listeners input
+parameters and how to configure it see in the section “Input parameters”.</p>
+<p><strong>Listener class:</strong> <em>com.epam.ta.reportportal.listeners.testng.ReportPortalTestNGListener</em></p>
+<p>There are several ways how to install listener:</p>
+<ul>
+<li><p>Maven Surefire plugin</p>
+</li>
+<li><p>In TestNG configuration file</p>
+</li>
+<li><p>Register listener in code</p>
+</li>
+<li><p>Via command line</p>
+</li>
+<li><p>Via \@Listeners annotation</p>
+</li>
+<li><p>Via ServiceLoader class</p>
+</li>
+</ul>
+<blockquote>
+<p>Please note, that listener must be configured in a single place only.
+Configuring multiple listeners will lead to incorrect application behavior.</p>
+</blockquote>
+<p><strong>Maven Surefire plugin</strong></p>
+<p>Maven surefire plugin allow configuring multiple custom listeners, for logging
+to report portal user should add report portal listener to “Listener” property.</p>
+<pre><code>&lt;plugins&gt;
+    [...]
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.15&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;properties&gt;
+            &lt;property&gt;
+              &lt;name&gt;usedefaultlisteners&lt;/name&gt;
+              &lt;value&gt;false&lt;/value&gt; &lt;!-- disabling default listeners is optional --&gt;
+            &lt;/property&gt;
+            &lt;property&gt;
+              &lt;name&gt;listener&lt;/name&gt;
+              &lt;value&gt;com.epam.ta.reportportal.listeners.testng.ReportPortalTestNGListener&lt;/value&gt;
+            &lt;/property&gt;
+          &lt;/properties&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    [...]
+&lt;/plugins&gt;</code></pre>
+<blockquote>
+<p>  If you use maven surefire plugin set report portal listener only in
+  &quot;listener&quot; property in pom.xml.</p>
+</blockquote>
+<p><strong>Specify listener in testng.xml</strong></p>
+<p>Here is how you can define report portal listener in your testng.xml file.</p>
+<pre><code>&lt;suite&gt;
+
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.example.MyListener&quot; /&gt;
+    &lt;listener class-name=&quot;com.epam.ta.reportportal.listeners.testng.ReportPortalTestNGListener&quot; /&gt;
+  &lt;/listeners&gt;
+.....</code></pre>
+<p><strong>Custom runner</strong></p>
+<p>TestNg allow users to create own runners. In this case user can instantiate
+listener by himself and add it to TestNg object.</p>
+<pre><code>ReportPortalTestNGListener listener = new ReportPortalTestNGListener();
+     TestNG testNg = new TestNG();
+     List&lt;String&gt; lSuites = Lists.newArrayList();
+     Collections.addAll(lSuites, “testng_suite.xml”);
+     testNg.setTestSuites(lSuites);
+     testNg.addListener((Object) listener);
+     testNg.run();</code></pre>
+<p><strong>Using command line</strong></p>
+<p>Assuming that you have TestNG and report portal client jars in your class path,
+you can ran TestNG tests with report portal listener as follows:</p>
+<p><em>java org.testng.TestNG testng1.xml –listener
+com.epam.ta.reportportal.listeners.testng.ReportPortalTestNGListener</em></p>
+<p><strong>Using \@Listeners annotation</strong></p>
+<p>Report portal listener can be set using \@Listener annotation.</p>
+<pre><code>@Listeners({ReportPortalTestNGListener.class})
+public class FailedParameterizedTest {
+…..
+}</code></pre>
+<p>\@Listeners annotation will apply to your entire suite file, just as if you had
+specified it in a testng.xml file. Please do not restrict its scope.</p>
+<p><strong>Using ServiceLoader</strong></p>
+<p>JDK offers a very elegant mechanism to specify implementations of interfaces on
+the class path via the
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html">ServiceLoader</a>
+class. With ServiceLoader, all you need to do is create a jar file that contains
+your listener(s) and a few configuration files, put that jar file on the
+classpath when you run TestNG and TestNG will automatically find them. You can
+user service loaded mechanism for adding report portal listener to test
+execution. Please see detailed information here:</p>
+<p><a href="http://testng.org/doc/documentation-main.html#testng-listeners">http://testng.org/doc/documentation-main.html#testng-listeners</a> 5.17.2 -
+Specifying listeners with ServiceLoader.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Copy you configuration from UI of Report Portal at <a href="#user-profile">User Profile</a> section</p>
+<p>or</p>
+<p>In order to start using of agent, user should configure property file
+&quot;reportportal.properties&quot; in such format:</p>
+<p><strong>reportportal.properties</strong></p>
+<pre><code>rp.endpoint = https://rp.epam.com/reportportal-ws
+rp.username = default
+rp.uuid = 8967de3b-fec7-47bb-9dbc-2aa4ceab8b1e
+
+rp.launch = default_TEST_EXAMPLE
+rp.project = default_project
+rp.tags = TAG1;TAG2
+
+rp.keystore.resource = reportportal-client-v2.jks
+rp.keystore.password = reportportal
+
+rp.batch.size.logs = 5</code></pre>
+<p><strong>Parameters</strong></p>
+<p>User should provide next parameters to agent.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rp.enable</td>
+<td>Enable/Disable logging to report portal: rp.enable=true - enable log to RP server.  Any other value means &#39;false&#39;: rp.enable=false - disable log to RP server.  If parameter absent in properties file then automation project results will be posted on RP.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>rp.username</td>
+<td>User name</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.password</td>
+<td>User password. <strong>We strongly recommend to use UUID</strong> or separate ReportPortal internal users password here to avoid domain password publishing.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.uuid</td>
+<td>UUID of user.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.endpoint</td>
+<td>URL of web service, where requests should be send</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.launch</td>
+<td>The unique name of Launch (Run), based on that name a history of runs will be created for particular name</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.project</td>
+<td>Project name, to identify scope</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.tags</td>
+<td>Set of tags for specifying additional meta information for current launch. Format: tag1;tag2;build:12345-6. Tags should be separated by “;”. There are one special tag- build – it should be used for specification number of build for launch.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>rp.batch.size.logs</td>
+<td>In order to rise up performance and reduce number of requests to server</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.keystore.resource=reportportal-client-v2.jks</td>
+<td>Put this into resources: <a href="#user-profile">reportportal-client-v2.jks</a>. New version of Java Key Store contains previous and new certificates for older server versions (including 1.1.16) and newest based on rp.epam.com.</td>
+<td></td>
+</tr>
+<tr>
+<td>rp.keystore.password=reportportal</td>
+<td>Access password for JKS (certificate storage) package, mentioned above.</td>
+<td></td>
+</tr>
+<tr>
+<td>rp.convertimage</td>
+<td>Colored log images can be converted to grayscale for reducing image size. Values: ‘true’ – will be converted. Any other value mean false.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>rp.mode</td>
+<td>Report portal provide possibility to specify visibility of executing launch. Currently supported two modes: DEFAULT  - all users from project can see this launch; DEBUG - only owner can see this launch(in debug sub tab). Note: for all java based clients(TestNg, Junit) mode will be set automaticaly to &quot;DEFAULT&quot; if it is not specified.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>rp.skipped.issue</td>
+<td>Report Portal provide feature to mark skipped tests as not &#39;To Investigate&#39; items on WS side. Parameter could be equal boolean values: <em>TRUE</em> - skipped tests considered as issues and will be mark as &#39;To Investigate&#39; on portal. <em>FALSE</em> - skipped tests will not be mark as &#39;To Investigate&#39; on portal.</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Launch name can be edited once, and should be edited once, before first
+execution. As usual, parts of launches are fixed for a long time. Keeping the
+same name for launch, here we will understand a fixed list of suites under
+launch, will help to have a history trend, and on UI instances of the same
+launch will be saved with postfix &quot;#number&quot;, like &quot;Test Launch #1&quot;, &quot;Test
+Launch #2&quot; etc.</p>
+<blockquote>
+<p>  If mandatory properties are missed client throw exception
+  IllegalArgumentException.</p>
+</blockquote>
+<p><strong>Proxy configuration</strong></p>
+<p>The client uses standard java proxy mechanism. If you are new try <a href="http://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html">Java networking and proxies</a> page.</p>
+<p>Ways to set up properties:</p>
+<p>a. reportportal.properties file
+b. command line properties (-Dhttps.proxyHost=localhost)</p>
+<p><strong>How to provide parameters</strong></p>
+<p>There are two way to load parameters.</p>
+<ul>
+<li>Load from properties file</li>
+</ul>
+<p>Properties file should have name: “reportportal.properties”. Properties file can
+be situated on the class path (in the project directory).</p>
+<p>If listener can’t find properties file it throws FileNotFoundException. By
+default “reportportal.properties” exists in the reportportall-client.jar, but
+user can create his own “reportportal.properties” file and put in class path.</p>
+<ul>
+<li>Use system variables</li>
+</ul>
+<p>Read <a href="https://kb.epam.com/display/EPMRPP/Report+Portal+Jenkins+plugin">here</a> how to do it by Jenkins.</p>
+<p><strong>Parameters loading order</strong></p>
+<p>Client loads properties in the next order. Every next level overrides previous:</p>
+<p>a.  Properties file. Client loads all known to him properties (specified in the
+    &quot;Input Parameters&quot; section) from &quot;reportportal.properties&quot; file.</p>
+<p>b.  Environment variables. If environment variables with names specified in the
+    &quot;Input Parameters&quot; section exists client reload existing properties from
+    environment variables.</p>
+<h3 id="setup-ssl-certificate-from-jks-reportportal-client-v2-jks-">Setup SSL certificate from JKS (reportportal-client-v2.jks)</h3>
+<p>Put this file into resources root:
+<a href="#user-profile">reportportal-client-v2.jks</a></p>
+<h4 id="description">Description</h4>
+<p>Handling events</p>
+<p>TestNG agent can handle next events:</p>
+<ul>
+<li><p>Start launch</p>
+</li>
+<li><p>Finish launch</p>
+</li>
+<li><p>Start suite</p>
+</li>
+<li><p>Finish suite</p>
+</li>
+<li><p>Start test</p>
+</li>
+<li><p>Finish test</p>
+</li>
+<li><p>Start test step</p>
+</li>
+<li><p>Successful finish of test step</p>
+</li>
+<li><p>Fail of test step</p>
+</li>
+<li><p>Skip of test step</p>
+</li>
+<li><p>Start configuration (All «before» and «after» methods)</p>
+</li>
+<li><p>Fail of configuration</p>
+</li>
+<li><p>Successful finish of configuration</p>
+</li>
+<li><p>Skip configuration</p>
+</li>
+</ul>
+<h4 id="objects-interrelation">Objects interrelation</h4>
+<table>
+<thead>
+<tr>
+<th><strong>TestNG object</strong></th>
+<th><strong>ReportPortal object</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAUNCH</td>
+<td>LAUNCH</td>
+</tr>
+<tr>
+<td>BEFORE_SUITE</td>
+<td>TestItem (type = BEFORE_SUITE)</td>
+</tr>
+<tr>
+<td>BEFORE_GROUPS</td>
+<td>TestItem (type = BEFORE_GROUPS)</td>
+</tr>
+<tr>
+<td>SUITE</td>
+<td>TestItem (type = SUITE)</td>
+</tr>
+<tr>
+<td>BEFORE_TEST</td>
+<td>TestItem (type = BEFORE_TEST)</td>
+</tr>
+<tr>
+<td>TEST</td>
+<td>TestItem (type = TEST)</td>
+</tr>
+<tr>
+<td>BEFORE_CLASS</td>
+<td>TestItem (type = BEFORE_CLASS)</td>
+</tr>
+<tr>
+<td>CLASS</td>
+<td>Not in structure. Avoid it</td>
+</tr>
+<tr>
+<td>BEFORE_METHOD</td>
+<td>TestItem (type = BEFORE_METHOD)</td>
+</tr>
+<tr>
+<td>METHOD</td>
+<td>TestItem (type = STEP)</td>
+</tr>
+<tr>
+<td>AFTER_METHOD</td>
+<td>TestItem (type = AFTER_METHOD)</td>
+</tr>
+<tr>
+<td>AFTER_CLASS</td>
+<td>TestItem (type = AFTER_CLASS)</td>
+</tr>
+<tr>
+<td>AFTER_TEST</td>
+<td>TestItem (type = AFTER_TEST)</td>
+</tr>
+<tr>
+<td>AFTER_SUITE</td>
+<td>TestItem (type = AFTER_SUITE)</td>
+</tr>
+<tr>
+<td>AFTER_GROUPS</td>
+<td>TestItem (type = AFTER_GROUPS)</td>
+</tr>
+</tbody>
+</table>
+<p>TestItem – report portal specified object for representing:  suite, test, method objects in different test systems. Used as tree structure and can be recursively placed inside himself.</p>
+<h2 id="junit">JUnit</h2>
+<h3 id="installation">Installation</h3>
+<p>Download package <a href="https://bintray.com/epam/reportportal/agent-java-junit">here</a></p>
+<p>Report Portal (hereinafter: RP) provides two client modules for valid tracking
+of <a href="http://junit.org/">JUnit</a> script events:</p>
+<ul>
+<li><p>Report Portal listener</p>
+</li>
+<li><p>Report Portal custom runner</p>
+</li>
+</ul>
+<p>The Listener provides information for RP in appropriate form and updates launch
+structure in accordance with developed template.</p>
+<p>The Runner was created for <em>\@BeforeClass</em>, <em>\@Before</em>, <em>\@After</em> and
+<em>\@AfterClass</em> methods notifications rising. These notifications are not
+top-level events for native <a href="http://junit.org/">JUnit</a> runners\listeners.</p>
+<h4 id="report-portal-listener">Report Portal Listener</h4>
+<p>The Listener could be included in the project via following scripts running
+method.</p>
+<pre><code>import org.junit.runner.JUnitCore;
+import com.epam.ta.reportportal.listeners.junit.ReportPortalListener;
+
+public class JUnitScriptsRunner {
+    public static void main(String[] args) {
+        JUnitCore core= new JUnitCore();
+        core.addListener(new ReportPortalListener());
+        core.run(UserTestClass1.class, UserTestClass2.class, UserTestClass3.class);
+    }
+}</code></pre>
+<p>If <a href="http://maven.apache.org/index.html">Maven</a> has been used by test project
+so listener could be included in
+<a href="http://maven.apache.org/surefire/maven-surefire-plugin/index.html">maven-surefire-plugin</a>
+configuration in pom.xml.</p>
+<pre><code>&lt;plugin&gt;
+   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+   &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+   &lt;version&gt;2.15&lt;/version&gt;
+   &lt;configuration&gt;
+      &lt;properties&gt;
+         &lt;property&gt;
+            &lt;name&gt;listener&lt;/name&gt;
+            &lt;value&gt;com.epam.ta.reportportal.listeners.junit.ReportPortalListener&lt;/value&gt;
+         &lt;/property&gt;
+      &lt;/properties&gt;
+   &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+<h4 id="report-portal-runner">Report Portal Runner</h4>
+<p>The RP runner could be used via following ways:</p>
+<ul>
+<li>Via \@RunWith annotation</li>
+</ul>
+<p>Usage</p>
+<pre><code>@RunWith(com.epam.ta.reportportal.listeners.junit.CustomJUnitRunner.class)</code></pre>
+<ul>
+<li>Via Suite class extension</li>
+</ul>
+<p>If test project has using Suite extended class so you could include RP runner
+like in example below.</p>
+<pre><code>import java.util.List;
+import org.junit.internal.runners.InitializationError;
+import org.junit.runner.Runner;
+import org.junit.runners.Suite;
+import org.junit.runners.model.RunnerBuilder;
+import com.epam.ta.reportportal.listeners.junit.CustomJUnitRunner;
+
+public class MySuite extends Suite {
+   private static Class&lt;?&gt;[] getAnnotatedClasses(Class&lt;?&gt; klass) throws InitializationError {
+      Suite.SuiteClasses annotation = klass.getAnnotation(Suite.SuiteClasses.class);
+      if (annotation == null) {
+         throw new InitializationError(String.format(&quot;class &#39;%s&#39; must have a SuiteClasses annotation&quot;, klass.getName()));
+      }
+      return annotation.value();
+   }
+
+   public MySuite(Class&lt;?&gt; klass, RunnerBuilder builder) throws InitializationError {
+      super(klass, getRunners(getAnnotatedClasses(klass)));
+   }
+
+   public static List&lt;Runner&gt; getRunners(Class&lt;?&gt;[] classes) throws InitializationError {
+      List&lt;Runner&gt; runners = new LinkedList&lt;Runner&gt;();
+      for (Class&lt;?&gt; klazz : classes) {
+         runners.add(new CustomJUnitRunner(klazz)); //Initialization of RP custom runner
+      }
+      return runners;
+   }
+ }</code></pre>
+<blockquote>
+<p>  If you use custom runner, please extend CustomJUnitRunner class instead of
+  native BlockJUnit4ClassRunner JUnit4 class!</p>
+<p>  Also make sure that running order keep in safe after yours extensions.</p>
+</blockquote>
+<h3 id="configuration">Configuration</h3>
+<p>In order to start using of agent, user should configure property file
+“reportportal.properties” in such format.</p>
+<pre><code>com.epam.ta.reportportal.ws.username=user_name
+com.epam.ta.reportportal.ws.password=user_token</code></pre>
+<h4 id="parameters">Parameters</h4>
+<p>User should provide next parameters to agent.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rp.enable</td>
+<td>Enable/Disable logging to report portal. rp.enable=true - enable log to RP server. Any other valule means &#39;false&#39; rp.enable=false - disable log to RP server</td>
+<td>No</td>
+</tr>
+<tr>
+<td>rp.username</td>
+<td>User name</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.password</td>
+<td><strong>UUID</strong> or domain password</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.endpoint</td>
+<td>URL of web service, where requests should be send</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.launch</td>
+<td>The unique name of Launch (Run), based on that name a history of runs will be created for particular name</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.project</td>
+<td>Project name, to identify scope</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.tags</td>
+<td>Set of tags for specifying additional meta information for current launch. Format: tag1;tag2;build:12345-6. Tags should be separated by “;”. There are one special tag- build – it should be used for specification number of build for launch.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>rp.batch.size.logs</td>
+<td>In order to rise up performance and reduce number of requests to server</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>rp.keystore.resource=reportportal-client-v2.jks</td>
+<td>Put this into resources: <a href="#user-profile">reportportal-client-v2.jks</a></td>
+<td></td>
+</tr>
+<tr>
+<td>rp.keystore.password=reportportal</td>
+<td>Access password for JKS (certificate storage) package, mentioned above</td>
+<td></td>
+</tr>
+<tr>
+<td>rp.convertimage</td>
+<td>Colored log images can be converted to grayscale for reducing image size. Values: ‘true’ – will be converted.  Any other value mean false.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>rp.mode</td>
+<td>Report portal provide possibility to specify visibility of executing launch. Currently supported two modes:     DEFAULT  - all users from project can see this launch;  DEBUG - only owner can see this launch(in debug sub tab). Note: for all java based clients(TestNg, Junit) mode will be set automaticaly to &quot;DEFAULT&quot; if it is not specified.</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Launch name can be edited once, and should be edited once, before first
+execution. As usual, parts of launches are fixed for a long time. Keeping the
+same name for launch, here we will understand a fixed list of suites under
+launch, will help to have a history trend, and on UI instances of the same
+launch will be saved with postfix &quot;#number&quot;, like &quot;Test Launch #1&quot;, &quot;Test
+Launch #2&quot; etc.</p>
+<blockquote>
+<p>  If mandatory properties is missed clent throw exception
+  IllegalArgumentException.</p>
+</blockquote>
+<h4 id="how-to-provide-parameters">How to provide parameters</h4>
+<p>There are two way to load parameters.</p>
+<ul>
+<li>Load from properties file</li>
+</ul>
+<p>Properties file should have name: &quot;reportportal.properties&quot;. Properties file can
+be situated on the class path (in the project directory).</p>
+<p>If listener can’t find properties file it throws FileNotFoundException. By
+default &quot;reportportal.properties&quot; exists in the reportportall-client.jar, but
+user can create his own “reportportal.properties” file and put in class path.</p>
+<ul>
+<li>Use system variables</li>
+</ul>
+<p>Read <a href="#documentation/Report-Portal-Jenkins">here</a> how to do it by Jenkins</p>
+<h4 id="parameters-loading-order">Parameters loading order</h4>
+<p>Client loads properties in the next order. Every next level overrides previous:</p>
+<ol>
+<li><p>Properties file. Client loads all known to him properties (specified in the
+ &quot;Input Parameters&quot; section) from &quot;reportportal.properties&quot; file.</p>
+</li>
+<li><p>Environment variables. If environment variables with names specified in the
+ &quot;Input Parameters&quot; section exists client reload existing properties from
+ environment variables.</p>
+</li>
+</ol>
+<h2 id="cucumber">Cucumber</h2>
+<h3 id="installation-and-usage">Installation and usage</h3>
+<p>There are several options to use Cucumber formatter:</p>
+<ul>
+<li>Add <em>gem &#39;yarpc&#39;</em> to your <em>Gemfile</em> and point either to locally cloned YARPC
+ sources or to Git repository (refer to Bundler documentation for more
+ details):</li>
+</ul>
+<p><em>gem &#39;yarpc&#39;, :path =&gt; &#39;<local path to sources>&#39;</em></p>
+<p>or</p>
+<p><em>gem &#39;yarpc&#39;, :git =&gt; &#39;<URL to Git repo>&#39;</em></p>
+<p>Then run Cucumber with -f/--format switch:</p>
+<p><em>cucumber <other options> -f YARPC::Cucumber::Formatter</em></p>
+<ul>
+<li>Clone Git repository to some local folder and require yarpc.rb in Cucumber command line:</li>
+</ul>
+<p><em>cucumber <other options> -r <local path to sources>\lib\yarpc.rb -f YARPC::Cucumber::Formatter</em></p>
+<h3 id="configuration">Configuration</h3>
+<p>Create report_portal.yml configuration file in one of the following folders of
+your Cucumber project: &#39;.&#39;, &#39;./.config&#39;, &#39;./config&#39; (see
+report_portal.yaml.example). Alternatively specify path to configuration file</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>ReportPortal username</td>
+</tr>
+<tr>
+<td>password</td>
+<td>ReportPortal password</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td>ReportPortal endpoint</td>
+</tr>
+<tr>
+<td>launch</td>
+<td>launch name</td>
+</tr>
+<tr>
+<td>project</td>
+<td>project name</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>array of tags for the launch</td>
+</tr>
+<tr>
+<td>group_by_folder</td>
+<td>set to true to enable grouping by folder (feature folders will be represented as nested suites in ReportPortal. Not fully supported yet by ReportPortal UI). In single-threaded mode folder suites are closed when all their children are closed. In parallel mode (with YARPCParallel formatter) all folder suites remain open until the very end, and are closed along with the launch.</td>
+</tr>
+<tr>
+<td>debug_mode</td>
+<td>set to true to mark the launch as &#39;DEBUG&#39;</td>
+</tr>
+<tr>
+<td>thread_cool_off_timeout</td>
+<td>timeout in seconds for the last thread in the bunch to wait for other threads to start. If no new threads start during this interval, the launch is closed. Launches via parallel_tests do not need this parameter because no new threads will be started when the old ones are completed; however it may be useful to group together the results of several independent CI jobs.</td>
+</tr>
+<tr>
+<td>disable_ssl_verification</td>
+<td>set to true to disable SSL verification on connect to ReportPortal (potential security hole!) In single-threaded mode folder suites are closed when all their children are closed. In parallel mode (with ParallelFormatter) all folder suites remain open until the very end, and are closed along with the launch.</td>
+</tr>
+<tr>
+<td>use_standard_logger</td>
+<td>set to true to enable logging via standard Ruby Logger class to ReportPortal. Note that log messages are transformed to strings before sending.</td>
+</tr>
+</tbody>
+</table>
+<p>Each of these settings can be overridden by an environment variable with the same name and &#39;rp.&#39; prefix (e.g. &#39;rp.username&#39; for &#39;username&#39;).</p>
+<h3 id="usage">Usage</h3>
+<p>Run Cucumber with -f/--format switch:</p>
+<p><em>cucumber <other options> -f RP::Cucumber::YARPC</em></p>
+<h3 id="supported-events">Supported events</h3>
+<ul>
+<li><p>before_features (start launch)</p>
+</li>
+<li><p>after_features (finish launch)</p>
+</li>
+<li><p>before_feature (start feature suite and suites for its parent folders if
+group_by_folder == true)</p>
+</li>
+<li><p>after_feature (finish feature suite and suites for its parent folders if
+group_by_folder == true unless there are other unfinished features in
+them)</p>
+</li>
+<li><p>before_feature_element (start test (either scenario or scenario outline))</p>
+</li>
+<li><p>after_feature_element (finish test)</p>
+</li>
+<li><p>before_step (start test step for regular scenario)</p>
+</li>
+<li><p>after_step (finish test step for regular scenario)</p>
+</li>
+<li><p>before_table_row (start test step for example row of scenario outline)</p>
+</li>
+<li><p>after_table_row (finish test step for example row of scenario outline)</p>
+</li>
+<li><p>puts</p>
+</li>
+<li><p>embed</p>
+</li>
+<li><p>exception</p>
+</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ol>
+<li><p>Steps of scenario outlines are always reported as &#39;Passed&#39;; the actual pass/fail status is reported for individual example rows.</p>
+</li>
+<li><p>Background steps are reported within the scenarios as &#39;BEFORE_TEST&#39; items.</p>
+</li>
+</ol>
+<h3 id="logging">Logging</h3>
+<p>Experimental support for three common logging frameworks was added:</p>
+<ul>
+<li><p>Logger (part of standard Ruby library)</p>
+</li>
+<li><p><a href="https://rubygems.org/gems/logging">Logging</a></p>
+</li>
+<li><p><a href="https://rubygems.org/gems/log4r">Log4r</a></p>
+</li>
+</ul>
+<p>To use Logger, set use_standard_logger parameter to true (see Configuration
+chapter). For the other two corresponding appenders/outputters are available
+under yarpc/logging.</p>
+<h3 id="parallel-formatter">Parallel formatter</h3>
+<p>YARPC::Cucumber::ParallelFormatter can be used instead for tests started via
+parallel_tests gem.</p>
+<blockquote>
+<p>  To facilitate parallel reporting from independent processes (as is the case with
+  parallel_tests gem), ParallelFormatter formatter creates
+  &#39;parallel_launch_id.lck&#39; and a number of &#39;parallel_launch_process*.lck&#39;
+  files in the TEMP directory. If, for whatever reason (e.g. because the previous
+  launch was aborted due to exception), any of these files are present when new
+  launch is invoked, results may be reported incorrectly.</p>
+</blockquote>
+<p><strong>Notes:</strong></p>
+<ol>
+<li><p>Rows of scenario outlines are reported as individual scenarios with row
+ number in brackets.</p>
+</li>
+<li><p>To get more readable logs for scenario outlines, start Cucumber with
+ -x/--expand switch. However, even in this case log messages for outlines may
+ appear in wrong order - this is due to Cucumber limitations and will not be
+ fixed in YARPC.</p>
+</li>
+<li><p>Without --expand switch, all steps of scenario outlines are reported before
+ other log messages, so it is not easy to see which log message belongs to
+ which step. This is due to Cucumber limitations and will not be fixed in
+ YARPC.</p>
+</li>
+<li><p>Feature background is reported once at the beginning as &#39;Before Class&#39; item
+ and the first scenario does not include background steps. Remaining
+ scenarios are &#39;augmented&#39; with background steps and there are no separate
+ &#39;Before Class/Test&#39; items for them. This reflects the way Cucumber actually
+ executes scenarios: if the very first background fails, all scenarios in the
+ feature are skipped, even though on second iteration this background might
+ pass.</p>
+</li>
+<li><p>ReportPortal launch created by YARPC has root test suite as a single direct
+ descendant. This is workaround for current ReportPortal UI implementation
+ and will be removed when UI 2.0 is deployed.</p>
+</li>
+</ol>
+<h2 id="cucumber-jvm-java-">Cucumber-JVM (Java)</h2>
+<p>Located in the main <a href="https://github.com/reportportal/agent-java-cucumber">RP repository</a>.</p>
+<p>Configuration is identical to JUnit RP client.</p>
+<p>It is implemented as a custom Cucumber reporter and is enabled in the same way
+as other custom reporters
+(<a href="https://cucumber.io"><a href="http://cukes.info">http://cukes.info</a></a>).</p>
+<p>There are two versions: <strong>ScenarioReporter</strong> and <strong>StepReporter</strong>;</p>
+<p>the difference is in granularity level, ScenarioReporter being probably the
+recommended option. I think the client was written in pre-2.0 era, so it may
+require some tweaks to work with RP 2.0.</p>
+<p>(For example, I believe, issue type names were changed from &quot;Automation bug&quot; to
+&quot;AUTOMATION_BUG&quot; etc.)</p>
+<p>TestItem – report portal specified object for representing: suite, test, method
+objects in different test systems. Used as tree structure and can be recursively
+placed inside himself.</p>
+<h2 id="node-js-client-javascript-">Node.js Client (JavaScript)</h2>
+<p>Only Cucumber listener is available at the moment, and it was tested only in <strong>Protractor/Cucumber combo</strong> (although it should work in vanilla Cucumber-JS as well).</p>
+<h3 id="installation">Installation</h3>
+<p>To install directly from Git, run</p>
+<pre><code>npm install git+&lt;HTTPS or SSH repository URL&gt;.</code></pre>
+<p>To install from local path, clone repository and run</p>
+<pre><code>npm install &lt;local path&gt;.</code></pre>
+<p>See <em>npm -?</em> for more details.</p>
+<p>Cucumber listener can be enabled by adding to world.js something like this:</p>
+<pre><code>this.registerListener(require(&#39;node-rp-client&#39;).Cucumber({}));</code></pre>
+<h3 id="configuration">Configuration</h3>
+<p>Create reportportal.json in the working directory or specify desired config file in the environment variable rp_config (again, relative to the working directory).</p>
+<p>The following properties are supported:</p>
+<ul>
+<li>username - Report Portal username (string, required)</li>
+<li>password - Report Portal password (string, required)</li>
+<li>endpoint - Report Portal API endpoint (string, required)</li>
+<li>launch - launch name (string, required)</li>
+<li>project - project name (string, required)</li>
+<li>mode - launch mode (&quot;DEFAULT&quot; or &quot;DEBUG&quot;, optional, defaults to &quot;DEFAULT&quot;)</li>
+<li>tags - launch tags (array of strings, optional)</li>
+<li>root_folder - name (not path!) of the folder where all tests are located (string, optional)</li>
+</ul>
+<p>Each of these settings can be overridden by an environment variable with the same name and &#39;rp_&#39; prefix (e.g. &#39;rp_username&#39; for &#39;username&#39;). Environment variables take precedence over JSON configuration. &#39;tags&#39; property is parsed as JSON array (i.e. it has to be defined like this: set rp_tags=[&quot;xxx&quot;, &quot;yyy&quot;, &quot;zzz&quot;]); all other properties are used literally.</p>
+<p><strong>Important notes:</strong></p>
+<ol>
+<li><p>Certificate verification is disabled in HTTPS agent because I do not have enough time left to figure how to supply the whole certificate chain to the client. If you know how of are willing to investigate, please do fix this security hole.</p>
+</li>
+<li><p>As of the date of writing this, the latest version of node-rest-client, 1.4.3, (one of this module&#39;s dependencies) is unable to send binary data in HTTP requests which is required to upload attachments such as screenshots. The workaround is provided in <a href="https://github.com/aacerox/node-rest-client/pull/58">this pull request</a>; until it is merged, attachments will appear corrupted in Report Portal.</p>
+</li>
+</ol>
+<p>To use Report Portal client while this pull request is not merged, the following workaround can be taken:</p>
+<ul>
+<li>install patched REST client using <em>npm install git+</em> <a href="https://github.com/nebehr/node-rest-client.git#write-buffers"><a href="https://github.com/nebehr/node-rest-client.git#write-buffers">https://github.com/nebehr/node-rest-client.git#write-buffers</a></a></li>
+<li>now install Report Portal client as described above. Since REST client is already installed, the patch will not be overwritten.</li>
+</ul>
+<h2 id="nunit">NUnit</h2>
+<h3 id="installation">Installation</h3>
+<p>There are 2 ways how to install NUnit add-in. The first way is directed to
+install add-in for NUnit runner, the second is only for your assembly with
+tests. So the test results will be reported to Report Portal if tests are
+executed by NUnit runner with installed add-in, or only if specific test
+assembly is executed and not depend on what NUnit runner is used.</p>
+<h4 id="windows-installer-package">Windows Installer Package</h4>
+<p>Download the latest <a href="evbyminsd0947:9999/repository/download/ReportPortal_NUnitMsiInstaller/116:id/ReportPortalIntegrationSetup.msi">Windows Installer package</a> package on your machine and follow
+instructions during installation.</p>
+<blockquote>
+<p>  <strong>Warning!</strong></p>
+<p>  You have to install add-in into <em>bin/addins</em> folder that is located in the
+  folder where NUnit (nunit.exe) runner is.</p>
+<p>  Example: <em>C:\Program Files (x86)\NUnit 2.6.4\bin\addins</em></p>
+</blockquote>
+<p>When installation process is completed please verify that add-in is installed
+successfully. Execute NUnit GUI runner, go to menu <em>Tools -> Addins</em>.</p>
+<p><a href="Images/NUnit_1.png"> <img src="Images/NUnit_1.png" alt="Image"> </a></p>
+<p><a href="Images/NUnit_2.png"> <img src="Images/NUnit_2.png" alt="Image"> </a></p>
+<p>If add-in is successfully loaded beginning from now all tests that will be
+executed by this NUnit runner (exe) will be represented on Report Portal.</p>
+<h4 id="nuget-package">NuGet Package</h4>
+<p>Install <strong>ReportPortal.NUnit</strong> NuGet package into your project with features
+files. Missed dependencies will be installed automatically.</p>
+<blockquote>
+<p>  Read <a href="http://docs.nuget.org/consume/package-manager-dialog">here</a> how to
+  manage NuGet packages.</p>
+</blockquote>
+<p>NuGet package is compatible only with NUnit runner <strong>v2.6.4</strong>. This limitation is
+related to NUnit architecture restrictions. If you use some other version of
+NUnit launcher and you are not able to upgrade/downgrade to v2.6.4, please
+contact us and we will provide compatible NuGet package with NUnit runner which
+you use.</p>
+<h3 id="configuration">Configuration</h3>
+<p>You can configure Report Portal plugin. All settings are stored in
+<em>EPAM.ReportPortal.Addins.NUnit.dll.config</em> file. You can find this file by path
+where you installed add-in: installation path of MSI package or in VS project in
+other case.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enabled</td>
+<td>Enable/Disable reporting to Report Portal server.</td>
+</tr>
+<tr>
+<td>server - url</td>
+<td>The base URI to Report Portal REST web service.</td>
+</tr>
+<tr>
+<td>server - project</td>
+<td>Name of project</td>
+</tr>
+<tr>
+<td>server - proxy - server</td>
+<td>Proxy server for all requests to Report Portal services. This element is optional.</td>
+</tr>
+<tr>
+<td>authentication - username</td>
+<td>Name of user.</td>
+</tr>
+<tr>
+<td>authentication - password</td>
+<td>Password of user. UID can be used instead of opened password. You can find it on user&#39;s profile page.</td>
+</tr>
+<tr>
+<td>launch - debugMode</td>
+<td>Turn on/off debugging of your tests. Only you have access for test results if test execution is proceeded in debug mode.</td>
+</tr>
+<tr>
+<td>launch - name</td>
+<td>Name of test execution.</td>
+</tr>
+<tr>
+<td>launch - tags</td>
+<td>Comma separated tags for test execution.</td>
+</tr>
+<tr>
+<td>logConsoleOutput</td>
+<td>Specify whether console output also should be reported</td>
+</tr>
+</tbody>
+</table>
+<p>See example of valid configuration file below.</p>
+<pre><code>&lt;configuration&gt;
+  &lt;configSections&gt;
+    &lt;section name=&quot;reportPortal&quot; type=&quot;EPAM.ReportPortal.Addins.NUnit.ReportPortalSection, EPAM.ReportPortal.Addins.NUnit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null&quot; /&gt;
+  &lt;/configSections&gt;
+  &lt;reportPortal enabled=&quot;true&quot; logConsoleOutput=&quot;true&quot;&gt;
+    &lt;server url=&quot;https://evbyminsd7776.minsk.epam.com:8443/reportportal-ws/api/v1/&quot; project=&quot;default_project&quot;&gt;
+      &lt;authentication username=&quot;default&quot; password=&quot;1q2w3e&quot; /&gt;
+      &lt;proxy server=&quot;yourproxy.com:port&quot;/&gt;
+    &lt;/server&gt;
+    &lt;launch name=&quot;NUnit Demo Launch&quot; debugMode=&quot;true&quot; tags=&quot;t1,t2&quot; /&gt;
+  &lt;/reportPortal&gt;
+&lt;/configuration&gt;</code></pre>
+<h2 id="soapui">SoapUI</h2>
+<h3 id="installation">Installation</h3>
+<p>You can download SoapUI agent from
+<a href="https://github.com/reportportal/agent-java-soapui">here</a>.</p>
+<p><strong>Option 1: Desktop SoapUI</strong></p>
+<p>SoapUI agent is provided as zip archive. Unpack this archive into SoapUI root folder, and <strong>override</strong> conflicted files.
+And remove the below jars from <em>/lib</em> directory because old versions:</p>
+<ul>
+<li>log4j</li>
+<li>guava
+... and any other found in /lib folder</li>
+</ul>
+<p>To verify that agent is successfully installed start SoapUI and see logs:</p>
+<p><a href="Images/pic_234.jpg"> <img src="Images/pic_234.jpg" alt="Image"> </a></p>
+<p>Now agent is plugged to SoapUI.</p>
+<p><strong>HTTPS</strong></p>
+<p>For access to servers working via HTTPS protocol - JKS keystore, provided by RP, is required.
+Keystore for access to RP is available <a href="#user-profile">here</a>. Please place it under ${SOAPUI-HOME}/bin</p>
+<p><strong>Option 2: via Maven Plugin in external automation</strong></p>
+<p>Add following repository to your pom.xml.</p>
+<pre><code>&lt;repository&gt;
+    &lt;id&gt;artifactory.epam.com&lt;/id&gt;
+    &lt;name&gt;artifactory.epam.com-releases&lt;/name&gt;
+    &lt;url&gt;http://artifactory.epam.com/artifactory/EPMC-TST&lt;/url&gt;
+    &lt;snapshots&gt;
+        &lt;enabled&gt;false&lt;/enabled&gt;
+    &lt;/snapshots&gt;
+&lt;/repository&gt;</code></pre>
+<p>And dependency (please check latest available version under specified artifactory and use it instead provided):</p>
+<pre><code>&lt;dependency&gt;
+   &lt;groupId&gt;com.epam.ta.reportportal&lt;/groupId&gt;
+   &lt;artifactId&gt;soapui-client&lt;/artifactId&gt;
+   &lt;version&gt;2.1.9&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+<p>Exclude conflicted dependencies from soapui-maven-plugin.</p>
+<pre><code>&lt;groupId&gt;eviware&lt;/groupId&gt;
+&lt;artifactId&gt;maven-soapui-plugin&lt;/artifactId&gt;
+&lt;version&gt;4.5.1&lt;/version&gt;
+&lt;exclusions&gt;
+   &lt;exclusion&gt;
+      &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
+      &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+   &lt;/exclusion&gt;
+   &lt;exclusion&gt;
+      &lt;artifactId&gt;httpcore&lt;/artifactId&gt;
+      &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+   &lt;/exclusion&gt;
+   &lt;exclusion&gt;
+      &lt;artifactId&gt;commons-codec&lt;/artifactId&gt;
+      &lt;groupId&gt;commons-codec&lt;/groupId&gt;
+   &lt;/exclusion&gt;
+   &lt;exclusion&gt;
+      &lt;artifactId&gt;httpmime&lt;/artifactId&gt;
+      &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+   &lt;/exclusion&gt;
+   &lt;exclusion&gt;
+      &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+      &lt;groupId&gt;log4j&lt;/groupId&gt;
+   &lt;/exclusion&gt;
+&lt;/exclusions&gt;</code></pre>
+<p>Add the property to the plugin section.</p>
+<pre><code>&lt;property&gt;
+   &lt;name&gt;soapui.ext.listeners&lt;/name&gt;
+   &lt;value&gt;PATH TO FOLDER CONTAINS reportportal-listeners.xml FILE&lt;/value&gt;
+&lt;/property&gt;</code></pre>
+<p>Put your soapui-log4j.xml in project directory (or made it available under classpath).</p>
+<h3 id="configuration">Configuration</h3>
+<p>ReportPortal listeners described under ${SOAPUI-HOME}/bin/listeners/reportportal-listeners.xml for Desktop SoapUI version, or in user-specified file for maven plugin using:</p>
+<p><strong>reportportal-listeners.xml</strong></p>
+<pre><code> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;tns:soapui-listeners xmlns:tns=&quot;http://eviware.com/soapui/config&quot;&gt;
+&lt;tns:listener id=&quot;TestStepListener&quot; listenerClass=&quot;com.epam.ta.reportportal.soapui.listeners.TestStepListener&quot;
+   listenerInterface=&quot;com.eviware.soapui.model.testsuite.TestRunListener&quot; /&gt;
+&lt;tns:listener id=&quot;TestCaseListener&quot; listenerClass=&quot;com.epam.ta.reportportal.soapui.listeners.TestCaseListener&quot;
+   listenerInterface=&quot;com.eviware.soapui.model.testsuite.TestSuiteRunListener&quot; /&gt;
+&lt;tns:listener id=&quot;TestSuiteListener&quot; listenerClass=&quot;com.epam.ta.reportportal.soapui.listeners.TestSuiteListener&quot;
+   listenerInterface=&quot;com.eviware.soapui.model.testsuite.ProjectRunListener&quot; /&gt;
+&lt;/tns:soapui-listeners&gt;</code></pre>
+<h4 id="desktop-soapui">Desktop SoapUI</h4>
+<p>For configuring SoapUI agent user has to set the follows properties into project custom properties or set them via system variables. For example:</p>
+<p><a href="Images/soapui-properties.png"> <img src="Images/soapui-properties.png" alt="Image"> </a></p>
+<p>And in text format:</p>
+<pre><code>rp.username = andrei_ramanchuk
+rp.uuid = 00000000-0000-0000-0000-000000000001
+rp.endpoint = https://rp.epam.com:8443
+
+rp.launch = soapui_TEST_EXAMPLE
+rp.project = default_project
+rp.tags = TAG1;TAG2
+rp.keystore.resource = reportportal-client-v2.jks
+rp.keystore.password = reportportal
+rp.batch.size.logs = 1
+rp.mode = DEFAULT</code></pre>
+<h3 id="logging">Logging</h3>
+<p>If you need to change logging you may override soapui-log4j.xml. Use &quot;REPORTPORTAL&quot; appender if you want to track messages to Report Portal.</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE log4j:configuration SYSTEM &quot;log4j.dtd&quot;&gt;
+
+&lt;!-- ===================================================================== --&gt;
+&lt;!-- --&gt;
+&lt;!-- This is an example of a Log4j XML configuration file. --&gt;
+&lt;!-- --&gt;
+&lt;!-- ===================================================================== --&gt;
+
+&lt;log4j:configuration xmlns:log4j=&quot;http://jakarta.apache.org/log4j/&quot;
+    debug=&quot;false&quot;&gt;
+
+    &lt;!-- =================== --&gt;
+    &lt;!-- Appenders --&gt;
+    &lt;!-- =================== --&gt;
+
+    &lt;appender name=&quot;CONSOLE&quot; class=&quot;org.apache.log4j.ConsoleAppender&quot;&gt;
+        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
+        &lt;param name=&quot;Target&quot; value=&quot;System.out&quot; /&gt;
+        &lt;param name=&quot;Threshold&quot; value=&quot;DEBUG&quot; /&gt;
+        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+            &lt;!-- The default pattern: Date Priority [Category] Message\n --&gt;
+            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d{ABSOLUTE} %-5p [%c{1}] %m%n&quot; /&gt;
+        &lt;/layout&gt;
+    &lt;/appender&gt;
+
+    &lt;appender name=&quot;FILE&quot; class=&quot;org.apache.log4j.RollingFileAppender&quot;&gt;
+        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
+        &lt;param name=&quot;File&quot; value=&quot;soapui.log&quot; /&gt;
+        &lt;param name=&quot;Threshold&quot; value=&quot;INFO&quot; /&gt;
+        &lt;param name=&quot;Append&quot; value=&quot;false&quot; /&gt;
+        &lt;param name=&quot;MaxFileSize&quot; value=&quot;5000KB&quot; /&gt;
+        &lt;param name=&quot;MaxBackupIndex&quot; value=&quot;50&quot; /&gt;
+        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d %-5p [%c{1}] %m%n&quot; /&gt;
+        &lt;/layout&gt;
+    &lt;/appender&gt;
+
+    &lt;appender name=&quot;ERRORFILE&quot; class=&quot;org.apache.log4j.RollingFileAppender&quot;&gt;
+        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
+        &lt;param name=&quot;File&quot; value=&quot;soapui-errors.log&quot; /&gt;
+        &lt;param name=&quot;Threshold&quot; value=&quot;INFO&quot; /&gt;
+        &lt;param name=&quot;Append&quot; value=&quot;true&quot; /&gt;
+        &lt;param name=&quot;MaxFileSize&quot; value=&quot;5000KB&quot; /&gt;
+        &lt;param name=&quot;MaxBackupIndex&quot; value=&quot;50&quot; /&gt;
+        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d %-5p [%c{1}] %m%n&quot; /&gt;
+        &lt;/layout&gt;
+    &lt;/appender&gt;
+
+    &lt;appender name=&quot;SOAPUI&quot; class=&quot;com.eviware.soapui.support.log.SoapUIAppender&quot;&gt;
+        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
+    &lt;/appender&gt;
+    &lt;appender name=&quot;REPORTPORTAL&quot;
+        class=&quot;com.epam.ta.reportportal.soapui.log.SoapUILogAppender&quot;&gt;
+        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
+        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d %-5p [%c{1}] %m%n&quot; /&gt;
+        &lt;/layout&gt;
+    &lt;/appender&gt;
+    &lt;appender name=&quot;GLOBAL_GROOVY_LOG&quot; class=&quot;org.apache.log4j.FileAppender&quot;&gt;
+        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
+        &lt;param name=&quot;File&quot; value=&quot;global-groovy.log&quot; /&gt;
+        &lt;param name=&quot;Threshold&quot; value=&quot;DEBUG&quot; /&gt;
+        &lt;param name=&quot;Append&quot; value=&quot;true&quot; /&gt;
+        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d %-5p [%c{1}] %m%n&quot; /&gt;
+        &lt;/layout&gt;
+    &lt;/appender&gt;
+
+
+    &lt;!-- =============== --&gt;
+    &lt;!-- Loggers --&gt;
+    &lt;!-- =============== --&gt;
+    &lt;logger name=&quot;groovy.log&quot;&gt;
+        &lt;level value=&quot;INFO&quot; /&gt;
+        &lt;appender-ref ref=&quot;GLOBAL_GROOVY_LOG&quot; /&gt;
+        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
+    &lt;/logger&gt;
+
+    &lt;logger name=&quot;com.eviware.soapui&quot;&gt;
+        &lt;level value=&quot;DEBUG&quot; /&gt;
+        &lt;appender-ref ref=&quot;SOAPUI&quot; /&gt;
+        &lt;appender-ref ref=&quot;CONSOLE&quot; /&gt;
+        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
+    &lt;/logger&gt;
+
+    &lt;logger name=&quot;soapui.errorlog&quot;&gt;
+        &lt;level value=&quot;DEBUG&quot; /&gt;
+        &lt;appender-ref ref=&quot;ERRORFILE&quot; /&gt;
+        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
+    &lt;/logger&gt;
+
+    &lt;logger
+        name=&quot;com.eviware.soapui.impl.wsdl.support.http.SoapUIMultiThreadedHttpConnectionManager&quot;&gt;
+        &lt;level value=&quot;ERROR&quot; /&gt;
+        &lt;appender-ref ref=&quot;ERRORFILE&quot; /&gt;
+        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
+    &lt;/logger&gt;
+
+    &lt;logger name=&quot;com.eviware.soapui.impl.wsdl.WsdlSubmit&quot;&gt;
+        &lt;level value=&quot;ERROR&quot; /&gt;
+        &lt;appender-ref ref=&quot;ERRORFILE&quot; /&gt;
+        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
+    &lt;/logger&gt;
+
+    &lt;root&gt;
+        &lt;priority value=&quot;INFO&quot; /&gt;
+        &lt;appender-ref ref=&quot;FILE&quot; /&gt;
+        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
+    &lt;/root&gt;
+
+&lt;/log4j:configuration&gt;</code></pre>
+<h2 id="specflow">SpecFlow</h2>
+<h3 id="installation">Installation</h3>
+<p>Install <strong>ReportPortal.SpecFlow</strong> NuGet package into your project with features
+files. Missed dependencies will be installed automatically.</p>
+<blockquote>
+<p>  Read <a href="http://docs.nuget.org/consume/package-manager-dialog">here</a> how to
+  manage NuGet packages.</p>
+</blockquote>
+<p>After installing NuGet package your App.config will be modified. Report Portal
+plugin and step assembly will be registered in the specFlow section.</p>
+<pre><code>&lt;specFlow&gt;
+  ...
+  &lt;plugins&gt;
+    &lt;add name=&quot;EPAM.ReportPortal.Addins&quot; type=&quot;Runtime&quot; /&gt;
+  &lt;/plugins&gt;
+  ...
+  &lt;stepAssemblies&gt;
+    &lt;stepAssembly assembly=&quot;EPAM.ReportPortal.Addins.SpecFlowPlugin&quot; /&gt;
+  &lt;/stepAssemblies&gt;
+  ...
+&lt;/specFlow&gt;</code></pre>
+<h3 id="configuration">Configuration</h3>
+<p>You can configure Report Portal plugin. All settings are stored in
+<em>EPAM.ReportPortal.Addins.SpecFlowPlugin.dll.config</em> file. This file is added
+into VS project with NuGet package installation.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enabled</td>
+<td>Enable/Disable reporting to Report Portal server</td>
+</tr>
+<tr>
+<td>server - url</td>
+<td>The base URI to Report Portal REST web service</td>
+</tr>
+<tr>
+<td>server - project</td>
+<td>Name of project</td>
+</tr>
+<tr>
+<td>authentication - username</td>
+<td>Name of user</td>
+</tr>
+<tr>
+<td>authentication - password</td>
+<td>Password of user. UID can be used instead of opened password. You can find it on user&#39;s profile page</td>
+</tr>
+<tr>
+<td>launch - debugMode</td>
+<td>Turn on/off debugging of your tests. Only you have access for test results if test execution is proceeded in debug mode</td>
+</tr>
+<tr>
+<td>launch - name</td>
+<td>Name of test execution</td>
+</tr>
+<tr>
+<td>launch - tags</td>
+<td>Comma separated tags for test execution</td>
+</tr>
+</tbody>
+</table>
+<p>Example of valid configuration file is below.</p>
+<pre><code>&lt;configuration&gt;
+  &lt;configSections&gt;
+    &lt;section name=&quot;reportPortal&quot; type=&quot;EPAM.ReportPortal.Addins.SpecFlowPlugin.ReportPortalSection, EPAM.ReportPortal.Addins.SpecFlowPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null&quot; /&gt;
+  &lt;/configSections&gt;
+  &lt;reportPortal enabled=&quot;true&quot;&gt;
+    &lt;server url=&quot;https://evbyminsd7776.minsk.epam.com:8443/reportportal-ws/api/v1/&quot; project=&quot;default_project&quot;&gt;
+      &lt;authentication username=&quot;default&quot; password=&quot;1q2w3e&quot; /&gt;
+    &lt;/server&gt;
+    &lt;launch name=&quot;SpecFlow Demo Launch&quot; debugMode=&quot;true&quot; tags=&quot;t1,t2&quot; /&gt;
+  &lt;/reportPortal&gt;
+&lt;/configuration&gt;</code></pre>
+<h2 id="starting-logging">Starting Logging</h2>
+<p>To start logging with Report Portal, add a specific listener to your automation
+framework, called an agent.</p>
+<p>An agent consists of 2 parts:</p>
+<ul>
+<li><p>Structure listener</p>
+</li>
+<li><p>Log listener (appender)</p>
+</li>
+</ul>
+<p>Use the configuration suggestion at the <strong>Profile</strong> page; it will help you with
+the required parameters.</p>
+<p><a href="Images/pic_216.jpg"> <img src="Images/pic_216.jpg" alt="Image"> </a></p>
+<p>To configure logging, follow these steps:</p>
+<ol>
+<li><p>Configure a structure listener according to the information in one of the topics above.</p>
+</li>
+<li><p>Configure a log appender, according to the description at the Logging Integration page.</p>
+</li>
+<li><p>Configure the properties file as described in the topic above.</p>
+</li>
+<li><p>Don&#39;t forget about the JKS (Java Key Storage) file for a Java-based project.</p>
+</li>
+<li><p>Execute your automation tests.</p>
+</li>
+<li><p>Select your project as described above.</p>
+</li>
+</ol>
 <h1 id="user-guide">User Guide</h1>
 <h2 id="getting-started">Getting started</h2>
 <p>To log in, open the application and click LOGIN.</p>
@@ -458,7 +1687,6 @@ topic.</p>
 <p>For more information refer to the &quot;Create custom defect types&quot; topic.</p>
 <p>The &quot;Demo Data&quot; tab allows generate demo data on the project.</p>
 <p><a href="Images/pic_254.jpg"> <img src="Images/pic_254.jpg" alt="Image"> </a></p>
-<p>For more information refer to the &quot;Generate Demo Data&quot; topic.</p>
 <p><strong>Note:</strong>
 Not Administrator - user with PROJECT MANAGER or LEAD project role has the
 possibility to edit project settings on the project &quot;Settings&quot;
@@ -1344,7 +2572,7 @@ pages.</p>
 </ul>
 <h3 id="export-launches-reports">Export launches reports</h3>
 <p>The system allows to export launches reports on the &quot;Launches&quot; and the &quot;Debug&quot;
-modes. You can export launch report in the following formats: PDF, XLS, XML, HTML.</p>
+modes. You can export launch report in the following formats: PDF, XML, HTML.</p>
 <p>In order to finish a launch, perform the following steps:</p>
 <ol>
 <li><p>Navigate to the &quot;Launches&quot; page.</p>
