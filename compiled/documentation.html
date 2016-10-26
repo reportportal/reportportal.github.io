@@ -6,40 +6,29 @@
             <ul id="toc"></ul>
             
   <h1 id="what-is-report-portal-">What is Report Portal?</h1>
-<p>Report Portal is service, provides great capabilities for speeding up results
-analysis and reporting by means of built-in analytical features.</p>
-<p>Report Portal is the great addition to the Continues Integration and Continues
+<p>Report Portal is a service, it provides great capabilities for speeding up results analysis and reporting by means of built-in analytical features.</p>
+<p>Report Portal is the great addition to the Continuous Integration and Continuous
 Testing process.</p>
-<p>It seamlessly integrated with mainstream platforms such as Jenkins, Jira, BDD
-technology, majority of Functional and Unit testing frameworks.</p>
+<p>It seamlessly integrates with mainstream platforms such as Jenkins, Jira, BDD process, majority of Functional and Unit testing frameworks.</p>
 <p>Real-time integration allows to manage and track execution status directly from
 Report Portal.</p>
-<p>Test cases results will be stored with the same structure you have it in your
-suites and test plan. The test cases will be shown with all related data in one
-place, right where you need it: logs, screenshots, binary data. The execution
-pipeline of certain test case available for you also, so one can see previous
-execution result in one click.</p>
-<p>Report Portal also give you an ability to collaboratively analyze test
-automation results. Particular test case can associate with a product bug, or
-automation issue, system issue and even could be submitted as an issue ticket
-directly from this execution result. With automatic track back.</p>
+<p>Test cases execution results results are stored following the same structure you have it in your suites and test plan. The test cases are shown with all related data in one place, right where you need it: logs, screenshots, binary data. The execution pipeline of certain test case is also available for you, so one can see previous execution result in one click.</p>
+<p>Report Portal also gives you an ability to collaboratively analyze test automation results. Particular test case can be associated with a product bug, or automation issue, system issue and even could be submitted as an issue ticket directly from the execution result. </p>
 <p>Report Portal provides great capabilities along with auto-results analysis by
 leveraging historical data of test execution.</p>
-<p>So with next execution Report Portal will automatically figure out root cause of
-fail, doing analysis itself, and afford you with the flag were engineer should
-pay attention and which test cases results require actual analysis by human.</p>
-<p><strong>What technologies are behind it?</strong></p>
-<p>Considering high loading rate and in order to provide high performance, we use a
+<p>With each execution Report Portal automatically figures out the root cause of a fail, doing analysis itself, and presents (?) you with the flag that engineer should pay attention to and which test results require actual analysis by human.</p>
+<p><strong>What technologies are used?</strong></p>
+<p>Considering high load rate and performance requirements, we use a
 cutting edge technologies:</p>
 <ul>
 <li><p>NoSQL MongoDB - super fast write to DB, clustering.</p>
 </li>
-<li><p>REST Web Service - light weight requests, simple standard.</p>
+<li><p>REST Web Service - lightweight requests, industry standard.</p>
 </li>
 <li><p>Mobile responsive UI - check it at any mobile device with default browser.</p>
 </li>
 </ul>
-<h1 id="-installation-steps-">﻿Installation steps </h1>
+<h1 id="installation-steps-">Installation steps </h1>
 <p><strong>STEP-1</strong></p>
 <p>Install Docker (Docker Engine, Compose, Swarm, etc)</p>
 <p><strong>STEP-2</strong></p>
@@ -61,7 +50,7 @@ Example of compose descriptor can be found here: <a href="https://github.com/rep
 <li>Rally Service. Interaction with UI.</li>
 <li>TFS Service. Interaction with TFS.</li>
 </ul>
-<h1 id="-test-framework-integration">﻿Test framework integration</h1>
+<h1 id="test-framework-integration">Test framework integration</h1>
 <h2 id="testng">TestNG</h2>
 <p>TestNG provides support for attaching custom listeners, reporters, annotation transformers and method interceptors to your tests.</p>
 <h3 id="installation">Installation</h3>
@@ -882,7 +871,7 @@ tests. So the test results will be reported to Report Portal if tests are
 executed by NUnit runner with installed add-in, or only if specific test
 assembly is executed and not depend on what NUnit runner is used.</p>
 <h4 id="windows-installer-package">Windows Installer Package</h4>
-<p>Download the latest <a href="evbyminsd0947:9999/repository/download/ReportPortal_NUnitMsiInstaller/116:id/ReportPortalIntegrationSetup.msi">Windows Installer package</a> package on your machine and follow
+<p>Download the latest <a href="https://www.nuget.org/packages/ReportPortal.Client/">Windows Installer package</a> package on your machine and follow
 instructions during installation.</p>
 <blockquote>
 <p>  <strong>Warning!</strong></p>
@@ -1288,6 +1277,282 @@ the required parameters.</p>
 <li><p>Execute your automation tests.</p>
 </li>
 <li><p>Select your project as described above.</p>
+</li>
+</ol>
+<h1 id="logging-integration">Logging Integration</h1>
+<h2 id="log4j">Log4j</h2>
+<h3 id="configuration">Configuration</h3>
+<p>Log4j provides configuration opportunity via XML or properties files.</p>
+<p>Just add report portal appender into log4j.xml configuration file.</p>
+<pre><code>&lt;appender name=&quot;ReportPortalAppender&quot; class=&quot;com.epam.ta.reportportal.log4j.appender.ReportPortalAppender&quot;&gt;
+   &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+      &lt;param name=&quot;ConversionPattern&quot; value=&quot;[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n&quot;/&gt;
+   &lt;/layout&gt;
+&lt;/appender&gt;
+&lt;logger name=&quot;com.epam.ta.apache&quot;&gt;
+   &lt;level value=&quot;OFF&quot;/&gt;
+&lt;/logger&gt;
+&lt;root&gt;
+    &lt;level value=&quot;info&quot; /&gt;
+    &lt;appender-ref ref=&quot;ReportPortalAppender&quot; /&gt;
+&lt;/root&gt;</code></pre>
+<p>For log4j.properties file it could be looks like:</p>
+<pre><code>log4j.appender.reportportal=com.epam.ta.reportportal.log4j.appender.ReportPortalAppender
+log4j.appender.reportportal.layout=org.apache.log4j.PatternLayout
+log4j.appender.reportportal.layout.ConversionPattern=[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n</code></pre>
+<h3 id="screenshots">Screenshots</h3>
+<p>For <em>log4j</em> case it is possible to send binary data in next ways.</p>
+<ul>
+<li>by using specific message wrapper.</li>
+</ul>
+<pre><code>private static Logger logger;
+/*
+ * Path to screenshot file
+ */
+public String screenshot_file_path = &quot;demoScreenshoot.png&quot;;
+/*
+ * Message for attached screenshot
+ */
+public String rp_message = &quot;test message for Report Portal&quot;;
+ReportPortalMessage message = new ReportPortalMessage(new File(screenshot_file_path), rp_message);
+logger.info(message);</code></pre>
+<ul>
+<li><p>sending File object as log4j log message. In this case log4j report portal
+  appender send log message which will contain sending file and string message &quot;<em>Binary data reported</em>&quot;.</p>
+</li>
+<li><p>adding to log message additional text information which specify attaching
+  file location or base64 representation of sending file.</p>
+</li>
+</ul>
+<p>in this case log message should have next format:</p>
+<pre><code>RP_MESSAGE#FILE#FILENAME#MESSAGE_TEST</code></pre>
+<pre><code>RP_MESSAGE#BASE64#BASE_64_REPRESENTATION#MESSAGE_TEST</code></pre>
+<blockquote>
+<p>  RP_MESSAGE - message header</p>
+<p>  FILE, BASE64 - attaching data representation type</p>
+<p>  FILENAME, BASE_64_REPRESENTATION - path to sending file/ base64
+  representation of sending data</p>
+<p>  MESSAGE_TEST - string log message</p>
+</blockquote>
+<p>There is client parameter into reportportal.properties with boolean type value
+for screenshots sending in &quot;black-white&quot; or &quot;color&quot; view. By default it is set
+as &quot;true&quot; and all pictures for Report Portal will be in &quot;black-while&quot; format.</p>
+<p><strong>reportportal.properties</strong></p>
+<pre><code>com.epam.ta.reportportal.ws.convertimage=true</code></pre>
+<p>Possible values:</p>
+<ul>
+<li><p><strong>true</strong> - all images will be converted into &#39;black-white&#39;</p>
+</li>
+<li><p><strong>false</strong> - all images will be as &#39;color&#39;</p>
+</li>
+</ul>
+<h2 id="log4j2">Log4j2</h2>
+<h3 id="configuration">Configuration</h3>
+<p>Log4j2 provides configuration opportunity via XML or JSON files.</p>
+<p><strong>XML</strong></p>
+<p>log4j2.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;configuration&gt;
+   &lt;properties&gt;
+      &lt;property name=&quot;pattern&quot;&gt;[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n&lt;/property&gt;
+   &lt;/properties&gt;
+   &lt;appenders&gt;
+      &lt;ReportPortalLog4j2Appender name=&quot;ReportPortalAppender&quot;&gt;
+         &lt;PatternLayout pattern=&quot;${pattern}&quot; /&gt;
+      &lt;/ReportPortalLog4j2Appender&gt;
+   &lt;/appenders&gt;
+   &lt;loggers&gt;
+      &lt;root level=&quot;all&quot;&gt;
+         &lt;appender-ref ref=&quot;ReportPortalAppender&quot;/&gt;
+      &lt;/root&gt;
+   &lt;/loggers&gt;
+&lt;/configuration&gt;</code></pre>
+<p><strong>JSON</strong></p>
+<p>log4j2.json</p>
+<pre><code>{
+  &quot;configuration&quot;: {
+    &quot;properties&quot;: {
+      &quot;property&quot;: {
+        &quot;name&quot;: &quot;pattern&quot;,
+        &quot;value&quot;: &quot;%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n&quot;
+      }
+    },
+    &quot;appenders&quot;: {
+      &quot;ReportPortalLog4j2Appender&quot;: {
+        &quot;name&quot;: &quot;ReportPortalAppender&quot;,
+        &quot;PatternLayout&quot;: {
+          &quot;pattern&quot;: &quot;${pattern}&quot;
+        }
+      }
+    },
+    &quot;loggers&quot;: {
+      &quot;root&quot;: {
+        &quot;level&quot;: &quot;all&quot;,
+        &quot;AppenderRef&quot;: {
+          &quot;ref&quot;: &quot;ReportPortalAppender&quot;
+        }
+      }
+    }
+  }
+}</code></pre>
+<h3 id="screenshots">Screenshots</h3>
+<p>For <em>log4j2</em> case it is possible to send binary data in next ways.</p>
+<ul>
+<li>by using specific message wrapper.</li>
+</ul>
+<pre><code>private static Logger logger;
+/*
+ * Path to screenshot file
+ */
+public String screenshot_file_path = &quot;demoScreenshoot.png&quot;;
+/*
+ * Message for attached screenshot
+ */
+public String rp_message = &quot;test message for Report Portal&quot;;
+ReportPortalMessage message = new ReportPortalMessage(new File(screenshot_file_path), rp_message);
+logger.info(message);</code></pre>
+<ul>
+<li><p>sending File object as log4j2 log message. In this case log4j2 report portal
+  appender send log message which will contain sending file and string message <em>&quot;Binary data reported&quot;</em>.</p>
+</li>
+<li><p>adding to log message additional text information which specify attaching
+  file location or base64 representation of sending file.</p>
+</li>
+</ul>
+<p>in this case log message should have next format:</p>
+<pre><code>RP_MESSAGE#FILE#FILENAME#MESSAGE_TEST</code></pre>
+<pre><code>RP_MESSAGE#BASE64#BASE_64_REPRESENTATION#MESSAGE_TEST</code></pre>
+<blockquote>
+<p>  RP_MESSAGE - message header</p>
+<p>  FILE, BASE64 - attaching data representation type</p>
+<p>  FILENAME, BASE_64_REPRESENTATION - path to sending file/ base64
+  representation of sending data</p>
+<p>  MESSAGE_TEST - string log message</p>
+</blockquote>
+<p>There is client parameter into reportportal.properties with bollean type value
+for scrreenshots sending in &quot;black-white&quot; or &quot;color&quot; view. By default it is set
+as &quot;true&quot; and all pictures for Report Portal will be in &quot;black-while&quot; format.</p>
+<p><strong>reportportal.properties</strong></p>
+<pre><code>com.epam.ta.reportportal.ws.convertimage=true</code></pre>
+<p>Possible values:</p>
+<ul>
+<li><p><strong>true</strong> - all images will be converted into &#39;black-white&#39;</p>
+</li>
+<li><p><strong>false</strong> - all images will be as &#39;color&#39;</p>
+</li>
+</ul>
+<h2 id="log4net">Log4Net</h2>
+<h3 id="installation">Installation</h3>
+<p>Install ReportPortal.Log4Net NuGet package. Missed dependencies will be
+installed automatically.</p>
+<blockquote>
+<p>  Read <a href="http://docs.nuget.org/consume/package-manager-dialog">here</a> how to
+  manage NuGet packages.</p>
+</blockquote>
+<h3 id="configuration">Configuration</h3>
+<p>Add custom appender into log4net configuration file.</p>
+<pre><code>&lt;log4net&gt;
+  ...
+  &lt;appender name=&quot;RP&quot; type=&quot;EPAM.ReportPortal.Logging.ReportPortalAppender, EPAM.ReportPortal.Logging.Log4Net&quot;&gt;
+    &lt;layout type=&quot;log4net.Layout.SimpleLayout&quot; /&gt;
+    &lt;layout type=&quot;log4net.Layout.PatternLayout&quot;&gt;
+      &lt;conversionpattern value=&quot;%message%newline&quot; /&gt;
+    &lt;/layout&gt;
+  &lt;/appender&gt;
+  ...
+&lt;/log4net&gt;</code></pre>
+<p>Specify reference to appender in root section.</p>
+<pre><code>&lt;log4net&gt;
+  ...
+  &lt;root&gt;
+      ...
+      &lt;appender-ref ref=&quot;RP&quot; /&gt;
+      ...
+  &lt;/root&gt;
+  ...
+&lt;/log4net&gt;</code></pre>
+<h2 id="logback">Logback</h2>
+<h3 id="configuration">Configuration</h3>
+<p>Add report portal appender into logback.xml configuration file.</p>
+<pre><code>&lt;appender name=&quot;ReportPortalAppender&quot; class=&quot;com.epam.ta.reportportal.logback.appender.ReportPortalAppender&quot;&gt;
+   &lt;encoder&gt;
+      &lt;pattern&gt;%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n&lt;/pattern&gt;
+   &lt;/encoder&gt;
+&lt;/appender&gt;
+&lt;root&gt;
+    &lt;appender-ref ref=&quot;ReportPortalAppender&quot; /&gt;
+&lt;/root&gt;</code></pre>
+<h3 id="screenshots">Screenshots</h3>
+<p>For <em>logback</em> it is possible to attach binary data to file only by adding to log
+message additional text information(described higher) .</p>
+<p>There is client parameter into reportportal.properties with bollean type value
+for scrreenshots sending in &quot;black-white&quot; or &quot;color&quot; view. By default it is set
+as &quot;true&quot; and all pictures for Report Portal will be in &quot;black-while&quot; format.</p>
+<p><strong>reportportal.properties</strong></p>
+<pre><code>com.epam.ta.reportportal.ws.convertimage=true</code></pre>
+<p>Possible values:</p>
+<ul>
+<li><p><strong>true</strong> - all images will be converted into &#39;black-white&#39;</p>
+</li>
+<li><p><strong>false</strong> - all images will be as &#39;color&#39;</p>
+</li>
+</ul>
+<h2 id="system-diagnostics-tracer">System.Diagnostics.Tracer</h2>
+<h3 id="installation">Installation</h3>
+<p>Install <strong>ReportPortal.Tracer</strong> NuGet package. Missed dependencies will be
+installed automatically.</p>
+<p>Read <a href="http://docs.nuget.org/consume/package-manager-dialog">here</a> how to
+manage NuGet packages.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Add custom listener in your <em>App.config</em> file.</p>
+<pre><code>&lt;configuration&gt;
+  ...
+  &lt;system.diagnostics&gt;
+    &lt;trace&gt;
+      &lt;listeners&gt;
+        &lt;add name=&quot;ReportPortalListener&quot; type=&quot;EPAM.ReportPortal.Logging.ReportPortalTracer,EPAM.ReportPortal.Logging.Tracer&quot; /&gt;
+      &lt;/listeners&gt;
+    &lt;/trace&gt;
+  &lt;/system.diagnostics&gt;
+  ...
+&lt;/configuration&gt;</code></pre>
+<h1 id="tuning-ci-tool">Tuning CI tool</h1>
+<p>Provide parameter via system variables in CI tool (as example - Jenkins)</p>
+<p>In order to provide specific parameters (for example, tags) for different
+executions based on parameters loading order, you can provide them as system
+variables.</p>
+<p>To do so, follow the steps below:</p>
+<ol>
+<li><p>Open the Job configuration in Jenkins.</p>
+</li>
+<li><p><a href="Images/1.png"> <img src="Images/1.png" alt="Image"> </a></p>
+</li>
+<li><p>Select the &quot;This build is parameterized&quot; check-box.</p>
+</li>
+<li><p>Click &quot;Add Parameter&quot; and select &quot;Text Parameter&quot;.</p>
+</li>
+<li><p><a href="Images/2.png"> <img src="Images/2.png" alt="Image"> </a></p>
+</li>
+<li><p>Define any name for the parameter and put the default value (note that tags
+ should be comma-separated values, with no spaces).</p>
+</li>
+<li><p><a href="Images/3.png"> <img src="Images/3.png" alt="Image"> </a></p>
+</li>
+<li><p>Update the execution command at the &quot;Build&quot; section: Add Report Portal parameters using –D for a system variable parameters. For tags
+it is &quot;com.epam.ta.reportportal.ws.tags&quot;:</p>
+</li>
+<li><p><a href="Images/4.png"> <img src="Images/4.png" alt="Image"> </a></p>
+</li>
+<li><p>Click &quot;Build with Parameters&quot;.</p>
+</li>
+<li><p><a href="Images/5.png"> <img src="Images/5.png" alt="Image"> </a></p>
+</li>
+<li><p>In the opened dialog, specify the needed parameters, use comma to separate
+values.</p>
+</li>
+<li><p><a href="Images/6.png"> <img src="Images/6.png" alt="Image"> </a></p>
+</li>
+<li><p>Click &quot;Build&quot;.</p>
 </li>
 </ol>
 <h1 id="user-guide">User Guide</h1>

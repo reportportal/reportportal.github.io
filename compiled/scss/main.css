@@ -586,8 +586,35 @@ i.rp-icons.fsize-150 {
   font-feature-settings: 'liga'; }
 
 .material-icons.loader-animation {
-  -webkit-animation: fa-spin 2s infinite linear;
-  animation: fa-spin 2s infinite linear; }
+  color: #29d;
+  display: inline-block;
+  font-size: 40px;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear; }
+
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg); } }
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg); }
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
 
 /*
  * Copyright 2016 EPAM Systems
@@ -909,6 +936,9 @@ i.rp-svg-icon {
     font-size: 18px;
     display: inline-block;
     top: 4px; }
+    .historyLinePanel .line-icon i {
+      position: absolute;
+      top: -17px; }
   .historyLinePanel .progress .progress-bar-danger a {
     color: #A5E3F3; }
   .historyLinePanel a.arrow {
@@ -969,6 +999,25 @@ i.rp-svg-icon {
   .historyLinePanel .progress {
     width: 100%;
     height: 44px; }
+  .historyLinePanel .progress-bar.active {
+    -webkit-animation: 2s linear 0s reverse none infinite progress-bar-stripes-large;
+    animation: 2s linear 0s reverse none infinite progress-bar-stripes-large; }
+  .historyLinePanel .progress-striped {
+    background-image: -webkit-linear-gradient(1355deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 60px 60px; }
+
+@-webkit-keyframes progress-bar-stripes-large {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: -60px 0; } }
+
+@keyframes progress-bar-stripes-large {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: -60px 0; } }
 
 #defectWell {
   padding: 15px 0;
@@ -7069,6 +7118,7 @@ label.obligatory-field:after {
   margin: 0; }
 
 .select2-results .select2-no-results {
+  font-size: 12px;
   padding: 5px; }
 
 .select2-drop .baron__root .select2-results {
@@ -7981,6 +8031,8 @@ main {
     font-size: 14px;
     color: #666;
     list-style: inherit; }
+  .b-docs .b-docs__wrapper ol li {
+    padding-left: 37px; }
   .b-docs .b-docs li:before {
     content: counters(item, ".") ". ";
     counter-increment: item; }
@@ -8933,8 +8985,7 @@ line.vlinehist {
   display: inline; }
 
 .documentation ol li p {
-  display: inline;
-  margin-left: 17px; }
+  display: inline; }
 
 .documentation ol li.double-digit p {
   margin-left: 9px; }
@@ -13108,8 +13159,7 @@ th.sortable {
 
 .form-group .custom-padding,
 .control-label.custom-padding {
-  padding: 7px 0 0;
-  text-align: right; }
+  padding: 7px 0 0; }
 
 .form-group .wizard-name-label {
   padding: 7px 0 0 15px; }
@@ -13250,7 +13300,7 @@ th.sortable {
       margin: 0; }
   #dynamic-content #notificationsSettings #emailNotificationsSettings #notificationArray .email-case-item:last-child .rp-wrap-underline, #dynamicContent #notificationsSettings #emailNotificationsSettings #notificationArray .email-case-item:last-child .rp-wrap-underline {
     display: none; }
-  #dynamic-content #notificationsSettings #emailNotificationsSettings .has-error input, #dynamicContent #notificationsSettings #emailNotificationsSettings .has-error input, #dynamic-content #notificationsSettings #emailNotificationsSettings .has-error input:focus, #dynamicContent #notificationsSettings #emailNotificationsSettings .has-error input:focus {
+  #dynamic-content #notificationsSettings #emailNotificationsSettings .has-error input:not(.select2-input), #dynamicContent #notificationsSettings #emailNotificationsSettings .has-error input:not(.select2-input), #dynamic-content #notificationsSettings #emailNotificationsSettings .has-error .select2-choices, #dynamicContent #notificationsSettings #emailNotificationsSettings .has-error .select2-choices, #dynamic-content #notificationsSettings #emailNotificationsSettings .has-error input:focus:not(.select2-input), #dynamicContent #notificationsSettings #emailNotificationsSettings .has-error input:focus:not(.select2-input) {
     color: #393939;
     box-shadow: 0 0 2px 0 rgba(255, 49, 33, 0.7);
     border: 1px solid #ff3222; }
@@ -13991,6 +14041,8 @@ span.rp-role {
   #dynamic-content #assignedMembers .all-users #membersList .action-info i, #dynamicContent #assignedMembers .all-users #membersList .action-info i {
     margin: 10px;
     cursor: help; }
+  #dynamic-content #assignedMembers .all-users #membersList .select-role, #dynamicContent #assignedMembers .all-users #membersList .select-role {
+    padding-top: 15px; }
 
 #assignedMembers .btn-danger {
   margin-left: -15px; }
@@ -14619,17 +14671,26 @@ span.rp-role {
       max-width: 320px; }
   .rp-settings-demo-data .demo-data-submit-mobile {
     display: none; }
+  .rp-settings-demo-data .demo-data-loader {
+    margin: 0; }
+    .rp-settings-demo-data .demo-data-loader span {
+      display: inline-block;
+      vertical-align: top;
+      margin: 10px 0 0; }
   .rp-settings-demo-data .demo-data-warning-block {
-    margin-top: 26px;
+    margin-top: 10px;
     font-size: 12px; }
     .rp-settings-demo-data .demo-data-warning-block .demo-data-warning {
-      display: block;
+      display: inline-block;
       color: #f36c4a;
       font-size: 13px;
       padding-left: 20px;
       position: relative; }
-      .rp-settings-demo-data .demo-data-warning-block .demo-data-warning span:first-letter {
-        text-transform: uppercase; }
+      .rp-settings-demo-data .demo-data-warning-block .demo-data-warning span {
+        display: inline-block;
+        text-transform: capitalize; }
+        .rp-settings-demo-data .demo-data-warning-block .demo-data-warning span:first-letter {
+          text-transform: uppercase; }
       .rp-settings-demo-data .demo-data-warning-block .demo-data-warning i {
         position: absolute;
         left: 0;
