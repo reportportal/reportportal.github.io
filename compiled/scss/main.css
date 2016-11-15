@@ -935,10 +935,10 @@ i.rp-svg-icon {
     position: relative;
     font-size: 18px;
     display: inline-block;
-    top: 4px; }
+    top: 4px;
+    margin-top: -4px; }
     .historyLinePanel .line-icon i {
-      position: absolute;
-      top: -17px; }
+      position: relative; }
   .historyLinePanel .progress .progress-bar-danger a {
     color: #A5E3F3; }
   .historyLinePanel a.arrow {
@@ -1794,7 +1794,11 @@ a.save-item {
 ul.rp-nav-left > li.title-holder:not(:first-child):before, ul.rp-nav-left > li.title-holder > span, ul.rp-nav-left > li.title-holder > a {
   display: inline-block;
   font-family: "OswaldRegular", sans-serif;
+  max-width: 300px;
   min-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 16px;
   line-height: 30px;
   color: #333333;
@@ -1818,6 +1822,8 @@ ul.rp-nav-left > li.title-holder {
     position: relative; }
   ul.rp-nav-left > li.title-holder > a {
     color: #1a9cb0; }
+  ul.rp-nav-left > li.title-holder > span.favorites-title {
+    max-width: 720px; }
 
 /*--------------*/
 /* MAIN CONTENT */
@@ -2275,6 +2281,9 @@ textarea {
   border-radius: 0;
   box-shadow: none; }
 
+textarea.form-control {
+  height: 50px; }
+
 /*--------------------------------*/
 #errorBlock,
 .login-loader,
@@ -2511,6 +2520,8 @@ li {
     text-transform: uppercase;
     margin-left: 15px; }
   #topHeader #projectSelector a {
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-transform: uppercase;
     text-decoration: none; }
     #topHeader #projectSelector a:hover {
@@ -2518,7 +2529,12 @@ li {
       #topHeader #projectSelector a:hover .selected-project {
         text-decoration: none; }
     #topHeader #projectSelector a .selected-project {
-      text-decoration: none; }
+      text-decoration: none;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 300px;
+      text-overflow: ellipsis;
+      display: inline-block; }
       #topHeader #projectSelector a .selected-project:hover {
         text-decoration: none; }
   #topHeader #logout {
@@ -2817,6 +2833,7 @@ li {
   #topHeader #projectSelector .baron__root .baron__track {
     z-index: 1001; }
   #topHeader #projectSelector .baron__root .dropdown-menu.user-projects {
+    max-width: 300px;
     border: none;
     top: 0;
     max-height: none;
@@ -3525,7 +3542,7 @@ li {
       position: absolute;
       display: block; }
     #dynamic-content ul.nav-tabs-custom > li.active:after, #dynamicContent ul.nav-tabs-custom > li.active:after, .rp-modal-dialog ul.nav-tabs-custom > li.active:after {
-      bottom: -12px;
+      bottom: -11px;
       left: 50%;
       margin-left: -3px;
       height: 0;
@@ -6621,6 +6638,14 @@ label.obligatory-field:after {
       line-height: 22px; }
     #breadCrumbs li.crumb > i {
       line-height: 30px; }
+    #breadCrumbs li.crumb span.autoanalyze {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-left: 5px;
+      -moz-animation: 2s linear 0s reverse none infinite auto-analyze-blink;
+      -ms-animation: 2s linear 0s reverse none infinite auto-analyze-blink;
+      -webkit-animation: 2s linear 0s reverse none infinite auto-analyze-blink;
+      animation: 2s linear 0s reverse none infinite auto-analyze-blink; }
   #breadCrumbs li > span,
   #breadCrumbs li a {
     position: relative;
@@ -6670,6 +6695,24 @@ label.obligatory-field:after {
 #breadCrumbs li.crumb span.ellipse i + span,
 #breadCrumbs li.crumb a.ellipse i + span {
   margin-left: 22px; }
+
+@keyframes auto-analyze-blink {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes auto-analyze-blink {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-ms-keyframes auto-analyze-blink {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 
 /*
  * Copyright 2016 EPAM Systems
@@ -10667,70 +10710,6 @@ h3.docs-heading:hover .glyphicon {
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */
-/*--------------------*/
-/* PROJECT LIST PAGES */
-#contentHeader #messageFilterWrapper .favorites-name-filter.rp-input-search:focus, #contentHeader #messageFilterWrapper .favorites-name-filter.rp-input-search:hover {
-  background-color: #ffffff; }
-
-#contentHeader #adminNavigation {
-  padding-top: 44px;
-  padding-right: 20px; }
-
-/*--------------------*/
-#contentBody .projects-header {
-  margin-bottom: 20px; }
-  #contentBody .projects-header .projects-title {
-    padding-top: 20px; }
-  #contentBody .projects-header .projects-view-switcher {
-    padding-top: 20px;
-    padding-right: 10px; }
-    #contentBody .projects-header .projects-view-switcher .projects-view {
-      width: 24px;
-      height: 24px;
-      font-size: 24px;
-      line-height: 24px;
-      min-width: 24px;
-      min-height: 24px;
-      padding: 1px;
-      margin: 0;
-      box-shadow: none;
-      opacity: 0.5;
-      box-sizing: content-box; }
-      #contentBody .projects-header .projects-view-switcher .projects-view.active {
-        opacity: 1; }
-      #contentBody .projects-header .projects-view-switcher .projects-view.projects-view-table {
-        margin-left: -1px; }
-
-#contentBody #activeProjectsList {
-  position: relative;
-  min-height: 50px; }
-  #contentBody #activeProjectsList > .col-sm-4 {
-    padding: 10px; }
-
-#contentBody .pr-collapsed-projects {
-  margin: 0; }
-  #contentBody .pr-collapsed-projects .collapsed-projects-title {
-    position: relative;
-    color: #666;
-    margin-bottom: 10px;
-    text-decoration: none; }
-    #contentBody .pr-collapsed-projects .collapsed-projects-title.collapsed .minus {
-      display: none; }
-    #contentBody .pr-collapsed-projects .collapsed-projects-title.collapsed .plus {
-      display: inline-block; }
-    #contentBody .pr-collapsed-projects .collapsed-projects-title .plus {
-      display: none; }
-    #contentBody .pr-collapsed-projects .collapsed-projects-title .minus {
-      display: inline-block; }
-    #contentBody .pr-collapsed-projects .collapsed-projects-title .rp-icons {
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      top: 8px;
-      font-size: 15px;
-      right: -25px; }
-
-/*--------------------*/
 /*--- ADMINISTRATE ---*/
 .admin_header_controls a:focus {
   color: #fff; }
@@ -10779,73 +10758,6 @@ h3.docs-heading:hover .glyphicon {
 
 .input-filter .form-control-feedback {
   color: #999; }
-
-#activeProjectsList .project-wrapper,
-.pr-collapsed-projects .project-wrapper {
-  margin: 0 0 20px;
-  padding: 0;
-  border-color: #d5d5d5;
-  background-color: #f9f9f9; }
-
-.project-wrapper > h2 {
-  margin: 17px 0 0;
-  padding: 0 20px 20px;
-  border-bottom: 1px solid #e6e6e6;
-  font-family: "OswaldRegular", sans-serif;
-  font-size: 18px;
-  color: #464547;
-  text-transform: uppercase; }
-  .project-wrapper > h2 span.label.you {
-    position: relative;
-    top: -2px;
-    left: 1%;
-    display: inline-block;
-    height: 18px;
-    margin-left: 3px;
-    padding: 0 6px;
-    line-height: 18px;
-    border-radius: 0;
-    background-color: #a3c644;
-    font-family: "OpenSansRegular", sans-serif;
-    font-weight: normal;
-    font-size: 10px; }
-
-.project-wrapper .project_info_wrapper {
-  border-bottom: 1px solid #dcdcdc;
-  padding-bottom: 0 !important; }
-
-.project-wrapper .heartbeat_block {
-  padding-top: 16px;
-  padding-left: 0;
-  border-right: 1px solid #e6e6e6; }
-
-#dynamicContent .project-wrapper .heartbeat_block .col-sm-12 {
-  padding-bottom: 10px; }
-
-.project-wrapper .project_info_block {
-  padding-top: 15px;
-  padding-right: 0;
-  font-family: "OpenSansRegular", sans-serif; }
-
-.project-wrapper .project_info {
-  padding: 0 0 5px !important;
-  font-size: 14px;
-  color: #666; }
-
-.project-wrapper .project_info .bold {
-  font-size: 16px;
-  margin-right: 5px; }
-
-.project-wrapper .project-link_wrapper {
-  background-color: #f1f1f1; }
-
-.project-wrapper .project-link {
-  font-family: "OpenSansRegular", sans-serif;
-  color: #828282; }
-
-#activeProjectsList .project-item,
-.pr-collapsed-projects .project-item {
-  padding: 0 10px; }
 
 .table_view .project-item {
   width: 100%;
@@ -10904,14 +10816,6 @@ h3.docs-heading:hover .glyphicon {
   padding-bottom: 10px; }
 
 /*--- END ADMINISTRATE ---*/
-.project-link i {
-  display: block;
-  margin: 0 auto;
-  width: 30px;
-  height: 22px;
-  font-size: 22px;
-  line-height: 22px; }
-
 #coverLoader {
   background-color: rgba(255, 255, 255, 0.4);
   height: 100%;
@@ -10934,44 +10838,8 @@ h3.docs-heading:hover .glyphicon {
   display: block;
   height: auto; }
 
-.project-wrapper {
-  position: relative;
-  border: 1px solid #666; }
-
-.project-wrapper h1 {
-  padding-left: 10px;
-  padding-right: 10px; }
-
-.project-wrapper .project-link {
-  padding: 10px;
-  color: #565656; }
-
-.project-wrapper .remove-project {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 22px;
-  height: 22px;
-  font-size: 22px;
-  line-height: 22px;
-  display: none;
-  z-index: 5;
-  cursor: pointer; }
-
-.project-wrapper:hover .remove-project {
-  display: inline-block; }
-
-.remove-project i {
-  color: #656565; }
-
-.project-wrapper:hover .remove-project {
-  display: inline; }
-
 #popupLoader.admin-section i {
   top: 0px; }
-
-.assign-to-project {
-  display: none; }
 
 .no-assigned .go-to-project {
   display: none; }
@@ -11011,47 +10879,9 @@ h3.docs-heading:hover .glyphicon {
 .rp-table-row:hover .label-hover {
   display: inline; }
 
-.pr-collapsed-projects .col-sm-4 {
-  padding: 10px; }
-
 .projects-table-view {
   padding-left: 20px;
   padding-right: 20px; }
-
-.projects-table-view .project-link {
-  color: #828282; }
-
-.projects-table-view .label.you {
-  position: relative;
-  background-color: #a3c644; }
-
-.projects-table-view .project_name {
-  display: inline-block; }
-
-.projects-table-view .remove-project {
-  display: none; }
-
-.projects-table-view .rp-table-row:hover .remove-project {
-  display: inline-block; }
-
-.projects-table-view-list-item,
-.projects-table-view-list-item .project-link {
-  padding-left: 0; }
-
-.projects-table-view-list-item .project-link i {
-  width: 30px;
-  height: 22px;
-  font-size: 18px;
-  line-height: 18px; }
-
-.projects-table-view .project-link.assign-to-project {
-  display: none; }
-
-.projects-table-view .no-assigned .project-link.go-to-project {
-  display: none; }
-
-.projects-table-view .no-assigned .project-link.assign-to-project {
-  display: inline-block; }
 
 /* ---------------------------------- */
 @media (max-width: 768px) {
@@ -11296,7 +11126,8 @@ h3.docs-heading:hover .glyphicon {
     border-color: #ccc;
     border-top-color: #dbdbdb;
     border-bottom-color: #dbdbdb;
-    font-family: "OpenSansSemibold", sans-serif; }
+    font-family: "OpenSansSemibold", sans-serif;
+    cursor: pointer; }
     #dynamic-content .pr-user-profile .profile_project_list #project-list .list-group .list-group-item:nth-child(even) {
       background-color: #f9f9f9; }
     #dynamic-content .pr-user-profile .profile_project_list #project-list .list-group .list-group-item:nth-child(odd) {
@@ -11313,6 +11144,11 @@ h3.docs-heading:hover .glyphicon {
       margin-bottom: 0;
       font-family: "OpenSansSemibold", sans-serif;
       color: #1a9cb0; }
+      #dynamic-content .pr-user-profile .profile_project_list #project-list .list-group .list-group-item .list-group-item-heading .break-link {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        max-width: 100%; }
     #dynamic-content .pr-user-profile .profile_project_list #project-list .list-group .list-group-item .list-group-item-text {
       font-family: "OpenSansRegular", sans-serif;
       color: #535455; }
@@ -13464,6 +13300,7 @@ th.sortable {
       margin: 0 0 4px 0;
       padding-left: 10px; }
   #dynamic-content #btsSettings #authorizationType textarea, #dynamicContent #btsSettings #authorizationType textarea {
+    height: 50px;
     overflow: auto;
     resize: vertical;
     max-height: 200px;
@@ -13923,6 +13760,10 @@ th.sortable {
 
 /*--- END ADMIN ALL USERS ADD USER FORM ---*/
 /*--- END ADMIN ALL USERS ---*/
+.rp-members-list .view_projects_wrapper .view_project_name {
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
 .rp-members-list .view_projects_wrapper .select2-container .select2-choice {
   background-image: none;
   border-color: #ccc;
@@ -14012,7 +13853,9 @@ span.rp-role {
 
 @media screen and (min-width: 992px) {
   .rp-info-padding {
-    padding: 22px 0 0; } }
+    padding: 22px 0 0; }
+    .rp-info-padding.memrbers-actions {
+      padding: 15px 0 0; } }
 
 /*
  * Copyright 2016 EPAM Systems
@@ -14102,6 +13945,7 @@ span.rp-role {
     min-height: 30px;
     margin-right: -1px; }
     #dynamic-content #addMemberForm .rp-form-group .select2-container .select2-choice .select2-chosen, #dynamicContent #addMemberForm .rp-form-group .select2-container .select2-choice .select2-chosen {
+      width: 192px;
       margin-right: 30px;
       box-shadow: none;
       padding: 2px 5px; }
@@ -14192,6 +14036,7 @@ span.rp-role {
     min-height: 30px;
     margin-right: -1px; }
     #dynamic-content #inviteMemberForm .rp-form-group .select2-container .select2-choice .select2-chosen, #dynamicContent #inviteMemberForm .rp-form-group .select2-container .select2-choice .select2-chosen {
+      width: 220px;
       margin-right: 30px;
       box-shadow: none;
       padding: 2px 5px; }
@@ -14524,6 +14369,13 @@ span.rp-role {
 .rp-main-panel #dynamicContent #email-settings {
   padding-top: 30px;
   padding-bottom: 20px; }
+  .rp-main-panel #dynamicContent #email-settings .tls-enabled {
+    position: relative;
+    top: -4px; }
+    .rp-main-panel #dynamicContent #email-settings .tls-enabled .rp-checkbox-wrap {
+      margin-left: 30px; }
+      .rp-main-panel #dynamicContent #email-settings .tls-enabled .rp-checkbox-wrap:first-child {
+        margin-left: 0; }
 
 /*-----------------*/
 /* FOR USUAL USERS */
@@ -14713,3 +14565,312 @@ span.rp-role {
       display: none; }
     .rp-settings-demo-data .demo-data-submit-mobile {
       display: inline-block; } }
+
+/*
+ * Copyright 2016 EPAM Systems
+ * 
+ * 
+ * This file is part of EPAM Report Portal.
+ * https://github.com/epam/ReportPortal
+ * 
+ * Report Portal is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * Report Portal is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+/*
+ * Copyright 2016 EPAM Systems
+ * 
+ * 
+ * This file is part of EPAM Report Portal.
+ * https://github.com/epam/ReportPortal
+ * 
+ * Report Portal is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * Report Portal is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+.rp-projects-list-header {
+  padding: 20px 5px;
+  margin: 0 -15px;
+  border-bottom: 1px solid #e9e9e9; }
+  .rp-projects-list-header .projects-list-search {
+    margin: 0;
+    position: relative; }
+  .rp-projects-list-header .sort-projects-list .sort-label {
+    max-width: none;
+    font-weight: normal;
+    padding: 0 16px 0 30px;
+    margin: 0; }
+  .rp-projects-list-header .sort-projects-list .rp-btn.rp-btn-default-revers {
+    min-width: 120px;
+    border: 1px solid #cccccc;
+    box-shadow: none;
+    color: #464547;
+    background: #ffffff; }
+    .rp-projects-list-header .sort-projects-list .rp-btn.rp-btn-default-revers.active {
+      background: #e9e9e9;
+      border: 1px solid #e9e9e9; }
+  .rp-projects-list-header .projects-view-switcher {
+    padding: 0; }
+    .rp-projects-list-header .projects-view-switcher .projects-view {
+      width: 34px;
+      height: 24px;
+      font-size: 24px;
+      line-height: 24px;
+      min-width: 24px;
+      min-height: 24px;
+      padding: 1px;
+      margin: 0;
+      box-shadow: none;
+      opacity: 0.5;
+      box-sizing: content-box; }
+      .rp-projects-list-header .projects-view-switcher .projects-view.active {
+        opacity: 1; }
+      .rp-projects-list-header .projects-view-switcher .projects-view.projects-view-table {
+        margin-left: -1px; }
+
+.rp-projects-list-body {
+  padding: 0 20px; }
+  .rp-projects-list-body .tab-content {
+    margin: 0 -7px; }
+  .rp-projects-list-body .projects-list-loader {
+    text-align: center;
+    padding-bottom: 20px; }
+  .rp-projects-list-body .projects-table-view {
+    padding: 0;
+    margin: 0 7px; }
+    .rp-projects-list-body .projects-table-view .rp-table-thead {
+      background: #f5f5f5; }
+      .rp-projects-list-body .projects-table-view .rp-table-thead .rp-table-th {
+        text-transform: uppercase;
+        padding: 16px 0;
+        color: #777777;
+        font-weight: 600;
+        font-size: 12px; }
+    .rp-projects-list-body .projects-table-view .project-row {
+      position: relative;
+      padding: 8px 0;
+      border-bottom: 1px solid #e9e9e9;
+      border-left: 1px solid #e9e9e9; }
+      .rp-projects-list-body .projects-table-view .project-row .no-padding {
+        padding: 0; }
+      .rp-projects-list-body .projects-table-view .project-row .project_name {
+        font: normal 15px "OswaldRegular", sans-serif;
+        text-transform: uppercase;
+        color: #1a9cb0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden; }
+        .rp-projects-list-body .projects-table-view .project-row .project_name .name {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          display: inline-block;
+          max-width: 100%;
+          position: relative; }
+          .rp-projects-list-body .projects-table-view .project-row .project_name .name.name-label {
+            padding-right: 40px; }
+            .rp-projects-list-body .projects-table-view .project-row .project_name .name.name-label .label {
+              position: absolute;
+              top: 1px;
+              right: 0; }
+      .rp-projects-list-body .projects-table-view .project-row .project-info {
+        padding-top: 10px;
+        font-size: 13px; }
+        .rp-projects-list-body .projects-table-view .project-row .project-info strong {
+          font-weight: 600; }
+      .rp-projects-list-body .projects-table-view .project-row .project-link {
+        padding: 6px 0 0;
+        color: #999999; }
+        .rp-projects-list-body .projects-table-view .project-row .project-link.remove-project {
+          display: inline-block;
+          padding: 10px 0 0; }
+        .rp-projects-list-body .projects-table-view .project-row .project-link.go-to-project {
+          display: inline-block; }
+          .rp-projects-list-body .projects-table-view .project-row .project-link.go-to-project i {
+            font-size: 22px; }
+        .rp-projects-list-body .projects-table-view .project-row .project-link.assign-to-project {
+          display: none; }
+          .rp-projects-list-body .projects-table-view .project-row .project-link.assign-to-project i {
+            font-size: 20px; }
+        .rp-projects-list-body .projects-table-view .project-row .project-link i {
+          width: 20px;
+          height: 20px;
+          font-size: 18px;
+          line-height: 20px; }
+          .rp-projects-list-body .projects-table-view .project-row .project-link i.rp-icons-all-users {
+            font-size: 13px; }
+      .rp-projects-list-body .projects-table-view .project-row .projects-table-view-actions {
+        padding: 4px 8px;
+        border-left: 1px solid #e9e9e9;
+        border-right: 1px solid #e9e9e9; }
+        .rp-projects-list-body .projects-table-view .project-row .projects-table-view-actions .projects-table-view-list-item {
+          padding: 0;
+          text-align: center; }
+          .rp-projects-list-body .projects-table-view .project-row .projects-table-view-actions .projects-table-view-list-item.no-assigned .project-link.go-to-project {
+            display: none; }
+          .rp-projects-list-body .projects-table-view .project-row .projects-table-view-actions .projects-table-view-list-item.no-assigned .project-link.assign-to-project {
+            display: inline-block; }
+  .rp-projects-list-body .project-item {
+    margin-bottom: 14px; }
+    .rp-projects-list-body .project-item[class*='col-'] {
+      padding: 0 7px; }
+    .rp-projects-list-body .project-item .project-wrapper {
+      background: #f5f5f5;
+      border: 1px solid #e9e9e9; }
+      .rp-projects-list-body .project-item .project-wrapper .remove-project {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 22px;
+        height: 22px;
+        font-size: 22px;
+        line-height: 22px;
+        display: none;
+        z-index: 5;
+        cursor: pointer; }
+        .rp-projects-list-body .project-item .project-wrapper .remove-project i {
+          color: #656565; }
+      .rp-projects-list-body .project-item .project-wrapper:hover .remove-project {
+        display: inline-block; }
+      .rp-projects-list-body .project-item .project-wrapper .project_name {
+        margin: 0;
+        padding: 12px 22px 12px 12px;
+        font: normal 15px "OswaldRegular", sans-serif;
+        text-transform: uppercase;
+        color: #1a9cb0;
+        border-bottom: 1px solid #e9e9e9; }
+        .rp-projects-list-body .project-item .project-wrapper .project_name .name {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          display: inline-block;
+          max-width: 100%;
+          position: relative; }
+          .rp-projects-list-body .project-item .project-wrapper .project_name .name.name-label {
+            padding-right: 40px; }
+            .rp-projects-list-body .project-item .project-wrapper .project_name .name.name-label .label {
+              position: absolute;
+              top: 1px;
+              right: 0; }
+      .rp-projects-list-body .project-item .project-wrapper .project_info_wrapper {
+        margin: 0;
+        background: #f9f9f9;
+        border-bottom: 1px solid #e9e9e9;
+        padding: 10px 0; }
+        .rp-projects-list-body .project-item .project-wrapper .project_info_wrapper .heartbeat_block .health_icon {
+          padding-top: 10px; }
+          .rp-projects-list-body .project-item .project-wrapper .project_info_wrapper .heartbeat_block .health_icon i.rp-icons-heartbeat {
+            font-size: 3.5vw;
+            opacity: 1;
+            color: #e9e9e9; }
+        .rp-projects-list-body .project-item .project-wrapper .project_info_wrapper .project_info_block {
+          font-family: "OpenSansRegular", sans-serif; }
+        .rp-projects-list-body .project-item .project-wrapper .project_info_wrapper .project_info {
+          padding: 0;
+          margin: 3px 0;
+          font-size: 12px;
+          color: #666; }
+          .rp-projects-list-body .project-item .project-wrapper .project_info_wrapper .project_info .bold {
+            font-size: 14px;
+            margin-right: 5px; }
+      .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper {
+        background-color: #f1f1f1;
+        margin: 0; }
+        .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper.no-assigned .project-link.go-to-project {
+          display: none; }
+        .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper.no-assigned .project-link.assign-to-project {
+          display: inline-block; }
+        .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper .project-link {
+          font: normal 15px "OpenSansRegular", sans-serif;
+          text-align: center;
+          color: #999999;
+          padding: 8px 10px; }
+          .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper .project-link.go-to-project {
+            display: inline-block; }
+            .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper .project-link.go-to-project i {
+              font-size: 22px; }
+          .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper .project-link.assign-to-project {
+            display: none; }
+            .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper .project-link.assign-to-project i {
+              font-size: 20px; }
+          .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper .project-link i {
+            display: inline-block;
+            margin: 0 auto;
+            width: 20px;
+            height: 20px;
+            font-size: 18px;
+            line-height: 20px; }
+            .rp-projects-list-body .project-item .project-wrapper .project-link_wrapper .project-link i.rp-icons-all-users {
+              font-size: 13px; }
+
+@media (max-width: 768px) {
+  .rp-projects-list-body .project_info_wrapper .heartbeat_block {
+    width: 100%;
+    border-right: none; }
+  .rp-projects-list-body .project-wrapper .project-link_wrapper {
+    padding: 10px 0; }
+  .rp-projects-list-body .projects-table-view .project-item {
+    width: 100%;
+    margin: -1px 0 0; }
+  .rp-projects-list-body .projects-table-view .project-item .remove-project {
+    top: 13px;
+    display: block; }
+  .rp-projects-list-body .projects-table-view .project-item .project_name {
+    width: 100%;
+    margin: 0;
+    padding: 11px 15px;
+    border-bottom: none; }
+  .rp-projects-list-body .projects-table-view .project-item .project_info_wrapper {
+    width: 100%;
+    border-bottom: none; }
+  .rp-projects-list-body .projects-table-view .project-item .project_info_wrapper .heartbeat_block {
+    width: 100%;
+    padding-top: 11px;
+    padding-bottom: 10px;
+    border: none; }
+  .rp-projects-list-body .projects-table-view .project-item .project_info_wrapper .health_icon {
+    display: none; }
+  .rp-projects-list-body .projects-table-view .project-item .project_info_wrapper .health_index {
+    width: 100%; }
+  .rp-projects-list-body .projects-table-view .project-item .project_info_wrapper .project_info_block {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0; }
+  .rp-projects-list-body .projects-table-view .project-item .project_info_wrapper .project_info_block:after,
+  .rp-projects-list-body .projects-table-view .project-item .project-link_wrapper:after {
+    content: "";
+    display: block;
+    clear: both; }
+  .rp-projects-list-body .projects-table-view .project-item .project_info_wrapper .project_info {
+    float: left;
+    width: 33.3%; }
+  .rp-projects-list-body .projects-table-view .project-item .project-link_wrapper {
+    width: 100%;
+    padding: 0 15px !important;
+    background-color: transparent; }
+  .rp-projects-list-body .projects-table-view .projects-table-view-actions {
+    border: none; }
+  .rp-projects-list-body .projects-table-view .project-item .project-link_wrapper .project-link {
+    float: left;
+    display: block;
+    width: 33.3%;
+    padding: 5px 0 10px;
+    text-align: left; } }
