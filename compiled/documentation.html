@@ -38,7 +38,7 @@ cutting edge technologies:</p>
 <p>Deploy mongodb. </p>
 <p><strong>STEP-4</strong></p>
 <p>Deploy ReportPortal using docker-compose. 
-Example of compose descriptor can be found here: <a href="https://github.com/reportportal/reportportal/blob/master/docker-compose.yml"><a href="https://github.com/reportportal/reportportal/blob/master/docker-compose.yml">https://github.com/reportportal/reportportal/blob/master/docker-compose.yml</a></a></p>
+Example of compose descriptor can be found <a href="https://github.com/reportportal/reportportal/blob/master/docker-compose.yml">here</a></p>
 <p><strong>ReportPortal consists of the following services:</strong></p>
 <ul>
 <li>Redis. Used for distributed cache.</li>
@@ -57,45 +57,35 @@ Example of compose descriptor can be found here: <a href="https://github.com/rep
 <p>Add to POM.xml</p>
 <p><strong>dependency</strong></p>
 <pre><code>&lt;repositories&gt;
- &lt;repository&gt;
-  &lt;id&gt;artifactory.epam.com&lt;/id&gt;
-  &lt;name&gt;artifactory.epam.com-releases&lt;/name&gt;
-  &lt;url&gt;http://artifactory.epam.com/artifactory/EPMC-TST&lt;/url&gt;
-  &lt;snapshots&gt;
-   &lt;enabled&gt;false&lt;/enabled&gt;
-  &lt;/snapshots&gt;
- &lt;/repository&gt;
+     &lt;repository&gt;
+        &lt;snapshots&gt;
+          &lt;enabled&gt;false&lt;/enabled&gt;
+        &lt;/snapshots&gt;
+        &lt;id&gt;bintray-epam-reportportal&lt;/id&gt;
+        &lt;name&gt;bintray&lt;/name&gt;
+        &lt;url&gt;http://dl.bintray.com/epam/reportportal&lt;/url&gt;
+     &lt;/repository&gt;
 &lt;/repositories&gt;
 
 
 
- &lt;dependency&gt;
-  &lt;groupId&gt;com.epam.ta.reportportal&lt;/groupId&gt;
-  &lt;artifactId&gt;reportportal-client&lt;/artifactId&gt;
-  &lt;version&gt;2.1.12&lt;/version&gt;
- &lt;/dependency&gt;   
- &lt;dependency&gt;
-  &lt;groupId&gt;com.epam.ta.reportportal&lt;/groupId&gt;
-  &lt;artifactId&gt;reportportal-log4j-integration&lt;/artifactId&gt;
-  &lt;version&gt;2.5.0&lt;/version&gt;
- &lt;/dependency&gt;</code></pre>
-<p>To access a Maven repository which uses basic authentication you should create or update ${user.home}/.m2/settings.xml with the following content:</p>
-<p><strong>settings.xml</strong></p>
-<pre><code>&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
-  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0
-                      https://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;
-  &lt;servers&gt;
-    &lt;server&gt;
-      &lt;id&gt;artifactory.epam.com&lt;/id&gt;
-      &lt;username&gt;epmc-tst-shared&lt;/username&gt;
-      &lt;password&gt;epmc-tst-shared2016&lt;/password&gt;
-    &lt;/server&gt;
-  &lt;/servers&gt;
-&lt;/settings&gt;</code></pre>
+&lt;dependency&gt;
+  &lt;groupId&gt;com.epam.reportportal&lt;/groupId&gt;
+  &lt;artifactId&gt;agent-java-testng&lt;/artifactId&gt;
+  &lt;version&gt;2.6.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;com.epam.reportportal&lt;/groupId&gt;
+  &lt;artifactId&gt;logger-java-logback&lt;/artifactId&gt;
+  &lt;version&gt;2.6.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;com.epam.reportportal&lt;/groupId&gt;
+  &lt;artifactId&gt;logger-java-log4j&lt;/artifactId&gt;
+  &lt;version&gt;2.6.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
 <h3 id="install-listener">Install listener</h3>
-<p>Download package <a href="https://bintray.com/epam/reportportal/agent-java-testng">here (EPAM Maven
-repository)</a>.
+<p>Download package <a href="https://bintray.com/epam/reportportal/agent-java-testng">here</a>.
 Choose latest version.</p>
 <p>By default, TestNG attaches a few basic listeners to generate HTML and XML
 reports. For reporting TestNG test events (ie start of test, successful finish
@@ -139,7 +129,7 @@ to report portal user should add report portal listener to “Listener” proper
             &lt;/property&gt;
             &lt;property&gt;
               &lt;name&gt;listener&lt;/name&gt;
-              &lt;value&gt;com.epam.ta.reportportal.listeners.testng.ReportPortalTestNGListener&lt;/value&gt;
+              &lt;value&gt;com.epam.reportportal.testng.ReportPortalTestNGListener&lt;/value&gt;
             &lt;/property&gt;
           &lt;/properties&gt;
         &lt;/configuration&gt;
@@ -156,7 +146,7 @@ to report portal user should add report portal listener to “Listener” proper
 
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.example.MyListener&quot; /&gt;
-    &lt;listener class-name=&quot;com.epam.ta.reportportal.listeners.testng.ReportPortalTestNGListener&quot; /&gt;
+    &lt;listener class-name=&quot;com.epam.reportportal.testng.ReportPortalTestNGListener&quot; /&gt;
   &lt;/listeners&gt;
 .....</code></pre>
 <p><strong>Custom runner</strong></p>
@@ -199,7 +189,7 @@ Specifying listeners with ServiceLoader.</p>
 <p>In order to start using of agent, user should configure property file
 &quot;reportportal.properties&quot; in such format:</p>
 <p><strong>reportportal.properties</strong></p>
-<pre><code>rp.endpoint = https://rp.epam.com/reportportal-ws
+<pre><code>rp.endpoint = https://rp.epam.com/
 rp.username = default
 rp.uuid = 8967de3b-fec7-47bb-9dbc-2aa4ceab8b1e
 
@@ -322,7 +312,6 @@ user can create his own “reportportal.properties” file and put in class path
 <ul>
 <li>Use system variables</li>
 </ul>
-<p>Read <a href="https://kb.epam.com/display/EPMRPP/Report+Portal+Jenkins+plugin">here</a> how to do it by Jenkins.</p>
 <p><strong>Parameters loading order</strong></p>
 <p>Client loads properties in the next order. Every next level overrides previous:</p>
 <p>a.  Properties file. Client loads all known to him properties (specified in the
@@ -479,7 +468,7 @@ configuration in pom.xml.</p>
       &lt;properties&gt;
          &lt;property&gt;
             &lt;name&gt;listener&lt;/name&gt;
-            &lt;value&gt;com.epam.ta.reportportal.listeners.junit.ReportPortalListener&lt;/value&gt;
+            &lt;value&gt;com.epam.reportportal.junit.ReportPortalListener&lt;/value&gt;
          &lt;/property&gt;
       &lt;/properties&gt;
    &lt;/configuration&gt;
@@ -490,7 +479,7 @@ configuration in pom.xml.</p>
 <li>Via \@RunWith annotation</li>
 </ul>
 <p>Usage</p>
-<pre><code>@RunWith(com.epam.ta.reportportal.listeners.junit.CustomJUnitRunner.class)</code></pre>
+<pre><code>@RunWith(com.epam.reportportal.junit.CustomJUnitRunner.class)</code></pre>
 <ul>
 <li>Via Suite class extension</li>
 </ul>
@@ -501,7 +490,7 @@ import org.junit.internal.runners.InitializationError;
 import org.junit.runner.Runner;
 import org.junit.runners.Suite;
 import org.junit.runners.model.RunnerBuilder;
-import com.epam.ta.reportportal.listeners.junit.CustomJUnitRunner;
+import com.epam.reportportal.junit.CustomJUnitRunner;
 
 public class MySuite extends Suite {
    private static Class&lt;?&gt;[] getAnnotatedClasses(Class&lt;?&gt; klass) throws InitializationError {
@@ -532,8 +521,8 @@ public class MySuite extends Suite {
 <h3 id="configuration">Configuration</h3>
 <p>In order to start using of agent, user should configure property file
 “reportportal.properties” in such format.</p>
-<pre><code>com.epam.ta.reportportal.ws.username=user_name
-com.epam.ta.reportportal.ws.password=user_token</code></pre>
+<pre><code>rp.username=user_name
+rp.uuid=user_token</code></pre>
 <h4 id="parameters">Parameters</h4>
 <p>User should provide next parameters to agent.</p>
 <table>
@@ -985,14 +974,14 @@ And remove the below jars from <em>/lib</em> directory because old versions:</p>
 Keystore for access to RP is available <a href="#user-profile">here</a>. Please place it under ${SOAPUI-HOME}/bin</p>
 <p><strong>Option 2: via Maven Plugin in external automation</strong></p>
 <p>Add following repository to your pom.xml.</p>
-<pre><code>&lt;repository&gt;
-    &lt;id&gt;artifactory.epam.com&lt;/id&gt;
-    &lt;name&gt;artifactory.epam.com-releases&lt;/name&gt;
-    &lt;url&gt;http://artifactory.epam.com/artifactory/EPMC-TST&lt;/url&gt;
-    &lt;snapshots&gt;
-        &lt;enabled&gt;false&lt;/enabled&gt;
-    &lt;/snapshots&gt;
-&lt;/repository&gt;</code></pre>
+<pre><code>     &lt;repository&gt;
+        &lt;snapshots&gt;
+          &lt;enabled&gt;false&lt;/enabled&gt;
+        &lt;/snapshots&gt;
+        &lt;id&gt;bintray-epam-reportportal&lt;/id&gt;
+        &lt;name&gt;bintray&lt;/name&gt;
+        &lt;url&gt;http://dl.bintray.com/epam/reportportal&lt;/url&gt;
+     &lt;/repository&gt;</code></pre>
 <p>And dependency (please check latest available version under specified artifactory and use it instead provided):</p>
 <pre><code>&lt;dependency&gt;
    &lt;groupId&gt;com.epam.ta.reportportal&lt;/groupId&gt;
@@ -1823,7 +1812,6 @@ is set to one of these four values.</p>
 </table>
 <p><strong>Note:</strong><br>Invite user, Assign/Unassign internal user to/from the project, change user&#39;s role on a project actions can be done for a user with similar and lower role only.</p>
 <h2 id="managing-projects">Managing projects</h2>
-<h3 id="projects-overview">Projects overview</h3>
 <p>Users with the Administrator role have access to the Report Portal
 administration, called Management Board.</p>
 <p>In Management Board you can:</p>
@@ -1838,16 +1826,9 @@ projects.</p>
 <p>To go to the Management Board page, click the username drop-down in the
 right header of the page and select the &quot;Administrate&quot; option.</p>
 <p><a href="Images/pic_10.jpg"> <img src="Images/pic_10.jpg" alt="Image"> </a></p>
-<p>All existing projects are displayed on the &quot;Projects&quot; tab. Projects are
-divided into 3 sections: ACTIVE PROJECTS, NOT ACTIVE PROJECTS and PERSONAL PROJECTS.</p>
-<p>ACTIVE PROJECTS section includes:</p>
-<ul>
-<li>Projects with at least 1 launch. </li>
-<li>New projects with the creation date within the last 7 days, marked with the &quot;New&quot; badge. </li>
-</ul>
+<p>All existing projects are displayed on the &quot;Projects&quot; page. Projects are
+divided into 2 sections: &quot;Internal Projects&quot; and &quot;Personal Projects&quot;.</p>
 <p><a href="Images/pic_11.jpg"> <img src="Images/pic_11.jpg" alt="Image"> </a></p>
-<p>NOT ACTIVE PROJECTS section includes projects with no launches. </p>
-<p>PERSONAL PROJECTS section includes users&#39; personal projects.</p>
 <p>For each project, the following information is displayed:</p>
 <ul>
 <li>Project name - the link to the detailed project information</li>
@@ -1862,10 +1843,9 @@ divided into 3 sections: ACTIVE PROJECTS, NOT ACTIVE PROJECTS and PERSONAL PROJE
   project).</li>
 </ul>
 <p><strong>Projects Navigation – Sorting and Search</strong></p>
-<p>By default, projects are sorted by the creation date.</p>
+<p>By default, projects are sorted by the name.</p>
 <p>You can sort projects using the buttons from the &quot;Sort by&quot; section at the top.
-The sorting can be performed by: Creation date, Name, Last launch date, Number
-of launches.</p>
+The sorting can be performed by: Creation date, Name.</p>
 <p>To find a project quickly, type 3 or more symbols of the project name into the
 &quot;Search&quot; field.</p>
 <p><a href="Images/pic_12.jpg"> <img src="Images/pic_12.jpg" alt="Image"> </a></p>
@@ -1948,7 +1928,7 @@ System&quot;, &quot;Defect types&quot; and &quot;Test Data&quot;.</p>
 <p>For more information refer to the &quot;Integration with Bug Tracking Systems&quot;
 topic.</p>
 <p>The &quot;Defect types&quot; tab allows create custom defect types as subtypes of default defects on the project.</p>
-<p><a href="Images/pic_18.jpg"> <img src="Images/pic_18.jpg" alt="Image"> </a></p>
+<p><a href="Images/pic_255.jpg"> <img src="Images/pic_255.jpg" alt="Image"> </a></p>
 <p>For more information refer to the &quot;Create custom defect types&quot; topic.</p>
 <p>The &quot;Demo Data&quot; tab allows generate demo data on the project.</p>
 <p><a href="Images/pic_254.jpg"> <img src="Images/pic_254.jpg" alt="Image"> </a></p>
@@ -2097,7 +2077,7 @@ Board:</p>
 <li><p><a href="Images/pic_45.jpg"> <img src="Images/pic_45.jpg" alt="Image"> </a></p>
 </li>
 <li><p>Fill in the form and click &quot;Add&quot; button. A new user will be added to
- the system and assigned to the selected project, and to &quot;DEFAULT_PROJECT&quot; with the MEMBER project role. Message with authorization data will be sent to the user&#39;s email.</p>
+ the system and assigned to the selected project, and to &quot;Personal Project&quot; with the PROJECT MANAGER project role. Message with authorization data will be sent to the user&#39;s email.</p>
 </li>
 </ol>
 <p><strong>Note:</strong><br>This is the only place in the system where an Administrator can be created
@@ -2122,7 +2102,7 @@ steps:</p>
 <li><p><a href="Images/pic_47.jpg"> <img src="Images/pic_47.jpg" alt="Image"> </a></p>
 </li>
 <li><p>Fill in the form and click &quot;Add&quot; button. A new user will be added
- to the system and assigned to the current project, and to &quot;DEFAULT_PROJECT&quot; with the MEMBER project role. Message with authorization data will be sent to the user&#39;s email.</p>
+ to the system and assigned to the current project, and to &quot;Personal Project&quot; with the PROJECT MANAGER project role. Message with authorization data will be sent to the user&#39;s email.</p>
 </li>
 </ol>
 <h3 id="invite-users">Invite users</h3>
@@ -2160,7 +2140,7 @@ but not more than 24 hours. When the user clicks the link, he/she will see a reg
 <li><p><a href="Images/pic_51.jpg"> <img src="Images/pic_51.jpg" alt="Image"> </a></p>
 </li>
 <li><p>The user needs to fill in the registration form and click the &quot;Register&quot; button to complete the registration. 
-The user will be assigned to the project that was specified by you during the invitation, and &quot;DEFAULT_PROJECT&quot; with the MEMBER project role. </p>
+The user will be assigned to the project that was specified by you during the invitation, and to &quot;Personal Project&quot; with the PROJECT MANAGER project role. </p>
 </li>
 </ol>
 <h4 id="invite-user-on-project-members-page-in-management-board">Invite user on project &quot;Members&quot; page in Management Board</h4>
@@ -2194,8 +2174,7 @@ but not more than 24 hours. When the user clicks the link, he/she will see a reg
 <li><p>The user needs to fill in the registration form and click the &quot;Register&quot;
 button to complete the registration. </p>
 </li>
-<li><p>The user will be assigned to the project that invitation was sent from, and to
-&quot;DEFAULT_PROJECT&quot; with the MEMBER project role. </p>
+<li><p>The user will be assigned to the project that invitation was sent from, and to &quot;Personal Project&quot; with the PROJECT MANAGER project role. </p>
 </li>
 </ol>
 <h4 id="invite-user-on-project-members-page-in-report-portal">Invite user on project &quot;Members&quot; page in Report Portal</h4>
@@ -2228,8 +2207,7 @@ but not more than 24 hours. When the user clicks the link, he/she will see a reg
 <li><p>The user needs to fill in the registration form and click the &quot;Register&quot;
 button to complete the registration.</p>
 </li>
-<li><p>The user will be assigned to the current project, and to &quot;DEFAULT_PROJECT&quot;
-with the MEMBER project role. </p>
+<li><p>The user will be assigned to the current project, and to &quot;Personal Project&quot; with the PROJECT MANAGER project role. </p>
 </li>
 </ol>
 <h3 id="delete-user">Delete user</h3>
