@@ -4,7 +4,7 @@
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -97,7 +97,7 @@ website:    http://www.burocratik.com
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -162,7 +162,7 @@ website:    http://www.burocratik.com
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -195,7 +195,7 @@ website:    http://www.burocratik.com
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -338,7 +338,7 @@ website:    http://www.burocratik.com
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -547,7 +547,7 @@ i.rp-icons.fsize-150 {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -621,7 +621,7 @@ i.rp-icons.fsize-150 {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1277,7 +1277,7 @@ button.rp-btn {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1614,6 +1614,10 @@ a.itemsPerPage {
   letter-spacing: normal;
   word-spacing: normal; }
 
+.tooltip ol > li {
+  list-style: decimal;
+  list-style-position: inside; }
+
 /*-----------*/
 .rp-btn-group .dropdown-menu.filters-criteria li a.checkbox,
 .btn-group .dropdown-menu.filters-criteria li a.checkbox,
@@ -1823,7 +1827,7 @@ ul.rp-nav-left > li.title-holder {
   ul.rp-nav-left > li.title-holder > a {
     color: #1a9cb0; }
   ul.rp-nav-left > li.title-holder > span.favorites-title {
-    max-width: 720px; }
+    max-width: 730px; }
 
 /*--------------*/
 /* MAIN CONTENT */
@@ -2468,7 +2472,7 @@ li {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -2535,6 +2539,10 @@ li {
       max-width: 300px;
       text-overflow: ellipsis;
       display: inline-block; }
+
+@-moz-document url-prefix() {
+  #topHeader #projectSelector a .selected-project {
+    line-height: 21px; } }
       #topHeader #projectSelector a .selected-project:hover {
         text-decoration: none; }
   #topHeader #logout {
@@ -2897,7 +2905,7 @@ li {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -3015,7 +3023,7 @@ li {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -3102,7 +3110,7 @@ li {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -3447,10 +3455,8 @@ li {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
   .rp-filter-inputs #filterInputs .filter-wrapper .form-group label.filter-name {
     font-weight: normal; }
-  .rp-filter-inputs #filterInputs .filter-wrapper .form-group .filter-option-input input {
-    max-height: 30px; }
-  .rp-filter-inputs #filterInputs .filter-wrapper .form-group .filter-option-input .select2-choices {
-    max-height: 30px; }
+  .rp-filter-inputs #filterInputs .filter-wrapper .form-group .filter-option-input input.select2-input {
+    margin: 0; }
   .rp-filter-inputs #filterInputs .filter-wrapper .form-group .remove-filter {
     position: relative; }
     .rp-filter-inputs #filterInputs .filter-wrapper .form-group .remove-filter:hover .material-icons {
@@ -3509,7 +3515,7 @@ li {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -3625,7 +3631,7 @@ li {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -3788,7 +3794,7 @@ li {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -3962,7 +3968,7 @@ li {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -4390,7 +4396,7 @@ li {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -4607,6 +4613,8 @@ div.inline-editor .btn-default:focus {
 
 #defectWell .defect-desc {
   overflow: hidden; }
+  #defectWell .defect-desc ol li {
+    list-style-type: decimal; }
 
 .issue-selector {
   padding: 2px 5px;
@@ -4685,6 +4693,10 @@ div.inline-editor .btn-default:focus {
 #activityWell .actyvity-val ul,
 #activityWell .actyvity-val ol {
   margin: 0 0 9px 2em; }
+
+.defect-desc ol > li,
+#activityWell .actyvity-val ol > li {
+  list-style: decimal; }
 
 .defect-desc ul li,
 #activityWell .actyvity-val ul li {
@@ -4847,7 +4859,7 @@ div.inline-editor .btn-default:focus {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -4894,7 +4906,7 @@ div.inline-editor .btn-default:focus {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -5689,7 +5701,7 @@ output {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -5729,7 +5741,7 @@ output {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -5802,7 +5814,7 @@ output {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -6421,7 +6433,7 @@ label.obligatory-field:after {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -6598,7 +6610,7 @@ label.obligatory-field:after {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -6719,7 +6731,7 @@ label.obligatory-field:after {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -6778,7 +6790,7 @@ label.obligatory-field:after {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7088,7 +7100,7 @@ label.obligatory-field:after {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7150,9 +7162,8 @@ label.obligatory-field:after {
     .baron__root > *:first-child::-webkit-scrollbar {
       width: 16px; }
 
-@-moz-document url-prefix() {
-  .select2-drop-active .baron.baron__root .select2-results {
-    min-height: 34px !important; } }
+.select2-drop-active .baron.baron__root .select2-results {
+  min-height: 34px !important; }
 
 .select2-results {
   padding: 0; }
@@ -7163,9 +7174,6 @@ label.obligatory-field:after {
 .select2-results .select2-no-results {
   font-size: 12px;
   padding: 5px; }
-
-.select2-drop .baron__root .select2-results {
-  min-height: 15px; }
 
 .baron .baron__track {
   position: absolute;
@@ -7196,7 +7204,7 @@ label.obligatory-field:after {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7418,7 +7426,7 @@ main {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7477,7 +7485,7 @@ main {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7708,7 +7716,7 @@ main {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -9163,7 +9171,7 @@ h3.docs-heading:hover .glyphicon {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -9658,7 +9666,7 @@ h3.docs-heading:hover .glyphicon {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -9969,7 +9977,7 @@ h3.docs-heading:hover .glyphicon {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -10283,7 +10291,7 @@ h3.docs-heading:hover .glyphicon {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -10362,7 +10370,7 @@ h3.docs-heading:hover .glyphicon {
  *
  *
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  *
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -10399,7 +10407,7 @@ h3.docs-heading:hover .glyphicon {
  *
  *
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  *
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -10436,7 +10444,7 @@ h3.docs-heading:hover .glyphicon {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -10695,7 +10703,7 @@ h3.docs-heading:hover .glyphicon {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -10962,7 +10970,7 @@ h3.docs-heading:hover .glyphicon {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11238,7 +11246,7 @@ h3.docs-heading:hover .glyphicon {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11948,7 +11956,7 @@ input[type=checkbox] + label {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12498,6 +12506,12 @@ input[type=checkbox] + label {
     transition: none; }
   #gridWrapper .rp-margin-reset .rp-grid-thead .last-col, #compareGrid .rp-margin-reset .rp-grid-thead .last-col, #mergeGrid .rp-margin-reset .rp-grid-thead .last-col {
     margin-left: -32px; }
+  #gridWrapper .rp-margin-reset .rp-grid-thead .in-progress, #compareGrid .rp-margin-reset .rp-grid-thead .in-progress, #mergeGrid .rp-margin-reset .rp-grid-thead .in-progress {
+    background-color: rgba(160, 180, 200, 0.5);
+    background-image: -webkit-linear-gradient(1355deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+    background-size: 60px 60px;
+    animation: 2s linear 0s reverse none infinite progress-stripes-large; }
   #gridWrapper .rp-margin-reset .rp-grid-thead .margin-col, #compareGrid .rp-margin-reset .rp-grid-thead .margin-col, #mergeGrid .rp-margin-reset .rp-grid-thead .margin-col {
     margin-left: -8px; }
   #gridWrapper .rp-margin-reset .rp-grid-thead #add-collapse-method, #compareGrid .rp-margin-reset .rp-grid-thead #add-collapse-method, #mergeGrid .rp-margin-reset .rp-grid-thead #add-collapse-method {
@@ -12705,6 +12719,19 @@ input[type=checkbox] + label {
 #gridWrapper .rp-history-grid .history-col.rp-fail, #compareGrid .rp-history-grid .history-col.rp-fail, #mergeGrid .rp-history-grid .history-col.rp-fail {
   background: #e8ada3; }
 
+#gridWrapper .rp-history-grid .history-col.rp-skip, #compareGrid .rp-history-grid .history-col.rp-skip, #mergeGrid .rp-history-grid .history-col.rp-skip {
+  background: #bdc7cc; }
+
+#gridWrapper .rp-history-grid .history-col.rp-reseted, #compareGrid .rp-history-grid .history-col.rp-reseted, #mergeGrid .rp-history-grid .history-col.rp-reseted {
+  background: #bdc7cc; }
+
+#gridWrapper .rp-history-grid .history-col.rp-inprogress, #compareGrid .rp-history-grid .history-col.rp-inprogress, #mergeGrid .rp-history-grid .history-col.rp-inprogress {
+  background: #0274d1;
+  background-image: -webkit-linear-gradient(1355deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+  background-size: 60px 60px;
+  animation: 2s linear 0s reverse none infinite progress-stripes-large; }
+
 #gridWrapper .rp-history-grid .history-col.rp-pass, #compareGrid .rp-history-grid .history-col.rp-pass, #mergeGrid .rp-history-grid .history-col.rp-pass {
   background: #b4d2af; }
 
@@ -12723,6 +12750,12 @@ input[type=checkbox] + label {
     margin-bottom: 0; }
   #gridWrapper #pagingHolder .col-md-2, #compareGrid #pagingHolder .col-md-2, #mergeGrid #pagingHolder .col-md-2 {
     margin-top: 10px; }
+
+@keyframes progress-stripes-large {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: -60px 0; } }
 
 .dropdown-like .btn-default,
 .input-group.input-group-sm {
@@ -12834,7 +12867,7 @@ th.sortable {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12942,7 +12975,7 @@ th.sortable {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13085,7 +13118,7 @@ th.sortable {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13202,7 +13235,7 @@ th.sortable {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13221,6 +13254,9 @@ th.sortable {
 /* STYLE FOR BTS SETTINGS PAGE */
 #dynamic-content #btsSettings, #dynamicContent #btsSettings {
   padding-top: 10px; }
+  #dynamic-content #btsSettings .no-bts-found, #dynamicContent #btsSettings .no-bts-found {
+    padding-top: 10px;
+    display: inline-block; }
   #dynamic-content #btsSettings #instanceHead, #dynamicContent #btsSettings #instanceHead {
     margin-bottom: 20px; }
     #dynamic-content #btsSettings #instanceHead .close-add, #dynamicContent #btsSettings #instanceHead .close-add {
@@ -13368,7 +13404,7 @@ th.sortable {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13440,7 +13476,7 @@ th.sortable {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13636,7 +13672,7 @@ th.sortable {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13862,7 +13898,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13913,7 +13949,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14003,7 +14039,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14088,7 +14124,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14151,7 +14187,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14191,7 +14227,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14234,7 +14270,7 @@ span.rp-role {
  *
  *
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  *
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14298,7 +14334,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14346,7 +14382,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14376,6 +14412,8 @@ span.rp-role {
       margin-left: 30px; }
       .rp-main-panel #dynamicContent #email-settings .tls-enabled .rp-checkbox-wrap:first-child {
         margin-left: 0; }
+  .rp-main-panel #dynamicContent #email-settings .email-server-error .alert-danger {
+    font-size: 12px; }
 
 /*-----------------*/
 /* FOR USUAL USERS */
@@ -14404,7 +14442,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14456,7 +14494,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14476,7 +14514,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14571,7 +14609,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14591,7 +14629,7 @@ span.rp-role {
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/service-ui
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14874,3 +14912,5 @@ span.rp-role {
     width: 33.3%;
     padding: 5px 0 10px;
     text-align: left; } }
+
+/*# sourceMappingURL=main.css.map */
