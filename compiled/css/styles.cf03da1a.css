@@ -18697,6 +18697,8 @@ label.obligatory-field:after {
         margin: 0 5px; }
       .landing-page .b-footer .right-block a {
         margin-left: 10px; } }
+  .landing-page.documentation .social-block {
+    display: none; }
 
 .landing-page.documentation {
   font-family: "OswaldRegular", sans-serif; }
@@ -19575,6 +19577,9 @@ main {
     color: #fff;
     background-color: #666;
     transition: all 0.5s ease-in-out; }
+    @media (max-width: 950px) {
+      .b-docs .b-docs__nav {
+        bottom: 95px; } }
     .b-docs .b-docs__nav .controls {
       text-align: center; }
     .b-docs .b-docs__nav .doc-menu-not-found {
@@ -19669,6 +19674,12 @@ main {
       overflow-x: hidden; }
       .b-docs .b-docs__content > .baron > .baron_scroller {
         width: auto; }
+    @media (max-width: 950px) {
+      .b-docs .b-docs__content {
+        bottom: 95px; } }
+    @media (max-width: 400px) {
+      .b-docs .b-docs__content {
+        bottom: 115px; } }
 
 .b-content > ol {
   padding: 0; }
@@ -20521,7 +20532,8 @@ line.vlinehist {
 
 .documentation .b-footer {
   position: fixed;
-  bottom: 0; }
+  bottom: 0;
+  width: 100%; }
 
 .documentation .b-content h2 + p,
 .documentation .b-content h3 + p {
