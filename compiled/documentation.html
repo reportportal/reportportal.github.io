@@ -33,7 +33,7 @@ cutting edge technologies:</p>
 <p>Install Docker (Docker Engine, Compose, Swarm, etc)</p>
 <p><strong>STEP-2</strong></p>
 <p>Create separate docker network for ReportPortal. Make sure ip_masquerade feature is enabled.</p>
-<pre><code>docker network create -o &quot;com.docker.network.bridge.enable_ip_masquerade&quot;=&quot;true&quot; reportportal</code></pre>
+<pre><code class="language-bash">docker network create -o <span class="string">"com.docker.network.bridge.enable_ip_masquerade"</span>=<span class="string">"true"</span> reportportal</code></pre>
 <p><strong>STEP-3</strong></p>
 <p>Deploy mongodb. </p>
 <p><strong>STEP-4</strong></p>
@@ -56,34 +56,34 @@ Example of compose descriptor can be found <a href="https://github.com/reportpor
 <h3 id="installation">Installation</h3>
 <p>Add to POM.xml</p>
 <p><strong>dependency</strong></p>
-<pre><code>&lt;repositories&gt;
-     &lt;repository&gt;
-        &lt;snapshots&gt;
-          &lt;enabled&gt;false&lt;/enabled&gt;
-        &lt;/snapshots&gt;
-        &lt;id&gt;bintray-epam-reportportal&lt;/id&gt;
-        &lt;name&gt;bintray&lt;/name&gt;
-        &lt;url&gt;http://dl.bintray.com/epam/reportportal&lt;/url&gt;
-     &lt;/repository&gt;
-&lt;/repositories&gt;
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">repositories</span>&gt;</span>
+     <span class="tag">&lt;<span class="title">repository</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">snapshots</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">snapshots</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">id</span>&gt;</span>bintray-epam-reportportal<span class="tag">&lt;/<span class="title">id</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">name</span>&gt;</span>bintray<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://dl.bintray.com/epam/reportportal<span class="tag">&lt;/<span class="title">url</span>&gt;</span>
+     <span class="tag">&lt;/<span class="title">repository</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">repositories</span>&gt;</span>
 
 
 
-&lt;dependency&gt;
-  &lt;groupId&gt;com.epam.reportportal&lt;/groupId&gt;
-  &lt;artifactId&gt;agent-java-testng&lt;/artifactId&gt;
-  &lt;version&gt;2.6.0&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-  &lt;groupId&gt;com.epam.reportportal&lt;/groupId&gt;
-  &lt;artifactId&gt;logger-java-logback&lt;/artifactId&gt;
-  &lt;version&gt;2.6.0&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-  &lt;groupId&gt;com.epam.reportportal&lt;/groupId&gt;
-  &lt;artifactId&gt;logger-java-log4j&lt;/artifactId&gt;
-  &lt;version&gt;2.6.0&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
+<span class="tag">&lt;<span class="title">dependency</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>com.epam.reportportal<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>agent-java-testng<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">version</span>&gt;</span>2.6.0<span class="tag">&lt;/<span class="title">version</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span>
+<span class="tag">&lt;<span class="title">dependency</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>com.epam.reportportal<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>logger-java-logback<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">version</span>&gt;</span>2.6.0<span class="tag">&lt;/<span class="title">version</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span>
+<span class="tag">&lt;<span class="title">dependency</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>com.epam.reportportal<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>logger-java-log4j<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">version</span>&gt;</span>2.6.0<span class="tag">&lt;/<span class="title">version</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></code></pre>
 <h3 id="install-listener">Install listener</h3>
 <p>Download package <a href="https://bintray.com/epam/reportportal/agent-java-testng">here</a>.
 Choose latest version.</p>
@@ -115,45 +115,45 @@ Configuring multiple listeners will lead to incorrect application behavior.</p>
 <p><strong>Maven Surefire plugin</strong></p>
 <p>Maven surefire plugin allow configuring multiple custom listeners, for logging
 to report portal user should add report portal listener to “Listener” property.</p>
-<pre><code>&lt;plugins&gt;
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">plugins</span>&gt;</span>
     [...]
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-        &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.15&lt;/version&gt;
-        &lt;configuration&gt;
-          &lt;properties&gt;
-            &lt;property&gt;
-              &lt;name&gt;usedefaultlisteners&lt;/name&gt;
-              &lt;value&gt;false&lt;/value&gt; &lt;!-- disabling default listeners is optional --&gt;
-            &lt;/property&gt;
-            &lt;property&gt;
-              &lt;name&gt;listener&lt;/name&gt;
-              &lt;value&gt;com.epam.reportportal.testng.ReportPortalTestNGListener&lt;/value&gt;
-            &lt;/property&gt;
-          &lt;/properties&gt;
-        &lt;/configuration&gt;
-      &lt;/plugin&gt;
+      <span class="tag">&lt;<span class="title">plugin</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">version</span>&gt;</span>2.15<span class="tag">&lt;/<span class="title">version</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">properties</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">name</span>&gt;</span>usedefaultlisteners<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">value</span>&gt;</span>false<span class="tag">&lt;/<span class="title">value</span>&gt;</span> <span class="comment">&lt;!-- disabling default listeners is optional --&gt;</span>
+            <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">name</span>&gt;</span>listener<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">value</span>&gt;</span>com.epam.reportportal.testng.ReportPortalTestNGListener<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+          <span class="tag">&lt;/<span class="title">properties</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">plugin</span>&gt;</span>
     [...]
-&lt;/plugins&gt;</code></pre>
+<span class="tag">&lt;/<span class="title">plugins</span>&gt;</span></code></pre>
 <blockquote>
 <p>  If you use maven surefire plugin set report portal listener only in
   &quot;listener&quot; property in pom.xml.</p>
 </blockquote>
 <p><strong>Specify listener in testng.xml</strong></p>
 <p>Here is how you can define report portal listener in your testng.xml file.</p>
-<pre><code>&lt;suite&gt;
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">suite</span>&gt;</span>
 
-  &lt;listeners&gt;
-    &lt;listener class-name=&quot;com.example.MyListener&quot; /&gt;
-    &lt;listener class-name=&quot;com.epam.reportportal.testng.ReportPortalTestNGListener&quot; /&gt;
-  &lt;/listeners&gt;
+  <span class="tag">&lt;<span class="title">listeners</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">listener</span> <span class="attribute">class-name</span>=<span class="value">"com.example.MyListener"</span> /&gt;</span>
+    <span class="tag">&lt;<span class="title">listener</span> <span class="attribute">class-name</span>=<span class="value">"com.epam.reportportal.testng.ReportPortalTestNGListener"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="title">listeners</span>&gt;</span>
 .....</code></pre>
 <p><strong>Custom runner</strong></p>
 <p>TestNg allow users to create own runners. In this case user can instantiate
 listener by himself and add it to TestNg object.</p>
-<pre><code>ReportPortalTestNGListener listener = new ReportPortalTestNGListener();
-     TestNG testNg = new TestNG();
+<pre><code class="language-javascript">ReportPortalTestNGListener listener = <span class="keyword">new</span> ReportPortalTestNGListener();
+     TestNG testNg = <span class="keyword">new</span> TestNG();
      List&lt;String&gt; lSuites = Lists.newArrayList();
      Collections.addAll(lSuites, “testng_suite.xml”);
      testNg.setTestSuites(lSuites);
@@ -166,8 +166,8 @@ you can ran TestNG tests with report portal listener as follows:</p>
 com.epam.ta.reportportal.listeners.testng.ReportPortalTestNGListener</em></p>
 <p><strong>Using \@Listeners annotation</strong></p>
 <p>Report portal listener can be set using \@Listener annotation.</p>
-<pre><code>@Listeners({ReportPortalTestNGListener.class})
-public class FailedParameterizedTest {
+<pre><code class="language-java"><span class="annotation">@Listeners</span>({ReportPortalTestNGListener.<span class="class"><span class="keyword">class</span>})
+<span class="title">public</span> <span class="title">class</span> <span class="title">FailedParameterizedTest</span> </span>{
 …..
 }</code></pre>
 <p>\@Listeners annotation will apply to your entire suite file, just as if you had
@@ -189,9 +189,9 @@ Specifying listeners with ServiceLoader.</p>
 <p>In order to start using of agent, user should configure property file
 &quot;reportportal.properties&quot; in such format:</p>
 <p><strong>reportportal.properties</strong></p>
-<pre><code>rp.endpoint = https://rp.epam.com/
+<pre><code class="language-bash">rp.endpoint = https://rp.epam.com/
 rp.username = default
-rp.uuid = 8967de3b-fec7-47bb-9dbc-2aa4ceab8b1e
+rp.uuid = <span class="number">8967</span>de3b-fec7-<span class="number">47</span>bb-<span class="number">9</span>dbc-<span class="number">2</span>aa4ceab8b1e
 
 rp.launch = default_TEST_EXAMPLE
 rp.project = default_project
@@ -200,7 +200,7 @@ rp.tags = TAG1;TAG2
 rp.keystore.resource = reportportal-client-v2.jks
 rp.keystore.password = reportportal
 
-rp.batch.size.logs = 5</code></pre>
+rp.batch.size.logs = <span class="number">5</span></code></pre>
 <p><strong>Parameters</strong></p>
 <p>User should provide next parameters to agent.</p>
 <table>
@@ -446,71 +446,71 @@ top-level events for native <a href="http://junit.org/">JUnit</a> runners\listen
 <h4 id="report-portal-listener">Report Portal Listener</h4>
 <p>The Listener could be included in the project via following scripts running
 method.</p>
-<pre><code>import org.junit.runner.JUnitCore;
-import com.epam.ta.reportportal.listeners.junit.ReportPortalListener;
+<pre><code class="language-java"><span class="keyword">import</span> org.junit.runner.JUnitCore;
+<span class="keyword">import</span> com.epam.ta.reportportal.listeners.junit.ReportPortalListener;
 
-public class JUnitScriptsRunner {
-    public static void main(String[] args) {
-        JUnitCore core= new JUnitCore();
-        core.addListener(new ReportPortalListener());
-        core.run(UserTestClass1.class, UserTestClass2.class, UserTestClass3.class);
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JUnitScriptsRunner</span> </span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {
+        JUnitCore core= <span class="keyword">new</span> JUnitCore();
+        core.addListener(<span class="keyword">new</span> ReportPortalListener());
+        core.run(UserTestClass1.<span class="class"><span class="keyword">class</span>, <span class="title">UserTestClass2</span>.<span class="title">class</span>, <span class="title">UserTestClass3</span>.<span class="title">class</span>);
     }
 }</code></pre>
 <p>If <a href="http://maven.apache.org/index.html">Maven</a> has been used by test project
 so listener could be included in
 <a href="http://maven.apache.org/surefire/maven-surefire-plugin/index.html">maven-surefire-plugin</a>
 configuration in pom.xml.</p>
-<pre><code>&lt;plugin&gt;
-   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-   &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
-   &lt;version&gt;2.15&lt;/version&gt;
-   &lt;configuration&gt;
-      &lt;properties&gt;
-         &lt;property&gt;
-            &lt;name&gt;listener&lt;/name&gt;
-            &lt;value&gt;com.epam.reportportal.junit.ReportPortalListener&lt;/value&gt;
-         &lt;/property&gt;
-      &lt;/properties&gt;
-   &lt;/configuration&gt;
-&lt;/plugin&gt;</code></pre>
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">version</span>&gt;</span>2.15<span class="tag">&lt;/<span class="title">version</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">properties</span>&gt;</span>
+         <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">name</span>&gt;</span>listener<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">value</span>&gt;</span>com.epam.reportportal.junit.ReportPortalListener<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+         <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">properties</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></code></pre>
 <h4 id="report-portal-runner">Report Portal Runner</h4>
 <p>The RP runner could be used via following ways:</p>
 <ul>
 <li>Via \@RunWith annotation</li>
 </ul>
 <p>Usage</p>
-<pre><code>@RunWith(com.epam.reportportal.junit.CustomJUnitRunner.class)</code></pre>
+<pre><code class="language-java"><span class="annotation">@RunWith</span>(com.epam.reportportal.junit.CustomJUnitRunner.<span class="class"><span class="keyword">class</span>)</code></pre>
 <ul>
 <li>Via Suite class extension</li>
 </ul>
 <p>If test project has using Suite extended class so you could include RP runner
 like in example below.</p>
-<pre><code>import java.util.List;
-import org.junit.internal.runners.InitializationError;
-import org.junit.runner.Runner;
-import org.junit.runners.Suite;
-import org.junit.runners.model.RunnerBuilder;
-import com.epam.reportportal.junit.CustomJUnitRunner;
+<pre><code class="language-java"><span class="keyword">import</span> java.util.List;
+<span class="keyword">import</span> org.junit.internal.runners.InitializationError;
+<span class="keyword">import</span> org.junit.runner.Runner;
+<span class="keyword">import</span> org.junit.runners.Suite;
+<span class="keyword">import</span> org.junit.runners.model.RunnerBuilder;
+<span class="keyword">import</span> com.epam.reportportal.junit.CustomJUnitRunner;
 
-public class MySuite extends Suite {
-   private static Class&lt;?&gt;[] getAnnotatedClasses(Class&lt;?&gt; klass) throws InitializationError {
-      Suite.SuiteClasses annotation = klass.getAnnotation(Suite.SuiteClasses.class);
-      if (annotation == null) {
-         throw new InitializationError(String.format(&quot;class &#39;%s&#39; must have a SuiteClasses annotation&quot;, klass.getName()));
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySuite</span> <span class="keyword">extends</span> <span class="title">Suite</span> </span>{
+   <span class="keyword">private</span> <span class="keyword">static</span> Class&lt;?&gt;[] getAnnotatedClasses(Class&lt;?&gt; klass) <span class="keyword">throws</span> InitializationError {
+      Suite.SuiteClasses annotation = klass.getAnnotation(Suite.SuiteClasses.<span class="class"><span class="keyword">class</span>);
+      <span class="title">if</span> (<span class="title">annotation</span> == <span class="title">null</span>) </span>{
+         <span class="keyword">throw</span> <span class="keyword">new</span> InitializationError(String.format(<span class="string">"class '%s' must have a SuiteClasses annotation"</span>, klass.getName()));
       }
-      return annotation.value();
+      <span class="keyword">return</span> annotation.value();
    }
 
-   public MySuite(Class&lt;?&gt; klass, RunnerBuilder builder) throws InitializationError {
-      super(klass, getRunners(getAnnotatedClasses(klass)));
+   <span class="keyword">public</span> MySuite(Class&lt;?&gt; klass, RunnerBuilder builder) <span class="keyword">throws</span> InitializationError {
+      <span class="keyword">super</span>(klass, getRunners(getAnnotatedClasses(klass)));
    }
 
-   public static List&lt;Runner&gt; getRunners(Class&lt;?&gt;[] classes) throws InitializationError {
-      List&lt;Runner&gt; runners = new LinkedList&lt;Runner&gt;();
-      for (Class&lt;?&gt; klazz : classes) {
-         runners.add(new CustomJUnitRunner(klazz)); //Initialization of RP custom runner
+   <span class="keyword">public</span> <span class="keyword">static</span> List&lt;Runner&gt; getRunners(Class&lt;?&gt;[] classes) <span class="keyword">throws</span> InitializationError {
+      List&lt;Runner&gt; runners = <span class="keyword">new</span> LinkedList&lt;Runner&gt;();
+      <span class="keyword">for</span> (Class&lt;?&gt; klazz : classes) {
+         runners.add(<span class="keyword">new</span> CustomJUnitRunner(klazz)); <span class="comment">//Initialization of RP custom runner</span>
       }
-      return runners;
+      <span class="keyword">return</span> runners;
    }
  }</code></pre>
 <blockquote>
@@ -521,7 +521,7 @@ public class MySuite extends Suite {
 <h3 id="configuration">Configuration</h3>
 <p>In order to start using of agent, user should configure property file
 “reportportal.properties” in such format.</p>
-<pre><code>rp.username=user_name
+<pre><code class="language-bash">rp.username=user_name
 rp.uuid=user_token</code></pre>
 <h4 id="parameters">Parameters</h4>
 <p>User should provide next parameters to agent.</p>
@@ -820,12 +820,12 @@ placed inside himself.</p>
 <p>Only Cucumber listener is available at the moment, and it was tested only in <strong>Protractor/Cucumber combo</strong> (although it should work in vanilla Cucumber-JS as well).</p>
 <h3 id="installation">Installation</h3>
 <p>To install directly from Git, run</p>
-<pre><code>npm install git+&lt;HTTPS or SSH repository URL&gt;.</code></pre>
+<pre><code class="language-bash">npm install git+&lt;HTTPS or SSH repository URL&gt;.</code></pre>
 <p>To install from local path, clone repository and run</p>
-<pre><code>npm install &lt;local path&gt;.</code></pre>
+<pre><code class="language-bash">npm install &lt;local path&gt;.</code></pre>
 <p>See <em>npm -?</em> for more details.</p>
 <p>Cucumber listener can be enabled by adding to world.js something like this:</p>
-<pre><code>this.registerListener(require(&#39;node-rp-client&#39;).Cucumber({}));</code></pre>
+<pre><code class="language-javascript"><span class="keyword">this</span>.registerListener(require(<span class="string">'node-rp-client'</span>).Cucumber({}));</code></pre>
 <h3 id="configuration">Configuration</h3>
 <p>Create reportportal.json in the working directory or specify desired config file in the environment variable rp_config (again, relative to the working directory).</p>
 <p>The following properties are supported:</p>
@@ -942,18 +942,18 @@ other case.</p>
 </tbody>
 </table>
 <p>See example of valid configuration file below.</p>
-<pre><code>&lt;configuration&gt;
-  &lt;configSections&gt;
-    &lt;section name=&quot;reportPortal&quot; type=&quot;EPAM.ReportPortal.Addins.NUnit.ReportPortalSection, EPAM.ReportPortal.Addins.NUnit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null&quot; /&gt;
-  &lt;/configSections&gt;
-  &lt;reportPortal enabled=&quot;true&quot; logConsoleOutput=&quot;true&quot;&gt;
-    &lt;server url=&quot;https://evbyminsd7776.minsk.epam.com:8443/reportportal-ws/api/v1/&quot; project=&quot;default_project&quot;&gt;
-      &lt;authentication username=&quot;default&quot; password=&quot;1q2w3e&quot; /&gt;
-      &lt;proxy server=&quot;yourproxy.com:port&quot;/&gt;
-    &lt;/server&gt;
-    &lt;launch name=&quot;NUnit Demo Launch&quot; debugMode=&quot;true&quot; tags=&quot;t1,t2&quot; /&gt;
-  &lt;/reportPortal&gt;
-&lt;/configuration&gt;</code></pre>
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">configSections</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">section</span> <span class="attribute">name</span>=<span class="value">"reportPortal"</span> <span class="attribute">type</span>=<span class="value">"EPAM.ReportPortal.Addins.NUnit.ReportPortalSection, EPAM.ReportPortal.Addins.NUnit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="title">configSections</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">reportPortal</span> <span class="attribute">enabled</span>=<span class="value">"true"</span> <span class="attribute">logConsoleOutput</span>=<span class="value">"true"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">server</span> <span class="attribute">url</span>=<span class="value">"https://evbyminsd7776.minsk.epam.com:8443/reportportal-ws/api/v1/"</span> <span class="attribute">project</span>=<span class="value">"default_project"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">authentication</span> <span class="attribute">username</span>=<span class="value">"default"</span> <span class="attribute">password</span>=<span class="value">"1q2w3e"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">proxy</span> <span class="attribute">server</span>=<span class="value">"yourproxy.com:port"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">server</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">launch</span> <span class="attribute">name</span>=<span class="value">"NUnit Demo Launch"</span> <span class="attribute">debugMode</span>=<span class="value">"true"</span> <span class="attribute">tags</span>=<span class="value">"t1,t2"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="title">reportPortal</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
 <h2 id="soapui">SoapUI</h2>
 <h3 id="installation">Installation</h3>
 <p>You can download SoapUI agent from
@@ -974,193 +974,193 @@ And remove the below jars from <em>/lib</em> directory because old versions:</p>
 Keystore for access to RP is available <a href="#user-profile">here</a>. Please place it under ${SOAPUI-HOME}/bin</p>
 <p><strong>Option 2: via Maven Plugin in external automation</strong></p>
 <p>Add following repository to your pom.xml.</p>
-<pre><code>     &lt;repository&gt;
-        &lt;snapshots&gt;
-          &lt;enabled&gt;false&lt;/enabled&gt;
-        &lt;/snapshots&gt;
-        &lt;id&gt;bintray-epam-reportportal&lt;/id&gt;
-        &lt;name&gt;bintray&lt;/name&gt;
-        &lt;url&gt;http://dl.bintray.com/epam/reportportal&lt;/url&gt;
-     &lt;/repository&gt;</code></pre>
+<pre><code class="language-xml">     <span class="tag">&lt;<span class="title">repository</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">snapshots</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">snapshots</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">id</span>&gt;</span>bintray-epam-reportportal<span class="tag">&lt;/<span class="title">id</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">name</span>&gt;</span>bintray<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://dl.bintray.com/epam/reportportal<span class="tag">&lt;/<span class="title">url</span>&gt;</span>
+     <span class="tag">&lt;/<span class="title">repository</span>&gt;</span></code></pre>
 <p>And dependency (please check latest available version under specified artifactory and use it instead provided):</p>
-<pre><code>&lt;dependency&gt;
-   &lt;groupId&gt;com.epam.ta.reportportal&lt;/groupId&gt;
-   &lt;artifactId&gt;soapui-client&lt;/artifactId&gt;
-   &lt;version&gt;2.1.9&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>com.epam.ta.reportportal<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>soapui-client<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">version</span>&gt;</span>2.1.9<span class="tag">&lt;/<span class="title">version</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></code></pre>
 <p>Exclude conflicted dependencies from soapui-maven-plugin.</p>
-<pre><code>&lt;groupId&gt;eviware&lt;/groupId&gt;
-&lt;artifactId&gt;maven-soapui-plugin&lt;/artifactId&gt;
-&lt;version&gt;4.5.1&lt;/version&gt;
-&lt;exclusions&gt;
-   &lt;exclusion&gt;
-      &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
-      &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
-   &lt;/exclusion&gt;
-   &lt;exclusion&gt;
-      &lt;artifactId&gt;httpcore&lt;/artifactId&gt;
-      &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
-   &lt;/exclusion&gt;
-   &lt;exclusion&gt;
-      &lt;artifactId&gt;commons-codec&lt;/artifactId&gt;
-      &lt;groupId&gt;commons-codec&lt;/groupId&gt;
-   &lt;/exclusion&gt;
-   &lt;exclusion&gt;
-      &lt;artifactId&gt;httpmime&lt;/artifactId&gt;
-      &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
-   &lt;/exclusion&gt;
-   &lt;exclusion&gt;
-      &lt;artifactId&gt;log4j&lt;/artifactId&gt;
-      &lt;groupId&gt;log4j&lt;/groupId&gt;
-   &lt;/exclusion&gt;
-&lt;/exclusions&gt;</code></pre>
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">groupId</span>&gt;</span>eviware<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-soapui-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+<span class="tag">&lt;<span class="title">version</span>&gt;</span>4.5.1<span class="tag">&lt;/<span class="title">version</span>&gt;</span>
+<span class="tag">&lt;<span class="title">exclusions</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">exclusion</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>httpclient<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.httpcomponents<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">exclusion</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">exclusion</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>httpcore<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.httpcomponents<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">exclusion</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">exclusion</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>commons-codec<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>commons-codec<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">exclusion</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">exclusion</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>httpmime<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.httpcomponents<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">exclusion</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">exclusion</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">exclusion</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">exclusions</span>&gt;</span></code></pre>
 <p>Add the property to the plugin section.</p>
-<pre><code>&lt;property&gt;
-   &lt;name&gt;soapui.ext.listeners&lt;/name&gt;
-   &lt;value&gt;PATH TO FOLDER CONTAINS reportportal-listeners.xml FILE&lt;/value&gt;
-&lt;/property&gt;</code></pre>
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">property</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">name</span>&gt;</span>soapui.ext.listeners<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">value</span>&gt;</span>PATH TO FOLDER CONTAINS reportportal-listeners.xml FILE<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">property</span>&gt;</span></code></pre>
 <p>Put your soapui-log4j.xml in project directory (or made it available under classpath).</p>
 <h3 id="configuration">Configuration</h3>
 <p>ReportPortal listeners described under ${SOAPUI-HOME}/bin/listeners/reportportal-listeners.xml for Desktop SoapUI version, or in user-specified file for maven plugin using:</p>
 <p><strong>reportportal-listeners.xml</strong></p>
-<pre><code> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;tns:soapui-listeners xmlns:tns=&quot;http://eviware.com/soapui/config&quot;&gt;
-&lt;tns:listener id=&quot;TestStepListener&quot; listenerClass=&quot;com.epam.ta.reportportal.soapui.listeners.TestStepListener&quot;
-   listenerInterface=&quot;com.eviware.soapui.model.testsuite.TestRunListener&quot; /&gt;
-&lt;tns:listener id=&quot;TestCaseListener&quot; listenerClass=&quot;com.epam.ta.reportportal.soapui.listeners.TestCaseListener&quot;
-   listenerInterface=&quot;com.eviware.soapui.model.testsuite.TestSuiteRunListener&quot; /&gt;
-&lt;tns:listener id=&quot;TestSuiteListener&quot; listenerClass=&quot;com.epam.ta.reportportal.soapui.listeners.TestSuiteListener&quot;
-   listenerInterface=&quot;com.eviware.soapui.model.testsuite.ProjectRunListener&quot; /&gt;
-&lt;/tns:soapui-listeners&gt;</code></pre>
+<pre><code class="language-xml"> <span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span> <span class="tag">&lt;<span class="title">tns:soapui-listeners</span> <span class="attribute">xmlns:tns</span>=<span class="value">"http://eviware.com/soapui/config"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">tns:listener</span> <span class="attribute">id</span>=<span class="value">"TestStepListener"</span> <span class="attribute">listenerClass</span>=<span class="value">"com.epam.ta.reportportal.soapui.listeners.TestStepListener"</span>
+   <span class="attribute">listenerInterface</span>=<span class="value">"com.eviware.soapui.model.testsuite.TestRunListener"</span> /&gt;</span>
+<span class="tag">&lt;<span class="title">tns:listener</span> <span class="attribute">id</span>=<span class="value">"TestCaseListener"</span> <span class="attribute">listenerClass</span>=<span class="value">"com.epam.ta.reportportal.soapui.listeners.TestCaseListener"</span>
+   <span class="attribute">listenerInterface</span>=<span class="value">"com.eviware.soapui.model.testsuite.TestSuiteRunListener"</span> /&gt;</span>
+<span class="tag">&lt;<span class="title">tns:listener</span> <span class="attribute">id</span>=<span class="value">"TestSuiteListener"</span> <span class="attribute">listenerClass</span>=<span class="value">"com.epam.ta.reportportal.soapui.listeners.TestSuiteListener"</span>
+   <span class="attribute">listenerInterface</span>=<span class="value">"com.eviware.soapui.model.testsuite.ProjectRunListener"</span> /&gt;</span>
+<span class="tag">&lt;/<span class="title">tns:soapui-listeners</span>&gt;</span></code></pre>
 <h4 id="desktop-soapui">Desktop SoapUI</h4>
 <p>For configuring SoapUI agent user has to set the follows properties into project custom properties or set them via system variables. For example:</p>
 <p><a href="Images/soapui-properties.png"> <img src="Images/soapui-properties.png" alt="Image"> </a></p>
 <p>And in text format:</p>
-<pre><code>rp.username = andrei_ramanchuk
-rp.uuid = 00000000-0000-0000-0000-000000000001
-rp.endpoint = https://rp.epam.com:8443
+<pre><code class="language-bash">rp.username = andrei_ramanchuk
+rp.uuid = <span class="number">00000000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">0000</span>-<span class="number">000000000001</span>
+rp.endpoint = https://rp.epam.com:<span class="number">8443</span>
 
 rp.launch = soapui_TEST_EXAMPLE
 rp.project = default_project
 rp.tags = TAG1;TAG2
 rp.keystore.resource = reportportal-client-v2.jks
 rp.keystore.password = reportportal
-rp.batch.size.logs = 1
+rp.batch.size.logs = <span class="number">1</span>
 rp.mode = DEFAULT</code></pre>
 <h3 id="logging">Logging</h3>
 <p>If you need to change logging you may override soapui-log4j.xml. Use &quot;REPORTPORTAL&quot; appender if you want to track messages to Report Portal.</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE log4j:configuration SYSTEM &quot;log4j.dtd&quot;&gt;
+<pre><code class="language-xml"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="doctype">&lt;!DOCTYPE log4j:configuration SYSTEM "log4j.dtd"&gt;</span>
 
-&lt;!-- ===================================================================== --&gt;
-&lt;!-- --&gt;
-&lt;!-- This is an example of a Log4j XML configuration file. --&gt;
-&lt;!-- --&gt;
-&lt;!-- ===================================================================== --&gt;
+<span class="comment">&lt;!-- ===================================================================== --&gt;</span>
+<span class="comment">&lt;!-- --&gt;</span>
+<span class="comment">&lt;!-- This is an example of a Log4j XML configuration file. --&gt;</span>
+<span class="comment">&lt;!-- --&gt;</span>
+<span class="comment">&lt;!-- ===================================================================== --&gt;</span>
 
-&lt;log4j:configuration xmlns:log4j=&quot;http://jakarta.apache.org/log4j/&quot;
-    debug=&quot;false&quot;&gt;
+<span class="tag">&lt;<span class="title">log4j:configuration</span> <span class="attribute">xmlns:log4j</span>=<span class="value">"http://jakarta.apache.org/log4j/"</span>
+    <span class="attribute">debug</span>=<span class="value">"false"</span>&gt;</span>
 
-    &lt;!-- =================== --&gt;
-    &lt;!-- Appenders --&gt;
-    &lt;!-- =================== --&gt;
+    <span class="comment">&lt;!-- =================== --&gt;</span>
+    <span class="comment">&lt;!-- Appenders --&gt;</span>
+    <span class="comment">&lt;!-- =================== --&gt;</span>
 
-    &lt;appender name=&quot;CONSOLE&quot; class=&quot;org.apache.log4j.ConsoleAppender&quot;&gt;
-        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
-        &lt;param name=&quot;Target&quot; value=&quot;System.out&quot; /&gt;
-        &lt;param name=&quot;Threshold&quot; value=&quot;DEBUG&quot; /&gt;
-        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
-            &lt;!-- The default pattern: Date Priority [Category] Message\n --&gt;
-            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d{ABSOLUTE} %-5p [%c{1}] %m%n&quot; /&gt;
-        &lt;/layout&gt;
-    &lt;/appender&gt;
+    <span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"CONSOLE"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.ConsoleAppender"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">errorHandler</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.helpers.OnlyOnceErrorHandler"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Target"</span> <span class="attribute">value</span>=<span class="value">"System.out"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Threshold"</span> <span class="attribute">value</span>=<span class="value">"DEBUG"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span>
+            <span class="comment">&lt;!-- The default pattern: Date Priority [Category] Message\n --&gt;</span>
+            <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"%d{ABSOLUTE} %-5p [%c{1}] %m%n"</span> /&gt;</span>
+        <span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
 
-    &lt;appender name=&quot;FILE&quot; class=&quot;org.apache.log4j.RollingFileAppender&quot;&gt;
-        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
-        &lt;param name=&quot;File&quot; value=&quot;soapui.log&quot; /&gt;
-        &lt;param name=&quot;Threshold&quot; value=&quot;INFO&quot; /&gt;
-        &lt;param name=&quot;Append&quot; value=&quot;false&quot; /&gt;
-        &lt;param name=&quot;MaxFileSize&quot; value=&quot;5000KB&quot; /&gt;
-        &lt;param name=&quot;MaxBackupIndex&quot; value=&quot;50&quot; /&gt;
-        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
-            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d %-5p [%c{1}] %m%n&quot; /&gt;
-        &lt;/layout&gt;
-    &lt;/appender&gt;
+    <span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"FILE"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.RollingFileAppender"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">errorHandler</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.helpers.OnlyOnceErrorHandler"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"soapui.log"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Threshold"</span> <span class="attribute">value</span>=<span class="value">"INFO"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"MaxFileSize"</span> <span class="attribute">value</span>=<span class="value">"5000KB"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"MaxBackupIndex"</span> <span class="attribute">value</span>=<span class="value">"50"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"%d %-5p [%c{1}] %m%n"</span> /&gt;</span>
+        <span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
 
-    &lt;appender name=&quot;ERRORFILE&quot; class=&quot;org.apache.log4j.RollingFileAppender&quot;&gt;
-        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
-        &lt;param name=&quot;File&quot; value=&quot;soapui-errors.log&quot; /&gt;
-        &lt;param name=&quot;Threshold&quot; value=&quot;INFO&quot; /&gt;
-        &lt;param name=&quot;Append&quot; value=&quot;true&quot; /&gt;
-        &lt;param name=&quot;MaxFileSize&quot; value=&quot;5000KB&quot; /&gt;
-        &lt;param name=&quot;MaxBackupIndex&quot; value=&quot;50&quot; /&gt;
-        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
-            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d %-5p [%c{1}] %m%n&quot; /&gt;
-        &lt;/layout&gt;
-    &lt;/appender&gt;
+    <span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"ERRORFILE"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.RollingFileAppender"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">errorHandler</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.helpers.OnlyOnceErrorHandler"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"soapui-errors.log"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Threshold"</span> <span class="attribute">value</span>=<span class="value">"INFO"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"MaxFileSize"</span> <span class="attribute">value</span>=<span class="value">"5000KB"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"MaxBackupIndex"</span> <span class="attribute">value</span>=<span class="value">"50"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"%d %-5p [%c{1}] %m%n"</span> /&gt;</span>
+        <span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
 
-    &lt;appender name=&quot;SOAPUI&quot; class=&quot;com.eviware.soapui.support.log.SoapUIAppender&quot;&gt;
-        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
-    &lt;/appender&gt;
-    &lt;appender name=&quot;REPORTPORTAL&quot;
-        class=&quot;com.epam.ta.reportportal.soapui.log.SoapUILogAppender&quot;&gt;
-        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
-        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
-            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d %-5p [%c{1}] %m%n&quot; /&gt;
-        &lt;/layout&gt;
-    &lt;/appender&gt;
-    &lt;appender name=&quot;GLOBAL_GROOVY_LOG&quot; class=&quot;org.apache.log4j.FileAppender&quot;&gt;
-        &lt;errorHandler class=&quot;org.apache.log4j.helpers.OnlyOnceErrorHandler&quot; /&gt;
-        &lt;param name=&quot;File&quot; value=&quot;global-groovy.log&quot; /&gt;
-        &lt;param name=&quot;Threshold&quot; value=&quot;DEBUG&quot; /&gt;
-        &lt;param name=&quot;Append&quot; value=&quot;true&quot; /&gt;
-        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
-            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%d %-5p [%c{1}] %m%n&quot; /&gt;
-        &lt;/layout&gt;
-    &lt;/appender&gt;
+    <span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"SOAPUI"</span> <span class="attribute">class</span>=<span class="value">"com.eviware.soapui.support.log.SoapUIAppender"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">errorHandler</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.helpers.OnlyOnceErrorHandler"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"REPORTPORTAL"</span>
+        <span class="attribute">class</span>=<span class="value">"com.epam.ta.reportportal.soapui.log.SoapUILogAppender"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">errorHandler</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.helpers.OnlyOnceErrorHandler"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"%d %-5p [%c{1}] %m%n"</span> /&gt;</span>
+        <span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"GLOBAL_GROOVY_LOG"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.FileAppender"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">errorHandler</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.helpers.OnlyOnceErrorHandler"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"global-groovy.log"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Threshold"</span> <span class="attribute">value</span>=<span class="value">"DEBUG"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"%d %-5p [%c{1}] %m%n"</span> /&gt;</span>
+        <span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
 
 
-    &lt;!-- =============== --&gt;
-    &lt;!-- Loggers --&gt;
-    &lt;!-- =============== --&gt;
-    &lt;logger name=&quot;groovy.log&quot;&gt;
-        &lt;level value=&quot;INFO&quot; /&gt;
-        &lt;appender-ref ref=&quot;GLOBAL_GROOVY_LOG&quot; /&gt;
-        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
-    &lt;/logger&gt;
+    <span class="comment">&lt;!-- =============== --&gt;</span>
+    <span class="comment">&lt;!-- Loggers --&gt;</span>
+    <span class="comment">&lt;!-- =============== --&gt;</span>
+    <span class="tag">&lt;<span class="title">logger</span> <span class="attribute">name</span>=<span class="value">"groovy.log"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">level</span> <span class="attribute">value</span>=<span class="value">"INFO"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"GLOBAL_GROOVY_LOG"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"REPORTPORTAL"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">logger</span>&gt;</span>
 
-    &lt;logger name=&quot;com.eviware.soapui&quot;&gt;
-        &lt;level value=&quot;DEBUG&quot; /&gt;
-        &lt;appender-ref ref=&quot;SOAPUI&quot; /&gt;
-        &lt;appender-ref ref=&quot;CONSOLE&quot; /&gt;
-        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
-    &lt;/logger&gt;
+    <span class="tag">&lt;<span class="title">logger</span> <span class="attribute">name</span>=<span class="value">"com.eviware.soapui"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">level</span> <span class="attribute">value</span>=<span class="value">"DEBUG"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"SOAPUI"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"CONSOLE"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"REPORTPORTAL"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">logger</span>&gt;</span>
 
-    &lt;logger name=&quot;soapui.errorlog&quot;&gt;
-        &lt;level value=&quot;DEBUG&quot; /&gt;
-        &lt;appender-ref ref=&quot;ERRORFILE&quot; /&gt;
-        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
-    &lt;/logger&gt;
+    <span class="tag">&lt;<span class="title">logger</span> <span class="attribute">name</span>=<span class="value">"soapui.errorlog"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">level</span> <span class="attribute">value</span>=<span class="value">"DEBUG"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"ERRORFILE"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"REPORTPORTAL"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">logger</span>&gt;</span>
 
-    &lt;logger
-        name=&quot;com.eviware.soapui.impl.wsdl.support.http.SoapUIMultiThreadedHttpConnectionManager&quot;&gt;
-        &lt;level value=&quot;ERROR&quot; /&gt;
-        &lt;appender-ref ref=&quot;ERRORFILE&quot; /&gt;
-        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
-    &lt;/logger&gt;
+    <span class="tag">&lt;<span class="title">logger
+</span>        <span class="attribute">name</span>=<span class="value">"com.eviware.soapui.impl.wsdl.support.http.SoapUIMultiThreadedHttpConnectionManager"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">level</span> <span class="attribute">value</span>=<span class="value">"ERROR"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"ERRORFILE"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"REPORTPORTAL"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">logger</span>&gt;</span>
 
-    &lt;logger name=&quot;com.eviware.soapui.impl.wsdl.WsdlSubmit&quot;&gt;
-        &lt;level value=&quot;ERROR&quot; /&gt;
-        &lt;appender-ref ref=&quot;ERRORFILE&quot; /&gt;
-        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
-    &lt;/logger&gt;
+    <span class="tag">&lt;<span class="title">logger</span> <span class="attribute">name</span>=<span class="value">"com.eviware.soapui.impl.wsdl.WsdlSubmit"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">level</span> <span class="attribute">value</span>=<span class="value">"ERROR"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"ERRORFILE"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"REPORTPORTAL"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">logger</span>&gt;</span>
 
-    &lt;root&gt;
-        &lt;priority value=&quot;INFO&quot; /&gt;
-        &lt;appender-ref ref=&quot;FILE&quot; /&gt;
-        &lt;appender-ref ref=&quot;REPORTPORTAL&quot; /&gt;
-    &lt;/root&gt;
+    <span class="tag">&lt;<span class="title">root</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">priority</span> <span class="attribute">value</span>=<span class="value">"INFO"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"FILE"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"REPORTPORTAL"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">root</span>&gt;</span>
 
-&lt;/log4j:configuration&gt;</code></pre>
+<span class="tag">&lt;/<span class="title">log4j:configuration</span>&gt;</span></code></pre>
 <h2 id="specflow">SpecFlow</h2>
 <h3 id="installation">Installation</h3>
 <p>Install <strong>ReportPortal.SpecFlow</strong> NuGet package into your project with features
@@ -1171,17 +1171,17 @@ files. Missed dependencies will be installed automatically.</p>
 </blockquote>
 <p>After installing NuGet package your App.config will be modified. Report Portal
 plugin and step assembly will be registered in the specFlow section.</p>
-<pre><code>&lt;specFlow&gt;
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">specFlow</span>&gt;</span>
   ...
-  &lt;plugins&gt;
-    &lt;add name=&quot;EPAM.ReportPortal.Addins&quot; type=&quot;Runtime&quot; /&gt;
-  &lt;/plugins&gt;
+  <span class="tag">&lt;<span class="title">plugins</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">add</span> <span class="attribute">name</span>=<span class="value">"EPAM.ReportPortal.Addins"</span> <span class="attribute">type</span>=<span class="value">"Runtime"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="title">plugins</span>&gt;</span>
   ...
-  &lt;stepAssemblies&gt;
-    &lt;stepAssembly assembly=&quot;EPAM.ReportPortal.Addins.SpecFlowPlugin&quot; /&gt;
-  &lt;/stepAssemblies&gt;
+  <span class="tag">&lt;<span class="title">stepAssemblies</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">stepAssembly</span> <span class="attribute">assembly</span>=<span class="value">"EPAM.ReportPortal.Addins.SpecFlowPlugin"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="title">stepAssemblies</span>&gt;</span>
   ...
-&lt;/specFlow&gt;</code></pre>
+<span class="tag">&lt;/<span class="title">specFlow</span>&gt;</span></code></pre>
 <h3 id="configuration">Configuration</h3>
 <p>You can configure Report Portal plugin. All settings are stored in
 <em>EPAM.ReportPortal.Addins.SpecFlowPlugin.dll.config</em> file. This file is added
@@ -1229,17 +1229,17 @@ into VS project with NuGet package installation.</p>
 </tbody>
 </table>
 <p>Example of valid configuration file is below.</p>
-<pre><code>&lt;configuration&gt;
-  &lt;configSections&gt;
-    &lt;section name=&quot;reportPortal&quot; type=&quot;EPAM.ReportPortal.Addins.SpecFlowPlugin.ReportPortalSection, EPAM.ReportPortal.Addins.SpecFlowPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null&quot; /&gt;
-  &lt;/configSections&gt;
-  &lt;reportPortal enabled=&quot;true&quot;&gt;
-    &lt;server url=&quot;https://evbyminsd7776.minsk.epam.com:8443/reportportal-ws/api/v1/&quot; project=&quot;default_project&quot;&gt;
-      &lt;authentication username=&quot;default&quot; password=&quot;1q2w3e&quot; /&gt;
-    &lt;/server&gt;
-    &lt;launch name=&quot;SpecFlow Demo Launch&quot; debugMode=&quot;true&quot; tags=&quot;t1,t2&quot; /&gt;
-  &lt;/reportPortal&gt;
-&lt;/configuration&gt;</code></pre>
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">configSections</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">section</span> <span class="attribute">name</span>=<span class="value">"reportPortal"</span> <span class="attribute">type</span>=<span class="value">"EPAM.ReportPortal.Addins.SpecFlowPlugin.ReportPortalSection, EPAM.ReportPortal.Addins.SpecFlowPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="title">configSections</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">reportPortal</span> <span class="attribute">enabled</span>=<span class="value">"true"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">server</span> <span class="attribute">url</span>=<span class="value">"https://evbyminsd7776.minsk.epam.com:8443/reportportal-ws/api/v1/"</span> <span class="attribute">project</span>=<span class="value">"default_project"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">authentication</span> <span class="attribute">username</span>=<span class="value">"default"</span> <span class="attribute">password</span>=<span class="value">"1q2w3e"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">server</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">launch</span> <span class="attribute">name</span>=<span class="value">"SpecFlow Demo Launch"</span> <span class="attribute">debugMode</span>=<span class="value">"true"</span> <span class="attribute">tags</span>=<span class="value">"t1,t2"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="title">reportPortal</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
 <h2 id="starting-logging">Starting Logging</h2>
 <p>To start logging with Report Portal, add a specific listener to your automation
 framework, called an agent.</p>
@@ -1273,37 +1273,37 @@ the required parameters.</p>
 <h3 id="configuration">Configuration</h3>
 <p>Log4j provides configuration opportunity via XML or properties files.</p>
 <p>Just add report portal appender into log4j.xml configuration file.</p>
-<pre><code>&lt;appender name=&quot;ReportPortalAppender&quot; class=&quot;com.epam.ta.reportportal.log4j.appender.ReportPortalAppender&quot;&gt;
-   &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
-      &lt;param name=&quot;ConversionPattern&quot; value=&quot;[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n&quot;/&gt;
-   &lt;/layout&gt;
-&lt;/appender&gt;
-&lt;logger name=&quot;com.epam.ta.apache&quot;&gt;
-   &lt;level value=&quot;OFF&quot;/&gt;
-&lt;/logger&gt;
-&lt;root&gt;
-    &lt;level value=&quot;info&quot; /&gt;
-    &lt;appender-ref ref=&quot;ReportPortalAppender&quot; /&gt;
-&lt;/root&gt;</code></pre>
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"ReportPortalAppender"</span> <span class="attribute">class</span>=<span class="value">"com.epam.ta.reportportal.log4j.appender.ReportPortalAppender"</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n"</span>/&gt;</span>
+   <span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
+<span class="tag">&lt;<span class="title">logger</span> <span class="attribute">name</span>=<span class="value">"com.epam.ta.apache"</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">level</span> <span class="attribute">value</span>=<span class="value">"OFF"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">logger</span>&gt;</span>
+<span class="tag">&lt;<span class="title">root</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">level</span> <span class="attribute">value</span>=<span class="value">"info"</span> /&gt;</span>
+    <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"ReportPortalAppender"</span> /&gt;</span>
+<span class="tag">&lt;/<span class="title">root</span>&gt;</span></code></pre>
 <p>For log4j.properties file it could be looks like:</p>
-<pre><code>log4j.appender.reportportal=com.epam.ta.reportportal.log4j.appender.ReportPortalAppender
+<pre><code class="language-java">log4j.appender.reportportal=com.epam.ta.reportportal.log4j.appender.ReportPortalAppender
 log4j.appender.reportportal.layout=org.apache.log4j.PatternLayout
-log4j.appender.reportportal.layout.ConversionPattern=[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n</code></pre>
+log4j.appender.reportportal.layout.ConversionPattern=[%d{HH:mm:ss}] %-<span class="number">5</span>p (%F:%L) - %m%n</code></pre>
 <h3 id="screenshots">Screenshots</h3>
 <p>For <em>log4j</em> case it is possible to send binary data in next ways.</p>
 <ul>
 <li>by using specific message wrapper.</li>
 </ul>
-<pre><code>private static Logger logger;
-/*
+<pre><code class="language-java"><span class="keyword">private</span> <span class="keyword">static</span> Logger logger;
+<span class="comment">/*
  * Path to screenshot file
- */
-public String screenshot_file_path = &quot;demoScreenshoot.png&quot;;
-/*
+ */</span>
+<span class="keyword">public</span> String screenshot_file_path = <span class="string">"demoScreenshoot.png"</span>;
+<span class="comment">/*
  * Message for attached screenshot
- */
-public String rp_message = &quot;test message for Report Portal&quot;;
-ReportPortalMessage message = new ReportPortalMessage(new File(screenshot_file_path), rp_message);
+ */</span>
+<span class="keyword">public</span> String rp_message = <span class="string">"test message for Report Portal"</span>;
+ReportPortalMessage message = <span class="keyword">new</span> ReportPortalMessage(<span class="keyword">new</span> File(screenshot_file_path), rp_message);
 logger.info(message);</code></pre>
 <ul>
 <li><p>sending File object as log4j log message. In this case log4j report portal
@@ -1327,7 +1327,7 @@ logger.info(message);</code></pre>
 for screenshots sending in &quot;black-white&quot; or &quot;color&quot; view. By default it is set
 as &quot;true&quot; and all pictures for Report Portal will be in &quot;black-while&quot; format.</p>
 <p><strong>reportportal.properties</strong></p>
-<pre><code>com.epam.ta.reportportal.ws.convertimage=true</code></pre>
+<pre><code class="language-java">com.epam.ta.reportportal.ws.convertimage=<span class="keyword">true</span></code></pre>
 <p>Possible values:</p>
 <ul>
 <li><p><strong>true</strong> - all images will be converted into &#39;black-white&#39;</p>
@@ -1340,65 +1340,65 @@ as &quot;true&quot; and all pictures for Report Portal will be in &quot;black-wh
 <p>Log4j2 provides configuration opportunity via XML or JSON files.</p>
 <p><strong>XML</strong></p>
 <p>log4j2.xml</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;configuration&gt;
-   &lt;properties&gt;
-      &lt;property name=&quot;pattern&quot;&gt;[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n&lt;/property&gt;
-   &lt;/properties&gt;
-   &lt;appenders&gt;
-      &lt;ReportPortalLog4j2Appender name=&quot;ReportPortalAppender&quot;&gt;
-         &lt;PatternLayout pattern=&quot;${pattern}&quot; /&gt;
-      &lt;/ReportPortalLog4j2Appender&gt;
-   &lt;/appenders&gt;
-   &lt;loggers&gt;
-      &lt;root level=&quot;all&quot;&gt;
-         &lt;appender-ref ref=&quot;ReportPortalAppender&quot;/&gt;
-      &lt;/root&gt;
-   &lt;/loggers&gt;
-&lt;/configuration&gt;</code></pre>
+<pre><code class="language-xml"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">properties</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"pattern"</span>&gt;</span>[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n<span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">properties</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">appenders</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">ReportPortalLog4j2Appender</span> <span class="attribute">name</span>=<span class="value">"ReportPortalAppender"</span>&gt;</span>
+         <span class="tag">&lt;<span class="title">PatternLayout</span> <span class="attribute">pattern</span>=<span class="value">"${pattern}"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">ReportPortalLog4j2Appender</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">appenders</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">loggers</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">root</span> <span class="attribute">level</span>=<span class="value">"all"</span>&gt;</span>
+         <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"ReportPortalAppender"</span>/&gt;</span>
+      <span class="tag">&lt;/<span class="title">root</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">loggers</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
 <p><strong>JSON</strong></p>
 <p>log4j2.json</p>
-<pre><code>{
-  &quot;configuration&quot;: {
-    &quot;properties&quot;: {
-      &quot;property&quot;: {
-        &quot;name&quot;: &quot;pattern&quot;,
-        &quot;value&quot;: &quot;%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n&quot;
-      }
-    },
-    &quot;appenders&quot;: {
-      &quot;ReportPortalLog4j2Appender&quot;: {
-        &quot;name&quot;: &quot;ReportPortalAppender&quot;,
-        &quot;PatternLayout&quot;: {
-          &quot;pattern&quot;: &quot;${pattern}&quot;
-        }
-      }
-    },
-    &quot;loggers&quot;: {
-      &quot;root&quot;: {
-        &quot;level&quot;: &quot;all&quot;,
-        &quot;AppenderRef&quot;: {
-          &quot;ref&quot;: &quot;ReportPortalAppender&quot;
-        }
-      }
-    }
-  }
-}</code></pre>
+<pre><code class="language-json">{
+  "<span class="attribute">configuration</span>": <span class="value">{
+    "<span class="attribute">properties</span>": <span class="value">{
+      "<span class="attribute">property</span>": <span class="value">{
+        "<span class="attribute">name</span>": <span class="value"><span class="string">"pattern"</span></span>,
+        "<span class="attribute">value</span>": <span class="value"><span class="string">"%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n"</span>
+      </span>}
+    </span>}</span>,
+    "<span class="attribute">appenders</span>": <span class="value">{
+      "<span class="attribute">ReportPortalLog4j2Appender</span>": <span class="value">{
+        "<span class="attribute">name</span>": <span class="value"><span class="string">"ReportPortalAppender"</span></span>,
+        "<span class="attribute">PatternLayout</span>": <span class="value">{
+          "<span class="attribute">pattern</span>": <span class="value"><span class="string">"${pattern}"</span>
+        </span>}
+      </span>}
+    </span>}</span>,
+    "<span class="attribute">loggers</span>": <span class="value">{
+      "<span class="attribute">root</span>": <span class="value">{
+        "<span class="attribute">level</span>": <span class="value"><span class="string">"all"</span></span>,
+        "<span class="attribute">AppenderRef</span>": <span class="value">{
+          "<span class="attribute">ref</span>": <span class="value"><span class="string">"ReportPortalAppender"</span>
+        </span>}
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre>
 <h3 id="screenshots">Screenshots</h3>
 <p>For <em>log4j2</em> case it is possible to send binary data in next ways.</p>
 <ul>
 <li>by using specific message wrapper.</li>
 </ul>
-<pre><code>private static Logger logger;
-/*
+<pre><code class="language-java"><span class="keyword">private</span> <span class="keyword">static</span> Logger logger;
+<span class="comment">/*
  * Path to screenshot file
- */
-public String screenshot_file_path = &quot;demoScreenshoot.png&quot;;
-/*
+ */</span>
+<span class="keyword">public</span> String screenshot_file_path = <span class="string">"demoScreenshoot.png"</span>;
+<span class="comment">/*
  * Message for attached screenshot
- */
-public String rp_message = &quot;test message for Report Portal&quot;;
-ReportPortalMessage message = new ReportPortalMessage(new File(screenshot_file_path), rp_message);
+ */</span>
+<span class="keyword">public</span> String rp_message = <span class="string">"test message for Report Portal"</span>;
+ReportPortalMessage message = <span class="keyword">new</span> ReportPortalMessage(<span class="keyword">new</span> File(screenshot_file_path), rp_message);
 logger.info(message);</code></pre>
 <ul>
 <li><p>sending File object as log4j2 log message. In this case log4j2 report portal
@@ -1422,7 +1422,7 @@ logger.info(message);</code></pre>
 for scrreenshots sending in &quot;black-white&quot; or &quot;color&quot; view. By default it is set
 as &quot;true&quot; and all pictures for Report Portal will be in &quot;black-while&quot; format.</p>
 <p><strong>reportportal.properties</strong></p>
-<pre><code>com.epam.ta.reportportal.ws.convertimage=true</code></pre>
+<pre><code class="language-java">com.epam.ta.reportportal.ws.convertimage=<span class="keyword">true</span></code></pre>
 <p>Possible values:</p>
 <ul>
 <li><p><strong>true</strong> - all images will be converted into &#39;black-white&#39;</p>
@@ -1440,37 +1440,37 @@ installed automatically.</p>
 </blockquote>
 <h3 id="configuration">Configuration</h3>
 <p>Add custom appender into log4net configuration file.</p>
-<pre><code>&lt;log4net&gt;
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">log4net</span>&gt;</span>
   ...
-  &lt;appender name=&quot;RP&quot; type=&quot;EPAM.ReportPortal.Logging.ReportPortalAppender, EPAM.ReportPortal.Logging.Log4Net&quot;&gt;
-    &lt;layout type=&quot;log4net.Layout.SimpleLayout&quot; /&gt;
-    &lt;layout type=&quot;log4net.Layout.PatternLayout&quot;&gt;
-      &lt;conversionpattern value=&quot;%message%newline&quot; /&gt;
-    &lt;/layout&gt;
-  &lt;/appender&gt;
+  <span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"RP"</span> <span class="attribute">type</span>=<span class="value">"EPAM.ReportPortal.Logging.ReportPortalAppender, EPAM.ReportPortal.Logging.Log4Net"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">layout</span> <span class="attribute">type</span>=<span class="value">"log4net.Layout.SimpleLayout"</span> /&gt;</span>
+    <span class="tag">&lt;<span class="title">layout</span> <span class="attribute">type</span>=<span class="value">"log4net.Layout.PatternLayout"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">conversionpattern</span> <span class="attribute">value</span>=<span class="value">"%message%newline"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
   ...
-&lt;/log4net&gt;</code></pre>
+<span class="tag">&lt;/<span class="title">log4net</span>&gt;</span></code></pre>
 <p>Specify reference to appender in root section.</p>
-<pre><code>&lt;log4net&gt;
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">log4net</span>&gt;</span>
   ...
-  &lt;root&gt;
+  <span class="tag">&lt;<span class="title">root</span>&gt;</span>
       ...
-      &lt;appender-ref ref=&quot;RP&quot; /&gt;
+      <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"RP"</span> /&gt;</span>
       ...
-  &lt;/root&gt;
+  <span class="tag">&lt;/<span class="title">root</span>&gt;</span>
   ...
-&lt;/log4net&gt;</code></pre>
+<span class="tag">&lt;/<span class="title">log4net</span>&gt;</span></code></pre>
 <h2 id="logback">Logback</h2>
 <h3 id="configuration">Configuration</h3>
 <p>Add report portal appender into logback.xml configuration file.</p>
-<pre><code>&lt;appender name=&quot;ReportPortalAppender&quot; class=&quot;com.epam.ta.reportportal.logback.appender.ReportPortalAppender&quot;&gt;
-   &lt;encoder&gt;
-      &lt;pattern&gt;%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n&lt;/pattern&gt;
-   &lt;/encoder&gt;
-&lt;/appender&gt;
-&lt;root&gt;
-    &lt;appender-ref ref=&quot;ReportPortalAppender&quot; /&gt;
-&lt;/root&gt;</code></pre>
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"ReportPortalAppender"</span> <span class="attribute">class</span>=<span class="value">"com.epam.ta.reportportal.logback.appender.ReportPortalAppender"</span>&gt;</span>
+   <span class="tag">&lt;<span class="title">encoder</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">pattern</span>&gt;</span>%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n<span class="tag">&lt;/<span class="title">pattern</span>&gt;</span>
+   <span class="tag">&lt;/<span class="title">encoder</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
+<span class="tag">&lt;<span class="title">root</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"ReportPortalAppender"</span> /&gt;</span>
+<span class="tag">&lt;/<span class="title">root</span>&gt;</span></code></pre>
 <h3 id="screenshots">Screenshots</h3>
 <p>For <em>logback</em> it is possible to attach binary data to file only by adding to log
 message additional text information(described higher) .</p>
@@ -1478,7 +1478,7 @@ message additional text information(described higher) .</p>
 for scrreenshots sending in &quot;black-white&quot; or &quot;color&quot; view. By default it is set
 as &quot;true&quot; and all pictures for Report Portal will be in &quot;black-while&quot; format.</p>
 <p><strong>reportportal.properties</strong></p>
-<pre><code>com.epam.ta.reportportal.ws.convertimage=true</code></pre>
+<pre><code class="language-java">com.epam.ta.reportportal.ws.convertimage=<span class="keyword">true</span></code></pre>
 <p>Possible values:</p>
 <ul>
 <li><p><strong>true</strong> - all images will be converted into &#39;black-white&#39;</p>
@@ -1494,17 +1494,17 @@ installed automatically.</p>
 manage NuGet packages.</p>
 <h3 id="configuration">Configuration</h3>
 <p>Add custom listener in your <em>App.config</em> file.</p>
-<pre><code>&lt;configuration&gt;
+<pre><code class="language-xml"><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
   ...
-  &lt;system.diagnostics&gt;
-    &lt;trace&gt;
-      &lt;listeners&gt;
-        &lt;add name=&quot;ReportPortalListener&quot; type=&quot;EPAM.ReportPortal.Logging.ReportPortalTracer,EPAM.ReportPortal.Logging.Tracer&quot; /&gt;
-      &lt;/listeners&gt;
-    &lt;/trace&gt;
-  &lt;/system.diagnostics&gt;
+  <span class="tag">&lt;<span class="title">system.diagnostics</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">trace</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">listeners</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">add</span> <span class="attribute">name</span>=<span class="value">"ReportPortalListener"</span> <span class="attribute">type</span>=<span class="value">"EPAM.ReportPortal.Logging.ReportPortalTracer,EPAM.ReportPortal.Logging.Tracer"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">listeners</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">trace</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">system.diagnostics</span>&gt;</span>
   ...
-&lt;/configuration&gt;</code></pre>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
 <h1 id="tuning-ci-tool">Tuning CI tool</h1>
 <p>Provide parameter via system variables in CI tool (as example - Jenkins)</p>
 <p>In order to provide specific parameters (for example, tags) for different
