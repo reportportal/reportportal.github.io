@@ -1,0 +1,116 @@
+@import '../index-page_mixin';
+$COLOR-BOOk-GREY: #ececec;
+
+.index-page_welcome {
+  position: relative;
+  width: 100%;
+  height: 1094px;
+  background: url(img/waves.svg) center bottom no-repeat;
+  overflow: hidden;
+  .section-container {
+    @include content-section;
+  }
+  h1 {
+    text-align: center;
+    font-family: $FONT-HEADER;
+    padding-top: 132px;
+    font-size: 42px;
+    color: $COLOR-STEEL-GREY;
+  }
+  h2 {
+    text-align: center;
+    font-family: $FONT-REGULAR;
+    padding-top: 18px;
+    font-size: 23px;
+    color: $COLOR-STEEL-GREY;
+  }
+  .points {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 85px;
+    .point {
+      display: inline-block;
+      height: 60px;
+      margin: 0 25px;
+      .point-img {
+        width: 60px;
+        height: 100%;
+        float: left;
+        background-position: center;
+        background-repeat: no-repeat;
+        &.real-time {
+          background-image: url(./img/real-time.svg);
+        }
+        &.visualization {
+          background-image: url(./img/visualization.svg);
+        }
+        &.open-source {
+          background-image: url(./img/git.svg);
+        }
+      }
+      .point-text-center {
+        display: table;
+        width: 160px;
+        float: left;
+        height: 100%;
+        text-align: left;
+        p {
+          display: table-cell;
+          height: 100%;
+          vertical-align: middle;
+          color: $COLOR-TEALISH;
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+  .noutebook {
+    position: absolute;
+    width: 100%;
+    bottom: 54px;
+  }
+  .screen {
+    position: absolute;
+    width: 928px;
+    height: 642px;
+    border-radius: 30px;
+    background-color: #fdffff;
+    left: 50%;
+    margin-left: -464px;
+    bottom: 17px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+  }
+  .site {
+    width: 878px;
+    height: 554px;
+    background: url(./img/site.png);
+    margin: 40px 25px;
+  }
+  .keyboard {
+    position: absolute;
+    bottom: 0;
+    width: 1148px;
+    height: 32px;
+    background-color: #fdffff;
+    left: 50%;
+    margin-left: -574px;
+    border-top: 1px solid $COLOR-BOOk-GREY;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 60px 15px;
+    border-bottom-right-radius: 60px 15px;
+    &:after {
+      content: '';
+      position: absolute;
+      background: $COLOR-BOOk-GREY;
+      width: 188px;
+      height: 14px;
+      top: 0;
+      left: 50%;
+      margin-left: -94px;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+}

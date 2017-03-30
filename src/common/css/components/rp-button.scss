@@ -1,0 +1,28 @@
+button.rp-button {
+  height: 30px;
+  background: $COLOR_TEALISH;
+  color: $COLOR-WHITE_TWO;
+  font-size: 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: $FONT-REGULAR;
+  padding: 0 15px;
+  svg {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    fill: #fff;
+    vertical-align: top;
+    margin-right: 8px;
+  }
+  span {
+    vertical-align: middle;
+  }
+  &:hover {
+    background: $COLOR_TOPAZ_TWO;
+  }
+  &:focus {
+    outline: none;
+  }
+}

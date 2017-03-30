@@ -1,0 +1,41 @@
+.social-icon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  &.icon-gh {
+    background-image: url(../../img/social/icon-gh.svg);
+    &:hover {
+      background-image: url(../../img/social/icon-gh-hover.svg);
+    }
+  }
+  &.icon-fb {
+    background-image: url(../../img/social/icon-fb.svg);
+    &:hover {
+      background-image: url(../../img/social/icon-fb-hover.svg);
+    }
+  }
+  &.icon-sl {
+    background-image: url(../../img/social/icon-sl.svg);
+    &:hover {
+      background-image: url(../../img/social/icon-sl-hover.svg);
+    }
+  }
+  &.icon-tw {
+    background-image: url(../../img/social/icon-tw.svg);
+    &:hover {
+      background-image: url(../../img/social/icon-tw-hover.svg);
+    }
+  }
+  &.icon-vk {
+    background-image: url(../../img/social/icon-vk.svg);
+    &:hover {
+      background-image: url(../../img/social/icon-vk-hover.svg);
+    }
+  }
+  &.icon-yt {
+    background-image: url(../../img/social/icon-yt.svg);
+    &:hover {
+      background-image: url(../../img/social/icon-yt-hover.svg);
+    }
+  }
+}

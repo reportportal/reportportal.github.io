@@ -1,0 +1,43 @@
+.header {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background: $COLOR-WHITE_TWO;
+  font-family: $FONT-REGULAR;
+  .header-content {
+    position: relative;
+    width: 1000px;
+    padding-top: 15px;
+    margin: 0 auto;
+  }
+  .logo {
+    float: left;
+    width: 141px;
+    height: 23px;
+    margin: 5px 0 0 30px;
+    background: url(img/logo.svg) center no-repeat;
+  }
+  .right-block {
+    float: right;
+    margin-right: 30px;
+    & > * {
+      float: right;
+    }
+  }
+  .menu-item {
+    padding: 8px 0;
+    font-size: 15px;
+    color: $COLOR-STEEL-GREY;
+    cursor: pointer;
+    text-align: center;
+    &.menu-item__index {
+      width: 110px;
+    }
+    &.menu-item__documentation {
+      width: 150px;
+    }
+    &.active {
+      font-family: $FONT-HEADER;
+    }
+  }
+}

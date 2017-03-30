@@ -1,34 +1,29 @@
-import IndexPage from 'pages/index-page';
-import AboutPage from 'pages/about-page';
-
+import Backbone, { $ } from 'backbone';
+import Context from '../views/context';
 
 let instance = null;
-let currentPage = null;
-const Router = Backbone.Router.extend({
-    initialize() {
 
-    },
-    routes: {
-        '': 'openIndex',
-        'about': 'openTest',
-    },
-    openIndex() {
-        renderPage(IndexPage);
-    },
-    openTest() {
-        renderPage(AboutPage);
-    }
+const Router = Backbone.Router.extend({
+  initialize() {
+    this.context = new Context();
+    $('[data-js-main-page-container]').html(this.context.$el);
+  },
+  routes: {
+    '': 'openIndex',
+    documentation: 'openDocumentation',
+  },
+  openIndex() {
+    this.context.renderIndex();
+  },
+  openDocumentation() {
+    this.context.renderDocumentation();
+  },
 });
-function renderPage(pageView) {
-    currentPage && currentPage.destroy();
-    currentPage = new pageView();
-    $('[data-js-main-page-container]').html(currentPage.$el);
-};
 function getInstance() {
-    if(!instance) {
-        instance = new Router();
-    }
-    return instance;
+  if (!instance) {
+    instance = new Router();
+  }
+  return instance;
 }
 
 export default getInstance();
