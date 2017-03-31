@@ -41,15 +41,7 @@ export default (env = defaultEnv) => ({
         loader: 'jade-loader',
       },
       {
-        include: path.resolve(__dirname, 'src/common/css/fonts/fonts.scss'),
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader'],
-        }),
-      },
-      {
         test: /\.scss$/,
-        exclude: path.resolve(__dirname, 'src/common/css/fonts/'),
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -67,20 +59,11 @@ export default (env = defaultEnv) => ({
         }),
       },
       {
-        test: /\.(svg|gif|png|jpg)$/,
-        exclude: path.resolve(__dirname, 'src/common/css/fonts/'),
+        test: /\.(gif|png|jpg|ttf|eot|svg|woff|woff2)$/,
         loader: 'url-loader',
         options: {
-          limit: env.dev ? null : 1000,
+          limit: 1000,
           name: 'resources/[name].[hash:6].[ext]',
-        },
-      },
-      {
-        test: /\.(ttf|eot|svg|woff|woff2)/,
-        include: path.resolve(__dirname, 'src/common/css/fonts/'),
-        loader: 'file-loader?',
-        options: {
-          name: 'fonts/[name].[hash:6].[ext]',
         },
       },
       {
@@ -94,11 +77,13 @@ export default (env = defaultEnv) => ({
     ],
   },
   plugins: [
-    new ExtractTextPlugin({ filename: '[name].[hash:6].css', disable: env.dev }),
+    new ExtractTextPlugin({ filename: '[name].[hash:6].css', allChunks: true }),
     new HtmlWebpackPlugin({ template: './src/index.jade' }),
     new webpack.HotModuleReplacementPlugin(),
     new WebpackNotifierPlugin({ skipFirstNotification: true }),
-    ...env.production ? [new CleanWebpackPlugin([path.resolve(__dirname, 'dist')])] : [],
+    ...env.production ? [
+      new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
+    ] : [],
   ],
   devtool: env.dev ? 'inline-source-map' : false,
   devServer: {

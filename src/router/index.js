@@ -1,11 +1,13 @@
 import Backbone, { $ } from 'backbone';
 import Context from '../views/context';
+import BaronScroll from 'utils/baronScroll';
 
 let instance = null;
 
 const Router = Backbone.Router.extend({
   initialize() {
-    this.context = new Context();
+    const mainScrollEl = BaronScroll($('[data-js-main-page-container]'));
+    this.context = new Context({ mainScrollEl });
     $('[data-js-main-page-container]').html(this.context.$el);
     this.context.onShow();
   },

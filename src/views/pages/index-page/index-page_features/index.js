@@ -1,8 +1,8 @@
-import Epoxy from 'backbone.epoxy';
+import IndexPageSection from '../_indexPageSection';
 import template from './index-page_features.jade';
 import './index-page_features.scss';
 
-export default Epoxy.View.extend({
+export default IndexPageSection.extend({
   template,
   className: 'index-page_features',
   events: {

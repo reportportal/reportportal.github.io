@@ -19,7 +19,8 @@ export default Epoxy.View.extend({
   events: {
     'click [data-js-about-page]': 'onClickAbout',
   },
-  initialize() {
+  initialize(options) {
+    this.mainScrollEl = options.mainScrollEl;
     this.renderTemplate();
     this.sections = [];
     const listViews = [IndexPageWelcome, IndexPageFeatures, IndexPageHowWorks,
@@ -32,8 +33,74 @@ export default Epoxy.View.extend({
     this.footer = new Footer();
     $('[data-js-footer-container]', this.$el).html(this.footer.$el);
   },
+  onShow() {
+    this.scrollerAnimate = new ScrollerAnimate(this.sections);
+    this.mainScrollEl
+      .off('scroll.indexPage')
+      .on('scroll.indexPage', () => {
+        this.onScroll();
+      });
+    this.onScroll();
+  },
+  onScroll() {
+    const scrollTop = this.mainScrollEl.scrollTop();
+    this.scrollerAnimate.activateScroll(scrollTop);
+  },
   onDestroy() {
     _.each(this.sections, view => view.destroy);
     this.footer.destroy();
+    this.mainScrollEl.off('scroll.indexPage');
   },
 });
+
+function ScrollerAnimate(blocks) {
+  this.blocks = blocks;
+  this.scrollMap = [];
+  this.documentHeight = 0;
+
+  this.createScrollMap = function () {
+    this.scrollMap = [];
+    this.documentHeight = document.documentElement.clientHeight;
+    _.each(this.blocks, (element) => {
+      _.each(element.getSections(), (section) => {
+        this.scrollMap.push({
+          scrollStart: section.el.offsetTop,
+          scrollEnd: section.el.offsetTop + section.el.offsetHeight,
+          animate: section.animate,
+          activate: false,
+        });
+      });
+    });
+  };
+
+  this.activateScroll = function (scrollTop) {
+    const scrollBottom = scrollTop + this.documentHeight;
+    const showBlockIndexes = [];
+    _.each(this.scrollMap, (element, index) => {
+      if ((element.scrollStart <= scrollBottom && scrollTop < element.scrollStart)
+        || (element.scrollEnd <= scrollBottom && scrollTop < element.scrollEnd)
+        || (element.scrollEnd > scrollBottom && scrollTop >= element.scrollStart)) {
+        showBlockIndexes.push(index);
+        if (!element.activate) {
+          element.activate = true;
+          element.animate && element.animate();
+        }
+      }
+    });
+    // return middle block index
+    if (showBlockIndexes.length !== 2) {
+      return showBlockIndexes[parseInt(showBlockIndexes.length / 2, 10)];
+    }
+    const middleScreen = scrollBottom - (this.documentHeight / 2);
+    const blockSeparate = this.scrollMap[showBlockIndexes[0]].scrollEnd;
+    if (blockSeparate > middleScreen) return showBlockIndexes[0];
+    return showBlockIndexes[1];
+  };
+
+  this.resize = function (scrollTop) {
+    this.createScrollMap();
+    this.activateScroll(scrollTop);
+  };
+
+  this.createScrollMap();
+}
