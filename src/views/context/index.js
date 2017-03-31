@@ -1,5 +1,6 @@
 import Epoxy from 'backbone.epoxy';
 import { $ } from 'backbone';
+import BaronScroll from 'utils/baronScroll';
 import template from './Context.jade';
 import './Context.scss';
 
@@ -16,6 +17,9 @@ export default Epoxy.View.extend({
     this.currentPage = null;
     this.header = new Header();
     $('[data-js-header-container]', this.$el).html(this.header.$el);
+  },
+  onShow() {
+    BaronScroll(this.$el);
   },
   renderIndex() {
     this.header.activatePage('');

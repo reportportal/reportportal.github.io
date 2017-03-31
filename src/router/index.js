@@ -7,6 +7,7 @@ const Router = Backbone.Router.extend({
   initialize() {
     this.context = new Context();
     $('[data-js-main-page-container]').html(this.context.$el);
+    this.context.onShow();
   },
   routes: {
     '': 'openIndex',

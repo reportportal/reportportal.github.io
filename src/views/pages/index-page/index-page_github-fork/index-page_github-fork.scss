@@ -1,0 +1,31 @@
+@import '../index-page_mixin';
+
+.index-page_github-fork {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: url(./img/bg.svg) center no-repeat;
+  text-align: center;
+  color: $COLOR-WHITE_TWO;
+  .section-container {
+    @include content-section;
+  }
+  h1 {
+    font-family: $FONT-HEADER;
+    padding-top: 85px;
+    font-size: 25px;
+  }
+  h2 {
+    font-family: $FONT-LIGHT;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  p {
+    font-size: 16px;
+    margin-top: 36px;
+    button {
+      margin-left: 30px;
+      height: 32px;
+    }
+  }
+}

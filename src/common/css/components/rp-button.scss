@@ -12,7 +12,7 @@ button.rp-button {
     width: 20px;
     height: 20px;
     display: inline-block;
-    fill: #fff;
+    fill: $COLOR-WHITE_TWO;
     vertical-align: top;
     margin-right: 8px;
   }
@@ -24,5 +24,19 @@ button.rp-button {
   }
   &:focus {
     outline: none;
+  }
+  &__color-revert {
+    background: $COLOR-WHITE_TWO;
+    color: $COLOR_TEALISH;
+    svg {
+      fill: $COLOR_TEALISH;
+    }
+    &:hover {
+      background: $COLOR-WHITE_TWO;
+      color: $COLOR_TOPAZ;
+      svg {
+        fill: $COLOR_TOPAZ;
+      }
+    }
   }
 }

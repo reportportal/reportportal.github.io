@@ -1,7 +1,10 @@
 /* eslint-disable */
-import Backbone, { $ } from 'backbone';
+import Backbone from 'backbone';
+import $ from 'jquery';
 import _ from 'underscore';
 import Modernizr from 'modernizr';
+
+Backbone.$ = $;
 
 Backbone.View.prototype.renderTemplate = function renderTemplate(data) {
   if (!this.template) {

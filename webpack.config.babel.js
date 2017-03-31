@@ -23,6 +23,9 @@ export default (env = defaultEnv) => ({
       modernizr: path.resolve(__dirname, '.modernizrrc'),
       router: path.resolve(__dirname, 'src/router'),
       pages: path.resolve(__dirname, 'src/views/pages'),
+      components: path.resolve(__dirname, 'src/views/components'),
+      utils: path.resolve(__dirname, 'src/utils'),
+      common: path.resolve(__dirname, 'src/common'),
     },
   },
   module: {

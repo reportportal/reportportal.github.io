@@ -2,4 +2,10 @@ html {
   font-family: $FONT-REGULAR;
   font-size: 15px;
   color: $COLOR-CHARCOAL-GREY;
+  width: 100%;
+  height: 100%;
+}
+body, .main-container {
+  width: 100%;
+  height: 100%;
 }
