@@ -66,7 +66,7 @@ function ScrollerAnimate(blocks) {
         this.scrollMap.push({
           scrollStart: section.el.offsetTop,
           scrollEnd: section.el.offsetTop + section.el.offsetHeight,
-          animate: section.animate,
+          checkScroll: section.checkScroll,
           activate: false,
         });
       });
@@ -82,8 +82,9 @@ function ScrollerAnimate(blocks) {
         || (element.scrollEnd > scrollBottom && scrollTop >= element.scrollStart)) {
         showBlockIndexes.push(index);
         if (!element.activate) {
-          element.activate = true;
-          element.animate && element.animate();
+          if (element.checkScroll(scrollTop, scrollBottom - element.scrollStart)) {
+            element.activate = true;
+          }
         }
       }
     });

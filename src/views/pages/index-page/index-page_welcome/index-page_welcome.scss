@@ -5,8 +5,14 @@ $COLOR-BOOk-GREY: #ececec;
   position: relative;
   width: 100%;
   height: 1094px;
-  background: url(img/waves.svg) center bottom no-repeat;
   overflow: hidden;
+  .bg-page {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(img/waves.svg) center bottom no-repeat;
+  }
   .section-container {
     @include content-section;
   }
@@ -111,6 +117,38 @@ $COLOR-BOOk-GREY: #ececec;
       margin-left: -94px;
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
+    }
+  }
+}
+
+/* ------ ANIMATE ------------- */
+html.csstransforms {
+  .index-page_welcome {
+    h1, h2, .points, .noutebook, .bg-page {
+      transform: translate(0, 100px);
+      opacity: 0;
+
+    }
+    h1 {
+      transition: transform 1s ease, opacity 1s ease;
+    }
+    h2 {
+      transition: transform .8s ease .2s, opacity .8s ease .2s;
+    }
+    .points {
+      transition: transform .6s ease .4s, opacity .6s ease .4s;
+    }
+    .noutebook {
+      transition: transform .5s ease .5s, opacity .5s ease .5s;
+    }
+    .bg-page {
+      transition: transform 1s ease .7s, opacity .7s ease .7s;
+    }
+    &.animate {
+      h1, h2, .points, .noutebook, .bg-page {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
     }
   }
 }

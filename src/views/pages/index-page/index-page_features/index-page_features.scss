@@ -65,3 +65,108 @@
     }
   }
 }
+
+/* ------ ANIMATE ------------- */
+html.csstransforms {
+  .index-page_features {
+    h1 {
+      opacity: 0;
+      transform: translate(0, 100px);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+    .feature {
+      .feature-image, h2, p {
+        opacity: 0;
+        transform: translate(0, 100px);
+      }
+    }
+    &.animate {
+      h1 {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+    &.animate1-3 {
+      .feature-1 {
+        .feature-image {
+          transition: transform .5s ease .6s, opacity .5s ease .6s;
+        }
+        h2 {
+          transition: transform .4s ease .7s, opacity .4s ease .7s;
+        }
+        p {
+          transition: transform .3s ease .8s, opacity .3s ease .8s;
+        }
+      }
+      .feature-2 {
+        .feature-image {
+          transition: transform .5s ease .8s, opacity .5s ease .8s;
+        }
+        h2 {
+          transition: transform .4s ease .9s, opacity .4s ease .9s;
+        }
+        p {
+          transition: transform .3s ease 1s, opacity .3s ease 1s;
+        }
+      }
+      .feature-3 {
+        .feature-image {
+          transition: transform .5s ease 1s, opacity .5s ease 1s;
+        }
+        h2 {
+          transition: transform .4s ease 1.1s, opacity .4s ease 1.1s;
+        }
+        p {
+          transition: transform .3s ease 1.2s, opacity .3s ease 1.2s;
+        }
+      }
+      .feature-1, .feature-2, .feature-3 {
+        .feature-image, h2, p {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+    &.animate4-6 {
+      .feature-4 {
+        .feature-image {
+          transition: transform .5s ease, opacity .5s ease;
+        }
+        h2 {
+          transition: transform .4s ease .1s, opacity .4s ease .1s;
+        }
+        p {
+          transition: transform .3s ease .2s, opacity .3s ease .2s;
+        }
+      }
+      .feature-5 {
+        .feature-image {
+          transition: transform .5s ease .2s, opacity .5s ease .2s;
+        }
+        h2 {
+          transition: transform .4s ease .3s, opacity .4s ease .3s;
+        }
+        p {
+          transition: transform .3s ease .4s, opacity .3s ease .4s;
+        }
+      }
+      .feature-6 {
+        .feature-image {
+          transition: transform .5s ease .4s, opacity .5s ease .4s;
+        }
+        h2 {
+          transition: transform .4s ease .5s, opacity .4s ease .5s;
+        }
+        p {
+          transition: transform .3s ease .6s, opacity .3s ease .6s;
+        }
+      }
+      .feature-4, .feature-5, .feature-6 {
+        .feature-image, h2, p {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+}

@@ -11,4 +11,17 @@ export default IndexPageSection.extend({
   initialize() {
     this.renderTemplate();
   },
+  getSections() {
+    return [
+      { checkScroll: this.checkScroll.bind(this), el: this.el },
+    ];
+  },
+  checkScroll(scrollTop, scrollElTop) {
+    console.log(`welcome - ${scrollElTop}`);
+    if (scrollElTop < 1300) {
+      this.$el.addClass('animate');
+      return true;
+    }
+    return false;
+  },
 });

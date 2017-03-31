@@ -62,7 +62,7 @@ export default (env = defaultEnv) => ({
         test: /\.(gif|png|jpg|ttf|eot|svg|woff|woff2)$/,
         loader: 'url-loader',
         options: {
-          limit: 1000,
+          // limit: 1000,
           name: 'resources/[name].[hash:6].[ext]',
         },
       },
