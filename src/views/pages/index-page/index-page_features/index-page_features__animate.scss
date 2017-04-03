@@ -1,0 +1,67 @@
+@mixin feature-animate($duration, $delay) {
+  .feature-image {
+    transition: transform $duration ease $delay, opacity $duration ease $delay;
+  }
+  h2 {
+    transition: transform ($duration - 0.1) ease ($delay + 0.1), opacity ($duration - 0.1) ease ($delay + 0.1);
+  }
+  p {
+    transition: transform ($duration - 0.2) ease ($delay + 0.2), opacity ($duration - 0.2) ease ($delay + 0.2);
+  }
+}
+
+html.csstransforms {
+  .index-page_features {
+    h1 {
+      opacity: 0;
+      transform: translate(0, 100px);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+    .feature {
+      .feature-image, h2, p {
+        opacity: 0;
+        transform: translate(0, 100px);
+      }
+    }
+    &.animate {
+      h1 {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+    &.animate1-3 {
+      .feature-1 {
+        @include feature-animate(0.5s, 0s);
+      }
+      .feature-2 {
+        @include feature-animate(0.5s, 0s);
+      }
+      .feature-3 {
+        @include feature-animate(0.5s, 0s);
+      }
+      .feature-1, .feature-2, .feature-3 {
+        .feature-image, h2, p {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+    &.animate4-6 {
+      .feature-4 {
+        @include feature-animate(0.5s, 0s);
+      }
+      .feature-5 {
+        @include feature-animate(0.5s, 0s);
+      }
+      .feature-6 {
+        @include feature-animate(0.5s, 0s);
+      }
+      .feature-4, .feature-5, .feature-6 {
+        .feature-image, h2, p {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+}

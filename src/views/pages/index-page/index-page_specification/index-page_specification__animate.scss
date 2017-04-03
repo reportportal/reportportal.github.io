@@ -1,0 +1,73 @@
+@mixin spec-animate($duration, $delay) {
+  .spec-icon {
+    transition: transform $duration ease $delay, opacity $duration ease $delay;
+  }
+  h2 {
+    transition: transform ($duration - 0.1) ease ($delay + 0.1), opacity ($duration - 0.1) ease ($delay + 0.1);
+  }
+  p {
+    transition: transform ($duration - 0.2) ease ($delay + 0.2), opacity ($duration - 0.2) ease ($delay + 0.2);
+  }
+}
+
+html.csstransforms {
+  .index-page_specification {
+    h1 {
+      opacity: 0;
+      transform: translate(0, 100px);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+    .spec {
+      .spec-icon, h2, p {
+        opacity: 0;
+        transform: translate(0, 100px);
+      }
+    }
+    &.animate {
+      h1 {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+    &.animate1-4 {
+      .spec-1 {
+        @include spec-animate(0.5s, 0s);
+      }
+      .spec-2 {
+        @include spec-animate(0.5s, 0.2s);
+      }
+      .spec-3 {
+        @include spec-animate(0.5s, 0.4s);
+      }
+      .spec-4 {
+        @include spec-animate(0.5s, 0.6s);
+      }
+      .spec-1, .spec-2, .spec-3, .spec-4 {
+        .spec-icon, h2, p {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+    &.animate5-8 {
+      .spec-5 {
+        @include spec-animate(0.5s, 0s);
+      }
+      .spec-6 {
+        @include spec-animate(0.5s, 0.2s);
+      }
+      .spec-7 {
+        @include spec-animate(0.5s, 0.4s);
+      }
+      .spec-8 {
+        @include spec-animate(0.5s, 0.6s);
+      }
+      .spec-5, .spec-6, .spec-7, .spec-8 {
+        .spec-icon, h2, p {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+}

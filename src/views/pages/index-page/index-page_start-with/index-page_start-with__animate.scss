@@ -1,0 +1,50 @@
+@mixin block-animate($duration, $delay) {
+  .block-icon {
+    transition: transform $duration ease $delay, opacity $duration ease $delay;
+  }
+  h2 {
+    transition: transform ($duration - 0.1) ease ($delay + 0.1), opacity ($duration - 0.1) ease ($delay + 0.1);
+  }
+  p {
+    transition: transform ($duration - 0.2) ease ($delay + 0.2), opacity ($duration - 0.2) ease ($delay + 0.2);
+  }
+  a {
+    transition: transform ($duration - 0.3) ease ($delay + 0.3), opacity ($duration - 0.3) ease ($delay + 0.3);
+  }
+}
+
+html.csstransforms {
+  .index-page_start-with {
+    h1 {
+      opacity: 0;
+      transform: translate(0, 100px);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+    .block-item {
+      .block-icon, h2, p, a {
+        opacity: 0;
+        transform: translate(0, 100px);
+      }
+    }
+    &.animate {
+      h1 {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+    &.animate-items {
+      .block-item-1 {
+        @include block-animate(0.5s, 0s);
+      }
+      .block-item-2 {
+        @include block-animate(0.5s, 0.2s);
+      }
+      .block-item-1, .block-item-2 {
+        .block-icon, h2, p, a {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+}

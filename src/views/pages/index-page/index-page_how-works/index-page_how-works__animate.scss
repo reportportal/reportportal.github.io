@@ -1,0 +1,57 @@
+html.csstransforms {
+  .index-page_how-works {
+    h1 {
+      transform: translate(0, 100px);
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+    .left-block {
+      .image-block {
+        transform: translate(200px, 0);
+        opacity: 0;
+        transition: transform .8s ease .6s, opacity .8s ease .6s;
+      }
+    }
+    .right-block {
+      .image-block {
+        transform: translate(-200px, 0);
+        opacity: 0;
+        transition: transform .8s ease .6s, opacity .8s ease .6s;
+      }
+    }
+    .left-block, .right-block {
+      h2, p {
+        transform: translate(0, 100px);
+        opacity: 0;
+      }
+      .laptop, .phone {
+        transform: translate(-200px, 0);
+        opacity: 0;
+      }
+      .laptop {
+        transition: transform .8s ease .6s, opacity .8s ease .6s;
+      }
+      .phone {
+        transition: transform .8s ease .8s, opacity .8s ease .8s;
+      }
+      h2 {
+        transition: transform 1s ease, opacity 1s ease;
+      }
+      p {
+        transition: transform .8s ease .2s, opacity .8s ease .2s;
+      }
+      &.animate {
+        h2, p, .image-block, .laptop, .phone {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+      }
+    }
+    &.animate {
+      h1 {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+    }
+  }
+}
