@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackNotifierPlugin from 'webpack-notifier';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
 
 const root = path.join(__dirname, '/');
 const defaultEnv = {
@@ -59,12 +60,17 @@ export default (env = defaultEnv) => ({
         }),
       },
       {
-        test: /\.(gif|png|jpg|ttf|eot|svg|woff|woff2)$/,
+        test: /\.(gif|png|jpg|ttf|eot|svg|woff2)$/,
         loader: 'url-loader',
         options: {
-          // limit: 1000,
+          limit: 1000,
           name: 'resources/[name].[hash:6].[ext]',
         },
+      },
+      {
+        // include woff font on css
+        test: /\.(woff)$/,
+        loader: 'url-loader',
       },
       {
         test: /\.modernizrrc.js$/,
@@ -83,6 +89,13 @@ export default (env = defaultEnv) => ({
     new WebpackNotifierPlugin({ skipFirstNotification: true }),
     ...env.production ? [
       new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
+      new CompressionPlugin({
+        asset: '[path].gz[query]',
+        algorithm: 'gzip',
+        // test: /\.(js|html)$/,
+        threshold: 10240,
+        minRatio: 0.8,
+      }),
     ] : [],
   ],
   devtool: env.dev ? 'inline-source-map' : false,

@@ -1,56 +1,60 @@
-html.csstransforms {
-  .index-page_how-works {
-    h1 {
-      transform: translate(0, 100px);
-      opacity: 0;
-      transition: transform 1s ease, opacity 1s ease;
-    }
-    .left-block {
-      .image-block {
-        transform: translate(200px, 0);
+@import '../index-page_mixin';
+
+@media (min-width: $MIN-ANIMATION-WIDTH) {
+  html.csstransforms {
+    .index-page_how-works {
+      h1 {
+        transform: translate(0, $ANIMATION-WIDTH);
         opacity: 0;
-        transition: transform .8s ease .6s, opacity .8s ease .6s;
+        transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
       }
-    }
-    .right-block {
-      .image-block {
-        transform: translate(-200px, 0);
-        opacity: 0;
-        transition: transform .8s ease .6s, opacity .8s ease .6s;
+      .left-block {
+        .image-block {
+          transform: translate($ANIMATION-WIDTH, 0);
+          opacity: 0;
+          transition: transform 1s $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
+        }
       }
-    }
-    .left-block, .right-block {
-      h2, p {
-        transform: translate(0, 100px);
-        opacity: 0;
+      .right-block {
+        .image-block {
+          transform: translate(-$ANIMATION-WIDTH, 0);
+          opacity: 0;
+          transition: transform 1s $ANIMATION-EASING .2s, opacity .5s $ANIMATION-EASING .2s;
+        }
       }
-      .laptop, .phone {
-        transform: translate(-200px, 0);
-        opacity: 0;
-      }
-      .laptop {
-        transition: transform .8s ease .6s, opacity .8s ease .6s;
-      }
-      .phone {
-        transition: transform .8s ease .8s, opacity .8s ease .8s;
-      }
-      h2 {
-        transition: transform 1s ease, opacity 1s ease;
-      }
-      p {
-        transition: transform .8s ease .2s, opacity .8s ease .2s;
+      .left-block, .right-block {
+        h2, p {
+          transform: translate(0, $ANIMATION-WIDTH);
+          opacity: 0;
+        }
+        .laptop, .phone {
+          transform: translate(-$ANIMATION-WIDTH, 0);
+          opacity: 0;
+        }
+        .laptop {
+          transition: transform 1s $ANIMATION-EASING .4s, opacity .5s $ANIMATION-EASING .4s;
+        }
+        .phone {
+          transition: transform 1s $ANIMATION-EASING .6s, opacity .5s $ANIMATION-EASING .6s;
+        }
+        h2 {
+          transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
+        }
+        p {
+          transition: transform $ANIMATION-DURATION $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
+        }
+        &.animate {
+          h2, p, .image-block, .laptop, .phone {
+            transform: translate(0, 0);
+            opacity: 1;
+          }
+        }
       }
       &.animate {
-        h2, p, .image-block, .laptop, .phone {
+        h1 {
           transform: translate(0, 0);
           opacity: 1;
         }
-      }
-    }
-    &.animate {
-      h1 {
-        transform: translate(0, 0);
-        opacity: 1;
       }
     }
   }

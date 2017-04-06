@@ -18,10 +18,10 @@ export default IndexPageSection.extend({
     ];
   },
   checkScroll(scrollTop, scrollElTop) {
-    if (scrollElTop > 100) {
+    if (scrollElTop > 150) {
       this.$el.addClass('animate');
     }
-    if (scrollElTop > 280) {
+    if (scrollElTop > 350) {
       this.$el.addClass('animate-items');
       return true;
     }

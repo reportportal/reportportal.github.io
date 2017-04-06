@@ -3,5 +3,31 @@
     display: inline-block;
     margin: 6px 9px;
   }
-
+  .block-down {
+    position: relative;
+    display: inline-block;
+    background: url(./img/down.svg) center no-repeat;
+    cursor: pointer;
+    width: 20px;
+    height: 30px;
+    margin-right: 35px;
+    .icons-down {
+      display: none;
+      position: absolute;
+      background: $COLOR-WHITE_TWO;
+      box-shadow: 0 1px 5px 0 rgba(189, 199, 204, 0.5);
+      top: 35px;
+      left: -110px;
+      padding: 5px;
+      .social-icon {
+        display: inline-block;
+      }
+    }
+    &:focus {
+      outline: none;
+      .icons-down {
+        display: block;
+      }
+    }
+  }
 }

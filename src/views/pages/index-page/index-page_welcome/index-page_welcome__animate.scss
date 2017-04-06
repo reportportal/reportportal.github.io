@@ -1,0 +1,38 @@
+@import '../index-page_mixin';
+
+@media (min-width: $MIN-ANIMATION-WIDTH) {
+  html.csstransforms {
+    .index-page_welcome {
+      h1, h2, .points, .noutebook {
+        transform: translate(0, $ANIMATION-WIDTH);
+        opacity: 0;
+
+      }
+      .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines {
+        opacity: 0;
+      }
+      h1 {
+        transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
+      }
+      h2 {
+        transition: transform $ANIMATION-DURATION $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
+      }
+      .points {
+        transition: transform $ANIMATION-DURATION $ANIMATION-EASING .4s, opacity $ANIMATION-DURATION $ANIMATION-EASING .4s;
+      }
+      .noutebook {
+        transition: transform $ANIMATION-DURATION $ANIMATION-EASING .5s, opacity $ANIMATION-DURATION $ANIMATION-EASING .5s;
+      }
+      .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines {
+        transition: opacity .7s $ANIMATION-EASING .7s;
+      }
+      &.animate {
+        h1, h2, .points, .noutebook, .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+}
+

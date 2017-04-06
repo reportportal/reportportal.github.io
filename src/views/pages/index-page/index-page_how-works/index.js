@@ -26,7 +26,7 @@ export default IndexPageSection.extend({
     ];
   },
   checkScrollMain(scrollTop, scrollElTop) {
-    if (scrollElTop > 200) {
+    if (scrollElTop > 150) {
       this.$el.addClass('animate');
       return true;
     }
@@ -34,7 +34,7 @@ export default IndexPageSection.extend({
   },
   checkScroll(el) {
     return (scrollTop, scrollElTop) => {
-      if (scrollElTop > 200) {
+      if (scrollElTop > 300) {
         $(el).addClass('animate');
         return true;
       }

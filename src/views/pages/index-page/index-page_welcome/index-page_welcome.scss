@@ -4,14 +4,44 @@ $COLOR-BOOk-GREY: #ececec;
 .index-page_welcome {
   position: relative;
   width: 100%;
-  height: 1094px;
+  padding-bottom: 50px;
   overflow: hidden;
-  .bg-page {
+  .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url(img/waves.svg) center bottom no-repeat;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+  }
+  .bg-page-wave-1 {
+    background-image: url(./img/wave1.svg);
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 100%;
+      left: 0;
+      background: #79D6D9;
+      opacity: .3;
+    }
+  }
+  .bg-page-wave-2 {
+    background-image: url(./img/wave2.svg);
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 100%;
+      left: 0;
+      background: #79D6D9;
+      opacity: .3;
+    }
+  }
+  .bg-page-lines {
+    background-image: url(./img/lines&circles.svg);
   }
   .section-container {
     @include content-section;
@@ -73,81 +103,132 @@ $COLOR-BOOk-GREY: #ececec;
     }
   }
   .noutebook {
-    position: absolute;
-    width: 100%;
-    bottom: 54px;
+    position: relative;
+    margin: 45px auto 0 auto;
+    width: 928px;
+    height: 640px;
   }
   .screen {
     position: absolute;
-    width: 928px;
-    height: 642px;
+    width: 100%;
+    height: 100%;
     border-radius: 30px;
     background-color: #fdffff;
-    left: 50%;
-    margin-left: -464px;
-    bottom: 17px;
+    bottom: 3%;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
   }
   .site {
-    width: 878px;
-    height: 554px;
-    background: url(./img/site.png);
-    margin: 40px 25px;
+    position: absolute;
+    top: 40px;
+    left: 25px;
+    right: 25px;
+    bottom: 45px;
+    background: url(./img/site.png) center no-repeat;
+    background-size: contain;
   }
   .keyboard {
     position: absolute;
     bottom: 0;
-    width: 1148px;
-    height: 32px;
+    width: 124%;
+    height: 5%;
     background-color: #fdffff;
-    left: 50%;
-    margin-left: -574px;
+    left: -12%;
     border-top: 1px solid $COLOR-BOOk-GREY;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
     border-bottom-left-radius: 60px 15px;
     border-bottom-right-radius: 60px 15px;
     &:after {
       content: '';
-      position: absolute;
+      position: relative;
       background: $COLOR-BOOk-GREY;
-      width: 188px;
-      height: 14px;
-      top: 0;
-      left: 50%;
-      margin-left: -94px;
+      display: block;
+      margin: 0 auto;
+      width: 16%;
+      height: 44%;
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
     }
   }
-}
-
-/* ------ ANIMATE ------------- */
-html.csstransforms {
-  .index-page_welcome {
-    h1, h2, .points, .noutebook, .bg-page {
-      transform: translate(0, 100px);
-      opacity: 0;
-
-    }
-    h1 {
-      transition: transform 1s ease, opacity 1s ease;
-    }
-    h2 {
-      transition: transform .8s ease .2s, opacity .8s ease .2s;
+  @media (max-width: 1000px) {
+    .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines {
+      top: 143px;
+      transform: translate(0, 0) !important;
     }
     .points {
-      transition: transform .6s ease .4s, opacity .6s ease .4s;
+      .point {
+        margin: 0 20px;
+      }
     }
     .noutebook {
-      transition: transform .5s ease .5s, opacity .5s ease .5s;
+      margin-top: 80px;
+      width: 728px;
+      height: 502px;
     }
-    .bg-page {
-      transition: transform 1s ease .7s, opacity .7s ease .7s;
+  }
+  @media (max-width: $MIDDLE-INTERFACE-WIDTH) {
+    h1 {
+      max-width: 400px;
+      margin: 0 auto;
+      padding-top: 90px;
+      font-size: 33px;
+      line-height: 40px;
     }
-    &.animate {
-      h1, h2, .points, .noutebook, .bg-page {
-        opacity: 1;
-        transform: translate(0, 0);
+    .points {
+      display: none;
+    }
+  }
+  @media (max-width: 750px) {
+    .noutebook {
+      width: 530px;
+      height: 365px;
+    }
+    .screen {
+      border-radius: 20px;
+    }
+    .keyboard {
+      border-bottom-left-radius: 40px 10px;
+      border-bottom-right-radius: 40px 10px;
+    }
+    .site {
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 25px;
+    }
+  }
+  @media (max-width: $MOBILE-INTERFACE-WIDTH) {
+    .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines {
+      background-size: 200%;
+      top: 0;
+    }
+    h1 {
+      font-size: 26px;
+      padding-top: 48px;
+      line-height: 32px;
+    }
+    h2 {
+      margin: 0 auto;
+      max-width: 270px;
+      font-size: 18px;
+      line-height: 25px;
+      padding-top: 13px;
+    }
+    .noutebook {
+      margin-top: 60px;
+      width: 300px;
+      height: 203px;
+      .screen {
+        border-radius: 15px;
+      }
+      .site {
+        top: 10px;
+        left: 6px;
+        right: 6px;
+        bottom: 15px;
+      }
+      .keyboard {
+        border-bottom-left-radius: 25px 7px;
+        border-bottom-right-radius: 25px 7px;
       }
     }
   }

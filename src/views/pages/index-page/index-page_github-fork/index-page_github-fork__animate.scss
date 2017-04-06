@@ -1,17 +1,19 @@
+@import '../index-page_mixin';
+
 html.csstransforms {
   .index-page_github-fork {
     h1, h2, p {
-      transform: translate(0, 100px);
+      transform: translate(0, $ANIMATION-WIDTH);
       opacity: 0;
     }
     h1 {
-      transition: transform 1s ease, opacity 1s ease;
+      transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
     }
     h2 {
-      transition: transform .8s ease .2s, opacity .8s ease .2s;
+      transition: transform $ANIMATION-DURATION $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
     }
     p {
-      transition: transform .6s ease .4s, opacity .6s ease .4s;
+      transition: transform $ANIMATION-DURATION $ANIMATION-EASING .4s, opacity $ANIMATION-DURATION $ANIMATION-EASING .4s;
     }
     &.animate {
       h1, h2, p {

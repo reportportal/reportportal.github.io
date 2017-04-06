@@ -82,7 +82,9 @@ function ScrollerAnimate(blocks) {
         || (element.scrollEnd > scrollBottom && scrollTop >= element.scrollStart)) {
         showBlockIndexes.push(index);
         if (!element.activate) {
-          if (element.checkScroll(scrollTop, scrollBottom - element.scrollStart)) {
+          const result = element.checkScroll(scrollTop, scrollBottom - element.scrollStart,
+            element.scrollStart);
+          if (result) {
             element.activate = true;
           }
         }

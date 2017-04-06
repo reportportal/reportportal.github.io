@@ -14,6 +14,7 @@ const Router = Backbone.Router.extend({
   routes: {
     '': 'openIndex',
     documentation: 'openDocumentation',
+    '*invalidRoute': 'openIndex',
   },
   openIndex() {
     this.context.renderIndex();

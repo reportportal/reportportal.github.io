@@ -18,7 +18,7 @@ export default IndexPageSection.extend({
     ];
   },
   checkScroll(scrollTop, scrollElTop) {
-    if (scrollElTop > 150) {
+    if (scrollElTop > 170) {
       this.$el.addClass('animate');
       return true;
     }
