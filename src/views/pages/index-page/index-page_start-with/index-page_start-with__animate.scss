@@ -15,36 +15,38 @@
   }
 }
 
-html.csstransforms {
-  .index-page_start-with {
-    h1 {
-      opacity: 0;
-      transform: translate(0, $ANIMATION-WIDTH);
-      transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
-    }
-    .block-item {
-      .block-icon, h2, p, a {
+@media (min-width: $MIN-ANIMATION-WIDTH) {
+  html.csstransforms {
+    .index-page_start-with {
+      h1 {
         opacity: 0;
         transform: translate(0, $ANIMATION-WIDTH);
+        transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
       }
-    }
-    &.animate {
-      h1 {
-        opacity: 1;
-        transform: translate(0, 0);
-      }
-    }
-    &.animate-items {
-      .block-item-1 {
-        @include block-animate($ANIMATION-DURATION, 0s);
-      }
-      .block-item-2 {
-        @include block-animate($ANIMATION-DURATION, 0s);
-      }
-      .block-item-1, .block-item-2 {
+      .block-item {
         .block-icon, h2, p, a {
+          opacity: 0;
+          transform: translate(0, $ANIMATION-WIDTH);
+        }
+      }
+      &.animate {
+        h1 {
           opacity: 1;
           transform: translate(0, 0);
+        }
+      }
+      &.animate-items {
+        .block-item-1 {
+          @include block-animate($ANIMATION-DURATION, 0s);
+        }
+        .block-item-2 {
+          @include block-animate($ANIMATION-DURATION, 0s);
+        }
+        .block-item-1, .block-item-2 {
+          .block-icon, h2, p, a {
+            opacity: 1;
+            transform: translate(0, 0);
+          }
         }
       }
     }

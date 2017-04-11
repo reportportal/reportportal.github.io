@@ -82,4 +82,44 @@
       }
     }
   }
+  @media (max-width: 1000px) {
+    .separator {
+      display: none;
+    }
+  }
+  @media (max-width: $MOBILE-INTERFACE-WIDTH) {
+    h1 {
+      font-size: 22px;
+      padding-top: 43px;
+    }
+    .block-list {
+      margin-top: 40px;
+    }
+    .block-item {
+      position: relative;
+      width: 300px;
+      height: 190px;
+    }
+    .block-icon {
+       position: absolute;
+       width: 64px;
+       background-size: contain;
+       background-position: center top;
+      &.doc-icon {
+        background-position: center top;
+      }
+     }
+    .block-text {
+      h2 {
+        padding-left: 80px;
+        font-size: 20px;
+        margin-top: 23px;
+        margin-bottom: 29px;
+      }
+      a {
+        margin-top: 12px;
+      }
+    }
+
+  }
 }

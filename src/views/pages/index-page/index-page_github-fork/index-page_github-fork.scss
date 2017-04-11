@@ -28,4 +28,41 @@
       height: 32px;
     }
   }
+  @media (max-width: 1000px) {
+    h1 {
+      width: 570px;
+      line-height: 35px;
+      margin: 0 auto;
+      padding-top: 60px;
+    }
+    h2 {
+      width: 440px;
+      line-height: 23px;
+      margin: 0 auto;
+    }
+
+  }
+  @media (max-width: $MOBILE-INTERFACE-WIDTH) {
+    height: 330px;
+    background-size: cover;
+    h1 {
+      font-size: 20px;
+      width: 300px;
+      line-height: 27px;
+      padding-top: 40px;
+    }
+    h2 {
+      width: 300px;
+      margin-top: 24px;
+      font-size: 17px;
+    }
+    p {
+      font-size: 17px;
+      margin-top: 28px;
+      button {
+        display: block;
+        margin: 17px auto 0 auto;
+      }
+    }
+  }
 }

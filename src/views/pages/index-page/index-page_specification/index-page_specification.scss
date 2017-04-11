@@ -66,4 +66,34 @@
       background-image: url(./img/ai.svg);
     }
   }
+  @media (max-width: 1000px) {
+    .spec {
+      width: 250px;
+      height: 280px;
+    }
+  }
+  @media (max-width: $MOBILE-INTERFACE-WIDTH) {
+    h1 {
+      font-size: 22px;
+      padding-top: 44px;
+    }
+    .spec-list {
+      margin-top: 30px;
+    }
+    .spec {
+      position: relative;
+      width: 300px;
+      height: auto;
+      margin-bottom: 30px;
+      .spec-icon {
+        position: absolute;
+        left: 10px;
+      }
+      h2 {
+        padding-left: 80px;
+        margin-top: 12px;
+        margin-bottom: 14px;
+      }
+    }
+  }
 }
