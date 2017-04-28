@@ -1,3 +1,550 @@
 .documentation-page {
+  position: relative;
+  width: 100%;
+  padding-top: 60px;
+  margin: 0 auto;
+  .welcome-banner {
+    display: none;
+    height: 196px;
+    width: 100%;
+    background: url(./img/welcome-block-background.svg) no-repeat;
+    -webkit-background-size: 150% 100%;
+    background-size: 150% 100%;
+    background-color: #d7f2f4;
+    @media (max-width: $SCREEN_XS_MAX) {
+      display: none !important;
+    }
+    .welcome-message {
+      width: 450px;
+      height: 100%;
+      text-align: center;
+      margin: 0 auto;
+      color: $COLOR-STEEL-GREY;
+      strong {
+        display: inline-block;
+        height: 36px;
+        line-height: 36px;
+        margin-top: 60px;
+        font-family: $FONT-HEADER;
+        font-size: 25px;
+      }
+      span {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 10px;
+        font-family: $FONT-LIGHT;
+        font-size: 20px;
+      }
+    }
+  }
 
+  .documentation-page-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    @media (max-width: $SCREEN_SM_MAX) {
+      width: 100%;
+    }
+    .documentation-menu {
+      position: fixed;
+      top: 120px;
+      bottom: 100px;
+      width: 260px;
+      z-index: 1;
+      @media (max-width: $SCREEN_XS_MAX) {
+        background-color: #f4f4f4;
+        width: 100%;
+        height: 50px;
+        top: 0 !important;
+        position: relative;
+      }
+      .controls {
+        height: calc(100% - 60px);
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        @media (max-width: $SCREEN_XS_MAX) {
+          position: relative;
+          height: 50px;
+          color: $COLOR-TEALISH;
+          &.open {
+            height: initial;
+            top: 60px;
+            bottom: 130px;
+            position: fixed;
+            background-color: transparent;
+            .menu-title {
+              i {
+                transform: rotate(180deg);
+                margin-bottom: -4px;
+              }
+            }
+            .sidenav {
+              display: block;
+              position: relative;
+              width: 100%;
+              li {
+                background-color: $COLOR-WHITE_TWO;
+                border-bottom: solid 1px #f4f4f4;
+              }
+            }
+          }
+        }
+        .docs-controls {
+          position: relative;
+          @media (max-width: $SCREEN_XS_MAX) {
+            display: none;
+            padding: 0 10px;
+          }
+          .rp-icons-search {
+            position: absolute;
+            color: $COLOR-GRAY-60;
+            right: 55px;
+            top: 9px;
+            font-size: 13px;
+            @media (max-width: $SCREEN_XS_MAX) {
+              display: inline-block;
+              position: absolute;
+              left: 16px;
+              top: 14px;
+              font-size: 20px;
+              width: 20px;
+            }
+          }
+          .rp-input {
+            float: left;
+            height: 30px;
+            width: calc(100% - 40px);
+            font-size: 13px;
+            line-height: 13px;
+            padding: 6px 35px 6px 10px;
+            margin-bottom: 23px;
+            border: 1px solid $COLOR-GRAY-80;
+            color: $COLOR-GRAY-60;
+            font-family: $FONT-REGULAR ,sans-serif;
+            outline: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+            @media (max-width: $SCREEN_SM_MAX) {
+              width: calc(100% - 50px);
+              margin-left: 10px;
+            }
+            @media (max-width: $SCREEN_XS_MAX) {
+              width: calc(100% - 60px);
+              background: 0 0;
+              border: none;
+              border-bottom: 1px solid #999;
+              font-size: 16px;
+              padding: 0 20px 0 30px;
+              margin-top: 10px;
+            }
+          }
+          .all {
+            display: block;
+            width: 20px;
+            float: left;
+            margin-left: 10px;
+            cursor: pointer;
+            .material-icons {
+              display: none;
+            }
+            span {
+              line-height: 30px;
+              display: block;
+            }
+            @media (max-width: $SCREEN_XS_MAX) {
+              .material-icons{
+                display: block;
+                margin-left: -30px;
+                line-height: 50px;
+                font-size: 23px;
+                color: $COLOR-GRAY-60;
+              }
+              span {
+                display: none;
+              }
+            }
+          }
+          .search-cancel {
+            display: none;
+            @media (max-width: $SCREEN_XS_MAX) {
+              display: block;
+              position: absolute;
+              right: 10px;
+              line-height: 50px;
+            }
+          }
+        }
+        .content-search-btn {
+          display: none;
+          @media (max-width: $SCREEN_XS_MAX) {
+            display: block;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: 0;
+            top: 0;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+              i {
+                margin-top: 13px;
+              }
+          }
+        }
+        .menu-title {
+          display: none;
+          @media (max-width: $SCREEN_XS_MAX) {
+            font-family: $FONT-REGULAR;
+            font-size: 16px;
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 20px;
+            vertical-align: middle;
+            line-height: 50px;
+            i {
+              font-size: 24px;
+              display: inline-block;
+              width: 24px;
+              height: 19px;
+              text-align: center;
+              overflow: hidden;
+            }
+          }
+        }
+        .sidenav {
+          clear: both;
+          @media (max-width: $SCREEN_XS_MAX) {
+            display: none;
+            -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+            -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+          }
+          li {
+            width: 100%;
+            min-height: 40px;
+            cursor: pointer;
+            a {
+              display: block;
+              min-height: 40px;
+              padding: 12px 15px;
+              font-family: $FONT-REGULAR;
+              font-size: 16px;
+              color: $COLOR-TEALISH;
+              text-decoration: none;
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+
+              &:hover {
+                background-color: #d6f3f7;
+              }
+            }
+            .nav {
+              display: none;
+            }
+            &.g-nav--open {
+              .nav {
+                display: block;
+                li {
+                  a{
+                    padding-left: 30px;
+                    font-size: 15px;
+                  }
+                }
+              }
+              &>a:after {
+                content: "\E316";
+              }
+            }
+            &.not-nested {
+              &>a:after {
+                content: '';
+              }
+            }
+            &.active {
+              & > a {
+                font-family: $FONT-HEADER;
+                background-color: $COLOR-GRAY-91;
+                cursor: default;
+              }
+            }
+          }
+
+          &>li>a:after  {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            font-family: $MaterialIcons;
+            content: "\E313";
+            font-size: 25px;
+            line-height: 16px;
+          }
+        }
+        .doc-menu-not-found {
+          display: none;
+        }
+      }
+
+      &.empty {
+        .controls {
+          .doc-menu-not-found {
+            display: block;
+            text-align: center;
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            font-family: $FONT-HEADER;
+            font-size: 16px;
+            color: $COLOR-STEEL-GREY;
+          }
+        }
+      }
+    }
+    .documentation-content {
+      padding-left: 260px;
+      position: fixed;
+      top: 120px;
+      bottom: 100px;
+      width: calc(100% - 130px);
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+
+      @media (max-width: $SCREEN_SM_MAX) {
+        width: 100%;
+      }
+      @media (max-width: $SCREEN_XS_MAX) {
+        top: 140px !important;
+        padding-left: 0;
+      }
+      .b-docs__wrapper {
+        padding-left: 60px;
+        padding-right: 15px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        @media (max-width: $SCREEN_SM_MAX) {
+          padding-left: 30px;
+        }
+
+        @media (max-width: $SCREEN_XS_MAX) {
+          padding-left: 15px;
+        }
+        h1 {
+          width: 100%;
+          font-family: $FONT-LIGHT;
+          font-size: 26px;
+          color: $COLOR-STEEL-GREY;
+          margin-bottom: 30px;
+        }
+
+        h3, h4 {
+          position: relative;
+          display: block;
+          width: 100%;
+          margin-bottom: 15px;
+          font-family: $FONT-REGULAR;
+          font-size: 22px;
+          line-height: 32px;
+          color: $COLOR-TOPAZ;
+
+          a.anchor {
+            display: block;
+            width: 100%;
+            height: 32px;
+            left: -25px;
+            top: 5px;
+            text-decoration: none;
+            position: absolute;
+
+            .material-icons {
+              display: none;
+              color: $COLOR-TOPAZ;
+              font-size: 22px;
+              -webkit-transform: rotate(-45deg);
+              -moz-transform: rotate(-45deg);
+              -ms-transform: rotate(-45deg);
+              -o-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+            }
+
+            &:hover {
+              .material-icons {
+                display: block;
+                @media (max-width: $SCREEN_XS_MAX) {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+
+        h3 {
+          margin-top: 30px;
+        }
+
+        h4 {
+          font-size: 16px;
+          a.anchor {
+            top: 4px;
+          }
+        }
+
+        pre {
+          margin: 15px 0;
+          background-color: #eeeeee;
+          padding: 15px;
+          white-space: pre-wrap;
+          word-break: break-all;
+          line-height: 24px;
+          font-size: 13px;
+          font-family: monospace;
+          color: #636566;
+          
+          code {
+            background-color: #eeeeee;
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: $COLOR-TEALISH;
+        }
+
+        img {
+          max-width: 100%;
+          vertical-align: middle;
+          cursor: zoom-in;
+        }
+
+        p {
+          font-family: $FONT-REGULAR;
+          font-size: 15px;
+          line-height: 24px;
+          margin-bottom: 10px;
+          color: $COLOR-CHARCOAL-GREY;
+        }
+
+        ol {
+          padding-left: 18px;
+          list-style: decimal;
+          li {
+            line-height: 20px;
+          }
+        }
+
+        ul {
+          padding-left: 18px;
+          margin-bottom: 10px;
+          li {
+            line-height: 20px;
+            &:before {
+              content: "";
+              margin-right: 20px;
+              display: inline-block;
+              line-height: 20px;
+              vertical-align: middle;
+              width: 5px;
+              height: 5px;
+              background-color: $COLOR-TEALISH;
+              border-radius: 2.5px;
+            }
+            p {
+              display: inline;
+            }
+          }
+        }
+
+        strong {
+          font-family: $FONT-HEADER;
+        }
+        em {
+          font-style: italic;
+        }
+
+        blockquote {
+          padding: 10px 20px;
+          margin: 0 0 20px;
+          font-size: 17.5px;
+          border-left: 5px solid #eeeeee;
+        }
+
+        table {
+          display: block;
+          width: 100%;
+          border-collapse: collapse;
+          border-spacing: 0;
+          thead {
+            background-color: #eeeeee;
+            th {
+              padding: 10px;
+              color: #666666;
+              font-size: 13.5px;
+              border: 1px solid #dddddd;
+              text-align: left;
+            }
+          }
+          tbody {
+            td {
+              vertical-align: top;
+              padding: 10px;
+              color: #666666;
+              font-size: 13.5px;
+              border: 1px solid #dddddd;
+            }
+          }
+        }
+
+        .toc {
+          width: 100%;
+          .toc-level {
+            color: $COLOR-TEALISH;
+            &:before {
+              display: none;
+            }
+            a {
+              font-family: $FONT-REGULAR;
+              color: inherit;
+              text-decoration: none;
+            }
+            &.toc-level-0 {
+              margin: 20px 0;
+              a {
+                font-size: 16px;
+              }
+            }
+            &.toc-level-1 {
+              margin: 10px 0 10px 30px;
+              list-style-type: disc;
+              a {
+                font-size: 15px;
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .footer-container {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+
+  &.show-welcome {
+    .welcome-banner {
+      display: block;
+    }
+    .documentation-menu, .documentation-content {
+      top: 289px;
+    }
+  }
 }

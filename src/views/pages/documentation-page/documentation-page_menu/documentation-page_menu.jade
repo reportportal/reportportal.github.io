@@ -1,0 +1,15 @@
+.controls
+  .docs-controls(data-js-content-search)
+    i.rp-icons.rp-icons-search
+    input.rp-input#search(type="text" placeholder="Search in Documentation")
+    a.all(data-show-all)
+      i.material-icons clear
+      span All
+    a.search-cancel(data-js-search-cancel) Cancel
+  .content-search-btn(data-js-show-search)
+    i.rp-icons.rp-icons-search
+  a.menu-title.dropdown-toggle(data-toggle="dropdown" data-js-content-dropdown href="#")
+    span.selected-project(title="Current active project") Documentation
+    i.material-icons keyboard_arrow_down
+  ul.nav.sidenav.dropdown-menu
+  p.doc-menu-not-found No result found

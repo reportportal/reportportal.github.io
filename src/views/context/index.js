@@ -25,9 +25,16 @@ export default Epoxy.View.extend({
     this.header.activatePage('');
     this.renderPage(IndexPage);
   },
-  renderDocumentation() {
+  renderDocumentation(id) {
+    if (this.currentPage && this.currentPage.$el.hasClass('documentation-page')) {
+      this.currentPage.changeAnchor(id);
+      return;
+    }
     this.header.activatePage('documentation');
-    this.renderPage(DocumentationPage);
+    this.currentPage && this.currentPage.destroy();
+    this.currentPage = new DocumentationPage({ id, mainScrollEl: this.mainScrollEl });
+    $('[data-js-content-container]', this.$el).html(this.currentPage.$el);
+    this.currentPage.onShow && this.currentPage.onShow();
   },
   renderPage(pageView) {
     this.currentPage && this.currentPage.destroy();

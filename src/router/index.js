@@ -14,13 +14,14 @@ const Router = Backbone.Router.extend({
   routes: {
     '': 'openIndex',
     documentation: 'openDocumentation',
+    'documentation/:id': 'openDocumentation',
     '*invalidRoute': 'openIndex',
   },
   openIndex() {
     this.context.renderIndex();
   },
-  openDocumentation() {
-    this.context.renderDocumentation();
+  openDocumentation(id) {
+    this.context.renderDocumentation(id);
   },
 });
 function getInstance() {
