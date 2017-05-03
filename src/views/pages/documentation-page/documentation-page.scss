@@ -1,9 +1,21 @@
 .documentation-page {
-  position: relative;
+  position: absolute;
   width: 100%;
   padding-top: 60px;
-  margin: 0 auto;
-  .welcome-banner {
+  top: 0;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+
+  @media (max-width: 1000px) {
+    bottom: 100px;
+  }
+
+  @media (max-width: 600px) {
+    bottom: 150px;
+  }
+
+    .welcome-banner {
     display: none;
     height: 196px;
     width: 100%;
@@ -40,15 +52,17 @@
   }
 
   .documentation-page-wrapper {
+    position: relative;
+    height: 100%;
     width: 90%;
     margin: 0 auto;
     @media (max-width: $SCREEN_SM_MAX) {
       width: 100%;
     }
     .documentation-menu {
-      position: fixed;
-      top: 120px;
-      bottom: 100px;
+      position: absolute;
+      top: 60px;
+      bottom: 20px;
       width: 260px;
       z-index: 1;
       @media (max-width: $SCREEN_XS_MAX) {
@@ -308,9 +322,9 @@
     }
     .documentation-content {
       padding-left: 260px;
-      position: fixed;
-      top: 120px;
-      bottom: 100px;
+      position: absolute;
+      top: 60px;
+      bottom: 20px;
       width: calc(100% - 130px);
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -320,7 +334,7 @@
         width: 100%;
       }
       @media (max-width: $SCREEN_XS_MAX) {
-        top: 140px !important;
+        top: 80px;
         padding-left: 0;
       }
       .b-docs__wrapper {
@@ -534,17 +548,25 @@
   }
 
   .footer-container {
-    position: fixed;
+    position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: -80px;
+
+    @media (max-width: 1000px) {
+      bottom: -100px;
+    }
+
+    @media (max-width: 600px) {
+      bottom: -150px;
+    }
   }
 
   &.show-welcome {
     .welcome-banner {
       display: block;
     }
-    .documentation-menu, .documentation-content {
-      top: 289px;
+    .documentation-page-wrapper {
+      height: calc(100% - 196px);
     }
   }
 }
