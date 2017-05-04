@@ -1,7 +1,7 @@
 .documentation-page {
   position: absolute;
   width: 100%;
-  padding-top: 60px;
+  margin-top: 60px;
   top: 0;
   bottom: 80px;
   left: 0;
@@ -567,6 +567,9 @@
     }
     .documentation-page-wrapper {
       height: calc(100% - 196px);
+      @media (max-width: $SCREEN_XS_MAX) {
+        height: 100%;
+      }
     }
   }
 }

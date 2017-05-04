@@ -1,81 +1,229 @@
 .header {
-  position: fixed;
   width: 100%;
-  height: 60px;
-  background: $COLOR-WHITE_TWO;
-  font-family: $FONT-REGULAR;
-  box-shadow: 0 1px 2px 0 rgba(189, 199, 204, 0.41);
-  z-index: 10;
-  .header-content {
-    position: relative;
-    width: 1000px;
-    padding-top: 15px;
-    margin: 0 auto;
-
-    @media (max-width: $SCREEN_SM_MAX) {
-      width: 100%;
-    }
-  }
-  .button-sidebar-open {
+  .header-content-wrapper {
     position: absolute;
-    box-sizing: border-box;
-    top: 0;
-    width: 60px;
     height: 60px;
-    padding: 20px 15px;
+    width: 100%;
 
-
-    .sidebar-icon-part {
-      width: 100%;
-      height: 3px;
-      background: $COLOR-TEALISH;
-      margin-bottom: 5px;
-    }
-  }
-  .logo {
-    float: left;
-    width: 141px;
-    height: 23px;
-    margin: 5px 0 0 30px;
-    background: url(img/logo.svg) center no-repeat;
-
-    @media (max-width: $SCREEN_XS_MAX) {
-      float: none;
+    background: $COLOR-WHITE_TWO;
+    font-family: $FONT-REGULAR;
+    box-shadow: 0 1px 2px 0 rgba(189, 199, 204, 0.41);
+    z-index: 10;
+    .header-content {
+      height: 100%;
+      width: 1000px;
       margin: 0 auto;
-    }
-  }
-  .right-block {
-    float: right;
-    margin-right: 30px;
+      padding-top: 15px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
 
-    @media (max-width: $SCREEN_XS_MAX) {
-      display: none;
-    }
 
-    & > * {
-      float: right;
-    }
-
-    .rp-button {
       @media (max-width: $SCREEN_SM_MAX) {
+        width: 100%;
+      }
+      @media (max-width: $SCREEN_XS_MAX) {
+        padding-top: 0;
+      }
+
+      .button-sideblock-icon-open {
         display: none;
+        position: absolute;
+        box-sizing: border-box;
+        top: 0;
+        width: 60px;
+        height: 60px;
+        padding: 20px 15px;
+
+        @media (max-width: $SCREEN_XS_MAX) {
+          display: block;
+        }
+
+        .sideblock-icon-open-part {
+          width: 100%;
+          height: 3px;
+          background: $COLOR-TEALISH;
+          margin-bottom: 5px;
+        }
+      }
+      .logo {
+        float: left;
+        width: 141px;
+        height: 23px;
+        margin: 5px 0 0 30px;
+        background: url(img/logo.svg) center no-repeat;
+
+        @media (max-width: $SCREEN_XS_MAX) {
+          float: none;
+          margin: 0 auto;
+          height: 60px;
+          line-height: 60px;
+        }
+      }
+      .right-block {
+        float: right;
+        margin-right: 30px;
+
+        @media (max-width: $SCREEN_XS_MAX) {
+          display: none;
+        }
+
+        & > * {
+          float: right;
+        }
+
+        .rp-button {
+          @media (max-width: $SCREEN_SM_MAX) {
+            display: none;
+          }
+        }
+
+        .menu-item {
+          padding: 8px 0;
+          font-size: 15px;
+          color: $COLOR-STEEL-GREY;
+          cursor: pointer;
+          text-align: center;
+
+          &.menu-item__index {
+            width: 110px;
+          }
+          &.menu-item__documentation {
+            width: 150px;
+          }
+          &.active {
+            font-family: $FONT-HEADER;
+          }
+        }
       }
     }
   }
-  .menu-item {
-    padding: 8px 0;
-    font-size: 15px;
-    color: $COLOR-STEEL-GREY;
-    cursor: pointer;
-    text-align: center;
-    &.menu-item__index {
-      width: 110px;
+
+  .side-content {
+    position: absolute;
+    width: 200px;
+    left: -200px;
+    top: 0;
+    bottom: 0;
+    background-color: $COLOR-WHITE_TWO;
+    box-shadow: 0 1px 5px 0 rgba(189, 199, 204, 0.9);
+    z-index: 10;
+    .top-block {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      .title {
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        padding-left: 15px;
+        font-family: $FONT-HEADER;
+        font-size: 12px;
+        color: $COLOR-GRAY-47;
+        border-bottom: solid 1px #f4f4f4;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .menu-item {
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        padding-left: 15px;
+        font-family: $FONT-REGULAR;
+        font-size: 16px;
+        color: $COLOR-TEALISH;
+        border-bottom: solid 1px #f4f4f4;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #d6f3f7;
+        }
+
+        &.active {
+          font-family: $FONT-HEADER;
+        }
+      }
     }
-    &.menu-item__documentation {
-      width: 150px;
+    .bottom-block {
+      position: absolute;
+      bottom: 0;
+      .title {
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        padding-left: 15px;
+        font-family: $FONT-HEADER;
+        font-size: 12px;
+        color: $COLOR-GRAY-47;
+        border-bottom: solid 1px #f4f4f4;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .social-block {
+        width: 100%;
+        height: 100px;
+        .row {
+          height: 50px;
+          border-bottom: solid 1px #f4f4f4;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          .social {
+            width: 50px;
+            height: 50px;
+            float: left;
+            border-right: solid 1px #f4f4f4;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            cursor: pointer;
+
+            &.git {
+              width: 100px;
+            }
+            &.slack {
+              background: url(../../../common/img/social/icon-sl.svg) center no-repeat;
+            }
+            &.facebook {
+              background: url(../../../common/img/social/icon-fb.svg) center no-repeat;
+            }
+            &.twitter {
+              background: url(../../../common/img/social/icon-tw.svg) center no-repeat;
+            }
+            &.youtube {
+              background: url(../../../common/img/social/icon-yt.svg) center no-repeat;
+            }
+            &.vk {
+              background: url(../../../common/img/social/icon-vk.svg) center no-repeat;
+            }
+
+          }
+        }
+
+      }
+      .rp-button {
+        margin: 20px 15px;
+        width: 170px;
+        svg {
+          vertical-align: middle;
+        }
+        span {
+          line-height: 30px;
+        }
+      }
     }
-    &.active {
-      font-family: $FONT-HEADER;
-    }
+  }
+}
+.side-open {
+  .side-content-close {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
   }
 }

@@ -3,7 +3,7 @@ import { $ } from 'backbone';
 import template from './Context.jade';
 import './Context.scss';
 
-import Header from '../components/header';
+
 
 import IndexPage from 'pages/index-page';
 import DocumentationPage from 'pages/documentation-page';
@@ -15,8 +15,7 @@ export default Epoxy.View.extend({
     this.mainScrollEl = options.mainScrollEl;
     this.renderTemplate();
     this.currentPage = null;
-    this.header = new Header();
-    $('[data-js-header-container]', this.$el).html(this.header.$el);
+    this.header = options.header;
   },
   onShow() {
 

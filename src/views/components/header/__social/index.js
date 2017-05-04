@@ -7,6 +7,7 @@ export default Epoxy.View.extend({
   template,
   className: 'header__social',
   events: {
+    'click [data-js-href]': 'openSocial',
   },
   initialize() {
     this.renderTemplate();
@@ -17,5 +18,8 @@ export default Epoxy.View.extend({
         console.dir(data.stargazers_count);
       },
     });
+  },
+  openSocial(e) {
+    window.open($(e.currentTarget).attr('data-js-href'));
   },
 });
