@@ -5,6 +5,7 @@ import template from './Header.jade';
 import './Header.scss';
 
 import HeaderSocial from './__social';
+import GitHubStarsCount from 'components/gitHubStarsCount';
 
 export default Epoxy.View.extend({
   template,
@@ -19,6 +20,8 @@ export default Epoxy.View.extend({
     this.renderTemplate();
     this.headerSocial = new HeaderSocial();
     $('[data-js-social-container]', this.$el).html(this.headerSocial.$el);
+    this.gitHubStarsCount = new GitHubStarsCount();
+    $('[data-js-github-stars-container]', this.$el).html(this.gitHubStarsCount.$el);
   },
   onClickLink(e) {
     $('body').removeClass('side-open');
@@ -40,5 +43,6 @@ export default Epoxy.View.extend({
   },
   onDestroy() {
     this.headerSocial && this.headerSocial.destroy();
+    this.gitHubStarsCount && this.gitHubStarsCount.destroy();
   },
 });
