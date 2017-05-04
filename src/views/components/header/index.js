@@ -11,6 +11,9 @@ export default Epoxy.View.extend({
   className: 'header',
   events: {
     'click [data-js-link]': 'onClickLink',
+    'click [data-js-toggle-sideblock]': 'onClickToggleSideblock',
+    'click [data-js-side-content-close]': 'onClickCloseSideblock',
+    'click [data-js-href]': 'openSocial',
   },
   initialize() {
     this.renderTemplate();
@@ -18,8 +21,18 @@ export default Epoxy.View.extend({
     $('[data-js-social-container]', this.$el).html(this.headerSocial.$el);
   },
   onClickLink(e) {
+    $('body').removeClass('side-open');
     const link = $(e.currentTarget).data('js-link') || '';
     Router.navigate(link, { trigger: true });
+  },
+  onClickToggleSideblock() {
+    $('body').toggleClass('side-open');
+  },
+  onClickCloseSideblock() {
+    $('body').removeClass('side-open');
+  },
+  openSocial(e) {
+    window.open($(e.currentTarget).attr('data-js-href'));
   },
   activatePage(context) {
     $('[data-js-link]', this.$el).removeClass('active');

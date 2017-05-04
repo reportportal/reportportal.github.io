@@ -2,12 +2,16 @@ import Backbone, { $ } from 'backbone';
 import Context from '../views/context';
 import BaronScroll from 'utils/baronScroll';
 
+import Header from 'components/header';
+
 let instance = null;
 
 const Router = Backbone.Router.extend({
   initialize() {
     const mainScrollEl = BaronScroll($('[data-js-main-page-container]'));
-    this.context = new Context({ mainScrollEl });
+    const header = new Header();
+    $('[data-js-header-container]').html(header.$el);
+    this.context = new Context({ mainScrollEl, header });
     $('[data-js-main-page-container]').html(this.context.$el);
     this.context.onShow();
   },
