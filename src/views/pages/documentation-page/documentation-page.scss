@@ -15,53 +15,17 @@
     bottom: 150px;
   }
 
-    .welcome-banner {
-    display: none;
-    height: 196px;
-    width: 100%;
-    background: url(./img/welcome-block-background.svg) no-repeat;
-    -webkit-background-size: 150% 100%;
-    background-size: 150% 100%;
-    background-color: #d7f2f4;
-    @media (max-width: $SCREEN_XS_MAX) {
-      display: none !important;
-    }
-    .welcome-message {
-      width: 450px;
-      height: 100%;
-      text-align: center;
-      margin: 0 auto;
-      color: $COLOR-STEEL-GREY;
-      strong {
-        display: inline-block;
-        height: 36px;
-        line-height: 36px;
-        margin-top: 60px;
-        font-family: $FONT-HEADER;
-        font-size: 25px;
-      }
-      span {
-        display: inline-block;
-        height: 30px;
-        line-height: 30px;
-        margin-top: 10px;
-        font-family: $FONT-LIGHT;
-        font-size: 20px;
-      }
-    }
-  }
-
   .documentation-page-wrapper {
     position: relative;
     height: 100%;
-    width: 90%;
+    width: 1000px;
     margin: 0 auto;
     @media (max-width: $SCREEN_SM_MAX) {
       width: 100%;
     }
     .documentation-menu {
       position: absolute;
-      top: 60px;
+      top: 30px;
       bottom: 20px;
       width: 260px;
       z-index: 1;
@@ -323,9 +287,9 @@
     .documentation-content {
       padding-left: 260px;
       position: absolute;
-      top: 60px;
+      top: 30px;
       bottom: 20px;
-      width: calc(100% - 130px);
+      width: 100%;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -334,7 +298,7 @@
         width: 100%;
       }
       @media (max-width: $SCREEN_XS_MAX) {
-        top: 80px;
+        top: 90px;
         padding-left: 0;
       }
       .b-docs__wrapper {
@@ -558,18 +522,6 @@
 
     @media (max-width: 600px) {
       bottom: -150px;
-    }
-  }
-
-  &.show-welcome {
-    .welcome-banner {
-      display: block;
-    }
-    .documentation-page-wrapper {
-      height: calc(100% - 196px);
-      @media (max-width: $SCREEN_XS_MAX) {
-        height: 100%;
-      }
     }
   }
 }
