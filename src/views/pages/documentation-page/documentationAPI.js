@@ -22,7 +22,6 @@ export default {
     $('#toc', $documentation).remove();
 
     this.content = $('.js-content .b-docs__wrapper', $documentation).html();
-    this.$page = $('.documentation-page');
     $('[data-js-doc-menu]').html(MenuTemplate());
     $('[data-js-doc-content]').html(ContentTemplate());
     this.contentScroll = BaronScroll($('[data-js-doc-content] .b-docs__wrapper'));
@@ -368,7 +367,6 @@ export default {
     const sideNav = $('.sidenav');
 
     sideNav.on('Show:section', (e, id, open) => {
-      (id === 0) ? this.$page.addClass('show-welcome') : this.$page.removeClass('show-welcome');
       _.each(questions, (section) => {
         if (_.has(section, 'parentEl')) {
           return;

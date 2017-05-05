@@ -11,13 +11,6 @@ export default Epoxy.View.extend({
   },
   initialize() {
     this.renderTemplate();
-    $.ajax({
-      type: 'GET',
-      url: '//api.github.com/repos/reportportal/reportportal',
-      success: (data) => {
-        console.dir(data.stargazers_count);
-      },
-    });
   },
   openSocial(e) {
     window.open($(e.currentTarget).attr('data-js-href'));
