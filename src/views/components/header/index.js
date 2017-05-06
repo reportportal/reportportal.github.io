@@ -22,6 +22,8 @@ export default Epoxy.View.extend({
     $('[data-js-social-container]', this.$el).html(this.headerSocial.$el);
     this.gitHubStarsCount = new GitHubStarsCount();
     $('[data-js-github-stars-container]', this.$el).html(this.gitHubStarsCount.$el);
+    this.gitTopHubStarsCount = new GitHubStarsCount();
+    $('[data-js-top-github-stars-container]', this.$el).html(this.gitTopHubStarsCount.$el);
   },
   onClickLink(e) {
     $('body').removeClass('side-open');

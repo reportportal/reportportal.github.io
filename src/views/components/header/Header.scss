@@ -71,6 +71,17 @@
         & > * {
           float: right;
         }
+        .social-block {
+          .header__social {
+            .icon-gh {
+              display: none;
+            }
+          }
+        }
+        .git {
+          margin-top: 6px;
+          cursor: pointer;
+        }
 
         .menu-item {
           padding: 8px 0;
