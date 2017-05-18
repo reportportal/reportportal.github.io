@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="121" height="120" viewBox="0 0 121 120" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="g" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
+      <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix values="0 0 0 0 0.693 0 0 0 0 0.87585 0 0 0 0 0.9 0 0 0 0.503962862 0" in="shadowOffsetOuter1" result="shadowMatrixOuter1"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <path id="h" d="M0,14 L120,14 L120,80.9921875 C120,82.6533565 118.652344,84 117.003753,84 L2.99624738,84 C1.34146565,84 0,82.6641634 0,80.9921875 L0,14 Z"/>
+    <filter id="i" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+      <feColorMatrix values="0 0 0 0 0.9405 0 0 0 0 0.946833333 0 0 0 0 0.95 0 0 0 1 0" in="shadowInnerInner1"/>
+    </filter>
+    <rect id="a" width="98" height="24" rx="3"/>
+    <mask id="j" width="98" height="24" x="0" y="0" fill="white">
+      <use xlink:href="#a"/>
+    </mask>
+    <rect id="b" width="46" height="24" rx="3"/>
+    <mask id="k" width="46" height="24" x="0" y="0" fill="white">
+      <use xlink:href="#b"/>
+    </mask>
+    <mask id="l" width="46" height="24" x="0" y="0" fill="white">
+      <use xlink:href="#b"/>
+    </mask>
+    <path id="c" d="M1.42108547e-14,2.99109042 C1.42108547e-14,1.33915679 1.35178054,0 3.00044415,0 L42.9995558,0 C44.6566554,0 46,1.34177063 46,2.99109042 L46,21.0089096 C46,22.6608432 44.6482195,24 42.9995558,24 L3.00044415,24 C1.34334461,24 1.42108547e-14,22.6582294 1.42108547e-14,21.0089096 L1.42108547e-14,2.99109042 Z"/>
+    <mask id="n" width="46" height="24" x="0" y="0" fill="white">
+      <use xlink:href="#c"/>
+    </mask>
+    <mask id="o" width="46" height="24" x="0" y="0" fill="white">
+      <use xlink:href="#c"/>
+    </mask>
+    <path id="d" d="M23,22.0671387 C23,18.6013881 23,7.8707101 23,2.06713867 C17.1973305,2.06713867 13,6.54429117 13,12.0671387 C13,17.5899862 17.1973305,22.0671387 23,22.0671387 Z"/>
+    <mask id="q" width="10" height="20" x="0" y="0" fill="white">
+      <use xlink:href="#d"/>
+    </mask>
+    <path id="e" d="M23,22.0671387 C23,18.6013881 23,7.8707101 23,2.06713867 C28.8026695,2.06713867 33,6.54429117 33,12.0671387"/>
+    <mask id="r" width="10" height="20" x="0" y="0" fill="white">
+      <use xlink:href="#e"/>
+    </mask>
+    <path id="f" d="M23,21.9909668 C23,18.410343 23,14.6798786 23,12 C28.8026695,12 33,16.4771525 33,22"/>
+    <mask id="s" width="10" height="10" x="0" y="0" fill="white">
+      <use xlink:href="#f"/>
+    </mask>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="120" height="120" fill="#D9F2F4" rx="60"/>
+    <g filter="url(#g)" transform="translate(0 18)">
+      <path fill="#F8FAFA" d="M0,3.00335124 C0,1.34464615 1.34765625,0 2.99624738,0 L117.003753,0 C118.658534,0 120,1.34237885 120,3.00335124 L120,14 L0,14 L0,3.00335124 Z"/>
+      <use fill="#FDFDFD" xlink:href="#h"/>
+      <use fill="#FFFFFF" xlink:href="#h"/>
+      <use fill="black" filter="url(#i)" xlink:href="#h"/>
+      <g transform="translate(11 22)">
+        <use fill="#FAFEFF" stroke="#DDE9EB" stroke-opacity=".596" stroke-width="2" mask="url(#j)" xlink:href="#a"/>
+        <polyline stroke="#FF8B6E" points="92 22 64.682 10 54.565 17 33.318 4 6 22"/>
+        <polyline stroke="#79D6D9" points="92 22 65 15 55 22 33 12 6 22"/>
+        <g transform="translate(0 30)">
+          <mask id="m" fill="white">
+            <use xlink:href="#b"/>
+          </mask>
+          <use fill="#FAFEFF" stroke="#DDE9EB" stroke-opacity=".596" stroke-width="2" mask="url(#l)" xlink:href="#b"/>
+          <g transform="translate(0 4)" mask="url(#m)">
+            <polyline fill="#E4E8E9" points="0 22 15.04 7.061 20.755 12.787 31.96 0 47 22"/>
+            <polyline fill="#D4D8D9" points="0 25 15.04 14.039 20.68 17.857 31.96 7 47 25"/>
+            <polyline fill="#79D6D9" points="0 24 15.057 19.911 20.668 20.899 31.96 13 47 24"/>
+          </g>
+        </g>
+        <g transform="translate(52 30)">
+          <mask id="p" fill="white">
+            <use xlink:href="#c"/>
+          </mask>
+          <use fill="#FAFEFF" stroke="#DDE9EB" stroke-opacity=".596" stroke-width="2" mask="url(#o)" xlink:href="#c"/>
+          <use fill="#D4D8D9" stroke="#D4D8D9" stroke-width="8" mask="url(#q)" xlink:href="#d"/>
+          <use fill="#E5EB3D" stroke="#E5EB3D" stroke-width="8" mask="url(#r)" xlink:href="#e"/>
+          <use fill="#70D6D8" stroke="#70D6D8" stroke-width="8" mask="url(#s)" xlink:href="#f" transform="matrix(1 0 0 -1 0 34)"/>
+          <circle cx="23" cy="12" r="5" fill="#FFFFFF" mask="url(#p)"/>
+        </g>
+      </g>
+      <circle cx="9" cy="7" r="3" fill="#D9F2F4"/>
+      <circle cx="19" cy="7" r="3" fill="#D9F2F4"/>
+      <circle cx="29" cy="7" r="3" fill="#D9F2F4"/>
+    </g>
+  </g>
+</svg>
