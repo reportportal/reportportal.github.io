@@ -477,6 +477,33 @@
               border: 1px solid #dddddd;
             }
           }
+
+          &.permissions-map-table {
+            thead {
+              tr {
+                th {
+                  font-size: 12px;
+                  line-height: 1.2;
+                  text-align: center;
+                  vertical-align: middle;
+                }
+              }
+            }
+            tbody {
+              tr {
+                td {
+                  font-size: 12px;
+                  line-height: 1.2;
+                  text-align: center;
+                  vertical-align: middle;
+                  &:first-child {
+                    text-align: left;
+                  }
+                }
+              }
+
+            }
+          }
         }
 
         .toc {
