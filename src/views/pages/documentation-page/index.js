@@ -27,7 +27,7 @@ export default Epoxy.View.extend({
     $.ajax({
       method: 'GET',
       dataType: 'html',
-      url: `//reportportal.github.io/documentation/documentation.html?n=${Math.round(1000 + (Math.random() * 1000))}`,
+      url: `//reportportal.io/documentation/documentation.html?n=${Math.round(1000 + (Math.random() * 1000))}`,
       success(data) {
         async.resolve($(data));
       },

@@ -5,6 +5,7 @@ import WebpackNotifierPlugin from 'webpack-notifier';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const root = path.join(__dirname, '/');
 const defaultEnv = {
@@ -89,6 +90,7 @@ export default (env = defaultEnv) => ({
     new WebpackNotifierPlugin({ skipFirstNotification: true }),
     ...env.production ? [
       new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
+      new CopyWebpackPlugin([{ from: 'CNAME' }]),
       new CompressionPlugin({
         asset: '[path].gz[query]',
         algorithm: 'gzip',
