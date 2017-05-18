@@ -9,11 +9,14 @@ export default Epoxy.View.extend({
   events: {
   },
   initialize() {
+    this.renderTemplate();
+    $('[data-js-star-icon]', this.$el).addClass('loading');
     $.ajax({
       type: 'GET',
       url: '//api.github.com/repos/reportportal/reportportal',
       success: (data) => {
-        this.renderTemplate({ count: data.stargazers_count });
+        $('[data-js-stars-count]', this.$el).html(data.stargazers_count);
+        $('[data-js-star-icon]', this.$el).removeClass('loading');
       },
     });
   },
