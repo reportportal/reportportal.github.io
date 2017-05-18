@@ -7,7 +7,7 @@ export default IndexPageSection.extend({
   template,
   className: 'index-page_github-fork',
   events: {
-
+    'click [data-js-fork-button]': 'onClickFork',
   },
   initialize() {
     this.renderTemplate();
@@ -16,6 +16,9 @@ export default IndexPageSection.extend({
     return [
       { checkScroll: this.checkScroll.bind(this), el: this.el },
     ];
+  },
+  onClickFork() {
+    window.open('https://github.com/reportportal/reportportal');
   },
   checkScroll(scrollTop, scrollElTop) {
     if (scrollElTop > 170) {
