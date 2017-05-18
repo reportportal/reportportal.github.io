@@ -312,6 +312,9 @@ export default {
       if ($(e.currentTarget).hasClass('not-nested') || !$(e.currentTarget).children('ul.nav').length) {
         $('[data-js-content-dropdown]').parent().removeClass('open');
       }
+      if (question.titleForIndex === 'Getting-started') {
+        $('#permissions-map + table').addClass('permissions-map-table');
+      }
       $('table').each((i, table) => {
         BaronScroll($(table), null, { direction: 'h' });
       });
