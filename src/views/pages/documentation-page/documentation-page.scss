@@ -15,6 +15,52 @@
     bottom: 150px;
   }
 
+  &.unavailable {
+    .documentation-page-wrapper {
+      .documentation-menu {
+        display: none;
+      }
+      .documentation-content {
+        display: none;
+      }
+      .documentation-error {
+        display: block;
+        width: 400px;
+        margin: 50px auto 0 auto;
+        text-align: center;
+
+        @media (max-width: 600px) {
+          width: 100%;
+        }
+
+        .documentation-error-img {
+          width: 300px;
+          height: 210px;
+          background-image: url(./img/doc-unavailable.png);
+          margin: 0 auto 35px auto;
+        }
+        .documentation-error-title {
+          font-family: $FONT-HEADER;
+          color: $COLOR-GRAY-47;
+          font-size: 20px;
+        }
+        .documentation-error-message {
+          display: inline-block;
+          margin-top: 15px;
+          width: 275px;
+          font-family: $FONT-REGULAR;
+          font-size: 15px;
+          color: $COLOR-GRAY-47;
+          line-height: 1.5;
+          .documentation-error-message-link {
+            color: $COLOR-TEALISH;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
   .documentation-page-wrapper {
     position: relative;
     height: 100%;
@@ -536,6 +582,10 @@
 
       }
     }
+    .documentation-error {
+      display: none;
+    }
+  ;
   }
 
   .footer-container {

@@ -13,9 +13,13 @@ export default Epoxy.View.extend({
   initialize(options) {
     this.idDocumentation = options.id;
     this.renderTemplate();
-    this.getDocumentationHtml().done(($documentation) => {
-      docApi.init(this.idDocumentation, $documentation);
-    });
+    this.getDocumentationHtml()
+      .done(($documentation) => {
+        docApi.init(this.idDocumentation, $documentation);
+      })
+      .fail(() => {
+        this.$el.addClass('unavailable');
+      });
     this.footer = new Footer();
     $('[data-js-footer-container]', this.$el).html(this.footer.$el);
   },
