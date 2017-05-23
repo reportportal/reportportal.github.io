@@ -37,7 +37,7 @@ export default Epoxy.View.extend({
     $('body').removeClass('side-open');
   },
   openSocial(e) {
-    window.open($(e.currentTarget).attr('data-js-href'));
+    $(e.currentTarget).hasClass('mail') ? window.location = ($(e.currentTarget).attr('data-js-href')) : window.open($(e.currentTarget).attr('data-js-href'));
   },
   activatePage(context) {
     $('[data-js-link]', this.$el).removeClass('active');
