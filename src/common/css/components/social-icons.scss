@@ -40,4 +40,10 @@
       background-image: url(../../img/social/icon-yt-hover.svg);
     }
   }
+  &.icon-mail {
+    background-image: url(../../img/social/icon-mail.svg);
+    &:hover {
+      background-image: url(../../img/social/icon-mail-hover.svg);
+    }
+  }
 }

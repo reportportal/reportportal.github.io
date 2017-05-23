@@ -82,6 +82,13 @@
           margin-top: 6px;
           margin-right: 9px;
           cursor: pointer;
+          overflow: hidden;
+
+          &:hover {
+            .github-icon {
+              background: url(../../../common/img/social/icon-gh-hover.svg) center no-repeat;
+            }
+          }
         }
 
         .menu-item {
