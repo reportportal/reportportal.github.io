@@ -103,7 +103,7 @@ export default (env = defaultEnv) => ({
   devtool: env.dev ? 'inline-source-map' : false,
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    https: true,
+    https: false,
     port: 9000,
     host: '0.0.0.0',
     hot: true,

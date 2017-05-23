@@ -24,7 +24,7 @@ export default {
     this.content = $('.js-content .b-docs__wrapper', $documentation).html();
     $('[data-js-doc-menu]').html(MenuTemplate());
     $('[data-js-doc-content]').html(ContentTemplate());
-    this.contentScroll = BaronScroll($('[data-js-doc-content] .b-docs__wrapper'));
+    this.contentScroll = BaronScroll($('[data-js-doc-scroll]'));
     BaronScroll($('[data-js-doc-menu] .sidenav'));
     this.lunrData = this.convertData(this.content);
     this.startDoc(anchor);
