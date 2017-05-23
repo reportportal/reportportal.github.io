@@ -315,6 +315,14 @@ export default {
       if (question.titleForIndex === 'Getting-started') {
         $('#permissions-map + table').addClass('permissions-map-table');
       }
+      $('a', $('.b-docs__wrapper')).each((i, lnk) => {
+        if (!$(lnk).hasClass('anchor') && $(lnk).attr('href')[0] === '#') {
+          $(lnk).on('click', (event) => {
+            event.preventDefault();
+            Router.navigate($(event.currentTarget).attr('href'), { trigger: true });
+          });
+        }
+      });
       $('table').each((i, table) => {
         BaronScroll($(table), null, { direction: 'h' });
       });

@@ -13,11 +13,12 @@
     margin-right: 35px;
     .icons-down {
       display: none;
+      width: 160px;
       position: absolute;
       background: $COLOR-WHITE_TWO;
       box-shadow: 0 1px 5px 0 rgba(189, 199, 204, 0.5);
       top: 35px;
-      left: -110px;
+      left: -140px;
       padding: 5px;
       z-index: 2;
       .social-icon {

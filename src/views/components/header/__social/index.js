@@ -7,12 +7,14 @@ export default Epoxy.View.extend({
   template,
   className: 'header__social',
   events: {
-    'click [data-js-href]': 'openSocial',
+    'click [data-js-social-href]': 'openSocial',
   },
   initialize() {
     this.renderTemplate();
   },
   openSocial(e) {
-    window.open($(e.currentTarget).attr('data-js-href'));
+    $(e.currentTarget).hasClass('icon-mail')
+    ? window.location = $(e.currentTarget).attr('data-js-social-href')
+    : window.open($(e.currentTarget).attr('data-js-social-href'));
   },
 });
