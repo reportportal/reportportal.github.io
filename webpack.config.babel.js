@@ -10,6 +10,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 const root = path.join(__dirname, '/');
 const defaultEnv = {
   dev: true,
+  proxyDocumentation: false,
   production: false,
 };
 
@@ -88,13 +89,15 @@ export default (env = defaultEnv) => ({
     new HtmlWebpackPlugin({ template: './src/index.jade' }),
     new webpack.HotModuleReplacementPlugin(),
     new WebpackNotifierPlugin({ skipFirstNotification: true }),
+    new webpack.DefinePlugin({
+      LOCAL_DOCUMENTATION: JSON.stringify(env.proxyDocumentation),
+    }),
     ...env.production ? [
       new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
       new CopyWebpackPlugin([{ from: 'CNAME' }]),
       new CompressionPlugin({
         asset: '[path].gz[query]',
         algorithm: 'gzip',
-        // test: /\.(js|html)$/,
         threshold: 10240,
         minRatio: 0.8,
       }),
@@ -112,5 +115,16 @@ export default (env = defaultEnv) => ({
       aggregateTimeout: 200,
       poll: 1000,
     },
+    proxy: [
+      ...env.proxyDocumentation ? [
+        {
+          path: '/documentation.html*',
+          target: 'http://localhost:9020/',
+          bypass(req, res, options) {
+            console.log(`proxy url: ${req.url}`);
+          },
+        },
+      ] : [{}],
+    ],
   },
 });

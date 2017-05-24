@@ -28,10 +28,14 @@ export default Epoxy.View.extend({
   },
   getDocumentationHtml() {
     const async = $.Deferred();
+    let url = '//reportportal.io/documentation/';
+    if (LOCAL_DOCUMENTATION) {
+      url = '/';
+    }
     $.ajax({
       method: 'GET',
       dataType: 'html',
-      url: `//reportportal.io/documentation/documentation.html?n=${Math.round(1000 + (Math.random() * 1000))}`,
+      url: `${url}documentation.html?n=${Math.round(1000 + (Math.random() * 1000))}`,
       success(data) {
         async.resolve($(data));
       },
