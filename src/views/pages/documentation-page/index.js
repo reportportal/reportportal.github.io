@@ -37,7 +37,7 @@ export default Epoxy.View.extend({
       dataType: 'html',
       url: `${url}documentation.html?n=${Math.round(1000 + (Math.random() * 1000))}`,
       success(data) {
-        async.resolve($(data));
+        async.resolve(data);
       },
       error() {
         async.reject();

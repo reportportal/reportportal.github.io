@@ -17,11 +17,8 @@ import ContentAnchorTemplate from './documentation-page_content/documentation-pa
 import ContentQuestionTemplate from './documentation-page_content/documentation-page_content-question.jade';
 
 export default {
-  init(anchor, $documentation) {
-    $('.not-toc', $documentation).remove();
-    $('#toc', $documentation).remove();
-
-    this.content = $('.js-content .b-docs__wrapper', $documentation).html();
+  init(anchor, documentation) {
+    this.content = documentation;
     $('[data-js-doc-menu]').html(MenuTemplate());
     $('[data-js-doc-content]').html(ContentTemplate());
     this.contentScroll = BaronScroll($('[data-js-doc-scroll]'));
