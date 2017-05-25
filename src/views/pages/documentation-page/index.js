@@ -13,9 +13,11 @@ export default Epoxy.View.extend({
   initialize(options) {
     this.idDocumentation = options.id;
     this.renderTemplate();
+    this.$el.addClass('loading');
     this.getDocumentationHtml()
       .done(($documentation) => {
         docApi.init(this.idDocumentation, $documentation);
+        this.$el.removeClass('loading');
       })
       .fail(() => {
         this.$el.addClass('unavailable');
