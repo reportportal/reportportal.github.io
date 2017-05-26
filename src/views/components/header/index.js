@@ -39,6 +39,7 @@ export default Epoxy.View.extend({
   },
   onClickLogo() {
     Router.navigate('#', { trigger: true });
+    this.trigger('click:logo');
   },
   openSocial(e) {
     $(e.currentTarget).hasClass('mail')
