@@ -124,6 +124,13 @@ export default (env = defaultEnv) => ({
             console.log(`proxy url: ${req.url}`);
           },
         },
+        {
+          path: '/Images/**',
+          target: 'http://localhost:9020/',
+          bypass(req, res, options) {
+            console.log(`proxy url: ${req.url}`);
+          },
+        },
       ] : [{}],
     ],
   },
