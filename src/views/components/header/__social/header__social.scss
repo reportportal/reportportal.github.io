@@ -27,6 +27,7 @@
     }
     &:focus {
       outline: none;
+      background: url(./img/up.svg) center no-repeat;
       .icons-down {
         display: block;
       }

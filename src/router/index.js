@@ -10,18 +10,21 @@ let instance = null;
 const Router = Backbone.Router.extend({
   initialize() {
     const mainScrollEl = BaronScroll($('[data-js-main-page-container]'));
-    const header = new Header();
-    $('[data-js-header-container]').html(header.$el);
-    this.listenTo(header, 'click:logo', () => {
+    this.header = new Header();
+    $('[data-js-header-container]').html(this.header.$el);
+    this.listenTo(this.header, 'click:logo', () => {
       mainScrollEl.stop().animate({
         scrollTop: 0,
       }, 500, 'swing');
     });
     this.modals = new Modals();
     $('[data-js-modal-container]').html(this.modals.$el);
-    this.context = new Context({ mainScrollEl, header });
+    this.context = new Context({ mainScrollEl, header: this.header });
     $('[data-js-main-page-container]').html(this.context.$el);
     this.context.onShow();
+    mainScrollEl.scroll((e) => {
+      e.target.scrollTop ? this.header.$el.removeClass('without-shadow') : this.header.$el.addClass('without-shadow');
+    });
   },
   routes: {
     '': 'openIndex',
@@ -31,9 +34,11 @@ const Router = Backbone.Router.extend({
   },
   openIndex() {
     this.context.renderIndex();
+    this.header.$el.addClass('without-shadow');
   },
   openDocumentation(id) {
     this.context.renderDocumentation(id);
+    this.header.$el.removeClass('without-shadow');
   },
 });
 function getInstance() {
