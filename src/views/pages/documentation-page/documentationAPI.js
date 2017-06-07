@@ -3,8 +3,7 @@ import _ from 'underscore';
 import Lunr from 'lunr/lunr';
 import BaronScroll from 'utils/baronScroll';
 import CodeBlockWithHighlight from 'components/codeBlockWithHighlight';
-import 'magnific-popup/dist/jquery.magnific-popup.min';
-import 'magnific-popup/dist/magnific-popup.css';
+import PreviewModal from 'components/modals/previewModal';
 import Router from 'router';
 
 import MenuTemplate from './documentation-page_menu/documentation-page_menu.jade';
@@ -451,18 +450,9 @@ export default {
     });
   },
   initImgZoom() {
-    $('[data-js-doc-content] img').closest('a').magnificPopup({
-      type: 'image',
-      closeOnContentClick: true,
-      fixedContentPos: true,
-      mainClass: 'mfp-no-margins mfp-with-zoom',
-      image: {
-        verticalFit: true,
-      },
-      zoom: {
-        enabled: true,
-        duration: 300,
-      },
+    $('[data-js-doc-content] img').closest('a').click((e) => {
+      e.preventDefault();
+      Router.modals.show(new PreviewModal({ src: $(e.currentTarget).attr('href') }));
     });
   },
   urlNavigateTo(id) {

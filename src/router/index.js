@@ -3,6 +3,7 @@ import Context from '../views/context';
 import BaronScroll from 'utils/baronScroll';
 
 import Header from 'components/header';
+import Modals from 'components/modals';
 
 let instance = null;
 
@@ -16,6 +17,8 @@ const Router = Backbone.Router.extend({
         scrollTop: 0,
       }, 500, 'swing');
     });
+    this.modals = new Modals();
+    $('[data-js-modal-container]').html(this.modals.$el);
     this.context = new Context({ mainScrollEl, header });
     $('[data-js-main-page-container]').html(this.context.$el);
     this.context.onShow();

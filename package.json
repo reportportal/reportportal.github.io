@@ -7,7 +7,7 @@
     "eslint": "eslint -f node_modules/eslint-friendly-formatter \"src/**/*.js\"",
     "test": "",
     "dev": "webpack-dev-server",
-    "dev:local:documentation": "webpack-dev-server -p --env.proxyDocumentation",
+    "dev:local:documentation": "webpack-dev-server --env.proxyDocumentation --env.dev",
     "build": "webpack -p --env.production"
   },
   "author": "",
@@ -51,7 +51,6 @@
     "baron": "^2.2.9",
     "highlight.js": "9.10.0",
     "lunr": "0.7.0",
-    "magnific-popup": "^1.1.0",
     "reset-css": "^2.2.0",
     "underscore": "^1.8.3"
   }

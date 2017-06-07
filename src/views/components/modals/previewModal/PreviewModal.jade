@@ -1,0 +1,9 @@
+.modal-backdrop(data-js-backdrop)
+.content(data-js-content)
+  - if (locals.videoWebm) {
+    video(data-js-video controls autoplay loop)
+      source(src="#{locals.videoWebm}")
+      source(src="#{locals.videoMp4}")
+  - } else {
+    img(src="#{locals.src}")
+  -}
