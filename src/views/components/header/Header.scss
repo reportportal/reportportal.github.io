@@ -1,5 +1,12 @@
 .header {
   width: 100%;
+  &.without-shadow {
+    .header-content-wrapper {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
   .header-content-wrapper {
     position: absolute;
     height: 60px;
@@ -9,6 +16,7 @@
     font-family: $FONT-REGULAR;
     box-shadow: 0 1px 2px 0 rgba(189, 199, 204, 0.41);
     z-index: 10;
+
     .header-content {
       height: 100%;
       width: 1000px;

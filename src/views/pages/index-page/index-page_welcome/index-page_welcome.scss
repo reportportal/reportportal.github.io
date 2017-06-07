@@ -43,6 +43,13 @@ $COLOR-BOOk-GREY: #ececec;
   .bg-page-lines {
     background-image: url(./img/lines&circles.svg);
   }
+  .bg-page-desk {
+    height: 200px;
+    position: absolute;
+    background: #A9E4E9;
+    width: 100%;
+    bottom: 0;
+  }
   .section-container {
     @include content-section;
   }
@@ -200,6 +207,9 @@ $COLOR-BOOk-GREY: #ececec;
     .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines {
       background-size: 200%;
       top: 0;
+    }
+    .bg-page-desk {
+      height: 100px;
     }
     h1 {
       font-size: 26px;
