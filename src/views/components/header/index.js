@@ -17,7 +17,8 @@ export default Epoxy.View.extend({
     'click [data-js-href]': 'openSocial',
     'click [data-js-logo]': 'onClickLogo',
   },
-  initialize() {
+  initialize(options) {
+    this.mainScrollEl = options.mainScrollEl;
     this.renderTemplate();
     this.headerSocial = new HeaderSocial();
     $('[data-js-social-container]', this.$el).html(this.headerSocial.$el);
@@ -39,7 +40,9 @@ export default Epoxy.View.extend({
   },
   onClickLogo() {
     Router.navigate('#', { trigger: true });
-    this.trigger('click:logo');
+    this.mainScrollEl.stop().animate({
+      scrollTop: 0,
+    }, 500, 'swing');
   },
   openSocial(e) {
     $(e.currentTarget).hasClass('mail')
