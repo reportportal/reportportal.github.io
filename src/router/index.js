@@ -10,13 +10,8 @@ let instance = null;
 const Router = Backbone.Router.extend({
   initialize() {
     const mainScrollEl = BaronScroll($('[data-js-main-page-container]'));
-    this.header = new Header();
+    this.header = new Header({ mainScrollEl });
     $('[data-js-header-container]').html(this.header.$el);
-    this.listenTo(this.header, 'click:logo', () => {
-      mainScrollEl.stop().animate({
-        scrollTop: 0,
-      }, 500, 'swing');
-    });
     this.modals = new Modals();
     $('[data-js-modal-container]').html(this.modals.$el);
     this.context = new Context({ mainScrollEl, header: this.header });
