@@ -1,7 +1,7 @@
 .modal-backdrop(data-js-backdrop)
 .content(data-js-content)
   - if (locals.videoWebm) {
-    video(data-js-video controls autoplay loop)
+    video(data-js-video controls autoplay loop poster="#{locals.src}")
       source(src="#{locals.videoWebm}")
       source(src="#{locals.videoMp4}")
   - } else {

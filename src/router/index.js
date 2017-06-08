@@ -17,9 +17,6 @@ const Router = Backbone.Router.extend({
     this.context = new Context({ mainScrollEl, header: this.header });
     $('[data-js-main-page-container]').html(this.context.$el);
     this.context.onShow();
-    mainScrollEl.scroll((e) => {
-      e.target.scrollTop ? this.header.$el.removeClass('without-shadow') : this.header.$el.addClass('without-shadow');
-    });
   },
   routes: {
     '': 'openIndex',

@@ -7,6 +7,8 @@ import './Header.scss';
 import HeaderSocial from './__social';
 import GitHubStarsCount from 'components/gitHubStarsCount';
 
+const WITHOUT_SHADOW_CLASS = 'without-shadow';
+
 export default Epoxy.View.extend({
   template,
   className: 'header',
@@ -26,6 +28,16 @@ export default Epoxy.View.extend({
     $('[data-js-github-stars-container]', this.$el).html(this.gitHubStarsCount.$el);
     this.gitTopHubStarsCount = new GitHubStarsCount();
     $('[data-js-top-github-stars-container]', this.$el).html(this.gitTopHubStarsCount.$el);
+    this.scrollActivePage = false;
+    this.mainScrollEl.scroll((e) => {
+      if (this.scrollActivePage) {
+        if (e.target.scrollTop) {
+          this.$el.removeClass(WITHOUT_SHADOW_CLASS);
+        } else {
+          this.$el.addClass(WITHOUT_SHADOW_CLASS);
+        }
+      }
+    });
   },
   onClickLink(e) {
     $('body').removeClass('side-open');
@@ -52,6 +64,13 @@ export default Epoxy.View.extend({
   activatePage(context) {
     $('[data-js-link]', this.$el).removeClass('active');
     $(`[data-js-link="${context}"]`, this.$el).addClass('active');
+    if (context === '') {
+      this.scrollActivePage = true;
+      this.$el.addClass(WITHOUT_SHADOW_CLASS);
+    } else {
+      this.scrollActivePage = false;
+      this.$el.removeClass(WITHOUT_SHADOW_CLASS);
+    }
   },
   onDestroy() {
     this.headerSocial && this.headerSocial.destroy();

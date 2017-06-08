@@ -16,6 +16,7 @@ export default Epoxy.View.extend({
     if (options.src.indexOf('.webm') + 1) {
       renderData.videoWebm = options.src;
       renderData.videoMp4 = options.src.replace('.webm', '.mp4');
+      renderData.src = options.src.replace('.webm', '.png');
     } else {
       renderData.src = options.src;
     }
