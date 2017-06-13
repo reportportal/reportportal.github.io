@@ -1,9 +1,7 @@
 .modal-backdrop(data-js-backdrop)
 .content(data-js-content)
-  - if (locals.videoWebm) {
-    video(data-js-video controls autoplay loop poster="#{locals.src}")
-      source(src="#{locals.videoWebm}")
-      source(src="#{locals.videoMp4}")
+  - if (locals.videoId) {
+    iframe(type="text/html" src="http://www.youtube.com/embed/#{locals.videoId}?autoplay=1&controls=1&disablekb=1&rel=0&fs=0&iv_load_policy=3&showinfo=0" frameborder="0")
   - } else {
     img(src="#{locals.src}")
   -}

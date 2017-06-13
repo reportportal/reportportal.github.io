@@ -441,15 +441,15 @@ export default {
     if (!imgCount) {
       $docWrapper.trigger('Loaded', question.id);
     }
+    this.initImgPopups();
     $('img', $docWrapper).on('load', () => {
       counter += 1;
       if (imgCount === counter) {
         $docWrapper.trigger('Loaded', question.id);
-        this.initImgZoom();
       }
     });
   },
-  initImgZoom() {
+  initImgPopups() {
     $('[data-js-doc-content] img').closest('a').click((e) => {
       e.preventDefault();
       Router.modals.show(new PreviewModal({ src: $(e.currentTarget).attr('href') }));

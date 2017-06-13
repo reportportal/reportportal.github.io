@@ -503,9 +503,12 @@
         }
 
         img {
-          max-width: 100%;
+          max-width: 50%;
           vertical-align: middle;
-          cursor: zoom-in;
+          cursor: pointer;
+          @media (max-width: 500px) {
+            max-width: 100%;
+          }
         }
 
         p {
@@ -518,9 +521,22 @@
 
         ol {
           padding-left: 18px;
-          list-style: decimal;
+          margin-bottom: 10px;
+          counter-reset: item;
           li {
             line-height: 20px;
+            margin-bottom: 5px;
+            &:before {
+              content: counter(item) ".";
+              counter-increment: item;
+              margin-right: 15px;
+              display: inline-block;
+              line-height: 20px;
+              color: $COLOR-TEALISH;
+            }
+            p {
+              display: inline;
+            }
           }
         }
 
@@ -529,6 +545,7 @@
           margin-bottom: 10px;
           li {
             line-height: 20px;
+            margin-bottom: 5px;
             &:before {
               content: "";
               margin-right: 20px;

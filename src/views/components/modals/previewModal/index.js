@@ -1,3 +1,4 @@
+import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import template from './PreviewModal.jade';
 import './PreviewModal.scss';
@@ -13,18 +14,29 @@ export default Epoxy.View.extend({
 
   initialize(options) {
     const renderData = {};
-    if (options.src.indexOf('.webm') + 1) {
-      renderData.videoWebm = options.src;
-      renderData.videoMp4 = options.src.replace('.webm', '.mp4');
-      renderData.src = options.src.replace('.webm', '.png');
+    this.iframeMode = false;
+    if (options.src.indexOf('youtu.be') + 1) {
+      this.iframeMode = true;
+      const urlSplit = options.src.split('/');
+      renderData.videoId = urlSplit[urlSplit.length - 1];
     } else {
       renderData.src = options.src;
     }
     this.renderTemplate(renderData);
+    $(window).on('resize.previewModal', () => {
+      this.resize();
+    });
   },
   onShow() {
     this.$el.width(); // for rerender
     this.$el.addClass('show');
+    this.resize();
+  },
+  resize() {
+    if (this.iframeMode) {
+      const width = $('[data-js-content]', this.$el).width();
+      $('[data-js-content]', this.$el).height((width * 768) / 1000);
+    }
   },
   hide() {
     this.$el.removeClass('show');
@@ -39,5 +51,6 @@ export default Epoxy.View.extend({
     this.hide();
   },
   onDestroy() {
+    $(window).off('resize.previewModal');
   },
 });
