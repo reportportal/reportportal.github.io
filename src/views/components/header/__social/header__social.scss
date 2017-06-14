@@ -1,5 +1,5 @@
 .header__social {
-  .social-icon {
+  .item-icon {
     display: inline-block;
     margin: 6px 9px;
   }
@@ -21,7 +21,7 @@
       left: -140px;
       padding: 5px;
       z-index: 2;
-      .social-icon {
+      .item-icon {
         display: inline-block;
       }
     }

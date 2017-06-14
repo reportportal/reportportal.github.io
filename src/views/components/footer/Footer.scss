@@ -30,9 +30,9 @@
       }
     }
   }
-  .social-block {
+  .icon-block {
     display: inline-block;
-    .social-icon {
+    .item-icon {
       display: inline-block;
       margin-left: 17px;
     }
@@ -56,10 +56,10 @@
   }
   @media (max-width: 600px) {
     height: 150px;
-    .social-block {
+    .icon-block {
       display: block;
       margin-top: 25px;
-      .social-icon {
+      .item-icon {
         margin: 0 15px;
       }
     }
