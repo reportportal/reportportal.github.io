@@ -16,6 +16,16 @@
     font-size: 11px;
     margin-top: 34px;
     color: $COLOR-CHARCOAL-GREY;
+
+    .epam-logo {
+      display: inline-block;
+      width: 40px;
+      height: 15px;
+      vertical-align: middle;
+      margin: 0 5px;
+      background: url(./img/epamLogo.svg) center no-repeat;
+      cursor: pointer;
+    }
   }
   .right-block {
     float: right;
