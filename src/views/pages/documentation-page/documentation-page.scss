@@ -535,6 +535,7 @@
           max-width: 67%;
           vertical-align: middle;
           cursor: pointer;
+          border: 1px solid $COLOR-GRAY-91;
           @media (max-width: 500px) {
             max-width: 100%;
           }
