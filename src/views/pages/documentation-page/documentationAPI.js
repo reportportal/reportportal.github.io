@@ -450,9 +450,17 @@ export default {
     });
   },
   initImgPopups() {
-    $('[data-js-doc-content] img').closest('a').click((e) => {
-      e.preventDefault();
-      Router.modals.show(new PreviewModal({ src: $(e.currentTarget).attr('href') }));
+    $('[data-js-doc-content] img').each(function () {
+      const link = $(this).closest('a');
+      if (link.length) {
+        link.click((e) => {
+          e.preventDefault();
+          Router.modals.show(new PreviewModal({ src: $(e.currentTarget).attr('href') }));
+        });
+        if (link.attr('href') && link.attr('href').indexOf('youtu.be') + 1) {
+          link.addClass('video-preview');
+        }
+      }
     });
   },
   urlNavigateTo(id) {
