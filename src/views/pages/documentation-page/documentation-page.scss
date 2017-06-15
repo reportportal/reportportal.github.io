@@ -307,9 +307,10 @@
           a {
             display: block;
             min-height: 40px;
-            padding: 12px 15px;
+            padding: 8px 15px;
             font-family: $FONT-REGULAR;
             font-size: 16px;
+            line-height: 24px;
             color: $COLOR-TEALISH;
             text-decoration: none;
             -webkit-box-sizing: border-box;
@@ -358,7 +359,7 @@
           font-family: $MaterialIcons;
           content: "\E313";
           font-size: 25px;
-          line-height: 16px;
+          line-height: 27px;
         }
       }
       .doc-menu-not-found {
@@ -398,6 +399,12 @@
       padding-bottom: 20px;
       width: 1000px;
       margin: 0 auto;
+
+      font-family: $FONT-REGULAR;
+      font-size: 15px;
+      line-height: 24px;
+      color: $COLOR-CHARCOAL-GREY;
+
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -472,6 +479,7 @@
 
         h3 {
           margin-top: 30px;
+          font-family: $FONT-LIGHT;
         }
 
         h4 {
@@ -512,11 +520,9 @@
         }
 
         p {
-          font-family: $FONT-REGULAR;
           font-size: 15px;
           line-height: 24px;
           margin-bottom: 10px;
-          color: $COLOR-CHARCOAL-GREY;
         }
 
         ol {
@@ -562,6 +568,14 @@
             }
           }
         }
+        ol, ul {
+          li {
+            ol, ul {
+              padding-left: 30px;
+              margin-top: 5px;
+            }
+          }
+        }
 
         strong {
           font-family: $FONT-HEADER;
@@ -573,7 +587,7 @@
         blockquote {
           padding: 10px 20px;
           margin: 0 0 20px;
-          font-size: 17.5px;
+          //font-size: 17.5px;
           border-left: 5px solid #eeeeee;
         }
 
