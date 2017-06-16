@@ -2,13 +2,14 @@ import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import template from './PreviewModal.jade';
 import './PreviewModal.scss';
+import BaronScroll from 'utils/baronScroll';
 
 export default Epoxy.View.extend({
   template,
   className: 'preview-modal',
 
   events: {
-    'click [data-js-backdrop]': 'onClickBackdrop',
+    'click .baron_scroller': 'onClickBackdrop',
     'click [data-js-content]': 'onClickContent',
   },
 
@@ -31,6 +32,7 @@ export default Epoxy.View.extend({
     this.$el.width(); // for rerender
     this.$el.addClass('show');
     this.resize();
+    BaronScroll($('[data-js-content]', this.$el));
   },
   resize() {
     if (this.iframeMode) {
