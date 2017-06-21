@@ -284,7 +284,9 @@ export default {
     item.click((e, options) => {
       e.preventDefault();
       e.stopPropagation();
-
+      if ($(e.currentTarget).hasClass('active')) {
+        return;
+      }
       let foundQuestion;
       let link;
 
@@ -304,7 +306,7 @@ export default {
         link = $(e.currentTarget).find('a').attr('href');
         navigate ? Router.navigate(link) : '';
       }
-      this.scrollTo('top');
+      navigate && this.contentScroll.scrollTop(0);
       if ($(e.currentTarget).hasClass('not-nested') || !$(e.currentTarget).children('ul.nav').length) {
         $('[data-js-content-dropdown]').parent().removeClass('open');
       }
@@ -435,23 +437,14 @@ export default {
     this.currentId = question.id;
     const $docWrapper = $('.b-docs__wrapper');
     $docWrapper.empty().append(ContentQuestionTemplate(question));
-    const imgCount = $('img', $docWrapper).length;
-    let counter = 0;
     this.reInitListeners([question]);
-    if (!imgCount) {
-      $docWrapper.trigger('Loaded', question.id);
-    }
     this.initImgPopups();
-    $('img', $docWrapper).on('load', () => {
-      counter += 1;
-      if (imgCount === counter) {
-        $docWrapper.trigger('Loaded', question.id);
-      }
-    });
+    $docWrapper.trigger('Loaded', question.id);
   },
   initImgPopups() {
     $('[data-js-doc-content] img').each(function () {
       const link = $(this).closest('a');
+      $(this).wrap('<div class="image-wrap-table"><div class="image-wrap-table-cell"></div></div>');
       if (link.length) {
         link.click((e) => {
           e.preventDefault();
@@ -500,7 +493,7 @@ export default {
       offset = 0;
     } else {
       target = $(`[data-js-doc-content] #${id}`);
-      offset = this.contentScroll.scrollTop() + target.position().top;
+      offset = target.position().top;
     }
     this.contentScroll.stop().animate({
       scrollTop: offset,
