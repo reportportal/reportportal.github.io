@@ -478,7 +478,7 @@ export default {
         $sideNav.trigger('Show:section', el.parentEl);
       }
       el.$el.trigger('click', {
-        navigate: false,
+        navigate: true,
       });
       if (query.length > 1) {
         this.scrollTo(query[1]);
