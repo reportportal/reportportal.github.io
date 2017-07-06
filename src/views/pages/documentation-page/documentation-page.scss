@@ -708,6 +708,20 @@
                 font-size: 15px;
               }
             }
+            &.toc-level-2 {
+              margin: 10px 0 10px 55px;
+              list-style-type: disc;
+              a {
+                font-size: 14px;
+              }
+            }
+            &.toc-level-3 {
+              margin: 10px 0 10px 80px;
+              list-style-type: disc;
+              a {
+                font-size: 14px;
+              }
+            }
           }
         }
 

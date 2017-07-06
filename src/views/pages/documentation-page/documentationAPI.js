@@ -132,7 +132,7 @@ export default {
           const sublink = `${el.elId}>${elem.elId}`;
           const title = elem.title.split('#')[0];
           menu.push({
-            level,
+            level: elem.level,
             link: encodeURIComponent(sublink),
             title,
           });
@@ -165,6 +165,7 @@ export default {
       ? LunrData.questions[currentId - 1].childs.push({
         elId: this.buildIndex($elem.attr('id')),
         title: $(elem.firstChild).text(),
+        level: 1,
       })
       : '';
 
@@ -172,6 +173,7 @@ export default {
       ? LunrData.questions[currentId - 1].childs.push({
         elId: this.buildIndex($elem.attr('id')),
         title: $(elem.firstChild).text(),
+        level: 2,
       })
       : '';
   },
