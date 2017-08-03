@@ -1,4 +1,4 @@
-@import '../index-page_mixin';
+@import '../../../../common/css/index-page_mixin';
 
 @mixin feature-animate($duration, $delay) {
   .feature-image {

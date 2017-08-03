@@ -11,6 +11,12 @@
   }
 }
 
+@mixin social-icons($width, $height, $url){
+  width: $width;
+  height: $height;
+  background-image: $url;
+}
+
 $ANIMATION-EASING: cubic-bezier(.25,.46,.45,.94);
 $ANIMATION-WIDTH: 20px;
 $ANIMATION-DURATION: .5s;
