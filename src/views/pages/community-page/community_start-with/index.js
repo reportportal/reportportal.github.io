@@ -1,11 +1,11 @@
 import IndexPageSection from '../../_indexPageSection';
-import template from './index-page_specification.jade';
-import './index-page_specification.scss';
-import './index-page_specification__animate.scss';
+import template from './community-page_start-with.jade';
+import './community-page_start-with.scss';
+import './community-page_start-with__animate.scss';
 
 export default IndexPageSection.extend({
   template,
-  className: 'index-page_specification',
+  className: 'community-page_start-with',
   events: {
 
   },
@@ -18,14 +18,11 @@ export default IndexPageSection.extend({
     ];
   },
   checkScroll(scrollTop, scrollElTop) {
-    if (scrollElTop > 150) {
+    if (scrollElTop > 200) {
       this.$el.addClass('animate');
     }
     if (scrollElTop > 350) {
-      this.$el.addClass('animate1-4');
-    }
-    if (scrollElTop > 650) {
-      this.$el.addClass('animate animate5-8');
+      this.$el.addClass('animate-items');
       return true;
     }
     return false;

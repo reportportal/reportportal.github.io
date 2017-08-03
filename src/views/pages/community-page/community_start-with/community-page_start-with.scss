@@ -1,6 +1,6 @@
 @import '../../../../common/css/index-page_mixin';
 
-.index-page_start-with {
+.community-page_start-with {
   width: 100%;
   padding-bottom: 54px;
   .section-container {
@@ -88,6 +88,7 @@
     }
   }
   @media (max-width: $MOBILE-INTERFACE-WIDTH) {
+    padding-bottom: 0;
     h1 {
       font-size: 22px;
       padding-top: 43px;

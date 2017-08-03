@@ -22,10 +22,15 @@ const Router = Backbone.Router.extend({
     '': 'openIndex',
     documentation: 'openDocumentation',
     'documentation/:id': 'openDocumentation',
+    community: 'openCommunity',
     '*invalidRoute': 'openIndex',
   },
   openIndex() {
     this.context.renderIndex();
+    this.header.$el.addClass('without-shadow');
+  },
+  openCommunity() {
+    this.context.renderCommunity();
     this.header.$el.addClass('without-shadow');
   },
   openDocumentation(id) {

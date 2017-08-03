@@ -737,6 +737,16 @@
   }
 }
 
+#Manage-launches {
+   .documentation-page-wrapper {
+     .documentation-content{
+       .b-docs__wrapper blockquote{
+         font-size: unset;
+       }
+     }
+   }
+}
+
 @-webkit-keyframes hearthbeat {
   0%	{  transform: scale(1); }
   15%	{ transform: scale(1.5); }
