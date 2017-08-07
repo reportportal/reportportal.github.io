@@ -14,8 +14,10 @@ export default IndexPageSection.extend({
       type: 'GET',
       url: '//status.reportportal.io',
       success: (data) => {
+        console.log(data);
         $('[data-js-commits]', this.$el).html(data.github.contribution_stats.commits[12]);
         $('[data-js-contributors]', this.$el).html(data.github.contribution_stats.unique_contributors[12]);
+        $('[data-js-issues]', this.$el).html(data.github.issue_stats.closed_issues);
         $('[data-js-stars]', this.$el).html(data.github.stars.repos.reportportal);
         $('[data-js-version]', this.$el).html(data.latest_versions.reportportal);
       },
