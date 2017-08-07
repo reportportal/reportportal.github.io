@@ -2,32 +2,22 @@
 
 @media (min-width: $MIN-ANIMATION-WIDTH) {
   html.csstransforms {
-    .index-page_welcome {
-      h1, h2, .points, .noutebook {
+    .community-page_statistics {
+      .header, .statistics, .contribution {
         transform: translate(0, $ANIMATION-WIDTH);
         opacity: 0;
-
       }
-      .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-desk {
-        opacity: 0;
-      }
-      h1 {
+      .header {
         transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
       }
-      h2 {
+      .statistics {
         transition: transform $ANIMATION-DURATION $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
       }
-      .points {
+      .contribution {
         transition: transform $ANIMATION-DURATION $ANIMATION-EASING .4s, opacity $ANIMATION-DURATION $ANIMATION-EASING .4s;
       }
-      .noutebook {
-        transition: transform $ANIMATION-DURATION $ANIMATION-EASING .5s, opacity $ANIMATION-DURATION $ANIMATION-EASING .5s;
-      }
-      .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-desk {
-        transition: opacity .7s $ANIMATION-EASING .7s;
-      }
       &.animate {
-        h1, h2, .points, .noutebook, .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-desk {
+        .header, .statistics, .contribution {
           opacity: 1;
           transform: translate(0, 0);
         }

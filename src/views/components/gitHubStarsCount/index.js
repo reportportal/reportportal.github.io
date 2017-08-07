@@ -13,7 +13,7 @@ export default Epoxy.View.extend({
     $('[data-js-star-icon]', this.$el).addClass('loading');
     $.ajax({
       type: 'GET',
-      url: '//rpstatus.herokuapp.com/github/stars',
+      url: '//status.reportportal.io/github/stars',
       success: (data) => {
         $('[data-js-stars-count]', this.$el).html(data.repos.reportportal);
         $('[data-js-star-icon]', this.$el).removeClass('loading');
