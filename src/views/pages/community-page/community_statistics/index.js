@@ -1,4 +1,4 @@
-import IndexPageSection from '../../_indexPageSection';
+import IndexPageSection from '../../sectionView';
 import template from './community-page_statistics.jade';
 import './community-page_statistics.scss';
 import './community-page_statistics__animate.scss';

@@ -1,4 +1,4 @@
-@import '../../../../common/css/index-page_mixin';
+@import '../../pageSectionMixin';
 
 .community-page_statistics{
   .section-container {
@@ -119,7 +119,7 @@
     height: 600px;
     padding: 100px 0;
     box-sizing: border-box;
-    background-image: url('./img/contribute_bg.svg');
+    background: url('./img/contribute_bg.svg') center no-repeat;
     h1{
       margin-bottom: 78px;
     }
@@ -144,6 +144,30 @@
           text-align: center;
           background-color: $COLOR-WHITE_TWO;
           border: solid 1px $COLOR-TEALISH;
+          &:hover{
+            border: solid 1px $COLOR-TOPAZ;
+            a{
+              color: $COLOR-TOPAZ;
+            }
+            i.git{
+              background-image: url(../../../../common/img/social/icon-gh-hover.svg);
+            }
+            i.twitter{
+              background-image: url(../../../../common/img/social/icon-tw-hover.svg);
+            }
+            i.vk{
+              background-image: url(../../../../common/img/social/icon-vk-hover.svg);
+            }
+            i.youtube{
+              background-image: url(../../../../common/img/social/icon-yt-hover.svg);
+            }
+            i.facebook{
+              background-image: url(../../../../common/img/social/icon-fb-hover.svg);
+            }
+            i.slack{
+              background-image: url(../../../../common/img/social/icon-sl-hover.svg);
+            }
+          }
           a{
             font-family: $FONT-REGULAR;
             font-size: 15px;
@@ -164,6 +188,7 @@
               @include social-icons(20px, 16px, url(../../../../common/img/social/icon-tw.svg) );
             }
             &.vk {
+              vertical-align: unset;
               @include social-icons(21px, 12px, url(../../../../common/img/social/icon-vk.svg) );
             }
             &.youtube {
@@ -222,6 +247,7 @@
     }
     .contribution{
       height: auto;
+      background: #fcfeff;
       h1{
         margin-bottom: 30px;
       }

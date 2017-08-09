@@ -1,4 +1,4 @@
-@import '../../../../common/css/index-page_mixin';
+@import '../../pageSectionMixin';
 
 .community-page_start-with {
   width: 100%;
@@ -72,6 +72,9 @@
       text-decoration: none;
       display: inline-block;
       margin-top: 23px;
+      &:hover{
+        color: $COLOR-TOPAZ;
+      }
       &:after {
         content: '';
         display: inline-block;

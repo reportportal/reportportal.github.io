@@ -24,11 +24,8 @@ export default Epoxy.View.extend({
     this.renderPage(IndexPage);
   },
   renderCommunity() {
-    this.currentPage && this.currentPage.destroy();
     this.header.activatePage('community');
-    this.currentPage = new CommunityPage({ mainScrollEl: this.mainScrollEl });
-    $('[data-js-content-container]', this.$el).html(this.currentPage.$el);
-    this.currentPage.onShow && this.currentPage.onShow();
+    this.renderPage(CommunityPage);
   },
   renderDocumentation(id) {
     if (this.currentPage && this.currentPage.$el.hasClass('documentation-page')) {
@@ -43,6 +40,7 @@ export default Epoxy.View.extend({
   },
   renderPage(pageView) {
     this.currentPage && this.currentPage.destroy();
+    this.mainScrollEl.scrollTop(0);
     this.currentPage = new pageView({ mainScrollEl: this.mainScrollEl });
     $('[data-js-content-container]', this.$el).html(this.currentPage.$el);
     this.currentPage.onShow && this.currentPage.onShow();

@@ -1,5 +1,5 @@
 import { $ } from 'backbone';
-import IndexPageSection from '../../_indexPageSection';
+import IndexPageSection from '../../sectionView';
 import template from './index-page_welcome.jade';
 import './index-page_welcome.scss';
 import './index-page_welcome__animate.scss';

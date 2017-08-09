@@ -1,4 +1,4 @@
-import IndexPageSection from '../../_indexPageSection';
+import IndexPageSection from '../../sectionView';
 import template from './community-page_start-with.jade';
 import './community-page_start-with.scss';
 import './community-page_start-with__animate.scss';
