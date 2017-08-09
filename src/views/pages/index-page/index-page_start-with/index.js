@@ -1,4 +1,4 @@
-import IndexPageSection from '../../_indexPageSection';
+import IndexPageSection from '../../sectionView';
 import template from './index-page_start-with.jade';
 import './index-page_start-with.scss';
 import './index-page_start-with__animate.scss';

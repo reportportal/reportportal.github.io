@@ -1,4 +1,4 @@
-@import '../../../../common/css/index-page_mixin';
+@import '../../pageSectionMixin';
 
 @mixin spec-animate($duration, $delay) {
   .spec-icon {
