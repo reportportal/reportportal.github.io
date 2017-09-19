@@ -4,7 +4,7 @@
   .section-container {
     @include content-section;
   }
-  h1{
+  h1, .h1{
     font-family: $FONT-LIGHT;
     font-size: 26px;
     font-weight: 300;
@@ -120,7 +120,11 @@
     padding: 100px 0;
     box-sizing: border-box;
     background: url('./img/contribute_bg.svg') center no-repeat;
-    h1{
+    .h1{
+      text-align: center;
+      font-family: $FONT-LIGHT;
+      color: $COLOR-STEEL-GREY;
+      font-size: 26px;
       margin-bottom: 78px;
     }
     p{
@@ -248,7 +252,7 @@
     .contribution{
       height: auto;
       background: #fcfeff;
-      h1{
+      .h1{
         margin-bottom: 30px;
       }
       .social-container {

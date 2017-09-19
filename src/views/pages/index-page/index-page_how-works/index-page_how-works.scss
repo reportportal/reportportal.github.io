@@ -17,7 +17,7 @@ $COLOR-BOOK-WHITE: #fdffff;
     @include content-section;
     height: 100%;
   }
-  h1 {
+  .h1 {
     font-family: $FONT-LIGHT;
     text-align: center;
     padding-top: 105px;
@@ -289,12 +289,12 @@ $COLOR-BOOK-WHITE: #fdffff;
     }
   }
   @media (max-width: $MIDDLE-INTERFACE-WIDTH) {
-    h1 {
+    .h1 {
       padding-top: 80px;
     }
   }
   @media (max-width: $MOBILE-INTERFACE-WIDTH) {
-    h1 {
+    .h1 {
       font-size: 22px;
       padding-top: 44px;
     }
