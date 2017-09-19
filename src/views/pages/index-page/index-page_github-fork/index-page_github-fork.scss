@@ -10,7 +10,7 @@
   .section-container {
     @include content-section;
   }
-  h1 {
+  .h1 {
     font-family: $FONT-HEADER;
     padding-top: 85px;
     font-size: 25px;
@@ -29,7 +29,7 @@
     }
   }
   @media (max-width: 1000px) {
-    h1 {
+    .h1 {
       width: 570px;
       line-height: 35px;
       margin: 0 auto;
@@ -45,7 +45,7 @@
   @media (max-width: $MOBILE-INTERFACE-WIDTH) {
     height: 330px;
     background-size: cover;
-    h1 {
+    .h1 {
       font-size: 20px;
       width: 300px;
       line-height: 27px;
