@@ -87,11 +87,17 @@ $COLOR-BOOK-WHITE: #fdffff;
   .bg-block-3 {
     background: url(./img/bg3.svg) center bottom no-repeat;
   }
+  .image-block{
+    img{
+      width: 100%;
+    }
+    &>img{
+      @include imageStyle;
+    }
+  }
   .image-1 {
-    @include imageStyle;
     width: 610px;
     height: 240px;
-    background: url(./img/item1.jpg);
     top: 110px;
     background-color: $COLOR-WHITE_TWO;
   }
@@ -99,28 +105,24 @@ $COLOR-BOOK-WHITE: #fdffff;
     @include imageStyle;
     width: 610px;
     height: 299px;
-    background: url(./img/item2.jpg);
     top: 105px;
   }
   .image-3 {
     @include imageStyle;
     width: 610px;
     height: 299px;
-    background: url(./img/item3.jpg);
     top: 110px;
   }
   .image-4 {
     @include imageStyle;
     width: 610px;
     height: 299px;
-    background: url(./img/item4.jpg);
     top: 105px;
   }
   .image-5 {
     @include imageStyle;
     width: 610px;
     height: 299px;
-    background: url(./img/item5.jpg);
     top: 110px;
   }
   .image-6 {
@@ -136,6 +138,8 @@ $COLOR-BOOK-WHITE: #fdffff;
       left: -67px;
     }
     .screen {
+      padding: 30px 20px 35px 20px;
+      box-sizing: border-box;
       position: absolute;
       width: 100%;
       height: 100%;
@@ -150,8 +154,6 @@ $COLOR-BOOK-WHITE: #fdffff;
       left: 20px;
       right: 20px;
       bottom: 35px;
-      background: url(./img/item6-mac.jpg) center no-repeat;
-      background-size: contain;
     }
     .keyboard {
       position: absolute;
@@ -176,54 +178,6 @@ $COLOR-BOOK-WHITE: #fdffff;
         border-bottom-right-radius: 15px;
       }
     }
-    //.noutebook {
-    //  position: absolute;
-    //  width: 400px;
-    //  bottom: 38px;
-    //  left: -67px;
-    //  .screen {
-    //    position: absolute;
-    //    width: 452px;
-    //    height: 291px;
-    //    border-radius: 20px;
-    //    background-color: $COLOR-BOOK-WHITE;
-    //    left: 50%;
-    //    margin-left: -226px;
-    //    bottom: 10px;
-    //    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    //  }
-    //  .site {
-    //    width: 396px;
-    //    height: 235px;
-    //    background: url(./img/item6-mac.jpg);
-    //    margin: 30px;
-    //  }
-    //  .keyboard {
-    //    position: absolute;
-    //    bottom: 0;
-    //    width: 520px;
-    //    height: 20px;
-    //    background-color: $COLOR-BOOK-WHITE;
-    //    left: 50%;
-    //    margin-left: -260px;
-    //    border-top: 1px solid $COLOR-BOOK-GREY;
-    //    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
-    //    border-bottom-left-radius: 40px 15px;
-    //    border-bottom-right-radius: 40px 15px;
-    //    &:after {
-    //      content: '';
-    //      position: absolute;
-    //      background: $COLOR-BOOK-GREY;
-    //      width: 100px;
-    //      height: 5px;
-    //      top: 0;
-    //      left: 50%;
-    //      margin-left: -50px;
-    //      border-bottom-left-radius: 15px;
-    //      border-bottom-right-radius: 15px;
-    //    }
-    //  }
-    //}
     .laptop {
       position: absolute;
       width: 330px;
@@ -248,7 +202,6 @@ $COLOR-BOOK-WHITE: #fdffff;
       }
       .site {
         position: absolute;
-        background: url(./img/item6-ipad.jpg);
         width: 272px;
         height: 191px;
         top: 15px;
@@ -280,7 +233,6 @@ $COLOR-BOOK-WHITE: #fdffff;
       }
       .site {
         position: absolute;
-        background-image: url(./img/item6-phone.jpg);
         width: 84px;
         height: 158px;
         top: 25px;
@@ -306,11 +258,13 @@ $COLOR-BOOK-WHITE: #fdffff;
         background-size: contain;
         background-position: top center;
         background-repeat: no-repeat;
-        border-radius: 5px;
         left: auto;
         right: auto;
         top: auto;
         margin: 45px auto 25px auto;
+        &img > {
+          border-radius: 5px;
+        }
       }
       .text-block-center {
         display: block;
