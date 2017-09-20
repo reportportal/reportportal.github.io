@@ -42,28 +42,44 @@
     background-position: left center;
     background-repeat: no-repeat;
     &.rest-icon {
-      background-image: url(./img/rest-api.svg);
+      width: 38px;
+      height: 32px;
+      background: url('./img/sprites.png') -10px -61px;
     }
     &.mongo-icon {
-      background-image: url(./img/no-sql.svg);
+      width: 32px;
+      height: 32px;
+      background: url('./img/sprites.png') -10px -113px;
     }
     &.frameworks-icon{
-      background-image: url(./img/support.svg);
+      width: 43px;
+      height: 27px;
+      background: url('./img/sprites.png') -75px -57px;
     }
     &.services-icon {
-      background-image: url(./img/microservice.svg);
+      width: 32px;
+      height: 32px;
+      background: url('./img/sprites.png') -139px -10px;
     }
     &.realtime-icon {
-      background-image: url(./img/asynchronous.svg);
+      width: 44px;
+      height: 27px;
+      background: url('./img/sprites.png') -75px -10px;
     }
     &.docker-icon {
-      background-image: url(./img/docker.svg);
+      width: 45px;
+      height: 31px;
+      background: url('./img/sprites.png') -10px -10px;
     }
     &.responsive-icon {
-      background-image: url(./img/responsive-ui.svg);
+      width: 33px;
+      height: 28px;
+      background: url('./img/sprites.png') -62px -113px;
     }
     &.ai-icon {
-      background-image: url(./img/ai.svg);
+      width: 30px;
+      height: 30px;
+      background: url('./img/sprites.png') -139px -62px;
     }
   }
   @media (max-width: 1000px) {

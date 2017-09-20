@@ -118,21 +118,14 @@ $COLOR-BOOk-GREY: #ececec;
   }
   .screen {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    padding: 40px 25px 45px;
     border-radius: 30px;
     background-color: #fdffff;
     bottom: 3%;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
   }
   .site {
-    position: absolute;
-    top: 40px;
-    left: 25px;
-    right: 25px;
-    bottom: 45px;
-    background: url(./img/site.png) center no-repeat;
-    background-size: contain;
+    width: 100%;
   }
   .keyboard {
     position: absolute;
@@ -192,6 +185,7 @@ $COLOR-BOOk-GREY: #ececec;
     }
     .screen {
       border-radius: 20px;
+      padding: 20px 20px 25px;
     }
     .keyboard {
       border-bottom-left-radius: 40px 10px;
@@ -230,6 +224,7 @@ $COLOR-BOOk-GREY: #ececec;
       height: 203px;
       .screen {
         border-radius: 15px;
+        padding: 10px 10px 15px;
       }
       .site {
         top: 10px;
