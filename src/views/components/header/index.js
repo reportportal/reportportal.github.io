@@ -40,6 +40,7 @@ export default Epoxy.View.extend({
     });
   },
   onClickLink(e) {
+    e.preventDefault();
     $('body').removeClass('side-open');
     const link = $(e.currentTarget).data('js-link') || '';
     Router.navigate(link, { trigger: true });
