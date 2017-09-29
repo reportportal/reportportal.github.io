@@ -489,7 +489,12 @@
             top: 4px;
           }
         }
-
+        code {
+          background-color: #eeeeee;
+          display: inline;
+          font-family: monospace;
+          padding: 2px 5px;
+        }
         pre {
           margin: 15px 0;
           background-color: #eeeeee;
@@ -498,11 +503,9 @@
           word-break: break-all;
           line-height: 24px;
           font-size: 13px;
-          font-family: monospace;
           color: #636566;
-          
           code {
-            background-color: #eeeeee;
+            display: block;
           }
         }
 
