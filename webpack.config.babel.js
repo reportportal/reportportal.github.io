@@ -17,6 +17,7 @@ const defaultEnv = {
 export default (env = defaultEnv) => ({
   entry: ['./src/application.js'],
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.[hash:6].js',
   },
