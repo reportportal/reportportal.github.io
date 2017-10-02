@@ -20,8 +20,8 @@ const Router = Backbone.Router.extend({
   },
   routes: {
     '': 'openIndex',
-    documentation: 'openDocumentation',
-    'documentation/:id': 'openDocumentation',
+    docs: 'openDocumentation',
+    'docs/:id': 'openDocumentation',
     community: 'openCommunity',
     '*invalidRoute': 'openIndex',
   },

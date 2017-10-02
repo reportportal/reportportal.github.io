@@ -148,7 +148,7 @@ export default {
         level = 1;
         _.each(questions[el.id].childs, (elem) => {
           const sublink = `${el.elId}>${elem.elId}`;
-          const title = elem.title.split('#')[0];
+          const title = elem.title;
           menu.push({
             level: elem.level,
             link: encodeURIComponent(sublink),
@@ -334,7 +334,7 @@ export default {
         $('#permissions-map + table').addClass('permissions-map-table');
       }
       $('a', $('.b-docs__wrapper')).each((i, lnk) => {
-        if (!$(lnk).hasClass('anchor') && $(lnk).attr('href')[0] === '#') {
+        if (!$(lnk).hasClass('anchor') && $(lnk).attr('href')[0] === '/') {
           $(lnk).on('click', (event) => {
             event.preventDefault();
             Router.navigate($(event.currentTarget).attr('href'), { trigger: true });
@@ -438,7 +438,7 @@ export default {
       $(el).click((e) => {
         e.preventDefault();
         const link = $(e.currentTarget).attr('href');
-        Router.navigate(link.replace('#', ''), { trigger: true });
+        Router.navigate(link, { trigger: true });
       });
     });
     $('#toc').find('a').each((i, el) => {
