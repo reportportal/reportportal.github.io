@@ -95,7 +95,10 @@ export default (env = defaultEnv) => ({
     }),
     ...env.production ? [
       new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
-      new CopyWebpackPlugin([{ from: 'CNAME' }]),
+      new CopyWebpackPlugin([
+        { from: 'CNAME' },
+        { from: 'src/404.html' },
+      ]),
       new CompressionPlugin({
         asset: '[path].gz[query]',
         algorithm: 'gzip',
