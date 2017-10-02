@@ -47,5 +47,8 @@ export default Epoxy.View.extend({
     });
     return async.promise();
   },
+  onDestroy() {
+    docApi.destroy();
+  },
 
 });
