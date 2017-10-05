@@ -13,8 +13,11 @@ html(lang='en')
             (function(){
             var redirect = sessionStorage.redirect;
             delete sessionStorage.redirect;
+            var currentHash = location.hash;
+            if (!redirect && currentHash ) {
+              window.location.href = '/' + currentHash.replace('#documentation', 'docs').replace('#', '');
+            }
             if (redirect && redirect != location.href) {
-              redirect.replace(/\#documentation/, 'docs');
               history.replaceState(null, null, redirect);
             }
             })();
