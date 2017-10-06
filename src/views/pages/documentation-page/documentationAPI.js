@@ -465,7 +465,7 @@ export default {
       $docWrapper.append('<a href="' +
         `https://github.com/reportportal/documentation/edit/master/${linkToMD[1].replace('/computeds', '')}`
         + '" class="edit-on-github" target="_blank">'
-        + '<span>If you see inconsistencies, typos or want to add something, please,</span>'
+        + '<span>If you see inconsistencies, typos or want to add something, please</span>'
         + '<span class="color-blue">send us Pull Request into source</span>'
         + '</a>');
     }
