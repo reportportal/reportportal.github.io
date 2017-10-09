@@ -5,4 +5,6 @@ import Backbone from 'backbone';
 import './utils/backboneUpdate';
 import 'router';
 
+testCount
+
 Backbone.history.start({ pushState: true });
