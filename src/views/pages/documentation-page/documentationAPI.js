@@ -461,7 +461,7 @@ export default {
     this.initImgPopups();
     const regexp = /data-js-md-path="([A-Za-z0-9_/]*\.md)"/;
     const linkToMD = question.body.match(regexp);
-    if (linkToMD && linkToMD[1] /*&& !(linkToMD[1].indexOf('index.md') + 1)*/) {
+    if (linkToMD && linkToMD[1] /* && !(linkToMD[1].indexOf('index.md') + 1)*/) {
       $docWrapper.append('<a href="' +
         `https://github.com/reportportal/documentation/edit/master/${linkToMD[1].replace('/computeds', '')}`
         + '" class="edit-on-github" target="_blank">'
@@ -473,7 +473,7 @@ export default {
     this.onScrollContent();
   },
   initImgPopups() {
-    $('[data-js-doc-content] img').each(function () {
+    $('[data-js-doc-content] img').each(() => {
       const link = $(this).closest('a');
       $(this).wrap('<div class="image-wrap-table"><div class="image-wrap-table-cell"></div></div>');
       if (link.length) {
@@ -537,7 +537,7 @@ export default {
 
       if ($(block).is('[class*="language-"]')) {
         _.each($(block).attr('class').split(' '), (className) => {
-          if (~className.indexOf('language-')) {
+          if (className.indexOf('language-') + 1) {
             language = className.split('language-')[1];
           }
         });

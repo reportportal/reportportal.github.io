@@ -58,7 +58,7 @@ function ScrollerAnimate(blocks) {
   this.scrollMap = [];
   this.documentHeight = 0;
 
-  this.createScrollMap = function () {
+  this.createScrollMap = () => {
     this.scrollMap = [];
     this.documentHeight = document.documentElement.clientHeight;
     _.each(this.blocks, (element) => {
@@ -73,7 +73,7 @@ function ScrollerAnimate(blocks) {
     });
   };
 
-  this.activateScroll = function (scrollTop) {
+  this.activateScroll = (scrollTop) => {
     const scrollBottom = scrollTop + this.documentHeight;
     const showBlockIndexes = [];
     _.each(this.scrollMap, (element, index) => {
@@ -100,7 +100,7 @@ function ScrollerAnimate(blocks) {
     return showBlockIndexes[1];
   };
 
-  this.resize = function (scrollTop) {
+  this.resize = (scrollTop) => {
     this.createScrollMap();
     this.activateScroll(scrollTop);
   };
