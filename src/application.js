@@ -5,4 +5,4 @@ import Backbone from 'backbone';
 import './utils/backboneUpdate';
 import 'router';
 
-Backbone.history.start({ pushState: true });
+Backbone.history.start({pushState: true });
