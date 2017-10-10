@@ -336,7 +336,9 @@ export default {
       $('a', $('.b-docs__wrapper')).each((i, lnk) => {
         if (!$(lnk).hasClass('anchor') && $(lnk).attr('href')[0] === '/') {
           $(lnk).on('click', (event) => {
-            event.preventDefault();
+            if (!$(lnk).attr('href').match(/\.pdf$/)) {
+              event.preventDefault();
+            }
             Router.navigate($(event.currentTarget).attr('href'), { trigger: true });
           });
         }
