@@ -338,8 +338,8 @@ export default {
           $(lnk).on('click', (event) => {
             if (!$(lnk).attr('href').match(/\.pdf$/)) {
               event.preventDefault();
+              Router.navigate($(event.currentTarget).attr('href'), { trigger: true });
             }
-            Router.navigate($(event.currentTarget).attr('href'), { trigger: true });
           });
         }
       });
