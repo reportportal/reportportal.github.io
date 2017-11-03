@@ -1,0 +1,29 @@
+@import '../../pageSectionMixin';
+
+@media (min-width: $MIN-ANIMATION-WIDTH) {
+  html.csstransforms {
+    .index-page_twitter {
+      h2 {
+        transform: translate(0, $ANIMATION-WIDTH);
+        opacity: 0;
+        transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
+      }
+      ul {
+        transform: translate($ANIMATION-WIDTH, 0);
+        opacity: 0;
+        transition: transform 1s $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
+      }
+      button {
+        transform: translate($ANIMATION-WIDTH, 0);
+        opacity: 0;
+        transition: transform 1s $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .6s;
+      }
+      &.animate {
+        h2, ul, button {
+          transform: translate(0, 0);
+          opacity: 1;
+         }
+      }
+    }
+  }
+}

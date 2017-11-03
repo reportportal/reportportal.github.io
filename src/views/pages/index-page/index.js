@@ -10,6 +10,7 @@ import IndexPageHowWorks from './index-page_how-works';
 import IndexPageSpecification from './index-page_specification';
 import IndexPageGitHubFork from './index-page_github-fork';
 import IndexPageStartWith from './index-page_start-with';
+import IndexPageTwitter from './index-page_twitter';
 
 import Footer from 'components/footer';
 
@@ -24,7 +25,7 @@ export default Epoxy.View.extend({
     this.renderTemplate();
     this.sections = [];
     const listViews = [IndexPageWelcome, IndexPageFeatures, IndexPageHowWorks,
-      IndexPageSpecification, IndexPageGitHubFork, IndexPageStartWith];
+      IndexPageSpecification, IndexPageGitHubFork, IndexPageStartWith, IndexPageTwitter];
     _.each(listViews, (constructor) => {
       const view = new constructor();
       this.sections.push(view);

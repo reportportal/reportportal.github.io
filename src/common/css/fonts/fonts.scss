@@ -10,7 +10,10 @@
     font-style: normal;
   }
 }
-
+@font-face {
+  font-family: OpenSansCyrilicLatin;
+  src: url('./OpenSansCyrilicLatin/OpenSansCyrilicLatin.ttf') format('truetype')
+}
 @include font-face('OpenSans', './OpenSans-Regular/OpenSans-Regular-webfont', 'open_sansregular');
 @include font-face('OpenSans-Semibold', './OpenSans-Semibold/OpenSans-Semibold-webfont', 'open_sanssemibold');
 @include font-face('OpenSans-Light', './OpenSans-Light/OpenSans-Light-webfont', 'open_sanslight');
