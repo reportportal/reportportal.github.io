@@ -23,7 +23,7 @@ export default IndexPageSection.extend({
     })
       .done((data) => {
         _.each(data, (item, i) => {
-          $('#twit-list').append(`<li><p>${self.pasteInTemplate(data[i].text, data[i].entities)}</p></li>`);
+          $('.twit-list').append(`<li><p>${self.pasteInTemplate(data[i].text, data[i].entities)}</p></li>`);
         });
       });
   },
