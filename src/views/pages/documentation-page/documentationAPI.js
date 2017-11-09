@@ -304,7 +304,8 @@ export default {
     item.click((e, options) => {
       e.preventDefault();
       e.stopPropagation();
-      if ($(e.currentTarget).hasClass('active')) {
+      if ($(e.currentTarget).hasClass('active g-nav--open')) {
+        $(e.currentTarget).removeClass('g-nav--open');
         return;
       }
       let foundQuestion;
