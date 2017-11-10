@@ -9,12 +9,12 @@
         transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
       }
       ul {
-        transform: translate($ANIMATION-WIDTH, 0);
+        transform: translate(0, $ANIMATION-WIDTH);
         opacity: 0;
         transition: transform 1s $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
       }
       button {
-        transform: translate($ANIMATION-WIDTH, 0);
+        transform: translate(0, $ANIMATION-WIDTH );
         opacity: 0;
         transition: transform 1s $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .6s;
       }
