@@ -2,8 +2,8 @@ import IndexPageSection from '../../sectionView';
 import template from './index-page_twitter.jade';
 import './index-page_twitter.scss';
 import './index-page_twitter__animate.scss';
-import $ from '../../../../lib/jquery.min';
-import _ from '../../../../lib/underscore';
+import { $ } from 'backbone';
+import _ from 'underscore';
 
 export default IndexPageSection.extend({
   template,
