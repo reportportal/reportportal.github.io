@@ -60,6 +60,9 @@ export default IndexPageSection.extend({
   },
   calcDuration(timeStr) {
     const duration = parse(timeStr);
+    if (duration.hours == 0) {
+      return `${duration.minutes}:${duration.seconds}`;
+    }
     return `${duration.hours}:${duration.minutes}:${duration.seconds}`;
   },
   calcTitle(text) {
@@ -84,6 +87,9 @@ export default IndexPageSection.extend({
     }
     if (scrollElTop > 350) {
       this.$el.addClass('animate-items');
+    }
+    if (scrollElTop > 570) {
+      this.$el.addClass('animate-slider');
       return true;
     }
     return false;
