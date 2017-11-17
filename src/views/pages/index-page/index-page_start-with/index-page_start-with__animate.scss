@@ -32,7 +32,7 @@
       .slider-container{
         opacity: 0;
         transform: translate(0, $ANIMATION-WIDTH);
-        transition: transform 1s $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
+        transition: transform 1s $ANIMATION-EASING .5s, opacity 1s $ANIMATION-EASING .5s;
       }
       &.animate {
         h1, .slider-container{
