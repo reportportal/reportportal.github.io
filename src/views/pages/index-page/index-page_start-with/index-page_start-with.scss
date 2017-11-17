@@ -7,24 +7,23 @@
     @include content-section;
     .slider-container{
       width: 100%;
-      height: 180px;
+      height: 190px;
       overflow: hidden;
       box-sizing: border-box;
       padding: 0 44px;
       position: relative;
       .arrow_right {
         right: 18px;
-        top: 45px;
-        position: absolute;
-        i{
-          font-size: 18px;
-          color: #39c3d8;
-        }
       }
-      .arrow_left{
+      .arrow_left {
         left: 18px;
+      }
+      .arrow_right, .arrow_left  {
         top: 45px;
         position: absolute;
+        transition-property: opacity;
+        transition-duration: 1s;
+        opacity: 0.8;
         i{
           font-size: 18px;
           color: #39c3d8;
@@ -32,6 +31,13 @@
       }
       .arrow_right:hover, .arrow_left:hover {
         cursor: pointer;
+        opacity: 1;
+        transition-duration: 0.5s;
+      }
+      .arrow_right.disable, .arrow_left.disable{
+        transition-duration: 1s;
+        opacity: 0.5;
+        cursor: default;
       }
       .ul_overflow{
         position:relative;
@@ -67,6 +73,7 @@
                 overflow: hidden;
                 height: 115px;
                 position: relative;
+                margin-bottom: 10px;
                 span{
                   position: absolute;
                   bottom: 3px;
@@ -74,14 +81,17 @@
                   background: rgba(0, 0, 0, 0.64);
                   color: white;
                   font-size: 14px;
-                  padding: 2px;
-                  border-radius: 4px;
+                  padding: 0 4px;
+                  border-radius: 2px;
                 }
               }
               &.more-link{
                 border: solid 1px #d9f2f4;
                 text-align: center;
-                line-height: 115px;
+                height: 115px;
+                div{
+                  line-height: 115px;
+                }
               }
               img{
                 margin-top: -20px;
@@ -189,7 +199,7 @@
     .section-container{
       .slider-container{
         width: 544px;
-        height: 380px;
+        height: 400px;
         box-sizing: border-box;
         margin: 0 auto;
         .ul_overflow{
@@ -209,7 +219,7 @@
       .slider-container{
         padding: 0 18px;
         width: 300px;
-        height: 760px;
+        height: 800px;
         box-sizing: border-box;
         margin: 0 auto;
         .arrow_left{

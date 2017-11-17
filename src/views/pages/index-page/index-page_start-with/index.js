@@ -28,12 +28,14 @@ export default IndexPageSection.extend({
           const text = this.calcTitle(item.title);
           const duration = this.calcDuration(item.duration);
           const el = `
-            <div class="carousel-item">
-                <div class="hider">
-                    <img src="${item.thumbnail}"/>
-                    <span>${duration}</span>
-                </div>
-                <a target="_blank" href="https://www.youtube.com/watch?v=${item.id}">${text}</a>
+            <div class="carousel-item"> 
+                <a target="_blank" href="https://www.youtube.com/watch?v=${item.id}">
+                    <div class="hider">
+                        <img src="${item.thumbnail}"/>
+                        <span>${duration}</span>
+                    </div>
+                   ${text}
+                </a>
             </div>`;
           if (i < 4) {
             $('[data-js-left]').append(el);
@@ -43,9 +45,9 @@ export default IndexPageSection.extend({
         });
         $('[data-js-right]').append(`
             <div class="carousel-item more-link">
-                <div>
-                    <a target="_blank" href="http://youtube.com/c/ReportPortalCommunity">More videos</a>
-                </div>
+                <a target="_blank" href="http://youtube.com/c/ReportPortalCommunity">
+                    <div>More videos</div>
+                </a>
             </div>`);
         this.gallery = new SwipeGallery({ selector: $('.slider-container') });
       });
@@ -58,6 +60,9 @@ export default IndexPageSection.extend({
   },
   calcDuration(timeStr) {
     const duration = parse(timeStr);
+    if(duration.hours == 0){
+      return `${duration.minutes}:${duration.seconds}`;
+    }
     return `${duration.hours}:${duration.minutes}:${duration.seconds}`;
   },
   calcTitle(text) {
