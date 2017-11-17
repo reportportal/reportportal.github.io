@@ -29,8 +29,13 @@
           transform: translate(0, $ANIMATION-WIDTH);
         }
       }
+      .slider-container{
+        opacity: 0;
+        transform: translate(0, $ANIMATION-WIDTH);
+        transition: transform 1s $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
+      }
       &.animate {
-        h1 {
+        h1, .slider-container{
           opacity: 1;
           transform: translate(0, 0);
         }
