@@ -60,6 +60,9 @@ export default IndexPageSection.extend({
   },
   calcDuration(timeStr) {
     const duration = parse(timeStr);
+    if(duration.hours == 0){
+      return `${duration.minutes}:${duration.seconds}`;
+    }
     return `${duration.hours}:${duration.minutes}:${duration.seconds}`;
   },
   calcTitle(text) {
