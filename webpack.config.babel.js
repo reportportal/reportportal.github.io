@@ -97,6 +97,7 @@ export default (env = defaultEnv) => ({
       new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
       new CopyWebpackPlugin([
         { from: 'CNAME' },
+        { from: 'sitemap.xml' },
         { from: 'src/404.html' },
       ]),
       new CompressionPlugin({
