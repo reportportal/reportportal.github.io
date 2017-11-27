@@ -25,7 +25,7 @@ export default Epoxy.View.extend({
     this.renderTemplate();
     this.sections = [];
     const listViews = [IndexPageWelcome, IndexPageFeatures, IndexPageHowWorks,
-      IndexPageSpecification, IndexPageGitHubFork, IndexPageStartWith, IndexPageTwitter];
+      IndexPageSpecification, IndexPageGitHubFork, IndexPageStartWith,  IndexPageTwitter];
     _.each(listViews, (constructor) => {
       const view = new constructor();
       this.sections.push(view);

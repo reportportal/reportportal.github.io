@@ -2,15 +2,16 @@ import IndexPageSection from '../../sectionView';
 import template from './community-page_start-with.jade';
 import './community-page_start-with.scss';
 import './community-page_start-with__animate.scss';
+import Gallery from 'components/gallery';
+import { $ } from 'backbone';
 
 export default IndexPageSection.extend({
   template,
   className: 'community-page_start-with',
-  events: {
-
-  },
   initialize() {
     this.renderTemplate();
+    this.gallery = new Gallery();
+    $('[data-js-gallery-container]', this.$el).html(this.gallery.$el);
   },
   getSections() {
     return [
@@ -18,11 +19,14 @@ export default IndexPageSection.extend({
     ];
   },
   checkScroll(scrollTop, scrollElTop) {
-    if (scrollElTop > 200) {
+    if (scrollElTop > 150) {
       this.$el.addClass('animate');
     }
     if (scrollElTop > 350) {
       this.$el.addClass('animate-items');
+    }
+    if (scrollElTop > 570) {
+      this.$el.addClass('animate-slider');
       return true;
     }
     return false;
