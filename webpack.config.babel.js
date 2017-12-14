@@ -98,6 +98,7 @@ export default (env = defaultEnv) => ({
       new CopyWebpackPlugin([
         { from: 'CNAME' },
         { from: 'sitemap.xml' },
+        { from: 'google95cc3d56e1325c3b.html' },
         { from: 'src/404.html' },
       ]),
       new CompressionPlugin({
