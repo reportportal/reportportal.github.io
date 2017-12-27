@@ -132,7 +132,8 @@ export default (env = defaultEnv) => ({
           },
         },
         {
-          path: '/Images/**',
+          path: '/docs/Images/**',
+          pathRewrite: { '^/docs': '' },
           target: 'http://localhost:9020/',
           bypass(req, res, options) {
             console.log(`proxy url: ${req.url}`);
