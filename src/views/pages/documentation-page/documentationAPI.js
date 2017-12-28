@@ -462,7 +462,7 @@ export default {
     $docWrapper.empty().append(ContentQuestionTemplate(question));
     this.reInitListeners([question]);
     this.initImgPopups();
-    const regexp = /data-js-md-path="([A-Za-z0-9_/]*\.md)"/;
+    const regexp = /data-js-md-path="([A-Za-z0-9\-_/]*\.md)"/;
     const linkToMD = question.body.match(regexp);
     if (linkToMD && linkToMD[1] /* && !(linkToMD[1].indexOf('index.md') + 1) */) {
       $docWrapper.append('<a href="' +
