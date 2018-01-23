@@ -1,0 +1,167 @@
+.modal-backdrop(data-js-backdrop)
+.content(data-js-content)
+  h2 Extended scheme of integration ReportPortal with the test framework
+  .scheme-container.clearfix
+    .process-row
+      .title-col.framework
+        p Test Framework
+      .title-col.agent
+        p Agent / Client
+      .title-col.report-portal
+        p ReportPortal
+    .process-row
+      p.item.entity
+        span.left-circle.light-blue.first Starts launch.
+      p.item.between-entity-1.arrow-left
+        span.action.light-blue.grey event
+      p.item.light-blue.entity
+        span.left-circle Launch info
+      p.item.between-entity-2.arrow-left(data-js-info,type = 'start-launch-rq')
+        span.action.light-blue.blue http request
+      p.item.light-blue.entity.arrow-bottom
+        span Creates launch
+    .process-row
+      p.item.entity.arrow-bottom
+        span.light-green.first Gets Launch ID
+      p.item.between-entity-1.arrow-right
+        span.action.light-green.grey response
+      p.item.light-green.entity
+        span.right-circle Launch ID
+      p.item.between-entity-2.arrow-right(data-js-info,type = 'start-launch-rs')
+        span.action.light-green.blue http response
+      p.item.light-green.entity
+        span.right-circle Launch ID
+    .process-row
+      p.item.entity
+        span.light-blue.first.left-circle Starts Suite
+      p.item.between-entity-1.arrow-left
+        span.action.light-blue.grey event
+      p.item.light-blue.entity
+        span.left-circle Suite info with launch ID
+      p.item.between-entity-2.arrow-left(data-js-info,type = 'start-parent-rq')
+        span.action.light-blue.blue http request
+      p.item.light-blue.entity.arrow-bottom
+        span Creates Suite in the Launch with appropriate ID
+    .process-row
+      p.item.entity.arrow-bottom
+        span.light-green.first Gets Suite ID
+      p.item.between-entity-1.arrow-right
+        span.action.light-green.grey response
+      p.item.light-green.entity
+        span.right-circle Suite ID
+      p.item.between-entity-2.arrow-right(data-js-info,type = 'start-parent-rs')
+        span.action.light-green.blue http response
+      p.item.light-green.entity
+        span.right-circle Suite ID
+    .process-row
+      p.item.entity
+        span.light-blue.first.left-circle Starts Test
+      p.item.between-entity-1.arrow-left
+        span.action.light-blue.grey event
+      p.item.light-blue.entity
+        span.left-circle Test info with Launch ID & Suite ID
+      p.item.between-entity-2.arrow-left(data-js-info,type = 'start-child-rq')
+        span.action.light-blue.blue http request
+      p.item.light-blue.entity.arrow-bottom
+        span Creates Test in the Launch & the Suite with appropriate ID
+    .process-row
+      p.item.entity.arrow-bottom
+        span.light-green.first Gets Test ID
+      p.item.between-entity-1.arrow-right
+        span.action.light-green.grey response
+      p.item.light-green.entity
+        span.right-circle Test ID
+      p.item.between-entity-2.arrow-right(data-js-info,type = 'start-child-rs')
+        span.action.light-green.blue http response
+      p.item.light-green.entity
+        span.right-circle Test ID
+    .process-row
+      p.item.entity
+        span.light-blue.first.left-circle Posts Log
+      p.item.between-entity-1.arrow-left
+        span.action.light-blue.grey event
+      p.item.light-blue.entity
+        span.left-circle Log info with Test ID
+      p.item.between-entity-2.arrow-left(data-js-info,type = 'post-log-rq')
+        span.action.light-blue.blue http request
+      p.item.light-blue.entity.arrow-bottom
+        span Creates Log in the Test with appropriate ID
+    .process-row
+      p.item.entity.arrow-bottom
+        span.light-green.first Gets Log ID
+      p.item.between-entity-1.arrow-right
+        span.action.light-green.grey response
+      p.item.light-green.entity
+        span.right-circle Log ID
+      p.item.between-entity-2.arrow-right(data-js-info,type = 'post-log-rs')
+        span.action.light-green.blue http response
+      p.item.light-green.entity
+        span.right-circle Log ID
+    .process-row
+      p.item.entity
+        span.light-blue.first.left-circle Finishes Test
+      p.item.between-entity-1.arrow-left
+        span.action.light-blue.grey event
+      p.item.light-blue.entity
+        span.left-circle Info about Test finish with Test ID
+      p.item.between-entity-2.arrow-left(data-js-info,type = 'finish-child-rq')
+        span.action.light-blue.blue http request
+      p.item.light-blue.entity.arrow-bottom
+        span Finishes Test with appropriate ID
+    .process-row
+      p.item.entity.arrow-bottom
+        span.light-green.first Test finished
+      p.item.between-entity-1.arrow-right
+        span.action.light-green.grey response
+      p.item.light-green.entity
+        span.right-circle Test finished
+      p.item.between-entity-2.arrow-right(data-js-info,type = 'finish-child-rs')
+        span.action.light-green.blue http response
+      p.item.light-green.entity
+        span.right-circle Test finished
+    .process-row
+      p.item.entity
+        span.light-blue.first.left-circle Finishes Suite
+      p.item.between-entity-1.arrow-left
+        span.action.light-blue.grey event
+      p.item.light-blue.entity
+        span.left-circle Info about Suite finish with Suite ID
+      p.item.between-entity-2.arrow-left(data-js-info,type = 'finish-parent-rq')
+        span.action.light-blue.blue http request
+      p.item.light-blue.entity.arrow-bottom
+        span Finishes Suite with appropriate ID
+    .process-row
+      p.item.entity.arrow-bottom
+        span.light-green.first Suite finished
+      p.item.between-entity-1.arrow-right
+        span.action.light-green.grey response
+      p.item.light-green.entity
+        span.right-circle Suite finished
+      p.item.between-entity-2.arrow-right(data-js-info,type = 'finish-parent-rs')
+        span.action.light-green.blue http response
+      p.item.light-green.entity
+        span.right-circle Suite finished
+    .process-row
+      p.item.entity
+        span.light-blue.first.left-circle Finishes Launch
+      p.item.between-entity-1.arrow-left
+        span.action.light-blue.grey event
+      p.item.light-blue.entity
+        span.left-circle Info about Launch finish with Launch ID
+      p.item.between-entity-2.arrow-left(data-js-info,type = 'finish-launch-rq')
+        span.action.light-blue.blue http request
+      p.item.light-blue.entity.arrow-bottom
+        span Finishes Launch with appropriate ID
+    .process-row
+      p.item.entity
+        span.light-green.first Launch finished
+      p.item.between-entity-1.arrow-right
+        span.action.light-green.grey response
+      p.item.light-green.entity
+        span.right-circle Launch finished
+      p.item.between-entity-2.arrow-right(data-js-info,type = 'finish-launch-rs')
+        span.action.light-green.blue http response
+      p.item.light-green.entity
+        span.right-circle Launch finished
+
+

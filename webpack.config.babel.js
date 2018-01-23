@@ -45,6 +45,10 @@ export default (env = defaultEnv) => ({
         loader: 'jade-loader',
       },
       {
+        test: /\.yml$/,
+        loader: 'yaml-import-loader',
+      },
+      {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
