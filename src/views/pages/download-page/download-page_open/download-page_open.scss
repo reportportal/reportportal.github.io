@@ -1,0 +1,163 @@
+@import '../../pageSectionMixin';
+
+.download-page_open {
+  margin-top: 40px;
+  @media (max-width: $SCREEN_XS_MAX) {
+    width: 320px;
+    margin: 0 auto;
+    margin-top: 35px;
+  }
+  .open-section{
+    .instruction{
+      .helper-padding{
+        padding-bottom: 35px;
+        @media (max-width: $SCREEN_XS_MAX) {
+          padding: 0;
+        }
+      }
+      a{
+        &:hover{
+          color: $COLOR-TOPAZ;
+          &::after{
+            border-top: 1.5px solid $COLOR-TOPAZ !important;
+            border-right: 1.5px solid $COLOR-TOPAZ !important;
+          }
+        }
+      }
+      &::after {
+        left: 0;
+        content: '';
+        display: block;
+        width: 700px;
+        position: absolute;
+        border-bottom: 2px solid rgba(57, 195, 216, 0.2);
+        @media (max-width: $SCREEN_SM_MAX) {
+          width: 530px;
+        }
+        @media (max-width: $SCREEN_XS_MAX) {
+          display: none;
+        }
+      }
+      .step {
+        width: 680px;
+        @media (max-width: $SCREEN_SM_MAX) {
+          width: 490px;
+        }
+        @media (max-width: $SCREEN_XS_MAX) {
+          width: auto;
+          margin-bottom: 5px;
+        }
+      }
+      .main-text{
+        margin-top: 0;
+      }
+      .step-note{
+        &.first{
+          &::before{
+            height: 66px;
+          }
+          @media (max-width: $SCREEN_XS_MAX) {
+            margin-bottom: 20px;
+            &::before {
+              height: 45px;
+              left: 13px;
+            }
+            p{
+              margin-left: 18px;
+            }
+          }
+        }
+        p{
+          span{
+            font-weight: bold;
+          }
+        }
+        &.warn{
+          vertical-align: bottom;
+          p{
+            color: #f36c4a;
+            @media (max-width: $SCREEN_XS_MAX) {
+              margin-left: 20px;
+            }
+          }
+          &::before{
+            height: 44px;
+            background: #f36c4a;
+            @media (max-width: $SCREEN_XS_MAX) {
+              height: 25px;
+              left: 15px;
+            }
+          }
+        }
+      }
+      .access{
+        margin-bottom: 10px;
+        margin-top: 20px;
+        @media (max-width: $SCREEN_XS_MAX) {
+          margin-top: 0;
+        }
+        p{
+          width: 140px;
+          display: inline-block;
+          vertical-align: top;
+          margin-top: 5px;
+        }
+        .user{
+          display: inline-block;
+          .input{
+            width: 300px;
+            border: solid 1px $COLOR-GRAY-80;
+            @media (max-width: $SCREEN_XS_MAX) {
+              width: 290px;
+            }
+            span{
+              font-family: $FONT-REGULAR;
+              font-size: 14px;
+              font-weight: normal;
+              font-style: normal;
+              font-stretch: normal;
+              letter-spacing: normal;
+              padding: 12px 10px 9px 15px;
+              text-align: left;
+              color: $COLOR-CHARCOAL-GREY;
+              &.copy{
+                float: right;
+                cursor: pointer;
+                font-family: $FONT-REGULAR;
+                font-size: 15px;
+                text-align: left;
+                color: #39c2d7;
+                &:hover{
+                  color: $COLOR-TOPAZ;
+                }
+              }
+            }
+            &::before{
+              content: '';
+              display: inline-block;
+              height: 38px;
+              vertical-align: middle;
+              width: 40px;
+              background-color: #f5f5f5;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+            &.login{
+              margin-bottom: 15px;
+              &::before{
+                background-image: url('./img/login.svg');
+                background-size: 16px 16px;
+              }
+            }
+            &.password{
+              &::before{
+                background-image: url('./img/password.svg');
+                background-size: 15px 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

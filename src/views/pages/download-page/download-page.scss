@@ -1,0 +1,161 @@
+.download-page {
+  padding-top: 60px;
+  .section-container {
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+    @media (max-width: $SCREEN_SM_MAX){
+      width: 770px;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+    @media (max-width: $SCREEN_XS_MAX){
+      width: 100%;
+    }
+  }
+  .fixed-controls{
+    position: fixed;
+    top:60px;
+    left:0;
+    width: 100%;
+  }
+  h2{
+    font-family: $FONT-LIGHT;
+    margin-bottom: 17px;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.45;
+    letter-spacing: normal;
+    text-align: left;
+    color: $COLOR-STEEL-GREY;
+    @media (max-width: $SCREEN_XS_MAX) {
+      font-size: 20px;
+    }
+    .note{
+      margin-left: 10px;
+      font-family: $FONT-REGULAR;
+      color: $COLOR-STEEL-GREY;
+      font-size: 15px;
+      line-height: 1.47;
+      letter-spacing: normal;
+      text-align: left;
+      @media (max-width: $SCREEN_XS_MAX) {
+        display: none;
+      }
+    }
+  }
+  .clearfix{
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+  .main-text{
+    margin: 20px 0 10px 0;
+    font-family: $FONT-REGULAR;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.75;
+    letter-spacing: normal;
+    text-align: left;
+    color: $COLOR-CHARCOAL-GREY;
+    @media (max-width: $SCREEN_XS_MAX) {
+      font-size: 15px;
+    }
+  }
+  a{
+    font-family: $FONT-REGULAR;
+    font-size: 15px;
+    text-align: left;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $COLOR-TEALISH;
+    text-decoration: none;
+    margin-left: 10px;
+    &.btn{
+      border: solid 1px $COLOR-TEALISH;
+      padding: 13px 15px 13px 65px;
+      margin: 0 0 15px 0;
+      display: inline-block;
+      cursor: pointer;
+      &:hover{
+        border: solid 1px $COLOR-TOPAZ;
+      }
+    }
+  }
+  .h3{
+    font-family: $FONT-REGULAR;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.29;
+    letter-spacing: normal;
+    text-align: left;
+    color: $COLOR-STEEL-GREY;
+    text-transform: uppercase;
+  }
+  .step{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 720px;
+    display: inline-block;
+    @media (max-width: $SCREEN_XS_MAX) {
+      margin: 0;
+    }
+  }
+  .step-note{
+    vertical-align: top;
+    width: 220px;
+    display: inline-block;
+    @media (max-width: $SCREEN_XS_MAX) {
+      width: auto;
+    }
+    &::before{
+      content: '';
+      display: block;
+      background:  $COLOR-STEEL-GREY;
+      width: 1px;
+      height: 185px;
+      position: absolute;
+      opacity: 0.3;
+      @media (max-width: $SCREEN_XS_MAX) {
+        height: 140px;
+      }
+    }
+    p{
+      margin: 0 0 10px 15px;
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.83;
+      letter-spacing: normal;
+      text-align: left;
+      color: $COLOR-GRAY-47;
+      &.h3{
+        color: $COLOR-STEEL-GREY;
+        font-size: 14px;
+      }
+    }
+  }
+  .mobile{
+    display: none;
+    @media (max-width: $SCREEN_XS_MAX) {
+      display: block;
+    }
+  }
+  .desktop{
+    @media (max-width: $SCREEN_XS_MAX) {
+      display: none;
+    }
+  }
+}

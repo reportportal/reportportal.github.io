@@ -1,0 +1,247 @@
+@import '../../pageSectionMixin';
+
+.download-page_install{
+  .download-header{
+    background: url(./img/header.svg);
+    height: 160px;
+    background-position: center;
+    @media (max-width: $SCREEN_XS_MAX) {
+      height: 220px;
+      background: url(./img/BG_mobile.png);
+    }
+    .h1 {
+      font-family: $FONT-REGULAR;
+      color: $COLOR-WHITE_TWO;
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 160px;
+      letter-spacing: 0.4px;
+      margin: 0;
+      text-align: center;
+      @media (max-width: $SCREEN_XS_MAX) {
+        font-size: 20px;
+        font-weight: normal;
+        padding: 0 15px;
+        line-height: normal;
+        padding-top: 75px;
+      }
+    }
+  }
+  .controls{
+    padding: 40px 0 30px 0;
+    background-color: $COLOR-WHITE_TWO;
+    z-index: 10;
+    @media (max-width: $SCREEN_XS_MAX) {
+      margin: 40px auto 25px auto;
+      padding: 0;
+      width: 320px;
+    }
+    ul.steps{
+      li{
+        display: inline-block;
+        width:240px;
+        vertical-align: top;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.44;
+        letter-spacing: normal;
+        text-align: left;
+        color: $COLOR-TEALISH;
+        cursor: pointer;
+        @media (max-width: $SCREEN_SM_MAX) {
+          width: 180px;
+        }
+        @media (max-width: $SCREEN_XS_MAX) {
+          padding-left: 5px;
+          width: auto;
+          margin-bottom: 15px;
+          margin-top: 4px;
+        }
+        a{
+          max-width: 190px;
+          font-size: 18px;
+          font-family: $FONT-LIGHT;
+          @media (max-width: $SCREEN_XS_MAX) {
+            font-size: 16px;
+            padding-left: 20px;
+            position: relative;
+            max-width: none;
+            margin: 0;
+          }
+          &:hover{
+            color: $COLOR-TOPAZ;
+          }
+        }
+        &.step-install{
+          a::after{
+            width: 235px;
+            @media (max-width: $SCREEN_SM_MAX) {
+              width: 165px;
+            }
+            @media (max-width: $SCREEN_XS_MAX) {
+              width: 1px;
+            }
+          }
+        }
+        &.step-configure{
+          a::after{
+            width: 200px;
+            @media (max-width: $SCREEN_SM_MAX) {
+              width: 145px;
+            }
+            @media (max-width: $SCREEN_XS_MAX) {
+              width: 1px;
+            }
+          }
+        }
+        &.step-open{
+          a::after{
+            width: 220px;
+            @media (max-width: $SCREEN_SM_MAX) {
+              width: 150px;
+            }
+            @media (max-width: $SCREEN_XS_MAX) {
+              width: 1px;
+            }
+          }
+        }
+        a{
+          position: relative;
+          display: inline-block;
+          span{
+            height: 50px;
+            float: left;
+            margin-right: 7px;
+            @media (max-width: $SCREEN_XS_MAX) {
+              height: auto;
+            }
+          }
+          &::before {
+            content: '';
+            width: 9px;
+            height: 9px;
+            border: 1px solid $COLOR-TEALISH;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 5px auto;
+            @media (max-width: $SCREEN_XS_MAX) {
+              position: absolute;
+              left: 0;
+              top: 7px;
+              width: 5px;
+              height: 5px;
+            }
+          }
+          &::after{
+            content: '';
+            height: 1px;
+            background-color: #79d6d9;
+            opacity: 0.5;
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            margin-left: 15px;
+            @media (max-width: $SCREEN_XS_MAX) {
+              height: 35px;
+              left: 3px;
+              top: 14px;
+              margin: 0;
+            }
+          }
+        }
+        &.active{
+          a{
+            font-family: $FONT-REGULAR;
+            color: $COLOR-STEEL-GREY;
+            &::before{
+              background-color: $COLOR-TEALISH;
+            }
+          }
+        }
+      }
+    }
+  }
+  .install-section{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    @media (max-width: $SCREEN_XS_MAX) {
+      width: 320px;
+      margin: 25px auto 0 auto;
+    }
+    h2{
+      margin-bottom: 0;
+    }
+    .step-note{
+      @media (max-width: $SCREEN_XS_MAX) {
+        margin: 0 7px;
+        &::before {
+          left: 17px;
+        }
+      }
+      &.hide{
+        .win{
+          display: none;
+        }
+        &::before{
+          height: 60px;
+        }
+      }
+    }
+    .instruction{
+      width: 700px;
+      margin-right: 20px;
+      border-bottom: 2px solid rgba(57, 195, 216, 0.20);
+      padding-bottom: 45px;
+      display: inline-block;
+      @media (max-width: $SCREEN_SM_MAX) {
+        width: 510px;
+        .step{
+          width: 100%;
+        }
+      }
+      @media (max-width: $SCREEN_XS_MAX) {
+        margin-top: 33px;
+        margin-right: 0;
+        width: auto;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      p.h3 {
+        margin: 20px 0 10px 0;
+      }
+      a{
+        @media (max-width: $SCREEN_XS_MAX) {
+          display: block;
+          margin: 15px 0 10px 0;
+        }
+        &::after{
+          content: '';
+          border-top: 1.5px solid $COLOR-TEALISH;
+          border-right: 1.5px solid $COLOR-TEALISH;
+          height: 6px;
+          width: 6px;
+          display: inline-block;
+          transform: rotate(45deg);
+          margin-left: 5px;
+          margin-bottom: 2px;
+        }
+        &:hover{
+          color: $COLOR-TOPAZ;
+          &::after{
+            border-top: 1.5px solid $COLOR-TOPAZ !important;
+            border-right: 1.5px solid $COLOR-TOPAZ !important;
+          }
+        }
+        &.btn{
+          &.docker{
+            background: url('./img/docker.svg');
+            background-repeat: no-repeat;
+            background-position: 25px;
+          }
+        }
+      }
+    }
+  }
+}

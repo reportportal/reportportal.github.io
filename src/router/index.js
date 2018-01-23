@@ -23,6 +23,7 @@ const Router = Backbone.Router.extend({
     docs: 'openDocumentation',
     'docs/:id': 'openDocumentation',
     community: 'openCommunity',
+    download: 'openDownload',
     '*invalidRoute': 'openIndex',
   },
   openIndex() {
@@ -37,6 +38,10 @@ const Router = Backbone.Router.extend({
     this.context.renderDocumentation(id);
     this.header.$el.removeClass('without-shadow');
   },
+  openDownload(){
+    this.context.renderDownload();
+    this.header.$el.addClass('without-shadow');
+  }
 });
 function getInstance() {
   if (!instance) {

@@ -1,0 +1,9 @@
+.tooltip
+  p.h3 #{locals.type}
+  p.url #{locals.url}
+  .code
+    .scheme
+      span {
+      p(data-js-copy-text) #{locals.scheme}
+      span }
+      span.copy(data-js-copy) Copy

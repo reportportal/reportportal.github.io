@@ -1,0 +1,74 @@
+.modal-backdrop(data-js-backdrop)
+.content(data-js-content)
+  button.close(data-js-cancel)
+  h2.generate-head Generate Docker-Compose file
+  label.version Version
+    span Latest (4.0.0)
+  .field
+    label ReportPortal folder location
+    input(type=text,value='./')
+  .section
+    p.section-name Mongo DB
+    .field
+      label Mongo DB location
+      select#custom-select
+        option(value='local') On a local host
+        option(value='separate') On seperate host
+    .db-settings.hide
+      .block
+        .field
+          label Mongo host
+          input(type=text, value='localhost')
+        .field
+          label Mongo DB name
+          input(type=text, value='reportportal')
+        .field
+          label Mongo user
+          input(type=text, placeholder='Enter Mongo user')
+      .block.right
+        .field
+          label Mongo port
+          input(type=text, value='27017')
+        .field
+          label Mongo auth DB name
+          input(type=text, value='reportportal')
+        .field
+          label Mongo password
+          input(type=text, placeholder='Enter Mongo password')
+  .section.other
+    p.section-name Other parametres
+    div
+      .block
+        .field
+          label Gateway
+          div
+            .radio
+              input#fabio(type="radio", name="gateway", value="Fabio",checked)
+              label(for='fabio') Fabio
+            .radio
+              input#traefik(type="radio", name="gateway", value="Traefik")
+              label(for='traefik') Traefik
+        .field
+          label Analyzer
+          .slider
+            input#analayzer(type='checkbox',checked)
+            label(data-js-slider) ON
+      .block.right
+        .field
+          label Integration with BTS
+          div
+            .integration
+              input#jira(type='checkbox')
+              label(for='jira')
+              label Jira
+            .integration
+              input#rally(type='checkbox')
+              label(for='rally')
+              label Rally
+        .field.session
+          label User session live time
+          input(type='text', data-js-session,value='86400')
+  .button-section
+    button.cancel(data-js-cancel) Cancel
+    button.generate(data-js-generate) Generate file
+

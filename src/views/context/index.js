@@ -6,6 +6,7 @@ import './Context.scss';
 import IndexPage from 'pages/index-page';
 import CommunityPage from 'pages/community-page';
 import DocumentationPage from 'pages/documentation-page';
+import DownloadPage from 'pages/download-page';
 
 export default Epoxy.View.extend({
   template,
@@ -26,6 +27,10 @@ export default Epoxy.View.extend({
   renderCommunity() {
     this.header.activatePage('community');
     this.renderPage(CommunityPage);
+  },
+  renderDownload() {
+    this.header.activatePage('download');
+    this.renderPage(DownloadPage);
   },
   renderDocumentation(id) {
     if (this.currentPage && this.currentPage.$el.hasClass('documentation-page')) {

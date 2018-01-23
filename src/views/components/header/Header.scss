@@ -57,7 +57,7 @@
         float: left;
         width: 141px;
         height: 23px;
-        margin: 5px 0 0 30px;
+        margin: 5px 0 0 10px;
         cursor: pointer;
         img{
           vertical-align: middle;
@@ -72,7 +72,6 @@
       }
       .right-block {
         float: right;
-        margin-right: 30px;
 
         @media (max-width: $SCREEN_XS_MAX) {
           display: none;
@@ -108,11 +107,9 @@
           cursor: pointer;
           text-align: center;
           text-decoration: none;
-          &.menu-item__index {
-            width: 110px;
-          }
-          &.menu-item__documentation {
-            width: 150px;
+          margin: 0 10px;
+          &.menu-item__community{
+            margin-right: 20px;
           }
           &.active {
             font-family: $FONT-HEADER;
