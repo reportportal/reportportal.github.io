@@ -11,10 +11,11 @@ export default Epoxy.View.extend({
   className: 'preview-modal',
 
   events: {
-    'click .baron_scroller': 'onClickBackdrop',
+    'click .baron_scroller': 'onClickCancel',
+    'click [data-js-cancel]': 'onClickCancel',
     'click [data-js-content]': 'onClickContent',
     'mouseenter [data-js-info]': 'onHoverInfo',
-    'mouseleave [data-js-info]': 'onLeaveInfo'
+    'mouseleave [data-js-info]': 'onLeaveInfo',
   },
 
   initialize() {
@@ -25,16 +26,16 @@ export default Epoxy.View.extend({
   },
   onHoverInfo(e) {
     let el;
-    if($(e.target).attr('type')){
-      el=$(e.target);
-    } else{
+    if ($(e.target).attr('type')) {
+      el = $(e.target);
+    } else {
       el = $(e.target).parent();
     }
-    let key = el.attr('type');
+    const key = el.attr('type');
     this.httpInfo = new Tooltip(info[key]);
     el.append(this.httpInfo.$el);
   },
-  onLeaveInfo(){
+  onLeaveInfo() {
     this.httpInfo.destroy();
   },
   onShow() {
@@ -44,7 +45,7 @@ export default Epoxy.View.extend({
     BaronScroll($('[data-js-content]', this.$el));
   },
   resize() {
-    if($(document).width() <= 991){
+    if ($(document).width() <= 991) {
       this.destroy();
     }
   },
@@ -57,7 +58,7 @@ export default Epoxy.View.extend({
   onClickContent(e) {
     e.stopPropagation();
   },
-  onClickBackdrop() {
+  onClickCancel() {
     this.hide();
   },
   onDestroy() {

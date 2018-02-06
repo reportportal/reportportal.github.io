@@ -6,7 +6,7 @@
     span Latest (4.0.0)
   .field
     label ReportPortal folder location
-    input(type=text,value='./')
+    input(type=text,value='./',data-js-folder-location)
   .section
     p.section-name Mongo DB
     .field
@@ -18,23 +18,23 @@
       .block
         .field
           label Mongo host
-          input(type=text, value='localhost')
+          input(type=text, value='localhost',data-js-db-host)
         .field
           label Mongo DB name
-          input(type=text, value='reportportal')
+          input(type=text, value='reportportal',data-js-db-name)
         .field
           label Mongo user
-          input(type=text, placeholder='Enter Mongo user')
+          input(type=text, placeholder='Enter Mongo user',data-js-db-user)
       .block.right
         .field
           label Mongo port
-          input(type=text, value='27017')
+          input(type=text, value='27017',data-js-db-port)
         .field
           label Mongo auth DB name
-          input(type=text, value='reportportal')
+          input(type=text, value='reportportal',data-js-db-auth-name)
         .field
           label Mongo password
-          input(type=text, placeholder='Enter Mongo password')
+          input(type=text, placeholder='Enter Mongo password',data-js-db-password)
   .section.other
     p.section-name Other parametres
     div
@@ -43,7 +43,7 @@
           label Gateway
           div
             .radio
-              input#fabio(type="radio", name="gateway", value="Fabio",checked)
+              input#fabio(type="radio",data-js-fabio, name="gateway", value="Fabio",checked)
               label(for='fabio') Fabio
             .radio
               input#traefik(type="radio", name="gateway", value="Traefik")
@@ -51,23 +51,23 @@
         .field
           label Analyzer
           .slider
-            input#analayzer(type='checkbox',checked)
+            input#analayzer(type='checkbox',data-js-analyzer,checked)
             label(data-js-slider) ON
       .block.right
         .field
           label Integration with BTS
           div
             .integration
-              input#jira(type='checkbox')
+              input#jira(type='checkbox',data-js-jira)
               label(for='jira')
               label Jira
             .integration
-              input#rally(type='checkbox')
+              input#rally(type='checkbox',data-js-rally)
               label(for='rally')
               label Rally
         .field.session
           label User session live time
-          input(type='text', data-js-session,value='86400')
+          input(type='text', data-js-session,value='86400',maxLength='10')
   .button-section
     button.cancel(data-js-cancel) Cancel
     button.generate(data-js-generate) Generate file

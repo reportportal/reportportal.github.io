@@ -21,7 +21,8 @@ export default Epoxy.View.extend({
     this.mainScrollEl = options.mainScrollEl;
     this.renderTemplate();
     this.sections = [];
-    const listViews = [DownloadPageInstall, DownloadPageConfig, DownloadPageOpen, DownloadPageIntegrate];
+    const listViews = [DownloadPageInstall, DownloadPageConfig,
+      DownloadPageOpen, DownloadPageIntegrate];
     _.each(listViews, (constructor) => {
       const view = new constructor();
       this.sections.push(view);
@@ -29,6 +30,11 @@ export default Epoxy.View.extend({
     });
     this.footer = new Footer();
     $('[data-js-footer-container]', this.$el).html(this.footer.$el);
+    $(window).on('resize', () => {
+      if ($(document).width() <= 768) {
+        $('[data-js-controls]').removeClass('fixed-controls');
+      }
+    });
   },
   onShow() {
     this.scrollerAnimate = new ScrollerAnimate(this.sections);
@@ -39,6 +45,7 @@ export default Epoxy.View.extend({
       });
     this.onScroll();
   },
+
   scrollTo(e) {
     const sectionData = $(e.target).attr('type');
     const scrollTop = this.mainScrollEl.scrollTop();
@@ -49,16 +56,17 @@ export default Epoxy.View.extend({
 
     if (scrollTop > 140) {
       if (sectionData === 'data-js-install') {
-        this.mainScrollEl.animate({ scrollTop: scrollTop + section - controlsHeight - bannerHeight }, 500);
+        this.mainScrollEl.animate({ scrollTop: (scrollTop + section)
+        - controlsHeight - bannerHeight }, 500);
         return;
       }
-      this.mainScrollEl.animate({ scrollTop: scrollTop + section - menuHeight - controlsHeight }, 500);
+      this.mainScrollEl.animate({ scrollTop: (scrollTop + section)
+      - menuHeight - controlsHeight }, 500);
+    } else if ($(document).width() >= 768) {
+      this.mainScrollEl.animate({ scrollTop: (scrollTop + section)
+      - menuHeight - bannerHeight - controlsHeight }, 500);
     } else {
-      if($(document).width() >= 768){
-        this.mainScrollEl.animate({ scrollTop: scrollTop + section - menuHeight - bannerHeight - controlsHeight }, 500);
-      } else {
-        this.mainScrollEl.animate({ scrollTop: scrollTop + section - menuHeight }, 500);
-      }
+      this.mainScrollEl.animate({ scrollTop: (scrollTop + section) - menuHeight }, 500);
     }
   },
   onScroll() {

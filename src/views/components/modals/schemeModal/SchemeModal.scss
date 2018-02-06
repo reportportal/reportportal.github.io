@@ -27,6 +27,33 @@
     opacity: 0;
     transition: transform .3s ease-out, opacity .15s ease-out;
     padding: 40px 50px;
+    .close{
+      width: 20px;
+      height: 20px;
+      border: none;
+      background: transparent;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      &::before,&::after{
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 2px;
+        background: $COLOR-GRAY-60;
+      }
+      &::before{
+        transform: rotate(45deg);
+        position: absolute;
+        left: 0;
+      }
+      &::after{
+        transform: rotate(-45deg);
+        position: absolute;
+        right: 0;
+      }
+    }
     h2{
       font-family: $FONT-REGULAR;
       font-size: 16px;
