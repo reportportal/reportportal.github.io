@@ -14,7 +14,7 @@ export default IndexPageSection.extend({
   initialize() {
     this.renderTemplate();
   },
-  showScheme(e){
+  showScheme(e) {
     e.preventDefault();
     Router.modals.show(new SchemeModal());
   },

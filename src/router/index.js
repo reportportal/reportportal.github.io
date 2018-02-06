@@ -38,10 +38,10 @@ const Router = Backbone.Router.extend({
     this.context.renderDocumentation(id);
     this.header.$el.removeClass('without-shadow');
   },
-  openDownload(){
+  openDownload() {
     this.context.renderDownload();
     this.header.$el.addClass('without-shadow');
-  }
+  },
 });
 function getInstance() {
   if (!instance) {

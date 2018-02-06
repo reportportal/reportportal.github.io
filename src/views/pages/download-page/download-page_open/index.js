@@ -21,7 +21,7 @@ export default IndexPageSection.extend({
   copyText(e) {
     const $temp = $('<input>');
     $('body').append($temp);
-    let copyVal = $(e.target).attr('data-copy');
+    const copyVal = $(e.target).attr('data-copy');
     $temp.val(copyVal).select();
     $temp.remove();
     document.execCommand('copy');
