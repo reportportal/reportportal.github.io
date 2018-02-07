@@ -44,8 +44,8 @@ export default IndexPageSection.extend({
     $('body').append($temp);
     const copyVal = $(e.target).attr('data-copy');
     $temp.val(copyVal).select();
-    $temp.remove();
     document.execCommand('copy');
+    $temp.remove();
   },
   checkScroll(scrollTop, scrollElTop) {
     if (scrollElTop < 1300) {
