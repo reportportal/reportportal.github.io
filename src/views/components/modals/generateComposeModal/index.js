@@ -15,7 +15,6 @@ export default Epoxy.View.extend({
     'click [data-js-cancel]': 'onCancel',
     'click [data-js-content]': 'onClickContent',
     'click [data-js-slider]': 'onClickSlider',
-    'keypress [data-js-session]': 'validation',
     'click [data-js-generate]': 'generateComposeFile',
   },
   initialize() {
@@ -141,26 +140,6 @@ export default Epoxy.View.extend({
     }
     return compose;
   },
-  validation(e) {
-    function getChar(event) {
-      if (event.which == null) {
-        if (event.keyCode < 32) return null;
-        return String.fromCharCode(event.keyCode);
-      }
-      if (event.which !== 0 && event.charCode !== 0) {
-        if (event.which < 32) return null;
-        return String.fromCharCode(event.which);
-      }
-      return null;
-    }
-    e = e || event;
-    if (e.ctrlKey || e.altKey || e.metaKey) return;
-    const chr = getChar(e);
-    if (chr == null) return;
-    if (chr < '0' || chr > '9') {
-      return false;
-    }
-  },
   onClickSlider(e) {
     const el = $('#analayzer');
     if (el.is(':checked')) {
@@ -172,9 +151,10 @@ export default Epoxy.View.extend({
     }
   },
   customizeSelect() {
-    $('#custom-select').each(function () {
-      const $this = $(this);
-      const numberOfOptions = $(this).children('option').length;
+    const select = $('#custom-select');
+    $('#custom-select').each(() => {
+      const $this = select;
+      const numberOfOptions = select.children('option').length;
 
       $this.addClass('select-hidden');
       $this.wrap('<div class="select"></div>');

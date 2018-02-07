@@ -1,13 +1,13 @@
 import axios from 'axios';
 import FileSaver from 'file-saver';
-import YAML from 'js-yaml';import IndexPageSection from '../../sectionView';
-import GenerateComposeModal from 'components/modals/GenerateComposeModal';
-import template from './download-page_configure.jade';
+import YAML from 'js-yaml';
 import { $ } from 'backbone';
+import Router from 'router';
+import IndexPageSection from '../../sectionView';
+import GenerateComposeModal from 'components/modals/generateComposeModal';
+import template from './download-page_configure.jade';
 import './download-page_configure.scss';
 import './download-page_configure__animate.scss';
-
-import Router from 'router';
 
 export default IndexPageSection.extend({
   template,

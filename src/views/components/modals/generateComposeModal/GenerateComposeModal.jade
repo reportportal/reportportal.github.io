@@ -67,7 +67,7 @@
               label Rally
         .field.session
           label User session live time
-          input(type='text', data-js-session,value='86400',maxLength='10')
+          input(type='text', data-js-session,value='86400',maxLength='10', pattern="[0-9]{10}")
   .button-section
     button.cancel(data-js-cancel) Cancel
     button.generate(data-js-generate) Generate file
