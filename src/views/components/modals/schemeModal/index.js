@@ -8,7 +8,7 @@ import info from './httpInfo.js';
 
 export default Epoxy.View.extend({
   template,
-  className: 'preview-modal',
+  className: 'scheme-modal',
 
   events: {
     'click .baron_scroller': 'onClickCancel',
@@ -62,6 +62,6 @@ export default Epoxy.View.extend({
     this.hide();
   },
   onDestroy() {
-    $(window).off('resize.previewModal');
+    $(window).off('resize.schemeModal');
   },
 });

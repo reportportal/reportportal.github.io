@@ -2,10 +2,13 @@ import { $ } from 'backbone';
 import axios from 'axios';
 import YAML from 'js-yaml';
 import Epoxy from 'backbone.epoxy';
+import selectize from 'selectize';
+import './selectize.css';
 import FileSaver from 'file-saver';
 import BaronScroll from 'utils/baronScroll';
 import template from './GenerateComposeModal.jade';
 import './GenerateComposeModal.scss';
+
 
 export default Epoxy.View.extend({
   template,
@@ -28,7 +31,13 @@ export default Epoxy.View.extend({
     this.$el.addClass('show');
     this.resize();
     BaronScroll($('[data-js-content]', this.$el));
-    this.customizeSelect();
+    const $select = $('#custom-select').selectize();
+    const selectizeEl = $select[0].selectize;
+    selectizeEl.on('change', () => {
+      if (selectizeEl !== 'local') {
+        $('.db-settings', this.$el).toggleClass('hide');
+      }
+    });
   },
   generateComposeFile() {
     axios.get('https://raw.githubusercontent.com/reportportal/reportportal/4.0/docker-compose.yml')
@@ -40,7 +49,6 @@ export default Epoxy.View.extend({
         } else {
           os = 'mac';
         }
-        console.log(compose);
         compose = this.mongo(compose, os);
         compose = this.folderLocation(compose, os);
         compose = this.sessionLive(compose);
@@ -66,50 +74,55 @@ export default Epoxy.View.extend({
     return `mongodb://${auth}${dbhost}:${dbPort}/${dbName}?authSource=${dbAuth}`;
   },
   mongo(compose, os) {
+    const tempCompose = Object.assign({}, compose);
     const isLocal = $('.db-settings', this.$el).hasClass('hide');
     if (isLocal) {
       if (os === 'win') {
         delete compose.services.mongodb.volumes;
       }
     } else {
-      delete compose.services.mongodb.restart;
-      delete compose.services.mongodb.volumes;
-      delete compose.services.mongodb.restart;
+      delete tempCompose.services.mongodb.restart;
+      delete tempCompose.services.mongodb.volumes;
+      delete tempCompose.services.mongodb.restart;
       const mongoURI = `RP_MONGO_URI=${this.createMongoURI()}`;
-      compose.services.uat.environment.push(mongoURI);
-      compose.services.api.environment.push(mongoURI);
-      compose.services.jira.environment.push(mongoURI);
-      compose.services.rally.environment.push(mongoURI);
+      tempCompose.services.uat.environment.push(mongoURI);
+      tempCompose.services.api.environment.push(mongoURI);
+      tempCompose.services.jira.environment.push(mongoURI);
+      tempCompose.services.rally.environment.push(mongoURI);
     }
-    return compose;
+    return tempCompose;
   },
   folderLocation(compose) {
-    const mongodb = compose.services.mongodb;
+    const tempCompose = Object.assign({}, compose);
+    const mongodb = tempCompose.services.mongodb;
     const loc = $('[data-js-folder-location]', this.$el).val() || './';
     if (mongodb.volumes) {
-      compose.services.mongodb.volumes[0] = mongodb.volumes[0].replace('./data/mongo', loc);
+      tempCompose.services.mongodb.volumes[0] = mongodb.volumes[0].replace('./data/mongo', loc);
     }
-    compose.services.registry.volumes[0] = compose.services.registry.volumes[0].replace('./data/consul', loc);
-    compose.services.elasticsearch.volumes[0] = compose.services.elasticsearch.volumes[0].replace('./data/elasticsearch', loc);
-    return compose;
+    tempCompose.services.registry.volumes[0] = tempCompose.services.registry.volumes[0].replace('./data/consul', loc);
+    tempCompose.services.elasticsearch.volumes[0] = tempCompose.services.elasticsearch.volumes[0].replace('./data/elasticsearch', loc);
+    return tempCompose;
   },
   sessionLive(compose) {
+    const tempCompose = Object.assign({}, compose);
     const time = $('[data-js-session]', this.$el).val() || 86400;
-    compose.services.uat.environment[1] = `RP_SESSION_LIVE=${time}`;
-    return compose;
+    tempCompose.services.uat.environment[1] = `RP_SESSION_LIVE=${time}`;
+    return tempCompose;
   },
   bts(compose) {
+    const tempCompose = Object.assign({}, compose);
     const rally = $('[data-js-rally]', this.$el).is(':checked');
     const jira = $('[data-js-jira]', this.$el).is(':checked');
     if (!rally) {
-      delete compose.services.rally;
+      delete tempCompose.services.rally;
     }
     if (!jira) {
-      delete compose.services.jira;
+      delete tempCompose.services.jira;
     }
-    return compose;
+    return tempCompose;
   },
   gateway(compose) {
+    const tempCompose = Object.assign({}, compose);
     const fabio = $('[data-js-fabio]', this.$el).is(':checked');
     const traefic = {
       image: 'traefik:1.5',
@@ -128,17 +141,18 @@ export default Epoxy.View.extend({
       restart: 'always',
     };
     if (!fabio) {
-      compose.services.gateway = traefic;
+      tempCompose.services.gateway = traefic;
     }
-    return compose;
+    return tempCompose;
   },
   analayzer(compose) {
+    const tempCompose = Object.assign({}, compose);
     const analyzer = $('[data-js-analayzer]', this.$el).is(':checked');
     if (!analyzer) {
-      delete compose.services.analyzer;
-      delete compose.services.elasticsearch;
+      delete tempCompose.services.analyzer;
+      delete tempCompose.services.elasticsearch;
     }
-    return compose;
+    return tempCompose;
   },
   onClickSlider(e) {
     const el = $('#analayzer');
@@ -149,58 +163,6 @@ export default Epoxy.View.extend({
       el.attr('checked', true);
       $(e.target).text('ON');
     }
-  },
-  customizeSelect() {
-    const select = $('#custom-select');
-    $('#custom-select').each(() => {
-      const $this = select;
-      const numberOfOptions = select.children('option').length;
-
-      $this.addClass('select-hidden');
-      $this.wrap('<div class="select"></div>');
-      $this.after('<div class="select-styled"></div>');
-
-      const $styledSelect = $this.next('div.select-styled');
-      $styledSelect.text($this.children('option').eq(0).text());
-
-      const $list = $('<ul />', {
-        class: 'select-options',
-      }).insertAfter($styledSelect);
-
-      for (let i = 0; i < numberOfOptions; i += 1) {
-        $('<li />', {
-          text: $this.children('option').eq(i).text(),
-          rel: $this.children('option').eq(i).val(),
-        }).appendTo($list);
-      }
-
-      const $listItems = $list.children('li');
-
-      $styledSelect.click(function (e) {
-        e.stopPropagation();
-        $('div.select-styled.active').not(this).each(function () {
-          $(this).removeClass('active').next('ul.select-options').hide();
-        });
-        $(this).toggleClass('active').next('ul.select-options').toggle();
-      });
-
-      $listItems.click(function (e) {
-        e.stopPropagation();
-        $styledSelect.text($(this).text()).removeClass('active');
-        $this.val($(this).attr('rel'));
-        $list.hide();
-        if ($this.val() === 'separate') {
-          $('.db-settings').removeClass('hide');
-        } else {
-          $('.db-settings').addClass('hide');
-        }
-      });
-
-      $(document).click(() => {
-        $styledSelect.removeClass('active');
-        $list.hide();
-      });
-    });
   },
   resize() {
     if ($(document).width() <= 991) {
