@@ -50,10 +50,13 @@
               label(for='traefik') Traefik
         .field
           label Analyzer
-          .slider
-            input#analayzer(type='checkbox',data-js-analyzer,checked)
-            label(data-js-slider) ON
-      .block.right
+          .switcher
+            label.rp-switcher-big
+              span.turn-on On
+              span.turn-off Off
+              input#analayzer(type="checkbox" data-js-is-auto-analize, checked)
+              .slider
+      .block.right.integrate
         .field
           label Integration with BTS
           div
