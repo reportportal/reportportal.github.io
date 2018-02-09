@@ -81,7 +81,7 @@
         position: relative;
         &::before{
           content: '';
-          height: 1000px;
+          height: 1200px;
           border-right: 1px dashed #b5e7ea;
           position: absolute;
           left: 0;
@@ -89,7 +89,7 @@
         }
         &::after{
           content: '';
-          height: 1000px;
+          height: 1200px;
           border-right: 1px dashed #b5e7ea;
           position: absolute;
           right: 0;
@@ -112,7 +112,7 @@
       .framework{
         background: url('img/romb.png');
         margin-right: 120px;
-        height:70px;
+        height:73px;
         p{
           padding-top: 25px;
         }
@@ -149,8 +149,20 @@
         }
         .first{
           width: auto;
-          padding: 6px 20px;
+          padding: 6px 5px;
           float: right;
+        }
+        .lg{
+          width: 140px;
+        }
+        .md{
+          width: 120px;
+        }
+        .sm{
+          width: 100px;
+        }
+        .xs{
+          width: 80px;
         }
       }
       .between-entity-1{
@@ -169,8 +181,28 @@
       .grey{
         color: #6f898d;
       }
+      .onhover{
+        span{
+          &::before {
+            transform: rotate(135deg);
+            top: 11px;
+          }
+        }
+      }
       .blue{
         color: #39c2d7;
+        position: relative;
+        &::before{
+          content: '';
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          border-left: 1px solid $COLOR-TEALISH;
+          border-bottom: 1px solid $COLOR-TEALISH;
+          transform: rotate(-45deg);
+          right: 7px;
+          top: 8px;
+        }
       }
       .process-row{
         float: left;
@@ -179,6 +211,9 @@
       .action{
         padding: 2px 16px;
         border-radius: 100px;
+        &.blue{
+          padding-left: 8px;
+        }
       }
       span.left-circle{
         &::after{
@@ -281,16 +316,16 @@
       }
       .arrow-bottom{
         &::before{
-          content: '';
-          width: 1px;
+          content: "";
           height: 25px;
           background-color: $COLOR-TEALISH;
+          border-right: 1px solid #39c2d7;
           display: block;
           left: 50%;
-          margin-left: 1px;
+          margin-left: 0.5px;
           bottom: 0;
           position: absolute;
-          transform: translate(0, 30px);
+          transform: translateY(30px);
         }
         &::after{
           content: '';

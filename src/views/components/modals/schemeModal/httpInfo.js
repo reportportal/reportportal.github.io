@@ -1,7 +1,7 @@
 const httpInfo = {
   'start-launch-rq': {
     type: 'HTTP request',
-    url: 'POST&nbsp;http://rphost:port/api/v1/{projectName}/launch',
+    url: 'POST http://rphost:port/api/v1/{projectName}/launch',
     scheme: '"description": "Launch description",\n"mode": "DEFAULT",\n"name": "Launch name",\n"start_time": "1505483177000",\n"tags": ["build: tag:3.0.1.10"]',
   },
   'start-launch-rs': {

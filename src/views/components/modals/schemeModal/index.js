@@ -28,14 +28,19 @@ export default Epoxy.View.extend({
     let el;
     if ($(e.target).attr('type')) {
       el = $(e.target);
+      el.toggleClass('onhover');
     } else {
       el = $(e.target).parent();
+      el.toggleClass('onhover');
     }
     const key = el.attr('type');
     this.httpInfo = new Tooltip(info[key]);
     el.append(this.httpInfo.$el);
   },
   onLeaveInfo() {
+    const el = $('.onhover', this.$el);
+    el.toggleClass('onhover');
+    $(this.httpInfo.$el.parent()).toggleClass('onhover');
     this.httpInfo.destroy();
   },
   onShow() {

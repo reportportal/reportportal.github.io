@@ -8,14 +8,14 @@
     }
   }
   .header-content-wrapper {
-    position: absolute;
+    position: fixed;
     height: 60px;
     width: 100%;
 
     background: $COLOR-WHITE_TWO;
     font-family: $FONT-REGULAR;
     box-shadow: 0 1px 2px 0 rgba(189, 199, 204, 0.41);
-    z-index: 10;
+    z-index: 100;
 
     .header-content {
       height: 100%;
