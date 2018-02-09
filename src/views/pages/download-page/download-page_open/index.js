@@ -25,6 +25,10 @@ export default IndexPageSection.extend({
     $temp.val(copyVal).select();
     document.execCommand('copy');
     $temp.remove();
+    $(`[data-copy=${copyVal}]`, this.$el).text('Copied');
+    setTimeout(() => {
+      $(`[data-copy=${copyVal}]`, this.$el).text('Copy');
+    }, 1000);
   },
   checkScroll(scrollTop, scrollElTop) {
     if (scrollElTop < 1300) {
