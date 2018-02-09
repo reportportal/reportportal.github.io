@@ -2,7 +2,7 @@ import { $ } from 'backbone';
 import axios from 'axios';
 import YAML from 'js-yaml';
 import Epoxy from 'backbone.epoxy';
-import selectize from 'selectize';
+import 'selectize';
 import './selectize.css';
 import FileSaver from 'file-saver';
 import BaronScroll from 'utils/baronScroll';
