@@ -14,9 +14,8 @@ export default Epoxy.View.extend({
   },
   copyText(e) {
     const $temp = $('<textarea>');
-    const brRegex = /<br\s*[\/]?>/gi;
     $('body').append($temp);
-    const copyVal = $('[data-js-copy-text]', this.$el).html().replace(brRegex, '\r\n');
+    const copyVal = $('[data-js-copy-text]', this.$el).html().replace(/<br\s*[/]?>/gi, '\r\n');
     $temp.val(`{${copyVal}}`).select();
     document.execCommand('copy');
     $temp.remove();
