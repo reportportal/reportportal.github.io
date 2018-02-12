@@ -48,7 +48,7 @@
     height: 100%;
     background-repeat: no-repeat;
     &.doc-icon {
-      background-image: url(./img/doc.svg);
+      background-image: url(./img/ic-video.png);
       background-position: 10px top;
     }
     &.video-icon {
@@ -79,10 +79,12 @@
       &:after {
         content: '';
         display: inline-block;
-        width: 6px;
-        height: 10px;
         background: url(./img/next.svg) no-repeat;
         margin-left: 7px;
+        background-size: contain;
+        vertical-align: text-bottom;
+        width: 20px;
+        height: 20px;
       }
     }
   }
