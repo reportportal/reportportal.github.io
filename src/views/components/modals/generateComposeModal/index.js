@@ -147,7 +147,7 @@ export default Epoxy.View.extend({
   },
   analayzer(compose) {
     const tempCompose = Object.assign({}, compose);
-    const analyzer = $('[data-js-analayzer]', this.$el).is(':checked');
+    const analyzer = $('[data-js-is-auto-analize]', this.$el).is(':checked');
     if (!analyzer) {
       delete tempCompose.services.analyzer;
       delete tempCompose.services.elasticsearch;
