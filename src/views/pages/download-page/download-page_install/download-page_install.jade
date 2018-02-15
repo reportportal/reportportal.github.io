@@ -21,7 +21,7 @@
           | Integrate with test framework
 .install-section(data-js-install)
   .section-container
-    .step-note.mobile
+    .step-note.mobile(class='#{locals.os}')
       p.h3 System requirements
       p 3Gb dedicated for Docker
       p.win(class='#{locals.class}') 64-bit Windows 10 Pro and Microsoft Hyper-V
@@ -38,7 +38,7 @@
           a.btn.docker(href='#{locals.link}') Download Docker CE
           p.main-tex If you want to download Docker for another OS, please visit
             a(href='https://store.docker.com/', target='_blank') Docker Store
-    .step-note.desktop(class='#{locals.class}')
+    .step-note.desktop(class='#{locals.os}')
       p.h3 System requirements
       p 3Gb dedicated for Docker
       p.win(class='#{locals.class}') 64-bit Windows 10 Pro and Microsoft Hyper-V
