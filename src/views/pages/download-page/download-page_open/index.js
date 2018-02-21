@@ -9,6 +9,7 @@ export default IndexPageSection.extend({
   className: 'download-page_open',
   events: {
     'click [data-copy]': 'copyText',
+    'click [data-js-new-window]': 'openNewWindow',
   },
   initialize() {
     this.renderTemplate();
@@ -17,6 +18,10 @@ export default IndexPageSection.extend({
     return [
       { checkScroll: this.checkScroll.bind(this), el: this.el },
     ];
+  },
+  openNewWindow(e) {
+    e.preventDefault();
+    window.open(e.target.href);
   },
   copyText(e) {
     const $temp = $('<input>');

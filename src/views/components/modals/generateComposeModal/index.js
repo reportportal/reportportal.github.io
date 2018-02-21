@@ -31,7 +31,23 @@ export default Epoxy.View.extend({
     this.$el.addClass('show');
     this.resize();
     BaronScroll($('[data-js-content]', this.$el));
-    const $select = $('#custom-select').selectize();
+    const $select = $('#custom-select').selectize({
+      openOnFocus: false,
+      onInitialize() {
+        const that = this;
+        this.$control.on('click', () => {
+          that.ignoreFocusOpen = true;
+          setTimeout(() => {
+            that.ignoreFocusOpen = false;
+          }, 50);
+        });
+      },
+      onFocus() {
+        if (!this.ignoreFocusOpen) {
+          this.open();
+        }
+      },
+    });
     const selectizeEl = $select[0].selectize;
     selectizeEl.on('change', () => {
       if (selectizeEl !== 'local') {
@@ -40,7 +56,7 @@ export default Epoxy.View.extend({
     });
   },
   generateComposeFile() {
-    axios.get('https://raw.githubusercontent.com/reportportal/reportportal/4.0/docker-compose.yml')
+    axios.get('https://raw.githubusercontent.com/reportportal/reportportal/master/docker-compose.yml')
       .then((response) => {
         let compose = YAML.load(response.data);
         let os;
@@ -61,7 +77,8 @@ export default Epoxy.View.extend({
       });
   },
   createMongoURI() {
-    const dbhost = $('[data-js-db-host]', this.$el).val() || 'localhost';
+    let dbhost = $('[data-js-db-host]', this.$el).val() || 'localhost';
+    dbhost = dbhost.replace(/(http:\/\/)|(https:\/\/)/, '');
     const dbName = $('[data-js-db-name]', this.$el).val() || 'reportportal';
     const dbPort = $('[data-js-db-port]', this.$el).val() || 27017;
     const dbAuth = $('[data-js-db-auth-name]', this.$el).val() || 'reportportal';

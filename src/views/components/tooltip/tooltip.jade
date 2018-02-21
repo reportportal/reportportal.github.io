@@ -6,4 +6,5 @@
       span {
       p(data-js-copy-text) #{locals.scheme}
       span }
-      span.copy(data-js-copy) Copy
+      if locals.type != 'HTTP response'
+        span.copy(data-js-copy) Copy

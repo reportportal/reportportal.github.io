@@ -10,6 +10,7 @@ export default IndexPageSection.extend({
   className: 'download-page_integrate',
   events: {
     'click [data-js-scheme]': 'showScheme',
+    'click [data-js-new-window]': 'openNewWindow',
   },
   initialize() {
     this.renderTemplate();
@@ -22,6 +23,10 @@ export default IndexPageSection.extend({
     return [
       { checkScroll: this.checkScroll.bind(this), el: this.el },
     ];
+  },
+  openNewWindow(e) {
+    e.preventDefault();
+    window.open(e.target.href || e.target.parentNode.href);
   },
   checkScroll(scrollTop, scrollElTop) {
     if (scrollElTop < 1300) {
