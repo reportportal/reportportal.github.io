@@ -16,6 +16,7 @@ export default IndexPageSection.extend({
     'click [data-copy]': 'copyText',
     'click [data-js-configure-file]': 'configureFile',
     'click [data-js-download-default]': 'downloadDefaultFile',
+    'click [data-js-new-window]': 'openNewWindow',
   },
   initialize() {
     this.renderTemplate();
@@ -24,6 +25,10 @@ export default IndexPageSection.extend({
     return [
       { checkScroll: this.checkScroll.bind(this), el: this.el },
     ];
+  },
+  openNewWindow(e) {
+    e.preventDefault();
+    window.open(e.target.href);
   },
   configureFile() {
     Router.modals.show(new GenerateComposeModal());

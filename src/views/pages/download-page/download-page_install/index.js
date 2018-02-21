@@ -6,6 +6,9 @@ import './download-page_install__animate.scss';
 export default IndexPageSection.extend({
   template,
   className: 'download-page_install',
+  events: {
+    'click [data-js-new-window]': 'openNewWindow',
+  },
   initialize() {
     const data = {};
     if (window.navigator.platform.indexOf('Win') > -1) {
@@ -18,6 +21,10 @@ export default IndexPageSection.extend({
       data.class = 'hide';
     }
     this.renderTemplate(data);
+  },
+  openNewWindow(e) {
+    e.preventDefault();
+    window.open(e.target.href);
   },
   getSections() {
     return [
