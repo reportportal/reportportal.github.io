@@ -21,11 +21,12 @@
           | Integrate with test framework
 .install-section(data-js-install)
   .section-container
-    .step-note.mobile(class='#{locals.os}')
-      p.h3 System requirements
-      p 5+Gb dedicated for Docker
-      p.win(class='#{locals.class}') 64-bit Windows 10 Pro and Microsoft Hyper-V
-      p.win(class='#{locals.class}') If not you can install Docker Toolbox, which uses Oracle Virtual Box instead of Hyper-V.
+    .step-note.mobile
+      div
+        p.h3 System requirements
+        p 5+Gb dedicated for Docker
+      .recomend
+        p We strongly recommend to deploy in <i class='linux'/> Linux based environment
     .instruction
       h2 1. Install Docker
         span.note If you have Docker, please skip this step
@@ -33,13 +34,11 @@
         p.main-text Docker is a development enviroment for building, assembling and shipping applications. It is available for free.
           a(href='https://www.docker.com/what-docker',data-js-new-window) More about Docker
         .desktop
-          p.h3 Docker Community Edition for
-            | #{locals.os}
-          a.btn.docker(href='#{locals.link}') Download Docker CE
-          p.main-tex If you want to download Docker for another OS, please visit
+          p.main-text Download Docker for <i class='mac'/> Mac OS, <i class='win'/> Windows, <i class='linux'/> Linux and other from
             a(href='https://store.docker.com/', data-js-new-window) Docker Store
-    .step-note.desktop(class='#{locals.os}')
-      p.h3 System requirements
-      p 5+Gb dedicated for Docker
-      p.win(class='#{locals.class}') 64-bit Windows 10 Pro and Microsoft Hyper-V
-      p.win(class='#{locals.class}') If not, you can install Docker Toolbox, which uses Oracle Virtual Box instead of Hyper-V.
+    .step-note.desktop
+      div
+        p.h3 System requirements
+        p 5+Gb dedicated for Docker
+      .recomend
+        p We strongly recommend to deploy in <i class='linux'/> Linux based environment

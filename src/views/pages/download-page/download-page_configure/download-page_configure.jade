@@ -8,7 +8,8 @@
           a.btn.download(data-js-download-default) Download default file
           a.btn.create(data-js-configure-file) Configure file
       .step-note.first
-        p Compose file deploy all available Bug Tracking System integrations, which are not always needed, but use resources.
+        div
+          p Compose file deploy all available Bug Tracking System integrations, which are not always needed, but consume resources.
       .sm-container
         p.main-text If you want to write a docker compose manually, you can use the latest compose descriptor example in&nbsp;
           a(href='https://github.com/reportportal/reportportal/blob/master/docker-compose.yml',data-js-new-window) Github repository
@@ -19,13 +20,14 @@
           span.desktop(data-copy='docker-compose -p reportportal up -d --force-recreate') Copy
         a(href='http://reportportal.io/documentation/resources/CheatSheet.pdf',data-js-new-window) More useful commands in Cheat sheet
       .step-note.second.desktop
-        p.h3 Decoding the command:
-        dl
-          dt '-p reportportal'
-          dd - adds prefix 'reportportal' to all containers
-          dt 'up'
-          dd -  creates and starts containers
-          dt '-d'
-          dd - daemon mode
-          dt '--force-recreate'
-          dd - re-creates containers if there’re any
+        div
+          p.h3 Decoding the command:
+          dl
+            dt '-p reportportal'
+            dd - adds prefix 'reportportal' to all containers
+            dt 'up'
+            dd -  creates and starts containers
+            dt '-d'
+            dd - daemon mode
+            dt '--force-recreate'
+            dd - re-creates containers if there’re any

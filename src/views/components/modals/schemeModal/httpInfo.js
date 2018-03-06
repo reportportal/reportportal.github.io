@@ -31,7 +31,7 @@ const httpInfo = {
   },
   'post-log-rq': {
     type: 'HTTP request',
-    url: 'POSThttp://rphost:port/api/v1/{projectName}/log',
+    url: 'POST http://rphost:port/api/v1/{projectName}/log',
     scheme: '"file": {\n' +
     '"name": "photo",\n' +
     '"content" : "byte content",\n' +

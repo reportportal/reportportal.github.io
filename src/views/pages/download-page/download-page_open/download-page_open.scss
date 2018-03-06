@@ -53,12 +53,12 @@
       }
       .step-note{
         &.first{
-          &::before{
+          div::before{
             height: 66px;
           }
           @media (max-width: $SCREEN_XS_MAX) {
             margin-bottom: 20px;
-            &::before {
+            div::before {
               height: 45px;
               left: 13px;
             }
@@ -80,7 +80,7 @@
               margin-left: 20px;
             }
           }
-          &::before{
+          div::before{
             height: 44px;
             background: #f36c4a;
             @media (max-width: $SCREEN_XS_MAX) {
