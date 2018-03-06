@@ -10,17 +10,7 @@ export default IndexPageSection.extend({
     'click [data-js-new-window]': 'openNewWindow',
   },
   initialize() {
-    const data = {};
-    if (window.navigator.platform.indexOf('Win') > -1) {
-      data.os = 'Windows';
-      data.link = 'https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe';
-      data.class = '';
-    } else {
-      data.os = 'Mac';
-      data.link = 'https://download.docker.com/mac/stable/Docker.dmg';
-      data.class = 'hide';
-    }
-    this.renderTemplate(data);
+    this.renderTemplate();
   },
   openNewWindow(e) {
     e.preventDefault();

@@ -96,7 +96,7 @@
           margin-left: 20px;
         }
       }
-      &::before{
+      div::before{
         height: 90px;
         @media (max-width: $SCREEN_XS_MAX) {
           height: 65px;
@@ -105,8 +105,8 @@
       }
     }
     .second{
-      &::before{
-        height: 160px;
+      div::before{
+        height: 165px;
       }
     }
     .sm-container{

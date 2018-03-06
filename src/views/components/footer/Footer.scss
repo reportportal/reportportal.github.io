@@ -1,7 +1,8 @@
 .footer {
   width: 100%;
-  height: 80px;
   background: #f2f5f5;
+  padding-top: 26px;
+  padding-bottom: 10px;
   .footer-content {
     position: relative;
     max-width: 1000px;
@@ -9,29 +10,39 @@
     height: 100%;
     margin: 0 auto;
   }
-  .copy {
-    display: inline-block;
-    float: left;
-    margin-left: 30px;
+  .copyright-block{
+    overflow: hidden;
+    margin-top: 25px;
     font-size: 11px;
-    margin-top: 34px;
     color: $COLOR-CHARCOAL-GREY;
-
-    .epam-logo {
+    .copy {
       display: inline-block;
-      width: 40px;
-      height: 15px;
-      vertical-align: middle;
-      margin: 0 5px;
-      background: url(./img/epamLogo.svg) center no-repeat;
-      cursor: pointer;
+      float: left;
+      .epam-logo {
+        display: inline-block;
+        width: 40px;
+        height: 15px;
+        vertical-align: middle;
+        margin: 0 5px;
+        background: url(./img/epamLogo.svg) center no-repeat;
+        cursor: pointer;
+      }
+    }
+    .friends{
+      float: right;
+      .jfrog{
+        background: url(./img/jfrog.svg);
+        background-size: contain;
+        width: 75px;
+        height: 20px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        vertical-align: text-top;
+        margin-left: 2px;
+      }
     }
   }
-  .right-block {
-    float: right;
-    display: inline-block;
-    margin-right: 30px;
-    margin-top: 26px;
+  .socials-block {
     span {
       font-size: 14px;
       a {

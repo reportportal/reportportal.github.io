@@ -121,17 +121,19 @@
     display: inline-block;
     @media (max-width: $SCREEN_XS_MAX) {
       width: auto;
+      div:first-child {
+        margin-bottom: 20px;
+      }
     }
-    &::before{
-      content: '';
-      display: block;
-      background:  $COLOR-STEEL-GREY;
-      width: 1px;
-      height: 185px;
-      position: absolute;
-      opacity: 0.3;
-      @media (max-width: $SCREEN_XS_MAX) {
-        height: 140px;
+    div{
+      &::before{
+        content: '';
+        display: block;
+        background:  $COLOR-STEEL-GREY;
+        width: 1px;
+        height: 60px;
+        position: absolute;
+        opacity: 0.3;
       }
     }
     p{

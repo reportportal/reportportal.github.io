@@ -174,15 +174,35 @@
       margin-bottom: 0;
     }
     .step-note{
+      div:first-child{
+        margin-bottom: 30px;
+      }
+      .recomend {
+        p {
+          color: #7f993a;
+        }
+        &::before {
+          content: '';
+          display: block;
+          background: #a3c644;
+          width: 1px;
+          height: 50px;
+          position: absolute;
+          opacity: 0.3;
+        }
+        .linux {
+          display: inline-block;
+          background-image: url('./img/linux-rec.svg');
+          width: 13px;
+          height: 17px;
+          background-size: contain;
+          vertical-align: text-bottom;
+        }
+      }
       @media (max-width: $SCREEN_XS_MAX) {
         margin: 0 7px;
         &::before {
           left: 17px;
-        }
-      }
-      &.Mac{
-        &::before{
-          height: 60px;
         }
       }
     }
@@ -204,6 +224,33 @@
         width: auto;
         border-bottom: none;
         padding-bottom: 0;
+      }
+      .win{
+        background-image: url('./img/win.svg');
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        vertical-align: text-top;
+        margin-right: 3px;
+        margin-left: 5px;
+      }
+      .linux{
+        background-image: url('./img/linux.svg');
+        display: inline-block;
+        width: 17px;
+        height: 20px;
+        vertical-align: text-top;
+        margin-right: 3px;
+        margin-left: 5px;
+      }
+      .mac{
+        background-image: url('./img/mac.svg');
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        vertical-align: text-top;
+        margin-right: 3px;
+        margin-left: 5px;
       }
       p.h3 {
         margin: 20px 0 10px 0;
