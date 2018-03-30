@@ -22,6 +22,13 @@ export default Epoxy.View.extend({
   },
   initialize() {
     this.renderTemplate();
+    $.ajax({
+      type: 'GET',
+      url: '//status.reportportal.io',
+      success: (data) => {
+        $('[data-js-version]', this.$el).html(`Latest (${data.latest_versions['reportportal/reportportal']})`);
+      },
+    });
     $(window).on('resize.generateModal', () => {
       this.resize();
     });
