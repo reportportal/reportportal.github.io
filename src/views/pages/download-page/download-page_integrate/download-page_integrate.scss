@@ -124,6 +124,24 @@
                   font-size: 7px;
                 }
               }
+              .contributor{
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                z-index: 1;
+                font-size: 9px;
+                border-radius: 12px;
+                line-height: 9px;
+                background-color: #bec7cc;
+                color: $COLOR-WHITE_TWO;
+                padding: 2.7px 5.4px 1.8px;
+                @media (max-width: $SCREEN_XS_MAX) {
+                  top: 3px;
+                  right: 3px;
+                  padding: 1px 3px ;
+                  font-size: 7px;
+                }
+              }
               @media (max-width: $SCREEN_XS_MAX) {
                 margin-bottom: 5px;
                 padding: 5px 0;
