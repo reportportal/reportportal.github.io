@@ -61,14 +61,24 @@
           background-repeat: no-repeat;
           background-position: 35px;
           margin-right: 80px;
+
           @media (max-width: $SCREEN_SM_MAX) {
             margin-right: 10px;
           }
         }
-        &.create{
-          background: url('./img/create.svg');
+        &.create {
+          background-image: url('./img/create.svg');
           background-repeat: no-repeat;
           background-position: 60px;
+
+          &.disabled {
+            background-image: url('./img/create-disabled.svg');
+          }
+        }
+        &.disabled {
+          color: $COLOR-GRAY-60;
+          background-color: $COLOR--white;
+          border-color: $COLOR-GRAY-91;
         }
         &::after{
           display: none;
