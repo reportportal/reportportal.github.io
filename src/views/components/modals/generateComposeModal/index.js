@@ -79,7 +79,7 @@ export default Epoxy.View.extend({
         compose = this.gateway(compose);
         compose = this.analayzer(compose);
         const blob = new Blob([YAML.dump(compose)], { type: 'text/plain;charset=utf-8' });
-        FileSaver.saveAs(blob, 'docker-compose.yml');
+        FileSaver.saveAs(blob, 'docker-compose.yml', true);
         this.hide();
       });
   },
@@ -121,10 +121,10 @@ export default Epoxy.View.extend({
     const mongodb = tempCompose.services.mongodb;
     const loc = $('[data-js-folder-location]', this.$el).val() || './';
     if (mongodb.volumes) {
-      tempCompose.services.mongodb.volumes[0] = mongodb.volumes[0].replace('./data/mongo', loc);
+      tempCompose.services.mongodb.volumes[0] = mongodb.volumes[0].replace('./data/mongo', `${loc}/mongo`);
     }
-    tempCompose.services.registry.volumes[0] = tempCompose.services.registry.volumes[0].replace('./data/consul', loc);
-    tempCompose.services.elasticsearch.volumes[0] = tempCompose.services.elasticsearch.volumes[0].replace('./data/elasticsearch', loc);
+    tempCompose.services.registry.volumes[0] = tempCompose.services.registry.volumes[0].replace('./data/consul', `${loc}/consul`);
+    tempCompose.services.elasticsearch.volumes[0] = tempCompose.services.elasticsearch.volumes[0].replace('./data/elasticsearch', `${loc}/elasticsearch`);
     return tempCompose;
   },
   sessionLive(compose) {
