@@ -86,7 +86,7 @@ export default Epoxy.View.extend({
   createMongoURI() {
     let dbhost = $('[data-js-db-host]', this.$el).val() || 'localhost';
     dbhost = dbhost.replace(/(http:\/\/)|(https:\/\/)/, '');
-    const dbName = $('[data-js-db-name]', this.$el).val() || 'reportportal';
+    const dbName = $('[data-js-db-name]', this.$el).val();
     const dbPort = $('[data-js-db-port]', this.$el).val() || 27017;
     const dbAuth = $('[data-js-db-auth-name]', this.$el).val() || 'reportportal';
     const dbPassword = $('[data-js-db-password]', this.$el).val();
@@ -105,9 +105,7 @@ export default Epoxy.View.extend({
         delete compose.services.mongodb.volumes;
       }
     } else {
-      delete tempCompose.services.mongodb.restart;
-      delete tempCompose.services.mongodb.volumes;
-      delete tempCompose.services.mongodb.restart;
+      delete tempCompose.services.mongodb;
       const mongoURI = `RP_MONGO_URI=${this.createMongoURI()}`;
       tempCompose.services.uat.environment.push(mongoURI);
       tempCompose.services.api.environment.push(mongoURI);
@@ -120,11 +118,11 @@ export default Epoxy.View.extend({
     const tempCompose = Object.assign({}, compose);
     const mongodb = tempCompose.services.mongodb;
     const loc = $('[data-js-folder-location]', this.$el).val() || './';
-    if (mongodb.volumes) {
-      tempCompose.services.mongodb.volumes[0] = mongodb.volumes[0].replace('./data/mongo', `${loc}/mongo`);
+    if (mongodb && mongodb.volumes) {
+      tempCompose.services.mongodb.volumes[0] = mongodb.volumes[0].replace('.', loc);
     }
-    tempCompose.services.registry.volumes[0] = tempCompose.services.registry.volumes[0].replace('./data/consul', `${loc}/consul`);
-    tempCompose.services.elasticsearch.volumes[0] = tempCompose.services.elasticsearch.volumes[0].replace('./data/elasticsearch', `${loc}/elasticsearch`);
+    tempCompose.services.registry.volumes[0] = tempCompose.services.registry.volumes[0].replace('.', loc);
+    tempCompose.services.elasticsearch.volumes[0] = tempCompose.services.elasticsearch.volumes[0].replace('.', loc);
     return tempCompose;
   },
   sessionLive(compose) {
