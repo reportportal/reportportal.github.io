@@ -106,6 +106,8 @@ export default Epoxy.View.extend({
       }
     } else {
       delete tempCompose.services.mongodb;
+      delete tempCompose.services.uat.depends_on;
+      delete tempCompose.services.api.depends_on;
       const mongoURI = `RP_MONGO_URI=${this.createMongoURI()}`;
       tempCompose.services.uat.environment.push(mongoURI);
       tempCompose.services.api.environment.push(mongoURI);
