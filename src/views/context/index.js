@@ -7,6 +7,7 @@ import IndexPage from 'pages/index-page';
 import CommunityPage from 'pages/community-page';
 import DocumentationPage from 'pages/documentation-page';
 import DownloadPage from 'pages/download-page';
+import FeaturesPage from 'pages/features-page';
 
 export default Epoxy.View.extend({
   template,
@@ -32,6 +33,14 @@ export default Epoxy.View.extend({
     this.header.activatePage('download');
     this.renderPage(DownloadPage);
   },
+  renderDownloadAndScroll() {
+    this.header.activatePage('download');
+    this.renderPage(DownloadPage, true);
+  },
+  renderFeatures() {
+    this.header.activatePage('features');
+    this.renderPage(FeaturesPage);
+  },
   renderDocumentation(id) {
     if (this.currentPage && this.currentPage.$el.hasClass('documentation-page')) {
       this.currentPage.changeAnchor(id);
@@ -43,10 +52,14 @@ export default Epoxy.View.extend({
     $('[data-js-content-container]', this.$el).html(this.currentPage.$el);
     this.currentPage.onShow && this.currentPage.onShow();
   },
-  renderPage(pageView) {
+  renderPage(pageView, isScroll) {
     this.currentPage && this.currentPage.destroy();
     this.mainScrollEl.scrollTop(0);
-    this.currentPage = new pageView({ mainScrollEl: this.mainScrollEl });
+    if (isScroll) {
+      this.currentPage = new pageView({ mainScrollEl: this.mainScrollEl, isScroll });
+    } else {
+      this.currentPage = new pageView({ mainScrollEl: this.mainScrollEl });
+    }
     $('[data-js-content-container]', this.$el).html(this.currentPage.$el);
     this.currentPage.onShow && this.currentPage.onShow();
   },

@@ -1,0 +1,29 @@
+.features-page_scheme{
+  padding: 45px 0;
+  background: #d9f2f4;
+  text-align: center;
+  @media(max-width: $SCREEN_XS_MAX){
+    padding: 20px 0;
+  }
+  img{
+    margin-bottom: 28px;
+    max-width: 850px;
+    @media(max-width: $SCREEN_MD_MAX){
+      width: 100%;
+    }
+    @media(max-width: $SCREEN_XS_MAX){
+      margin-bottom: 0;
+    }
+  }
+  .h1{
+    margin-bottom: 50px;
+    color: $COLOR-STEEL-GREY;
+    font-family: $FONT-HEADER;
+    font-size: 25px;
+    line-height: 1.44;
+    @media(max-width: $SCREEN_XS_MAX){
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+}

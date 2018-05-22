@@ -24,6 +24,8 @@ const Router = Backbone.Router.extend({
     'docs/:id': 'openDocumentation',
     community: 'openCommunity',
     download: 'openDownload',
+    'download/integration': 'openDownloadIntegration',
+    features: 'openFeatures',
     '*invalidRoute': 'openIndex',
   },
   openIndex() {
@@ -40,6 +42,14 @@ const Router = Backbone.Router.extend({
   },
   openDownload() {
     this.context.renderDownload();
+    this.header.$el.addClass('without-shadow');
+  },
+  openDownloadIntegration() {
+    this.context.renderDownloadAndScroll();
+    this.header.$el.addClass('without-shadow');
+  },
+  openFeatures() {
+    this.context.renderFeatures();
     this.header.$el.addClass('without-shadow');
   },
 });
