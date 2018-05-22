@@ -1,0 +1,25 @@
+@import '../../pageSectionMixin';
+
+@media (min-width: $MIN-ANIMATION-WIDTH) {
+  html.csstransforms {
+    .features-page_scheme {
+      .h1, img {
+        transform: translate(0, $ANIMATION-WIDTH);
+        opacity: 0;
+      }
+      .h1 {
+        transition: transform $ANIMATION-DURATION $ANIMATION-EASING, opacity $ANIMATION-DURATION $ANIMATION-EASING;
+      }
+      img {
+        transition: transform $ANIMATION-DURATION $ANIMATION-EASING .2s, opacity $ANIMATION-DURATION $ANIMATION-EASING .2s;
+      }
+      &.animate {
+        .h1, img {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+}
+

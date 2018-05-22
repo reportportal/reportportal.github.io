@@ -19,6 +19,7 @@ export default Epoxy.View.extend({
   },
   initialize(options) {
     this.mainScrollEl = options.mainScrollEl;
+    this.isScroll = options.isScroll;
     this.renderTemplate();
     this.sections = [];
     const listViews = [DownloadPageInstall, DownloadPageConfig,
@@ -44,6 +45,20 @@ export default Epoxy.View.extend({
         this.onScroll();
       });
     this.onScroll();
+    this.isScroll && this.scrollToIntegraton();
+  },
+  scrollToIntegraton() {
+    const scrollTop = this.mainScrollEl.scrollTop();
+    const section = $('[data-js-integrate]', this.$el).offset().top;
+    const menuHeight = 55;
+    const bannerHeight = $('.download-header').outerHeight();
+    const controlsHeight = $('.controls').outerHeight();
+    if ($(document).width() >= 768) {
+      this.mainScrollEl.animate({ scrollTop: (scrollTop + section)
+        - menuHeight - bannerHeight - controlsHeight }, 500);
+    } else {
+      this.mainScrollEl.animate({ scrollTop: (scrollTop + section) - menuHeight }, 500);
+    }
   },
 
   scrollTo(e) {
