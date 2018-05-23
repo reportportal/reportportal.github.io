@@ -3,7 +3,7 @@
   .description{
     padding: 140px 30px 140px 150px;
     @media (max-width: 1280px) {
-      padding-left: 50px;
+      padding: 0 20px 0 0;
     }
     @media(max-width: $SCREEN_SM_MAX){
       display: block;
@@ -11,6 +11,18 @@
     }
     @media(max-width: $SCREEN_XS_MAX){
       padding: 20px 0 10px 0;
+    }
+  }
+  .animation{
+    display: block;
+    background-image: url('./img/accumulation.png');
+    height: 400px;
+    width: 640px;
+    background-size: cover;
+    @media(max-width: $SCREEN_XS_MAX){
+      width: 100%;
+      margin-bottom: 20px;
+      height: 180px;
     }
   }
 }

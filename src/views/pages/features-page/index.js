@@ -5,7 +5,6 @@ import template from './feature-page.jade';
 import './feature-page.scss';
 
 import FeaturesPageScheme from './features-page_scheme';
-import FeaturesPageSwitcher from './features-page_switcher';
 import FeaturesPageTesterIntegration from './features-page_tester__integration';
 import FeaturesPageTesterRealTime from './features-page_tester__real-time';
 import FeaturesPageTesterAccumulation from './features-page_tester__accumulation';
@@ -26,7 +25,7 @@ export default Epoxy.View.extend({
     this.mainScrollEl = options.mainScrollEl;
     this.renderTemplate();
     this.sections = [];
-    const listViews = [FeaturesPageScheme, FeaturesPageSwitcher, FeaturesPageTesterIntegration,
+    const listViews = [FeaturesPageScheme, FeaturesPageTesterIntegration,
       FeaturesPageTesterRealTime, FeaturesPageTesterAccumulation, FeaturesPageTesterAggregation,
       FeaturesPageTesterClassification, FeaturesPageTesterAnalysis, FeaturesPageTesterBts,
       FeaturesPageTesterRelease];
@@ -74,6 +73,7 @@ function ScrollerAnimate(blocks) {
           scrollStart: section.el.offsetTop,
           scrollEnd: section.el.offsetTop + section.el.offsetHeight,
           checkScroll: section.checkScroll,
+          controlAnimation: section.controlAnimation,
           activate: false,
         });
       });
@@ -95,6 +95,8 @@ function ScrollerAnimate(blocks) {
             element.activate = true;
           }
         }
+        element.controlAnimation && element.controlAnimation(scrollTop, scrollBottom - element.scrollStart,
+            element.scrollStart);
       }
     });
     // return middle block index

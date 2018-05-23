@@ -27,4 +27,21 @@
     }
   }
 }
+.features-page_tester__integration{
+  .animate-integration{
+    animation: integration 6s step-start infinite;
+  }
+  @keyframes integration {
+    0%, 12.4% {background-position: 0px 0px}
+    12.5%,24.9% {background-position: -640px 0px}
+    25%,37.4% {background-position: -1280px 0px}
+    37.5%,49.9% {background-position: -1920px 0}
+    50%,62.4% {background-position: -2560px 0 }
+    62.5%,74.9% {background-position: -3200px 0}
+    75%,87.4% {background-position: -3840px 0}
+    87.5%,100% {background-position: -4480px 0}
+  }
+}
+
+
 
