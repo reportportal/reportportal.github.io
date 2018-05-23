@@ -27,4 +27,20 @@
     }
   }
 }
-
+.features-page_tester__real-time{
+  .animate-real-time{
+    animation: realtime 6s step-start infinite;
+  }
+  @keyframes realtime {
+    0%, 9.9% {background-position: 0px 0px}
+    10%,19.9% {background-position: -640px 0px}
+    20%,29.9% {background-position: -1280px 0px}
+    30%,39.9% {background-position: -1920px 0}
+    40%,49.9% {background-position: -2560px 0 }
+    50%,59.9% {background-position: -3200px 0}
+    60%,69.9% {background-position: -3840px 0}
+    70%,79.9% {background-position: -4480px 0}
+    80%,89.9% {background-position: -5120px 0}
+    90%,100% {background-position: -5760px 0}
+  }
+}

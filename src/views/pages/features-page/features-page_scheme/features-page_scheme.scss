@@ -15,6 +15,12 @@
       margin-bottom: 0;
     }
   }
+  .scheme{
+    height: 344px;
+    @media(max-width: $SCREEN_XS_MAX){
+      height: auto;
+    }
+  }
   .h1{
     margin-bottom: 50px;
     color: $COLOR-STEEL-GREY;
