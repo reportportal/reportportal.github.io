@@ -20,13 +20,9 @@ export default IndexPageSection.extend({
   controlAnimation(scrollTop) {
     const animEl = $('[data-js-accumulation]', this.$el);
     if ($(document).width() > 992) {
-      if (scrollTop >= 1000 && scrollTop < 1400) {
-        animEl.addClass('animate-accumulation');
-      } else {
-        animEl.removeClass('animate-accumulation');
-      }
-    } else if ($(document).width() > 767 && scrollTop >= 1500 && scrollTop < 2100) {
-      animEl.addClass('animate-accumulation');
+      (scrollTop >= 1000 && scrollTop < 1400) ? animEl.addClass('animate-accumulation') : animEl.removeClass('animate-accumulation');
+    } else if ($(document).width() > 767) {
+      (scrollTop >= 1500 && scrollTop < 2100) ? animEl.addClass('animate-accumulation') : animEl.removeClass('animate-accumulation');
     } else {
       animEl.removeClass('animate-accumulation');
     }

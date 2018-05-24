@@ -22,13 +22,9 @@ export default IndexPageSection.extend({
   controlAnimation(scrollTop) {
     const animEl = $('[data-js-integration]', this.$el);
     if ($(document).width() > 992) {
-      if (scrollTop > 90 && scrollTop < 550) {
-        animEl.addClass('animate-integration');
-      } else {
-        animEl.removeClass('animate-integration');
-      }
-    } else if ($(document).width() > 767 && scrollTop > 190 && scrollTop < 800) {
-      animEl.addClass('animate-integration');
+      (scrollTop > 90 && scrollTop < 550) ? animEl.addClass('animate-integration') : animEl.removeClass('animate-integration');
+    } else if ($(document).width() > 767) {
+      (scrollTop > 190 && scrollTop < 800) ? animEl.addClass('animate-integration') : animEl.removeClass('animate-integration');
     } else {
       animEl.removeClass('animate-integration');
     }
