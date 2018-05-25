@@ -21,4 +21,16 @@
       line-height: 1.8;
     }
   }
+  .animation{
+    display: block;
+    background-image: url('./img/bts.png');
+    background-size: cover;
+    height: 400px;
+    width: 640px;
+    @media(max-width: $SCREEN_XS_MAX){
+      width: 100%;
+      margin-bottom: 20px;
+      height: 180px;
+    }
+  }
 }
