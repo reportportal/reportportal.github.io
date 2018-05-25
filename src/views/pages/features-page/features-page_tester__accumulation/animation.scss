@@ -27,4 +27,20 @@
     }
   }
 }
+.features-page_tester__accumulation{
+  .animate-accumulation{
+    animation: accumulation 5s step-start infinite;
+  }
+  @keyframes accumulation {
+    0%, 14.1% {background-position: 0px 0px}
+    14.2%,28.4% {background-position: -640px 0px}
+    28.5%,42.7% {background-position: -1280px 0px}
+    42.8%,57% {background-position: -1920px 0}
+    57.1%,71.3% {background-position: -2560px 0 }
+    71.4%,85.6% {background-position: -3200px 0}
+    85.7%,100% {background-position: -3840px 0}
+  }
+}
+
+
 

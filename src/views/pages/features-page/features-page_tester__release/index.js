@@ -1,12 +1,12 @@
 import IndexPageSection from '../../sectionView';
-import template from './features-page_tester__analysis.jade';
-import './features-page_tester__analysis.scss';
+import template from './features-page_tester__release.jade';
+import './features-page_tester__release.scss';
 import './animation.scss';
 import { $ } from 'backbone';
 
 export default IndexPageSection.extend({
   template,
-  className: 'features-page_tester__analysis bg-darken',
+  className: 'features-page_tester__release bg-darken',
   initialize() {
     this.renderTemplate();
   },
@@ -18,20 +18,20 @@ export default IndexPageSection.extend({
     return false;
   },
   controlAnimation(scrollTop) {
-    const animEl = $('[data-js-analysis]', this.$el);
+    const animEl = $('[data-js-release]', this.$el);
     if ($(document).width() > 992) {
-      (scrollTop >= 2200 && scrollTop < 2600) ? animEl.addClass('animate-analysis') : animEl.removeClass('animate-analysis');
+      (scrollTop >= 3000) ? animEl.addClass('animate-release') : animEl.removeClass('animate-release');
     } else if ($(document).width() > 767) {
-      (scrollTop >= 3400 && scrollTop < 4000) ? animEl.addClass('animate-analysis') : animEl.removeClass('animate-analysis');
+      (scrollTop >= 4600) ? animEl.addClass('animate-release') : animEl.removeClass('animate-release');
     } else {
-      animEl.removeClass('animate-analysis');
+      animEl.removeClass('animate-release');
     }
   },
   getSections() {
     return [
       { checkScroll: this.checkScroll.bind(this),
         el: this.el,
-        controlAnimation: this.controlAnimation.bind(this)
+        controlAnimation: this.controlAnimation.bind(this),
       },
     ];
   },
