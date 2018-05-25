@@ -29,7 +29,7 @@
 }
 .features-page_tester__real-time{
   .animate-real-time{
-    animation: realtime 6s step-start infinite;
+    animation: realtime 4s step-start infinite;
   }
   @keyframes realtime {
     0%, 9.9% {background-position: 0px 0px}

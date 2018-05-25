@@ -12,7 +12,7 @@ import FeaturesPageTesterAggregation from './features-page_tester__aggregation';
 import FeaturesPageTesterClassification from './features-page_tester__classification';
 import FeaturesPageTesterAnalysis from './features-page_tester__analysis';
 import FeaturesPageTesterBts from './features-page_tester__bts';
-import FeaturesPageTesterRelease from './features-page_tester__realise';
+import FeaturesPageTesterRelease from './features-page_tester__release';
 import Footer from 'components/footer';
 
 export default Epoxy.View.extend({
@@ -95,8 +95,8 @@ function ScrollerAnimate(blocks) {
             element.activate = true;
           }
         }
-        element.controlAnimation && element.controlAnimation(scrollTop, scrollBottom - element.scrollStart,
-            element.scrollStart);
+        element.controlAnimation && element.controlAnimation(scrollTop, scrollBottom -
+          element.scrollStart, element.scrollStart);
       }
     });
     // return middle block index
