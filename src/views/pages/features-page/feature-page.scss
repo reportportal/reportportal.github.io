@@ -33,9 +33,9 @@
     }
   }
   .clearfix::after {
-    content: "";
-    clear: both;
     display: table;
+    clear: both;
+    content: "";
   }
   .bg-darken{
     background: $COLOR-WHITE_TWO;
@@ -74,8 +74,8 @@
         color: $COLOR-TEALISH;
       }
       @media(max-width: $SCREEN_XS_MAX){
-        font-size: 18px;
         margin-bottom: 5px;
+        font-size: 18px;
       }
     }
     .text{
@@ -85,9 +85,9 @@
     }
   }
   .animation {
+    display: table-cell;
     width: 640px;
     height: 400px;
-    display: table-cell;
     @media(max-width: $SCREEN_SM_MAX){
       display: block;
       margin-bottom: 30px;

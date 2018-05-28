@@ -15,10 +15,10 @@
   }
   .animation{
     display: block;
-    background-image: url('./img/aggregation.png');
-    background-size: cover;
     height: 400px;
     width: 640px;
+    background-image: url('./img/aggregation.png');
+    background-size: cover;
     @media(max-width: $SCREEN_XS_MAX){
       width: 100%;
       margin-bottom: 20px;
