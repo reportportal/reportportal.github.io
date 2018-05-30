@@ -71,13 +71,16 @@ $COLOR-BOOk-GREY: #ececec;
   }
   .points {
     position: relative;
+    padding: 0 0 0 60px;
+    box-sizing: border-box;
     width: 100%;
     text-align: center;
     margin-top: 85px;
+    font-size: 0;
     .point {
       display: inline-block;
       height: 60px;
-      margin: 0 25px;
+      width: 235px;
       .point-img {
         width: 60px;
         height: 100%;
@@ -89,6 +92,9 @@ $COLOR-BOOk-GREY: #ececec;
         }
         &.visualization {
           background-image: url(./img/visualization.svg);
+        }
+        &.ml {
+          background-image: url(./img/ic-ai.svg);
         }
         &.open-source {
           background-image: url(./img/git.svg);
@@ -103,6 +109,7 @@ $COLOR-BOOk-GREY: #ececec;
         p {
           display: table-cell;
           height: 100%;
+          padding-left: 5px;
           vertical-align: middle;
           color: $COLOR-TEALISH;
           font-size: 16px;
