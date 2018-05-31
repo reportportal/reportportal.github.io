@@ -10,6 +10,7 @@
   .open-section{
     .instruction{
       .helper-padding{
+        position: relative;
         padding-bottom: 35px;
         @media (max-width: $SCREEN_XS_MAX) {
           padding: 0;
@@ -52,19 +53,55 @@
         margin-top: 0;
       }
       .step-note{
-        &.first{
-          div::before{
-            height: 66px;
-          }
+        position: absolute;
+        &.security{
+          margin-top: -60px;
           @media (max-width: $SCREEN_XS_MAX) {
-            margin-bottom: 20px;
-            div::before {
-              height: 45px;
-              left: 13px;
+            margin-top: 0;
+          }
+        }
+        .info{
+          p{
+            color:#7f993a;
+          }
+          &::before{
+            background: #7f993a;
+          }
+        }
+        .local{
+          margin-bottom: 45px;
+          @media (max-width: $SCREEN_XS_MAX){
+            margin-bottom: 0px;
+          }
+        }
+        .warn{
+          margin-bottom: 140px;
+          @media (max-width: $SCREEN_XS_MAX){
+            margin-bottom: 0;
+          }
+          p{
+            color:#f36c4a;
+          }
+          &::before{
+            height: 45px;
+            background: #f36c4a;
+            @media (max-width: $SCREEN_XS_MAX){
+              height: 25px;
             }
-            p{
-              margin-left: 18px;
-            }
+          }
+        }
+        div::before{
+          height: 66px;
+        }
+        @media (max-width: $SCREEN_XS_MAX) {
+          position: relative;
+          margin: 0;
+          div::before {
+            height: 45px;
+            left: 5px;
+          }
+          p{
+            margin-left: 18px;
           }
         }
         p{
@@ -104,6 +141,7 @@
         }
         .user{
           display: inline-block;
+          margin-bottom: 10px;
           .input{
             width: 300px;
             border: solid 1px $COLOR-GRAY-80;

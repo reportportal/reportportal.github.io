@@ -115,6 +115,10 @@
       }
     }
     .second{
+      margin-top: -30px;
+      @media (max-width: $SCREEN_XS_MAX) {
+        margin: 0;
+      }
       div::before{
         height: 165px;
       }
@@ -123,6 +127,7 @@
       width: 720px;
       margin-left: 20px;
       margin-right: 20px;
+      margin-bottom: 20px;
       @media (max-width: $SCREEN_SM_MAX) {
         width: 510px;
       }

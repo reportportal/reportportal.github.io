@@ -175,7 +175,22 @@
     }
     .step-note{
       div:first-child{
-        margin-bottom: 30px;
+        margin-bottom: 65px;
+        @media (max-width: $SCREEN_XS_MAX){
+          margin-bottom: 20px;
+        }
+      }
+      .warning{
+        p{
+          color: #f36c4a;
+        }
+        &::before{
+          background: #f36c4a;
+          height: 42px;
+          @media (max-width: $SCREEN_XS_MAX){
+            height: 25px;
+          }
+        }
       }
       .recomend {
         p {
@@ -186,7 +201,7 @@
           display: block;
           background: #a3c644;
           width: 1px;
-          height: 50px;
+          height: 45px;
           position: absolute;
           opacity: 0.3;
         }
@@ -251,9 +266,6 @@
         vertical-align: text-top;
         margin-right: 3px;
         margin-left: 5px;
-      }
-      p.h3 {
-        margin: 20px 0 10px 0;
       }
       a{
         @media (max-width: $SCREEN_XS_MAX) {
