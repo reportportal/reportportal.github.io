@@ -1,4 +1,5 @@
 import IndexPageSection from '../../sectionView';
+import { $ } from 'backbone';
 import template from './features-page_tester__classification.jade';
 import './features-page_tester__classification.scss';
 import './animation.scss';
@@ -7,7 +8,19 @@ export default IndexPageSection.extend({
   template,
   className: 'features-page_tester__classification',
   initialize() {
+    this.animationClass;
+    let elClass;
+    const isIE = false || !!document.documentMode;
+    const isEdge = !isIE && !!window.StyleMedia;
+    if (isIE || isEdge) {
+      elClass = 'ie-animation';
+      this.animationClass = 'ie-animate-classification';
+    } else {
+      elClass = 'default-animation';
+      this.animationClass = 'animate-classification';
+    }
     this.renderTemplate();
+    $(this.el).addClass(elClass);
   },
   checkScroll(scrollTop, scrollElTop) {
     if (scrollElTop > 250) {
@@ -20,7 +33,7 @@ export default IndexPageSection.extend({
     return [
       { checkScroll: this.checkScroll.bind(this),
         el: this.el,
-        controlAnimation: this.controlAnimation.bind(this, 'animate-classification'),
+        controlAnimation: this.controlAnimation.bind(this, this.animationClass),
       },
     ];
   },
