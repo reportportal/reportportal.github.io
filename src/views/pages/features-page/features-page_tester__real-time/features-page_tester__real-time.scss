@@ -17,11 +17,57 @@
     display: block;
     height: 400px;
     width: 640px;
-    background-image: url('./img/real-time.png');
     @media(max-width: $SCREEN_XS_MAX){
       width: 100%;
       margin-bottom: 20px;
       height: 180px;
+      background-size: contain;
+    }
+    &.ie-animate-realtime{
+      animation: realtime-ie 6s step-start infinite;
+    }
+    @keyframes realtime-ie {
+      0%, 9.9% {background-position: 0px 0px}
+      10%,19.9% {background-position: -640px 0px}
+      20%,29.9% {background-position: -1280px 0px}
+      30%,39.9% {background-position: -1920px 0}
+      40%,49.9% {background-position: -2560px 0 }
+      50%,59.9% {background-position: -3200px 0}
+      60%,69.9% {background-position: -3840px 0}
+      70%,79.9% {background-position: -4480px 0}
+      80%,89.9% {background-position: -5120px 0}
+      90%,100% {background-position: -5760px 0}
+    }
+    &.animate-realtime {
+      animation: realtime 8.5s ease-in-out infinite;
+    }
+    @keyframes realtime {
+      0%, 7.9% {background-image: url('./img/1.png')}
+      10%,17.9% {background-image: url('./img/2.png')}
+      20%,27.9% {background-image: url('./img/3.png')}
+      30%,37.9% {background-image: url('./img/4.png')}
+      40%,47.9% {background-image: url('./img/5.png') }
+      50%,57.9% {background-image: url('./img/6.png')}
+      60%,67.9% {background-image: url('./img/7.png')}
+      70%,77.9% {background-image: url('./img/8.png')}
+      80%,87.9% {background-image: url('./img/9.png')}
+      90%,100% {background-image: url('./img/10.png')}
+    }
+  }
+  &.ie-animation{
+    .animation{
+      background-image: url('./img/real-time.png');
+      @media(max-width: $SCREEN_XS_MAX){
+        background-image: url('./img/5.png');
+      }
+    }
+  }
+  &.default-animation{
+    .animation{
+      background-image: url('./img/1.png'),url('./img/2.png'),url('./img/3.png'),url('./img/4.png'),url('./img/5.png'),url('./img/6.png'),url('./img/7.png'),url('./img/8.png'),url('./img/9.png'),url('./img/10.png');
+      @media(max-width: $SCREEN_XS_MAX){
+        background-image: url('./img/5.png');
+      }
     }
   }
 }
