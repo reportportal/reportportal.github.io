@@ -30,23 +30,3 @@
     }
   }
 }
-.features-page_tester__bts {
-  .animate-bts{
-    animation: bts 6s step-start infinite;
-  }
-  @keyframes bts {
-    0%, 7.5% {background-position: 0px 0px}
-    7.6%,15.2% {background-position: -640px 0px}
-    15.3%,22.9% {background-position: -1280px 0px}
-    23%,29.9% {background-position: -1920px 0}
-    30.7%,38.3% {background-position: -2560px 0 }
-    38.4%,46% {background-position: -3200px 0}
-    46.1%,53.7% {background-position: -3840px 0}
-    53.8%,61.4% {background-position: -4480px 0}
-    61.5%,69.1% {background-position: -5120px 0}
-    69.2%,76.8% {background-position: -5760px 0}
-    76.9%,84.5% {background-position: -6400px 0}
-    84.6%,92.2% {background-position: -7040px 0}
-    92.3%,100% {background-position: -7680px 0}
-  }
-}
