@@ -32,7 +32,7 @@
       background-size: contain;
     }
     &.ie-animate-bts{
-      animation: bts-ie 8s step-start infinite;
+      animation: bts-ie 9s step-start infinite;
     }
     @keyframes bts-ie {
       0%, 7.5% {background-position: 0px 0px}
@@ -50,7 +50,7 @@
       92.3%,100% {background-position: -7680px 0}
     }
     &.animate-bts {
-      animation: bts 8s ease-in-out infinite;
+      animation: bts 9s ease-in-out infinite;
     }
     @keyframes bts {
       0%, 5.5% {background-image: url('./img/1.png')}

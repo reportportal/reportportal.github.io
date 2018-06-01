@@ -21,7 +21,7 @@
       background-size: contain;
     }
     &.ie-animate-release{
-      animation: release-ie 7s step-start infinite;
+      animation: release-ie 9s step-start infinite;
     }
     @keyframes release-ie {
       0%, 7% {background-position: 0px 0px}
@@ -40,7 +40,7 @@
       92.3%,100% {background-position: -8320px 0}
     }
     &.animate-release {
-      animation: release 8.5s ease-in-out infinite;
+      animation: release 9.5s ease-in-out infinite;
     }
     @keyframes release {
       0%, 5.1% {
