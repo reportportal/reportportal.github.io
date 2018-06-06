@@ -46,7 +46,6 @@
         }
         @media (max-width: $SCREEN_XS_MAX) {
           width: auto;
-          margin-bottom: 5px;
         }
       }
       .main-text{
@@ -58,6 +57,7 @@
           margin-top: -60px;
           @media (max-width: $SCREEN_XS_MAX) {
             margin-top: 0;
+            margin-bottom: 12px;
           }
         }
         .info{
