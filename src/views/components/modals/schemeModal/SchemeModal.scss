@@ -18,7 +18,7 @@
   .content {
     position: relative;
     margin: 10px auto;
-    background-color: #fff;
+    background-color: $COLOR-WHITE_TWO;
     width: 800px;
     box-sizing: border-box;
     text-align: center;
@@ -123,7 +123,7 @@
       }
       .item{
         position: relative;
-        color: #595c5c;
+        color: $COLOR--brownish-grey;
         font-weight: 600;
         display: inline-block;
         font-size: 13px;
@@ -167,13 +167,13 @@
         cursor: default;
       }
       .light-blue{
-        background: #f2fbfc;
+        background: lighten($COLOR-TEALISH, 42%);
       }
       .light-green{
-        background: #f6faed;
+        background: lighten($COLOR--booger, 42%);
       }
       .grey{
-        color: #6f898d;
+        color: $COLOR-STEEL-GREY;
       }
       .onhover{
         span{
@@ -184,7 +184,7 @@
         }
       }
       .blue{
-        color: #39c2d7;
+        color: $COLOR-TEALISH;
         position: relative;
         &::before{
           content: '';
@@ -215,7 +215,7 @@
           width: 5px;
           height: 5px;
           border-radius: 100%;
-          border: 1px solid #39c2d7;
+          border: 1px solid $COLOR-TEALISH;
           display: block;
           position: absolute;
           right: -3px;
@@ -235,7 +235,7 @@
           width: 5px;
           height: 5px;
           border-radius: 100%;
-          border: 1px solid #a3c644;
+          border: 1px solid $COLOR--booger;
           display: block;
           position: absolute;
           left: -3px;
@@ -286,7 +286,7 @@
           display: block;
           top: 50%;
           left:3px;
-          background: #a3c644;
+          background: $COLOR--booger;
           -webkit-transform: translate(0,-50%);
           -ms-transform: translate(0,-50%);
           transform: translate(0,-50%);
@@ -295,7 +295,7 @@
           content: '';
           display: inline-block;
           border: 5px solid transparent;
-          border-right: 5px solid #a3c644;
+          border-right: 5px solid $COLOR--booger;
           top: 50%;
           left: -5px;
           position: absolute;
@@ -313,7 +313,7 @@
           content: "";
           height: 25px;
           background-color: $COLOR-TEALISH;
-          border-right: 1px solid #39c2d7;
+          border-right: 1px solid $COLOR-TEALISH;
           display: block;
           left: 50%;
           margin-left: 0.5px;

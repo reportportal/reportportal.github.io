@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  background: #f2f5f5;
+  background: $COLOR--pale-grey;
   padding: 26px 10px 10px 10px;
   box-sizing: border-box;
   .footer-content {
@@ -13,7 +13,7 @@
   .copyright-block{
     overflow: hidden;
     margin-top: 25px;
-    font-size: 11px;
+    font-size: 12px;
     color: $COLOR-CHARCOAL-GREY;
     .copy {
       display: inline-block;
@@ -44,7 +44,7 @@
   }
   .socials-block {
     span {
-      font-size: 14px;
+      font-size: 15px;
       a {
         text-decoration: none;
         color: $COLOR-TEALISH;

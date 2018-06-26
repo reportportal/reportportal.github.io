@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   padding-bottom: 100px;
-  background-color: #fcfeff;
+  background-color: $COLOR-WHITE_TWO;
   .section-container {
     @include content-section;
   }

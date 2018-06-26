@@ -79,7 +79,7 @@ $COLOR-BOOK-WHITE: #fdffff;
     background: url(./img/bg.svg) center bottom no-repeat;
   }
   .color-block {
-    background-color: #fdffff;
+    background-color: $COLOR-WHITE_TWO;
   }
   .bg-block-2 {
     background: url(./img/bg2.svg) center bottom no-repeat;

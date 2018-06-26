@@ -136,8 +136,8 @@
           &::after{
             content: '';
             height: 1px;
-            background-color: #79d6d9;
-            opacity: 0.5;
+            background-color: $COLOR-TEALISH;
+            opacity: 0.3;
             display: block;
             position: absolute;
             top: 5px;
@@ -182,10 +182,10 @@
       }
       .warning{
         p{
-          color: #f36c4a;
+          color: $COLOR--dusty-orange;
         }
         &::before{
-          background: #f36c4a;
+          background: $COLOR--dusty-orange;
           height: 42px;
           @media (max-width: $SCREEN_XS_MAX){
             height: 25px;
@@ -194,12 +194,12 @@
       }
       .recomend {
         p {
-          color: #7f993a;
+          color: $COLOR--khaki-green;
         }
         &::before {
           content: '';
           display: block;
-          background: #a3c644;
+          background: $COLOR--booger;
           width: 1px;
           height: 45px;
           position: absolute;

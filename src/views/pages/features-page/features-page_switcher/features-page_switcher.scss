@@ -16,7 +16,7 @@
     height: 50px;
     border: solid 1px $COLOR-GRAY-91;
     border-radius: 25px;
-    background: #f9f9f9;
+    background: $COLOR--pale-grey;
     &:hover{
       cursor: pointer;
     }
@@ -32,7 +32,7 @@
       width: 238px;
       height: 46px;
       border-radius: 23px;
-      background-color: #79d6d9;
+      background-color: $COLOR-TEALISH;
       transition: transform 0.5s ease;
     }
     span{
