@@ -18,7 +18,7 @@
   .content {
     position: relative;
     margin: 10px auto;
-    background-color: #fff;
+    background-color: $COLOR-WHITE_TWO;
     width: 1000px;
     box-sizing: border-box;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
@@ -113,7 +113,7 @@
               margin-left: 1px;
               padding: 0 13px;
               line-height: 39px;
-              color: #777777;
+              color: $COLOR-GRAY-47;
               background: $COLOR--white;
             }
           }
@@ -134,16 +134,16 @@
                 width: 50%;
                 text-align: center;
                 line-height: 40px;
-                color: #ffffff;
+                color: $COLOR-WHITE_TWO;
                 font-family: $FONT-LIGHT;
                 text-transform: uppercase;
                 font-size: 12px;
               }
               .turn-on {
-                background-color: #a2c749;
+                background-color: $COLOR--booger;
               }
               .turn-off {
-                background-color: #999999;
+                background-color: $COLOR-GRAY-60;
               }
               input {
                 display: none;
@@ -155,8 +155,8 @@
                 position: absolute;
                 width: 50%;
                 height: 100%;
-                background: #ffffff;
-                outline: 1px solid #cccccc;
+                background: $COLOR-WHITE_TWO;
+                outline: 1px solid $COLOR-GRAY-80;
                 transition: transform 0.5s ease;
               }
             }
@@ -229,7 +229,7 @@
         font-family: $FONT-REGULAR;
         font-size: 14px;
         color: $COLOR-CHARCOAL-GREY;
-        border: solid 1px #cccccc;
+        border: solid 1px $COLOR-GRAY-80;
       }
       .radio{
         margin-top: 10px;
@@ -249,7 +249,7 @@
           cursor: pointer;
           line-height: 20px;
           display: inline-block;
-          color: #666;
+          color: $COLOR--brownish-grey;
         }
         [type="radio"]:checked + label:before,
         [type="radio"]:not(:checked) + label:before {
@@ -261,7 +261,7 @@
           height: 22px;
           border: 1px solid $COLOR-GRAY-60;
           border-radius: 100%;
-          background: #fff;
+          background: $COLOR-WHITE_TWO;
         }
         [type="radio"]:checked + label:after,
         [type="radio"]:not(:checked) + label:after {
@@ -332,7 +332,6 @@
           top: 5px; left: 2px;
           font-size: 1.4em;
           line-height: 0.8;
-          color: #09ad7e;
           width: 20px;
           height: 20px;
         }
@@ -383,16 +382,16 @@
         border: none;
         border-radius: 3px;
         &.cancel{
-          background-color: #a8a8a8;
+          background-color: $COLOR--greyish;
           margin-right: 40px;
           &:hover{
-            background-color: lighten(#a8a8a8, 5%);
+            background-color: lighten($COLOR--greyish, 5%);
           }
         }
         &.generate{
-          background-color: #fb7848;
+          background-color: $COLOR--orangish;
           &:hover{
-            background-color: lighten(#fb7848, 5%);
+            background-color: lighten($COLOR--orangish, 5%);
           }
         }
       }

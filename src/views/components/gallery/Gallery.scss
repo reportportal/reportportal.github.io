@@ -20,7 +20,7 @@ $MOBILE-INTERFACE-WIDTH: 600px;
     opacity: 0.8;
     i{
       font-size: 18px;
-      color: #39c3d8;
+      color: $COLOR-TEALISH;
     }
   }
   .arrow_right:hover, .arrow_left:hover {
@@ -80,7 +80,7 @@ $MOBILE-INTERFACE-WIDTH: 600px;
             }
           }
           &.more-link{
-            border: solid 1px #d9f2f4;
+            border: solid 1px $COLOR--light-blue-grey;
             text-align: center;
             height: 115px;
             div{
@@ -97,9 +97,9 @@ $MOBILE-INTERFACE-WIDTH: 600px;
           font-size: 15px;
           line-height: 1.47;
           text-decoration: none;
-          color: #39c2d7;
+          color: $COLOR-TEALISH;
           &:hover{
-            color: #1a9cb0;
+            color: $COLOR-TOPAZ;
           }
         }
       }

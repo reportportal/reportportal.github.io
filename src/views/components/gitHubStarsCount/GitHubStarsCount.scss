@@ -13,7 +13,7 @@
     float: left;
     width: 46px;
     height: 16px;
-    border: solid 1px #dbdbdb;
+    border: solid 1px $COLOR-GRAY-91;
     margin: 1px 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -40,7 +40,7 @@
     }
     &:before {
       border-color: rgba(194, 225, 245, 0);
-      border-right-color: #dbdbdb;
+      border-right-color: $COLOR-GRAY-91;
       border-width: 4px;
       margin-top: -4px;
     }

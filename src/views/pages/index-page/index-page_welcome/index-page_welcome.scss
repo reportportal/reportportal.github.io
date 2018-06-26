@@ -23,7 +23,6 @@ $COLOR-BOOk-GREY: #ececec;
       height: 100%;
       top: 100%;
       left: 0;
-      background: #79D6D9;
       opacity: .3;
     }
   }
@@ -36,7 +35,6 @@ $COLOR-BOOk-GREY: #ececec;
       height: 100%;
       top: 100%;
       left: 0;
-      background: #79D6D9;
       opacity: .3;
     }
   }
@@ -46,7 +44,6 @@ $COLOR-BOOk-GREY: #ececec;
   .bg-page-desk {
     height: 200px;
     position: absolute;
-    background: #A9E4E9;
     width: 100%;
     bottom: 0;
     opacity: 1;
@@ -128,7 +125,7 @@ $COLOR-BOOk-GREY: #ececec;
     position: absolute;
     padding: 40px 25px 45px;
     border-radius: 30px;
-    background-color: #fdffff;
+    background-color: $COLOR-WHITE_TWO;
     bottom: 3%;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
   }
@@ -140,7 +137,7 @@ $COLOR-BOOk-GREY: #ececec;
     bottom: 0;
     width: 124%;
     height: 5%;
-    background-color: #fdffff;
+    background-color: $COLOR-WHITE_TWO;
     left: -12%;
     border-top: 1px solid $COLOR-BOOk-GREY;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);

@@ -45,13 +45,13 @@
         width: 212px;
         padding: 25px 0;
         border-radius: 8px;
-        border: solid 1px #e2f6fa;
+        border: solid 1px $COLOR--light-blue-grey;
         color: $COLOR-STEEL-GREY;
         font-family: $FONT-REGULAR;
         margin: 0 15px;
         min-height: 109px;
         box-sizing: border-box;
-        background-color: #ffffff;
+        background-color: $COLOR-WHITE_TWO;
         opacity: 0;
         transform: translate(-20px);
 
@@ -291,7 +291,6 @@
     }
     .contribution {
       height: auto;
-      background: #fcfeff;
       .h1 {
         margin-bottom: 30px;
       }

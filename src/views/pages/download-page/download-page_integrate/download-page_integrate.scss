@@ -114,7 +114,7 @@
                 font-size: 9px;
                 border-radius: 12px;
                 line-height: 9px;
-                background-color: #5cb85c;
+                background-color: $COLOR--dark-pastel-green;
                 color: $COLOR-WHITE_TWO;
                 padding: 2.7px 5.4px 1.8px;
                 @media (max-width: $SCREEN_XS_MAX) {
@@ -132,7 +132,7 @@
                 font-size: 9px;
                 border-radius: 12px;
                 line-height: 9px;
-                background-color: #bec7cc;
+                background-color: $COLOR--skipped;
                 color: $COLOR-WHITE_TWO;
                 padding: 2.7px 5.4px 1.8px;
                 @media (max-width: $SCREEN_XS_MAX) {

@@ -3,13 +3,13 @@
     border-radius: 3px;
     background-color: $COLOR-WHITE_TWO;
     box-shadow: 0 1px 3px 0 rgba(111, 137, 141, 0.24);
-    border: solid 1px #dde9eb;
+    border: solid 1px $COLOR-GRAY-91;
     width: 250px;
     padding: 10px;
     position: absolute;
     z-index: 100;
     text-align: left;
-    color: #464547;
+    color: $COLOR-CHARCOAL-GREY;
     .h3{
       font-size: 12px;
       font-family: $FONT-REGULAR;
@@ -33,7 +33,7 @@
     }
     .code{
       position: relative;
-      background: #eeeeee;
+      background: $COLOR--pale-grey;
       padding: 5px;
       font-family: $FONT-REGULAR;
       font-size: 10px;

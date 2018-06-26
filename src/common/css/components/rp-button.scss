@@ -13,11 +13,11 @@ button.rp-button {
     height: 20px;
     display: inline-block;
     fill: $COLOR-WHITE_TWO;
-    vertical-align: top;
+    vertical-align: middle;
     margin-right: 8px;
   }
   span {
-    vertical-align: middle;
+    vertical-align: inherit;
   }
   &:hover {
     background: $COLOR_TOPAZ_TWO;

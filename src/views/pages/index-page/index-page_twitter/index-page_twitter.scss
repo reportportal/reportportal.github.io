@@ -13,7 +13,7 @@
       font-weight: 600;
       line-height: 1.44;
       text-align: center;
-      color: #6f898d;
+      color: $COLOR-STEEL-GREY;
       margin: 15px 0;
       &:before{
         content: '';
@@ -30,16 +30,16 @@
       li{
         opacity: 0.85;
         border-radius: 2px;
-        background-color: #ffffff;
+        background-color: $COLOR-WHITE_TWO;
         margin: 10px 0;
         p{
           padding: 7px 15px;
           font-family: OpenSansCyrilicLatin;
           font-size: 15px;
           line-height: 20px;
-          color: #464547;
+          color: $COLOR-CHARCOAL-GREY;
           a{
-            color: #39c2d7;
+            color: $COLOR-TEALISH;
             text-decoration: none;
           }
         }
