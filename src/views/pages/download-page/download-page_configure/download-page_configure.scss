@@ -10,6 +10,14 @@
     @media (max-width: $SCREEN_XS_MAX) {
       margin-top: 30px;
     }
+    h2{
+      @media (max-width: $SCREEN_SM_MAX) {
+        width: 480px;
+      }
+      @media (max-width: $SCREEN_XS_MAX) {
+        width: auto;
+      }
+    }
     .instruction{
       &::after{
         left: 0;
@@ -24,6 +32,11 @@
         @media (max-width: $SCREEN_XS_MAX) {
           display: none;
         }
+      }
+    }
+    .elastic-search{
+      b{
+        font-family: $FONT-HEADER;
       }
     }
     a{
@@ -88,10 +101,14 @@
     .step{
       width: 680px;
       @media (max-width: $SCREEN_SM_MAX) {
-        width: 490px;
+        width: 480px;
       }
       @media (max-width: $SCREEN_XS_MAX) {
         width: auto;
+      }
+      & > a{
+        display: block;
+        margin-top: 20px;
       }
       p{
         margin-top: 0px;
@@ -129,7 +146,7 @@
       margin-right: 20px;
       margin-bottom: 20px;
       @media (max-width: $SCREEN_SM_MAX) {
-        width: 510px;
+        width: 480px;
       }
       @media (max-width: $SCREEN_XS_MAX) {
         width: auto;
@@ -153,7 +170,7 @@
       letter-spacing: normal;
       text-align: left;
       color: $COLOR--brownish-grey;
-      margin-bottom: 20px;
+      margin-bottom: 3px;
       margin-left: 0;
       @media (max-width: $SCREEN_XS_MAX) {
         margin-right: 10px;

@@ -48,13 +48,39 @@
           width: auto;
         }
       }
+      .warning-desktop{
+        display: flex;
+        align-items: center;
+        height: 60px;
+        padding-left: 20px;
+        border-left: 4px solid lighten($COLOR--dusty-orange, 25%);
+        margin-top: 20px;
+        margin-bottom: 5px;
+        color:  $COLOR--dusty-orange;
+        line-height: 24px;
+        @media (max-width: $SCREEN_XS_MAX) {
+          display: none;
+        }
+      }
+      .warning-mobile{
+        display: none;
+        padding-left: 16px;
+        border-left: 4px solid lighten($COLOR--dusty-orange, 25%);
+        margin-top: 20px;
+        margin-bottom: 15px;
+        color:  $COLOR--dusty-orange;
+        line-height: 24px;
+        @media (max-width: $SCREEN_XS_MAX) {
+          display: block;
+        }
+      }
       .main-text{
         margin-top: 0;
       }
       .step-note{
         position: absolute;
         &.security{
-          margin-top: -60px;
+          margin-top: 15px;
           @media (max-width: $SCREEN_XS_MAX) {
             margin-top: 0;
             margin-bottom: 12px;
@@ -65,7 +91,11 @@
             color:$COLOR--khaki-green;
           }
           &::before{
+            height: 45px;
             background: $COLOR--khaki-green;
+            @media (max-width: $SCREEN_XS_MAX){
+              height: 20px;
+            }
           }
         }
         .local{
@@ -74,31 +104,12 @@
             margin-bottom: 0px;
           }
         }
-        .warn{
-          margin-bottom: 140px;
-          @media (max-width: $SCREEN_XS_MAX){
-            margin-bottom: 0;
-          }
-          p{
-            color:$COLOR--dusty-orange;
-          }
-          &::before{
-            height: 45px;
-            background: $COLOR--dusty-orange;
-            @media (max-width: $SCREEN_XS_MAX){
-              height: 25px;
-            }
-          }
-        }
-        div::before{
-          height: 66px;
-        }
         @media (max-width: $SCREEN_XS_MAX) {
           position: relative;
           margin: 0;
           div::before {
             height: 45px;
-            left: 5px;
+            left: 0;
           }
           p{
             margin-left: 18px;
@@ -107,23 +118,6 @@
         p{
           span{
             font-weight: bold;
-          }
-        }
-        &.warn{
-          vertical-align: bottom;
-          p{
-            color: $COLOR--dusty-orange;
-            @media (max-width: $SCREEN_XS_MAX) {
-              margin-left: 20px;
-            }
-          }
-          div::before{
-            height: 44px;
-            background: $COLOR--dusty-orange;
-            @media (max-width: $SCREEN_XS_MAX) {
-              height: 25px;
-              left: 15px;
-            }
           }
         }
       }
