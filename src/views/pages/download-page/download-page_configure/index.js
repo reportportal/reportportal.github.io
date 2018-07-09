@@ -41,7 +41,7 @@ export default IndexPageSection.extend({
           delete compose.services.mongodb.volumes;
         }
         const blob = new Blob([YAML.dump(compose)], { type: 'text/plain;charset=utf-8' });
-        FileSaver.saveAs(blob, 'docker-compose.yml');
+        FileSaver.saveAs(blob, 'docker-compose.yml', true);
       });
   },
   copyText(e) {
@@ -51,9 +51,9 @@ export default IndexPageSection.extend({
     $temp.val(copyVal).select();
     document.execCommand('copy');
     $temp.remove();
-    $('[data-copy]', this.$el).text('Copied');
+    $(`[data-copy="${copyVal}"]`, this.$el).text('Copied');
     setTimeout(() => {
-      $('[data-copy]', this.$el).text('Copy');
+      $(`[data-copy="${copyVal}"]`, this.$el).text('Copy');
     }, 1000);
   },
   checkScroll(scrollTop, scrollElTop) {

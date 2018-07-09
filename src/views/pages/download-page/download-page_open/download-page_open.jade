@@ -7,10 +7,13 @@
           p.main-text.desktop Open new browser tab with
             a(href='http://localhost:8080/ui/',data-js-new-window) ReportPortal.
           p.main-text.mobile Open new browser tab with Report Portal on local host.
+          p.warning-desktop ReportPortal is ready for login when you see a list of services (required: API, UAT, Index, UI; optional: Analyzer, Rally/Jira) at the bottom of the Login Page.
         .step-note
           .local
             p If you deploy ReportPortal on a separate host, use&nbsp;
               span http://IP_ADDRESS:8080.
+        .step
+          p.warning-mobile ReportPortal is ready for login when you see a list of services (required: API, UAT, Index, UI; optional: Analyzer, Rally/Jira) at the bottom of the Login Page.
         .step
           .access
             p.main-text For user access:
@@ -21,6 +24,9 @@
               .input.password
                 span 1q2w3e
                 span.desktop.copy(data-copy='1q2w3e') Copy
+        .step-note.security.desktop
+          .info
+            p Please change admin password for security.
         .step
           .access
             p.main-text For admin access:
@@ -31,12 +37,9 @@
               .input.password
                 span erebus
                 span.desktop.copy(data-copy='erebus') Copy
-        .step-note.security
-          .warn
-            p Please change admin password for security.
-        .step
-          p.main-text ReportPortal is ready for login when you see a list of services (required: API, UAT, Index, UI; optional: Analyzer, Rally/Jira) at the bottom of the Login Page.
-        .step-note
+        .step-note.security.mobile
           .info
-            p Running of all the services takes time, so do not worry if you can not login, just wait.
+            p Please change admin password for security.
+
+
 

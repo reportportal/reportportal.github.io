@@ -180,18 +180,6 @@
           margin-bottom: 20px;
         }
       }
-      .warning{
-        p{
-          color: $COLOR--dusty-orange;
-        }
-        &::before{
-          background: $COLOR--dusty-orange;
-          height: 42px;
-          @media (max-width: $SCREEN_XS_MAX){
-            height: 25px;
-          }
-        }
-      }
       .recomend {
         p {
           color: $COLOR--khaki-green;
@@ -228,7 +216,7 @@
       padding-bottom: 45px;
       display: inline-block;
       @media (max-width: $SCREEN_SM_MAX) {
-        width: 510px;
+        width: 500px;
         .step{
           width: 100%;
         }
@@ -266,6 +254,19 @@
         vertical-align: text-top;
         margin-right: 3px;
         margin-left: 5px;
+      }
+      .warning{
+        padding-left: 20px;
+        border-left: 4px solid lighten($COLOR--dusty-orange, 25%);
+        margin-top: 20px;
+        color:  $COLOR--dusty-orange;
+        line-height: 35px;
+        strong{
+          font-family: $FONT-HEADER;
+        }
+        @media (max-width: $SCREEN_XS_MAX) {
+          line-height: 24px;
+        }
       }
       a{
         @media (max-width: $SCREEN_XS_MAX) {

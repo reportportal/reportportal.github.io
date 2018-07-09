@@ -147,7 +147,7 @@ export default Epoxy.View.extend({
   },
   gateway(compose) {
     const tempCompose = Object.assign({}, compose);
-    const fabio = $('[data-js-fabio]', this.$el).is(':checked');
+    const isFabio = $('[data-js-fabio]', this.$el).is(':checked');
     const traefic = {
       image: 'traefik:1.5',
       ports: [
@@ -164,8 +164,20 @@ export default Epoxy.View.extend({
       ],
       restart: 'always',
     };
-    if (!fabio) {
+    const fabio = {
+      image: 'fabiolb/fabio:1.5.8-go1.10',
+      ports: ['9998:9998', '8080:9999'],
+      environment: [
+        'FABIO_REGISTRY_CONSUL_ADDR=registry:8500',
+        'FABIO_REGISTRY_CONSUL_REGISTER_NAME=gateway',
+        'FABIO_PROXY_ADDR=:9999;rt=300s;wt=300s',
+      ],
+      restart: 'always',
+    };
+    if (!isFabio) {
       tempCompose.services.gateway = traefic;
+    } else {
+      tempCompose.services.gateway = fabio;
     }
     return tempCompose;
   },
