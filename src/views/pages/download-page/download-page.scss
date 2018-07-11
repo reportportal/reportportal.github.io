@@ -109,7 +109,6 @@
   .step{
     margin-left: 20px;
     margin-right: 20px;
-    width: 720px;
     display: inline-block;
     @media (max-width: $SCREEN_XS_MAX) {
       margin: 0;
@@ -121,9 +120,6 @@
     display: inline-block;
     @media (max-width: $SCREEN_XS_MAX) {
       width: auto;
-      div:first-child {
-        margin-bottom: 20px;
-      }
     }
     div{
       &::before{

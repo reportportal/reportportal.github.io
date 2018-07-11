@@ -174,15 +174,13 @@
       margin-bottom: 0;
     }
     .step-note{
-      div:first-child{
-        margin-bottom: 65px;
-        @media (max-width: $SCREEN_XS_MAX){
-          margin-bottom: 20px;
-        }
-      }
       .recomend {
         p {
+          margin-top: 55px;
           color: $COLOR--khaki-green;
+          @media (max-width: $SCREEN_XS_MAX) {
+            margin-top: 30px;
+          }
         }
         &::before {
           content: '';
