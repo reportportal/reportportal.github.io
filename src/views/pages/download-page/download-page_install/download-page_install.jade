@@ -21,26 +21,21 @@
           | Integrate with test framework
 .install-section(data-js-install)
   .section-container
-    .step-note.mobile
-      .recomend
-        p We strongly recommend to deploy in <i class='linux'/> Linux based environment
-    .instruction
-      h2 1. Install Docker
-        span.note If you have Docker, please skip this step
-      .step
-        p.main-text Docker is a development enviroment for building, assembling and shipping applications. It is available for free.
+    .note.recomend.mobile
+      p.line We strongly recommend to deploy in <i class='linux'/> Linux based environment
+    h2.text-container 1. Install Docker
+      span.note Whether you have Docker please skip this step
+    .with-note.text-margins
+      .description
+        .text Docker is a development enviroment for building, assembling and shipping applications. It is available for free.&nbsp;
           a(href='https://www.docker.com/what-docker',data-js-new-window) More about Docker
-        p.warning.mobile
-          span Allocate at least
-          strong 5+Gb of RAM for Docker
-          span via Docker Settings > Advanced
-        .desktop
-          p.main-text Download Docker for <i class='mac'/> Mac OS, <i class='win'/> Windows, <i class='linux'/> Linux and other from
-            a(href='https://store.docker.com/', data-js-new-window) Docker Store
-          p.warning
-            span Allocate at least&nbsp;
-            strong 5+Gb of RAM for Docker&nbsp;
-            span via Docker Settings > Advanced
-    .step-note.desktop
-      .recomend
-        p We strongly recommend to deploy in <i class='linux'/> Linux based environment
+        .text.desktop Download Docker for <i class='mac'/> Mac OS, <i class='win'/> Windows, <i class='linux'/> Linux and other from&nbsp;
+          a(href='https://store.docker.com/', data-js-new-window) Docker Store
+      .note.recomend.desktop
+        p.line We strongly recommend to deploy in <i class='linux'/> Linux based environment
+    .text-container.warning
+      p.line
+        span Allocate at least&nbsp;
+        strong 5+Gb of RAM for Docker&nbsp;
+        span via Docker Settings > Advanced
+

@@ -1,45 +1,43 @@
 .open-section(data-js-open)
   .section-container
-    .instruction
-      .helper-padding
-        h2 3. Open ReportPortal in new browser tab and login
-        .step
-          p.main-text.desktop Open new browser tab with
-            a(href='http://localhost:8080/ui/',data-js-new-window) ReportPortal.
-          p.main-text.mobile Open new browser tab with Report Portal on local host.
-          p.warning-desktop ReportPortal is ready for login when you see a list of services (required: API, UAT, Index, UI; optional: Analyzer, Rally/Jira) at the bottom of the Login Page.
-        .step-note
-          .local
-            p If you deploy ReportPortal on a separate host, use&nbsp;
-              span http://IP_ADDRESS:8080.
-        .step
-          p.warning-mobile ReportPortal is ready for login when you see a list of services (required: API, UAT, Index, UI; optional: Analyzer, Rally/Jira) at the bottom of the Login Page.
-        .step
-          .access
-            p.main-text For user access:
-            .user
-              .input.login
-                span default
-                span.desktop.copy(data-copy='default') Copy
-              .input.password
-                span 1q2w3e
-                span.desktop.copy(data-copy='1q2w3e') Copy
-        .step-note.security.desktop
-          .info
-            p Please change admin password for security.
-        .step
-          .access
-            p.main-text For admin access:
-            .user
-              .input.login
-                span superadmin
-                span.desktop.copy(data-copy='superadmin') Copy
-              .input.password
-                span erebus
-                span.desktop.copy(data-copy='erebus') Copy
-        .step-note.security.mobile
-          .info
-            p Please change admin password for security.
+    h2.text-container 3. Open ReportPortal in new browser tab and login
+    .with-note.text-margins
+      .description
+        .text Open new browser tab with&nbsp;
+          a(href='http://localhost:8080/ui/',data-js-new-window) ReportPortal
+        .note.nutural.mobile
+          p.line If you deploy ReportPortal on a separate host, use&nbsp;
+            span http://IP_ADDRESS:8080.
+        .warning
+          p ReportPortal is ready for login when you see a list of services (required: API, UAT, Index, UI; optional: Analyzer, Rally/Jira) at the bottom of the Login Page.
+      .note.nutural.desktop
+        p.line If you deploy ReportPortal on a separate host, use&nbsp;
+          span http://IP_ADDRESS:8080.
+    .text-container
+      .access
+        p.text For user access:
+        .user
+          .input.login
+            span default
+            span.desktop.copy(data-copy='default') Copy
+          .input.password
+            span 1q2w3e
+            span.desktop.copy(data-copy='1q2w3e') Copy
+    .with-note.text-margins
+      .description
+        .access
+          p.text For admin access:
+          .user
+            .input.login
+              span superadmin
+              span.desktop.copy(data-copy='superadmin') Copy
+            .input.password
+              span erebus
+              span.desktop.copy(data-copy='erebus') Copy
+      .note.recomend
+        p.line Please change admin password for security.
+
+
 
 
 

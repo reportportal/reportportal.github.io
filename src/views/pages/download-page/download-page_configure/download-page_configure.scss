@@ -1,213 +1,105 @@
 @import '../../pageSectionMixin';
 
 .download-page_config{
-  @media (max-width: $SCREEN_XS_MAX) {
-    width: 320px;
-    margin: 0 auto;
-  }
   .configure-section{
-    margin-top: 40px;
     @media (max-width: $SCREEN_XS_MAX) {
-      margin-top: 30px;
+      width: 320px;
+      margin: 0 auto 0 auto;
     }
-    h2{
-      @media (max-width: $SCREEN_SM_MAX) {
-        width: 480px;
-      }
+    .section-container{
+      padding-top: 40px;
+      padding-bottom: 30px;
       @media (max-width: $SCREEN_XS_MAX) {
-        width: auto;
+        padding-top: 20px;
+        padding-bottom: 0;
       }
-    }
-    .instruction{
       &::after{
-        left: 0;
-        content: '';
+        position: absolute;
+        bottom: 0;
         display: block;
         width: 700px;
-        position: absolute;
-        border-bottom: 2px solid rgba(57, 195, 216, 0.2);
+        border-bottom: 2px rgba(57, 195, 216, 0.20) solid;
+        content: '';
         @media (max-width: $SCREEN_SM_MAX) {
-          width: 530px;
+          width: 550px;
         }
         @media (max-width: $SCREEN_XS_MAX) {
           display: none;
         }
       }
     }
-    .elastic-search{
-      margin-bottom: 10px;
-      b{
-        font-family: $FONT-HEADER;
-      }
-    }
-    a{
-      margin-left: 0;
-      @media (max-width: $SCREEN_XS_MAX) {
-        display: block;
-        margin-top: 5px;
-      }
-      &:hover{
-        color: $COLOR-TOPAZ;
-        &::after{
-          border-top: 1.5px solid $COLOR-TOPAZ !important;
-          border-right: 1.5px solid $COLOR-TOPAZ !important;
+    .btn{
+      text-align: center;
+      &.download{
+        margin-right: 80px;
+        background: url('./img/download.svg');
+        background-repeat: no-repeat;
+        background-position: 35px;
+        @media (max-width: $SCREEN_SM_MAX) {
+          margin-right: 10px;
         }
+      }
+      &.create {
+        background-image: url('./img/create.svg');
+        background-repeat: no-repeat;
+        background-position: 60px;
+        &.disabled {
+          background-image: url('./img/create-disabled.svg');
+        }
+      }
+      &.disabled {
+        color: $COLOR-GRAY-60;
+        background-color: $COLOR--white;
+        border-color: $COLOR-GRAY-91;
       }
       &::after{
-        content: '';
-        border-top: 1.5px solid $COLOR-TEALISH;
-        border-right: 1.5px solid $COLOR-TEALISH;
-        height: 6px;
-        width: 6px;
-        display: inline-block;
-        transform: rotate(45deg);
-        margin-left: 5px;
-        margin-bottom: 2px;
-      }
-      &.btn{
-        padding: 13px 15px 13px 50px;
-        margin: 10px 0 0 0;
-        width: 240px;
-        box-sizing: border-box;
-        text-align: center;
-        &.download{
-          background: url('./img/download.svg');
-          background-repeat: no-repeat;
-          background-position: 35px;
-          margin-right: 80px;
-
-          @media (max-width: $SCREEN_SM_MAX) {
-            margin-right: 10px;
-          }
-        }
-        &.create {
-          background-image: url('./img/create.svg');
-          background-repeat: no-repeat;
-          background-position: 60px;
-
-          &.disabled {
-            background-image: url('./img/create-disabled.svg');
-          }
-        }
-        &.disabled {
-          color: $COLOR-GRAY-60;
-          background-color: $COLOR--white;
-          border-color: $COLOR-GRAY-91;
-        }
-        &::after{
-          display: none;
-        }
-      }
-    }
-    .step{
-      width: 680px;
-      @media (max-width: $SCREEN_SM_MAX) {
-        width: 480px;
-      }
-      @media (max-width: $SCREEN_XS_MAX) {
-        width: auto;
-      }
-      & > a{
-        display: block;
-        margin-top: 20px;
-      }
-      p{
-        margin-top: 0px;
-      }
-    }
-    .step-note{
-      margin-top: 5px;
-    }
-    .first{
-      p{
-        @media (max-width: $SCREEN_XS_MAX) {
-          margin-left: 20px;
-        }
-      }
-      div::before{
-        height: 90px;
-        @media (max-width: $SCREEN_XS_MAX) {
-          height: 65px;
-          left:13px;
-        }
-      }
-    }
-    .second{
-      margin-top: -30px;
-      @media (max-width: $SCREEN_XS_MAX) {
-        margin: 0;
-      }
-      div::before{
-        height: 165px;
-      }
-    }
-    .sm-container{
-      width: 720px;
-      margin-left: 20px;
-      margin-right: 20px;
-      margin-bottom: 20px;
-      @media (max-width: $SCREEN_SM_MAX) {
-        width: 480px;
-      }
-      @media (max-width: $SCREEN_XS_MAX) {
-        width: auto;
-        margin: 0;
-        p{
-          margin-top: 15px;
-          margin-bottom: 25px;
-        }
+        display: none;
       }
     }
     .code{
       position: relative;
-      font-family: $DROID;
-      background: $COLOR--pale-grey;
-      padding: 10px 15px;
-      font-size: 11px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 20px;
-      letter-spacing: normal;
-      text-align: left;
-      color: $COLOR--brownish-grey;
       margin-bottom: 3px;
       margin-left: 0;
+      padding: 10px 15px;
+      background: $COLOR--pale-grey;
+      color: $COLOR--brownish-grey;
+      font-family: $DROID;
+      font-size: 11px;
+      line-height: 20px;
+      text-align: left;
       @media (max-width: $SCREEN_XS_MAX) {
         margin-right: 10px;
-        line-height: 1.27;
         margin-bottom: 10px;
+        line-height: 1.27;
       }
       span{
-        cursor: pointer;
         float: right;
+        color: $COLOR-TEALISH;
         font-family: $FONT-REGULAR;
         font-size: 15px;
         text-align: left;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color: $COLOR-TEALISH;
+        cursor: pointer;
         &:hover{
           color: $COLOR-TOPAZ;
         }
       }
     }
-    dl{
-      margin-left: 15px;
-      font-size: 12px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 22px;
-      letter-spacing: normal;
-      text-align: left;
-      color: $COLOR-GRAY-47;
-      dt{
-        float: left;
-        font-weight: bold;
+    .note{
+      .h3 {
+        margin-bottom: 6px;
+        color: $COLOR-STEEL-GREY;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+      dl{
+        color: $COLOR-GRAY-47;
+        font-size: 12px;
+        line-height: 22px;
+        text-align: left;
+        dt{
+          float: left;
+          font-weight: bold;
+        }
       }
     }
   }
