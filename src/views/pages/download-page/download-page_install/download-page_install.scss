@@ -32,7 +32,7 @@
     background-color: $COLOR-WHITE_TWO;
     z-index: 10;
     @media (max-width: $SCREEN_XS_MAX) {
-      margin: 40px auto 25px auto;
+      margin: 40px auto 0 auto;
       padding: 0;
       width: 320px;
     }
@@ -57,6 +57,9 @@
           width: auto;
           margin-bottom: 15px;
           margin-top: 4px;
+          &:last-child{
+            margin-bottom: 0;
+          }
         }
         a{
           max-width: 190px;
@@ -113,6 +116,9 @@
             height: 50px;
             float: left;
             margin-right: 7px;
+            @media (max-width: $SCREEN_SM_MAX) {
+              height: 70px;
+            }
             @media (max-width: $SCREEN_XS_MAX) {
               height: auto;
             }
@@ -164,138 +170,66 @@
     }
   }
   .install-section{
-    margin-top: 30px;
-    margin-bottom: 40px;
     @media (max-width: $SCREEN_XS_MAX) {
       width: 320px;
-      margin: 25px auto 0 auto;
+      margin: 0 auto 0 auto;
     }
-    h2{
-      margin-bottom: 0;
-    }
-    .step-note{
-      .recomend {
-        p {
-          margin-top: 55px;
-          color: $COLOR--khaki-green;
-          @media (max-width: $SCREEN_XS_MAX) {
-            margin-top: 30px;
-          }
-        }
-        &::before {
-          content: '';
-          display: block;
-          background: $COLOR--booger;
-          width: 1px;
-          height: 45px;
-          position: absolute;
-          opacity: 0.3;
-        }
-        .linux {
-          display: inline-block;
-          background-image: url('./img/linux-rec.svg');
-          width: 13px;
-          height: 17px;
-          background-size: contain;
-          vertical-align: text-bottom;
-        }
-      }
+    .section-container{
+      padding-top: 30px;
+      padding-bottom: 40px;
       @media (max-width: $SCREEN_XS_MAX) {
-        margin: 0 7px;
-        &::before {
-          left: 17px;
+        padding-top: 0;
+        padding-bottom: 20px;
+      }
+      &::after{
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 700px;
+        border-bottom: 2px rgba(57, 195, 216, 0.20) solid;
+        content: '';
+        @media (max-width: $SCREEN_SM_MAX) {
+          width: 550px;
+        }
+        @media (max-width: $SCREEN_XS_MAX) {
+          display: none;
         }
       }
     }
-    .instruction{
-      width: 700px;
-      margin-right: 20px;
-      border-bottom: 2px solid rgba(57, 195, 216, 0.20);
-      padding-bottom: 45px;
+  }
+  i{
+    display: inline-block;
+    margin-right: 3px;
+    margin-left: 5px;
+    vertical-align: text-top;
+    &.win{
+      width: 17px;
+      height: 17px;
+      background-image: url('./img/win.svg');
+    }
+    &.linux{
+      width: 17px;
+      height: 20px;
+      background-image: url('./img/linux.svg');
+    }
+    &.mac{
+      width: 18px;
+      height: 18px;
+      background-image: url('./img/mac.svg');
+    }
+  }
+  .note{
+    .linux {
       display: inline-block;
-      @media (max-width: $SCREEN_SM_MAX) {
-        width: 500px;
-        .step{
-          width: 100%;
-        }
-      }
+      width: 13px;
+      height: 17px;
+      background-image: url('./img/linux-rec.svg');
+      background-size: contain;
+      vertical-align: text-bottom;
+    }
+    &.recomend{
       @media (max-width: $SCREEN_XS_MAX) {
-        margin-top: 33px;
-        margin-right: 0;
-        width: auto;
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-      .win{
-        background-image: url('./img/win.svg');
-        display: inline-block;
-        width: 17px;
-        height: 17px;
-        vertical-align: text-top;
-        margin-right: 3px;
-        margin-left: 5px;
-      }
-      .linux{
-        background-image: url('./img/linux.svg');
-        display: inline-block;
-        width: 17px;
-        height: 20px;
-        vertical-align: text-top;
-        margin-right: 3px;
-        margin-left: 5px;
-      }
-      .mac{
-        background-image: url('./img/mac.svg');
-        display: inline-block;
-        width: 18px;
-        height: 18px;
-        vertical-align: text-top;
-        margin-right: 3px;
-        margin-left: 5px;
-      }
-      .warning{
-        padding-left: 20px;
-        border-left: 4px solid lighten($COLOR--dusty-orange, 25%);
-        margin-top: 20px;
-        color:  $COLOR--dusty-orange;
-        line-height: 35px;
-        strong{
-          font-family: $FONT-HEADER;
-        }
-        @media (max-width: $SCREEN_XS_MAX) {
-          line-height: 24px;
-        }
-      }
-      a{
-        @media (max-width: $SCREEN_XS_MAX) {
-          display: block;
-          margin: 15px 0 10px 0;
-        }
-        &::after{
-          content: '';
-          border-top: 1.5px solid $COLOR-TEALISH;
-          border-right: 1.5px solid $COLOR-TEALISH;
-          height: 6px;
-          width: 6px;
-          display: inline-block;
-          transform: rotate(45deg);
-          margin-left: 5px;
-          margin-bottom: 2px;
-        }
-        &:hover{
-          color: $COLOR-TOPAZ;
-          &::after{
-            border-top: 1.5px solid $COLOR-TOPAZ !important;
-            border-right: 1.5px solid $COLOR-TOPAZ !important;
-          }
-        }
-        &.btn{
-          &.docker{
-            background: url('./img/docker.svg');
-            background-repeat: no-repeat;
-            background-position: 25px;
-          }
-        }
+        padding: 40px 0;
       }
     }
   }

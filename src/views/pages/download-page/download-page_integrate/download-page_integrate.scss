@@ -2,175 +2,128 @@
 
 .download-page_integrate{
   margin-top: 40px;
+  @media (max-width: $SCREEN_XS_MAX) {
+    margin: 0;
+  }
   .integrate-section{
-    @media (max-width: $SCREEN_XS_MAX) {
-      width: 320px;
-      margin: 0 auto;
-      margin-top: 30px;
-    }
-    .instruction{
-      margin-bottom: 40px;
+    .section-container{
+      padding-bottom: 40px;
       @media (max-width: $SCREEN_XS_MAX) {
-        margin-bottom: 20px;
+        width: 320px;
+        margin: 0 auto 0 auto;
       }
-      .step{
-        width: 680px;
+    }
+    img{
+      width: 100%;
+    }
+    .frameworks {
+      p.h3 {
+        position: relative;
         @media (max-width: $SCREEN_XS_MAX) {
-          width: auto;
-          p{
+          &:not(:first-child){
             margin-top: 10px;
-            margin-bottom: 5px;
           }
         }
-      }
-      .main-text{
-        a{
-          margin-top: 10px;
-        }
-      }
-      .show-scheme{
-        @media (max-width: $SCREEN_SM_MAX) {
-          display: none;
-        }
-      }
-      img{
-        margin-bottom: 20px;
-        @media (max-width: $SCREEN_XS_MAX) {
-          width: 100%;
-          margin-bottom: 5px;
-        }
-      }
-      a{
-        display: inline-block;
-        margin-left: 0;
-        margin-bottom: 15px;
-        &::after{
-          content: '';
-          border-top: 1.5px solid $COLOR-TEALISH;
-          border-right: 1.5px solid $COLOR-TEALISH;
-          height: 6px;
-          width: 6px;
-          display: inline-block;
-          transform: rotate(45deg);
-          margin-left: 5px;
-          margin-bottom: 2px;
-        }
-        &:hover{
-          color: $COLOR-TOPAZ;
-          &::after{
-            border-top: 1.5px solid $COLOR-TOPAZ !important;
-            border-right: 1.5px solid $COLOR-TOPAZ !important;
-          }
-        }
-      }
-      .frameworks{
-        p.h3{
+        span {
           position: relative;
-          span{
-            background: $COLOR-WHITE_TWO;
-            padding-right: 10px;
-            position: relative;
-          }
-          &::before{
-            content: '';
-            width: 100%;
-            background-color: $COLOR-STEEL-GREY;
-            height: 1px;
-            opacity:0.3;
-            display: block;
-            position: absolute;
-            top: 15px;
-          }
+          padding-right: 10px;
+          background: $COLOR-WHITE_TWO;
         }
-        ul{
-          margin: 10px 0 5px 0;
+        &::before {
+          position: absolute;
+          top: 15px;
+          display: block;
+          height: 1px;
+          width: 100%;
+          background-color: $COLOR-STEEL-GREY;
+          opacity: 0.3;
+          content: '';
+        }
+      }
+      ul {
+        margin: 10px 0 5px 0;
+        @media (max-width: $SCREEN_XS_MAX) {
+          margin-bottom: 0;
+          margin-top: 5px;
+        }
+        li {
+          display: inline-block;
+          margin-right: 20px;
+          margin-bottom: 20px;
+          font-size: 0;
           @media (max-width: $SCREEN_XS_MAX) {
-            margin-bottom: 0;
-            margin-top: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
           }
-          li{
-            font-size: 0;
-            display: inline-block;
-            margin-right: 20px;
-            margin-bottom: 5px;
-            @media (max-width: $SCREEN_XS_MAX) {
-              margin-right: 10px;
+          a {
+            position: relative;
+            display: block;
+            border: solid 1px $COLOR-GRAY-91;
+            box-shadow: 0 1px 3px 0 rgba(189, 199, 204, 0.55);
+            .beta {
+              position: absolute;
+              top: 5px;
+              right: 5px;
+              z-index: 1;
+              border-radius: 12px;
+              padding: 2.7px 5.4px 1.8px;
+              background-color: $COLOR--dark-pastel-green;
+              color: $COLOR-WHITE_TWO;
+              font-size: 9px;
+              line-height: 9px;
+              @media (max-width: $SCREEN_XS_MAX) {
+                top: 3px;
+                right: 3px;
+                padding: 1px 3px;
+                font-size: 7px;
+              }
             }
-            &:nth-child(4n){
+            .contributor {
+              position: absolute;
+              top: 5px;
+              right: 5px;
+              z-index: 1;
+              border-radius: 12px;
+              padding: 2.7px 5.4px 1.8px;
+              font-size: 9px;
+              line-height: 9px;
+              background-color: $COLOR--skipped;
+              color: $COLOR-WHITE_TWO;
+              @media (max-width: $SCREEN_XS_MAX) {
+                top: 3px;
+                right: 3px;
+                padding: 1px 3px;
+                font-size: 7px;
+              }
+            }
+            @media (max-width: $SCREEN_XS_MAX) {
+              margin: 0;
+              padding: 5px 0;
+            }
+            &:hover {
+              border: solid 1px darken($COLOR-GRAY-91, 10%);
+            }
+            &::after {
+              display: none;
+            }
+            img {
+              width: 153px;
               margin: 0;
               @media (max-width: $SCREEN_XS_MAX) {
-                margin-right: 10px;
-              }
-            }
-            a{
-              box-shadow: 0 1px 3px 0 rgba(189, 199, 204, 0.55);
-              border: solid 1px $COLOR-GRAY-91;
-              position: relative;
-              .beta{
-                position: absolute;
-                top: 5px;
-                right: 5px;
-                z-index: 1;
-                font-size: 9px;
-                border-radius: 12px;
-                line-height: 9px;
-                background-color: $COLOR--dark-pastel-green;
-                color: $COLOR-WHITE_TWO;
-                padding: 2.7px 5.4px 1.8px;
-                @media (max-width: $SCREEN_XS_MAX) {
-                  top: 3px;
-                  right: 3px;
-                  padding: 1px 3px ;
-                  font-size: 7px;
-                }
-              }
-              .contributor{
-                position: absolute;
-                top: 5px;
-                right: 5px;
-                z-index: 1;
-                font-size: 9px;
-                border-radius: 12px;
-                line-height: 9px;
-                background-color: $COLOR--skipped;
-                color: $COLOR-WHITE_TWO;
-                padding: 2.7px 5.4px 1.8px;
-                @media (max-width: $SCREEN_XS_MAX) {
-                  top: 3px;
-                  right: 3px;
-                  padding: 1px 3px ;
-                  font-size: 7px;
-                }
-              }
-              @media (max-width: $SCREEN_XS_MAX) {
-                margin-bottom: 5px;
-                padding: 5px 0;
-              }
-              &:hover{
-                border: solid 1px darken($COLOR-GRAY-91, 10%);
-              }
-              &::after{
-                display: none;
-              }
-              img{
-                width: 153px;
-                margin: 0;
-                @media (max-width: $SCREEN_XS_MAX) {
-                  width: 88px;
-                }
+                width: 88px;
               }
             }
           }
         }
       }
     }
-
   }
   .slack-block{
-    background: url('./img/pttrn.png');
     padding: 45px 0;
     background-size: cover;
+    background-image: url('./img/pttrn.png');
     .section-container{
+      padding: 0;
       @media (max-width: $SCREEN_XS_MAX) {
         width: 320px;
         margin: 0 auto;
@@ -178,21 +131,17 @@
     }
     p{
       margin-left: 110px;
-      font-family: $FONT-REGULAR;
-      font-size: 17px;
-      font-weight: 600;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.75;
-      letter-spacing: normal;
       color: $COLOR-STEEL-GREY;
+      font-family: $FONT-HEADER;
+      font-size: 17px;
+      line-height: 1.75;
       @media (max-width: $SCREEN_SM_MAX) {
         margin-left: 0;
       }
       @media (max-width: $SCREEN_XS_MAX) {
-        text-align: center;
-        font-size: 16px;
         padding: 0 20px;
+        font-size: 16px;
+        text-align: center;
         span{
           display: block;
           margin-bottom: 15px;
@@ -203,13 +152,18 @@
       }
     }
     a{
+      box-sizing: border-box;
+      max-width: 180px;
+      margin-left: 15px;
       border-radius: 3px;
-      background-color: $COLOR-WHITE_TWO;
       padding: 7px 15px 7px 45px;
+      background-color: $COLOR-WHITE_TWO;
       background-image: url('./img/slack.svg');
       background-repeat: no-repeat;
       background-position: 15px 7px;
-      margin-left: 15px;
+      @media (max-width: $SCREEN_XS_MAX) {
+        margin: 0 auto;
+      }
     }
   }
 }
