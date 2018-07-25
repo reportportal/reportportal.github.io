@@ -1,4 +1,4 @@
-/* global LOCAL_DOCUMENTATION*/
+/* global LOCAL_DOCUMENTATION */
 import Epoxy from 'backbone.epoxy';
 import { $ } from 'backbone';
 import docApi from './documentationAPI';
