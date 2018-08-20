@@ -51,23 +51,36 @@
           margin-right: 20px;
           margin-bottom: 20px;
           font-size: 0;
+          &:nth-child(4n){
+            margin-right: 0;
+          }
+          @media (max-width: $SCREEN_SM_MAX) {
+            &:nth-child(4n){
+              margin-right: 20px;
+            }
+            &:nth-child(3n){
+              margin-right: 0;
+            }
+          }
           @media (max-width: $SCREEN_XS_MAX) {
             margin-right: 10px;
             margin-bottom: 10px;
+            &:nth-child(4n){
+              margin-right: 10px;
+            }
           }
           a {
             position: relative;
             display: block;
             border: solid 1px $COLOR-GRAY-91;
             box-shadow: 0 1px 3px 0 rgba(189, 199, 204, 0.55);
-            .beta {
+            .badge{
               position: absolute;
               top: 5px;
               right: 5px;
               z-index: 1;
               border-radius: 12px;
               padding: 2.7px 5.4px 1.8px;
-              background-color: $COLOR--dark-pastel-green;
               color: $COLOR-WHITE_TWO;
               font-size: 9px;
               line-height: 9px;
@@ -77,23 +90,11 @@
                 padding: 1px 3px;
                 font-size: 7px;
               }
-            }
-            .contributor {
-              position: absolute;
-              top: 5px;
-              right: 5px;
-              z-index: 1;
-              border-radius: 12px;
-              padding: 2.7px 5.4px 1.8px;
-              font-size: 9px;
-              line-height: 9px;
-              background-color: $COLOR--skipped;
-              color: $COLOR-WHITE_TWO;
-              @media (max-width: $SCREEN_XS_MAX) {
-                top: 3px;
-                right: 3px;
-                padding: 1px 3px;
-                font-size: 7px;
+              &.beta {
+                background-color: $COLOR--dark-pastel-green;
+              }
+              &.contributor {
+                background-color: $COLOR--skipped;
               }
             }
             @media (max-width: $SCREEN_XS_MAX) {

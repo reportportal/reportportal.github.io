@@ -1,5 +1,8 @@
 .download-page {
   padding-top: 60px;
+  .hide{
+    display: none;
+  }
   .section-container {
     position: relative;
     width: 980px;
@@ -76,8 +79,8 @@
       &:hover {
         color: $COLOR-TOPAZ;
         &::after {
-          border-top: 1.5px solid $COLOR-TOPAZ !important;
-          border-right: 1.5px solid $COLOR-TOPAZ !important;
+          border-top: 1.5px solid $COLOR-TOPAZ;
+          border-right: 1.5px solid $COLOR-TOPAZ;
         }
       }
       @media (max-width: $SCREEN_XS_MAX) {
@@ -154,13 +157,13 @@
         padding: 2px 0 2px 15px;
       }
     }
-    &.recomend {
+    &.recommend {
       .line{
         border-left: 1px solid $COLOR--booger;
         color: $COLOR--khaki-green;
       }
     }
-    &.nutural{
+    &.default{
       .line{
         border-left: 1px solid lighten($COLOR-STEEL-GREY, 30%);
         color: $COLOR-GRAY-47;
