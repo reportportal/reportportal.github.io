@@ -31,12 +31,12 @@
     .warning{
       margin-top: 17px;
     }
-    .recomend{
+    .recommend{
       @media (max-width: $SCREEN_XS_MAX) {
         margin-top: 5px;
       }
     }
-    .nutural{
+    .default{
       span{
         font-family: $FONT-HEADER;
       }
