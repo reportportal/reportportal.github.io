@@ -149,7 +149,7 @@ export default Epoxy.View.extend({
     const tempCompose = Object.assign({}, compose);
     const isFabio = $('[data-js-fabio]', this.$el).is(':checked');
     const traefic = {
-      image: 'traefik:1.5',
+      image: 'traefik:1.6.3',
       ports: [
         '8080:8080',
         '8081:8081',
