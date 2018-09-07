@@ -5,8 +5,12 @@
       .description
         .text Download default Docker compose file for the latest version or configure your own file.
           .desktop
-            a.btn.download(data-js-download-default) Download default file
-            a.btn.create(data-js-configure-file) Configure file
+            a.btn(data-js-download-default)
+              include img/download.svg
+              | Download default file
+            a.btn(data-js-configure-file)
+              include img/create.svg
+              | Configure file
       .note.default
         p.line Compose file deploy all available Bug Tracking System integrations, which are not always needed, but consume resources.
     .text.text-margins.text-container If you want to write a docker compose manually, you can use the latest compose descriptor example in&nbsp;
