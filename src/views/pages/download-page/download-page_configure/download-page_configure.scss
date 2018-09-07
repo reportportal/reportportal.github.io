@@ -29,28 +29,29 @@
       }
     }
     .btn{
+      display: inline-block;
+      box-sizing: border-box;
+      width: 240px;
+      margin: 20px 0 0 0;
+      border: solid 1px $COLOR-TEALISH;
+      padding: 13px 15px;
+      cursor: pointer;
       text-align: center;
-      &.download{
+      &:hover{
+        border: solid 1px $COLOR-TOPAZ;
+        path{
+          fill: $COLOR-TOPAZ
+        }
+      }
+      &:first-child{
         margin-right: 80px;
-        background: url('./img/download.svg');
-        background-repeat: no-repeat;
-        background-position: 35px;
         @media (max-width: $SCREEN_SM_MAX) {
           margin-right: 10px;
         }
       }
-      &.create {
-        background-image: url('./img/create.svg');
-        background-repeat: no-repeat;
-        background-position: 60px;
-        &.disabled {
-          background-image: url('./img/create-disabled.svg');
-        }
-      }
-      &.disabled {
-        color: $COLOR-GRAY-60;
-        background-color: $COLOR--white;
-        border-color: $COLOR-GRAY-91;
+      svg{
+        vertical-align: sub;
+        margin-right: 10px;
       }
       &::after{
         display: none;
