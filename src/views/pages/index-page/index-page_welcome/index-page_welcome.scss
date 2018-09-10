@@ -115,6 +115,9 @@ $COLOR-BOOk-GREY: #ececec;
       }
     }
   }
+  .try-demo{
+    display: none;
+  }
   .noutebook {
     position: relative;
     margin: 45px auto 0 auto;
@@ -172,6 +175,18 @@ $COLOR-BOOk-GREY: #ececec;
     }
   }
   @media (max-width: $MIDDLE-INTERFACE-WIDTH) {
+    .try-demo{
+      display: block;
+      margin: 20px auto 0 auto;
+      width: 117px;
+      border-radius: 3px;
+      color: $COLOR-WHITE_TWO;
+      background-color: $COLOR-TEALISH;
+      font-size: 15px;
+      text-align: center;
+      line-height: 34px;
+      text-decoration: none;
+    }
     h1 {
       max-width: 400px;
       margin: 0 auto;

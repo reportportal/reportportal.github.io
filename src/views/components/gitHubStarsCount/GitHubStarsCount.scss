@@ -1,70 +1,75 @@
-.github-stars-count {
-  position: relative;
-  .github-icon {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 3px;
-    background: url(../../../common/img/social/icon-gh.svg) center no-repeat;
-  }
-
-  .count-block {
+.social{
+  .github-stars-count {
     position: relative;
-    float: left;
-    width: 46px;
-    height: 16px;
-    border: solid 1px $COLOR-GRAY-91;
-    margin: 1px 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-
-    &:before, &:after {
-      right: 100%;
-      top: 50%;
-      border: solid transparent;
-      content: " ";
-      height: 0;
-      width: 0;
-      position: absolute;
-      pointer-events: none;
-    }
-    &:after {
-      border-color: rgba(136, 183, 213, 0);
-      border-right-color: $COLOR-WHITE_TWO;
-      border-width: 3px;
-      margin-top: -3px;
-    }
-    &:before {
-      border-color: rgba(194, 225, 245, 0);
-      border-right-color: $COLOR-GRAY-91;
-      border-width: 4px;
-      margin-top: -4px;
-    }
-
-    i.material-icons {
+    .github-icon {
+      width: 18px;
+      height: 18px;
       float: left;
-      display: inline-block;
-      color: $COLOR-TEALISH;
-      font-size: 14px;
-      margin-right: 5px;
-      margin-left: 5px;
-      line-height: 15px;
-      &.loading {
-        -webkit-animation: pulse 1s infinite ease;
+      margin-right: 3px;
+      background: url(../../../common/img/social/icon-gh.svg) center no-repeat;
+    }
+
+    .count-block {
+      position: relative;
+      float: left;
+      width: 46px;
+      height: 16px;
+      border: solid 1px $COLOR-GRAY-91;
+      margin: 1px 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+
+      &:before, &:after {
+        right: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      &:after {
+        border-color: rgba(136, 183, 213, 0);
+        border-right-color: $COLOR-WHITE_TWO;
+        border-width: 3px;
+        margin-top: -3px;
+      }
+      &:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-right-color: $COLOR-GRAY-91;
+        border-width: 4px;
+        margin-top: -4px;
+      }
+
+      i.material-icons {
+        float: left;
+        display: inline-block;
+        color: $COLOR-TEALISH;
+        font-size: 14px;
+        margin-right: 5px;
+        margin-left: 5px;
+        line-height: 15px;
+        &.loading {
+          -webkit-animation: pulse 1s infinite ease;
+        }
+      }
+      .count {
+        float: left;
+        display: inline-block;
+        font-family: $FONT-REGULAR;
+        font-size: 10px;
+        color: $COLOR-CHARCOAL-GREY;
+        line-height: 16px;
       }
     }
-    .count {
-      float: left;
-      display: inline-block;
-      font-family: $FONT-REGULAR;
-      font-size: 10px;
-      color: $COLOR-CHARCOAL-GREY;
-      line-height: 16px;
-    }
+  }
+  @media (max-width: $SCREEN_SM_MAX) {
+    display: none;
   }
 }
 
