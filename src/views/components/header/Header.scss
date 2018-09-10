@@ -115,6 +115,29 @@
             font-family: $FONT-HEADER;
           }
         }
+        .try-demo{
+          width: 117px;
+          margin-left: 20px;
+          border-radius: 3px;
+          color: $COLOR-WHITE_TWO;
+          background-color: $COLOR-TEALISH;
+          font-size: 15px;
+          text-align: center;
+          line-height: 34px;
+          text-decoration: none;
+          &:hover{
+            background-color: $COLOR-TOPAZ;
+          }
+          @media(max-width: $SCREEN_SM_MAX){
+            width: auto;
+            padding: 0 7px;
+            margin-left: 0;
+            margin-right: 10px;
+          }
+          @media (max-width: $SCREEN_XS_MAX) {
+            display: none;
+          }
+        }
       }
     }
   }
