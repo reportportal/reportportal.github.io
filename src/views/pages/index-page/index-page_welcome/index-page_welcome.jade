@@ -1,6 +1,11 @@
-.bg-page-wave-1(data-js-wave-1)
-.bg-page-wave-2(data-js-wave-2)
-.bg-page-lines(data-js-wave-3)
+- var isNewYear = new Date() >= new Date(2018, 11, 21) && new Date() <= new Date(2019, 0, 13)
+- if (isNewYear) {
+  .bg-page-new-year(data-js-new-year)
+- } else {
+  .bg-page-wave-1(data-js-wave-1)
+  .bg-page-wave-2(data-js-wave-2)
+  .bg-page-lines(data-js-wave-3)
+- }
 .bg-page-desk
 .section-container
   h1 AI-powered Test Automation Dashboard
