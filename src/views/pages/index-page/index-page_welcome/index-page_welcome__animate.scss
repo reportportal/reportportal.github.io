@@ -8,7 +8,7 @@
         opacity: 0;
 
       }
-      .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-desk {
+      .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-desk, .bg-page-new-year {
         opacity: 0;
       }
       h1 {
@@ -23,11 +23,11 @@
       .noutebook {
         transition: transform $ANIMATION-DURATION $ANIMATION-EASING .5s, opacity $ANIMATION-DURATION $ANIMATION-EASING .5s;
       }
-      .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-desk {
+      .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-desk, .bg-page-new-year {
         transition: opacity .7s $ANIMATION-EASING .7s;
       }
       &.animate {
-        h1, h2, .points, .noutebook, .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-desk {
+        h1, h2, .points, .noutebook, .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-desk, .bg-page-new-year {
           opacity: 1;
           transform: translate(0, 0);
         }

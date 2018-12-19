@@ -6,7 +6,7 @@ $COLOR-BOOk-GREY: #ececec;
   width: 100%;
   padding-bottom: 50px;
   overflow: hidden;
-  .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines {
+  .bg-page-wave-1, .bg-page-wave-2, .bg-page-lines, .bg-page-new-year {
     position: absolute;
     top: 0;
     width: 100%;
@@ -40,6 +40,9 @@ $COLOR-BOOk-GREY: #ececec;
   }
   .bg-page-lines {
     background-image: url(./img/lines&circles.svg);
+  }
+  .bg-page-new-year {
+    background-image: url(./img/new-year.svg);
   }
   .bg-page-desk {
     height: 200px;
