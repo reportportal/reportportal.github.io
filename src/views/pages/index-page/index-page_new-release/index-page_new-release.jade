@@ -1,0 +1,24 @@
+mixin feature(text)
+  li.feature
+    img(src=require("./img/star-icon.png"), class="star-icon", alt="Star")
+    span #{text}
+
+.section-container
+  img(src=require("./img/release-banner.png"), class="release-banner", alt="Report Portal: New Report Portal release available")
+  .content-wrapper
+    .features-block
+      .header
+        span.header-item New
+        span.header-item.highlighted ReportPortal V5
+        span.header-item RC Released!
+      ul.features
+        +feature("Asynchronous Reporting")
+        +feature("Nested Steps (Approach for BDD)")
+        +feature("Pattern Analysis")
+        +feature("Rerun of Launches")
+      .more-info
+        a(href="https://github.com/reportportal/reportportal/releases/tag/5.0RC" target="_blank") And more
+          include ../../../../common/img/next.svg
+    .try-it-block
+      a.try-now(href='https://beta.demo.reportportal.io' target="_blank") Try now
+      span.build Build 5.0.0 Available
