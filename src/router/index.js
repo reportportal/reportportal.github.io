@@ -9,13 +9,14 @@ let instance = null;
 
 const Router = Backbone.Router.extend({
   initialize() {
-    const mainScrollEl = BaronScroll($('[data-js-main-page-container]'));
+    const mainPageContainer = $('[data-js-main-page-container]');
+    const mainScrollEl = BaronScroll(mainPageContainer);
     this.header = new Header({ mainScrollEl });
     $('[data-js-header-container]').html(this.header.$el);
     this.modals = new Modals();
     $('[data-js-modal-container]').html(this.modals.$el);
     this.context = new Context({ mainScrollEl, header: this.header });
-    $('[data-js-main-page-container]').html(this.context.$el);
+    mainPageContainer.html(this.context.$el);
     this.context.onShow();
   },
   routes: {
@@ -23,8 +24,8 @@ const Router = Backbone.Router.extend({
     docs: 'openDocumentation',
     'docs/:id': 'openDocumentation',
     community: 'openCommunity',
-    download: 'openDownload',
-    'download/integration': 'openDownloadIntegration',
+    installation: 'openInstallation',
+    'installation/integration': 'openInstallationIntegration',
     features: 'openFeatures',
     '*invalidRoute': 'openIndex',
   },
@@ -40,12 +41,12 @@ const Router = Backbone.Router.extend({
     this.context.renderDocumentation(id);
     this.header.$el.removeClass('without-shadow');
   },
-  openDownload() {
-    this.context.renderDownload();
+  openInstallation() {
+    this.context.renderInstallation();
     this.header.$el.addClass('without-shadow');
   },
-  openDownloadIntegration() {
-    this.context.renderDownloadAndScroll();
+  openInstallationIntegration() {
+    this.context.renderInstallationAndScroll();
     this.header.$el.addClass('without-shadow');
   },
   openFeatures() {

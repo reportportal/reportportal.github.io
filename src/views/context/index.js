@@ -6,7 +6,7 @@ import './Context.scss';
 import IndexPage from 'pages/index-page';
 import CommunityPage from 'pages/community-page';
 import DocumentationPage from 'pages/documentation-page';
-import DownloadPage from 'pages/download-page';
+import InstallationPage from 'pages/installation-page';
 import FeaturesPage from 'pages/features-page';
 
 export default Epoxy.View.extend({
@@ -29,13 +29,13 @@ export default Epoxy.View.extend({
     this.header.activatePage('community');
     this.renderPage(CommunityPage);
   },
-  renderDownload() {
-    this.header.activatePage('download');
-    this.renderPage(DownloadPage);
+  renderInstallation() {
+    this.header.activatePage('installation');
+    this.renderPage(InstallationPage);
   },
-  renderDownloadAndScroll() {
-    this.header.activatePage('download');
-    this.renderPage(DownloadPage, true);
+  renderInstallationAndScroll() {
+    this.header.activatePage('installation');
+    this.renderPage(InstallationPage, true);
   },
   renderFeatures() {
     this.header.activatePage('features');

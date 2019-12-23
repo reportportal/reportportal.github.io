@@ -5,13 +5,12 @@ import { $ } from 'backbone';
 import Router from 'router';
 import IndexPageSection from '../../sectionView';
 import GenerateComposeModal from 'components/modals/generateComposeModal';
-import template from './download-page_configure.jade';
-import './download-page_configure.scss';
-import './download-page_configure__animate.scss';
+import template from './installation-page_configure.jade';
+import './installation-page_configure.scss';
 
 export default IndexPageSection.extend({
   template,
-  className: 'download-page_config',
+  className: 'installation-page_config',
   events: {
     'click [data-copy]': 'copyText',
     'click [data-js-configure-file]': 'configureFile',

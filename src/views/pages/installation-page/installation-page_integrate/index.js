@@ -1,25 +1,31 @@
 import IndexPageSection from '../../sectionView';
-import template from './download-page_install.jade';
-import './download-page_install.scss';
-import './download-page_install__animate.scss';
+import Router from 'router';
+import SchemeModal from 'components/modals/schemeModal';
+import template from './installation-page_integrate.jade';
+import './installation-page_integrate.scss';
 
 export default IndexPageSection.extend({
   template,
-  className: 'download-page_install',
+  className: 'installation-page_integrate',
   events: {
+    'click [data-js-scheme]': 'showScheme',
     'click [data-js-new-window]': 'openNewWindow',
   },
   initialize() {
     this.renderTemplate();
   },
-  openNewWindow(e) {
+  showScheme(e) {
     e.preventDefault();
-    window.open(e.target.href);
+    Router.modals.show(new SchemeModal());
   },
   getSections() {
     return [
       { checkScroll: this.checkScroll.bind(this), el: this.el },
     ];
+  },
+  openNewWindow(e) {
+    e.preventDefault();
+    window.open(e.target.href || e.target.parentNode.href);
   },
   checkScroll(scrollTop, scrollElTop) {
     if (scrollElTop < 1300) {

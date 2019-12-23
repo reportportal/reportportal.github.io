@@ -1,4 +1,4 @@
-.download-page {
+.installation-page {
   padding-top: 60px;
   .hide{
     display: none;
@@ -128,7 +128,7 @@
     }
     @media (max-width: $SCREEN_XS_MAX) {
       width: 100%;
-      padding-left: 0px;
+      padding-left: 0;
     }
     .line{
       padding: 2px 40px 2px 15px;
