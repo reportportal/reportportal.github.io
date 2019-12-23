@@ -1,12 +1,11 @@
 import IndexPageSection from '../../sectionView';
-import template from './download-page_open.jade';
+import template from './installation-page_open.jade';
 import { $ } from 'backbone';
-import './download-page_open.scss';
-import './download-page_open__animate.scss';
+import './installation-page_open.scss';
 
 export default IndexPageSection.extend({
   template,
-  className: 'download-page_open',
+  className: 'installation-page_open',
   events: {
     'click [data-copy]': 'copyText',
     'click [data-js-new-window]': 'openNewWindow',

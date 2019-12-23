@@ -1,19 +1,19 @@
 import _ from 'underscore';
 import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
-import template from './download-page.jade';
-import './download-page.scss';
+import template from './installation-page.jade';
+import './installation-page.scss';
 
-import DownloadPageInstall from './download-page_install';
-import DownloadPageConfig from './download-page_configure';
-import DownloadPageOpen from './download-page_open';
-import DownloadPageIntegrate from './download-page_integrate';
+import InstallationPageInstall from './installation-page_install';
+import InstallationPageConfig from './installation-page_configure';
+import InstallationPageOpen from './installation-page_open';
+import InstallationPageIntegrate from './installation-page_integrate';
 
 import Footer from 'components/footer';
 
 export default Epoxy.View.extend({
   template,
-  className: 'download-page',
+  className: 'installation-page',
   events: {
     'click [data-js-to]': 'scrollTo',
   },
@@ -22,8 +22,8 @@ export default Epoxy.View.extend({
     this.isScroll = options.isScroll;
     this.renderTemplate();
     this.sections = [];
-    const listViews = [DownloadPageInstall, DownloadPageConfig,
-      DownloadPageOpen, DownloadPageIntegrate];
+    const listViews = [InstallationPageInstall, InstallationPageConfig,
+      InstallationPageOpen, InstallationPageIntegrate];
     _.each(listViews, (constructor) => {
       const view = new constructor();
       this.sections.push(view);
@@ -51,7 +51,7 @@ export default Epoxy.View.extend({
     const scrollTop = this.mainScrollEl.scrollTop();
     const section = $('[data-js-integrate]', this.$el).offset().top;
     const menuHeight = 55;
-    const bannerHeight = $('.download-header').outerHeight();
+    const bannerHeight = $('.install-header').outerHeight();
     const controlsHeight = $('.controls').outerHeight();
     if ($(document).width() >= 768) {
       this.mainScrollEl.animate({ scrollTop: (scrollTop + section)
@@ -66,7 +66,7 @@ export default Epoxy.View.extend({
     const scrollTop = this.mainScrollEl.scrollTop();
     const section = $(`[${sectionData}]`).offset().top;
     const menuHeight = 55;
-    const bannerHeight = $('.download-header').outerHeight();
+    const bannerHeight = $('.install-header').outerHeight();
     const controlsHeight = $('.controls').outerHeight();
 
     if (scrollTop > 140) {
