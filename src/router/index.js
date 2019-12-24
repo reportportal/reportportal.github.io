@@ -7,6 +7,12 @@ import Modals from 'components/modals';
 
 let instance = null;
 
+const redirectToRoute = (link) => {
+  const currentRouter = getInstance();
+
+  currentRouter.navigate(link, { trigger: true, replace: true });
+};
+
 const Router = Backbone.Router.extend({
   initialize() {
     const mainPageContainer = $('[data-js-main-page-container]');
@@ -26,6 +32,8 @@ const Router = Backbone.Router.extend({
     community: 'openCommunity',
     installation: 'openInstallation',
     'installation/integration': 'openInstallationIntegration',
+    download: () => redirectToRoute('installation'),
+    'download/integration': () => redirectToRoute('installation/integration'),
     features: 'openFeatures',
     '*invalidRoute': 'openIndex',
   },
