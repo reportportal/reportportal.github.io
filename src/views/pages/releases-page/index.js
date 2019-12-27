@@ -1,0 +1,51 @@
+import Epoxy from 'backbone.epoxy';
+import { $ } from 'backbone';
+import releasesApi from './releasesAPI';
+import template from './releases-page.jade';
+import './releases-page.scss';
+import Footer from 'components/footer';
+
+export default Epoxy.View.extend({
+  template,
+  className: 'releases-page',
+  events: {
+  },
+  initialize(options) {
+    const releaseId = options.id;
+    this.renderTemplate();
+    this.$el.addClass('loading');
+    this.getReleases()
+      .done(($documentation) => {
+        this.$el.removeClass('loading');
+        releasesApi.init(releaseId, $documentation);
+      })
+      .fail(() => {
+        this.$el.addClass('unavailable');
+      });
+    this.footer = new Footer();
+    $('[data-js-footer-container]', this.$el).html(this.footer.$el);
+  },
+  changeAnchor(id) {
+    releasesApi.renderSection(id);
+  },
+  getReleases() {
+    const async = $.Deferred();
+    const url = 'https://api.github.com/repos/reportportal/reportportal/releases';
+
+    $.ajax({
+      method: 'GET',
+      contentType: 'application/json',
+      url,
+      success(data) {
+        async.resolve(data);
+      },
+      error() {
+        async.reject();
+      },
+    });
+    return async.promise();
+  },
+  onDestroy() {
+    releasesApi.destroy();
+  },
+});

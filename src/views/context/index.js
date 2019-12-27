@@ -8,6 +8,7 @@ import CommunityPage from 'pages/community-page';
 import DocumentationPage from 'pages/documentation-page';
 import InstallationPage from 'pages/installation-page';
 import FeaturesPage from 'pages/features-page';
+import ReleasesPage from 'pages/releases-page';
 
 export default Epoxy.View.extend({
   template,
@@ -42,13 +43,19 @@ export default Epoxy.View.extend({
     this.renderPage(FeaturesPage);
   },
   renderDocumentation(id) {
-    if (this.currentPage && this.currentPage.$el.hasClass('documentation-page')) {
+    this.header.activatePage('docs');
+    this.renderPageWithSections(id, 'documentation-page', DocumentationPage);
+  },
+  renderReleases(id) {
+    this.renderPageWithSections(id, 'releases-page', ReleasesPage);
+  },
+  renderPageWithSections(id, pageClass, pageView) {
+    if (this.currentPage && this.currentPage.$el.hasClass(pageClass)) {
       this.currentPage.changeAnchor(id);
       return;
     }
-    this.header.activatePage('documentation');
     this.currentPage && this.currentPage.destroy();
-    this.currentPage = new DocumentationPage({ id, mainScrollEl: this.mainScrollEl });
+    this.currentPage = new pageView({ id, mainScrollEl: this.mainScrollEl });
     $('[data-js-content-container]', this.$el).html(this.currentPage.$el);
     this.currentPage.onShow && this.currentPage.onShow();
   },
