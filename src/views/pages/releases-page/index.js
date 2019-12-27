@@ -1,9 +1,9 @@
 import Epoxy from 'backbone.epoxy';
 import { $ } from 'backbone';
+import Footer from 'components/footer';
 import releasesApi from './releasesAPI';
 import template from './releases-page.jade';
 import './releases-page.scss';
-import Footer from 'components/footer';
 
 export default Epoxy.View.extend({
   template,
@@ -36,8 +36,8 @@ export default Epoxy.View.extend({
       method: 'GET',
       contentType: 'application/json',
       url,
-      success(data) {
-        async.resolve(data);
+      success(d) {
+        async.resolve(d);
       },
       error() {
         async.reject();

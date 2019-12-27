@@ -1,17 +1,135 @@
 .releases-page {
-  position: absolute;
+  position: relative;
   width: 100%;
-  padding-top: 90px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  padding-top: 90px;
 
   @media (max-width: $SCREEN_XS_MAX) {
     padding-top: 130px;
+  }
+
+  .content-wrapper {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px auto 100px auto;
+  }
+
+  .releases-menu {
+    min-width: 250px;
+    box-sizing: border-box;
+    padding-left: 50px;
+    border-left: 1px solid $COLOR-GRAY-91;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .releases-menu-item {
+      position: relative;
+      display: inline-block;
+      max-width: 210px;
+      margin: 12px 0;
+      font-family: $FONT-REGULAR;
+      word-break: break-word;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -54px;
+        top: 5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        border: 1px solid $COLOR-WHITE_TWO;
+        background-color: $COLOR--light-blue-grey;
+      }
+
+      &:last-child {
+        &:after {
+          content: '';
+          position: absolute;
+          left: -51px;
+          top: 12px;
+          width: 1px;
+          height: 100%;
+          background-color: $COLOR-WHITE_TWO;
+        }
+      }
+
+      .menu-item-link {
+        color: $COLOR-TEALISH;
+        font-size: 16px;
+        text-decoration: none;
+
+        &:hover {
+          color: $COLOR-TOPAZ;
+        }
+      }
+
+      .published-info {
+        display: none;
+        padding: 10px 0;
+        color: $COLOR-STEEL-GREY;
+        font-size: 12px;
+      }
+
+      &[latest="true"] {
+        margin: 0 0 45px 0;
+
+        &:before {
+          top: 0;
+          left: -65px;
+          width: 27px;
+          height: 27px;
+          background: url(./img/flag.svg) white;
+          background-size: contain;
+        }
+
+        .menu-item-link {
+          font-size: 32px;
+        }
+
+        .published-info {
+          display: block;
+        }
+      }
+
+      &.item-active {
+        min-height: 270px;
+
+        .menu-item-link {
+          font-weight: bold;
+
+          &:hover {
+            color: $COLOR-TEALISH;
+          }
+        }
+
+        .published-info {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .releases-page-content {
+    padding: 20px 10px 20px 70px;
+    word-break: break-word;
+    white-space: pre-line;
+  }
+
+  .no-content-block {
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+
+    .releases-error {
+      display: none;
+    }
   }
 
   &.loading {
@@ -19,17 +137,19 @@
       display: none;
     }
     .releases-page-content {
-      height: calc(100% - 170px);
+      display: none;
+    }
 
-      @media (max-width: 900px) {
-        height: calc(100% - 190px);
-      }
+    .no-content-block {
+      height: calc(100vh - 191px);
+
       @media (max-width: $SCREEN_XS_MAX) {
-        height: calc(100% - 230px);
+        height: calc(100vh - 230px);
       }
       @media (max-width: 600px) {
-        height: calc(100% - 280px);
+        height: calc(100vh - 276px);
       }
+
       .releases-preloader {
         display: block;
         position: relative;
@@ -48,9 +168,7 @@
           -webkit-animation: hearthbeat 1.25s infinite ease;
         }
       }
-      .release-content {
-        display: none;
-      }
+
       .releases-error {
         display: none;
       }
@@ -63,12 +181,14 @@
     }
 
     .releases-page-content {
+      display: none;
+    }
+
+    .no-content-block {
       .releases-preloader {
         display: none;
       }
-      .release-content {
-        display: none;
-      }
+
       .releases-error {
         display: block;
         width: 400px;
@@ -112,25 +232,6 @@
   }
   .releases-preloader {
     display: none;
-  }
-
-  .releases-page-content {
-    position: absolute;
-    height: calc(100% - 80px);
-    width: 100%;
-    margin: 0 auto;
-
-    @media (max-width: $SCREEN_XS_MAX) {
-      height: calc(100% - 100px);
-    }
-
-    .footer-container {
-      position: relative;
-      width: 100%;
-    }
-    .releases-error {
-      display: none;
-    }
   }
 }
 
