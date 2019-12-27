@@ -35,6 +35,8 @@ const Router = Backbone.Router.extend({
     download: () => redirectToRoute('installation'),
     'download/integration': () => redirectToRoute('installation/integration'),
     features: 'openFeatures',
+    releases: 'openReleases',
+    'releases/:id': 'openReleases',
     '*invalidRoute': 'openIndex',
   },
   openIndex() {
@@ -59,6 +61,10 @@ const Router = Backbone.Router.extend({
   },
   openFeatures() {
     this.context.renderFeatures();
+    this.header.$el.addClass('without-shadow');
+  },
+  openReleases(id) {
+    this.context.renderReleases(id);
     this.header.$el.addClass('without-shadow');
   },
 });
