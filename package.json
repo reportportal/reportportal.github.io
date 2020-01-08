@@ -59,6 +59,7 @@
     "lunr": "0.7.0",
     "reset-css": "^2.2.1",
     "selectize": "^0.12.6",
+    "showdown": "^1.9.1",
     "underscore": "^1.9.1"
   }
 }

@@ -1,8 +1,7 @@
 import { $ } from 'backbone';
+import showdown from 'showdown';
 import Router from 'router';
-
 import MenuTemplate from './releases-page_menu/releases-page_menu.jade';
-// import ContentTemplate from './releases-page_content/releases-page_content.jade';
 
 const DOT_REPLACEMENT_SEQUENCE = 'd_o_t';
 
@@ -21,14 +20,18 @@ export default {
         id: item.name,
         name: item.name,
         link: this.encodeLink(item.name),
+        externalLink: `https://github.com/reportportal/reportportal/releases/${item.tag_name}`,
         publishedDate: this.formatReleaseDate(item.published_at),
         prerelease: item.prerelease,
       });
 
       return acc;
     }, {});
-    console.log(this.dataMap);
-    this.menuItems[0].isLatest = true;
+
+    this.menuItems[0] = Object.assign(this.menuItems[0], {
+      isLatest: true,
+      externalLink: 'https://beta.demo.reportportal.io/',
+    });
   },
 
   encodeLink(key) {
@@ -79,9 +82,50 @@ export default {
   renderContent(sectionId) {
     const data = this.dataMap[sectionId];
     const node = $('[data-js-releases-content]');
-    // const template = ContentTemplate({ data });
 
-    node.html(data);
+    const converter = new showdown.Converter({
+      omitExtraWLInCodeBlocks: true,
+      parseImgDimensions: false,
+      simplifiedAutoLink: true,
+      literalMidWordUnderscores: true,
+      strikethrough: true,
+      tables: true,
+      ghCodeBlocks: true,
+      tasklists: true,
+      smoothLivePreview: true,
+      openLinksInNewWindow: true,
+      ghCompatibleHeaderId: true,
+      encodeEmails: true,
+    });
+    converter.setFlavor('github');
+    const result = converter.makeHtml(this.applyGithubIssueLinks(data));
+
+    node.html(result);
+  },
+
+  applyGithubIssueLinks(data) {
+    const searchPattern = /(\[)?#[0-9]+(?![\]])/g;
+    const matches = {};
+    let matcher = searchPattern.exec(data);
+
+    // find all #${issueId} github issue references to add markdown support for them
+    while (matcher) {
+      if (!matcher[1]) {
+        const issueId = matcher[0];
+
+        if (!matches[issueId]) {
+          matches[issueId] = `[${issueId}](https://github.com/reportportal/reportportal/issues/${issueId})`;
+        }
+      }
+      matcher = searchPattern.exec(data);
+    }
+
+    // replace found issue references with their markdown equivalent
+    return Object.keys(matches).reduce((acc, item) => {
+      const itemRegexp = new RegExp(`${item}\\b`, 'gi');
+
+      return acc.replace(itemRegexp, matches[item]);
+    }, data);
   },
 
   initEventListeners() {
@@ -89,8 +133,8 @@ export default {
   },
 
   menuItemClickHandler(event) {
-    event.preventDefault();
     if (event.target.classList.contains('menu-item-link')) {
+      event.preventDefault();
       const link = event.target.getAttribute('href');
       Router.navigate(link, { trigger: true });
     }

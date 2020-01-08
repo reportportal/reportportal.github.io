@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2110" height="280" viewBox="0 0 2110 280">
+    <defs>
+        <linearGradient id="b" x1="100%" x2="0%" y1="50%" y2="50%">
+            <stop offset="0%" stop-color="#86D9D6"/>
+            <stop offset="100%" stop-color="#6CD2DA"/>
+        </linearGradient>
+        <path id="a" d="M0 0h2110v277H0z"/>
+        <linearGradient id="e" x1="50%" x2="50%" y1="100%" y2="7.52%">
+            <stop offset="0%" stop-color="#4CC7DA" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#48C6DA"/>
+        </linearGradient>
+        <linearGradient id="f" x1="100%" x2="0%" y1="50.862%" y2="49.138%">
+            <stop offset="0%" stop-color="#BEE8DE"/>
+            <stop offset="15.187%" stop-color="#7CC57A" stop-opacity=".398"/>
+            <stop offset="100%" stop-color="#39C2D7" stop-opacity=".597"/>
+        </linearGradient>
+        <path id="d" d="M0 0h2110v277H0z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#FFF" d="M0-60h2110v1733H0z"/>
+        <g>
+            <mask id="c" fill="#fff">
+                <use xlink:href="#a"/>
+            </mask>
+            <use fill="url(#b)" xlink:href="#a"/>
+            <path fill="#A6E3E8" d="M0 0h2110v277H0z" mask="url(#c)"/>
+            <g mask="url(#c)">
+                <use fill="#39C2D7" fill-opacity=".2" xlink:href="#d"/>
+                <use fill="url(#e)" fill-opacity=".4" xlink:href="#d"/>
+                <use fill="url(#f)" xlink:href="#d"/>
+                <use fill="#79D6D9" fill-opacity=".7" xlink:href="#d"/>
+            </g>
+            <g fill="#FFF" mask="url(#c)" opacity=".08">
+                <path d="M0 477l1054-696v68L0 545zM0-20l1054-696v68L0 48zM0 722L1054 26v68L0 790zM0 225l1054-696v68L0 293zM0 967l1054-696v68L0 1035zM0 600L1054-96v68L0 668zM0 103l1054-696v68L0 171zM0 845l1054-696v68L0 913zM0 348l1054-696v68L0 416zM1054-219l1056 696v68L1054-151zM1054-716L2110-20v68L1054-648zM1054 26l1056 696v68L1054 94zM1054-471l1056 696v68L1054-403zM1054 271l1056 696v68L1054 339zM1054-96l1056 696v68L1054-28zM1054-593l1056 696v68L1054-525zM1054 149l1056 696v68L1054 217zM1054-348l1056 696v68L1054-280z"/>
+            </g>
+        </g>
+    </g>
+</svg>
