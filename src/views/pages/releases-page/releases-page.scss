@@ -4,10 +4,38 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding-top: 90px;
+  padding-top: 61px;
 
   @media (max-width: $SCREEN_XS_MAX) {
     padding-top: 130px;
+  }
+
+  .updates-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+    .banner-caption {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: $COLOR-WHITE_TWO;
+      font-size: 20px;
+      font-family: $FONT-REGULAR;
+
+      .title {
+        margin-bottom: 25px;
+        font-size: 52px;
+        font-family: $FONT-LIGHT;
+      }
+    }
+
+    @media (max-width: $SCREEN_XS_MAX) {
+      display: none;
+    }
   }
 
   .content-wrapper {
@@ -18,7 +46,7 @@
   }
 
   .releases-menu {
-    min-width: 250px;
+    width: 25%;
     box-sizing: border-box;
     padding-left: 50px;
     border-left: 1px solid $COLOR-GRAY-91;
@@ -48,18 +76,6 @@
         background-color: $COLOR--light-blue-grey;
       }
 
-      &:last-child {
-        &:after {
-          content: '';
-          position: absolute;
-          left: -51px;
-          top: 12px;
-          width: 1px;
-          height: 100%;
-          background-color: $COLOR-WHITE_TWO;
-        }
-      }
-
       .menu-item-link {
         color: $COLOR-TEALISH;
         font-size: 16px;
@@ -77,6 +93,37 @@
         font-size: 12px;
       }
 
+      .try-version-block {
+        display: none;
+        width: 141px;
+        margin-top: 10px;
+        border-radius: 3px;
+        border: solid 1px $COLOR-TOPAZ;
+        color: $COLOR-TEALISH;
+        background-color: $COLOR-WHITE_TWO;
+        font-size: 15px;
+        text-align: center;
+        line-height: 34px;
+        text-decoration: none;
+
+        &:hover {
+          border: none;
+          color: $COLOR-WHITE_TWO;
+          background-color: $COLOR-TEALISH;
+        }
+
+        @media(max-width: $SCREEN_SM_MAX){
+          width: auto;
+          padding: 0 7px;
+          margin-left: 0;
+          margin-right: 10px;
+        }
+
+        @media (max-width: $SCREEN_XS_MAX) {
+          display: none;
+        }
+      }
+
       &[latest="true"] {
         margin: 0 0 45px 0;
 
@@ -91,10 +138,21 @@
 
         .menu-item-link {
           font-size: 32px;
+          font-family: $FONT-LIGHT;
         }
 
         .published-info {
           display: block;
+        }
+
+        .try-version-block {
+          border: none;
+          color: $COLOR-WHITE_TWO;
+          background-color: $COLOR-TEALISH;
+
+          &:hover{
+            background-color: $COLOR-TOPAZ;
+          }
         }
       }
 
@@ -112,14 +170,192 @@
         .published-info {
           display: block;
         }
+
+        .try-version-block {
+          display: block;
+        }
       }
     }
   }
 
   .releases-page-content {
+    width: 75%;
+    box-sizing: border-box;
     padding: 20px 10px 20px 70px;
-    word-break: break-word;
-    white-space: pre-line;
+
+    .markdown {
+      width: 100%;
+      height: auto;
+      font-family: $FONT-REGULAR;
+      color: $COLOR-CHARCOAL-GREY;
+      font-size: 15px;
+      overflow: hidden;
+      word-wrap: break-word;
+      word-break: break-all;
+
+      @supports (word-break: break-word) {
+        word-break: break-word;
+      }
+
+      h1 {
+        font-size: 28px;
+        line-height: normal;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0;
+        color: $COLOR-STEEL-GREY;
+        font-weight: normal;
+      }
+      h2 {
+        font-size: 26px;
+        line-height: normal;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0;
+        color: $COLOR-STEEL-GREY;
+        font-family: $FONT-LIGHT;
+      }
+      h3 {
+        font-size: 20px;
+        line-height: normal;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0;
+        color: $COLOR-STEEL-GREY;
+        font-family: $FONT-LIGHT;
+      }
+      .cm-header {
+        display: inline-block;
+      }
+      pre {
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none;
+
+        & > code {
+          word-wrap: break-word;
+          white-space: pre-wrap;
+          word-break: normal;
+          background: $COLOR--white;
+          margin-bottom: 10px;
+          border: none;
+          border-radius: 0;
+          padding: 10px;
+          display: block;
+        }
+      }
+      img,
+      iframe {
+        max-width: 100%;
+      }
+      ul,
+      ol {
+        display: block;
+        padding-left: 15px;
+        margin-bottom: 10px;
+        line-height: 34px;
+      }
+      ol {
+        margin-left: 20px;
+        list-style-type: decimal;
+
+        li {
+          list-style: inherit;
+        }
+      }
+      ul {
+        margin-left: 15px;
+        list-style-type: none;
+
+        li {
+          position: relative;
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: -20px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: $COLOR-TEALISH;
+          }
+        }
+      }
+      p {
+        line-height: 24px;
+      }
+      a {
+        color: $COLOR-TEALISH;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      table {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+
+        th,
+        td {
+          border: 1px solid $COLOR-GRAY-80;
+          padding: 5px;
+        }
+      }
+      em {
+        font-style: italic;
+      }
+      code {
+        padding: 2px 4px;
+        font-family: monospace;
+        font-size: 90%;
+        background-color: $COLOR--white;
+        border-radius: 0.3rem;
+      }
+      code.language-error {
+        position: relative;
+        padding: 10px 15px;
+        background: transparent;
+        font-size: 13px;
+        color: $COLOR-CHARCOAL-GREY;
+        line-height: 18px;
+        box-sizing: border-box;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 3px;
+          top: 10px;
+          bottom: 10px;
+          left: 0;
+          background: $COLOR--dusty-orange;
+        }
+      }
+
+      hr {
+        height: .25em;
+        padding: 0;
+        margin: 20px 0;
+        background-color: $COLOR-GRAY-91;
+        border: 0;
+      }
+
+      blockquote {
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-right: 40px;
+        padding-left: 10px;
+        font-size: 14px;
+        color: $COLOR-CHARCOAL-GREY;
+        border-left: 3px solid $COLOR-GRAY-91;
+      }
+      strong {
+        font-weight: bold;
+      }
+    }
   }
 
   .no-content-block {

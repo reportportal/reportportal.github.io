@@ -3,3 +3,4 @@ ul.releases-menu-nav
     li(class="releases-menu-item" data-js-menu-item-id='#{item.id}' latest='#{item.isLatest}')
       a.menu-item-link(href='/releases/#{item.link}') Version #{item.name}
       p.published-info #{item.publishedDate} #{item.isLatest ? ', Latest' : ''}
+      a.try-version-block(href='#{item.externalLink}' target="_blank") #{item.isLatest ? 'Try Demo' : 'Go to Git'}

@@ -1,7 +1,12 @@
-.updates-banner
+.updates-banner(data-js-updates-banner)
+  img(src=require("./img/updates-background.svg"), alt="Updates")
+  .banner-caption
+    .title Updates
+    span Keep in touch and discover the latest ReportPortal features
 .content-wrapper
   .releases-menu(data-js-releases-menu)
-  .releases-page-content(data-js-releases-content)
+  .releases-page-content
+    .markdown(data-js-releases-content)
   .no-content-block
     .releases-preloader
       .logo
