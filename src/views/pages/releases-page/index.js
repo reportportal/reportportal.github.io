@@ -29,7 +29,7 @@ export default Epoxy.View.extend({
     releasesApi.renderSection(id);
   },
   getReleases() {
-    const async = $.Deferred();
+    const promiseProxy = $.Deferred();
     const url = 'https://api.github.com/repos/reportportal/reportportal/releases';
 
     $.ajax({
@@ -37,13 +37,13 @@ export default Epoxy.View.extend({
       contentType: 'application/json',
       url,
       success(d) {
-        async.resolve(d);
+        promiseProxy.resolve(d);
       },
       error() {
-        async.reject();
+        promiseProxy.reject();
       },
     });
-    return async.promise();
+    return promiseProxy.promise();
   },
   onDestroy() {
     releasesApi.destroy();

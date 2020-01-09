@@ -30,7 +30,7 @@ export default Epoxy.View.extend({
     docApi.renderSection(id);
   },
   getDocumentationHtml() {
-    const async = $.Deferred();
+    const promiseProxy = $.Deferred();
     let url = '//reportportal.io/documentation/';
     if (LOCAL_DOCUMENTATION) {
       url = '/';
@@ -40,13 +40,13 @@ export default Epoxy.View.extend({
       dataType: 'html',
       url: `${url}documentation.html?n=${Math.round(1000 + (Math.random() * 1000))}`,
       success(data) {
-        async.resolve(data);
+        promiseProxy.resolve(data);
       },
       error() {
-        async.reject();
+        promiseProxy.reject();
       },
     });
-    return async.promise();
+    return promiseProxy.promise();
   },
   onDestroy() {
     docApi.destroy();
