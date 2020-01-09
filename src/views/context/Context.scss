@@ -1,0 +1,10 @@
+.main-context {
+  padding-top: 60px;
+
+  @media (max-width: $SCREEN_SM_MAX) {
+    padding-top: 85px;
+  }
+  @media (max-width: $SCREEN_XS_MAX) {
+    padding-top: 60px;
+  }
+}

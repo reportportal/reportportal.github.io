@@ -2,7 +2,6 @@ import _ from 'underscore';
 import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import template from './community-page.jade';
-import './community-page.scss';
 
 import CommunityStatistics from './community_statistics';
 import CommunityStart from './community_start-with';

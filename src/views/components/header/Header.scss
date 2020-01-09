@@ -12,6 +12,13 @@
     height: 60px;
     width: 100%;
 
+    @media (max-width: $SCREEN_SM_MAX) {
+      height: 85px;
+    }
+    @media (max-width: $SCREEN_XS_MAX) {
+      height: 60px;
+    }
+
     background: $COLOR-WHITE_TWO;
     font-family: $FONT-REGULAR;
     box-shadow: 0 1px 2px 0 rgba(189, 199, 204, 0.41);
@@ -20,16 +27,22 @@
     .header-content {
       height: 100%;
       width: 1000px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin: 0 auto;
-      padding-top: 15px;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
 
       @media (max-width: $SCREEN_SM_MAX) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
       }
       @media (max-width: $SCREEN_XS_MAX) {
+        display: block;
         padding-top: 0;
       }
 
@@ -54,7 +67,6 @@
         }
       }
       .logo {
-        float: left;
         width: 141px;
         height: 23px;
         margin: 5px 0 0 10px;
@@ -63,15 +75,17 @@
           vertical-align: middle;
         }
 
+        @media (max-width: $SCREEN_SM_MAX) {
+          margin: 0 0 5px 10px;
+        }
+
         @media (max-width: $SCREEN_XS_MAX) {
-          float: none;
           margin: 0 auto;
           height: 60px;
           line-height: 60px;
         }
       }
       .right-block {
-        float: right;
 
         @media (max-width: $SCREEN_XS_MAX) {
           display: none;
@@ -113,6 +127,14 @@
           }
           &.active {
             font-family: $FONT-HEADER;
+          }
+
+          @media (max-width: $SCREEN_SM_MAX) {
+            margin: 0 7px;
+
+            &.menu-item__community{
+              margin-right: 15px;
+            }
           }
         }
         .try-demo{

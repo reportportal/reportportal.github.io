@@ -4,11 +4,6 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding-top: 61px;
-
-  @media (max-width: $SCREEN_XS_MAX) {
-    padding-top: 130px;
-  }
 
   .updates-banner {
     position: relative;
