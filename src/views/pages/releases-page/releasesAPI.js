@@ -3,8 +3,6 @@ import showdown from 'showdown';
 import Router from 'router';
 import MenuTemplate from './releases-page_menu/releases-page_menu.jade';
 
-const DOT_REPLACEMENT_SEQUENCE = 'd_o_t';
-
 export default {
   init(sectionId, releasesData) {
     this.initData(releasesData);
@@ -21,7 +19,7 @@ export default {
       this.menuItems.push({
         id: item.name,
         name: item.name,
-        link: this.encodeLink(item.name),
+        link: encodeURIComponent(item.name),
         externalLink: `https://github.com/reportportal/reportportal/releases/${item.tag_name}`,
         publishedDate: this.formatReleaseDate(item.published_at),
         prerelease: item.prerelease,
@@ -47,19 +45,6 @@ export default {
     return data;
   },
 
-  encodeLink(key) {
-    const safetyKey = key.toString().replace(/\./gi, DOT_REPLACEMENT_SEQUENCE);
-
-    return encodeURIComponent(safetyKey);
-  },
-
-  decodeLink(key) {
-    const searchPattern = new RegExp(`${DOT_REPLACEMENT_SEQUENCE}`, 'gi');
-    const safetyKey = key.toString().replace(searchPattern, '.');
-
-    return decodeURIComponent(safetyKey);
-  },
-
   formatReleaseDate(publishedDate) {
     const date = new Date(publishedDate).toString();
     const [, month, day, year] = date.split(' ');
@@ -68,7 +53,7 @@ export default {
   },
 
   renderReleases(sectionId) {
-    const selectedRelease = sectionId ? this.decodeLink(sectionId) : this.menuItems[0].name;
+    const selectedRelease = sectionId ? decodeURIComponent(sectionId) : this.menuItems[0].name;
 
     this.renderMenu(selectedRelease);
     this.renderContent(selectedRelease);
@@ -155,7 +140,7 @@ export default {
 
   renderSection(id) {
     if (id) {
-      const decodedId = this.decodeLink(id);
+      const decodedId = decodeURIComponent(id);
       this.highlightSection(decodedId);
       this.renderContent(decodedId);
     }
