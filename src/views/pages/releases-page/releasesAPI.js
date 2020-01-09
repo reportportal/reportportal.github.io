@@ -13,8 +13,10 @@ export default {
   },
 
   initData(data) {
+    const sortedData = this.sortDataByPublishedDate(data);
+
     this.menuItems = [];
-    this.dataMap = data.reduce((acc, item) => {
+    this.dataMap = sortedData.reduce((acc, item) => {
       acc[item.name] = item.body;
       this.menuItems.push({
         id: item.name,
@@ -32,6 +34,17 @@ export default {
       isLatest: true,
       externalLink: 'https://beta.demo.reportportal.io/',
     });
+  },
+
+  sortDataByPublishedDate(data) {
+    data.sort((a, b) => {
+      const prevDate = new Date(a.published_at).valueOf();
+      const nextDate = new Date(b.published_at).valueOf();
+
+      return nextDate - prevDate;
+    });
+
+    return data;
   },
 
   encodeLink(key) {
