@@ -47,6 +47,7 @@ export default Epoxy.View.extend({
     this.renderPageWithSections(id, 'documentation-page', DocumentationPage);
   },
   renderReleases(id) {
+    this.header.activatePage('releases');
     this.renderPageWithSections(id, 'releases-page', ReleasesPage);
   },
   renderPageWithSections(id, pageClass, pageView) {
