@@ -1,4 +1,7 @@
-ul.releases-menu-nav
+.current-item-dropdown(data-js-current-item-dropdown)
+  span.current-item-title
+  i.material-icons keyboard_arrow_down
+ul.releases-menu-nav(data-js-releases-menu-nav)
   for item in menuItems
     li(class="releases-menu-item" data-js-menu-item-id='#{item.id}' latest='#{item.isLatest}')
       a.menu-item-link(href='/releases/#{item.link}') Version #{item.name}
