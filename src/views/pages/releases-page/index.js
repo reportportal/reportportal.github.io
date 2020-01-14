@@ -11,6 +11,7 @@ export default Epoxy.View.extend({
   events: {
   },
   initialize(options) {
+    options.mainScrollEl.scrollTop(0);
     const releaseId = options.id;
     this.renderTemplate();
     this.$el.addClass('loading');
@@ -47,5 +48,6 @@ export default Epoxy.View.extend({
   },
   onDestroy() {
     releasesApi.destroy();
+    this.footer.destroy();
   },
 });

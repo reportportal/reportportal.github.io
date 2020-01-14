@@ -50,6 +50,6 @@ export default Epoxy.View.extend({
   },
   onDestroy() {
     docApi.destroy();
+    this.footer.destroy();
   },
-
 });
