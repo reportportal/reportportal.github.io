@@ -112,7 +112,7 @@ export default {
         const issueId = matcher[0];
 
         if (!matches[issueId]) {
-          matches[issueId] = `[${issueId}](https://github.com/reportportal/reportportal/issues/${issueId})`;
+          matches[issueId] = `[${issueId}](https://github.com/reportportal/reportportal/issues/${issueId.replace('#', '')})`;
         }
       }
       matcher = searchPattern.exec(data);
