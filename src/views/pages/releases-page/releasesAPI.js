@@ -73,8 +73,11 @@ export default {
   highlightSection(id) {
     $('.releases-menu-item.item-active').removeClass('item-active');
     const targetItem = $(`[data-js-menu-item-id="${id}"]`);
+    const menuLinkItem = targetItem[0].querySelector('.menu-item-link');
 
     targetItem.addClass('item-active');
+
+    this.updateDropdownSectionIfNeeded(menuLinkItem);
   },
 
   renderContent(sectionId) {
@@ -127,15 +130,33 @@ export default {
   },
 
   initEventListeners() {
-    $('.releases-menu-nav').on('click', this.menuItemClickHandler);
+    $('[data-js-releases-menu-nav]').on('click', event => this.menuItemClickHandler(event));
+    $('[data-js-current-item-dropdown]').on('click', this.currentItemClickHandler);
   },
 
   menuItemClickHandler(event) {
     if (event.target.classList.contains('menu-item-link')) {
       event.preventDefault();
+      this.updateDropdownSectionIfNeeded(event.target);
       const link = event.target.getAttribute('href');
       Router.navigate(link, { trigger: true });
     }
+  },
+
+  currentItemClickHandler() {
+    const menuNode = document.querySelector('[data-js-releases-menu]');
+
+    menuNode.classList.toggle('menu-open');
+  },
+
+  updateDropdownSectionIfNeeded(node) {
+    const menuNode = document.querySelector('[data-js-releases-menu]');
+
+    if (menuNode.classList.contains('menu-open')) {
+      menuNode.classList.remove('menu-open');
+    }
+
+    $('[data-js-current-item-dropdown] > .current-item-title').html(node.innerText);
   },
 
   renderSection(id) {
@@ -147,7 +168,8 @@ export default {
   },
 
   removeEventListeners() {
-    $('.releases-menu-nav').unbind();
+    $('[data-js-releases-menu-nav]').unbind();
+    $('[data-js-current-item-dropdown]').unbind();
   },
 
   destroy() {
