@@ -78,7 +78,7 @@
         }
         &.step-install{
           a::after{
-            width: 285px;
+            width: 280px;
             @media (max-width: $SCREEN_SM_MAX) {
               width: 165px;
             }
@@ -215,6 +215,16 @@
       background-image: url('./img/linux-rec.svg');
       background-size: contain;
       vertical-align: text-bottom;
+    }
+    .capacity {
+      color: $COLOR-GRAY-47;
+      font-size: 12px;
+      text-align: left;
+
+      .text {
+        display: inline-block;
+        padding-left: 10px;
+      }
     }
     &.recommend{
       @media (max-width: $SCREEN_XS_MAX) {

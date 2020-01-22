@@ -22,17 +22,21 @@
     h2.text-container 1. Configure and deploy ReportPortal
     .with-note.text-margins
       .description
-        .text There are two ways to deploy Report Portal
+        .text There are two ways to deploy Report Portal:
           .desktop
             a(href='https://reportportal.io/docs/Deploy-with-Docker', data-js-new-window).btn
-              include ./img/docker.svg
+              include img/docker.svg
               | Deploy with Docker
             a(href='https://reportportal.io/docs/Deploy-with-Kubernetes', data-js-new-window).btn
-              include ./img/kubernetes.svg
+              include img/kubernetes.svg
               | Deploy with Kubernetes
-        .text.desktop If you don't want to use Docker for deployment you can follow the steps described here
-          a(href='https://reportportal.io/docs/Deploy-ReportPortal-without', data-js-new-window)  Deploy without Docker
       .note.recommend.desktop
         p.line We strongly recommend to deploy in <i class='linux'/> Linux based environment
-
-
+    .with-note.text-margins
+      .description
+        .text.desktop Instead of using Docker for deployment you can follow the steps described here
+          a(href='https://reportportal.io/docs/Deploy-ReportPortal-without', data-js-new-window)  Deploy without Docker
+      .note.default.desktop
+        .line.capacity Production deployment and system capacity
+          .text
+            a(href='https://reportportal.io/docs/Deploy-ReportPortal-without', data-js-new-window)  here
