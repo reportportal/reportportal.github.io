@@ -39,7 +39,7 @@
     ul.steps{
       li{
         display: inline-block;
-        width:240px;
+        width: 320px;
         vertical-align: top;
         font-weight: 300;
         font-style: normal;
@@ -78,7 +78,7 @@
         }
         &.step-install{
           a::after{
-            width: 235px;
+            width: 285px;
             @media (max-width: $SCREEN_SM_MAX) {
               width: 165px;
             }
@@ -87,20 +87,9 @@
             }
           }
         }
-        &.step-configure{
-          a::after{
-            width: 200px;
-            @media (max-width: $SCREEN_SM_MAX) {
-              width: 145px;
-            }
-            @media (max-width: $SCREEN_XS_MAX) {
-              width: 1px;
-            }
-          }
-        }
         &.step-open{
           a::after{
-            width: 220px;
+            width: 300px;
             @media (max-width: $SCREEN_SM_MAX) {
               width: 150px;
             }
