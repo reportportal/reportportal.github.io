@@ -5,7 +5,6 @@ import template from './installation-page.jade';
 import './installation-page.scss';
 
 import InstallationPageInstall from './installation-page_install';
-import InstallationPageConfig from './installation-page_configure';
 import InstallationPageOpen from './installation-page_open';
 import InstallationPageIntegrate from './installation-page_integrate';
 
@@ -22,7 +21,7 @@ export default Epoxy.View.extend({
     this.isScroll = options.isScroll;
     this.renderTemplate();
     this.sections = [];
-    const listViews = [InstallationPageInstall, InstallationPageConfig,
+    const listViews = [InstallationPageInstall,
       InstallationPageOpen, InstallationPageIntegrate];
     _.each(listViews, (constructor) => {
       const view = new constructor();
@@ -93,15 +92,12 @@ export default Epoxy.View.extend({
   checkCurrentStep(scrollTop) {
     $('.controls .steps li').removeClass('active');
     const section1 = $('[data-js-install]').outerHeight(true);
-    const section2 = $('[data-js-configure]').outerHeight(true) + section1;
-    const section3 = $('[data-js-open]').outerHeight(true) + section2;
+    const section2 = $('[data-js-open]').outerHeight(true) + section1;
     if (scrollTop >= 0 && scrollTop <= section1) {
       $('[data-js-install-cntr]').addClass('active');
     } else if (scrollTop <= section2) {
-      $('[data-js-config-cntr]').addClass('active');
-    } else if (scrollTop <= section3) {
       $('[data-js-open-cntr]').addClass('active');
-    } else if (scrollTop > section3) {
+    } else if (scrollTop > section2) {
       $('[data-js-integrate-cntr]').addClass('active');
     }
   },

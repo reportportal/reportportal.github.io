@@ -1,41 +1,38 @@
 .install-header
-  p.h1 4 easy steps to get started with ReportPortal
+  p.h1 3 easy steps to get started with ReportPortal
 .controls.clearfix(data-js-controls)
   .section-container
     ul.steps
       li.step-install.active(data-js-install-cntr)
         a(data-js-to, type='data-js-install')
           span 1.
-          | Install Docker
-      li.step-configure(data-js-config-cntr)
-        a(data-js-to, type='data-js-configure')
-          span 2.
           | Configure and deploy ReportPortal
       li.step-open(data-js-open-cntr)
         a(data-js-to, type='data-js-open')
-          span 3.
+          span 2.
           | Open ReportPortal
       li.step-integrate(data-js-integrate-cntr)
         a(data-js-to, type='data-js-integrate')
-          span 4.
+          span 3.
           | Integrate with test framework
 .install-section(data-js-install)
   .section-container
     .note.recommend.mobile
       p.line We strongly recommend to deploy in <i class='linux'/> Linux based environment
-    h2.text-container 1. Install Docker
-      span.note Whether you have Docker please skip this step
+    h2.text-container 1. Configure and deploy ReportPortal
     .with-note.text-margins
       .description
-        .text Docker is a development enviroment for building, assembling and shipping applications. It is available for free.&nbsp;
-          a(href='https://www.docker.com/what-docker', data-js-new-window) More about Docker
-        .text.desktop Download Docker for <i class='mac'/> Mac OS, <i class='win'/> Windows, <i class='linux'/> Linux and other from&nbsp;
-          a(href='https://store.docker.com/', data-js-new-window) Docker Store
+        .text There are two ways to deploy Report Portal
+          .desktop
+            a(href='https://reportportal.io/docs/Deploy-with-Docker', data-js-new-window).btn
+              include ./img/docker.svg
+              | Deploy with Docker
+            a(href='https://reportportal.io/docs/Deploy-with-Kubernetes', data-js-new-window).btn
+              include ./img/kubernetes.svg
+              | Deploy with Kubernetes
+        .text.desktop If you don't want to use Docker for deployment you can follow the steps described here
+          a(href='https://reportportal.io/docs/Deploy-ReportPortal-without', data-js-new-window)  Deploy without Docker
       .note.recommend.desktop
         p.line We strongly recommend to deploy in <i class='linux'/> Linux based environment
-    .text-container.warning
-      p.line
-        span Allocate at least&nbsp;
-        strong 5+Gb of RAM for Docker&nbsp;
-        span via Docker Settings > Advanced
+
 
