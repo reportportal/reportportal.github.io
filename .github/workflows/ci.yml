@@ -11,15 +11,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Deploy to GitHub pages
+name: CI Build
 
 on:
-  push:
+  pull_request:
     branches:
       - develop
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -36,10 +36,5 @@ jobs:
       - name: Build the source code
         run: npm run build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: master
-          commit_message: ${{ github.event.head_commit.message }}
+      - name: Run lint
+        run: npm run lint

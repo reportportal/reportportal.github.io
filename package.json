@@ -4,7 +4,7 @@
   "description": "Landing for ReportPortal",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint -f node_modules/eslint-friendly-formatter \"src/**/*.js\"",
+    "lint": "eslint -f node_modules/eslint-friendly-formatter \"src/**/*.js\"",
     "test": "",
     "dev": "webpack-dev-server",
     "dev:local:documentation": "webpack-dev-server --env.proxyDocumentation --env.dev",
