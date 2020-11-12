@@ -30,7 +30,7 @@ export default {
 
     this.menuItems[0] = Object.assign(this.menuItems[0], {
       isLatest: true,
-      externalLink: 'https://web.demo.reportportal.io/',
+      externalLink: 'https://demo.reportportal.io/',
     });
   },
 
