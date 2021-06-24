@@ -3,6 +3,7 @@ import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import template from './Header.jade';
 import './Header.scss';
+import AskPricingModal from 'components/modals/askPricingModal';
 
 import HeaderSocial from './__social';
 import GitHubStarsCount from 'components/gitHubStarsCount';
@@ -18,6 +19,7 @@ export default Epoxy.View.extend({
     'click [data-js-side-content-close]': 'onClickCloseSideblock',
     'click [data-js-href]': 'openSocial',
     'click [data-js-logo]': 'onClickLogo',
+    'click [data-js-modal]': 'onClickAskPricing',
   },
   initialize(options) {
     this.mainScrollEl = options.mainScrollEl;
@@ -56,6 +58,10 @@ export default Epoxy.View.extend({
     this.mainScrollEl.stop().animate({
       scrollTop: 0,
     }, 500, 'swing');
+  },
+  onClickAskPricing(e) {
+    e.preventDefault();
+    Router.modals.show(new AskPricingModal());
   },
   openSocial(e) {
     $(e.currentTarget).hasClass('mail')

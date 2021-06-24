@@ -121,9 +121,9 @@
           cursor: pointer;
           text-align: center;
           text-decoration: none;
-          margin: 0 10px;
+          margin: 0 6px;
           &.menu-item__community{
-            margin-right: 20px;
+            margin-right: 15px;
           }
           &.active {
             font-family: $FONT-HEADER;
@@ -139,16 +139,42 @@
         }
         .try-demo{
           width: 117px;
-          margin-left: 20px;
+          margin-left: 10px;
+          border-radius: 3px;
+          border: 1px solid $COLOR-TEALISH;
+          color: $COLOR-TEALISH;
+          font-size: 15px;
+          text-align: center;
+          line-height: 34px;
+          text-decoration: none;
+          &:hover{
+            color: $COLOR-TOPAZ;
+            border-color: $COLOR-TOPAZ;
+          }
+          @media(max-width: $SCREEN_SM_MAX){
+            width: auto;
+            padding: 0 7px;
+            margin-left: 0;
+            margin-right: 10px;
+          }
+          @media (max-width: $SCREEN_XS_MAX) {
+            display: none;
+          }
+        }
+        .ask-pricing{
+          width: 117px;
+          margin-left: 10px;
           border-radius: 3px;
           color: $COLOR-WHITE_TWO;
           background-color: $COLOR-TEALISH;
+          border: 1px solid $COLOR-TEALISH;
           font-size: 15px;
           text-align: center;
           line-height: 34px;
           text-decoration: none;
           &:hover{
             background-color: $COLOR-TOPAZ;
+            border-color: $COLOR-TEALISH;
           }
           @media(max-width: $SCREEN_SM_MAX){
             width: auto;
