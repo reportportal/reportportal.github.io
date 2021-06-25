@@ -14,8 +14,8 @@ export default Epoxy.View.extend({
     'click [data-js-cancel]': 'onCancel',
     'click [data-js-content]': 'onClickContent',
     'click [data-js-send]': 'onClickSend',
-    'blur [data-js-email]': 'validation',
-    'blur [data-js-company]': 'validation',
+    'blur [data-js-email]': 'validationEmail',
+    'blur [data-js-company]': 'validationCompany',
   },
   initialize() {
     this.renderTemplate();
@@ -23,22 +23,41 @@ export default Epoxy.View.extend({
       this.resize();
     });
   },
-  validation() {
-    const sendBtn = $('.send-btn');
+  isEmail(email) {
+    const regex = /^[a-z0-9.+_-]+@[a-z0-9_.-]+?\.[a-z0-9]{2,}$/i;
+    return regex.test(email);
+  },
+  validationEmail() {
+    const emailInput = $('#email')[0];
+    const emailSpan = $('#email-error');
+    const button = $('#send-btn');
+    if (!this.isEmail(emailInput.value)) {
+      emailSpan.addClass('show');
+      button.attr('disabled', 'disabled');
+      return;
+    }
+    emailSpan.removeClass('show');
+    this.unlockButton();
+  },
+  validationCompany() {
+    const companyInput = $('#company')[0];
+    const companySpan = $('#company-error');
+    const button = $('#send-btn');
+    if (companyInput.value === '') {
+      companySpan.addClass('show');
+      button.attr('disabled', 'disabled');
+      return;
+    }
+    companySpan.removeClass('show');
+    this.unlockButton();
+  },
+  unlockButton() {
     const emailInput = $('#email')[0];
     const companyInput = $('#company')[0];
-    const emailSpan = $('#email-error');
-    const companySpan = $('#company-error');
-
-    !this.isEmail(emailInput.value) ? emailSpan.addClass('show') : emailSpan.removeClass('show');
-    companyInput.value === '' ? companySpan.addClass('show') : companySpan.removeClass('show');
+    const button = $('#send-btn');
     if (this.isEmail(emailInput.value) && companyInput.value !== '') {
-      sendBtn.removeAttr('disabled');
+      button.removeAttr('disabled');
     }
-  },
-  isEmail(email) {
-    const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return regex.test(email);
   },
   onShow() {
     this.$el.width();
@@ -47,7 +66,7 @@ export default Epoxy.View.extend({
     BaronScroll($('[data-js-content]', this.$el));
   },
   resize() {
-    if ($(document).width() <= 991) {
+    if ($(document).width() <= 767) {
       this.destroy();
     }
   },
