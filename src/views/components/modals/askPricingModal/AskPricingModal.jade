@@ -1,0 +1,27 @@
+.modal-backdrop(data-js-backdrop)
+.content(id='ask-pricing-modal', data-js-content)
+  button.close(data-js-cancel)
+  h2.head Subscribe for the consultation
+  .text-block
+    p.text.
+      Our product is a free open source Solution.
+      According to <a href='https://www.apache.org/licenses/LICENSE-2.0'>Apache 2.0</a>, there are no charges or hidden fees.
+  .text-block
+    p.text But if you are looking for dedicated Professional support for installation, Integration, or ReportPortal customization, then we can propose it starting at <span>6 480$</span>.
+  .text-block
+    p.text For more details please leave your e-mail and we contact you in the next few days.
+  .data-block
+    .field
+      .input-block
+        .icon-block
+          img(src=require("./img/email.svg")).img
+        input(type=text, id='email', placeholder='E-mail', value='', data-js-email)
+      span.validation-error(id='email-error') Invalid e-mail
+    .field
+      .input-block
+        .icon-block
+          img(src=require("./img/company.svg")).img
+        input(type=text, id='company', placeholder='Company name', value='' , data-js-company)
+      span.validation-error(id='company-error') Can't be empty
+  button.send-btn(id='send-btn', data-js-send, disabled=) Send
+
