@@ -1,9 +1,11 @@
+import Router from 'router';
 import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import 'selectize';
 import BaronScroll from 'utils/baronScroll';
 import template from './AskPricingModal.jade';
 import './AskPricingModal.scss';
+import SubscribeModal from '../subscribeModal';
 
 
 export default Epoxy.View.extend({
@@ -85,8 +87,10 @@ export default Epoxy.View.extend({
   onCancel() {
     this.hide();
   },
-  onClickSend() {
+  onClickSend(e) {
     this.hide();
+    e.preventDefault();
+    Router.modals.show(new SubscribeModal());
   },
   onDestroy() {
     $(window).off('resize.askPricingModal');

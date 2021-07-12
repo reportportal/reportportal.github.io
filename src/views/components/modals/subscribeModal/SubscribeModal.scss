@@ -1,0 +1,140 @@
+.subscribe-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+
+  .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(70, 69, 71, 0.3);
+    transition: opacity .15s linear;
+    opacity: 0;
+  }
+
+  .content {
+    position: relative;
+    margin: 250px auto;
+    background-color: $COLOR-WHITE_TWO;
+    border-radius: 15px;
+    width: 500px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    transform: translate(0, -100px);
+    opacity: 0;
+    transition: transform .3s ease-out, opacity .15s ease-out;
+    padding: 30px;
+
+    .hide {
+      display: none;
+    }
+
+    .close {
+      width: 20px;
+      height: 20px;
+      border: none;
+      background: transparent;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+
+      &::before, &::after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 2px;
+        background: $COLOR-TOPAZ;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+        position: absolute;
+        left: 0;
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    .head {
+      font-family: $FONT-LIGHT;
+      font-size: 20px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: normal;
+      color: $COLOR-STEEL-GREY;
+      margin-bottom: 30px;
+    }
+
+    .text-block {
+      margin-bottom: 15px;
+
+      .text {
+        font-family: $FONT-REGULAR;
+        color: $COLOR-CHARCOAL-GREY;
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+
+        a {
+          text-decoration: none;
+          color: $COLOR-TOPAZ;
+        }
+
+        span {
+          color: $COLOR-TOPAZ;
+        }
+      }
+    }
+
+    .btn-block {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 30px;
+    }
+    .send-btn {
+      width: 124px;
+      border-radius: 3px;
+      color: $COLOR-WHITE_TWO;
+      background-color: $COLOR-TEALISH;
+      border: 1px solid $COLOR-TEALISH;
+      border-left: none;
+      font-size: 15px;
+      text-align: center;
+      line-height: 34px;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $COLOR-TOPAZ;
+        border-color: $COLOR-TEALISH;
+      }
+    }
+  }
+
+  &.show {
+    .modal-backdrop {
+      opacity: .8;
+    }
+
+    .content {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+
+}
+
