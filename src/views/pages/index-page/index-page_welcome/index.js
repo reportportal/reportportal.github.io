@@ -1,4 +1,6 @@
 import { $ } from 'backbone';
+import Router from 'router';
+import PreviewModal from 'components/modals/previewModal';
 import IndexPageSection from '../../sectionView';
 import template from './index-page_welcome.jade';
 import './index-page_welcome.scss';
@@ -8,7 +10,7 @@ export default IndexPageSection.extend({
   template,
   className: 'index-page_welcome',
   events: {
-
+    'click .video-preview': 'onClickPreview',
   },
   initialize() {
     this.renderTemplate();
@@ -30,5 +32,9 @@ export default IndexPageSection.extend({
     this.bg2.css({ transform: `translate(0, -${scrollEl / 8}px)` });
     this.bg3.css({ transform: `translate(0, -${scrollEl / 15}px)` });
     return false;
+  },
+  onClickPreview(e) {
+    e.preventDefault();
+    Router.modals.show(new PreviewModal({ src: $(e.currentTarget).attr('href') }));
   },
 });

@@ -1,3 +1,5 @@
+@import '../pageSectionMixin';
+
 .documentation-page {
   position: absolute;
   width: 100%;
@@ -421,6 +423,7 @@
         padding-left: 0;
       }
       .b-docs__wrapper {
+        @include video-preview(url('../../../common/img/play_circle.svg'));
         padding-left: 60px;
         padding-right: 15px;
         -webkit-box-sizing: border-box;
@@ -511,33 +514,6 @@
           color: $COLOR--brownish-grey;
           code {
             display: block;
-          }
-        }
-
-        a {
-          text-decoration: none;
-          color: $COLOR-TEALISH;
-          &.video-preview {
-            position: relative;
-            display: inline-block;
-            &:after {
-              content: ' ';
-              position: absolute;
-              display: block;
-              width: 60px;
-              height: 60px;
-              top: 50%;
-              left: 50%;
-              margin-top: -30px;
-              margin-left: -30px;
-              cursor: pointer;
-              background: url(./img/play_circle.svg) center no-repeat;
-            }
-            &:hover {
-              &:after {
-                background: url(./img/play_circle_hover.svg) center no-repeat;
-              }
-            }
           }
         }
         .image-wrap-table {
