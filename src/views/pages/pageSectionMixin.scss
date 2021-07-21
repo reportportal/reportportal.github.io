@@ -28,3 +28,33 @@ $MOBILE-INTERFACE-WIDTH: 600px;
   background-image: $url;
 }
 
+@mixin video-preview($url) {
+  a {
+    text-decoration: none;
+    color: $COLOR-TEALISH;
+    &.video-preview {
+      position: relative;
+      display: inline-block;
+      &:after {
+        content: ' ';
+        position: absolute;
+        display: block;
+        width: 60px;
+        height: 60px;
+        top: 50%;
+        left: 50%;
+        margin-top: -30px;
+        margin-left: -30px;
+        cursor: pointer;
+        opacity: .346;
+        background: $url center no-repeat;
+      }
+      &:hover {
+        &:after {
+          opacity: .85;
+        }
+      }
+    }
+  }
+}
+
