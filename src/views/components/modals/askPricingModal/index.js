@@ -81,7 +81,7 @@ export default Epoxy.View.extend({
     BaronScroll($('[data-js-content]', this.$el));
   },
   resize() {
-    if ($(document).width() <= 767) {
+    if ($(document).width() <= 1) {
       this.destroy();
     }
   },
