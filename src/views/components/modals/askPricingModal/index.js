@@ -1,7 +1,6 @@
 import Router from 'router';
 import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
-import 'selectize';
 import BaronScroll from 'utils/baronScroll';
 import template from './AskPricingModal.jade';
 import './AskPricingModal.scss';
@@ -21,9 +20,6 @@ export default Epoxy.View.extend({
   },
   initialize() {
     this.renderTemplate();
-    $(window).on('resize.askPricingModal', () => {
-      this.resize();
-    });
   },
   isEmail(email) {
     const regex = /^[a-z0-9.+_-]+@[a-z0-9_.-]+?\.[a-z0-9]{2,}$/i;
@@ -77,13 +73,7 @@ export default Epoxy.View.extend({
   onShow() {
     this.$el.width();
     this.$el.addClass('show');
-    this.resize();
     BaronScroll($('[data-js-content]', this.$el));
-  },
-  resize() {
-    if ($(document).width() <= 1) {
-      this.destroy();
-    }
   },
   hide() {
     this.$el.removeClass('show');
@@ -106,7 +96,6 @@ export default Epoxy.View.extend({
     Router.modals.show(new SubscribeModal());
   },
   onDestroy() {
-    $(window).off('resize.askPricingModal');
     $('#email').off('input');
     $('#company').off('input');
   },
