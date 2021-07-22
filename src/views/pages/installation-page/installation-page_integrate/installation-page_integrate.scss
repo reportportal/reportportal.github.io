@@ -71,7 +71,8 @@
           }
           a {
             position: relative;
-            display: block;
+            display: flex;
+            padding: 4px 0;
             border: solid 1px $COLOR-GRAY-91;
             box-shadow: 0 1px 3px 0 rgba(189, 199, 204, 0.55);
             .badge{
