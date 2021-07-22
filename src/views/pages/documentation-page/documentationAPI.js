@@ -31,8 +31,8 @@ export default {
     this.onScrollContent();
   },
   onScrollContent() {
-    const scrollBottom = this.contentScroll[0].scrollHeight -
-      (this.contentScroll.scrollTop() + this.blockContentHeight);
+    const scrollBottom = this.contentScroll[0].scrollHeight
+      - (this.contentScroll.scrollTop() + this.blockContentHeight);
     if (scrollBottom < this.footerBlockHeight) {
       $('.edit-on-github', this.contentScroll).css({ marginBottom: `${this.footerBlockHeight - scrollBottom}px` });
     } else {
@@ -317,9 +317,9 @@ export default {
         ? options.navigate
         : true;
 
-      isChild ?
-        sideNav.trigger('Select:section', question.id) :
-        sideNav.trigger('Show:section', question.id);
+      isChild
+        ? sideNav.trigger('Select:section', question.id)
+        : sideNav.trigger('Show:section', question.id);
 
       if (this.currentId !== question.id) {
         foundQuestion = questions.filter(q => (q.id === question.id))[0];
@@ -465,8 +465,8 @@ export default {
     const regexp = /data-js-md-path="([A-Za-z0-9\-_/]*\.md)"/;
     const linkToMD = question.body.match(regexp);
     if (linkToMD && linkToMD[1] /* && !(linkToMD[1].indexOf('index.md') + 1) */) {
-      $docWrapper.append('<a href="' +
-        `https://github.com/reportportal/documentation/edit/master/${linkToMD[1].replace('/computeds', '')}`
+      $docWrapper.append('<a href="'
+        + `https://github.com/reportportal/documentation/edit/master/${linkToMD[1].replace('/computeds', '')}`
         + '" class="edit-on-github" target="_blank">'
         + '<span>If you see inconsistencies, typos or want to add something, please</span>'
         + '<span class="color-blue">send us Pull Request into source</span>'

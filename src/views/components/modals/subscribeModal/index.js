@@ -5,7 +5,6 @@ import BaronScroll from 'utils/baronScroll';
 import template from './SubscribeModal.jade';
 import './SubscribeModal.scss';
 
-
 export default Epoxy.View.extend({
   template,
   className: 'subscribe-modal',

@@ -52,4 +52,3 @@ export default Epoxy.View.extend({
     return langLibrary;
   },
 });
-

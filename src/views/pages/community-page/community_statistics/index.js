@@ -4,7 +4,6 @@ import './community-page_statistics.scss';
 import './community-page_statistics__animate.scss';
 import { $ } from 'backbone';
 
-
 export default IndexPageSection.extend({
   template,
   className: 'community-page_statistics',

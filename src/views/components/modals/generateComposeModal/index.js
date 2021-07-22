@@ -9,7 +9,6 @@ import BaronScroll from 'utils/baronScroll';
 import template from './GenerateComposeModal.jade';
 import './GenerateComposeModal.scss';
 
-
 export default Epoxy.View.extend({
   template,
   className: 'generate-modal',

@@ -7,7 +7,6 @@ import template from './AskPricingModal.jade';
 import './AskPricingModal.scss';
 import SubscribeModal from '../subscribeModal';
 
-
 export default Epoxy.View.extend({
   template,
   className: 'ask-pricing-modal',

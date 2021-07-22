@@ -14,7 +14,7 @@ export default Epoxy.View.extend({
   },
   openSocial(e) {
     $(e.currentTarget).hasClass('icon-mail')
-    ? window.location = $(e.currentTarget).attr('data-js-social-href')
-    : window.open($(e.currentTarget).attr('data-js-social-href'));
+      ? window.location = $(e.currentTarget).attr('data-js-social-href')
+      : window.open($(e.currentTarget).attr('data-js-social-href'));
   },
 });

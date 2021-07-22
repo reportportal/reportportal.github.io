@@ -32,15 +32,15 @@ const httpInfo = {
   'post-log-rq': {
     type: 'HTTP request',
     url: 'POST http://rphost:port/api/v1/{projectName}/log',
-    scheme: '"file": {\n' +
-    '"name": "photo",\n' +
-    '"content" : "byte content",\n' +
-    '"contentType" : "image/jpeg"\n' +
-    '},\n' +
-    '"item_id": "id of log\'s test item",\n' +
-    '"level": "Log Level",\n' +
-    '"message": "Log message",\n' +
-    '"time": "2018-02-01T13:24:36.954Z "',
+    scheme: '"file": {\n'
+    + '"name": "photo",\n'
+    + '"content" : "byte content",\n'
+    + '"contentType" : "image/jpeg"\n'
+    + '},\n'
+    + '"item_id": "id of log\'s test item",\n'
+    + '"level": "Log Level",\n'
+    + '"message": "Log message",\n'
+    + '"time": "2018-02-01T13:24:36.954Z "',
   },
   'post-log-rs': {
     type: 'HTTP response',
@@ -60,24 +60,24 @@ const httpInfo = {
   'finish-parent-rq': {
     type: 'HTTP request',
     url: 'PUT http://rphost:port/api/v1/{projectName}/item/{testItemId}',
-    scheme: '"description": "description",\n' +
-    '"end_time": "2018-02-01T13:24:37.954Z ",\n' +
-    'optional\n' +
-    '"issue": {\n' +
-    '"comment": "string",\n' +
-    '"externalSystemIssues": [\n' +
-    '{\n' +
-    '"submitDate": 0,\n' +
-    '"submitter": "string",\n' +
-    '"systemId": "string",\n' +
-    '"ticketId": "string",\n' +
-    '"url": "string"\n' +
-    '}\n' +
-    '],\n' +
-    '"issue_type": "string"\n' +
-    '},\n' +
-    '"status": "PASSED",\n' +
-    '"tags": ["tags"]',
+    scheme: '"description": "description",\n'
+    + '"end_time": "2018-02-01T13:24:37.954Z ",\n'
+    + 'optional\n'
+    + '"issue": {\n'
+    + '"comment": "string",\n'
+    + '"externalSystemIssues": [\n'
+    + '{\n'
+    + '"submitDate": 0,\n'
+    + '"submitter": "string",\n'
+    + '"systemId": "string",\n'
+    + '"ticketId": "string",\n'
+    + '"url": "string"\n'
+    + '}\n'
+    + '],\n'
+    + '"issue_type": "string"\n'
+    + '},\n'
+    + '"status": "PASSED",\n'
+    + '"tags": ["tags"]',
   },
   'finish-parent-rs': {
     type: 'HTTP response',
@@ -87,10 +87,10 @@ const httpInfo = {
   'finish-launch-rq': {
     type: 'HTTP request',
     url: 'PUT http://rphost:port/api/v1/{projectName}/launch/{launchId}/finish',
-    scheme: '"description": "description on finish",\n' +
-    '"end_time": "2018-02-01T13:24:38.954Z ",\n' +
-    '"status": "PASSED",\n' +
-    '"tags": ["tags"]',
+    scheme: '"description": "description on finish",\n'
+    + '"end_time": "2018-02-01T13:24:38.954Z ",\n'
+    + '"status": "PASSED",\n'
+    + '"tags": ["tags"]',
   },
   'finish-launch-rs': {
     type: 'HTTP response',
