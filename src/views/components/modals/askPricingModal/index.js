@@ -16,8 +16,8 @@ export default Epoxy.View.extend({
     'click [data-js-cancel]': 'onCancel',
     'click [data-js-content]': 'onClickContent',
     'click [data-js-send]': 'onClickSend',
-    'click [data-js-email]': 'handleClickEmail',
-    'click [data-js-company]': 'handleClickCompany',
+    'click [data-js-email]': 'onClickEmail',
+    'click [data-js-company]': 'onClickCompany',
   },
   initialize() {
     this.renderTemplate();
@@ -29,7 +29,7 @@ export default Epoxy.View.extend({
     const regex = /^[a-z0-9.+_-]+@[a-z0-9_.-]+?\.[a-z0-9]{2,}$/i;
     return regex.test(email);
   },
-  validationEmail(value) {
+  validateEmail(value) {
     const emailSpan = $('#email-error');
     const button = $('#send-btn');
     if (!this.isEmail(value)) {
@@ -41,7 +41,7 @@ export default Epoxy.View.extend({
     this.unlockButton();
   },
 
-  validationCompany(value) {
+  validateCompany(value) {
     const companySpan = $('#company-error');
     const button = $('#send-btn');
     if (value === '') {
@@ -53,17 +53,17 @@ export default Epoxy.View.extend({
     this.unlockButton();
   },
 
-  handleClickEmail() {
+  onClickEmail() {
     const emailInput = $('#email');
     emailInput.on('input', () => {
-      this.validationEmail(emailInput.val());
+      this.validateEmail(emailInput.val());
     });
   },
 
-  handleClickCompany() {
+  onClickCompany() {
     const companyInput = $('#company');
     companyInput.on('input', () => {
-      this.validationCompany(companyInput.val());
+      this.validateCompany(companyInput.val());
     });
   },
   unlockButton() {
@@ -107,5 +107,7 @@ export default Epoxy.View.extend({
   },
   onDestroy() {
     $(window).off('resize.askPricingModal');
+    $('#email').off('input');
+    $('#company').off('input');
   },
 });
