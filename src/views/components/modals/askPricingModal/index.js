@@ -1,7 +1,6 @@
 import Router from 'router';
 import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
-import 'selectize';
 import BaronScroll from 'utils/baronScroll';
 import template from './AskPricingModal.jade';
 import './AskPricingModal.scss';
@@ -16,15 +15,24 @@ export default Epoxy.View.extend({
     'click [data-js-cancel]': 'onCancel',
     'click [data-js-content]': 'onClickContent',
     'click [data-js-send]': 'onClickSend',
-    'click [data-js-email]': 'onClickEmail',
-    'click [data-js-company]': 'onClickCompany',
   },
   initialize() {
     this.renderTemplate();
-    $(window).on('resize.askPricingModal', () => {
-      this.resize();
+    this.initInputListeners();
+  },
+
+  initInputListeners() {
+    const emailInput = $('#email', this.$el);
+    const companyInput = $('#company', this.$el);
+
+    emailInput.on('input', () => {
+      this.validateEmail(emailInput.val());
+    });
+    companyInput.on('input', () => {
+      this.validateCompany(companyInput.val());
     });
   },
+
   isEmail(email) {
     const regex = /^[a-z0-9.+_-]+@[a-z0-9_.-]+?\.[a-z0-9]{2,}$/i;
     return regex.test(email);
@@ -53,19 +61,6 @@ export default Epoxy.View.extend({
     this.unlockButton();
   },
 
-  onClickEmail() {
-    const emailInput = $('#email');
-    emailInput.on('input', () => {
-      this.validateEmail(emailInput.val());
-    });
-  },
-
-  onClickCompany() {
-    const companyInput = $('#company');
-    companyInput.on('input', () => {
-      this.validateCompany(companyInput.val());
-    });
-  },
   unlockButton() {
     const emailInput = $('#email')[0];
     const companyInput = $('#company')[0];
@@ -77,13 +72,7 @@ export default Epoxy.View.extend({
   onShow() {
     this.$el.width();
     this.$el.addClass('show');
-    this.resize();
     BaronScroll($('[data-js-content]', this.$el));
-  },
-  resize() {
-    if ($(document).width() <= 767) {
-      this.destroy();
-    }
   },
   hide() {
     this.$el.removeClass('show');
@@ -106,7 +95,6 @@ export default Epoxy.View.extend({
     Router.modals.show(new SubscribeModal());
   },
   onDestroy() {
-    $(window).off('resize.askPricingModal');
     $('#email').off('input');
     $('#company').off('input');
   },

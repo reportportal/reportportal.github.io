@@ -1,6 +1,7 @@
 import { $ } from 'backbone';
 import Router from 'router';
 import PreviewModal from 'components/modals/previewModal';
+import AskPricingModal from 'components/modals/askPricingModal';
 import IndexPageSection from '../../sectionView';
 import template from './index-page_welcome.jade';
 import './index-page_welcome.scss';
@@ -11,6 +12,7 @@ export default IndexPageSection.extend({
   className: 'index-page_welcome',
   events: {
     'click .video-preview': 'onClickPreview',
+    'click .ask-pricing': 'onClickAskPricing',
   },
   initialize() {
     this.renderTemplate();
@@ -36,5 +38,9 @@ export default IndexPageSection.extend({
   onClickPreview(e) {
     e.preventDefault();
     Router.modals.show(new PreviewModal({ src: $(e.currentTarget).attr('href') }));
+  },
+  onClickAskPricing(e) {
+    e.preventDefault();
+    Router.modals.show(new AskPricingModal());
   },
 });

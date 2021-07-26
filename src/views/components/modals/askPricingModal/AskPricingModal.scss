@@ -19,6 +19,8 @@
 
   .content {
     position: relative;
+    display: flex;
+    flex-direction: column;
     margin: 250px auto;
     background-color: $COLOR-WHITE_TWO;
     border-radius: 15px;
@@ -29,6 +31,11 @@
     opacity: 0;
     transition: transform .3s ease-out, opacity .15s ease-out;
     padding: 30px;
+
+    @media (max-width: $SCREEN_XS_MAX) {
+      width: 95%;
+      max-width: 500px;
+    }
 
     .hide {
       display: none;
@@ -102,7 +109,6 @@
 
     .data-block {
       width: 100%;
-      margin-top: 30px;
 
       .field {
         width: 100%;
@@ -156,9 +162,9 @@
     }
 
     .send-btn {
+      align-self: flex-end;
       width: 160px;
       margin-top: 10px;
-      margin-left: 280px;
       border-radius: 3px;
       color: $COLOR-WHITE_TWO;
       background-color: $COLOR-TEALISH;

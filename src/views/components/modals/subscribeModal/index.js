@@ -1,6 +1,5 @@
 import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
-import 'selectize';
 import BaronScroll from 'utils/baronScroll';
 import template from './SubscribeModal.jade';
 import './SubscribeModal.scss';
@@ -17,20 +16,11 @@ export default Epoxy.View.extend({
   },
   initialize() {
     this.renderTemplate();
-    $(window).on('resize.subscribeModal', () => {
-      this.resize();
-    });
   },
   onShow() {
     this.$el.width();
     this.$el.addClass('show');
-    this.resize();
     BaronScroll($('[data-js-content]', this.$el));
-  },
-  resize() {
-    if ($(document).width() <= 767) {
-      this.destroy();
-    }
   },
   hide() {
     this.$el.removeClass('show');
@@ -49,8 +39,5 @@ export default Epoxy.View.extend({
   },
   onClickSend() {
     this.hide();
-  },
-  onDestroy() {
-    $(window).off('resize.subscribeModal');
   },
 });
