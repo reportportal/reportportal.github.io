@@ -15,12 +15,24 @@ export default Epoxy.View.extend({
     'click [data-js-cancel]': 'onCancel',
     'click [data-js-content]': 'onClickContent',
     'click [data-js-send]': 'onClickSend',
-    'click [data-js-email]': 'onClickEmail',
-    'click [data-js-company]': 'onClickCompany',
   },
   initialize() {
     this.renderTemplate();
+    this.initInputListeners();
   },
+
+  initInputListeners() {
+    const emailInput = $('#email', this.$el);
+    const companyInput = $('#company', this.$el);
+
+    emailInput.on('input', () => {
+      this.validateEmail(emailInput.val());
+    });
+    companyInput.on('input', () => {
+      this.validateCompany(companyInput.val());
+    });
+  },
+
   isEmail(email) {
     const regex = /^[a-z0-9.+_-]+@[a-z0-9_.-]+?\.[a-z0-9]{2,}$/i;
     return regex.test(email);
@@ -49,19 +61,6 @@ export default Epoxy.View.extend({
     this.unlockButton();
   },
 
-  onClickEmail() {
-    const emailInput = $('#email');
-    emailInput.on('input', () => {
-      this.validateEmail(emailInput.val());
-    });
-  },
-
-  onClickCompany() {
-    const companyInput = $('#company');
-    companyInput.on('input', () => {
-      this.validateCompany(companyInput.val());
-    });
-  },
   unlockButton() {
     const emailInput = $('#email')[0];
     const companyInput = $('#company')[0];

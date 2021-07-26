@@ -30,6 +30,11 @@
     transition: transform .3s ease-out, opacity .15s ease-out;
     padding: 30px;
 
+    @media (max-width: $SCREEN_XS_MAX) {
+      width: 95%;
+      max-width: 500px;
+    }
+
     .hide {
       display: none;
     }
