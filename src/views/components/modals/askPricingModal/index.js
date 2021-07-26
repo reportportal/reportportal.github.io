@@ -16,8 +16,8 @@ export default Epoxy.View.extend({
     'click [data-js-cancel]': 'onCancel',
     'click [data-js-content]': 'onClickContent',
     'click [data-js-send]': 'onClickSend',
-    'blur [data-js-email]': 'validationEmail',
-    'blur [data-js-company]': 'validationCompany',
+    'click [data-js-email]': 'onClickEmail',
+    'click [data-js-company]': 'onClickCompany',
   },
   initialize() {
     this.renderTemplate();
@@ -29,11 +29,10 @@ export default Epoxy.View.extend({
     const regex = /^[a-z0-9.+_-]+@[a-z0-9_.-]+?\.[a-z0-9]{2,}$/i;
     return regex.test(email);
   },
-  validationEmail() {
-    const emailInput = $('#email')[0];
+  validateEmail(value) {
     const emailSpan = $('#email-error');
     const button = $('#send-btn');
-    if (!this.isEmail(emailInput.value)) {
+    if (!this.isEmail(value)) {
       emailSpan.addClass('show');
       button.attr('disabled', 'disabled');
       return;
@@ -41,17 +40,31 @@ export default Epoxy.View.extend({
     emailSpan.removeClass('show');
     this.unlockButton();
   },
-  validationCompany() {
-    const companyInput = $('#company')[0];
+
+  validateCompany(value) {
     const companySpan = $('#company-error');
     const button = $('#send-btn');
-    if (companyInput.value === '') {
+    if (value === '') {
       companySpan.addClass('show');
       button.attr('disabled', 'disabled');
       return;
     }
     companySpan.removeClass('show');
     this.unlockButton();
+  },
+
+  onClickEmail() {
+    const emailInput = $('#email');
+    emailInput.on('input', () => {
+      this.validateEmail(emailInput.val());
+    });
+  },
+
+  onClickCompany() {
+    const companyInput = $('#company');
+    companyInput.on('input', () => {
+      this.validateCompany(companyInput.val());
+    });
   },
   unlockButton() {
     const emailInput = $('#email')[0];
@@ -94,5 +107,7 @@ export default Epoxy.View.extend({
   },
   onDestroy() {
     $(window).off('resize.askPricingModal');
+    $('#email').off('input');
+    $('#company').off('input');
   },
 });
