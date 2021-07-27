@@ -31,7 +31,8 @@ export default IndexPageSection.extend({
   },
   getSections() {
     return [
-      { checkScroll: this.checkScroll.bind(this),
+      {
+        checkScroll: this.checkScroll.bind(this),
         el: this.el,
         controlAnimation: this.controlAnimation.bind(this, this.animationClass),
       },

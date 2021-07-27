@@ -53,8 +53,10 @@ export default Epoxy.View.extend({
     const bannerHeight = $('.install-header').outerHeight();
     const controlsHeight = $('.controls').outerHeight();
     if ($(document).width() >= 768) {
-      this.mainScrollEl.animate({ scrollTop: (scrollTop + section)
-        - menuHeight - bannerHeight - controlsHeight }, 500);
+      this.mainScrollEl.animate({
+        scrollTop: (scrollTop + section)
+        - menuHeight - bannerHeight - controlsHeight,
+      }, 500);
     } else {
       this.mainScrollEl.animate({ scrollTop: (scrollTop + section) - menuHeight }, 500);
     }
@@ -70,15 +72,21 @@ export default Epoxy.View.extend({
 
     if (scrollTop > 140) {
       if (sectionData === 'data-js-install') {
-        this.mainScrollEl.animate({ scrollTop: (scrollTop + section)
-        - controlsHeight - bannerHeight }, 500);
+        this.mainScrollEl.animate({
+          scrollTop: (scrollTop + section)
+        - controlsHeight - bannerHeight,
+        }, 500);
         return;
       }
-      this.mainScrollEl.animate({ scrollTop: (scrollTop + section)
-      - menuHeight - controlsHeight }, 500);
+      this.mainScrollEl.animate({
+        scrollTop: (scrollTop + section)
+      - menuHeight - controlsHeight,
+      }, 500);
     } else if ($(document).width() >= 768) {
-      this.mainScrollEl.animate({ scrollTop: (scrollTop + section)
-      - menuHeight - bannerHeight - controlsHeight }, 500);
+      this.mainScrollEl.animate({
+        scrollTop: (scrollTop + section)
+      - menuHeight - bannerHeight - controlsHeight,
+      }, 500);
     } else {
       this.mainScrollEl.animate({ scrollTop: (scrollTop + section) - menuHeight }, 500);
     }

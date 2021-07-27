@@ -95,8 +95,8 @@ function ScrollerAnimate(blocks) {
             element.activate = true;
           }
         }
-        element.controlAnimation && element.controlAnimation(scrollTop, scrollBottom -
-          element.scrollStart, element.scrollStart);
+        element.controlAnimation && element.controlAnimation(scrollTop, scrollBottom
+          - element.scrollStart, element.scrollStart);
       }
     });
     // return middle block index

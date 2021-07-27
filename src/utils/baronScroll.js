@@ -14,13 +14,13 @@ export default function setupBaronScroll($element, inner, options) {
   }
   let baron = null;
   if ($rootElement && $('body').hasClass('no-zero-scroll')) {
-    $rootElement.append('<div class="baron__track">' +
-      '<div class="baron__control baron__up">▲</div>' +
-      '<div class="baron__free">' +
-      '<div class="baron__bar"></div>' +
-      '</div>' +
-      '<div class="baron__control baron__down">▼</div>' +
-      '</div>');
+    $rootElement.append('<div class="baron__track">'
+      + '<div class="baron__control baron__up">▲</div>'
+      + '<div class="baron__free">'
+      + '<div class="baron__bar"></div>'
+      + '</div>'
+      + '<div class="baron__control baron__down">▼</div>'
+      + '</div>');
     baron = Baron({
       $,
       // cssGuru: true,
