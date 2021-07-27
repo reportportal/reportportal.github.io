@@ -12,7 +12,7 @@ export default IndexPageSection.extend({
   className: 'index-page_welcome',
   events: {
     'click .video-preview': 'onClickPreview',
-    'click .ask-pricing': 'onClickAskPricing',
+    'click .ask-pricing-mobile': 'onClickAskPricing',
   },
   initialize() {
     this.renderTemplate();
