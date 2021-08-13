@@ -423,7 +423,7 @@
         padding-left: 0;
       }
       .b-docs__wrapper {
-        @include video-preview(url('../../../common/img/play_circle.svg'));
+        @include video-preview();
         padding-left: 60px;
         padding-right: 15px;
         -webkit-box-sizing: border-box;

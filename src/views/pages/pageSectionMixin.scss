@@ -28,7 +28,7 @@ $MOBILE-INTERFACE-WIDTH: 600px;
   background-image: $url;
 }
 
-@mixin video-preview($url) {
+@mixin video-preview($displayProperty : block ) {
   a {
     text-decoration: none;
     color: $COLOR-TEALISH;
@@ -36,23 +36,29 @@ $MOBILE-INTERFACE-WIDTH: 600px;
       position: relative;
       display: inline-block;
       &:after {
-        content: ' ';
+        content: '';
         position: absolute;
-        display: block;
-        width: 60px;
-        height: 60px;
         top: 50%;
         left: 50%;
-        margin-top: -30px;
-        margin-left: -30px;
-        cursor: pointer;
-        opacity: .346;
-        background: $url center no-repeat;
+        transform: translate(-50%, -50%);
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        background: $COLOR-WHITE_TWO url('common/img/play.svg') no-repeat 17px;
+        box-shadow: 0 2px 80px 0 rgba(142, 142, 142, 0.5);
       }
-      &:hover {
-        &:after {
-          opacity: .85;
-        }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: all .1s linear;
+      }
+      &:hover:before {
+        display: $displayProperty;
+        background-color: rgba(255, 255, 255, 0.4);
       }
     }
   }
