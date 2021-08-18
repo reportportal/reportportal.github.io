@@ -25,7 +25,7 @@ export default IndexPageSection.extend({
     this.bg1 = $('[data-js-wave-1]', this.$el);
     this.bg2 = $('[data-js-wave-2]', this.$el);
     this.bg3 = $('[data-js-wave-3]', this.$el);
-    this.site = $('.site', this.$el).attr('src', this.getRandomElement(images));
+    $('.site', this.$el).attr('src', this.getRandomElement(images));
   },
   getSections() {
     return [
