@@ -6,6 +6,12 @@ import IndexPageSection from '../../sectionView';
 import template from './index-page_welcome.jade';
 import './index-page_welcome.scss';
 import './index-page_welcome__animate.scss';
+import Site1 from './img/site1.png';
+import Site2 from './img/site2.png';
+import Site3 from './img/site3.png';
+import Site4 from './img/site4.png';
+
+const images = [Site1, Site2, Site3, Site4];
 
 export default IndexPageSection.extend({
   template,
@@ -19,6 +25,7 @@ export default IndexPageSection.extend({
     this.bg1 = $('[data-js-wave-1]', this.$el);
     this.bg2 = $('[data-js-wave-2]', this.$el);
     this.bg3 = $('[data-js-wave-3]', this.$el);
+    $('.site', this.$el).attr('src', this.getRandomElement(images));
   },
   getSections() {
     return [
@@ -34,6 +41,9 @@ export default IndexPageSection.extend({
     this.bg2.css({ transform: `translate(0, -${scrollEl / 8}px)` });
     this.bg3.css({ transform: `translate(0, -${scrollEl / 15}px)` });
     return false;
+  },
+  getRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
   },
   onClickPreview(e) {
     e.preventDefault();
