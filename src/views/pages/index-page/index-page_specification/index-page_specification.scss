@@ -25,6 +25,11 @@
     vertical-align: top;
     text-align: left;
     margin: 0 20px;
+
+    &.hidden {
+      visibility: hidden;
+    }
+
     h2 {
       color: $COLOR-TOPAZ;
       margin-top: 17px;
