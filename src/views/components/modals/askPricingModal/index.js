@@ -13,59 +13,91 @@ export default Epoxy.View.extend({
     'click .baron_scroller': 'onClickBackdrop',
     'click [data-js-cancel]': 'onCancel',
     'click [data-js-content]': 'onClickContent',
-    'click [data-js-send]': 'onClickSend',
+    'submit [data-js-leadForm]': 'onSubmit',
   },
   initialize() {
     this.renderTemplate();
     this.initInputListeners();
+    this.createDummyElements();
   },
 
   initInputListeners() {
-    const emailInput = $('#email', this.$el);
-    const companyInput = $('#company', this.$el);
+    this.fieldsConfig = [
+      {
+        inputSelector: '#email',
+        hintSelector: '#email-error',
+        validator: this.isEmail,
+      },
+      {
+        inputSelector: '#company',
+        hintSelector: '#company-error',
+        validator: this.isNotEmpty,
+      },
+      {
+        inputSelector: '#first_name',
+        hintSelector: '#first_name-error',
+        validator: this.isNotEmpty,
+      },
+      {
+        inputSelector: '#last_name',
+        hintSelector: '#last_name-error',
+        validator: this.isNotEmpty,
+      },
+    ];
 
-    emailInput.on('input', () => {
-      this.validateEmail(emailInput.val());
+    this.fieldsConfig.forEach((fieldConf) => {
+      const field = $(fieldConf.inputSelector, this.$el);
+
+      field.on('input', () => {
+        this.validate(field.val(), fieldConf.hintSelector, fieldConf.validator);
+      });
     });
-    companyInput.on('input', () => {
-      this.validateCompany(companyInput.val());
-    });
+  },
+
+  createDummyElements() {
+    const iframe = document.createElement('iframe');
+    iframe.name = 'dummyframe';
+    iframe.id = 'dummyframe';
+    iframe.style= 'display: none;';
+    document.body.appendChild(iframe);
+
+    this.iframe = iframe;
+  },
+
+  removeDummyElements() {
+    this.iframe.parentNode.removeChild(this.iframe);
   },
 
   isEmail(email) {
     const regex = /^[a-z0-9.+_-]+@[a-z0-9_.-]+?\.[a-z0-9]{2,}$/i;
     return regex.test(email);
   },
-  validateEmail(value) {
-    const emailSpan = $('#email-error');
-    const button = $('#send-btn');
-    if (!this.isEmail(value)) {
-      emailSpan.addClass('show');
-      button.attr('disabled', 'disabled');
-      return;
-    }
-    emailSpan.removeClass('show');
-    this.unlockButton();
+  isNotEmpty(value) {
+    return value !== '';
   },
 
-  validateCompany(value) {
-    const companySpan = $('#company-error');
-    const button = $('#send-btn');
-    if (value === '') {
-      companySpan.addClass('show');
-      button.attr('disabled', 'disabled');
-      return;
+  validate(value, hintSelector, validator) {
+    const errorHint = $(hintSelector);
+    const sendBtn = $('#send-btn');
+    if (validator(value)) {
+      errorHint.removeClass('show');
+      this.unlockButton();
+    } else {
+      errorHint.addClass('show');
+      sendBtn.attr('disabled', true);
     }
-    companySpan.removeClass('show');
-    this.unlockButton();
   },
 
   unlockButton() {
-    const emailInput = $('#email')[0];
-    const companyInput = $('#company')[0];
-    const button = $('#send-btn');
-    if (this.isEmail(emailInput.value) && companyInput.value !== '') {
-      button.removeAttr('disabled');
+    const sendBtn = $('#send-btn');
+    const isValid = this.fieldsConfig.every((fieldConf) => {
+      const field = $(fieldConf.inputSelector, this.$el)[0];
+
+      return fieldConf.validator(field.value);
+    });
+
+    if (isValid) {
+      sendBtn.removeAttr('disabled');
     }
   },
   onShow() {
@@ -88,13 +120,23 @@ export default Epoxy.View.extend({
   onCancel() {
     this.hide();
   },
-  onClickSend(e) {
+
+  onSubmit() {
+    $('.loader', this.$el).addClass('show');
+    this.iframe.onload = () => this.nextAction();
+    this.iframe.onerror = () => this.nextAction();
+  },
+
+  nextAction() {
     this.hide();
-    e.preventDefault();
     Router.modals.show(new SubscribeModal());
   },
   onDestroy() {
-    $('#email').off('input');
-    $('#company').off('input');
+    this.fieldsConfig.forEach((fieldConf) => {
+      const field = $(fieldConf.inputSelector, this.$el);
+
+      field.off('input');
+    });
+    this.removeDummyElements();
   },
 });

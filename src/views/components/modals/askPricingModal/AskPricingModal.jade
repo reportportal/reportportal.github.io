@@ -10,18 +10,38 @@
     p.text But if you are looking for dedicated Professional support for installation, Integration, or ReportPortal customization, then we can propose it starting at <span>6 480$</span>.
   .text-block
     p.text For more details please leave your e-mail and we contact you in the next few days.
-  .data-block
+  form(id='lead_form', action='https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', method='POST', target='dummyframe', data-js-leadForm).form-block
+    input(type='hidden', name='oid', value='00D24000000k2Rp')
+    input(type='hidden', name='retURL', value='http://')
     .field
       .input-block
         .icon-block
-          img(src=require("./img/email.svg")).img
-        input(type=text, id='email', placeholder='E-mail', value='', data-js-email)
+          img(src=require("./img/user.svg")).img
+        input(type='text', id='first_name', name='first_name', size='20', placeholder='First name', value='' , data-js-firstNsame)
+      span.validation-error(id='first_name-error') Can't be empty
+    .field
+      .input-block
+        .icon-block
+          img(src=require("./img/user.svg")).img
+        input(type='text', id='last_name', name='last_name', size='20', placeholder='Last name', value='' , data-js-lastNsame)
+      span.validation-error(id='last_name-error') Can't be empty
+    .field
+      .input-block
+        .icon-block
+          img(src=require("./img/user.svg")).img
+        input(type='text', id='email', name='email', size='20', placeholder='E-mail', value='', data-js-email)
       span.validation-error(id='email-error') Invalid e-mail
     .field
       .input-block
         .icon-block
           img(src=require("./img/company.svg")).img
-        input(type=text, id='company', placeholder='Company name', value='' , data-js-company)
+        input(type='text', id='company', name='company', size='20', placeholder='Company name', value='' , data-js-company)
       span.validation-error(id='company-error') Can't be empty
-  button.send-btn(id='send-btn', data-js-send, disabled) Send
+    select.hidden(id='lead_source', name='lead_source')
+      option(value='ReportPortal', selected)
+    select.hidden(id='lead_status', name='lead_status')
+      option(value='New', selected)
+  button.send-btn(id='send-btn', form='lead_form', type='submit', disabled) Send
+  .loader
+    .logo
 

@@ -64,7 +64,12 @@ module.exports = (env = defaultEnv) => ({
           { loader: 'sass-loader', options: { sourceMap: env.dev } },
           {
             loader: 'sass-resources-loader',
-            options: { resources: path.resolve(__dirname, 'src/common/css/variables/**/*.scss') },
+            options: {
+              resources: [
+                path.resolve(__dirname, 'src/common/css/variables/**/*.scss'),
+                path.resolve(__dirname, 'src/common/css/mixins.scss'),
+              ]
+            },
           },
         ],
       },
