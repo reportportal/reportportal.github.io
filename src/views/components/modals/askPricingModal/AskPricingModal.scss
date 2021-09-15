@@ -6,6 +6,11 @@
   bottom: 0;
   z-index: 100;
 
+  .hidden {
+    visibility: hidden;
+    position: absolute;
+  }
+
   .modal-backdrop {
     position: absolute;
     top: 0;
@@ -39,6 +44,18 @@
 
     .hide {
       display: none;
+    }
+
+    .loader {
+      @include loader();
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+
+      &.show {
+        display: block;
+      }
     }
 
     .close {
@@ -107,7 +124,8 @@
       }
     }
 
-    .data-block {
+    .form-block {
+      position: relative;
       width: 100%;
 
       .field {
