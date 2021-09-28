@@ -28,7 +28,7 @@ $MOBILE-INTERFACE-WIDTH: 600px;
   background-image: $url;
 }
 
-@mixin video-preview($displayProperty : block ) {
+@mixin video-preview() {
   a {
     text-decoration: none;
     color: $COLOR-TEALISH;
@@ -57,8 +57,8 @@ $MOBILE-INTERFACE-WIDTH: 600px;
         transition: all .1s linear;
       }
       &:hover:before {
-        display: $displayProperty;
-        background-color: rgba(255, 255, 255, 0.4);
+        display: block;
+        background-color: rgba(13, 112, 119, 0.1)
       }
     }
   }
