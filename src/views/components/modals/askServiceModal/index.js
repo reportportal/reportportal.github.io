@@ -2,13 +2,13 @@ import Router from 'router';
 import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import BaronScroll from 'utils/baronScroll';
-import template from './AskPricingModal.jade';
-import './AskPricingModal.scss';
+import template from './AskServiceModal.jade';
+import './AskServiceModal.scss';
 import SubscribeModal from '../subscribeModal';
 
 export default Epoxy.View.extend({
   template,
-  className: 'ask-pricing-modal',
+  className: 'ask-service-modal',
   events: {
     'click .baron_scroller': 'onClickBackdrop',
     'click [data-js-cancel]': 'onCancel',
