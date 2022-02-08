@@ -15,7 +15,7 @@ name: Deploy to AWS S3
 env:
   AWS_S3_BUCKET_NAME : "rpp-landing"
   AWS_REGION_NAME : "eu-central-1"
-  BUILD_DIR : ""
+  BUILD_DIR : "dist/"
 
 
 on:
