@@ -105,17 +105,6 @@
             }
           }
         }
-        .git {
-          margin-right: 9px;
-          cursor: pointer;
-          overflow: hidden;
-
-          &:hover {
-            .github-icon {
-              background: url(../../../common/img/social/icon-gh-hover.svg) center no-repeat;
-            }
-          }
-        }
 
         .menu-item {
           padding: 8px 0;
@@ -279,29 +268,6 @@
             -moz-box-sizing: border-box;
             box-sizing: border-box;
             cursor: pointer;
-
-            &.git {
-              width: 100px;
-              padding: 15px 13px;
-            }
-            &.slack {
-              background: url(../../../common/img/social/icon-sl.svg) center no-repeat;
-            }
-            &.facebook {
-              background: url(../../../common/img/social/icon-fb.svg) center no-repeat;
-            }
-            &.twitter {
-              background: url(../../../common/img/social/icon-tw.svg) center no-repeat;
-            }
-            &.youtube {
-              background: url(../../../common/img/social/icon-yt.svg) center no-repeat;
-            }
-            &.vk {
-              background: url(../../../common/img/social/icon-vk.svg) center no-repeat;
-            }
-            &.mail {
-              background: url(../../../common/img/social/icon-mail.svg) center no-repeat;
-            }
 
           }
         }

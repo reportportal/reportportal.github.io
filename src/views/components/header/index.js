@@ -5,9 +5,6 @@ import template from './Header.jade';
 import './Header.scss';
 import AskServiceModal from 'components/modals/askServiceModal';
 
-import HeaderSocial from './__social';
-import GitHubStarsCount from 'components/gitHubStarsCount';
-
 const WITHOUT_SHADOW_CLASS = 'without-shadow';
 
 export default Epoxy.View.extend({
@@ -24,12 +21,6 @@ export default Epoxy.View.extend({
   initialize(options) {
     this.mainScrollEl = options.mainScrollEl;
     this.renderTemplate();
-    this.headerSocial = new HeaderSocial();
-    $('[data-js-social-container]', this.$el).html(this.headerSocial.$el);
-    this.gitHubStarsCount = new GitHubStarsCount();
-    $('[data-js-github-stars-container]', this.$el).html(this.gitHubStarsCount.$el);
-    this.gitTopHubStarsCount = new GitHubStarsCount();
-    $('[data-js-top-github-stars-container]', this.$el).html(this.gitTopHubStarsCount.$el);
     this.scrollActivePage = false;
     this.mainScrollEl.scroll((e) => {
       if (this.scrollActivePage) {
