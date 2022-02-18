@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 EPAM Systems
+ * Copyright 2022 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,22 +16,22 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import './bodyLayout.scss';
 
-const BodyLayout = ({ children, backgroundUrl }) => (
-  <div
-      className="body-layout"
-      style={{ backgroundImage: `url(${backgroundUrl})` }}
-  >
-    {children}
+const BodyLayout = ({ children, className }) => (
+  <div className={classnames('body-layout', className)}>
+    <div className={className}>
+      {children}
+    </div>
   </div>
 );
 BodyLayout.propTypes = {
-  backgroundUrl: PropTypes.string,
-  children: PropTypes.node,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 BodyLayout.defaultProps = {
-  backgroundUrl: '',
+  className: '',
 };
 
 export default BodyLayout;

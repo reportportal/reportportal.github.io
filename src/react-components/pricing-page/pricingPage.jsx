@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 EPAM Systems
+ * Copyright 2022 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,19 +15,19 @@
  */
 
 import React from 'react';
-import reactWrapper from '../../views/pages/prices-page/reactWrapper';
-import './pricesPage.scss';
-import BodyLayout from '../layouts/bodyLayout.jsx';
-import background from './img/background.svg';
+import reactWrapper from 'pages/pricing-page/reactWrapper';
+import './pricingPage.scss';
+import BodyLayout from 'react-components/layouts/bodyLayout.jsx';
 
 const headerText = 'Flexible options for cloud\n or self hosted installation';
+const className = 'pricing-page';
 
-const Layout = () => <BodyLayout backgroundUrl={background}>
-    <React.Fragment>
-        <div className="prices-page-header">{headerText}</div>
+const Layout = () => <BodyLayout className={className}>
+    <>
+        <div className="pricing-page-header">{headerText}</div>
         <div style={{ height: 700, textAlign: 'center' }}>Plans block</div>
         <div style={{ height: 200, textAlign: 'center' }}>Questions</div>
-    </React.Fragment>
+    </>
 </BodyLayout>;
 
 export default reactWrapper(Layout);

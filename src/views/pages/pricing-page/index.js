@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 EPAM Systems
+ * Copyright 2022 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,15 +17,15 @@
 import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import Footer from 'components/footer';
-import PricesPage from '../../../react-components/prices-page/pricesPage.jsx';
-import template from './prices-page.jade';
+import PricingPage from 'react-components/pricing-page/pricingPage.jsx';
+import template from './pricing-page.jade';
 
 export default Epoxy.View.extend({
   template,
-  className: 'prices-page',
+  className: 'pricing-page',
   initialize() {
     this.renderTemplate();
-    this.view = new PricesPage({ model: null, el: $('[data-js-sections-container]', this.$el) });
+    this.view = new PricingPage({ model: null, el: $('[data-js-sections-container]', this.$el) });
     $('[data-js-sections-container]', this.$el).append(this.view.render());
     this.footer = new Footer();
     $('[data-js-footer-container]', this.$el).html(this.footer.$el);
