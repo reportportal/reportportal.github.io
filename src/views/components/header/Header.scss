@@ -105,17 +105,6 @@
             }
           }
         }
-        .git {
-          margin-right: 9px;
-          cursor: pointer;
-          overflow: hidden;
-
-          &:hover {
-            .github-icon {
-              background: url(../../../common/img/social/icon-gh-hover.svg) center no-repeat;
-            }
-          }
-        }
 
         .menu-item {
           padding: 8px 0;
@@ -302,7 +291,6 @@
             &.mail {
               background: url(../../../common/img/social/icon-mail.svg) center no-repeat;
             }
-
           }
         }
 
