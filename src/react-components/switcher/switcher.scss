@@ -1,0 +1,84 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.switcher {
+  .switcher-item {
+    cursor: pointer;
+    &.active {
+    }
+  }
+
+  &.big-switcher {
+    margin: auto;
+    height: 44px;
+    background-color: $COLOR-WHITE_TWO;
+    border: 1px solid $COLOR-GRAY-91;
+    box-sizing: border-box;
+    border-radius: 25px;
+
+    .switcher-item {
+      line-height: 42px;
+      display: inline-block;
+
+      .item {
+        font-size: 16px;
+        color: $COLOR-TOPAZ;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      &.active {
+        height: 42px;
+        background: $COLOR-TEALISH;
+        border-radius: 23px;
+
+        .item {
+          color: $COLOR-WHITE_TWO;
+        }
+      }
+    }
+  }
+
+  &.small-switcher {
+    margin: auto;
+    height: 24px;
+
+    &.with-separator {
+      .switcher-item + .switcher-item {
+        background: url('../img/separator.svg') no-repeat 0 5px;
+      }
+    }
+
+    .switcher-item {
+      line-height: 24px;
+      display: inline-block;
+
+      .item {
+        font-size: 16px;
+        color: $COLOR-STEEL-GREY;
+        vertical-align: middle;
+        text-align: center;
+        padding: 4px;
+      }
+
+      &.active {
+        .item {
+          color: $COLOR-TEALISH;
+        }
+      }
+    }
+  }
+}
