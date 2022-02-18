@@ -34,6 +34,7 @@ module.exports = (env = defaultEnv) => ({
       components: path.resolve(__dirname, 'src/views/components'),
       utils: path.resolve(__dirname, 'src/utils'),
       common: path.resolve(__dirname, 'src/common'),
+      'react-components': path.resolve(__dirname, 'src/react-components'),
     },
   },
   module: {
