@@ -14,65 +14,53 @@
  * limitations under the License.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './switcher.scss';
 
-const BORDER_WIDTH = 2;
+const BIG = 'big';
+const SMALL = 'small';
 
 const Switcher = ({
+  className,
   itemsData,
   handleSelect,
-  className,
-  switcherWidth,
   isItemsEqualWidth,
   isSeparatorNeeded,
+  size,
 }) => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([...itemsData]);
 
-  useEffect(() => {
-    const hasActiveItem = itemsData.filter(item => item.isActive).length;
-    const currentItems = [...itemsData];
-    if (!hasActiveItem) {
-      currentItems[0].isActive = true;
-    }
-    setItems(currentItems);
-  }, [itemsData]);
-
-  const onClick = (e) => {
-    const id = e.currentTarget.id;
-
+  const onClick = (id) => {
     const hasChange = !items.filter(item => item.id === id)[0].isActive;
     if (!hasChange) {
       return;
     }
 
     const currentItems = items.map(
-      item => (item.id === id
-        ? { ...item, isActive: true }
-        : { ...item, isActive: false }),
+      item => ({ ...item, isActive: item.id === id }),
     );
     setItems(currentItems);
     handleSelect(id);
   };
 
-  const itemWidth = isItemsEqualWidth
-    ? (switcherWidth - BORDER_WIDTH) / items.length
-    : 'auto';
-
   return (
     <div
-      className={classnames('switcher', className, isSeparatorNeeded && 'with-separator')}
-      style={{ width: switcherWidth }}
+      className={classnames(
+        'switcher',
+        className,
+        size,
+        isItemsEqualWidth && 'equal-width',
+        isSeparatorNeeded && 'with-separator',
+      )}
     >
       {items.map(item => (
         <div
           key={item.id}
           id={item.id}
           className={classnames('switcher-item', { active: item.isActive })}
-          onClick={onClick}
-          style={{ width: itemWidth }}
+          onClick={() => onClick(item.id)}
         >
           <div className="item">
             {item.element}
@@ -92,16 +80,18 @@ Switcher.propTypes = {
       ]),
       isActive: PropTypes.bool,
     }),
-  ),
+  ).isRequired,
   handleSelect: PropTypes.func.isRequired,
-  switcherWidth: PropTypes.number.isRequired,
   className: PropTypes.string,
   isItemsEqualWidth: PropTypes.bool,
   isSeparatorNeeded: PropTypes.bool,
+  size: PropTypes.oneOf([BIG, SMALL]),
 };
 Switcher.defaultProps = {
-  itemsData: [],
+  className: '',
   isItemsEqualWidth: false,
   isSeparatorNeeded: false,
+  size: SMALL,
 };
+
 export default Switcher;

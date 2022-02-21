@@ -15,13 +15,20 @@
  */
 
 .switcher {
-  .switcher-item {
-    cursor: pointer;
-    &.active {
-    }
+  width: fit-content;
+  display: flex;
+
+  &.equal-width .switcher-item {
+    flex-grow: 1;
+    flex-basis: 0;
   }
 
-  &.big-switcher {
+  .switcher-item {
+    width: auto;
+    cursor: pointer;
+  }
+
+  &.big {
     margin: auto;
     height: 44px;
     background-color: $COLOR-WHITE_TWO;
@@ -52,7 +59,7 @@
     }
   }
 
-  &.small-switcher {
+  &.small {
     margin: auto;
     height: 24px;
 

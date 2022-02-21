@@ -21,12 +21,9 @@ import QuestionsForm from 'react-components/questions-form/questionsForm.jsx';
 import PlansBlock from 'react-components/plans-block/plansBlock.jsx';
 import './pricingPage.scss';
 
-const HEADER_TEXT = 'Flexible options for cloud\n or self hosted installation';
-const PRICING_PAGE_CLASSNAME = 'pricing-page';
-
-const Layout = () => <BodyLayout className={PRICING_PAGE_CLASSNAME}>
+const Layout = () => <BodyLayout className="pricing-page">
   <>
-    <div className="pricing-page-header">{HEADER_TEXT}</div>
+    <div className="pricing-page-header">Flexible options for cloud<br /> or self hosted installation</div>
     <PlansBlock />
     <QuestionsForm />
   </>
