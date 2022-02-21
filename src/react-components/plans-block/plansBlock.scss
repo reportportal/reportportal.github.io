@@ -1,0 +1,41 @@
+.plan-switcher {
+  width: 618px;
+
+  .icon {
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 4px;
+
+    &.cloud {
+      background: url('../img/cloud.svg') no-repeat;
+    }
+
+    &.home {
+      background: url('../img/home.svg') no-repeat;
+    }
+  }
+
+  .switcher-item.active {
+    .icon {
+      height: 32px;
+      width: 32px;
+      display: inline-block;
+      vertical-align: middle;
+      padding-right: 4px;
+
+      &.cloud {
+        background: url('../img/cloud-active.svg') no-repeat;
+      }
+
+      &.home {
+        background: url('../img/home-active.svg') no-repeat;
+      }
+    }
+  }
+}
+
+.period-switcher {
+  width: 188px;
+}

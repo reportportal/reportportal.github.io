@@ -26,6 +26,7 @@ const BodyLayout = ({ children, className }) => (
     </div>
   </div>
 );
+
 BodyLayout.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,

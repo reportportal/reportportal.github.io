@@ -16,18 +16,17 @@
 
 import React from 'react';
 import reactWrapper from 'pages/pricing-page/reactWrapper';
-import './pricingPage.scss';
 import BodyLayout from 'react-components/layouts/bodyLayout.jsx';
+import QuestionsForm from 'react-components/questions-form/questionsForm.jsx';
+import PlansBlock from 'react-components/plans-block/plansBlock.jsx';
+import './pricingPage.scss';
 
-const headerText = 'Flexible options for cloud\n or self hosted installation';
-const className = 'pricing-page';
-
-const Layout = () => <BodyLayout className={className}>
-    <>
-        <div className="pricing-page-header">{headerText}</div>
-        <div style={{ height: 700, textAlign: 'center' }}>Plans block</div>
-        <div style={{ height: 200, textAlign: 'center' }}>Questions</div>
-    </>
+const Layout = () => <BodyLayout className="pricing-page">
+  <>
+    <div className="pricing-page-header">Flexible options for cloud<br /> or self hosted installation</div>
+    <PlansBlock />
+    <QuestionsForm />
+  </>
 </BodyLayout>;
 
 export default reactWrapper(Layout);
