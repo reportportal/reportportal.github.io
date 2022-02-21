@@ -26,8 +26,8 @@ const Switcher = ({
   className,
   itemsData,
   handleSelect,
-  isItemsEqualWidth,
-  isSeparatorNeeded,
+  withItemsEqualWidth,
+  withSeparator,
   size,
 }) => {
   const [items, setItems] = useState([...itemsData]);
@@ -51,14 +51,15 @@ const Switcher = ({
         'switcher',
         className,
         size,
-        isItemsEqualWidth && 'equal-width',
-        isSeparatorNeeded && 'with-separator',
+        {
+          'equal-width': withItemsEqualWidth,
+          'with-separator': withSeparator,
+        },
       )}
     >
       {items.map(item => (
         <div
           key={item.id}
-          id={item.id}
           className={classnames('switcher-item', { active: item.isActive })}
           onClick={() => onClick(item.id)}
         >
@@ -83,14 +84,14 @@ Switcher.propTypes = {
   ).isRequired,
   handleSelect: PropTypes.func.isRequired,
   className: PropTypes.string,
-  isItemsEqualWidth: PropTypes.bool,
-  isSeparatorNeeded: PropTypes.bool,
+  withItemsEqualWidth: PropTypes.bool,
+  withSeparator: PropTypes.bool,
   size: PropTypes.oneOf([BIG, SMALL]),
 };
 Switcher.defaultProps = {
   className: '',
-  isItemsEqualWidth: false,
-  isSeparatorNeeded: false,
+  withItemsEqualWidth: false,
+  withSeparator: false,
   size: SMALL,
 };
 

@@ -34,13 +34,13 @@ const handleSwitcherItemSelect = (id) => {
 const PlansBlock = () => (
   <div style={{ height: 700, textAlign: 'center' }}>
     Plans block
-    <Switcher className="plan-switcher" itemsData={data} handleSelect={handleSwitcherItemSelect} isItemsEqualWidth size='big' />
-    <Switcher className="plan-switcher" itemsData={data2} handleSelect={handleSwitcherItemSelect} isItemsEqualWidth size='big' />
-    <Switcher className="plan-switcher" itemsData={data3} handleSelect={handleSwitcherItemSelect} isItemsEqualWidth size='big' />
+    <Switcher className="plan-switcher" itemsData={data} handleSelect={handleSwitcherItemSelect} withItemsEqualWidth size='big' />
+    <Switcher className="plan-switcher" itemsData={data2} handleSelect={handleSwitcherItemSelect} withItemsEqualWidth size='big' />
+    <Switcher className="plan-switcher" itemsData={data3} handleSelect={handleSwitcherItemSelect} withItemsEqualWidth size='big' />
     <Switcher itemsData={data3} handleSelect={handleSwitcherItemSelect} size='big' />
 
-    <Switcher className="period-switcher" itemsData={data4} handleSelect={handleSwitcherItemSelect} isSeparatorNeeded/>
-    <Switcher className="period-switcher" itemsData={data5} handleSelect={handleSwitcherItemSelect} isSeparatorNeeded/>
+    <Switcher className="period-switcher" itemsData={data4} handleSelect={handleSwitcherItemSelect} withSeparator />
+    <Switcher className="period-switcher" itemsData={data5} handleSelect={handleSwitcherItemSelect} withSeparator />
   </div>
 );
 
