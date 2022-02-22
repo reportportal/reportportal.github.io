@@ -32,4 +32,16 @@
   &:hover {
     background: $COLOR-TOPAZ;
   }
+
+  &.light {
+    background: $COLOR-WHITE_TWO;
+    border: 1px solid $COLOR-TEALISH;
+    box-sizing: border-box;
+    color: $COLOR-TEALISH;
+
+    &:hover {
+      color: $COLOR-TOPAZ;
+      border-color: $COLOR-TOPAZ;
+    }
+  }
 };
