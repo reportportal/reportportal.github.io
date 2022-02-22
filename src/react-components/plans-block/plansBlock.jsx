@@ -29,26 +29,43 @@ const PlansBlock = () => {
   const [isComparisonTableOpened, setIsComparisonTableOpened] = useState(false);
 
   useEffect(() => {
-    const currentPlanSwitcherData = plansData.map((plan) => ({
-      id: plan.name,
-      element: <><div className={classnames('icon', plan.iconType)}/>{plan.name}</>,
-    }));
-    if (currentPlanSwitcherData.length) {
+    let hasActive = false;
+
+    const currentPlanSwitcherData = plansData.map((plan) => {
+      if (plan.isActive) {
+        hasActive = true;
+      }
+
+      return {
+        id: plan.name,
+        element: <><div className={classnames('icon', plan.iconType)}/>{plan.name}</>,
+        isActive: plan.isActive,
+      };
+    });
+
+    if (!hasActive && currentPlanSwitcherData.length) {
       currentPlanSwitcherData[0].isActive = true;
     }
     setPlanSwitcherData(currentPlanSwitcherData);
   }, []);
 
   useEffect(() => {
+    let activePeriodId = '';
+
     const currentPeriodSwitcherData = selectedPlanData.periods
-      ? selectedPlanData.periods.map(period => ({ id: period.id, element: period.name }))
+      ? selectedPlanData.periods.map(period => {
+        if (period.isActive) {
+          activePeriodId = period.id;
+        }
+        return { id: period.id, element: period.name, isActive: period.isActive };
+      })
       : [];
-    if (currentPeriodSwitcherData.length) {
+
+    if (!activePeriodId && currentPeriodSwitcherData.length) {
       currentPeriodSwitcherData[0].isActive = true;
-      setSelectedPeriodId(currentPeriodSwitcherData[0].id);
-    } else {
-      setSelectedPeriodId(undefined);
+      activePeriodId = currentPeriodSwitcherData[0].id;
     }
+    setSelectedPeriodId(activePeriodId);
     setPeriodSwitcherData(currentPeriodSwitcherData || []);
   }, [selectedPlanData]);
 

@@ -17,9 +17,9 @@
 .body-layout {
 
   &.pricing-page {
-    background-image: url(../img/backgroundPricingPage.svg);
+    background-image: url(../img/backgroundPricingPageFullHD.svg);
     background-repeat: no-repeat;
-    background-position-y: -60px;
+    background-size: 100% auto;
   }
 
   .pricing-page {
