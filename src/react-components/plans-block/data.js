@@ -13,16 +13,17 @@ const plansData = [
   {
     name: 'We Host',
     iconType: 'cloud',
+    isActive: true,
     periods: [
       { id: 'sale', name: 'Yearly save 5%' },
-      { id: 'full', name: 'Monthly' },
+      { id: 'full', name: 'Monthly', isActive: true },
     ],
     cardsInfo: [
       {
         name: 'Free',
         description: 'For quick start',
         price: { full: '$0', sale: '$0' },
-        button: <Button className='light'>SignUp</Button>,
+        button: <Button className='light'>Sign Up</Button>,
         options: {
           storage: '3 Gb.',
           history: '7 days',
@@ -33,7 +34,7 @@ const plansData = [
         name: 'Start-Up',
         description: 'For small team',
         price: { full: '$1000', sale: '$950' },
-        button: <Button>SignUp</Button>,
+        button: <Button>Sign Up</Button>,
         popular: 'popular',
         options: {
           storage: '50 Gb.',
@@ -72,7 +73,7 @@ const plansData = [
     description: 'High-performance multi-tenant or individual instances of the SaaS ReportPortal that is running in AWS Cloud with the latest, most recent application version at all times, with no updating necessary.',
   },
   {
-    name: 'You host & We Manage',
+    name: 'You Host & We Manage',
     iconType: 'home',
     cardsInfo: [
       {
@@ -82,7 +83,7 @@ const plansData = [
           <div className="first-level-description">hours</div>
           <div className="second-level-description">of support</div>
         </div>,
-        price: { full: '$2500' },
+        price: { full: '$2,500' },
         button: <Button className='light'>Contact Us</Button>,
         withClock: 'with-clock',
         options: { support: '32' },
@@ -94,7 +95,7 @@ const plansData = [
           <div className="first-level-description">hours</div>
           <div className="second-level-description">of support</div>
         </div>,
-        price: { full: '$4000' },
+        price: { full: '$4,000' },
         button: <Button className='light'>Contact Us</Button>,
         popular: 'popular',
         withClock: 'with-clock',
