@@ -33,29 +33,10 @@ const QuestionsForm = () => {
     console.log('questions form send click');
   };
 
-  // todo add validation for all handlers
-  const onFirstNameChange = (event) => {
-    const currentFirstName = event.target.value;
-    setFirstName(currentFirstName);
-    setFirstNameError(!currentFirstName);
-  };
-
-  const onLastNameChange = (event) => {
-    const currentLastName = event.target.value;
-    setLastName(currentLastName);
-    setLastNameError(!currentLastName);
-  };
-
-  const onEmailChange = (event) => {
-    const currentEmail = event.target.value;
-    setEmail(currentEmail);
-    setEmailError(!currentEmail);
-  };
-
-  const onCompanyNameChange = (event) => {
-    const currentCompanyName = event.target.value;
-    setCompanyName(currentCompanyName);
-    setCompanyNameError(!currentCompanyName);
+  const uniHandler = (event, fieldSetter, errorSetter) => {
+    const field = event.target.value;
+    fieldSetter(field);
+    errorSetter(!field);
   };
 
   return (
@@ -71,7 +52,7 @@ const QuestionsForm = () => {
             type="text"
             placeholder='First name'
             value={firstName}
-            onChange={onFirstNameChange}
+            onChange={(event) => uniHandler(event, setFirstName, setFirstNameError)}
           />
           {firstNameError && <div className="error-message">Please check your first name again.</div>}
         </div>
@@ -81,7 +62,7 @@ const QuestionsForm = () => {
             type="text"
             placeholder='Last name'
             value={lastName}
-            onChange={onLastNameChange}
+            onChange={(event) => uniHandler(event, setLastName, setLastNameError)}
           />
           {lastNameError && <div className="error-message">Please check your last name again.</div>}
         </div>
@@ -91,7 +72,7 @@ const QuestionsForm = () => {
             type="text"
             placeholder='Email'
             value={email}
-            onChange={onEmailChange}
+            onChange={(event) => uniHandler(event, setEmail, setEmailError)}
           />
           {emailError && <div className="error-message">Please check your email again.</div>}
         </div>
@@ -101,12 +82,14 @@ const QuestionsForm = () => {
             type="text"
             placeholder='Company name'
             value={companyName}
-            onChange={onCompanyNameChange}
+            onChange={(event) => uniHandler(event, setCompanyName, setCompanyNameError)}
           />
           {companyNameError && <div className="error-message">Please check your company name again.</div>}
         </div>
       </div>
-      <Button onClick={onClick} text='Send' />
+      <Button onClick={onClick}>
+        Send
+      </Button>
     </div>
   );
 };

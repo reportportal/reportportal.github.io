@@ -71,7 +71,7 @@
       }
 
       .error-message {
-        display: table-cell;
+        position: absolute;
         color: $COLOR--error-red;
         font-size: 12px;
         line-height: 16px;
