@@ -27,8 +27,8 @@ export default Epoxy.View.extend({
     this.header.activatePage('');
     this.renderPage(IndexPage);
   },
-  renderPrices() {
-    this.header.activatePage('prices');
+  renderPricing() {
+    this.header.activatePage('pricing');
     this.renderPage(PricingPage);
   },
   renderCommunity() {
