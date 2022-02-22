@@ -17,27 +17,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './button.scss';
+import './card.scss';
 
-const Button = ({ children, onClick, className }) => (
-  <div
-    className={classnames('button', className)}
-    onClick={onClick}
-  >
-    {children}
+const Card = ({
+  name,
+  description,
+  price,
+  button,
+  className,
+}) => (
+  <div className={classnames('card', className)} >
+    <div className="popular-label">Most popular</div>
+    <div className="name">{name}</div>
+    <div className="short-description">{description}</div>
+    <div className="price">{price}<span className="period">/per month</span></div>
+    <div className="button">{button}</div>
   </div>
 );
-Button.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.element.isRequired,
-    PropTypes.string.isRequired,
+
+Card.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
   ]),
-  onClick: PropTypes.func.isRequired,
+  price: PropTypes.string,
+  button: PropTypes.element,
   className: PropTypes.string,
 };
-Button.defaultProps = {
-  children: '',
+Card.defaultProps = {
+  name: '',
+  description: '',
+  price: '',
+  button: '',
   className: '',
 };
 
-export default Button;
+export default Card;

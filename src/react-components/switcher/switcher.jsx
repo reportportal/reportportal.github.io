@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './switcher.scss';
@@ -30,7 +30,11 @@ const Switcher = ({
   withSeparator,
   size,
 }) => {
-  const [items, setItems] = useState([...itemsData]);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    setItems([...itemsData]);
+  }, [itemsData]);
 
   const onClick = (id) => {
     const hasChange = !items.filter(item => item.id === id)[0].isActive;

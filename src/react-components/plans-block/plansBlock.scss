@@ -1,23 +1,23 @@
-.plan-switcher {
-  width: 618px;
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-  .icon {
-    height: 32px;
-    width: 32px;
-    display: inline-block;
-    vertical-align: middle;
-    padding-right: 4px;
+.plan-block {
+  .plan-switcher {
+    width: 618px;
 
-    &.cloud {
-      background: url('../img/cloud.svg') no-repeat;
-    }
-
-    &.home {
-      background: url('../img/home.svg') no-repeat;
-    }
-  }
-
-  .switcher-item.active {
     .icon {
       height: 32px;
       width: 32px;
@@ -26,16 +26,112 @@
       padding-right: 4px;
 
       &.cloud {
-        background: url('../img/cloud-active.svg') no-repeat;
+        background: url('../img/cloud.svg') no-repeat;
       }
 
       &.home {
-        background: url('../img/home-active.svg') no-repeat;
+        background: url('../img/home.svg') no-repeat;
+      }
+    }
+
+    .switcher-item.active {
+      .icon {
+        height: 32px;
+        width: 32px;
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 4px;
+
+        &.cloud {
+          background: url('../img/cloud-active.svg') no-repeat;
+        }
+
+        &.home {
+          background: url('../img/home-active.svg') no-repeat;
+        }
       }
     }
   }
-}
 
-.period-switcher {
-  width: 188px;
+  .period-switcher {
+    width: 188px;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .plan-cards {
+    display: inline-flex;
+    margin: auto;
+    padding-bottom: 64px;
+    width: 100%;
+    justify-content: center;
+
+    .card + .card {
+      margin-left: 8px;
+    }
+  }
+
+  .comparison-table {
+    padding-bottom: 79px;
+
+    .table-header {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 36px;
+      text-align: center;
+      color: $COLOR-STEEL-GREY;
+      width: fit-content;
+      margin: auto;
+      cursor: pointer;
+
+      .condition-icon {
+        background: url('../img/plus.svg') no-repeat 0 2px;
+        display: inline-block;
+        height: 24px;
+        width: 24px;
+        padding-right: 8px;
+      }
+    }
+
+    .table {
+      display: none;
+    }
+
+    &.open {
+      .condition-icon {
+        background: url('../img/minus.svg') no-repeat 0 2px;
+      }
+
+      .table {
+        display: block;
+      }
+    }
+  }
+
+  .description {
+    max-width: 784px;
+    margin: auto;
+    display: flex;
+    padding-bottom: 92px;
+
+    .name {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 36px;
+      text-align: center;
+      color: $COLOR-TOPAZ;
+      padding-right: 16px;
+      width: fit-content;
+      height: 32px;
+      white-space: nowrap;
+    }
+
+    .text {
+      font-size: 16px;
+      line-height: 24px;
+      color: $COLOR-STEEL-GREY;
+      max-width: 642px;
+      height: 72px;
+    }
+  }
 }
