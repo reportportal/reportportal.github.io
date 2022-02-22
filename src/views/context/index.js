@@ -9,7 +9,7 @@ import DocumentationPage from 'pages/documentation-page';
 import InstallationPage from 'pages/installation-page';
 import FeaturesPage from 'pages/features-page';
 import ReleasesPage from 'pages/releases-page';
-import PricesPage from 'pages/prices-page';
+import PricingPage from 'pages/pricing-page';
 
 export default Epoxy.View.extend({
   template,
@@ -27,9 +27,9 @@ export default Epoxy.View.extend({
     this.header.activatePage('');
     this.renderPage(IndexPage);
   },
-  renderPrices() {
-    this.header.activatePage('prices');
-    this.renderPage(PricesPage);
+  renderPricing() {
+    this.header.activatePage('pricing');
+    this.renderPage(PricingPage);
   },
   renderCommunity() {
     this.header.activatePage('community');
