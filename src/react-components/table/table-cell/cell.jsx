@@ -14,13 +14,24 @@
  * limitations under the License.
  */
 
-.pricing-page-header {
-  padding-top: 64px;
-  padding-bottom: 56px;
-  font-family: $FONT-HEADER;
-  font-size: 42px;
-  line-height: 54px;
-  text-align: center;
-  color: $COLOR-STEEL-GREY;
-  white-space: pre-line;
-}
+import React from 'react';
+import classnames from 'classnames';
+import PropTypes from 'prop-types';
+import './cell.scss';
+
+const Cell = ({ children, className }) => (
+  <div className={classnames('cell', className)}>
+    {children}
+  </div>
+);
+
+Cell.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+Cell.defaultProps = {
+  className: '',
+  children: null,
+};
+
+export default Cell;

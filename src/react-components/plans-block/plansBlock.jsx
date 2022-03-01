@@ -18,6 +18,8 @@ import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 import Switcher from 'react-components/switcher/switcher.jsx';
 import Card from 'react-components/card/card.jsx';
+import Table from 'react-components/table/table.jsx';
+import Info from 'react-components/info/info.jsx';
 import plansData from './data';
 import './plansBlock.scss';
 
@@ -71,6 +73,7 @@ const PlansBlock = () => {
 
   const handlePlanSwitcherSelect = (id) => {
     setSelectedPlanData(plansData.find(plan => plan.name === id));
+    setIsComparisonTableOpened(false);
   };
 
   const handlePeriodSwitcherSelect = (id) => {
@@ -88,13 +91,35 @@ const PlansBlock = () => {
     return selectedPeriodId === 'full' ? price.full : price.sale;
   };
 
-  // todo add table
+  const getComparisonTableData = () => {
+    const headers = selectedPlanData.plansInfo.map(plan => plan.name);
+
+    const rows = selectedPlanData.compareTableTitles.map(title => {
+      const options = selectedPlanData.plansInfo.map(plan => plan.options[title.id]);
+      const modifiedOptions = options.map(option => (option === 'true' ? <div className="true-icon"/> : option));
+      return [<div key={title.name} className="inline-title">
+        {title.name}
+        {title.info && <Info tooltip={title.info}><div className="info-icon" /></Info>}
+      </div>, ...modifiedOptions];
+    });
+    headers.unshift('');
+
+    const footer = <td colSpan={headers.length} style={{ borderRadius: '12px' }}>
+      <div className="footer-row">
+        <div className="terms">Terms & Conditions</div>
+        <div className="note">*payment is made quarterly</div>
+      </div>
+    </td>;
+
+    return { headers, rows, footer };
+  };
+
   return (
     <div className="plan-block">
       <Switcher className="plan-switcher" itemsData={planSwitcherData} handleSelect={handlePlanSwitcherSelect} withItemsEqualWidth size='big'/>
       <Switcher className="period-switcher" itemsData={periodSwitcherData} handleSelect={handlePeriodSwitcherSelect} withSeparator/>
       <div className="plan-cards">
-        {selectedPlanData.cardsInfo.map(cardInfo => (
+        {selectedPlanData.plansInfo.map(cardInfo => (
           <Card
             className={classnames(cardInfo.popular, cardInfo.withClock, cardInfo.withFullClock)}
             key={cardInfo.name}
@@ -107,7 +132,10 @@ const PlansBlock = () => {
       </div>
       <div className={classnames('comparison-table', { open: isComparisonTableOpened })}>
         <div className="table-header" onClick={onComparisonTableClick}><div className="condition-icon"/>Compare plans</div>
-        <div className="table">table</div>
+        <Table
+          className="compare-plans-table"
+          data={getComparisonTableData()}
+        />
       </div>
       <div className="description"><div className="name">{`${selectedPlanData.name} —`}</div><div className="text">{selectedPlanData.description}</div></div>
     </div>
