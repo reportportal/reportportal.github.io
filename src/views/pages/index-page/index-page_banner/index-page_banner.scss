@@ -1,6 +1,5 @@
 @import '../../pageSectionMixin';
 $COLOR-background: #76D4ED;
-$COLOR-green: #42B027;
 
 .index-page_banner {
   .section-container {
@@ -36,12 +35,7 @@ $COLOR-green: #42B027;
     display: inline-block;
     margin-bottom: 20px;
     font-size: 20px;
-    color: $COLOR-green;
-    transition: all ease 0.5s;
-
-    &:hover {
-      color: $COLOR--booger;
-    }
+    color: $COLOR_WHITE_TWO;
   }
 
   .close {
