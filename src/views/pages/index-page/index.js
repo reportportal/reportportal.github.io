@@ -4,6 +4,7 @@ import Epoxy from 'backbone.epoxy';
 import template from './index-page.jade';
 import './index-page.scss';
 
+import IndexPageBanner from './index-page_banner';
 import IndexPageWelcome from './index-page_welcome';
 import IndexPageFeatures from './index-page_features';
 import IndexPageHowWorks from './index-page_how-works';
@@ -24,7 +25,7 @@ export default Epoxy.View.extend({
     this.mainScrollEl = options.mainScrollEl;
     this.renderTemplate();
     this.sections = [];
-    const listViews = [IndexPageWelcome, IndexPageFeatures, IndexPageHowWorks,
+    const listViews = [IndexPageBanner, IndexPageWelcome, IndexPageFeatures, IndexPageHowWorks,
       IndexPageSpecification, IndexPageGitHubFork, IndexPageStartWith, IndexPageTwitter];
     _.each(listViews, (constructor) => {
       const view = new constructor();
