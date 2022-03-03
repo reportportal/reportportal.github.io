@@ -1,5 +1,5 @@
 @import '../../pageSectionMixin';
-$COLOR-background: #76D4ED;
+$COLOR-background: #F3FCFC;
 
 .index-page_banner {
   .section-container {
@@ -10,47 +10,59 @@ $COLOR-background: #76D4ED;
     position: relative;
     max-width: 840px;
     margin: 20px auto auto;
-    padding: 16px;
-    border-radius: 2px;
+    padding: 32px 16px;
     background: $COLOR-background;
+    border: 2px solid $COLOR-TEALISH;
+    border-radius: 8px;
     text-align: center;
+    color: $COLOR-CHARCOAL-GREY;
+    font-family: $FONT-REGULAR;
   }
 
   .title {
     margin-bottom: 16px;
-    font-family: $FONT-HEADER;
-    font-size: 48px;
-    color: $COLOR_WHITE_TWO;
-    line-height: normal;
+    font-size: 42px;
+    line-height: 38px;
+    font-weight: 700;
+
+    @media (max-width: $SCREEN_SM_MIN) {
+      line-height: 46px;
+    }
   }
 
   .sub-title {
-    margin-bottom: 16px;
-    font-size: 18px;
-    color: $COLOR_WHITE_TWO;
-    line-height: normal;
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .link {
     display: inline-block;
-    margin-bottom: 20px;
-    font-size: 20px;
-    color: $COLOR_WHITE_TWO;
+    font-size: 16px;
+    line-height: 18px;
+    color: $COLOR-TOPAZ;
+    font-weight: 700;
+    transition: all ease 0.3s;
+
+    &:hover {
+      color: $COLOR-TEALISH;
+    }
   }
 
   .close {
     position: absolute;
-    right: 0;
-    top: 0;
-    width: 20px;
-    font-family: $FONT-HEADER;
-    font-size: 24px;
+    top: 14px;
+    right: 16px;
+    width: 16px;
+    font-size: 32px;
+    color: $COLOR-TEALISH;
     cursor: pointer;
-    transition: all ease 0.5s;
+    transition: all ease 0.3s;
 
     &:after {
       content: '×';
       display: block;
+      line-height: 16px;
     }
 
     &:hover {
