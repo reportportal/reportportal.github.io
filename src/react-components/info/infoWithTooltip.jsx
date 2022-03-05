@@ -17,9 +17,9 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import './info.scss';
+import './infoWithTooltip.scss';
 
-const Info = ({ children, tooltip }) => {
+const InfoWithTooltip = ({ children, tooltip }) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const [elementX, setElementX] = useState(0);
   const [elementY, setElementY] = useState(0);
@@ -53,13 +53,13 @@ const Info = ({ children, tooltip }) => {
   );
 };
 
-Info.propTypes = {
+InfoWithTooltip.propTypes = {
   className: PropTypes.string,
   children: PropTypes.element.isRequired,
   tooltip: PropTypes.string.isRequired,
 };
-Info.defaultProps = {
+InfoWithTooltip.defaultProps = {
   className: '',
 };
 
-export default Info;
+export default InfoWithTooltip;

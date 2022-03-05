@@ -19,7 +19,7 @@ import classnames from 'classnames';
 import Switcher from 'react-components/switcher/switcher.jsx';
 import Card from 'react-components/card/card.jsx';
 import Table from 'react-components/table/table.jsx';
-import Info from 'react-components/info/info.jsx';
+import InfoWithTooltip from 'react-components/info/infoWithTooltip.jsx';
 import plansData from './data';
 import './plansBlock.scss';
 
@@ -92,19 +92,18 @@ const PlansBlock = () => {
   };
 
   const getComparisonTableData = () => {
-    const headers = selectedPlanData.plansInfo.map(plan => plan.name);
+    const headers = ['', ...selectedPlanData.plansInfo.map(plan => plan.name)];
 
     const rows = selectedPlanData.compareTableTitles.map(title => {
       const options = selectedPlanData.plansInfo.map(plan => plan.options[title.id]);
-      const modifiedOptions = options.map(option => (option === 'true' ? <div className="true-icon"/> : option));
+      const modifiedOptions = options.map(option => (option === true ? <div className="true-icon"/> : option));
       return [<div key={title.name} className="inline-title">
         {title.name}
-        {title.info && <Info tooltip={title.info}><div className="info-icon" /></Info>}
+        {title.info && <InfoWithTooltip tooltip={title.info}><i className="info-icon" /></InfoWithTooltip>}
       </div>, ...modifiedOptions];
     });
-    headers.unshift('');
 
-    const footer = <td colSpan={headers.length} style={{ borderRadius: '12px' }}>
+    const footer = <td colSpan={headers.length}>
       <div className="footer-row">
         <div className="terms">Terms & Conditions</div>
         <div className="note">*payment is made quarterly</div>

@@ -27,7 +27,7 @@ const plansData = [
         options: {
           storage: '3 Gb.',
           history: '7 days',
-          features: 'true',
+          features: true,
         },
       },
       {
@@ -39,7 +39,7 @@ const plansData = [
         options: {
           storage: '50 Gb.',
           history: '90 days',
-          features: 'true',
+          features: true,
         },
       },
       {
@@ -48,11 +48,11 @@ const plansData = [
         price: { full: '$1500', sale: '$1425' },
         button: <Button className='light'>Contact Us</Button>,
         options: {
-          instance: 'true',
+          instance: true,
           support: '8',
           storage: '200 Gb.',
           history: '1 year',
-          features: 'true',
+          features: true,
         },
       },
       {
@@ -61,11 +61,11 @@ const plansData = [
         price: { full: '$4000', sale: '$3800' },
         button: <Button className='light'>Contact Us</Button>,
         options: {
-          instance: 'true',
+          instance: true,
           support: '10',
           storage: '500 Gb.',
           history: '5 year',
-          features: 'true',
+          features: true,
         },
       },
     ],
@@ -117,7 +117,7 @@ const plansData = [
         price: { full: '$10,000+' },
         button: <Button className='light'>Contact Us</Button>,
         withFullClock: 'with-full-clock',
-        options: { support: '168+', features: 'true' },
+        options: { support: '168+', features: true },
       },
     ],
     compareTableTitles: [

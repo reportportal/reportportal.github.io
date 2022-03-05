@@ -119,10 +119,14 @@
         width: 956px;
         margin: 58px auto auto;
 
+        td {
+          border-radius: 12px;
+        }
+
         .true-icon {
           width: 24px;
           height: 24px;
-          background: url('../img/true.svg') no-repeat 0 4px;
+          background: url('../img/checkmark.svg') no-repeat 0 4px;
           margin: auto;
         }
 
@@ -141,7 +145,7 @@
               margin-left: 4px;
             }
 
-            &.active .info-icon{
+            &.active .info-icon {
               background: url('../img/infoSmallActive.svg') no-repeat;
             }
           }
@@ -161,6 +165,7 @@
             text-decoration: underline;
             text-align: left;
             width: 50%;
+            cursor: pointer;
 
             &:hover {
               color: $COLOR-TEALISH;

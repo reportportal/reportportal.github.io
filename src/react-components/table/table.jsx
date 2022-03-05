@@ -26,7 +26,7 @@ const Table = ({
 }) => (
   <div className={classnames('table', className)}>
     <div className="header">
-        {data.headers.map(header => <Cell key={header} className="header-cell">{header}</Cell>)}
+      {data.headers.map(header => <Cell key={header} className="header-cell">{header}</Cell>)}
     </div>
     <div className="body">
       {data.rows.map((row, i) => <div
@@ -37,7 +37,7 @@ const Table = ({
       </div>)}
       {data.footer && <div className="footer">{data.footer}</div>}
     </div>
-</div>
+  </div>
 );
 
 Table.propTypes = {

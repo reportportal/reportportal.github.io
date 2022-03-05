@@ -38,20 +38,20 @@
     }
 
     &::before {
-      border:6px solid transparent;
-      border-bottom-color:$COLOR-TOPAZ;
-      position:absolute;
-      bottom:100%;
-      left:0px;
-      content:'';
+      border: 6px solid transparent;
+      border-bottom-color: $COLOR-TOPAZ;
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      content: '';
     }
     &::after {
-      border:5px solid transparent;
-      border-bottom-color:$COLOR-WHITE-TEXT;
-      position:absolute;
-      bottom:100%;
-      left:1px;
-      content:'';
+      border: 5px solid transparent;
+      border-bottom-color: $COLOR-WHITE-TEXT;
+      position: absolute;
+      bottom: 100%;
+      left: 1px;
+      content: '';
     }
 
     a {
