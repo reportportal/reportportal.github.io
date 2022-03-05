@@ -41,6 +41,7 @@
       display: inline-block;
 
       .item {
+        font-family: $FONT-LIGHT;
         font-size: 16px;
         color: $COLOR-TOPAZ;
         vertical-align: middle;
@@ -48,6 +49,7 @@
       }
 
       &.active {
+        font-family: $FONT-HEADER;
         height: 42px;
         background: $COLOR-TEALISH;
         border-radius: 23px;
@@ -79,6 +81,7 @@
         vertical-align: middle;
         text-align: center;
         padding: 4px;
+        font-family: $FONT-REGULAR;
       }
 
       &.active {

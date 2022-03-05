@@ -87,7 +87,7 @@
     padding-bottom: 79px;
 
     .table-header {
-      font-weight: 300;
+      font-family: $FONT-LIGHT;
       font-size: 24px;
       line-height: 36px;
       text-align: center;
@@ -105,7 +105,7 @@
       }
     }
 
-    .table {
+    .compare-plans-table {
       display: none;
     }
 
@@ -114,8 +114,73 @@
         background: url('../img/minus.svg') no-repeat 0 2px;
       }
 
-      .table {
-        display: block;
+      .compare-plans-table {
+        display: table;
+        width: 956px;
+        margin: 58px auto auto;
+
+        td {
+          border-radius: 12px;
+        }
+
+        .true-icon {
+          width: 24px;
+          height: 24px;
+          background: url('../img/checkmark.svg') no-repeat 0 4px;
+          margin: auto;
+        }
+
+        .inline-title {
+          width: 380px;
+          text-align: left;
+          padding-left: 18px;
+
+          .info {
+            .info-icon {
+              width: 18px;
+              height: 18px;
+              position: relative;
+              bottom: -3px;
+              background: url('../img/infoSmall.svg') no-repeat;
+              margin-left: 4px;
+            }
+
+            &.active .info-icon {
+              background: url('../img/infoSmallActive.svg') no-repeat;
+            }
+          }
+        }
+
+        .footer-row {
+          width: auto;
+          padding-bottom: 10px;
+          padding-left: 42px;
+          padding-right: 24px;
+
+          .terms {
+            display: inline-block;
+            font-size: 12px;
+            line-height: 16px;
+            color: $COLOR-TEXT_INFO;
+            text-decoration: underline;
+            text-align: left;
+            width: 50%;
+            cursor: pointer;
+
+            &:hover {
+              color: $COLOR-TEALISH;
+            }
+          }
+
+          .note {
+            display: inline-block;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: right;
+            color: $COLOR-TEXT_INFO;
+            width: 50%;
+          }
+        }
       }
     }
   }
@@ -127,7 +192,7 @@
     padding-bottom: 92px;
 
     .name {
-      font-weight: 300;
+      font-family: $FONT-LIGHT;
       font-size: 24px;
       line-height: 36px;
       text-align: center;
