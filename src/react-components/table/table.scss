@@ -41,8 +41,8 @@
   .body {
     display: table-row-group;
     background: $COLOR-WHITE_TWO;
-    box-shadow: 0 4px 15px $COLOR-WHITE-CARD-SHADOW;
     border-radius: 12px;
+    filter: drop-shadow(0 4px 15px $COLOR-WHITE-CARD-SHADOW);
 
     .row {
       display: table-row;
@@ -52,8 +52,7 @@
       &::after {
         content: "";
         position: absolute;
-        display: inline-block;
-        height: 1px;
+        display: inline;
         bottom: 0;
         right: 24px;
         left: 24px;
