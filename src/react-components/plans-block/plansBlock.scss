@@ -120,7 +120,7 @@
         margin: 58px auto auto;
 
         td {
-          border-radius: 12px;
+          border-radius: 0 0 12px 12px;
         }
 
         .true-icon {
@@ -137,6 +137,7 @@
 
           .info {
             .info-icon {
+              display: block;
               width: 18px;
               height: 18px;
               position: relative;
