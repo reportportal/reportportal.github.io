@@ -38,11 +38,18 @@
     }
   }
 
+  //box-shadow for safari
+  @media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) and (display:flow-root) {
+    .body {
+      filter: drop-shadow(0 4px 15px $COLOR-WHITE-CARD-SHADOW);
+    }
+  }}
+
   .body {
     display: table-row-group;
     background: $COLOR-WHITE_TWO;
     border-radius: 12px;
-    filter: drop-shadow(0 4px 15px $COLOR-WHITE-CARD-SHADOW);
+    box-shadow: 0 4px 15px $COLOR-WHITE-CARD-SHADOW;
 
     .row {
       display: table-row;
@@ -83,6 +90,7 @@
 
         &:first-child {
           padding-left: 24px;
+          font-family: $FONT-REGULAR;
         }
 
         &:last-child {

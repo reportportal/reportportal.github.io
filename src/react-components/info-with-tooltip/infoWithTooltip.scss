@@ -17,46 +17,51 @@
 .info {
   display: inline-block;
 
-  .tooltip {
+  .hover-arena {
     display: none;
     transition-delay: 500ms;
     transition-property: display;
     z-index: 1;
     position: fixed;
     width: 207px;
-    background: $COLOR-WHITE-TEXT;
-    border: 1px solid $COLOR-TOPAZ;
-    box-sizing: border-box;
-    border-radius: 2px;
-    padding: 9px 10px 9px 11px;
-    font-size: 12px;
-    line-height: 14px;
-    color: $COLOR-STEEL-GREY;
 
     &.visible {
       display: block;
     }
 
-    &::before {
-      border: 6px solid transparent;
-      border-bottom-color: $COLOR-TOPAZ;
+    .tooltip {
       position: absolute;
-      bottom: 100%;
-      left: 0;
-      content: '';
-    }
-    &::after {
-      border: 5px solid transparent;
-      border-bottom-color: $COLOR-WHITE-TEXT;
-      position: absolute;
-      bottom: 100%;
-      left: 1px;
-      content: '';
-    }
+      background: $COLOR-WHITE-TEXT;
+      border: 1px solid $COLOR-TOPAZ;
+      box-sizing: border-box;
+      border-radius: 2px;
+      padding: 9px 10px 9px 11px;
+      font-size: 12px;
+      line-height: 14px;
+      color: $COLOR-STEEL-GREY;
 
-    a {
-      color: $COLOR-TOPAZ;
-      text-decoration: none;
+      &::before {
+        border: 6px solid transparent;
+        border-bottom-color: $COLOR-TOPAZ;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        content: '';
+      }
+
+      &::after {
+        border: 5px solid transparent;
+        border-bottom-color: $COLOR-WHITE-TEXT;
+        position: absolute;
+        bottom: 100%;
+        left: 1px;
+        content: '';
+      }
+
+      a {
+        color: $COLOR-TOPAZ;
+        text-decoration: none;
+      }
     }
   }
 }

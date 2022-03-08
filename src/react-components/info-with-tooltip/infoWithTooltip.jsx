@@ -21,19 +21,11 @@ import './infoWithTooltip.scss';
 
 const InfoWithTooltip = ({ children, tooltip }) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-  const [elementX, setElementX] = useState(0);
-  const [elementY, setElementY] = useState(0);
+  const [clientRect, setClientRect] = useState({});
 
   const onHover = (e) => {
-    const clientRect = e.currentTarget.getBoundingClientRect();
-    const {
-      x,
-      y,
-      height,
-    } = clientRect;
     setIsTooltipVisible(true);
-    setElementX(x + 6);
-    setElementY(y + height + 9);
+    setClientRect(e.currentTarget.getBoundingClientRect());
   };
 
   return (
@@ -44,10 +36,19 @@ const InfoWithTooltip = ({ children, tooltip }) => {
     >
       {children}
       <div
-        className={classnames('tooltip', { visible: isTooltipVisible })}
-        style={{ top: `${elementY}px`, left: `${elementX}px` }}
+        className={classnames('hover-arena', { visible: isTooltipVisible })}
+        style={{
+          top: `${clientRect.y}px`,
+          left: `${clientRect.x}px`,
+          paddingTop: `${clientRect.height + 9}px`,
+          paddingLeft: '6px',
+        }}
       >
-        <div dangerouslySetInnerHTML={{ __html: tooltip }} />
+        <div
+          className={classnames('tooltip')}
+        >
+          <div dangerouslySetInnerHTML={{ __html: tooltip }} />
+        </div>
       </div>
     </div>
   );

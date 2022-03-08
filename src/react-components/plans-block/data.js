@@ -64,7 +64,7 @@ const plansData = [
           instance: true,
           support: '10',
           storage: '500 Gb.',
-          history: '5 year',
+          history: '5 years',
           features: true,
         },
       },
@@ -76,6 +76,7 @@ const plansData = [
       planCompareTableTitles.history,
       planCompareTableTitles.features,
     ],
+    footerDescription: '*payment is made quarterly',
     description: 'High-performance multi-tenant or individual instances of the SaaS ReportPortal that is running in AWS Cloud with the latest, most recent application version at all times, with no updating necessary.',
   },
   {
@@ -124,6 +125,7 @@ const plansData = [
       planCompareTableTitles.support,
       planCompareTableTitles.features,
     ],
+    footerDescription: 'Minimum engagement type 6 month',
     description: 'ReportPortal instance deployed On-premise Behind Your Firewall or in the Cloud. All your test data is located on your own instance and it is 100% secured',
   },
 ];
