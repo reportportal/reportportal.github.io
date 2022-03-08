@@ -36,7 +36,7 @@ const InfoWithTooltip = ({ children, tooltip }) => {
     >
       {children}
       <div
-        className={classnames('hover-arena', { visible: isTooltipVisible })}
+        className={classnames('hover-area', { visible: isTooltipVisible })}
         style={{
           top: `${clientRect.y}px`,
           left: `${clientRect.x}px`,
@@ -47,7 +47,7 @@ const InfoWithTooltip = ({ children, tooltip }) => {
         <div
           className={classnames('tooltip')}
         >
-          <div dangerouslySetInnerHTML={{ __html: tooltip }} />
+          {tooltip}
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@ const InfoWithTooltip = ({ children, tooltip }) => {
 InfoWithTooltip.propTypes = {
   className: PropTypes.string,
   children: PropTypes.element.isRequired,
-  tooltip: PropTypes.string.isRequired,
+  tooltip: PropTypes.node.isRequired,
 };
 InfoWithTooltip.defaultProps = {
   className: '',

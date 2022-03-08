@@ -6,7 +6,7 @@ const planCompareTableTitles = {
   support: { id: 'support', name: 'Professional Support (hours)', info: 'A Professional Support Hour is a blended hour, which may consist of the time of various specialists, whether it is the time of a business analyst, architect, lead automation engineer, DevOps (System Engineer) or performance engineer.It can be used for various purposes related to ReportPortal installation, configuration, integration, customization, feature implementation, TAF updates, test case implementation, etc.' },
   storage: { id: 'storage', name: 'Data storage', info: 'This parameter defines how much data can be pulled into ReportPortal and saved in DB. The total amount of launches, tests, logs, and attachments in Gb are defined  on a daily bases, and the system automatically deletes over-usage in DB' },
   history: { id: 'history', name: 'History' },
-  features: { id: 'features', name: 'Enterprise features', info: 'Additional features which are not available in a scope of the Free Open Source version, <a href="" target="_blank" rel="noreferrer">link to the List with features and description</a>' },
+  features: { id: 'features', name: 'Enterprise features', info: <span>Additional features which are not available in a scope of the Free Open Source version, <a href="" target="_blank" rel="noreferrer">link to the List with features and description</a></span> },
 };
 
 const plansData = [

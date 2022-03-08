@@ -17,12 +17,11 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import './cell.scss';
 
 const Cell = ({ children, className }) => (
-  <div className={classnames('cell', className)}>
+  <td className={classnames('cell', className)}>
     {children}
-  </div>
+  </td>
 );
 
 Cell.propTypes = {

@@ -119,8 +119,13 @@
         width: 956px;
         margin: 58px auto auto;
 
-        td {
-          border-radius: 0 0 12px 12px;
+        tr:last-child td {
+          &:first-child {
+            border-bottom-left-radius: 12px;
+          }
+          &:last-child {
+            border-bottom-right-radius: 12px;
+          }
         }
 
         .true-icon {
