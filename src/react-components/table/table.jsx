@@ -24,20 +24,22 @@ const Table = ({
   className,
   data,
 }) => (
-  <div className={classnames('table', className)}>
-    <div className="header">
-      {data.headers.map(header => <Cell key={header} className="header-cell">{header}</Cell>)}
-    </div>
-    <div className="body">
-      {data.rows.map((row, i) => <div
+  <table className={classnames('table', className)}>
+    <thead className="header">
+      <tr>
+        {data.headers.map(header => <Cell key={header} className="header-cell">{header}</Cell>)}
+      </tr>
+    </thead>
+    <tbody className="body">
+      {data.rows.map((row, i) => <tr
         key={i}
         className="row"
       >
         {row.map((cell, j) => <Cell key={`${i}-${j}`}>{cell}</Cell>)}
-      </div>)}
-      {data.footer && <div className="footer">{data.footer}</div>}
-    </div>
-  </div>
+      </tr>)}
+      {data.footer && <tr className="footer">{data.footer}</tr>}
+    </tbody>
+  </table>
 );
 
 Table.propTypes = {

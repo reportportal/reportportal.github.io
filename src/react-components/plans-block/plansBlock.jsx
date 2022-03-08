@@ -19,7 +19,7 @@ import classnames from 'classnames';
 import Switcher from 'react-components/switcher/switcher.jsx';
 import Card from 'react-components/card/card.jsx';
 import Table from 'react-components/table/table.jsx';
-import InfoWithTooltip from 'react-components/info/infoWithTooltip.jsx';
+import InfoWithTooltip from 'react-components/info-with-tooltip/infoWithTooltip.jsx';
 import plansData from './data';
 import './plansBlock.scss';
 
@@ -106,7 +106,7 @@ const PlansBlock = () => {
     const footer = <td colSpan={headers.length}>
       <div className="footer-row">
         <div className="terms">Terms & Conditions</div>
-        <div className="note">*payment is made quarterly</div>
+        <div className="note">{selectedPlanData.footerDescription}</div>
       </div>
     </td>;
 

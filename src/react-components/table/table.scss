@@ -15,13 +15,8 @@
  */
 
 .table {
-  display: table;
-
   .header {
-    display: table-header-group;
-
     .header-cell {
-      display: table-cell;
       font-size: 20px;
       line-height: 32px;
       text-align: center;
@@ -38,14 +33,18 @@
     }
   }
 
+  //box-shadow for safari
+  @media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) and (display:flow-root) {
+    .body {
+      filter: drop-shadow(0 4px 15px $COLOR-WHITE-CARD-SHADOW);
+    }
+  }}
+
   .body {
-    display: table-row-group;
-    background: $COLOR-WHITE_TWO;
     border-radius: 12px;
-    filter: drop-shadow(0 4px 15px $COLOR-WHITE-CARD-SHADOW);
+    box-shadow: 0 4px 15px $COLOR-WHITE-CARD-SHADOW;
 
     .row {
-      display: table-row;
       height: 54px;
       position: relative;
 
@@ -73,7 +72,6 @@
       }
 
       .cell {
-        display: table-cell;
         font-family: $FONT-HEADER;
         font-size: 18px;
         line-height: 54px;
@@ -83,6 +81,7 @@
 
         &:first-child {
           padding-left: 24px;
+          font-family: $FONT-REGULAR;
         }
 
         &:last-child {
@@ -97,11 +96,14 @@
 
     .footer {
       line-height: 54px;
-      display: table-row;
-      background: $COLOR-WHITE_TWO;
+      background: none;
       padding: 0;
       border: none;
       border-radius: 12px;
+
+      td {
+        background: $COLOR-WHITE_TWO;
+      }
     }
   }
 }
