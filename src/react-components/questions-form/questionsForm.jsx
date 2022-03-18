@@ -86,101 +86,97 @@ const QuestionsForm = () => {
             isValid,
             dirty,
             resetForm,
-          }) => {
-            console.log(values);
-            return (<form
-              id='questions-form'
-              action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
-              method='POST'
-              target='dummyQuestionFrame'
+          }) => (<form
+            id='questions-form'
+            action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
+            method='POST'
+            target='dummyQuestionFrame'
+          >
+            {hiddenInputs}
+            <input type='hidden' name='Source' value='Landing page'/>
+            <div className="field">
+              <input
+                className={classnames({ error: touched.first_name && errors.first_name })}
+                key='firstName'
+                id='first_name'
+                name='first_name'
+                type='text'
+                maxLength={40}
+                placeholder='First name'
+                value={values.firstName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {touched.first_name && errors.first_name
+                ? <div className="error-message">Please check your first name again.</div>
+                : null
+              }
+            </div>
+            <div className="field">
+              <input
+                className={classnames({ error: touched.last_name && errors.last_name })}
+                key='lastName'
+                id='last_name'
+                name='last_name'
+                type='text'
+                maxLength={80}
+                placeholder='Last name'
+                value={values.lastName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {touched.last_name && errors.last_name
+                ? <div className="error-message">Please check your last name again.</div>
+                : null
+              }
+            </div>
+            <div className="field">
+              <input
+                className={classnames({ error: touched.email && errors.email })}
+                key='email'
+                id='email'
+                name='email'
+                type='email'
+                maxLength={80}
+                placeholder='Email'
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {touched.email && errors.email
+                ? <div className="error-message">Please check your email again.</div>
+                : null
+              }
+            </div>
+            <div className="field">
+              <input
+                className={classnames({ error: touched.company && errors.company })}
+                key='companyName'
+                id='company'
+                name='company'
+                type='text'
+                maxLength={40}
+                placeholder='Company name'
+                value={values.company}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {touched.company && errors.company
+                ? <div className="error-message">Please check your company name again.</div>
+                : null
+              }
+            </div>
+            <button
+              className="button"
+              type='submit'
+              onClick={() => {
+                onSubmit(resetForm);
+              }}
+              disabled={!(isValid && dirty)}
             >
-              {hiddenInputs}
-              <input type='hidden' name='Source' value='Landing page'/>
-              <div className="field">
-                <input
-                  className={classnames({ error: touched.first_name && errors.first_name })}
-                  key='firstName'
-                  id='first_name'
-                  name='first_name'
-                  type='text'
-                  maxLength={40}
-                  placeholder='First name'
-                  value={values.firstName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                {touched.first_name && errors.first_name
-                  ? <div className="error-message">Please check your first name again.</div>
-                  : null
-                }
-              </div>
-              <div className="field">
-                <input
-                  className={classnames({ error: touched.last_name && errors.last_name })}
-                  key='lastName'
-                  id='last_name'
-                  name='last_name'
-                  type='text'
-                  maxLength={80}
-                  placeholder='Last name'
-                  value={values.lastName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                {touched.last_name && errors.last_name
-                  ? <div className="error-message">Please check your last name again.</div>
-                  : null
-                }
-              </div>
-              <div className="field">
-                <input
-                  className={classnames({ error: touched.email && errors.email })}
-                  key='email'
-                  id='email'
-                  name='email'
-                  type='email'
-                  maxLength={80}
-                  placeholder='Email'
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                {touched.email && errors.email
-                  ? <div className="error-message">Please check your email again.</div>
-                  : null
-                }
-              </div>
-              <div className="field">
-                <input
-                  className={classnames({ error: touched.company && errors.company })}
-                  key='companyName'
-                  id='company'
-                  name='company'
-                  type='text'
-                  maxLength={40}
-                  placeholder='Company name'
-                  value={values.company}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                {touched.company && errors.company
-                  ? <div className="error-message">Please check your company name again.</div>
-                  : null
-                }
-              </div>
-              <button
-                className="button"
-                type='submit'
-                onClick={() => {
-                  onSubmit(resetForm);
-                }}
-                disabled={!(isValid && dirty)}
-              >
-                Send
-              </button>
-            </form>);
-          }
-          }
+              Send
+            </button>
+          </form>)}
         </Formik>
         <Context.Provider value={{ isModalOpen, setIsModalOpen }}>
           {isSubmitted && isModalOpen && <Modal>
