@@ -126,6 +126,7 @@ const PlansBlock = () => {
             price={getPrice(cardInfo.price)}
             description={cardInfo.description}
             button={cardInfo.button}
+            form={cardInfo.form}
           />
         ))}
       </div>

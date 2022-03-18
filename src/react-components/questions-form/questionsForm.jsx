@@ -14,29 +14,51 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
+import { Formik } from 'formik';
+import Context from '../../context';
 import Button from 'react-components/button/button.jsx';
+import Modal from 'react-components/modal/modal.jsx';
+import { validate, hiddenInputs } from 'react-components/contact-form/util.js';
 import './questionsForm.scss';
 
 const QuestionsForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [firstNameError, setFirstNameError] = useState(false);
-  const [lastName, setLastName] = useState('');
-  const [lastNameError, setLastNameError] = useState(false);
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState(false);
-  const [companyName, setCompanyName] = useState('');
-  const [companyNameError, setCompanyNameError] = useState(false);
+  const [iframe, setIframe] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const onClick = () => {
-    console.log('questions form send click');
+  useEffect(() => {
+    const dummyQuestionFrame = document.createElement('iframe');
+    dummyQuestionFrame.name = 'dummyQuestionFrame';
+    dummyQuestionFrame.id = 'dummyQuestionFrame';
+    dummyQuestionFrame.style.display = 'none';
+    document.body.appendChild(dummyQuestionFrame);
+
+    setIframe(dummyQuestionFrame);
+    return () => {
+      dummyQuestionFrame.parentNode.removeChild(dummyQuestionFrame);
+    };
+  }, []);
+
+  const onSubmit = (resetForm) => {
+    const reset = () => {
+      setIsSubmitted(true);
+      setIsModalOpen(true);
+      resetForm();
+      document.getElementById('questions-form').reset();
+    };
+
+    iframe.onload = () => {
+      reset();
+    };
+    iframe.onerror = () => {
+      reset();
+    };
   };
 
-  const uniHandler = (event, fieldSetter, errorSetter) => {
-    const field = event.target.value;
-    fieldSetter(field);
-    errorSetter(!field);
+  const onClosed = () => {
+    setIsSubmitted(false);
   };
 
   return (
@@ -46,50 +68,130 @@ const QuestionsForm = () => {
         For more details please leave your e-mail and we will contact you within 3 business days.
       </div>
       <div className="form">
-        <div className="field">
-          <input
-            className={classnames({ error: firstNameError })}
-            type="text"
-            placeholder='First name'
-            value={firstName}
-            onChange={(event) => uniHandler(event, setFirstName, setFirstNameError)}
-          />
-          {firstNameError && <div className="error-message">Please check your first name again.</div>}
-        </div>
-        <div className="field">
-          <input
-            className={classnames({ error: lastNameError })}
-            type="text"
-            placeholder='Last name'
-            value={lastName}
-            onChange={(event) => uniHandler(event, setLastName, setLastNameError)}
-          />
-          {lastNameError && <div className="error-message">Please check your last name again.</div>}
-        </div>
-        <div className="field">
-          <input
-            className={classnames({ error: emailError })}
-            type="text"
-            placeholder='Email'
-            value={email}
-            onChange={(event) => uniHandler(event, setEmail, setEmailError)}
-          />
-          {emailError && <div className="error-message">Please check your email again.</div>}
-        </div>
-        <div className="field">
-          <input
-            className={classnames({ error: companyNameError })}
-            type="text"
-            placeholder='Company name'
-            value={companyName}
-            onChange={(event) => uniHandler(event, setCompanyName, setCompanyNameError)}
-          />
-          {companyNameError && <div className="error-message">Please check your company name again.</div>}
-        </div>
+        <Formik
+          initialValues={{
+            first_name: '',
+            last_name: '',
+            email: '',
+            company: '',
+          }}
+          validate={validate}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            isValid,
+            dirty,
+            resetForm,
+          }) => {
+            console.log(values);
+            return (<form
+              id='questions-form'
+              action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
+              method='POST'
+              target='dummyQuestionFrame'
+            >
+              {hiddenInputs}
+              <input type='hidden' name='Source' value='Landing page'/>
+              <div className="field">
+                <input
+                  className={classnames({ error: touched.first_name && errors.first_name })}
+                  key='firstName'
+                  id='first_name'
+                  name='first_name'
+                  type='text'
+                  maxLength={40}
+                  placeholder='First name'
+                  value={values.firstName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {touched.first_name && errors.first_name
+                  ? <div className="error-message">Please check your first name again.</div>
+                  : null
+                }
+              </div>
+              <div className="field">
+                <input
+                  className={classnames({ error: touched.last_name && errors.last_name })}
+                  key='lastName'
+                  id='last_name'
+                  name='last_name'
+                  type='text'
+                  maxLength={80}
+                  placeholder='Last name'
+                  value={values.lastName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {touched.last_name && errors.last_name
+                  ? <div className="error-message">Please check your last name again.</div>
+                  : null
+                }
+              </div>
+              <div className="field">
+                <input
+                  className={classnames({ error: touched.email && errors.email })}
+                  key='email'
+                  id='email'
+                  name='email'
+                  type='email'
+                  maxLength={80}
+                  placeholder='Email'
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {touched.email && errors.email
+                  ? <div className="error-message">Please check your email again.</div>
+                  : null
+                }
+              </div>
+              <div className="field">
+                <input
+                  className={classnames({ error: touched.company && errors.company })}
+                  key='companyName'
+                  id='company'
+                  name='company'
+                  type='text'
+                  maxLength={40}
+                  placeholder='Company name'
+                  value={values.company}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {touched.company && errors.company
+                  ? <div className="error-message">Please check your company name again.</div>
+                  : null
+                }
+              </div>
+              <button
+                className="button"
+                type='submit'
+                onClick={() => {
+                  onSubmit(resetForm);
+                }}
+                disabled={!(isValid && dirty)}
+              >
+                Send
+              </button>
+            </form>);
+          }
+          }
+        </Formik>
+        <Context.Provider value={{ isModalOpen, setIsModalOpen }}>
+          {isSubmitted && isModalOpen && <Modal>
+            <div className="contact-form">
+              <div className="form-title">Thank You!</div>
+              <div className="form-description">We received your message! Our consultant will contact you within <br/> 4 working days.</div>
+              <Button onClick={onClosed}>Closed</Button>
+            </div>
+          </Modal>}
+        </Context.Provider>
       </div>
-      <Button onClick={onClick}>
-        Send
-      </Button>
     </div>
   );
 };
