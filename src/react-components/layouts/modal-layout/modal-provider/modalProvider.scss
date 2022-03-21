@@ -24,7 +24,7 @@
   .modal {
     opacity: unset;
     position: fixed;
-    display: block;
+    display: none;
     min-height: 100px;
     width: 511px;
     margin: auto;
@@ -36,6 +36,10 @@
     top: 0;
     bottom: 0;
     height: max-content;
+
+    &.visible {
+      display: block;
+    }
 
     .button {
       &.close {

@@ -17,7 +17,7 @@
 import React from 'react';
 import reactWrapper from 'pages/pricing-page/reactWrapper';
 import BodyLayout from 'react-components/layouts/bodyLayout.jsx';
-import QuestionsForm from 'react-components/questions-form/questionsForm.jsx';
+import QuestionsForm from 'react-components/forms/questions-form/questionsForm.jsx';
 import PlansBlock from 'react-components/plans-block/plansBlock.jsx';
 import './pricingPage.scss';
 

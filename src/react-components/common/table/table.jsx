@@ -17,7 +17,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Cell from 'react-components/table/table-cell/cell.jsx';
+import Cell from 'react-components/common/table/table-cell/cell.jsx';
 import './table.scss';
 
 const Table = ({

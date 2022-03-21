@@ -18,11 +18,11 @@ import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Formik } from 'formik';
-import CustomCheckbox from 'react-components/custom-checkbox/custom-checkbox.jsx';
+import CustomCheckbox from 'react-components/common/custom-checkbox/custom-checkbox.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
-import SalesForceFormBase from 'react-components/salesforce-form-base/salesForceFormBase.jsx';
+import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
-import ModalContext from '../layouts/modal-layout/modalContext';
+import ModalContext from '../../layouts/modal-layout/modalContext';
 import { validate } from './util.js';
 import './contactForm.scss';
 
@@ -33,7 +33,6 @@ const ContactForm = ({
   options,
 }) => {
   const [termsAgree, setTermsAgree] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [iframe, setIframe] = useState(null);
 
   useEffect(() => {
@@ -52,31 +51,24 @@ const ContactForm = ({
   const value = useContext(ModalContext);
 
   const onSubmit = () => {
+    const showModalInfoMessage = () => {
+      value.showModal(
+        <ModalInfoMessage onClosed={() => value.closeModal()}/>,
+      );
+    };
+
     if (termsAgree) {
       iframe.onload = () => {
-        setIsSubmitted(true);
+        showModalInfoMessage();
       };
       iframe.onerror = () => {
-        setIsSubmitted(true);
+        showModalInfoMessage();
       };
     }
   };
 
-  const onClosed = () => {
-    setIsSubmitted(false);
-    value.setIsModalOpen(false);
-  };
-
-  return isSubmitted
-    ? <ModalInfoMessage
-      onClosed={onClosed}
-      title='Thank You!'
-      description={<span>
-        We received your message! Our consultant will contact you within <br/> 4 working days.
-      </span>}
-      buttonName='Closed'
-    />
-    : <Modal>
+  return (
+    <Modal>
       <div className={classnames('contact-form', className)}>
         <div className="form-title">{title}</div>
         <div className="form-description">{description}</div>
@@ -188,7 +180,8 @@ const ContactForm = ({
           )}
         </Formik>
       </div>
-    </Modal>;
+    </Modal>
+  );
 };
 
 ContactForm.propTypes = {

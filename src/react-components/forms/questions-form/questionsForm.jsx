@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import classnames from 'classnames';
 import { Formik } from 'formik';
-import ModalContext from '../layouts/modal-layout/modalContext';
-import SalesForceFormBase from 'react-components/salesforce-form-base/salesForceFormBase.jsx';
+import ModalContext from '../../layouts/modal-layout/modalContext';
+import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
-import { validate } from 'react-components/contact-form/util.js';
+import { validate } from 'react-components/forms/contact-form/util.js';
 import './questionsForm.scss';
 
 const QuestionsForm = () => {
   const [iframe, setIframe] = useState(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const dummyQuestionFrame = document.createElement('iframe');
@@ -41,13 +39,17 @@ const QuestionsForm = () => {
     };
   }, []);
 
+  const value = useContext(ModalContext);
+
   const onSubmit = (resetForm) => {
     const reset = () => {
-      setIsSubmitted(true);
-      setIsModalOpen(true);
       resetForm();
       document.getElementById('questions-form').reset();
     };
+
+    value.showModal(
+      <ModalInfoMessage onClosed={() => value.closeModal()} />,
+    );
 
     iframe.onload = () => {
       reset();
@@ -55,10 +57,6 @@ const QuestionsForm = () => {
     iframe.onerror = () => {
       reset();
     };
-  };
-
-  const onClosed = () => {
-    setIsSubmitted(false);
   };
 
   return (
@@ -178,16 +176,6 @@ const QuestionsForm = () => {
             </button>
           </form>)}
         </Formik>
-        <ModalContext.Provider value={{ isModalOpen, setIsModalOpen }}>
-          {isSubmitted && isModalOpen && <ModalInfoMessage
-            onClosed={onClosed}
-            title='Thank You!'
-            description={<span>
-              We received your message! Our consultant will contact you within <br/> 4 working days.
-            </span>}
-            buttonName='Closed'
-          />}
-        </ModalContext.Provider>
       </div>
     </div>
   );

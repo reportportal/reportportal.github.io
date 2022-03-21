@@ -37,7 +37,7 @@
     .checkmark {
       height: 12px;
       width: 12px;
-      background: url('../img/checkmarkForCheckbox.svg') center no-repeat;
+      background: url('../../img/checkmarkForCheckbox.svg') center no-repeat;
     }
   }
 
@@ -61,7 +61,7 @@
     }
     &.checked {
       .checkmark {
-        background: url('../img/checkmarkForCheckboxActive.svg') center no-repeat;
+        background: url('../../img/checkmarkForCheckboxActive.svg') center no-repeat;
       }
     }
   }
@@ -73,7 +73,7 @@
     }
     &.checked {
       .checkmark {
-        background: url('../img/checkmarkForCheckboxDisable.svg') center no-repeat;
+        background: url('../../img/checkmarkForCheckboxDisable.svg') center no-repeat;
       }
     }
   }

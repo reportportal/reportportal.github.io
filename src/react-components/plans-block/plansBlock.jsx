@@ -16,10 +16,10 @@
 
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
-import Switcher from 'react-components/switcher/switcher.jsx';
+import Switcher from 'react-components/common/switcher/switcher.jsx';
 import PlanCard from 'react-components/plan-card/planCard.jsx';
-import Table from 'react-components/table/table.jsx';
-import InfoWithTooltip from 'react-components/info-with-tooltip/infoWithTooltip.jsx';
+import Table from 'react-components/common/table/table.jsx';
+import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
 import plansData from './data';
 import './plansBlock.scss';
 

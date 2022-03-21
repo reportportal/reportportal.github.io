@@ -16,39 +16,22 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import Button from 'react-components/button/button.jsx';
+import Button from 'react-components/common/button/button.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import './modalInfoMessage.scss';
 
-const ModalInfoMessage = ({
-  className,
-  title,
-  description,
-  onClosed,
-  buttonName,
-}) => (
+const ModalInfoMessage = ({ onClosed }) => (
   <Modal>
-    <div className={classnames('contact-form', className)}>
-      <div className="form-title">{title}</div>
-      <div className="form-description">{description}</div>
-      <Button onClick={onClosed}>{buttonName}</Button>
+    <div className="contact-form">
+      <div className="form-title">Thank You!</div>
+      <div className="form-description">We received your message! Our consultant will contact you within <br/> 4 working days.</div>
+      <Button onClick={onClosed}>Closed</Button>
     </div>
   </Modal>
 );
 
 ModalInfoMessage.propTypes = {
-  className: PropTypes.string,
   onClosed: PropTypes.func.isRequired,
-  title: PropTypes.node,
-  description: PropTypes.node,
-  buttonName: PropTypes.node,
-};
-ModalInfoMessage.defaultProps = {
-  className: '',
-  title: '',
-  description: '',
-  buttonName: '',
 };
 
 export default ModalInfoMessage;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'react-components/button/button.jsx';
+import Button from 'react-components/common/button/button.jsx';
 
 const planCompareTableTitles = {
   instance: { id: 'instance', name: 'Individual Instance', info: 'You can choose instance type: multi-tenant (1 project on shared instances) or individual instances (only your company is on the instance)' },

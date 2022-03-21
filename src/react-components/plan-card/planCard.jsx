@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import ContactForm from 'react-components/contact-form/contactForm.jsx';
+import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
 import ModalContext from '../layouts/modal-layout/modalContext';
 import './planCard.scss';
 
@@ -29,10 +29,16 @@ const PlanCard = ({
   className,
   form,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const value = useContext(ModalContext);
 
   const onClick = () => {
-    setIsModalOpen(true);
+    value.showModal(
+      <ContactForm
+        title={form.title}
+        description={form.description}
+        options={form.options}
+      />,
+    );
   };
 
   return (
@@ -42,13 +48,6 @@ const PlanCard = ({
       <div className="short-description">{description}</div>
       <div className="price">{price}<span className="period">/per month</span></div>
       <div className="button" onClick={onClick}>{button}</div>
-      <ModalContext.Provider value={{ isModalOpen, setIsModalOpen }}>
-        {isModalOpen && <ContactForm
-          title={form.title}
-          description={form.description}
-          options={form.options}
-        />}
-      </ModalContext.Provider>
     </div>
   );
 };

@@ -17,12 +17,9 @@
 import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { createPortal } from 'react-dom';
-import Button from 'react-components/button/button.jsx';
+import Button from 'react-components/common/button/button.jsx';
 import ModalContext from '../modalContext';
 import './modal.scss';
-
-const modalRootElement = document.querySelector('#modal');
 
 const Modal = ({
   children,
@@ -33,23 +30,20 @@ const Modal = ({
 
   const handleClickOutside = (event) => {
     if (wrapperRef && !wrapperRef.current.contains(event.target)) {
-      value.setIsModalOpen(false);
+      value.closeModal();
     }
   };
 
-  return value.isModalOpen
-    ? createPortal(
-      <div className="background" onClick={handleClickOutside}>
-        <div className={classnames('modal', className, { visible: value.isModalOpen })} ref={wrapperRef} >
-          <Button className='close' onClick={() => value.setIsModalOpen(false)}>
-            <i className="cross-icon" />
-          </Button>
-          {children}
-        </div>
-      </div>,
-      modalRootElement,
-    )
-    : null;
+  return (
+    <div className="background" onClick={handleClickOutside}>
+      <div className={classnames('modal', className)} ref={wrapperRef} >
+        <Button className='close' onClick={value.closeModal}>
+          <i className="cross-icon" />
+        </Button>
+        {children}
+      </div>
+    </div>
+  );
 };
 
 Modal.propTypes = {
