@@ -39,3 +39,5 @@ export const validate = (values) => {
 
   return errors;
 };
+
+export default validate;
