@@ -94,9 +94,9 @@ const ContactForm = ({
               method='POST'
               target='dummyframe'
             >
-              <SalesForceFormBase />
-              {options.map(option => <input key={option.name} type='hidden' name={option.name} value={option.value}/>)}
-
+              <SalesForceFormBase additionalFields={
+                options.map(option => <input key={option.name} type='hidden' name={option.name} value={option.value}/>)
+              }/>
               <div className={classnames('custom-input', { error: touched.first_name && errors.first_name })}>
                 <i className="user-icon"/>
                 <input

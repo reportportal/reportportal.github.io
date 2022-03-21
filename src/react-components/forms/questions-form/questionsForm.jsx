@@ -89,8 +89,9 @@ const QuestionsForm = () => {
             method='POST'
             target='dummyQuestionFrame'
           >
-            <SalesForceFormBase />
-            <input type='hidden' name='Source' value='Landing page'/>
+            <SalesForceFormBase additionalFields={[
+              <input key='Source' type='hidden' name='Source' value='Landing page'/>,
+            ]} />
             <div className="field">
               <input
                 className={classnames({ error: touched.first_name && errors.first_name })}

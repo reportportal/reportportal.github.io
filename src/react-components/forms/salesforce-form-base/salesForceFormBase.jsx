@@ -15,13 +15,14 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const SalesForceFormBase = () => (
+const SalesForceFormBase = ({ additionalFields }) => (
   <>
     <input type='hidden' name='oid' value='00D7a000000AZdD'/>
     <input type='hidden' name='retURL' value='http://'/>
     <input type='hidden' name='debug' value='1'/>
-    <input type='hidden' name='debugEmail' value='vadzim_hvazdovich@epam.com'/>
+    <input type='hidden' name='debugEmail' value='olga_korenko@epam.com'/>
     <input type='hidden' name='ReportPortalSource__c' value='Landing page' />
     <select className="hidden" id='lead_source' name='lead_source' style={{ display: 'none' }}>
       <option value='ReportPortal'>ReportPortal</option>
@@ -29,7 +30,15 @@ const SalesForceFormBase = () => (
     <select className="hidden" id='lead_status' name='lead_status' style={{ display: 'none' }}>
       <option value='New'>New</option>
     </select>
+    {additionalFields}
   </>
 );
+
+SalesForceFormBase.propTypes = {
+  additionalFields: PropTypes.arrayOf(PropTypes.node),
+};
+SalesForceFormBase.defaultProps = {
+  additionalFields: [],
+};
 
 export default SalesForceFormBase;
