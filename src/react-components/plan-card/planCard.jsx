@@ -29,10 +29,10 @@ const PlanCard = ({
   className,
   form,
 }) => {
-  const value = useContext(ModalContext);
+  const { showModal } = useContext(ModalContext);
 
   const onClick = () => {
-    value.showModal(
+    showModal(
       <ContactForm
         title={form.title}
         description={form.description}

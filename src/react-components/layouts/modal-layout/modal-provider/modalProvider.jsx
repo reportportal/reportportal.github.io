@@ -24,17 +24,15 @@ const modalRootElement = document.querySelector('#modal');
 
 const ModalProvider = ({ children }) => {
   const [currentModal, setCurrentModal] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = (modal) => {
     setCurrentModal(modal);
-    setIsModalOpen(true);
   };
   const closeModal = () => {
-    setIsModalOpen(false);
+    setCurrentModal(null);
   };
 
-  const modal = isModalOpen ? createPortal(currentModal, modalRootElement) : null;
+  const modal = createPortal(currentModal, modalRootElement);
 
   return (
     <ModalContext.Provider value={{ showModal, closeModal }}>

@@ -20,18 +20,18 @@ import Button from 'react-components/common/button/button.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import './modalInfoMessage.scss';
 
-const ModalInfoMessage = ({ onClosed }) => (
+const ModalInfoMessage = ({ onClose }) => (
   <Modal>
     <div className="contact-form">
       <div className="form-title">Thank You!</div>
       <div className="form-description">We received your message! Our consultant will contact you within <br/> 4 working days.</div>
-      <Button onClick={onClosed}>Closed</Button>
+      <Button onClick={onClose}>Closed</Button>
     </div>
   </Modal>
 );
 
 ModalInfoMessage.propTypes = {
-  onClosed: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ModalInfoMessage;

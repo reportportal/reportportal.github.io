@@ -23,7 +23,7 @@ import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
 import ModalContext from '../../layouts/modal-layout/modalContext';
-import validate from './util.js';
+import { validate } from './util.js';
 import './contactForm.scss';
 
 const ContactForm = ({
@@ -32,6 +32,7 @@ const ContactForm = ({
   description,
   options,
 }) => {
+  const { showModal, closeModal } = useContext(ModalContext);
   const [termsAgree, setTermsAgree] = useState(false);
   const [iframe, setIframe] = useState(null);
 
@@ -48,12 +49,10 @@ const ContactForm = ({
     };
   }, []);
 
-  const value = useContext(ModalContext);
-
   const onSubmit = () => {
     const showModalInfoMessage = () => {
-      value.showModal(
-        <ModalInfoMessage onClosed={() => value.closeModal()}/>,
+      showModal(
+        <ModalInfoMessage onClosed={() => closeModal()}/>,
       );
     };
 

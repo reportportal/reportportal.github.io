@@ -24,6 +24,7 @@ import { validate } from 'react-components/forms/contact-form/util.js';
 import './questionsForm.scss';
 
 const QuestionsForm = () => {
+  const { showModal, closeModal } = useContext(ModalContext);
   const [iframe, setIframe] = useState(null);
 
   useEffect(() => {
@@ -39,16 +40,14 @@ const QuestionsForm = () => {
     };
   }, []);
 
-  const value = useContext(ModalContext);
-
   const onSubmit = (resetForm) => {
     const reset = () => {
       resetForm();
       document.getElementById('questions-form').reset();
     };
 
-    value.showModal(
-      <ModalInfoMessage onClosed={() => value.closeModal()} />,
+    showModal(
+      <ModalInfoMessage onClosed={closeModal} />,
     );
 
     iframe.onload = () => {

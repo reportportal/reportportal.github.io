@@ -25,19 +25,19 @@ const Modal = ({
   children,
   className,
 }) => {
-  const value = useContext(ModalContext);
+  const { closeModal } = useContext(ModalContext);
   const wrapperRef = useRef();
 
   const handleClickOutside = (event) => {
     if (wrapperRef && !wrapperRef.current.contains(event.target)) {
-      value.closeModal();
+      closeModal();
     }
   };
 
   return (
     <div className="background" onClick={handleClickOutside}>
       <div className={classnames('modal', className)} ref={wrapperRef} >
-        <Button className='close' onClick={value.closeModal}>
+        <Button className='close' onClick={closeModal}>
           <i className="cross-icon" />
         </Button>
         {children}
