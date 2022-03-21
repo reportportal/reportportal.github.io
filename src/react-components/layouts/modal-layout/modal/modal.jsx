@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-import React, { useEffect, useMemo, useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { createPortal } from 'react-dom';
 import Button from 'react-components/button/button.jsx';
-import Context from '../../context';
+import ModalContext from '../modalContext';
 import './modal.scss';
 
 const modalRootElement = document.querySelector('#modal');
@@ -28,37 +28,26 @@ const Modal = ({
   children,
   className,
 }) => {
-  const value = useContext(Context);
-  const element = useMemo(() => document.createElement('div'), []);
+  const value = useContext(ModalContext);
+  const wrapperRef = useRef();
 
-  useEffect(() => {
-    if (value.isModalOpen) {
-      modalRootElement.appendChild(element);
-
-      return () => {
-        modalRootElement.removeChild(element);
-      };
-    }
-    return null;
-  });
-
-  const onBackgroundClick = (e) => {
-    if (e.target.className === 'background') {
+  const handleClickOutside = (event) => {
+    if (wrapperRef && !wrapperRef.current.contains(event.target)) {
       value.setIsModalOpen(false);
     }
   };
 
   return value.isModalOpen
     ? createPortal(
-      <div className="background" onClick={onBackgroundClick}>
-        <div className={classnames('modal', className, { visible: value.isModalOpen })}>
+      <div className="background" onClick={handleClickOutside}>
+        <div className={classnames('modal', className, { visible: value.isModalOpen })} ref={wrapperRef} >
           <Button className='close' onClick={() => value.setIsModalOpen(false)}>
             <i className="cross-icon" />
           </Button>
           {children}
         </div>
       </div>,
-      element,
+      modalRootElement,
     )
     : null;
 };

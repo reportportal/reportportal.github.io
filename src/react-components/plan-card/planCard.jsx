@@ -18,10 +18,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import ContactForm from 'react-components/contact-form/contactForm.jsx';
-import Context from '../../context';
-import './card.scss';
+import ModalContext from '../layouts/modal-layout/modalContext';
+import './planCard.scss';
 
-const Card = ({
+const PlanCard = ({
   name,
   description,
   price,
@@ -42,18 +42,18 @@ const Card = ({
       <div className="short-description">{description}</div>
       <div className="price">{price}<span className="period">/per month</span></div>
       <div className="button" onClick={onClick}>{button}</div>
-      <Context.Provider value={{ isModalOpen, setIsModalOpen }}>
+      <ModalContext.Provider value={{ isModalOpen, setIsModalOpen }}>
         {isModalOpen && <ContactForm
           title={form.title}
           description={form.description}
           options={form.options}
         />}
-      </Context.Provider>
+      </ModalContext.Provider>
     </div>
   );
 };
 
-Card.propTypes = {
+PlanCard.propTypes = {
   name: PropTypes.string,
   description: PropTypes.oneOfType([
     PropTypes.element,
@@ -73,7 +73,7 @@ Card.propTypes = {
     ),
   }),
 };
-Card.defaultProps = {
+PlanCard.defaultProps = {
   name: '',
   description: null,
   price: '',
@@ -82,4 +82,4 @@ Card.defaultProps = {
   form: {},
 };
 
-export default Card;
+export default PlanCard;

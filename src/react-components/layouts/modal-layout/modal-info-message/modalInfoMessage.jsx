@@ -17,37 +17,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './custom-checkbox.scss';
+import Button from 'react-components/button/button.jsx';
+import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
+import './modalInfoMessage.scss';
 
-const CustomCheckbox = ({
+const ModalInfoMessage = ({
   className,
-  onChange,
-  value,
-  disabled,
+  title,
+  description,
+  onClosed,
+  buttonName,
 }) => (
-  <label className={classnames('custom-checkbox', className, { checked: value, disabled })}>
-    <input
-      type="checkbox"
-      onChange={onChange}
-      disabled={disabled}
-      checked={value}
-    />
-    <div className="checkbox">
-      <div className="checkmark" />
+  <Modal>
+    <div className={classnames('contact-form', className)}>
+      <div className="form-title">{title}</div>
+      <div className="form-description">{description}</div>
+      <Button onClick={onClosed}>{buttonName}</Button>
     </div>
-  </label>
+  </Modal>
 );
 
-CustomCheckbox.propTypes = {
+ModalInfoMessage.propTypes = {
   className: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.bool,
-  disabled: PropTypes.bool,
+  onClosed: PropTypes.func.isRequired,
+  title: PropTypes.node,
+  description: PropTypes.node,
+  buttonName: PropTypes.node,
 };
-CustomCheckbox.defaultProps = {
+ModalInfoMessage.defaultProps = {
   className: '',
-  value: false,
-  disabled: false,
+  title: '',
+  description: '',
+  buttonName: '',
 };
 
-export default CustomCheckbox;
+export default ModalInfoMessage;

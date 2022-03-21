@@ -17,10 +17,10 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 import { Formik } from 'formik';
-import Context from '../../context';
-import Button from 'react-components/button/button.jsx';
-import Modal from 'react-components/modal/modal.jsx';
-import { validate, hiddenInputs } from 'react-components/contact-form/util.js';
+import ModalContext from '../layouts/modal-layout/modalContext';
+import SalesForceFormBase from 'react-components/salesforce-form-base/salesForceFormBase.jsx';
+import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
+import { validate } from 'react-components/contact-form/util.js';
 import './questionsForm.scss';
 
 const QuestionsForm = () => {
@@ -92,7 +92,7 @@ const QuestionsForm = () => {
             method='POST'
             target='dummyQuestionFrame'
           >
-            {hiddenInputs}
+            <SalesForceFormBase />
             <input type='hidden' name='Source' value='Landing page'/>
             <div className="field">
               <input
@@ -178,15 +178,16 @@ const QuestionsForm = () => {
             </button>
           </form>)}
         </Formik>
-        <Context.Provider value={{ isModalOpen, setIsModalOpen }}>
-          {isSubmitted && isModalOpen && <Modal>
-            <div className="contact-form">
-              <div className="form-title">Thank You!</div>
-              <div className="form-description">We received your message! Our consultant will contact you within <br/> 4 working days.</div>
-              <Button onClick={onClosed}>Closed</Button>
-            </div>
-          </Modal>}
-        </Context.Provider>
+        <ModalContext.Provider value={{ isModalOpen, setIsModalOpen }}>
+          {isSubmitted && isModalOpen && <ModalInfoMessage
+            onClosed={onClosed}
+            title='Thank You!'
+            description={<span>
+              We received your message! Our consultant will contact you within <br/> 4 working days.
+            </span>}
+            buttonName='Closed'
+          />}
+        </ModalContext.Provider>
       </div>
     </div>
   );

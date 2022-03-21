@@ -17,7 +17,7 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 import Switcher from 'react-components/switcher/switcher.jsx';
-import Card from 'react-components/card/card.jsx';
+import PlanCard from 'react-components/plan-card/planCard.jsx';
 import Table from 'react-components/table/table.jsx';
 import InfoWithTooltip from 'react-components/info-with-tooltip/infoWithTooltip.jsx';
 import plansData from './data';
@@ -119,7 +119,7 @@ const PlansBlock = () => {
       <Switcher className="period-switcher" itemsData={periodSwitcherData} handleSelect={handlePeriodSwitcherSelect} withSeparator/>
       <div className="plan-cards">
         {selectedPlanData.plansInfo.map(cardInfo => (
-          <Card
+          <PlanCard
             className={classnames(cardInfo.popular, cardInfo.withClock, cardInfo.withFullClock)}
             key={cardInfo.name}
             name={cardInfo.shortName || cardInfo.name}

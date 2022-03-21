@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
 const emailValidateRegEx = '(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])';
 
 export const validate = (values) => {
@@ -41,17 +39,3 @@ export const validate = (values) => {
 
   return errors;
 };
-
-export const hiddenInputs = <>
-  <input type='hidden' name='oid' value='00D7a000000AZdD'/>
-  <input type='hidden' name='retURL' value='http://'/>
-  <input type='hidden' name='debug' value='1'/>
-  <input type='hidden' name='debugEmail' value='olga_korenko@epam.com'/>
-  <input type='hidden' name='ReportPortalSource__c' value='Landing page' />
-  <select className="hidden" id='lead_source' name='lead_source' style={{ display: 'none' }}>
-    <option value='ReportPortal'>ReportPortal</option>
-  </select>
-  <select className="hidden" id='lead_status' name='lead_status' style={{ display: 'none' }}>
-    <option value='New'>New</option>
-  </select>
-</>;

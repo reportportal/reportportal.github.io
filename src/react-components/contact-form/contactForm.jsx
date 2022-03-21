@@ -18,11 +18,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Formik } from 'formik';
-import Button from 'react-components/button/button.jsx';
 import CustomCheckbox from 'react-components/custom-checkbox/custom-checkbox.jsx';
-import Modal from 'react-components/modal/modal.jsx';
-import Context from '../../context';
-import { hiddenInputs, validate } from './util.js';
+import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
+import SalesForceFormBase from 'react-components/salesforce-form-base/salesForceFormBase.jsx';
+import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
+import ModalContext from '../layouts/modal-layout/modalContext';
+import { validate } from './util.js';
 import './contactForm.scss';
 
 const ContactForm = ({
@@ -48,7 +49,7 @@ const ContactForm = ({
     };
   }, []);
 
-  const value = useContext(Context);
+  const value = useContext(ModalContext);
 
   const onSubmit = () => {
     if (termsAgree) {
@@ -67,13 +68,14 @@ const ContactForm = ({
   };
 
   return isSubmitted
-    ? <Modal>
-      <div className={classnames('contact-form', className)}>
-        <div className="form-title">Thank You!</div>
-        <div className="form-description">We received your message! Our consultant will contact you within <br/> 4 working days.</div>
-        <Button onClick={onClosed}>Closed</Button>
-      </div>
-    </Modal>
+    ? <ModalInfoMessage
+      onClosed={onClosed}
+      title='Thank You!'
+      description={<span>
+        We received your message! Our consultant will contact you within <br/> 4 working days.
+      </span>}
+      buttonName='Closed'
+    />
     : <Modal>
       <div className={classnames('contact-form', className)}>
         <div className="form-title">{title}</div>
@@ -101,7 +103,7 @@ const ContactForm = ({
               method='POST'
               target='dummyframe'
             >
-              {hiddenInputs}
+              <SalesForceFormBase />
               {options.map(option => <input key={option.name} type='hidden' name={option.name} value={option.value}/>)}
 
               <div className={classnames('custom-input', { error: touched.first_name && errors.first_name })}>
@@ -169,7 +171,7 @@ const ContactForm = ({
               </div>
 
               <div className="terms-of-use">
-                <CustomCheckbox className="term-checkbox" onChange={(val) => setTermsAgree(val)} />
+                <CustomCheckbox className="term-checkbox" value={termsAgree} onChange={e => setTermsAgree(e.target.checked)} />
                 <div className="term-description">
                   I have read and agree to the <a target="_blank" href="">General Terms of Service</a> and <br/> the <a target="_blank" href="">Privacy Policy</a>
                 </div>
