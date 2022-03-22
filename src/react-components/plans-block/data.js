@@ -27,7 +27,7 @@ const plansData = [
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
-          options: [{ name: 'Source', value: 'Landing page/ "We Host" / Request Free Plan' }],
+          options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "We Host" / Request Free Plan' }],
         },
         options: {
           storage: '3 Gb.',
@@ -43,7 +43,7 @@ const plansData = [
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
-          options: [{ name: 'Source', value: 'Landing page/ "We Host" / Request Start Up Plan' }],
+          options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "We Host" / Request Start Up Plan' }],
         },
         popular: 'popular',
         options: {
@@ -60,7 +60,7 @@ const plansData = [
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
-          options: [{ name: 'Source', value: 'Landing page/ "We Host" / Request Pro Plan' }],
+          options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "We Host" / Request Pro Plan' }],
         },
         options: {
           instance: true,
@@ -78,7 +78,7 @@ const plansData = [
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
-          options: [{ name: 'Source', value: 'Landing page/ "We Host" / Request Enterprise Plan' }],
+          options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "We Host" / Request Enterprise Plan' }],
         },
         options: {
           instance: true,
@@ -115,7 +115,7 @@ const plansData = [
         form: {
           title: 'Contact form for package registration with 32 hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
-          options: [{ name: 'Source', value: 'Landing page/ "You Host|We manage" / Request Support "Package 32"' }],
+          options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "You Host|We manage" / Request Support "Package 32"' }],
         },
         withClock: 'with-clock',
         options: { support: '32' },
@@ -132,7 +132,7 @@ const plansData = [
         form: {
           title: 'Contact form for package registration with 60 hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
-          options: [{ name: 'Source', value: 'Landing page/ "You Host|We manage" / Request Support "Package 60"' }],
+          options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "You Host|We manage" / Request Support "Package 60"' }],
         },
         popular: 'popular',
         withClock: 'with-clock',
@@ -150,7 +150,7 @@ const plansData = [
         form: {
           title: 'Contact form for package registration with 168+ hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
-          options: [{ name: 'Source', value: 'Landing page/ "You Host|We manage" / Request Support "Package 168+"' }],
+          options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "You Host|We manage" / Request Support "Package 168+"' }],
         },
         withFullClock: 'with-full-clock',
         options: { support: '168+', features: true },
