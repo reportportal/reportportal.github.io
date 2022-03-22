@@ -52,7 +52,7 @@ const ContactForm = ({
   const onSubmit = () => {
     const showModalInfoMessage = () => {
       showModal(
-        <ModalInfoMessage onClosed={() => closeModal()}/>,
+        <ModalInfoMessage onClose={closeModal} />,
       );
     };
 

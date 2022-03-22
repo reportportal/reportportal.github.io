@@ -27,14 +27,12 @@ export const validate = (values) => {
     errors.last_name = 'Please check your last name again.';
   }
 
-  if (!values.email) {
-    errors.email = 'required';
-  } else if (!values.email.match(emailValidateRegEx)) {
+  if (!values.email.match(emailValidateRegEx)) {
     errors.email = 'Please check your email again.';
   }
 
   if (!values.company) {
-    errors.company = 'Please check your email again.';
+    errors.company = 'Please check your company name again.';
   }
 
   return errors;
