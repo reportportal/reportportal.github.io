@@ -89,14 +89,12 @@
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
+        width: inherit;
 
         @media (max-width: $SCREEN_XS_MAX) {
           display: none;
         }
 
-        & > * {
-          float: right;
-        }
         .icons-block {
           .header__social {
             margin-top: 2px;
@@ -106,26 +104,33 @@
           }
         }
 
-        .menu-item {
-          padding: 8px 0;
-          font-size: 15px;
-          color: $COLOR-STEEL-GREY;
-          cursor: pointer;
-          text-align: center;
-          text-decoration: none;
-          margin: 0 6px;
-          &.menu-item__community{
-            margin-right: 16px;
-          }
-          &.active {
-            font-family: $FONT-HEADER;
-          }
+        .menu-items {
+          margin-left: auto;
+          margin-right: auto;
 
-          @media (max-width: $SCREEN_SM_MAX) {
-            margin: 0 7px;
+          .menu-item {
+            padding: 8px 0;
+            font-size: 15px;
+            color: $COLOR-STEEL-GREY;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 6px;
 
-            &.menu-item__community{
-              margin-right: 15px;
+            &.menu-item__community {
+              margin-right: 16px;
+            }
+
+            &.active {
+              font-family: $FONT-HEADER;
+            }
+
+            @media (max-width: $SCREEN_SM_MAX) {
+              margin: 0 7px;
+
+              &.menu-item__community {
+                margin-right: 15px;
+              }
             }
           }
         }
@@ -170,6 +175,31 @@
           &:hover{
             background-color: $COLOR-TOPAZ;
             border-color: $COLOR-TEALISH;
+          }
+          @media(max-width: $SCREEN_SM_MAX){
+            width: auto;
+            padding: 0 7px;
+            margin-left: 0;
+            margin-right: 10px;
+          }
+          @media (max-width: $SCREEN_XS_MAX) {
+            display: none;
+          }
+        }
+        .sign-up {
+          box-sizing: border-box;
+          width: 72px;
+          padding: 0;
+          border-radius: 3px;
+          color: $COLOR-TEALISH;
+          background: $COLOR-WHITE_TWO;
+          border: none;
+          font-size: 15px;
+          text-align: center;
+          line-height: 32px;
+          cursor: pointer;
+          &:hover{
+            color: $COLOR-TOPAZ;
           }
           @media(max-width: $SCREEN_SM_MAX){
             width: auto;
