@@ -43,11 +43,11 @@
         padding-right: 4px;
 
         &.cloud {
-          background: url('../img/cloud-active.svg') no-repeat;
+          background: url('../img/cloudActive.svg') no-repeat;
         }
 
         &.home {
-          background: url('../img/home-active.svg') no-repeat;
+          background: url('../img/homeActive.svg') no-repeat;
         }
       }
     }
@@ -167,7 +167,7 @@
             display: inline-block;
             font-size: 12px;
             line-height: 16px;
-            color: $COLOR-TEXT_INFO;
+            color: $COLOR-TEXT-INFO;
             text-decoration: underline;
             text-align: left;
             width: 50%;
@@ -183,7 +183,7 @@
             font-size: 12px;
             line-height: 16px;
             text-align: right;
-            color: $COLOR-TEXT_INFO;
+            color: $COLOR-TEXT-INFO;
             width: 50%;
           }
         }

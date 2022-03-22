@@ -16,26 +16,22 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import ModalProvider from 'react-components/layouts/modal-layout/modal-provider/modalProvider.jsx';
-import './bodyLayout.scss';
+import Button from 'react-components/common/button/button.jsx';
+import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
+import './modalInfoMessage.scss';
 
-const BodyLayout = ({ children, className }) => (
-  <div className={classnames('body-layout', className)}>
-    <ModalProvider>
-      <div className={className}>
-        {children}
-      </div>
-    </ModalProvider>
-  </div>
+const ModalInfoMessage = ({ onClose }) => (
+  <Modal>
+    <div className="contact-form">
+      <div className="form-title">Thank You!</div>
+      <div className="form-description">We received your message! Our consultant will contact you within <br/> 4 working days.</div>
+      <Button onClick={onClose}>Closed</Button>
+    </div>
+  </Modal>
 );
 
-BodyLayout.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
-BodyLayout.defaultProps = {
-  className: '',
+ModalInfoMessage.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
-export default BodyLayout;
+export default ModalInfoMessage;

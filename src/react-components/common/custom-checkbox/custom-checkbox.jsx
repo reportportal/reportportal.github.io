@@ -17,40 +17,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './card.scss';
+import './custom-checkbox.scss';
 
-const Card = ({
-  name,
-  description,
-  price,
-  button,
+const CustomCheckbox = ({
   className,
+  onChange,
+  value,
+  disabled,
 }) => (
-  <div className={classnames('card', className)} >
-    <div className="popular-label">Most popular</div>
-    <div className="name">{name}</div>
-    <div className="short-description">{description}</div>
-    <div className="price">{price}<span className="period">/per month</span></div>
-    <div className="button">{button}</div>
-  </div>
+  <label className={classnames('custom-checkbox', className, { checked: value, disabled })}>
+    <input
+      type="checkbox"
+      onChange={onChange}
+      disabled={disabled}
+      checked={value}
+    />
+    <div className="checkbox">
+      <div className="checkmark" />
+    </div>
+  </label>
 );
 
-Card.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.string,
-  ]),
-  price: PropTypes.string,
-  button: PropTypes.element,
+CustomCheckbox.propTypes = {
   className: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
-Card.defaultProps = {
-  name: '',
-  description: null,
-  price: '',
-  button: '',
+CustomCheckbox.defaultProps = {
   className: '',
+  value: false,
+  disabled: false,
 };
 
-export default Card;
+export default CustomCheckbox;

@@ -1,0 +1,80 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.custom-checkbox {
+  input {
+    display: none;
+  }
+
+  .checkbox {
+    display: block;
+    height: 12px;
+    width: 12px;
+    background: #FAFBFC; //todo
+    border-radius: 3px;
+    border: solid 2px #DFE1E6; //todo
+  }
+
+  &.checked {
+    .checkbox {
+      background: $COLOR-TOPAZ;
+      border-color: $COLOR-TOPAZ;
+    }
+
+    .checkmark {
+      height: 12px;
+      width: 12px;
+      background: url('../../img/checkmarkForCheckbox.svg') center no-repeat;
+    }
+  }
+
+  &:hover:not(.disabled) {
+    .checkbox {
+      border-color: $COLOR-STEEL-GREY;
+    }
+
+    &.checked {
+      .checkbox {
+        background: $COLOR-TEALISH;
+        border-color: $COLOR-TEALISH;
+      }
+    }
+  }
+
+  &:active:not(.disabled) {
+    .checkbox {
+      background: #C0EDF3; //todo
+      border-color: #C0EDF3; //todo
+    }
+    &.checked {
+      .checkmark {
+        background: url('../../img/checkmarkForCheckboxActive.svg') center no-repeat;
+      }
+    }
+  }
+
+  &.disabled {
+    .checkbox {
+      background: #F4F5F7; //todo
+      border-color: #EBECF0; //todo
+    }
+    &.checked {
+      .checkmark {
+        background: url('../../img/checkmarkForCheckboxDisable.svg') center no-repeat;
+      }
+    }
+  }
+}
