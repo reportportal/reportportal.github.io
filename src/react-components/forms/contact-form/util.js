@@ -34,7 +34,7 @@ export const validate = (values) => {
   }
 
   if (!values.company) {
-    errors.company = 'Please check your email again.';
+    errors.company = 'Please check your company name again.';
   }
 
   return errors;

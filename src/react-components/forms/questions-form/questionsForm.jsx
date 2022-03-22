@@ -47,7 +47,7 @@ const QuestionsForm = () => {
     };
 
     showModal(
-      <ModalInfoMessage onClosed={closeModal} />,
+      <ModalInfoMessage onClose={closeModal} />,
     );
 
     iframe.onload = () => {
