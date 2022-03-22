@@ -90,7 +90,7 @@ const QuestionsForm = () => {
             target='dummyQuestionFrame'
           >
             <SalesForceFormBase additionalFields={[
-              <input key='Source' type='hidden' name='Source' value='Landing page'/>,
+              <input key='ReportPortalSource__c' type='hidden' name='ReportPortalSource__c' value='Landing page'/>,
             ]} />
             <div className="field">
               <input
