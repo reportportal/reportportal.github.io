@@ -86,7 +86,10 @@ module.exports = (env = defaultEnv) => ({
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name].[fullhash:6].css' }),
-    new HtmlWebpackPlugin({ template: './src/index.jade' }),
+    new HtmlWebpackPlugin({
+      template: './src/index.jade',
+      favicon: './src/common/img/favicon.ico',
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new WebpackNotifierPlugin({ skipFirstNotification: true }),
     new webpack.DefinePlugin({

@@ -25,7 +25,7 @@ const ModalInfoMessage = ({ onClose }) => (
     <div className="contact-form">
       <div className="form-title">Thank You!</div>
       <div className="form-description">We received your message! Our consultant will contact you within <br/> 4 working days.</div>
-      <Button onClick={onClose}>Closed</Button>
+      <Button onClick={onClose}>Close</Button>
     </div>
   </Modal>
 );

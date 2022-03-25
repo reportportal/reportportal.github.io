@@ -97,7 +97,10 @@ const ContactForm = ({
               <SalesForceFormBase additionalFields={
                 options.map(option => <input key={option.name} type='hidden' name={option.name} value={option.value}/>)
               }/>
-              <div className={classnames('custom-input', { error: touched.first_name && errors.first_name })}>
+              <div className={classnames(
+                'custom-input',
+                { error: touched.first_name && errors.first_name, filled: !!values.first_name },
+              )}>
                 <i className="user-icon"/>
                 <input
                   key='firstName'
@@ -113,7 +116,10 @@ const ContactForm = ({
                 {touched.first_name && errors.first_name ? <div className='error'>{errors.first_name}</div> : null}
               </div>
 
-              <div className={classnames('custom-input', { error: touched.last_name && errors.last_name })}>
+              <div className={classnames(
+                'custom-input',
+                { error: touched.last_name && errors.last_name, filled: !!values.last_name },
+              )}>
                 <i className="user-icon"/>
                 <input
                   key='lastName'
@@ -129,7 +135,10 @@ const ContactForm = ({
                 {touched.last_name && errors.last_name ? <div className='error'>{errors.last_name}</div> : null}
               </div>
 
-              <div className={classnames('custom-input', { error: touched.email && errors.email })}>
+              <div className={classnames(
+                'custom-input',
+                { error: touched.email && errors.email, filled: !!values.email },
+              )}>
                 <i className="email-icon"/>
                 <input
                   key='email'
@@ -145,7 +154,10 @@ const ContactForm = ({
                 {touched.email && errors.email ? <div className='error'>{errors.email}</div> : null}
               </div>
 
-              <div className={classnames('custom-input', { error: touched.company && errors.company })}>
+              <div className={classnames(
+                'custom-input',
+                { error: touched.company && errors.company, filled: !!values.company },
+              )}>
                 <i className="company-icon"/>
                 <input
                   key='companyName'

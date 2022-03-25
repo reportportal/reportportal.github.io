@@ -47,7 +47,7 @@ const PlanCard = ({
       <div className="name">{name}</div>
       <div className="short-description">{description}</div>
       <div className="price">{price}<span className="period">/per month</span></div>
-      <div className="button" onClick={onClick}>{button}</div>
+      <div className="card-button" onClick={onClick}>{button}</div>
     </div>
   );
 };

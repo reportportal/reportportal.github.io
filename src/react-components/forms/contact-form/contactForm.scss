@@ -36,12 +36,16 @@
   .custom-input {
     background: $COLOR-WHITE_TWO;
     border-radius: 4px;
-    border: 1px solid $COLOR-TOPAZ;
+    border: 1px solid $COLOR-GRAY-80;
     height: 38px;
     width: 420px;
     margin: 0 auto 28px;
     display: flex;
     position: inherit;
+
+    &:focus-within, &.filled {
+      border: 1px solid $COLOR-TOPAZ;
+    }
 
     &.error {
       border: 1px solid $COLOR--error-red;

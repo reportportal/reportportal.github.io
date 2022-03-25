@@ -29,8 +29,12 @@
   text-align: center;
   color: $COLOR-WHITE-TEXT;
 
-  &:hover {
+  &:hover:not(:disabled):not(:active) {
     background: $COLOR-TOPAZ;
+  }
+
+  &:disabled {
+    opacity: 0.35;
   }
 
   &.light {
@@ -39,9 +43,14 @@
     box-sizing: border-box;
     color: $COLOR-TEALISH;
 
-    &:hover {
+    &:hover:not(:disabled):not(:active) {
+      background: $COLOR-WHITE_TWO;
       color: $COLOR-TOPAZ;
       border-color: $COLOR-TOPAZ;
+
+      &:disabled {
+        opacity: 0.35;
+      }
     }
   }
 };
