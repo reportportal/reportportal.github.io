@@ -19,6 +19,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Formik } from 'formik';
 import CustomCheckbox from 'react-components/common/custom-checkbox/custom-checkbox.jsx';
+import CustomField from 'react-components/forms/custom-field/customField.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
@@ -81,11 +82,6 @@ const ContactForm = ({
           validate={validate}
         >
           {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
             isValid,
             dirty,
           }) => (
@@ -97,82 +93,32 @@ const ContactForm = ({
               <SalesForceFormBase additionalFields={
                 options.map(option => <input key={option.name} type='hidden' name={option.name} value={option.value}/>)
               }/>
-              <div className={classnames(
-                'custom-input',
-                { error: touched.first_name && errors.first_name, filled: !!values.first_name },
-              )}>
-                <i className="user-icon"/>
-                <input
-                  key='firstName'
-                  id='first_name'
-                  name='first_name'
-                  type='text'
-                  maxLength={40}
-                  placeholder='First name'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.first_name}
-                />
-                {touched.first_name && errors.first_name ? <div className='error'>{errors.first_name}</div> : null}
-              </div>
-
-              <div className={classnames(
-                'custom-input',
-                { error: touched.last_name && errors.last_name, filled: !!values.last_name },
-              )}>
-                <i className="user-icon"/>
-                <input
-                  key='lastName'
-                  id='last_name'
-                  name='last_name'
-                  type='text'
-                  maxLength={80}
-                  placeholder='Last name'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.last_name}
-                />
-                {touched.last_name && errors.last_name ? <div className='error'>{errors.last_name}</div> : null}
-              </div>
-
-              <div className={classnames(
-                'custom-input',
-                { error: touched.email && errors.email, filled: !!values.email },
-              )}>
-                <i className="email-icon"/>
-                <input
-                  key='email'
-                  id='email'
-                  name='email'
-                  type='email'
-                  maxLength={80}
-                  placeholder='Email'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                />
-                {touched.email && errors.email ? <div className='error'>{errors.email}</div> : null}
-              </div>
-
-              <div className={classnames(
-                'custom-input',
-                { error: touched.company && errors.company, filled: !!values.company },
-              )}>
-                <i className="company-icon"/>
-                <input
-                  key='companyName'
-                  id='company'
-                  name='company'
-                  type='text'
-                  maxLength={40}
-                  placeholder='Company name'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.company}
-                />
-                {touched.company && errors.company ? <div className='error'>{errors.company}</div> : null}
-              </div>
-
+              <CustomField
+                icon={<i className="user-icon"/>}
+                name='first_name'
+                type='text'
+                placeholder='First name'
+              />
+              <CustomField
+                icon={<i className="user-icon"/>}
+                name='last_name'
+                type='text'
+                maxLength={80}
+                placeholder='Last name'
+              />
+              <CustomField
+                icon={<i className="email-icon"/>}
+                name='email'
+                type='email'
+                maxLength={80}
+                placeholder='Email'
+              />
+              <CustomField
+                icon={<i className="company-icon"/>}
+                name='company'
+                type='text'
+                placeholder='Company name'
+              />
               <div className="terms-of-use">
                 <CustomCheckbox className="term-checkbox" value={termsAgree} onChange={e => setTermsAgree(e.target.checked)} />
                 <div className="term-description">

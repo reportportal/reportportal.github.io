@@ -38,13 +38,17 @@
     display: block;
     margin: auto;
 
-    .field {
+    .custom-field {
       width: 427px;
       height: 35px;
       margin-top: 6px;
       margin-bottom: 22px;
       display: inline-block;
       position: relative;
+
+      &.error input {
+        border-bottom: 1px solid $COLOR--error-red;
+      }
 
       input {
         width: inherit;
@@ -66,10 +70,6 @@
         &:active {
           border-bottom: 1px solid $COLOR-TOPAZ;
         }
-
-        &.error {
-          border-bottom: 1px solid $COLOR--error-red;
-        }
       }
 
       .error-message {
@@ -81,7 +81,7 @@
       }
     }
 
-    .field:nth-child(even) {
+    .custom-field:nth-child(even) {
       margin-right: 36px;
     }
   }
