@@ -15,8 +15,8 @@
  */
 
 import React, { useContext, useEffect, useState } from 'react';
-import { Formik } from 'formik';
-import CustomField from 'react-components/forms/custom-field/customField.jsx';
+import { FormikProvider, useFormik } from 'formik';
+import FormField from 'react-components/forms/form-field/formField.jsx';
 import ModalContext from '../../layouts/modal-layout/modalContext';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
@@ -26,6 +26,17 @@ import './questionsForm.scss';
 const QuestionsForm = () => {
   const { showModal, closeModal } = useContext(ModalContext);
   const [iframe, setIframe] = useState(null);
+  const formik = useFormik({
+    initialValues: {
+      first_name: '',
+      last_name: '',
+      email: '',
+      company: '',
+    },
+    validate,
+  });
+
+  const { resetForm, dirty, isValid } = formik;
 
   useEffect(() => {
     const dummyQuestionFrame = document.createElement('iframe');
@@ -40,9 +51,9 @@ const QuestionsForm = () => {
     };
   }, []);
 
-  const onSubmit = (resetForm) => {
+  const onSubmit = (resetFunction) => {
     const reset = () => {
-      resetForm();
+      resetFunction();
       document.getElementById('questions-form').reset();
     };
 
@@ -65,16 +76,8 @@ const QuestionsForm = () => {
         For more details please leave your e-mail and we will contact you within 3 business days.
       </div>
       <div className="form">
-        <Formik
-          initialValues={{
-            first_name: '',
-            last_name: '',
-            email: '',
-            company: '',
-          }}
-          validate={validate}
-        >
-          {({ isValid, dirty, resetForm }) => (<form
+        <FormikProvider value={formik}>
+          <form
             id='questions-form'
             action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
             method='POST'
@@ -83,24 +86,24 @@ const QuestionsForm = () => {
             <SalesForceFormBase additionalFields={[
               <input key='ReportPortalSource__c' type='hidden' name='ReportPortalSource__c' value='Landing page'/>,
             ]} />
-            <CustomField
+            <FormField
               name='first_name'
               type='text'
               placeholder='First name'
             />
-            <CustomField
+            <FormField
               name='last_name'
               type='text'
               maxLength={80}
               placeholder='Last name'
             />
-            <CustomField
+            <FormField
               name='email'
               type='email'
               maxLength={80}
               placeholder='Email'
             />
-            <CustomField
+            <FormField
               name='company'
               type='text'
               placeholder='Company name'
@@ -115,8 +118,8 @@ const QuestionsForm = () => {
             >
               Send
             </button>
-          </form>)}
-        </Formik>
+          </form>
+        </FormikProvider>
       </div>
     </div>
   );

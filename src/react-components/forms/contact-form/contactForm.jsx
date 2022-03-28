@@ -17,9 +17,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Formik } from 'formik';
+import { FormikProvider, useFormik } from 'formik';
 import CustomCheckbox from 'react-components/common/custom-checkbox/custom-checkbox.jsx';
-import CustomField from 'react-components/forms/custom-field/customField.jsx';
+import FormField from 'react-components/forms/form-field/formField.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
@@ -36,6 +36,17 @@ const ContactForm = ({
   const { showModal, closeModal } = useContext(ModalContext);
   const [termsAgree, setTermsAgree] = useState(false);
   const [iframe, setIframe] = useState(null);
+  const formik = useFormik({
+    initialValues: {
+      first_name: '',
+      last_name: '',
+      email: '',
+      company: '',
+    },
+    validate,
+  });
+
+  const { dirty, isValid } = formik;
 
   useEffect(() => {
     const dummyframe = document.createElement('iframe');
@@ -72,70 +83,57 @@ const ContactForm = ({
       <div className={classnames('contact-form', className)}>
         <div className="form-title">{title}</div>
         <div className="form-description">{description}</div>
-        <Formik
-          initialValues={{
-            first_name: '',
-            last_name: '',
-            email: '',
-            company: '',
-          }}
-          validate={validate}
-        >
-          {({
-            isValid,
-            dirty,
-          }) => (
-            <form
-              action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
-              method='POST'
-              target='dummyframe'
-            >
-              <SalesForceFormBase additionalFields={
-                options.map(option => <input key={option.name} type='hidden' name={option.name} value={option.value}/>)
-              }/>
-              <CustomField
-                icon={<i className="user-icon"/>}
-                name='first_name'
-                type='text'
-                placeholder='First name'
-              />
-              <CustomField
-                icon={<i className="user-icon"/>}
-                name='last_name'
-                type='text'
-                maxLength={80}
-                placeholder='Last name'
-              />
-              <CustomField
-                icon={<i className="email-icon"/>}
-                name='email'
-                type='email'
-                maxLength={80}
-                placeholder='Email'
-              />
-              <CustomField
-                icon={<i className="company-icon"/>}
-                name='company'
-                type='text'
-                placeholder='Company name'
-              />
-              <div className="terms-of-use">
-                <CustomCheckbox className="term-checkbox" value={termsAgree} onChange={e => setTermsAgree(e.target.checked)} />
-                <div className="term-description">
-                  I have read and agree to the <a target="_blank" href="">General Terms of Service</a> and <br/> the <a target="_blank" href="">Privacy Policy</a>
-                </div>
+        <FormikProvider value={formik}>
+          <form
+            action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
+            method='POST'
+            target='dummyframe'
+          >
+            <SalesForceFormBase additionalFields={
+              options.map(option => <input key={option.name} type='hidden' name={option.name} value={option.value}/>)
+            }/>
+            <FormField
+              icon={<i className="user-icon"/>}
+              name='first_name'
+              type='text'
+              placeholder='First name'
+            />
+            <FormField
+              icon={<i className="user-icon"/>}
+              name='last_name'
+              type='text'
+              maxLength={80}
+              placeholder='Last name'
+            />
+            <FormField
+              icon={<i className="email-icon"/>}
+              name='email'
+              type='email'
+              maxLength={80}
+              placeholder='Email'
+            />
+            <FormField
+              icon={<i className="company-icon"/>}
+              name='company'
+              type='text'
+              placeholder='Company name'
+            />
+            <div className="terms-of-use">
+              <CustomCheckbox className="term-checkbox" value={termsAgree} onChange={e => setTermsAgree(e.target.checked)} />
+              <div className="term-description">
+                I have read and agree to the <a target="_blank" href="">General Terms of Service</a> and <br/> the <a target="_blank" href="">Privacy Policy</a>
               </div>
-              <button
-                className="button"
-                type="submit"
-                onClick={onSubmit}
-                disabled={!(isValid && dirty && termsAgree)}
-              >
-                Contact Us
-              </button>
-            </form>
-          )}
-        </Formik>
+            </div>
+            <button
+              className="button"
+              type="submit"
+              onClick={onSubmit}
+              disabled={!(isValid && dirty && termsAgree)}
+            >
+              Contact Us
+            </button>
+          </form>
+        </FormikProvider>
       </div>
     </Modal>
   );

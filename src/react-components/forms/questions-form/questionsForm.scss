@@ -38,7 +38,7 @@
     display: block;
     margin: auto;
 
-    .custom-field {
+    .form-field {
       width: 427px;
       height: 35px;
       margin-top: 6px;
@@ -81,7 +81,7 @@
       }
     }
 
-    .custom-field:nth-child(even) {
+    .form-field:nth-child(even) {
       margin-right: 36px;
     }
   }
