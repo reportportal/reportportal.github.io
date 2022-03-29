@@ -17,6 +17,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Button from 'react-components/common/button/button.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
 import ModalContext from '../layouts/modal-layout/modalContext';
 import './planCard.scss';
@@ -47,7 +48,9 @@ const PlanCard = ({
       <div className="name">{name}</div>
       <div className="short-description">{description}</div>
       <div className="price">{price}<span className="period">/per month</span></div>
-      <div className="card-button" onClick={onClick}>{button}</div>
+      {button && <div className="card-button">
+        <Button className={button.type} onClick={onClick}>{button.name}</Button>
+      </div>}
     </div>
   );
 };
@@ -59,7 +62,10 @@ PlanCard.propTypes = {
     PropTypes.string,
   ]),
   price: PropTypes.string,
-  button: PropTypes.element,
+  button: PropTypes.shape({
+    name: PropTypes.string,
+    type: PropTypes.string,
+  }),
   className: PropTypes.string,
   form: PropTypes.shape({
     title: PropTypes.string,
@@ -76,7 +82,7 @@ PlanCard.defaultProps = {
   name: '',
   description: null,
   price: '',
-  button: '',
+  button: null,
   className: '',
   form: {},
 };

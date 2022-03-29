@@ -95,13 +95,11 @@ const ContactForm = ({
             <FormField
               icon={<i className="user-icon"/>}
               name='first_name'
-              type='text'
               placeholder='First name'
             />
             <FormField
               icon={<i className="user-icon"/>}
               name='last_name'
-              type='text'
               maxLength={80}
               placeholder='Last name'
             />
@@ -115,7 +113,6 @@ const ContactForm = ({
             <FormField
               icon={<i className="company-icon"/>}
               name='company'
-              type='text'
               placeholder='Company name'
             />
             <div className="terms-of-use">

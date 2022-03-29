@@ -7,6 +7,7 @@ const FormField = ({
   icon,
   maxLength,
   placeholder,
+  type,
   ...props
 }) => {
   const [field, meta] = useField(props);
@@ -18,6 +19,7 @@ const FormField = ({
       {icon}
       <input
         {...field}
+        type={type}
         maxLength={maxLength}
         placeholder={placeholder}
       />
@@ -29,11 +31,13 @@ FormField.propTypes = {
   icon: PropTypes.node,
   maxLength: PropTypes.number,
   placeholder: PropTypes.string,
+  type: PropTypes.oneOf(['email', 'text', 'number', 'password', 'tel', 'url']),
 };
 FormField.defaultProps = {
   icon: null,
   maxLength: 40,
   placeholder: '',
+  type: 'text',
 };
 
 export default FormField;

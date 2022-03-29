@@ -88,12 +88,10 @@ const QuestionsForm = () => {
             ]} />
             <FormField
               name='first_name'
-              type='text'
               placeholder='First name'
             />
             <FormField
               name='last_name'
-              type='text'
               maxLength={80}
               placeholder='Last name'
             />
@@ -105,7 +103,6 @@ const QuestionsForm = () => {
             />
             <FormField
               name='company'
-              type='text'
               placeholder='Company name'
             />
             <button
