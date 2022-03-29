@@ -15,18 +15,23 @@
  */
 
 import React from 'react';
-import reactWrapper from 'pages/pricing-page/reactWrapper';
+import reactWrapper from 'utils/reactWrapper';
 import BodyLayout from 'react-components/layouts/bodyLayout.jsx';
 import QuestionsForm from 'react-components/forms/questions-form/questionsForm.jsx';
 import PlansBlock from 'react-components/plans-block/plansBlock.jsx';
 import './pricingPage.scss';
 
-const Layout = () => <BodyLayout className="pricing-page">
-  <>
-    <div className="pricing-page-header">Flexible options for cloud<br /> or self hosted installation</div>
-    <PlansBlock />
-    <QuestionsForm />
-  </>
-</BodyLayout>;
+const Layout = () => (
+  <BodyLayout className="pricing-page">
+    <>
+      <div className="pricing-page-header">
+        Flexible options for cloud
+        <br /> or self hosted installation
+      </div>
+      <PlansBlock />
+      <QuestionsForm />
+    </>
+  </BodyLayout>
+);
 
 export default reactWrapper(Layout);
