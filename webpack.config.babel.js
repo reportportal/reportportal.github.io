@@ -27,6 +27,7 @@ module.exports = (env = defaultEnv) => ({
     clean: true,
   },
   resolve: {
+    extensions: ['.js', '.jsx', '.scss'],
     alias: {
       modernizr: path.resolve(__dirname, '.modernizrrc'),
       router: path.resolve(__dirname, 'src/router'),
@@ -61,8 +62,14 @@ module.exports = (env = defaultEnv) => ({
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          { loader: 'css-loader', options: { sourceMap: env.dev } },
-          { loader: 'sass-loader', options: { sourceMap: env.dev } },
+          {
+            loader: 'css-loader',
+            options: { sourceMap: env.dev },
+          },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: env.dev },
+          },
           {
             loader: 'sass-resources-loader',
             options: {
@@ -95,23 +102,25 @@ module.exports = (env = defaultEnv) => ({
     new webpack.DefinePlugin({
       LOCAL_DOCUMENTATION: JSON.stringify(env.proxyDocumentation),
     }),
-    ...env.production ? [
-      new CleanWebpackPlugin(),
-      new CopyWebpackPlugin({
-        patterns: [
-          { from: 'CNAME' },
-          { from: 'sitemap.xml' },
-          { from: 'google95cc3d56e1325c3b.html' },
-          { from: 'src/404.html' },
-        ],
-      }),
-      new CompressionPlugin({
-        filename: '[path][base].gz',
-        algorithm: 'gzip',
-        threshold: 10240,
-        minRatio: 0.8,
-      }),
-    ] : [],
+    ...(env.production
+      ? [
+          new CleanWebpackPlugin(),
+          new CopyWebpackPlugin({
+            patterns: [
+              { from: 'CNAME' },
+              { from: 'sitemap.xml' },
+              { from: 'google95cc3d56e1325c3b.html' },
+              { from: 'src/404.html' },
+            ],
+          }),
+          new CompressionPlugin({
+            filename: '[path][base].gz',
+            algorithm: 'gzip',
+            threshold: 10240,
+            minRatio: 0.8,
+          }),
+        ]
+      : []),
   ],
   devtool: env.dev ? 'inline-source-map' : false,
   devServer: {
@@ -128,33 +137,39 @@ module.exports = (env = defaultEnv) => ({
       aggregateTimeout: 200,
       poll: 1000,
     },
-    proxy: env.proxyDocumentation ? {
-      '/documentation.html*': {
-        target: 'http://localhost:9020/',
-        bypass(req, res, options) {
-          console.log(`proxy url: ${req.url}`);
-        },
-      },
-      '/docs/Images/**': {
-        pathRewrite: { '^/docs': '' },
-        target: 'http://localhost:9020/',
-        bypass(req, res, options) {
-          console.log(`proxy url: ${req.url}`);
-        },
-      },
-    } : {},
-
+    proxy: env.proxyDocumentation
+      ? {
+          '/documentation.html*': {
+            target: 'http://localhost:9020/',
+            bypass(req, res, options) {
+              console.log(`proxy url: ${req.url}`);
+            },
+          },
+          '/docs/Images/**': {
+            pathRewrite: { '^/docs': '' },
+            target: 'http://localhost:9020/',
+            bypass(req, res, options) {
+              console.log(`proxy url: ${req.url}`);
+            },
+          },
+        }
+      : {},
   },
   optimization: {
     minimize: !!env.production,
-    minimizer: env.production ? [new TerserPlugin({
-      terserOptions: {
-        format: {
-          comments: false,
-        },
-      },
-      extractComments: false,
-    }), new CssMinimizerPlugin()] : [],
+    minimizer: env.production
+      ? [
+          new TerserPlugin({
+            terserOptions: {
+              format: {
+                comments: false,
+              },
+            },
+            extractComments: false,
+          }),
+          new CssMinimizerPlugin(),
+        ]
+      : [],
   },
   performance: {
     hints: false,
