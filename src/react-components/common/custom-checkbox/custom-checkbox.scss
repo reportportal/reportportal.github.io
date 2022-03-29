@@ -23,9 +23,9 @@
     display: block;
     height: 12px;
     width: 12px;
-    background: #FAFBFC; //todo
+    background: $COLOR-WHITE_TWO;
     border-radius: 3px;
-    border: solid 2px #DFE1E6; //todo
+    border: solid 2px $COLOR-TEXT-INFO;
   }
 
   &.checked {
@@ -56,20 +56,15 @@
 
   &:active:not(.disabled) {
     .checkbox {
-      background: #C0EDF3; //todo
-      border-color: #C0EDF3; //todo
-    }
-    &.checked {
-      .checkmark {
-        background: url('../../img/checkmarkForCheckboxActive.svg') center no-repeat;
-      }
+      background: $COLOR-TEALISH;
+      border-color: $COLOR-TEALISH;
     }
   }
 
   &.disabled {
     .checkbox {
-      background: #F4F5F7; //todo
-      border-color: #EBECF0; //todo
+      background: $COLOR-WHITE_TWO;
+      border-color: $COLOR-TEXT-INFO;
     }
     &.checked {
       .checkmark {

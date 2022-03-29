@@ -30,7 +30,7 @@
     line-height: 32px;
     text-align: center;
     color: $COLOR-STEEL-GREY;
-    padding-bottom: 12px;
+    padding-bottom: 26px;
   };
 
   .form {
@@ -38,13 +38,17 @@
     display: block;
     margin: auto;
 
-    .field {
+    .form-field {
       width: 427px;
       height: 35px;
       margin-top: 6px;
       margin-bottom: 22px;
       display: inline-block;
       position: relative;
+
+      &.error input {
+        border-bottom: 1px solid $COLOR--error-red;
+      }
 
       input {
         width: inherit;
@@ -66,10 +70,6 @@
         &:active {
           border-bottom: 1px solid $COLOR-TOPAZ;
         }
-
-        &.error {
-          border-bottom: 1px solid $COLOR--error-red;
-        }
       }
 
       .error-message {
@@ -81,7 +81,7 @@
       }
     }
 
-    .field:nth-child(even) {
+    .form-field:nth-child(even) {
       margin-right: 36px;
     }
   }

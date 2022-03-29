@@ -17,8 +17,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Formik } from 'formik';
+import { FormikProvider, useFormik } from 'formik';
 import CustomCheckbox from 'react-components/common/custom-checkbox/custom-checkbox.jsx';
+import FormField from 'react-components/forms/form-field/formField.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
@@ -35,6 +36,17 @@ const ContactForm = ({
   const { showModal, closeModal } = useContext(ModalContext);
   const [termsAgree, setTermsAgree] = useState(false);
   const [iframe, setIframe] = useState(null);
+  const formik = useFormik({
+    initialValues: {
+      first_name: '',
+      last_name: '',
+      email: '',
+      company: '',
+    },
+    validate,
+  });
+
+  const { dirty, isValid } = formik;
 
   useEffect(() => {
     const dummyframe = document.createElement('iframe');
@@ -71,113 +83,54 @@ const ContactForm = ({
       <div className={classnames('contact-form', className)}>
         <div className="form-title">{title}</div>
         <div className="form-description">{description}</div>
-        <Formik
-          initialValues={{
-            first_name: '',
-            last_name: '',
-            email: '',
-            company: '',
-          }}
-          validate={validate}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            isValid,
-            dirty,
-          }) => (
-            <form
-              action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
-              method='POST'
-              target='dummyframe'
+        <FormikProvider value={formik}>
+          <form
+            action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
+            method='POST'
+            target='dummyframe'
+          >
+            <SalesForceFormBase additionalFields={
+              options.map(option => <input key={option.name} type='hidden' name={option.name} value={option.value}/>)
+            }/>
+            <FormField
+              icon={<i className="user-icon"/>}
+              name='first_name'
+              placeholder='First name'
+            />
+            <FormField
+              icon={<i className="user-icon"/>}
+              name='last_name'
+              maxLength={80}
+              placeholder='Last name'
+            />
+            <FormField
+              icon={<i className="email-icon"/>}
+              name='email'
+              type='email'
+              maxLength={80}
+              placeholder='Email'
+            />
+            <FormField
+              icon={<i className="company-icon"/>}
+              name='company'
+              placeholder='Company name'
+            />
+            <div className="terms-of-use">
+              <CustomCheckbox className="term-checkbox" value={termsAgree} onChange={e => setTermsAgree(e.target.checked)} />
+              <div className="term-description">
+                I have read and agree to the <a target="_blank" href="">General Terms of Service</a> and <br/> the <a target="_blank" href="">Privacy Policy</a>
+              </div>
+            </div>
+            <button
+              className="button"
+              type="submit"
+              onClick={onSubmit}
+              disabled={!(isValid && dirty && termsAgree)}
             >
-              <SalesForceFormBase additionalFields={
-                options.map(option => <input key={option.name} type='hidden' name={option.name} value={option.value}/>)
-              }/>
-              <div className={classnames('custom-input', { error: touched.first_name && errors.first_name })}>
-                <i className="user-icon"/>
-                <input
-                  key='firstName'
-                  id='first_name'
-                  name='first_name'
-                  type='text'
-                  maxLength={40}
-                  placeholder='First name'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.first_name}
-                />
-                {touched.first_name && errors.first_name ? <div className='error'>{errors.first_name}</div> : null}
-              </div>
-
-              <div className={classnames('custom-input', { error: touched.last_name && errors.last_name })}>
-                <i className="user-icon"/>
-                <input
-                  key='lastName'
-                  id='last_name'
-                  name='last_name'
-                  type='text'
-                  maxLength={80}
-                  placeholder='Last name'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.last_name}
-                />
-                {touched.last_name && errors.last_name ? <div className='error'>{errors.last_name}</div> : null}
-              </div>
-
-              <div className={classnames('custom-input', { error: touched.email && errors.email })}>
-                <i className="email-icon"/>
-                <input
-                  key='email'
-                  id='email'
-                  name='email'
-                  type='email'
-                  maxLength={80}
-                  placeholder='Email'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                />
-                {touched.email && errors.email ? <div className='error'>{errors.email}</div> : null}
-              </div>
-
-              <div className={classnames('custom-input', { error: touched.company && errors.company })}>
-                <i className="company-icon"/>
-                <input
-                  key='companyName'
-                  id='company'
-                  name='company'
-                  type='text'
-                  maxLength={40}
-                  placeholder='Company name'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.company}
-                />
-                {touched.company && errors.company ? <div className='error'>{errors.company}</div> : null}
-              </div>
-
-              <div className="terms-of-use">
-                <CustomCheckbox className="term-checkbox" value={termsAgree} onChange={e => setTermsAgree(e.target.checked)} />
-                <div className="term-description">
-                  I have read and agree to the <a target="_blank" href="">General Terms of Service</a> and <br/> the <a target="_blank" href="">Privacy Policy</a>
-                </div>
-              </div>
-              <button
-                className="button"
-                type="submit"
-                onClick={onSubmit}
-                disabled={!(isValid && dirty && termsAgree)}
-              >
-                Contact Us
-              </button>
-            </form>
-          )}
-        </Formik>
+              Contact Us
+            </button>
+          </form>
+        </FormikProvider>
       </div>
     </Modal>
   );

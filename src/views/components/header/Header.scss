@@ -130,22 +130,22 @@
             }
           }
         }
-        .try-demo{
+        .try-demo {
           box-sizing: border-box;
           width: 117px;
           margin-left: 10px;
           border-radius: 3px;
-          border: 1px solid $COLOR-TOPAZ;
-          color: $COLOR-TOPAZ;
+          border: 1px solid $COLOR-TEALISH;
+          color: $COLOR-TEALISH;
           font-size: 15px;
           text-align: center;
           line-height: 32px;
           text-decoration: none;
-          &:hover{
+          &:hover:not(:active) {
             color: $COLOR-TOPAZ;
             border-color: $COLOR-TOPAZ;
           }
-          @media(max-width: $SCREEN_SM_MAX){
+          @media(max-width: $SCREEN_SM_MAX) {
             width: auto;
             padding: 0 7px;
             margin-left: 0;
@@ -168,11 +168,11 @@
           text-align: center;
           line-height: 32px;
           cursor: pointer;
-          &:hover{
+          &:hover:not(:active) {
             background-color: $COLOR-TOPAZ;
-            border-color: $COLOR-TEALISH;
+            border-color: $COLOR-TOPAZ;
           }
-          @media(max-width: $SCREEN_SM_MAX){
+          @media(max-width: $SCREEN_SM_MAX) {
             width: auto;
             padding: 0 7px;
             margin-left: 0;
@@ -194,10 +194,10 @@
           text-align: center;
           line-height: 32px;
           cursor: pointer;
-          &:hover{
+          &:hover:not(:active) {
             color: $COLOR-TOPAZ;
           }
-          @media(max-width: $SCREEN_SM_MAX){
+          @media(max-width: $SCREEN_SM_MAX) {
             width: auto;
             padding: 0 7px;
             margin-left: 0;

@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'react-components/common/button/button.jsx';
 
 const planCompareTableTitles = {
   instance: { id: 'instance', name: 'Individual Instance', info: 'You can choose instance type: multi-tenant (1 project on shared instances) or individual instances (only your company is on the instance)' },
@@ -23,7 +22,7 @@ const plansData = [
         name: 'Free',
         description: 'For quick start',
         price: { full: '$0', sale: '$0' },
-        button: <Button className='light'>Sign Up</Button>,
+        button: { type: 'light', name: 'Sign Up' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -39,7 +38,7 @@ const plansData = [
         name: 'Start-Up',
         description: 'For small team',
         price: { full: '$1000', sale: '$950' },
-        button: <Button>Sign Up</Button>,
+        button: { name: 'Sign Up' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -56,7 +55,7 @@ const plansData = [
         name: 'Pro',
         description: 'For large companies',
         price: { full: '$1500', sale: '$1425' },
-        button: <Button className='light'>Contact Us</Button>,
+        button: { type: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -74,7 +73,7 @@ const plansData = [
         name: 'Enterprise',
         description: 'Enterprise-Ready',
         price: { full: '$4000', sale: '$3800' },
-        button: <Button className='light'>Contact Us</Button>,
+        button: { type: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -111,7 +110,7 @@ const plansData = [
           <div className="second-level-description">of support</div>
         </div>,
         price: { full: '$2,500' },
-        button: <Button className='light'>Contact Us</Button>,
+        button: { type: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration with 32 hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -128,7 +127,7 @@ const plansData = [
           <div className="second-level-description">of support</div>
         </div>,
         price: { full: '$4,000' },
-        button: <Button className='light'>Contact Us</Button>,
+        button: { type: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration with 60 hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -146,7 +145,7 @@ const plansData = [
           <div className="second-level-description">of support</div>
         </div>,
         price: { full: '$10,000+' },
-        button: <Button className='light'>Contact Us</Button>,
+        button: { type: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration with 168+ hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
