@@ -17,16 +17,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import ModalProvider from 'react-components/layouts/modal-layout/modal-provider/modalProvider.jsx';
 import './bodyLayout.scss';
 
 const BodyLayout = ({ children, className }) => (
   <div className={classnames('body-layout', className)}>
-    <ModalProvider>
-      <div className={className}>
-        {children}
-      </div>
-    </ModalProvider>
+    <div className={className}>{children}</div>
   </div>
 );
 
