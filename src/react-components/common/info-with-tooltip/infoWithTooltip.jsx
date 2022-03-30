@@ -15,9 +15,11 @@
  */
 
 import React, { useState } from 'react';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import './infoWithTooltip.scss';
+import classNames from 'classnames/bind';
+import styles from './infoWithTooltip.scss';
+
+const cx = classNames.bind(styles);
 
 const InfoWithTooltip = ({ children, tooltip }) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
@@ -30,13 +32,13 @@ const InfoWithTooltip = ({ children, tooltip }) => {
 
   return (
     <div
-      className={classnames('info', { active: isTooltipVisible })}
+      className={cx('info', { active: isTooltipVisible })}
       onMouseOver={onHover}
       onMouseOut={() => setIsTooltipVisible(false)}
     >
       {children}
       <div
-        className={classnames('hover-area', { visible: isTooltipVisible })}
+        className={cx('hover-area', { visible: isTooltipVisible })}
         style={{
           top: `${clientRect.y}px`,
           left: `${clientRect.x}px`,
@@ -44,11 +46,7 @@ const InfoWithTooltip = ({ children, tooltip }) => {
           paddingLeft: '6px',
         }}
       >
-        <div
-          className={classnames('tooltip')}
-        >
-          {tooltip}
-        </div>
+        <div className={cx('tooltip')}>{tooltip}</div>
       </div>
     </div>
   );

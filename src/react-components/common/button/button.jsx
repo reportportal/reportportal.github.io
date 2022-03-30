@@ -16,22 +16,18 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import './button.scss';
+import styles from './button.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 const Button = ({ children, onClick, className }) => (
-  <div
-    className={classnames('button', className)}
-    onClick={onClick}
-  >
+  <div className={cx('button', className)} onClick={onClick}>
     {children}
   </div>
 );
 Button.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.element.isRequired,
-    PropTypes.string.isRequired,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.string.isRequired]),
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
 };

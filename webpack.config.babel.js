@@ -57,19 +57,39 @@ module.exports = (env = defaultEnv) => ({
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc)ss$/,
+        exclude: path.resolve(__dirname, './src/react-components/'),
         use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { sourceMap: env.dev } },
+          'sass-loader',
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.resolve(__dirname, 'src/common/css/variables/**/*.scss'),
+                path.resolve(__dirname, 'src/common/css/mixins.scss'),
+              ],
+            },
           },
+        ],
+      },
+      {
+        test: /\.(sa|sc)ss$/,
+        include: path.resolve(__dirname, 'src/react-components/'),
+        exclude: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { sourceMap: env.dev },
+            options: {
+              modules: {
+                localIdentName: '[local]--[contenthash:base64:5]',
+              },
+              importLoaders: 1,
+            },
           },
-          {
-            loader: 'sass-loader',
-            options: { sourceMap: env.dev },
-          },
+          'sass-loader',
           {
             loader: 'sass-resources-loader',
             options: {

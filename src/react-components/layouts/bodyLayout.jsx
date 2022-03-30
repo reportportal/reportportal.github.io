@@ -16,14 +16,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import './bodyLayout.scss';
 
-const BodyLayout = ({ children, className }) => (
-  <div className={classnames('body-layout', className)}>
-    <div className={className}>{children}</div>
-  </div>
-);
+const BodyLayout = ({ children, className }) => <div className={className}>{children}</div>;
 
 BodyLayout.propTypes = {
   className: PropTypes.string,

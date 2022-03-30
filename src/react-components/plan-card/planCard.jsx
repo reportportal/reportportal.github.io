@@ -16,51 +16,46 @@
 
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import classNames from 'classnames/bind';
 import Button from 'react-components/common/button/button.jsx';
-import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
+import { ContactForm } from 'react-components/forms/contact-form/contactForm.jsx';
 import ModalContext from '../layouts/modal-layout/modalContext';
-import './planCard.scss';
+import styles from './planCard.scss';
 
-const PlanCard = ({
-  name,
-  description,
-  price,
-  button,
-  className,
-  form,
-}) => {
+const cx = classNames.bind(styles);
+
+const PlanCard = ({ name, description, price, button, className, form }) => {
   const { showModal } = useContext(ModalContext);
 
   const onClick = () => {
     showModal(
-      <ContactForm
-        title={form.title}
-        description={form.description}
-        options={form.options}
-      />,
+      <ContactForm title={form.title} description={form.description} options={form.options} />,
     );
   };
 
   return (
-    <div className={classnames('card', className)} >
-      <div className="popular-label">Most popular</div>
-      <div className="name">{name}</div>
-      <div className="short-description">{description}</div>
-      <div className="price">{price}<span className="period">/per month</span></div>
-      {button && <div className="card-button">
-        <Button className={button.type} onClick={onClick}>{button.name}</Button>
-      </div>}
+    <div className={cx('card', className)}>
+      <div className={cx('popular-label')}>Most popular</div>
+      <div className={cx('name')}>{name}</div>
+      <div className={cx('short-description')}>{description}</div>
+      <div className={cx('price')}>
+        {price}
+        <span className={cx('period')}>/per month</span>
+      </div>
+      {button && (
+        <div className={cx('card-button')}>
+          <Button className={button.type} onClick={onClick}>
+            {button.name}
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
 
 PlanCard.propTypes = {
   name: PropTypes.string,
-  description: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.string,
-  ]),
+  description: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   price: PropTypes.string,
   button: PropTypes.shape({
     name: PropTypes.string,

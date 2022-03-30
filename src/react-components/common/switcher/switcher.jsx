@@ -16,8 +16,10 @@
 
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import './switcher.scss';
+import classNames from 'classnames/bind';
+import styles from './switcher.scss';
+
+const cx = classNames.bind(styles);
 
 const BIG = 'big';
 const SMALL = 'small';
@@ -37,40 +39,32 @@ const Switcher = ({
   }, [itemsData]);
 
   const onClick = (id) => {
-    const hasChange = !items.filter(item => item.id === id)[0].isActive;
+    const hasChange = !items.filter((item) => item.id === id)[0].isActive;
     if (!hasChange) {
       return;
     }
 
-    const currentItems = items.map(
-      item => ({ ...item, isActive: item.id === id }),
-    );
+    const currentItems = items.map((item) => ({ ...item, isActive: item.id === id }));
     setItems(currentItems);
     handleSelect(id);
   };
 
   return (
     <div
-      className={classnames(
-        'switcher',
-        className,
-        size,
-        {
-          'equal-width': withItemsEqualWidth,
-          'with-separator': withSeparator,
-        },
-      )}
+      className={cx('switcher', className, size, {
+        'equal-width': withItemsEqualWidth,
+        'with-separator': withSeparator,
+      })}
     >
-      {items.map(item => (
+      {items.map((item) => (
         <div
           key={item.id}
-          className={classnames('switcher-item', { active: item.isActive })}
+          className={cx('switcher-item', { active: item.isActive })}
           onClick={() => onClick(item.id)}
         >
-          <div className="item">
-            {item.element}
-          </div>
-        </div>))}
+          <div className={cx('item')}>{item.element}</div>
+        </div>
+      ))}
     </div>
   );
 };
@@ -79,10 +73,7 @@ Switcher.propTypes = {
   itemsData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      element: PropTypes.oneOfType([
-        PropTypes.element.isRequired,
-        PropTypes.string.isRequired,
-      ]),
+      element: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.string.isRequired]),
       isActive: PropTypes.bool,
     }),
   ).isRequired,

@@ -15,13 +15,15 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames/bind';
 import Switcher from 'react-components/common/switcher/switcher.jsx';
 import PlanCard from 'react-components/plan-card/planCard.jsx';
 import Table from 'react-components/common/table/table.jsx';
 import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
 import plansData from './data';
-import './plansBlock.scss';
+import styles from './plansBlock.scss';
+
+const cx = classNames.bind(styles);
 
 const PlansBlock = () => {
   const [selectedPlanData, setSelectedPlanData] = useState(plansData[0]);
@@ -40,7 +42,12 @@ const PlansBlock = () => {
 
       return {
         id: plan.name,
-        element: <><div className={classnames('icon', plan.iconType)}/>{plan.name}</>,
+        element: (
+          <>
+            <div className={cx('icon', plan.iconType)} />
+            {plan.name}
+          </>
+        ),
         isActive: plan.isActive,
       };
     });
@@ -55,12 +62,12 @@ const PlansBlock = () => {
     let activePeriodId = '';
 
     const currentPeriodSwitcherData = selectedPlanData.periods
-      ? selectedPlanData.periods.map(period => {
-        if (period.isActive) {
-          activePeriodId = period.id;
-        }
-        return { id: period.id, element: period.name, isActive: period.isActive };
-      })
+      ? selectedPlanData.periods.map((period) => {
+          if (period.isActive) {
+            activePeriodId = period.id;
+          }
+          return { id: period.id, element: period.name, isActive: period.isActive };
+        })
       : [];
 
     if (!activePeriodId && currentPeriodSwitcherData.length) {
@@ -72,7 +79,7 @@ const PlansBlock = () => {
   }, [selectedPlanData]);
 
   const handlePlanSwitcherSelect = (id) => {
-    setSelectedPlanData(plansData.find(plan => plan.name === id));
+    setSelectedPlanData(plansData.find((plan) => plan.name === id));
     setIsComparisonTableOpened(false);
   };
 
@@ -92,35 +99,57 @@ const PlansBlock = () => {
   };
 
   const getComparisonTableData = () => {
-    const headers = ['', ...selectedPlanData.plansInfo.map(plan => plan.name)];
+    const headers = ['', ...selectedPlanData.plansInfo.map((plan) => plan.name)];
 
-    const rows = selectedPlanData.compareTableTitles.map(title => {
-      const options = selectedPlanData.plansInfo.map(plan => plan.options[title.id]);
-      const modifiedOptions = options.map(option => (option === true ? <div className="true-icon"/> : option));
-      return [<div key={title.name} className="inline-title">
-        {title.name}
-        {title.info && <InfoWithTooltip tooltip={title.info}><i className="info-icon" /></InfoWithTooltip>}
-      </div>, ...modifiedOptions];
+    const rows = selectedPlanData.compareTableTitles.map((title) => {
+      const options = selectedPlanData.plansInfo.map((plan) => plan.options[title.id]);
+      const modifiedOptions = options.map((option) =>
+        option === true ? <div className={cx('true-icon')} /> : option,
+      );
+      return [
+        <div key={title.name} className={cx('inline-title')}>
+          {title.name}
+          {title.info && (
+            <InfoWithTooltip tooltip={title.info}>
+              <i className={cx('info-icon')} />
+            </InfoWithTooltip>
+          )}
+        </div>,
+        ...modifiedOptions,
+      ];
     });
 
-    const footer = <td colSpan={headers.length}>
-      <div className="footer-row">
-        <div className="terms">Terms & Conditions</div>
-        <div className="note">{selectedPlanData.footerDescription}</div>
-      </div>
-    </td>;
+    const footer = (
+      <td colSpan={headers.length}>
+        <div className={cx('footer-row')}>
+          <div className={cx('terms')}>Terms & Conditions</div>
+          <div className={cx('note')}>{selectedPlanData.footerDescription}</div>
+        </div>
+      </td>
+    );
 
     return { headers, rows, footer };
   };
 
   return (
-    <div className="plan-block">
-      <Switcher className="plan-switcher" itemsData={planSwitcherData} handleSelect={handlePlanSwitcherSelect} withItemsEqualWidth size='big'/>
-      <Switcher className="period-switcher" itemsData={periodSwitcherData} handleSelect={handlePeriodSwitcherSelect} withSeparator/>
-      <div className="plan-cards">
-        {selectedPlanData.plansInfo.map(cardInfo => (
+    <div className={cx('plan-block')}>
+      <Switcher
+        className={cx('plan-switcher')}
+        itemsData={planSwitcherData}
+        handleSelect={handlePlanSwitcherSelect}
+        withItemsEqualWidth
+        size="big"
+      />
+      <Switcher
+        className={cx('period-switcher')}
+        itemsData={periodSwitcherData}
+        handleSelect={handlePeriodSwitcherSelect}
+        withSeparator
+      />
+      <div className={cx('plan-cards')}>
+        {selectedPlanData.plansInfo.map((cardInfo) => (
           <PlanCard
-            className={classnames(cardInfo.popular, cardInfo.withClock, cardInfo.withFullClock)}
+            className={cx(cardInfo.popular, cardInfo.withClock, cardInfo.withFullClock)}
             key={cardInfo.name}
             name={cardInfo.shortName || cardInfo.name}
             price={getPrice(cardInfo.price)}
@@ -130,14 +159,17 @@ const PlansBlock = () => {
           />
         ))}
       </div>
-      <div className={classnames('comparison-table', { open: isComparisonTableOpened })}>
-        <div className="table-header" onClick={onComparisonTableClick}><div className="condition-icon"/>Compare plans</div>
-        <Table
-          className="compare-plans-table"
-          data={getComparisonTableData()}
-        />
+      <div className={cx('comparison-table', { open: isComparisonTableOpened })}>
+        <div className={cx('table-header')} onClick={onComparisonTableClick}>
+          <div className={cx('condition-icon')} />
+          Compare plans
+        </div>
+        <Table className={cx('compare-plans-table')} data={getComparisonTableData()} />
       </div>
-      <div className="description"><div className="name">{`${selectedPlanData.name} —`}</div><div className="text">{selectedPlanData.description}</div></div>
+      <div className={cx('description')}>
+        <div className={cx('name')}>{`${selectedPlanData.name} —`}</div>
+        <div className={cx('text')}>{selectedPlanData.description}</div>
+      </div>
     </div>
   );
 };

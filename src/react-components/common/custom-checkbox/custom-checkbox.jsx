@@ -16,24 +16,16 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import './custom-checkbox.scss';
+import classNames from 'classnames/bind';
+import styles from './custom-checkbox.scss';
 
-const CustomCheckbox = ({
-  className,
-  onChange,
-  value,
-  disabled,
-}) => (
-  <label className={classnames('custom-checkbox', className, { checked: value, disabled })}>
-    <input
-      type="checkbox"
-      onChange={onChange}
-      disabled={disabled}
-      checked={value}
-    />
-    <div className="checkbox">
-      <div className="checkmark" />
+const cx = classNames.bind(styles);
+
+const CustomCheckbox = ({ className, onChange, value, disabled }) => (
+  <label className={cx('custom-checkbox', className, { checked: value, disabled })}>
+    <input type="checkbox" onChange={onChange} disabled={disabled} checked={value} />
+    <div className={cx('checkbox')}>
+      <div className={cx('checkmark')} />
     </div>
   </label>
 );
