@@ -17,6 +17,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import classNames from 'classnames/bind';
+import Button from 'react-components/common/button/button.jsx';
 import FormField from 'react-components/forms/form-field/formField.jsx';
 import ModalContext from '../../layouts/modal-layout/modalContext';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
@@ -94,20 +95,18 @@ const QuestionsForm = () => {
                 />,
               ]}
             />
-            <FormField name="first_name" placeholder="First name" />
-            <FormField name="last_name" maxLength={80} placeholder="Last name" />
-            <FormField name="email" type="email" maxLength={80} placeholder="Email" />
-            <FormField name="company" placeholder="Company name" />
-            <button
-              className={cx('button')}
-              type="submit"
+            <FormField className={cx('questions-form-field')} name="first_name" placeholder="First name" />
+            <FormField className={cx('questions-form-field')} name="last_name" maxLength={80} placeholder="Last name" />
+            <FormField className={cx('questions-form-field')} name="email" type="email" maxLength={80} placeholder="Email" />
+            <FormField className={cx('questions-form-field')} name="company" placeholder="Company name" />
+            <Button
+              className={cx('questions-form-submit-button')}
+              type='submit'
               onClick={() => {
                 onSubmit(resetForm);
               }}
               disabled={!(isValid && dirty)}
-            >
-              Send
-            </button>
+            >Send</Button>
           </form>
         </FormikProvider>
       </div>

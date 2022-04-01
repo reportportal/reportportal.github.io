@@ -21,19 +21,25 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const Button = ({ children, onClick, className }) => (
-  <div className={cx('button', className)} onClick={onClick}>
+const Button = ({ children, onClick, className, type, disabled, light }) => (
+  <button className={cx('button', className, {light})} type={type} onClick={onClick} disabled={disabled}>
     {children}
-  </div>
+  </button>
 );
 Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.string.isRequired]),
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+  light: PropTypes.bool,
 };
 Button.defaultProps = {
   children: '',
   className: '',
+  type: 'button',
+  disabled: false,
+  light: false,
 };
 
 export default Button;

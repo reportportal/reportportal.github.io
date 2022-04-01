@@ -14,6 +14,17 @@
  * limitations under the License.
  */
 
+.pricing-page-wrapper {
+  background-image: url(../img/backgroundPricingPageFullHD.svg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.pricing-page {
+  width: 1000px;
+  margin: auto;
+}
+
 .pricing-page-header {
   padding-top: 64px;
   padding-bottom: 56px;
@@ -23,4 +34,16 @@
   text-align: center;
   color: $COLOR-STEEL-GREY;
   white-space: pre-line;
+}
+
+@media all and (max-width: 1024px) {
+  .pricing-page {
+    width: 1024px;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .pricing-page {
+    width: 320px;
+  }
 }

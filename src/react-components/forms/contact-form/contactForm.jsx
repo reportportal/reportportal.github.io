@@ -18,6 +18,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { FormikProvider, useFormik } from 'formik';
+import Button from 'react-components/common/button/button.jsx';
 import CustomCheckbox from 'react-components/common/custom-checkbox/custom-checkbox.jsx';
 import FormField from 'react-components/forms/form-field/formField.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
@@ -29,7 +30,7 @@ import styles from './contactForm.scss';
 
 const cx = classNames.bind(styles);
 
-export const ContactForm = ({ className, title, description, options, modalClassName }) => {
+const ContactForm = ({ className, title, description, options, modalClassName }) => {
   const { showModal, closeModal } = useContext(ModalContext);
   const [termsAgree, setTermsAgree] = useState(false);
   const [iframe, setIframe] = useState(null);
@@ -90,35 +91,35 @@ export const ContactForm = ({ className, title, description, options, modalClass
               ))}
             />
             <FormField
-              icon={<i className="user-icon" />}
+              icon={<i className={cx('user-icon')} />}
               name="first_name"
               placeholder="First name"
             />
             <FormField
-              icon={<i className="user-icon" />}
+              icon={<i className={cx('user-icon')} />}
               name="last_name"
               maxLength={80}
               placeholder="Last name"
             />
             <FormField
-              icon={<i className="email-icon" />}
+              icon={<i className={cx('email-icon')} />}
               name="email"
               type="email"
               maxLength={80}
               placeholder="Email"
             />
             <FormField
-              icon={<i className="company-icon" />}
+              icon={<i className={cx('company-icon')} />}
               name="company"
               placeholder="Company name"
             />
-            <div className="terms-of-use">
+            <div className={cx('terms-of-use')}>
               <CustomCheckbox
-                className="term-checkbox"
+                className={cx('term-checkbox')}
                 value={termsAgree}
                 onChange={(e) => setTermsAgree(e.target.checked)}
               />
-              <div className="term-description">
+              <div className={cx('term-description')}>
                 I have read and agree to the{' '}
                 <a target="_blank" href="">
                   General Terms of Service
@@ -129,14 +130,14 @@ export const ContactForm = ({ className, title, description, options, modalClass
                 </a>
               </div>
             </div>
-            <button
-              className="button"
-              type="submit"
+            <Button
+              className={cx('button')}
+              type='submit'
               onClick={onSubmit}
               disabled={!(isValid && dirty && termsAgree)}
             >
               Contact Us
-            </button>
+            </Button>
           </form>
         </FormikProvider>
       </div>
@@ -145,6 +146,7 @@ export const ContactForm = ({ className, title, description, options, modalClass
 };
 
 ContactForm.propTypes = {
+  modalClassName: PropTypes.string,
   className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -156,8 +158,11 @@ ContactForm.propTypes = {
   ),
 };
 ContactForm.defaultProps = {
+  modalClassName: '',
   className: '',
   title: '',
   description: '',
   options: [],
 };
+
+export default ContactForm;

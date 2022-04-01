@@ -18,13 +18,13 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Button from 'react-components/common/button/button.jsx';
-import { ContactForm } from 'react-components/forms/contact-form/contactForm.jsx';
+import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
 import ModalContext from '../layouts/modal-layout/modalContext';
 import styles from './planCard.scss';
 
 const cx = classNames.bind(styles);
 
-const PlanCard = ({ name, description, price, button, className, form }) => {
+const PlanCard = ({ name, description, price, button, className, form, withPopular, withClock, withFullClock }) => {
   const { showModal } = useContext(ModalContext);
 
   const onClick = () => {
@@ -33,21 +33,43 @@ const PlanCard = ({ name, description, price, button, className, form }) => {
     );
   };
 
+  const getDescription = () => {
+    if (!description.doubleLevelDescription) {
+      return description;
+    }
+
+    const { firstLevelDescription, secondLevelDescription } = description.doubleLevelDescription;
+    return (
+      <div className={cx('double-level-description')}>
+        <div className={cx('first-level-description')}>{firstLevelDescription}</div>
+        <div className={cx('second-level-description')}>{secondLevelDescription}</div>
+      </div>
+    );
+  };
+
   return (
-    <div className={cx('card', className)}>
-      <div className={cx('popular-label')}>Most popular</div>
+    <div className={cx(
+      'card',
+      className,
+      {
+        popular: withPopular,
+        'with-clock': withClock,
+        'with-full-clock': withFullClock
+      },
+    )}>
+      {withPopular && <div className={cx('popular-label')}>Most popular</div>}
       <div className={cx('name')}>{name}</div>
-      <div className={cx('short-description')}>{description}</div>
+      <div className={cx('short-description')}>
+        {getDescription()}
+      </div>
       <div className={cx('price')}>
         {price}
         <span className={cx('period')}>/per month</span>
       </div>
       {button && (
-        <div className={cx('card-button')}>
-          <Button className={button.type} onClick={onClick}>
-            {button.name}
-          </Button>
-        </div>
+        <Button className={cx('card-button')} onClick={onClick} light={button.light}>
+          {button.name}
+        </Button>
       )}
     </div>
   );
@@ -55,11 +77,19 @@ const PlanCard = ({ name, description, price, button, className, form }) => {
 
 PlanCard.propTypes = {
   name: PropTypes.string,
-  description: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  description: PropTypes.oneOfType([
+    PropTypes.shape({
+      doubleLevelDescription: PropTypes.shape({
+        firstLevelDescription: PropTypes.node,
+        secondLevelDescription: PropTypes.node,
+      }),
+    }),
+    PropTypes.node,
+  ]),
   price: PropTypes.string,
   button: PropTypes.shape({
     name: PropTypes.string,
-    type: PropTypes.string,
+    light: PropTypes.bool,
   }),
   className: PropTypes.string,
   form: PropTypes.shape({
@@ -72,6 +102,9 @@ PlanCard.propTypes = {
       }),
     ),
   }),
+  withPopular: PropTypes.bool,
+  withClock: PropTypes.bool,
+  withFullClock: PropTypes.bool,
 };
 PlanCard.defaultProps = {
   name: '',
@@ -80,6 +113,9 @@ PlanCard.defaultProps = {
   button: null,
   className: '',
   form: {},
+  withPopular: false,
+  withClock: false,
+  withFullClock: false,
 };
 
 export default PlanCard;

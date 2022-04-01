@@ -42,12 +42,20 @@ const PlansBlock = () => {
 
       return {
         id: plan.name,
-        element: (
-          <>
-            <div className={cx('icon', plan.iconType)} />
-            {plan.name}
-          </>
-        ),
+        element: {
+          active: (
+            <>
+              <div className={cx('icon', 'active', plan.iconType)} />
+              {plan.name}
+            </>
+          ),
+          inactive: (
+            <>
+              <div className={cx('icon', plan.iconType)} />
+              {plan.name}
+            </>
+          ),
+        },
         isActive: plan.isActive,
       };
     });
@@ -99,19 +107,22 @@ const PlansBlock = () => {
   };
 
   const getComparisonTableData = () => {
-    const headers = ['', ...selectedPlanData.plansInfo.map((plan) => plan.name)];
+    const headers = ['', ...selectedPlanData.plansInfo.map(({ name }) => name)];
 
-    const rows = selectedPlanData.compareTableTitles.map((title) => {
-      const options = selectedPlanData.plansInfo.map((plan) => plan.options[title.id]);
-      const modifiedOptions = options.map((option) =>
+    const rows = selectedPlanData.compareTableTitles.map(({ id, name, info }) => {
+      const options = selectedPlanData.plansInfo.map((plan) => plan.options[id]);
+      const modifiedOptions = options.map(option =>
         option === true ? <div className={cx('true-icon')} /> : option,
       );
       return [
-        <div key={title.name} className={cx('inline-title')}>
-          {title.name}
-          {title.info && (
-            <InfoWithTooltip tooltip={title.info}>
-              <i className={cx('info-icon')} />
+        <div key={name} className={cx('inline-title')}>
+          {name}
+          {info && (
+            <InfoWithTooltip tooltip={info}>
+              {{
+                active: (<i className={cx('info-icon', 'active')} />),
+                inactive: (<i className={cx('info-icon')} />),
+              }}
             </InfoWithTooltip>
           )}
         </div>,
@@ -147,15 +158,35 @@ const PlansBlock = () => {
         withSeparator
       />
       <div className={cx('plan-cards')}>
-        {selectedPlanData.plansInfo.map((cardInfo) => (
+        {selectedPlanData.plansInfo.map((
+          {
+            popular,
+            withClock,
+            withFullClock,
+            name,
+            shortName,
+            price,
+            description,
+            button,
+            form
+          }) => (
           <PlanCard
-            className={cx(cardInfo.popular, cardInfo.withClock, cardInfo.withFullClock)}
-            key={cardInfo.name}
-            name={cardInfo.shortName || cardInfo.name}
-            price={getPrice(cardInfo.price)}
-            description={cardInfo.description}
-            button={cardInfo.button}
-            form={cardInfo.form}
+            className={cx(
+              'plan-card',
+              {
+                'with-clock': withClock,
+                'with-full-clock': withFullClock,
+              }
+            )}
+            withClock={withClock}
+            withFullClock={withFullClock}
+            withPopular={popular}
+            key={name}
+            name={shortName || name}
+            price={getPrice(price)}
+            description={description}
+            button={button}
+            form={form}
           />
         ))}
       </div>

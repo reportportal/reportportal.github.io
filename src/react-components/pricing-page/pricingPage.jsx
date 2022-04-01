@@ -25,7 +25,7 @@ import styles from './pricingPage.scss';
 const cx = classNames.bind(styles);
 
 const Layout = () => (
-  <BodyLayout>
+  <BodyLayout className={cx('pricing-page-wrapper')}>
     <>
       <div className={cx('pricing-page')}>
         <div className={cx('pricing-page-header')}>

@@ -30,7 +30,7 @@ const ModalInfoMessage = ({ onClose }) => (
       <div className={cx('form-description')}>
         We received your message! Our consultant will contact you within <br /> 4 working days.
       </div>
-      <Button onClick={onClose}>Close</Button>
+      <Button className={cx('close-button')} onClick={onClose}>Close</Button>
     </div>
   </Modal>
 );

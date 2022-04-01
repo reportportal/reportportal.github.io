@@ -21,7 +21,7 @@ import styles from './infoWithTooltip.scss';
 
 const cx = classNames.bind(styles);
 
-const InfoWithTooltip = ({ children, tooltip }) => {
+const InfoWithTooltip = ({ className, children, tooltip }) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const [clientRect, setClientRect] = useState({});
 
@@ -30,13 +30,22 @@ const InfoWithTooltip = ({ children, tooltip }) => {
     setClientRect(e.currentTarget.getBoundingClientRect());
   };
 
+  const getInfo = () => {
+    const { active, inactive } = children;
+    if(!active && !inactive) {
+      return children;
+    }
+
+    return isTooltipVisible ? active : inactive;
+  }
+
   return (
     <div
-      className={cx('info', { active: isTooltipVisible })}
+      className={cx('info', className, { active: isTooltipVisible })}
       onMouseOver={onHover}
       onMouseOut={() => setIsTooltipVisible(false)}
     >
-      {children}
+      {getInfo()}
       <div
         className={cx('hover-area', { visible: isTooltipVisible })}
         style={{
@@ -54,11 +63,18 @@ const InfoWithTooltip = ({ children, tooltip }) => {
 
 InfoWithTooltip.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.shape({
+      active: PropTypes.node,
+      inactive: PropTypes.node,
+    }),
+    PropTypes.node,
+  ]),
   tooltip: PropTypes.node.isRequired,
 };
 InfoWithTooltip.defaultProps = {
   className: '',
+  children: null,
 };
 
 export default InfoWithTooltip;

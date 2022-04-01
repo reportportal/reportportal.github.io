@@ -49,6 +49,14 @@ const Switcher = ({
     handleSelect(id);
   };
 
+  const getElement = ({ element, isActive }) => {
+    if (!element.active && !element.inactive) {
+      return element;
+    }
+
+    return isActive ? element.active : element.inactive;
+  }
+
   return (
     <div
       className={cx('switcher', className, size, {
@@ -62,7 +70,9 @@ const Switcher = ({
           className={cx('switcher-item', { active: item.isActive })}
           onClick={() => onClick(item.id)}
         >
-          <div className={cx('item')}>{item.element}</div>
+          <div className={cx('item')}>
+            {getElement(item)}
+          </div>
         </div>
       ))}
     </div>
@@ -73,7 +83,13 @@ Switcher.propTypes = {
   itemsData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      element: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.string.isRequired]),
+      element: PropTypes.oneOfType([
+        PropTypes.node.isRequired,
+        PropTypes.string.isRequired,
+        PropTypes.shape({
+          active: PropTypes.element
+        }),
+      ]),
       isActive: PropTypes.bool,
     }),
   ).isRequired,
