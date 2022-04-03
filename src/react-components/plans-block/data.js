@@ -12,10 +12,9 @@ const plansData = [
   {
     name: 'We Host',
     iconType: 'cloud',
-    isActive: true,
     periods: [
       { id: 'sale', name: 'Yearly save 5%' },
-      { id: 'full', name: 'Monthly', isActive: true },
+      { id: 'full', name: 'Monthly' },
     ],
     plansInfo: [
       {

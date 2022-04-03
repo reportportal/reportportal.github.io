@@ -76,7 +76,7 @@ const ContactForm = ({ className, title, description, options, modalClassName })
 
   return (
     <Modal className={cx(modalClassName)}>
-      <div className={cx(className)}>
+      <div className={cx('contact-form', className)}>
         <div className={cx('form-title')}>{title}</div>
         <div className={cx('form-description')}>{description}</div>
         <FormikProvider value={formik}>

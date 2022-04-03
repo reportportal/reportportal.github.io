@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './switcher.scss';
@@ -31,66 +31,38 @@ const Switcher = ({
   withItemsEqualWidth,
   withSeparator,
   size,
-}) => {
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    setItems([...itemsData]);
-  }, [itemsData]);
-
-  const onClick = (id) => {
-    const hasChange = !items.filter((item) => item.id === id)[0].isActive;
-    if (!hasChange) {
-      return;
-    }
-
-    const currentItems = items.map((item) => ({ ...item, isActive: item.id === id }));
-    setItems(currentItems);
-    handleSelect(id);
-  };
-
-  const getElement = ({ element, isActive }) => {
-    if (!element.active && !element.inactive) {
-      return element;
-    }
-
-    return isActive ? element.active : element.inactive;
-  }
-
-  return (
-    <div
-      className={cx('switcher', className, size, {
+}) => (
+  <div
+    className={cx(
+      'switcher',
+      className,
+      size,
+      {
         'equal-width': withItemsEqualWidth,
         'with-separator': withSeparator,
-      })}
-    >
-      {items.map((item) => (
-        <div
-          key={item.id}
-          className={cx('switcher-item', { active: item.isActive })}
-          onClick={() => onClick(item.id)}
-        >
-          <div className={cx('item')}>
-            {getElement(item)}
-          </div>
+      }
+    )}
+  >
+    {itemsData.map(({ id, isActive, element }) => (
+      <div
+        key={id}
+        className={cx('switcher-item', { active: isActive })}
+        onClick={() => handleSelect(id)}
+      >
+        <div className={cx('item')}>
+          {element}
         </div>
-      ))}
-    </div>
-  );
-};
+      </div>
+    ))}
+  </div>
+);
 
 Switcher.propTypes = {
   itemsData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      element: PropTypes.oneOfType([
-        PropTypes.node.isRequired,
-        PropTypes.string.isRequired,
-        PropTypes.shape({
-          active: PropTypes.element
-        }),
-      ]),
-      isActive: PropTypes.bool,
+      element: PropTypes.node.isRequired,
+      isActive: PropTypes.bool.isRequired,
     }),
   ).isRequired,
   handleSelect: PropTypes.func.isRequired,

@@ -19,91 +19,69 @@ import classNames from 'classnames/bind';
 import Switcher from 'react-components/common/switcher/switcher.jsx';
 import PlanCard from 'react-components/plan-card/planCard.jsx';
 import Table from 'react-components/common/table/table.jsx';
+import InfoIcon from 'react-components/common/info-icon/infoIcon.jsx';
 import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
 import plansData from './data';
 import styles from './plansBlock.scss';
 
 const cx = classNames.bind(styles);
 
+const FULL_PERIOD = 'full';
+
 const PlansBlock = () => {
   const [selectedPlanData, setSelectedPlanData] = useState(plansData[0]);
-  const [selectedPeriodId, setSelectedPeriodId] = useState();
+  const [selectedPeriodId, setSelectedPeriodId] = useState(FULL_PERIOD);
   const [planSwitcherData, setPlanSwitcherData] = useState([]);
   const [periodSwitcherData, setPeriodSwitcherData] = useState([]);
   const [isComparisonTableOpened, setIsComparisonTableOpened] = useState(false);
 
   useEffect(() => {
-    let hasActive = false;
+    setPlanSwitcherData(
+      plansData.map(({ name, iconType, }) => {
+        const isActive = selectedPlanData.name === name;
 
-    const currentPlanSwitcherData = plansData.map((plan) => {
-      if (plan.isActive) {
-        hasActive = true;
-      }
-
-      return {
-        id: plan.name,
-        element: {
-          active: (
-            <>
-              <div className={cx('icon', 'active', plan.iconType)} />
-              {plan.name}
-            </>
-          ),
-          inactive: (
-            <>
-              <div className={cx('icon', plan.iconType)} />
-              {plan.name}
-            </>
-          ),
-        },
-        isActive: plan.isActive,
-      };
-    });
-
-    if (!hasActive && currentPlanSwitcherData.length) {
-      currentPlanSwitcherData[0].isActive = true;
-    }
-    setPlanSwitcherData(currentPlanSwitcherData);
-  }, []);
-
-  useEffect(() => {
-    let activePeriodId = '';
-
-    const currentPeriodSwitcherData = selectedPlanData.periods
-      ? selectedPlanData.periods.map((period) => {
-          if (period.isActive) {
-            activePeriodId = period.id;
-          }
-          return { id: period.id, element: period.name, isActive: period.isActive };
-        })
-      : [];
-
-    if (!activePeriodId && currentPeriodSwitcherData.length) {
-      currentPeriodSwitcherData[0].isActive = true;
-      activePeriodId = currentPeriodSwitcherData[0].id;
-    }
-    setSelectedPeriodId(activePeriodId);
-    setPeriodSwitcherData(currentPeriodSwitcherData || []);
+        return {
+          id: name,
+          element: <>
+            <div className={cx('icon', { active: isActive }, iconType)} />
+            {name}
+          </>,
+          isActive,
+        };
+      })
+    );
+    setSelectedPeriodId(FULL_PERIOD);
   }, [selectedPlanData]);
 
+  useEffect(() => {
+    const { periods = [] } = selectedPlanData;
+    const currentPeriodSwitcherData = periods.map(({ id, name }) => ({
+      id,
+      element: name,
+      isActive: selectedPeriodId === id,
+    }));
+    setPeriodSwitcherData(currentPeriodSwitcherData);
+  }, [selectedPlanData, selectedPeriodId]);
+
   const handlePlanSwitcherSelect = (id) => {
-    setSelectedPlanData(plansData.find((plan) => plan.name === id));
+    if (selectedPlanData.name === id) {
+      return;
+    }
+
+    setSelectedPlanData(plansData.find(({ name }) => name === id));
     setIsComparisonTableOpened(false);
   };
 
   const handlePeriodSwitcherSelect = (id) => {
+    if (selectedPeriodId === id) {
+      return;
+    }
+
     setSelectedPeriodId(id);
   };
 
   const onComparisonTableClick = () => {
     setIsComparisonTableOpened(!isComparisonTableOpened);
-  };
-
-  const getPrice = (price) => {
-    if (!selectedPeriodId) {
-      return price.full;
-    }
-    return selectedPeriodId === 'full' ? price.full : price.sale;
   };
 
   const getComparisonTableData = () => {
@@ -119,10 +97,7 @@ const PlansBlock = () => {
           {name}
           {info && (
             <InfoWithTooltip tooltip={info}>
-              {{
-                active: (<i className={cx('info-icon', 'active')} />),
-                inactive: (<i className={cx('info-icon')} />),
-              }}
+              {(isActive) => <InfoIcon isActive={isActive} />}
             </InfoWithTooltip>
           )}
         </div>,
@@ -183,7 +158,7 @@ const PlansBlock = () => {
             withPopular={popular}
             key={name}
             name={shortName || name}
-            price={getPrice(price)}
+            price={price[selectedPeriodId]}
             description={description}
             button={button}
             form={form}

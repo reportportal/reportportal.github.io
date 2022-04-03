@@ -80,25 +80,26 @@ const QuestionsForm = () => {
       <div className={cx('form')}>
         <FormikProvider value={formik}>
           <form
-            id="questions-form"
-            action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
-            method="POST"
-            target="dummyQuestionFrame"
+            id='questions-form'
+            action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
+            method='POST'
+            target='dummyQuestionFrame'
+            className={cx('inner-form')}
           >
             <SalesForceFormBase
               additionalFields={[
                 <input
-                  key="ReportPortalSource__c"
-                  type="hidden"
-                  name="ReportPortalSource__c"
-                  value="Landing page"
+                  key='ReportPortalSource__c'
+                  type='hidden'
+                  name='ReportPortalSource__c'
+                  value='Landing page'
                 />,
               ]}
             />
-            <FormField className={cx('questions-form-field')} name="first_name" placeholder="First name" />
-            <FormField className={cx('questions-form-field')} name="last_name" maxLength={80} placeholder="Last name" />
-            <FormField className={cx('questions-form-field')} name="email" type="email" maxLength={80} placeholder="Email" />
-            <FormField className={cx('questions-form-field')} name="company" placeholder="Company name" />
+            <FormField className={cx('questions-form-field')} name='first_name' placeholder='First name' />
+            <FormField className={cx('questions-form-field')} name='last_name' maxLength={80} placeholder='Last name' />
+            <FormField className={cx('questions-form-field')} name='email' type='email' maxLength={80} placeholder='Email' />
+            <FormField className={cx('questions-form-field')} name='company' placeholder='Company name' />
             <Button
               className={cx('questions-form-submit-button')}
               type='submit'

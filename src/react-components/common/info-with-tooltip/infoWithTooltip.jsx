@@ -30,22 +30,13 @@ const InfoWithTooltip = ({ className, children, tooltip }) => {
     setClientRect(e.currentTarget.getBoundingClientRect());
   };
 
-  const getInfo = () => {
-    const { active, inactive } = children;
-    if(!active && !inactive) {
-      return children;
-    }
-
-    return isTooltipVisible ? active : inactive;
-  }
-
   return (
     <div
       className={cx('info', className, { active: isTooltipVisible })}
       onMouseOver={onHover}
       onMouseOut={() => setIsTooltipVisible(false)}
     >
-      {getInfo()}
+      {children(isTooltipVisible)}
       <div
         className={cx('hover-area', { visible: isTooltipVisible })}
         style={{
@@ -63,13 +54,7 @@ const InfoWithTooltip = ({ className, children, tooltip }) => {
 
 InfoWithTooltip.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.shape({
-      active: PropTypes.node,
-      inactive: PropTypes.node,
-    }),
-    PropTypes.node,
-  ]),
+  children: PropTypes.func,
   tooltip: PropTypes.node.isRequired,
 };
 InfoWithTooltip.defaultProps = {

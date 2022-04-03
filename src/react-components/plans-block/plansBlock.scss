@@ -124,20 +124,6 @@
   padding-left: 18px;
 }
 
-.info-icon {
-  display: block;
-  width: 18px;
-  height: 18px;
-  position: relative;
-  bottom: -3px;
-  background: url('../img/infoSmall.svg') no-repeat;
-  margin-left: 4px;
-
-  &.active {
-    background: url('../img/infoSmallActive.svg') no-repeat;
-  }
-}
-
 .footer-row {
   width: auto;
   padding-bottom: 10px;
