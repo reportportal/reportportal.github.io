@@ -87,7 +87,7 @@
   }
 }
 
-tr:last-child td {
+.table tr:last-child td {
   &:first-child {
     border-bottom-left-radius: 12px;
   }

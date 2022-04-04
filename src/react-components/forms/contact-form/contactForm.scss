@@ -16,6 +16,29 @@
 
 .contact-form {
   padding: 0 43px;
+
+  i {
+    display: inline-block;
+    height: 38px;
+    width: 40px;
+
+    &.user-icon {
+      background: url('../../img/user.svg') center no-repeat;
+    }
+
+    &.email-icon {
+      background: url('../../img/email.svg') center no-repeat;
+    }
+
+    &.company-icon {
+      background: url('../../img/company.svg') center no-repeat;
+    }
+  }
+
+  a {
+    color: $COLOR-TOPAZ;
+    font-family: $FONT-HEADER;
+  }
 }
 
 .form-title {
@@ -36,24 +59,6 @@
   text-align: center;
 }
 
-i {
-  display: inline-block;
-  height: 38px;
-  width: 40px;
-
-  &.user-icon {
-    background: url('../../img/user.svg') center no-repeat;
-  }
-
-  &.email-icon {
-    background: url('../../img/email.svg') center no-repeat;
-  }
-
-  &.company-icon {
-    background: url('../../img/company.svg') center no-repeat;
-  }
-}
-
 .terms-of-use {
   margin: 0 auto 40px;
   display: flex;
@@ -67,11 +72,6 @@ i {
   display: inline-block;
   font-family: $FONT-REGULAR;
   font-size: 12px;
-}
-
-a {
-  color: $COLOR-TOPAZ;
-  font-family: $FONT-HEADER;
 }
 
 .button {

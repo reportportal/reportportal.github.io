@@ -16,6 +16,11 @@
 
 .info {
   display: inline-block;
+
+  a {
+    color: $COLOR-TOPAZ;
+    text-decoration: none;
+  }
 }
 
 .hover-area {
@@ -59,9 +64,4 @@
     left: 1px;
     content: '';
   }
-}
-
-a {
-  color: $COLOR-TOPAZ;
-  text-decoration: none;
 }
