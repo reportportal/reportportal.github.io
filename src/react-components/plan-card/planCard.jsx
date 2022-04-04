@@ -16,55 +16,59 @@
 
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import Button from 'react-components/common/button/button.jsx';
+import ClockCard from 'react-components/plan-card/clock-card/clockCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
+import SimpleCard from 'react-components/plan-card/simple-card/simpleCard.jsx';
 import ModalContext from '../layouts/modal-layout/modalContext';
-import './planCard.scss';
 
-const PlanCard = ({
-  name,
-  description,
-  price,
-  button,
-  className,
-  form,
-}) => {
+const PlanCard = ({ name, description, price, button, className, form, withPopular, withClock, withFullClock }) => {
   const { showModal } = useContext(ModalContext);
 
   const onClick = () => {
     showModal(
-      <ContactForm
-        title={form.title}
-        description={form.description}
-        options={form.options}
-      />,
+      <ContactForm title={form.title} description={form.description} options={form.options} />,
     );
   };
 
   return (
-    <div className={classnames('card', className)} >
-      <div className="popular-label">Most popular</div>
-      <div className="name">{name}</div>
-      <div className="short-description">{description}</div>
-      <div className="price">{price}<span className="period">/per month</span></div>
-      {button && <div className="card-button">
-        <Button className={button.type} onClick={onClick}>{button.name}</Button>
-      </div>}
-    </div>
+    withClock || withFullClock
+      ? <ClockCard
+        name={name}
+        description={description.doubleLevelDescription}
+        price={price}
+        button={button}
+        className={className}
+        withPopular={withPopular}
+        withFullClock={withFullClock}
+        onClick={onClick}
+      />
+      : <SimpleCard
+        name={name}
+        description={description}
+        price={price}
+        button={button}
+        className={className}
+        withPopular={withPopular}
+        onClick={onClick}
+      />
   );
 };
 
 PlanCard.propTypes = {
   name: PropTypes.string,
   description: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.string,
+    PropTypes.shape({
+      doubleLevelDescription: PropTypes.shape({
+        firstLevelDescription: PropTypes.node,
+        secondLevelDescription: PropTypes.node,
+      }),
+    }),
+    PropTypes.node,
   ]),
   price: PropTypes.string,
   button: PropTypes.shape({
     name: PropTypes.string,
-    type: PropTypes.string,
+    light: PropTypes.bool,
   }),
   className: PropTypes.string,
   form: PropTypes.shape({
@@ -77,6 +81,9 @@ PlanCard.propTypes = {
       }),
     ),
   }),
+  withPopular: PropTypes.bool,
+  withClock: PropTypes.bool,
+  withFullClock: PropTypes.bool,
 };
 PlanCard.defaultProps = {
   name: '',
@@ -85,6 +92,9 @@ PlanCard.defaultProps = {
   button: null,
   className: '',
   form: {},
+  withPopular: false,
+  withClock: false,
+  withFullClock: false,
 };
 
 export default PlanCard;

@@ -18,7 +18,6 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import ModalContext from '../modalContext';
 import PropTypes from 'prop-types';
-import './modalProvider.scss';
 
 const modalRootElement = document.querySelector('#modal');
 

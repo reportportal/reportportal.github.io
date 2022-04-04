@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import './switcher.scss';
+import classNames from 'classnames/bind';
+import styles from './switcher.scss';
+
+const cx = classNames.bind(styles);
 
 const BIG = 'big';
 const SMALL = 'small';
@@ -29,61 +31,38 @@ const Switcher = ({
   withItemsEqualWidth,
   withSeparator,
   size,
-}) => {
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    setItems([...itemsData]);
-  }, [itemsData]);
-
-  const onClick = (id) => {
-    const hasChange = !items.filter(item => item.id === id)[0].isActive;
-    if (!hasChange) {
-      return;
-    }
-
-    const currentItems = items.map(
-      item => ({ ...item, isActive: item.id === id }),
-    );
-    setItems(currentItems);
-    handleSelect(id);
-  };
-
-  return (
-    <div
-      className={classnames(
-        'switcher',
-        className,
-        size,
-        {
-          'equal-width': withItemsEqualWidth,
-          'with-separator': withSeparator,
-        },
-      )}
-    >
-      {items.map(item => (
-        <div
-          key={item.id}
-          className={classnames('switcher-item', { active: item.isActive })}
-          onClick={() => onClick(item.id)}
-        >
-          <div className="item">
-            {item.element}
-          </div>
-        </div>))}
-    </div>
-  );
-};
+}) => (
+  <div
+    className={cx(
+      'switcher',
+      className,
+      size,
+      {
+        'equal-width': withItemsEqualWidth,
+        'with-separator': withSeparator,
+      }
+    )}
+  >
+    {itemsData.map(({ id, isActive, element }) => (
+      <div
+        key={id}
+        className={cx('switcher-item', { active: isActive })}
+        onClick={() => handleSelect(id)}
+      >
+        <div className={cx('item')}>
+          {element}
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
 Switcher.propTypes = {
   itemsData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      element: PropTypes.oneOfType([
-        PropTypes.element.isRequired,
-        PropTypes.string.isRequired,
-      ]),
-      isActive: PropTypes.bool,
+      element: PropTypes.node.isRequired,
+      isActive: PropTypes.bool.isRequired,
     }),
   ).isRequired,
   handleSelect: PropTypes.func.isRequired,

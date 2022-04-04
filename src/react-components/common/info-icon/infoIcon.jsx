@@ -17,29 +17,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import styles from './custom-checkbox.scss';
+import styles from './infoIcon.scss';
 
 const cx = classNames.bind(styles);
 
-const CustomCheckbox = ({ className, onChange, value, disabled }) => (
-  <label className={cx('custom-checkbox', className, { checked: value, disabled })}>
-    <input type="checkbox" onChange={onChange} disabled={disabled} checked={value} />
-    <div className={cx('checkbox')}>
-      <div className={cx('checkmark')} />
-    </div>
-  </label>
+const InfoIcon = ({ className, isActive }) => (
+  <i className={cx('info-icon', className, { active: isActive })} />
 );
-
-CustomCheckbox.propTypes = {
+InfoIcon.propTypes = {
   className: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.bool,
-  disabled: PropTypes.bool,
+  isActive: PropTypes.bool,
 };
-CustomCheckbox.defaultProps = {
+InfoIcon.defaultProps = {
   className: '',
-  value: false,
-  disabled: false,
+  isActive: false,
 };
 
-export default CustomCheckbox;
+export default InfoIcon;

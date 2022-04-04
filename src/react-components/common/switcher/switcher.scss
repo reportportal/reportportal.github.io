@@ -29,7 +29,6 @@
   }
 
   &.big {
-    margin: auto;
     height: 44px;
     background-color: $COLOR-WHITE_TWO;
     border: 1px solid $COLOR-GRAY-91;
@@ -62,7 +61,6 @@
   }
 
   &.small {
-    margin: auto;
     height: 24px;
 
     &.with-separator {

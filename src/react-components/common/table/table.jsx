@@ -16,28 +16,30 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import classNames from 'classnames/bind';
 import Cell from 'react-components/common/table/table-cell/cell.jsx';
-import './table.scss';
+import styles from './table.scss';
+
+const cx = classNames.bind(styles);
 
 const Table = ({
   className,
   data,
 }) => (
-  <table className={classnames('table', className)}>
-    <thead className="header">
+  <table className={cx('table', className)}>
+    <thead className={cx('header')}>
       <tr>
-        {data.headers.map(header => <Cell key={header} className="header-cell">{header}</Cell>)}
+        {data.headers.map(header => <Cell key={header} className={cx('header-cell')}>{header}</Cell>)}
       </tr>
     </thead>
-    <tbody className="body">
+    <tbody className={cx('body')}>
       {data.rows.map((row, i) => <tr
         key={i}
-        className="row"
+        className={cx('row')}
       >
-        {row.map((cell, j) => <Cell key={`${i}-${j}`}>{cell}</Cell>)}
+        {row.map((cell, j) => <Cell className={cx('cell')} key={`${i}-${j}`}>{cell}</Cell>)}
       </tr>)}
-      {data.footer && <tr className="footer">{data.footer}</tr>}
+      {data.footer && <tr className={cx('footer')}>{data.footer}</tr>}
     </tbody>
   </table>
 );

@@ -14,96 +14,84 @@
  * limitations under the License.
  */
 
-.table {
-  .header {
-    .header-cell {
-      font-size: 20px;
-      line-height: 32px;
-      text-align: center;
-      color: $COLOR-STEEL-GREY;
-      padding-bottom: 14px;
+.header-cell {
+  font-family: $FONT-REGULAR;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  color: $COLOR-STEEL-GREY;
+  padding-bottom: 14px;
+
+  &:last-child {
+    padding-right: 24px;
+  }
+}
+
+.header-cell + .header-cell {
+  padding-left: 50px;
+}
+
+//box-shadow for safari
+@media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) and (display:flow-root) {
+  .body {
+    filter: drop-shadow(0 4px 15px $COLOR-WHITE-CARD-SHADOW);
+  }
+}}
+
+.body {
+  border-radius: 12px;
+  box-shadow: 0 4px 15px $COLOR-WHITE-CARD-SHADOW;
+}
+
+.row {
+  height: 54px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: inline;
+    bottom: 0;
+    right: 24px;
+    left: 24px;
+    border-bottom: 1px solid $COLOR-GRAY-91;
+  }
+
+  &:first-child {
+    .cell {
+      &:first-child {
+        padding-top: 16px;
+        border-top-left-radius: 12px;
+      }
 
       &:last-child {
-        padding-right: 24px;
+        border-top-right-radius: 12px;
       }
-    }
-
-    .header-cell + .header-cell {
-      padding-left: 50px;
     }
   }
 
-  //box-shadow for safari
-  @media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) and (display:flow-root) {
-    .body {
-      filter: drop-shadow(0 4px 15px $COLOR-WHITE-CARD-SHADOW);
-    }
-  }}
+  .cell + .cell {
+    padding-left: 50px;
+  }
+}
 
-  .body {
-    border-radius: 12px;
-    box-shadow: 0 4px 15px $COLOR-WHITE-CARD-SHADOW;
+.footer {
+  line-height: 54px;
+  background: none;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
 
-    .row {
-      height: 54px;
-      position: relative;
+  td {
+    background: $COLOR-WHITE_TWO;
+  }
+}
 
-      &::after {
-        content: "";
-        position: absolute;
-        display: inline;
-        bottom: 0;
-        right: 24px;
-        left: 24px;
-        border-bottom: 1px solid $COLOR-GRAY-91;
-      }
-
-      &:first-child {
-        .cell {
-          &:first-child {
-            padding-top: 16px;
-            border-top-left-radius: 12px;
-          }
-
-          &:last-child {
-            border-top-right-radius: 12px;
-          }
-        }
-      }
-
-      .cell {
-        font-family: $FONT-HEADER;
-        font-size: 18px;
-        line-height: 54px;
-        text-align: center;
-        color: $COLOR-STEEL-GREY;
-        background: $COLOR-WHITE_TWO;
-
-        &:first-child {
-          padding-left: 24px;
-          font-family: $FONT-REGULAR;
-        }
-
-        &:last-child {
-          padding-right: 24px;
-        }
-      }
-
-      .cell + .cell {
-          padding-left: 50px;
-      }
-    }
-
-    .footer {
-      line-height: 54px;
-      background: none;
-      padding: 0;
-      border: none;
-      border-radius: 12px;
-
-      td {
-        background: $COLOR-WHITE_TWO;
-      }
-    }
+.table tr:last-child td {
+  &:first-child {
+    border-bottom-left-radius: 12px;
+  }
+  &:last-child {
+    border-bottom-right-radius: 12px;
   }
 }

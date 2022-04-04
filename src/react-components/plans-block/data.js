@@ -12,17 +12,16 @@ const plansData = [
   {
     name: 'We Host',
     iconType: 'cloud',
-    isActive: true,
     periods: [
       { id: 'sale', name: 'Yearly save 5%' },
-      { id: 'full', name: 'Monthly', isActive: true },
+      { id: 'full', name: 'Monthly' },
     ],
     plansInfo: [
       {
         name: 'Free',
         description: 'For quick start',
         price: { full: '$0', sale: '$0' },
-        button: { type: 'light', name: 'Sign Up' },
+        button: { variant: 'light', name: 'Sign Up' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -44,7 +43,7 @@ const plansData = [
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
           options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "We Host" / Request Start Up Plan' }],
         },
-        popular: 'popular',
+        popular: true,
         options: {
           storage: '50 Gb.',
           history: '90 days',
@@ -55,7 +54,7 @@ const plansData = [
         name: 'Pro',
         description: 'For large companies',
         price: { full: '$1500', sale: '$1425' },
-        button: { type: 'light', name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -73,7 +72,7 @@ const plansData = [
         name: 'Enterprise',
         description: 'Enterprise-Ready',
         price: { full: '$4000', sale: '$3800' },
-        button: { type: 'light', name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -105,53 +104,59 @@ const plansData = [
       {
         name: 'Package 32',
         shortName: '32',
-        description: <div className="double-level-description">
-          <div className="first-level-description">hours</div>
-          <div className="second-level-description">of support</div>
-        </div>,
+        description: {
+          doubleLevelDescription: {
+            firstLevelDescription: 'hours',
+            secondLevelDescription: 'of support',
+          }
+        },
         price: { full: '$2,500' },
-        button: { type: 'light', name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration with 32 hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
           options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "You Host|We manage" / Request Support "Package 32"' }],
         },
-        withClock: 'with-clock',
+        withClock: true,
         options: { support: '32' },
       },
       {
         name: 'Package 60',
         shortName: '60',
-        description: <div className="double-level-description">
-          <div className="first-level-description">hours</div>
-          <div className="second-level-description">of support</div>
-        </div>,
+        description: {
+          doubleLevelDescription: {
+            firstLevelDescription: 'hours',
+            secondLevelDescription: 'of support',
+          }
+        },
         price: { full: '$4,000' },
-        button: { type: 'light', name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration with 60 hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
           options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "You Host|We manage" / Request Support "Package 60"' }],
         },
-        popular: 'popular',
-        withClock: 'with-clock',
+        popular: true,
+        withClock: true,
         options: { support: '60' },
       },
       {
         name: 'Package 168+',
         shortName: '168+',
-        description: <div className="double-level-description">
-          <div className="first-level-description">hours</div>
-          <div className="second-level-description">of support</div>
-        </div>,
+        description: {
+          doubleLevelDescription: {
+            firstLevelDescription: 'hours',
+            secondLevelDescription: 'of support',
+          }
+        },
         price: { full: '$10,000+' },
-        button: { type: 'light', name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration with 168+ hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
           options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ "You Host|We manage" / Request Support "Package 168+"' }],
         },
-        withFullClock: 'with-full-clock',
+        withFullClock: true,
         options: { support: '168+', features: true },
       },
     ],

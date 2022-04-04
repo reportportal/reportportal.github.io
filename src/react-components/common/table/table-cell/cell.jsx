@@ -15,11 +15,14 @@
  */
 
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
+import styles from './cell.scss';
+
+const cx = classNames.bind(styles);
 
 const Cell = ({ children, className }) => (
-  <td className={classnames('cell', className)}>
+  <td className={cx('cell', className)}>
     {children}
   </td>
 );

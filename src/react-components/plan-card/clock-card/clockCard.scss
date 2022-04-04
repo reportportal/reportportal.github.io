@@ -1,0 +1,110 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.card-with-clock {
+  background: url('../../img/clock.svg') no-repeat;
+  height: 249px;
+  box-shadow: none;
+  margin-top: 48px;
+  bottom: 0;
+  width: auto;
+  position: relative;
+  border-radius: 12px;
+
+  &.with-full-clock {
+    background: url('../../img/clockMax.svg') no-repeat 10px 0;
+
+    .name {
+      padding-right: 0;
+    }
+  }
+
+  &.popular {
+    background: url('../../img/clockGreen.svg') no-repeat;
+    border: none;
+    height: 249px;
+  }
+}
+
+.card-with-clock + .card-with-clock {
+  margin-left: 67px;
+}
+
+.name {
+  font-size: 44px;
+  line-height: 54px;
+  padding-right: 10px;
+  padding-top: 15px;
+  font-family: $FONT-HEADER;
+  color: $COLOR-STEEL-GREY;
+  margin-bottom: 4px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.short-description {
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: $COLOR-STEEL-GREY;
+  padding-bottom: 31px;
+}
+
+.double-level-description {
+  color: $COLOR-STEEL-GREY;
+}
+
+.first-level-description {
+  font-family: $FONT-HEADER;
+  font-size: 18px;
+  line-height: 16px;
+  margin-right: -55px;
+}
+
+.second-level-description {
+  font-family: $FONT-LIGHT;
+  font-size: 16px;
+  line-height: 20px;
+  margin-right: -100px;
+}
+
+.price {
+  height: 44px;
+  padding-bottom: 8px;
+  font-family: $FONT-HEADER;
+  font-size: 24px;
+  line-height: 36px;
+  color: $COLOR-STEEL-GREY;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.period {
+  font-family: $FONT-REGULAR;
+  font-size: 12px;
+  line-height: 16px;
+  color: $COLOR-STEEL-GREY;
+  margin-left: 4px;
+  display: inline-block;
+}
+
+.card-button {
+  width: 150px;
+  height: 38px;
+  margin: auto;
+  text-align: center;
+}

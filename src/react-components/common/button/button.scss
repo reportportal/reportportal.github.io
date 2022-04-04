@@ -20,21 +20,25 @@
   justify-content: center;
   align-items: center;
   height: 40px;
-  background: $COLOR-TEALISH;
   box-shadow: 0 1px 3px $COLOR-TOPAZ-BUTTON-SHADOW;
   border-radius: 3px;
-
   font-size: 15px;
   line-height: 20px;
   text-align: center;
-  color: $COLOR-WHITE-TEXT;
+  border: none;
+  font-family: $FONT-REGULAR;
 
-  &:hover:not(:disabled):not(:active) {
-    background: $COLOR-TOPAZ;
-  }
+  &.standard {
+    background: $COLOR-TEALISH;
+    color: $COLOR-WHITE-TEXT;
 
-  &:disabled {
-    opacity: 0.35;
+    &:hover:not(:disabled):not(:active) {
+      background: $COLOR-TOPAZ;
+    }
+
+    &:disabled {
+      opacity: 0.35;
+    }
   }
 
   &.light {
@@ -53,4 +57,4 @@
       }
     }
   }
-};
+}

@@ -14,36 +14,20 @@
  * limitations under the License.
  */
 
-.pricing-page-wrapper {
-  background-image: url(../img/backgroundPricingPageFullHD.svg);
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-}
-
-.pricing-page {
-  width: 1000px;
-  margin: auto;
-}
-
-.pricing-page-header {
-  padding-top: 64px;
-  padding-bottom: 56px;
+.cell {
   font-family: $FONT-HEADER;
-  font-size: 42px;
+  font-size: 18px;
   line-height: 54px;
   text-align: center;
   color: $COLOR-STEEL-GREY;
-  white-space: pre-line;
-}
+  background: $COLOR-WHITE_TWO;
 
-@media all and (max-width: $SCREEN_IPAD) {
-  .pricing-page {
-    width: 1024px;
+  &:first-child {
+    padding-left: 24px;
+    font-family: $FONT-REGULAR;
   }
-}
 
-@media all and (max-width: $SCREEN_XS_MAX) {
-  .pricing-page {
-    width: 320px;
+  &:last-child {
+    padding-right: 24px;
   }
 }

@@ -14,80 +14,67 @@
  * limitations under the License.
  */
 
-.questions-form {
-  .header {
-    font-family: $FONT-LIGHT;
-    font-size: 28px;
-    line-height: 36px;
-    text-align: center;
-    color: $COLOR-TOPAZ;
-    padding-bottom: 12px;
-  };
+.header {
+  font-family: $FONT-LIGHT;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+  color: $COLOR-TOPAZ;
+  padding-bottom: 12px;
+};
 
-  .text {
-    font-family: $FONT-LIGHT;
-    font-size: 18px;
-    line-height: 32px;
-    text-align: center;
-    color: $COLOR-STEEL-GREY;
-    padding-bottom: 26px;
-  };
+.text {
+  font-family: $FONT-LIGHT;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: center;
+  color: $COLOR-STEEL-GREY;
+  padding-bottom: 26px;
+};
+
+.form {
+  width: 890px;
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.inner-form {
+  width: 100%;
+}
+
+.questions-form-submit-button {
+  width: 164px;
+  margin: 12px auto 80px;
+}
+
+.questions-form-field {
+  $marginBetweenFields: 36px;
+
+  width: calc(50% - #{$marginBetweenFields}/2);
+
+  &:nth-child(even) {
+    margin-right: $marginBetweenFields;
+  }
+}
+
+@media all and (max-width: $SCREEN_XS_MAX) {
+  .questions-form {
+    padding-top: 34px;
+    background: #F3FCFC //todo
+  }
 
   .form {
-    width: 890px;
-    display: block;
+    width: 100%;
+    display: flex;
     margin: auto;
-
-    .form-field {
-      width: 427px;
-      height: 35px;
-      margin-top: 6px;
-      margin-bottom: 22px;
-      display: inline-block;
-      position: relative;
-
-      &.error input {
-        border-bottom: 1px solid $COLOR--error-red;
-      }
-
-      input {
-        width: inherit;
-        font-size: 16px;
-        line-height: 24px;
-        border: none;
-        border-bottom: 1px solid $COLOR-TEALISH;
-        padding: unset;
-        color: $COLOR-STEEL-GREY;
-        outline: none;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-family: $FONT-REGULAR;
-
-        &::placeholder {
-          opacity: 0.5;
-        }
-
-        &:active {
-          border-bottom: 1px solid $COLOR-TOPAZ;
-        }
-      }
-
-      .error-message {
-        position: absolute;
-        color: $COLOR--error-red;
-        font-size: 12px;
-        line-height: 16px;
-        padding-top: 4px;
-      }
-    }
-
-    .form-field:nth-child(even) {
-      margin-right: 36px;
-    }
+    justify-content: space-around;
   }
-  .button {
-    width: 164px;
-    margin: 12px auto 80px;
-    border: none;
+
+  .questions-form-field {
+    $marginAroundFields: 15px;
+
+    width: calc(100% - #{$marginAroundFields} * 2);
+    margin: 0 $marginAroundFields 36px;
   }
-};
+}

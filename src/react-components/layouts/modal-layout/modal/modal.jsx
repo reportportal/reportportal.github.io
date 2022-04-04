@@ -16,15 +16,13 @@
 
 import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import Button from 'react-components/common/button/button.jsx';
+import classNames from 'classnames/bind';
 import ModalContext from '../modalContext';
-import './modal.scss';
+import styles from './modal.scss';
 
-const Modal = ({
-  children,
-  className,
-}) => {
+const cx = classNames.bind(styles);
+
+const Modal = ({ children, className }) => {
   const { closeModal } = useContext(ModalContext);
   const wrapperRef = useRef();
 
@@ -35,11 +33,9 @@ const Modal = ({
   };
 
   return (
-    <div className="background" onClick={handleClickOutside}>
-      <div className={classnames('modal', className)} ref={wrapperRef} >
-        <Button className='close' onClick={closeModal}>
-          <i className="cross-icon" />
-        </Button>
+    <div className={cx('background')} onClick={handleClickOutside}>
+      <div className={cx('modal', className)} ref={wrapperRef}>
+        <i className={cx('close-button')} onClick={closeModal} />
         {children}
       </div>
     </div>

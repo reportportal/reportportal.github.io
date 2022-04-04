@@ -16,16 +16,21 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
 import Button from 'react-components/common/button/button.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
-import './modalInfoMessage.scss';
+import styles from './modalInfoMessage.scss';
+
+const cx = classNames.bind(styles);
 
 const ModalInfoMessage = ({ onClose }) => (
   <Modal>
-    <div className="contact-form">
-      <div className="form-title">Thank You!</div>
-      <div className="form-description">We received your message! Our consultant will contact you within <br/> 4 working days.</div>
-      <Button onClick={onClose}>Close</Button>
+    <div className={cx('contact-form')}>
+      <div className={cx('form-title')}>Thank You!</div>
+      <div className={cx('form-description')}>
+        We received your message! Our consultant will contact you within <br /> 4 working days.
+      </div>
+      <Button className={cx('close-button')} onClick={onClose}>Close</Button>
     </div>
   </Modal>
 );

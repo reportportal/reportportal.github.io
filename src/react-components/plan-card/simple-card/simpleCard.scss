@@ -1,0 +1,111 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.card {
+  width: 244px;
+  height: 268px;
+  background: $COLOR-WHITE_TWO;
+  box-shadow: 0 4px 15px $COLOR-WHITE-CARD-SHADOW;
+  border-radius: 12px;
+  position: relative;
+  bottom: -25px;
+
+  &.popular {
+    border-top: solid 3px $COLOR-GREEN-MOST-POPULAR;
+    height: 290px;
+    bottom: 0;
+  }
+}
+
+.card + .card {
+  margin-left: 8px;
+}
+
+.popular-label {
+  display: block;
+  width: 76px;
+  height: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: $COLOR-GREEN-MOST-POPULAR;
+  padding-top: 7px;
+  margin: auto;
+}
+
+.name {
+  font-family: $FONT-HEADER;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+  color: $COLOR-CHARCOAL-GREY;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}
+
+.short-description {
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: $COLOR-STEEL-GREY;
+  padding-bottom: 56px;
+}
+
+.double-level-description {
+  color: $COLOR-STEEL-GREY;
+}
+
+.first-level-description {
+  font-family: $FONT-HEADER;
+  font-size: 18px;
+  line-height: 16px;
+  margin-right: -55px;
+}
+
+.second-level-description {
+  font-family: $FONT-LIGHT;
+  font-size: 16px;
+  line-height: 20px;
+  margin-right: -100px;
+}
+
+.price {
+  height: 44px;
+  font-family: $FONT-HEADER;
+  font-size: 32px;
+  line-height: 44px;
+  display: inline-block;
+  color: $COLOR-CHARCOAL-GREY;
+  padding-bottom: 24px;
+  width: inherit;
+  text-align: center;
+}
+
+.period {
+  font-size: 16px;
+  font-family: $FONT-REGULAR;
+  line-height: 24px;
+  color: $COLOR-CHARCOAL-GREY;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.card-button {
+  width: 200px;
+  height: 40px;
+  margin: auto;
+  text-align: center;
+}

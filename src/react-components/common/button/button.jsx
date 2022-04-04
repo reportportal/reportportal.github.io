@@ -16,28 +16,33 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import './button.scss';
+import styles from './button.scss';
+import classNames from 'classnames/bind';
 
-const Button = ({ children, onClick, className }) => (
-  <div
-    className={classnames('button', className)}
-    onClick={onClick}
-  >
+const cx = classNames.bind(styles);
+
+const VARIANT_STANDARD = 'standard';
+const VARIANT_LIGHT = 'light';
+
+const Button = ({ children, onClick, className, type, disabled, variant }) => (
+  <button className={cx('button', className, variant)} type={type} onClick={onClick} disabled={disabled}>
     {children}
-  </div>
+  </button>
 );
 Button.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.element.isRequired,
-    PropTypes.string.isRequired,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.string.isRequired]),
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+  variant: PropTypes.oneOf([VARIANT_STANDARD, VARIANT_LIGHT]),
 };
 Button.defaultProps = {
   children: '',
   className: '',
+  type: 'button',
+  disabled: false,
+  variant: VARIANT_STANDARD,
 };
 
 export default Button;
