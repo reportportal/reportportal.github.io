@@ -16,13 +16,10 @@
 
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
-import Button from 'react-components/common/button/button.jsx';
+import ClockCard from 'react-components/plan-card/clock-card/clockCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
+import SimpleCard from 'react-components/plan-card/simple-card/simpleCard.jsx';
 import ModalContext from '../layouts/modal-layout/modalContext';
-import styles from './planCard.scss';
-
-const cx = classNames.bind(styles);
 
 const PlanCard = ({ name, description, price, button, className, form, withPopular, withClock, withFullClock }) => {
   const { showModal } = useContext(ModalContext);
@@ -33,45 +30,27 @@ const PlanCard = ({ name, description, price, button, className, form, withPopul
     );
   };
 
-  const getDescription = () => {
-    if (!description.doubleLevelDescription) {
-      return description;
-    }
-
-    const { firstLevelDescription, secondLevelDescription } = description.doubleLevelDescription;
-    return (
-      <div className={cx('double-level-description')}>
-        <div className={cx('first-level-description')}>{firstLevelDescription}</div>
-        <div className={cx('second-level-description')}>{secondLevelDescription}</div>
-      </div>
-    );
-  };
-
   return (
-    <div className={cx(
-      'card',
-      className,
-      {
-        popular: withPopular,
-        'with-clock': withClock,
-        'with-full-clock': withFullClock
-      },
-    )}>
-      {withPopular && <div className={cx('popular-label')}>Most popular</div>}
-      <div className={cx('name')}>{name}</div>
-      <div className={cx('short-description')}>
-        {getDescription()}
-      </div>
-      <div className={cx('price')}>
-        {price}
-        <span className={cx('period')}>/per month</span>
-      </div>
-      {button && (
-        <Button className={cx('card-button')} onClick={onClick} light={button.light}>
-          {button.name}
-        </Button>
-      )}
-    </div>
+    withClock || withFullClock
+      ? <ClockCard
+        name={name}
+        description={description.doubleLevelDescription}
+        price={price}
+        button={button}
+        className={className}
+        withPopular={withPopular}
+        withFullClock={withFullClock}
+        onClick={onClick}
+      />
+      : <SimpleCard
+        name={name}
+        description={description}
+        price={price}
+        button={button}
+        className={className}
+        withPopular={withPopular}
+        onClick={onClick}
+      />
   );
 };
 

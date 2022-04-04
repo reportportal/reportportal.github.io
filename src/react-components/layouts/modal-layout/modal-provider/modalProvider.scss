@@ -20,44 +20,44 @@
   height: 100%;
   background: $COLOR-BACKGROUND-MODAL;
   z-index: 100;
+}
 
-  .modal {
-    opacity: unset;
-    position: fixed;
-    display: none;
-    min-height: 100px;
-    width: 511px;
-    margin: auto;
-    background: $COLOR-BACKGROUND-POPUP;
-    box-shadow: 0 4px 15px $COLOR-SHADOW-POPUP;
-    border-radius: 20px;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    height: max-content;
+.modal {
+  opacity: unset;
+  position: fixed;
+  display: none;
+  min-height: 100px;
+  width: 511px;
+  margin: auto;
+  background: $COLOR-BACKGROUND-POPUP;
+  box-shadow: 0 4px 15px $COLOR-SHADOW-POPUP;
+  border-radius: 20px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: max-content;
 
-    &.visible {
-      display: block;
-    }
+  &.visible {
+    display: block;
+  }
+}
 
-    .button {
-      &.close {
-        display: block;
-        height: 24px;
-        width: 24px;
-        background: none;
-        box-shadow: none;
-        margin: 24px 24px 6px auto;
+.button {
+  &.close {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: none;
+    box-shadow: none;
+    margin: 24px 24px 6px auto;
 
-        .cross-icon {
-          background: url('../../../img/cross.svg') no-repeat;
-          display: inline-block;
-          height: 24px;
-          width: 24px;
-          padding-right: 8px;
-        }
-      }
+    .cross-icon {
+      background: url('../../../img/cross.svg') no-repeat;
+      display: inline-block;
+      height: 24px;
+      width: 24px;
+      padding-right: 8px;
     }
   }
 }

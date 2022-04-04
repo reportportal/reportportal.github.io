@@ -16,52 +16,52 @@
 
 .info {
   display: inline-block;
+}
 
-  .hover-area {
-    display: none;
-    transition-delay: 500ms;
-    transition-property: display;
-    z-index: 1;
-    position: fixed;
-    width: 207px;
+.hover-area {
+  display: none;
+  transition-delay: 500ms;
+  transition-property: display;
+  z-index: 1;
+  position: fixed;
+  width: 207px;
 
-    &.visible {
-      display: block;
-    }
-
-    .tooltip {
-      position: absolute;
-      background: $COLOR-WHITE-TEXT;
-      border: 1px solid $COLOR-TOPAZ;
-      box-sizing: border-box;
-      border-radius: 2px;
-      padding: 9px 10px 9px 11px;
-      font-size: 12px;
-      line-height: 14px;
-      color: $COLOR-STEEL-GREY;
-
-      &::before {
-        border: 6px solid transparent;
-        border-bottom-color: $COLOR-TOPAZ;
-        position: absolute;
-        bottom: 100%;
-        left: 0;
-        content: '';
-      }
-
-      &::after {
-        border: 5px solid transparent;
-        border-bottom-color: $COLOR-WHITE-TEXT;
-        position: absolute;
-        bottom: 100%;
-        left: 1px;
-        content: '';
-      }
-
-      a {
-        color: $COLOR-TOPAZ;
-        text-decoration: none;
-      }
-    }
+  &.visible {
+    display: block;
   }
+}
+
+.tooltip {
+  position: absolute;
+  background: $COLOR-WHITE-TEXT;
+  border: 1px solid $COLOR-TOPAZ;
+  box-sizing: border-box;
+  border-radius: 2px;
+  padding: 9px 10px 9px 11px;
+  font-size: 12px;
+  line-height: 14px;
+  color: $COLOR-STEEL-GREY;
+
+  &::before {
+    border: 6px solid transparent;
+    border-bottom-color: $COLOR-TOPAZ;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    content: '';
+  }
+
+  &::after {
+    border: 5px solid transparent;
+    border-bottom-color: $COLOR-WHITE-TEXT;
+    position: absolute;
+    bottom: 100%;
+    left: 1px;
+    content: '';
+  }
+}
+
+a {
+  color: $COLOR-TOPAZ;
+  text-decoration: none;
 }

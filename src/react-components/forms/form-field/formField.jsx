@@ -20,9 +20,9 @@ const FormField = ({
       'form-field',
       className,
       {
-        'with-icon': !!icon,
+        'with-icon': icon,
         error: meta.touched && meta.error,
-        filled: !!meta.value,
+        filled: meta.value,
       },
     )}>
       {icon}

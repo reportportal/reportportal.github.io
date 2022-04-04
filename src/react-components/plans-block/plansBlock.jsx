@@ -146,13 +146,7 @@ const PlansBlock = () => {
             form
           }) => (
           <PlanCard
-            className={cx(
-              'plan-card',
-              {
-                'with-clock': withClock,
-                'with-full-clock': withFullClock,
-              }
-            )}
+            className={cx('plan-card')}
             withClock={withClock}
             withFullClock={withFullClock}
             withPopular={popular}

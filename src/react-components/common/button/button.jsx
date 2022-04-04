@@ -21,8 +21,11 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const Button = ({ children, onClick, className, type, disabled, light }) => (
-  <button className={cx('button', className, {light})} type={type} onClick={onClick} disabled={disabled}>
+const VARIANT_STANDARD = 'standard';
+const VARIANT_LIGHT = 'light';
+
+const Button = ({ children, onClick, className, type, disabled, variant }) => (
+  <button className={cx('button', className, variant)} type={type} onClick={onClick} disabled={disabled}>
     {children}
   </button>
 );
@@ -32,14 +35,14 @@ Button.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
   disabled: PropTypes.bool,
-  light: PropTypes.bool,
+  variant: PropTypes.oneOf([VARIANT_STANDARD, VARIANT_LIGHT]),
 };
 Button.defaultProps = {
   children: '',
   className: '',
   type: 'button',
   disabled: false,
-  light: false,
+  variant: VARIANT_STANDARD,
 };
 
 export default Button;

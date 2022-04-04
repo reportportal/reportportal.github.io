@@ -21,7 +21,7 @@ const plansData = [
         name: 'Free',
         description: 'For quick start',
         price: { full: '$0', sale: '$0' },
-        button: { light: true, name: 'Sign Up' },
+        button: { variant: 'light', name: 'Sign Up' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -54,7 +54,7 @@ const plansData = [
         name: 'Pro',
         description: 'For large companies',
         price: { full: '$1500', sale: '$1425' },
-        button: { light: true, name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -72,7 +72,7 @@ const plansData = [
         name: 'Enterprise',
         description: 'Enterprise-Ready',
         price: { full: '$4000', sale: '$3800' },
-        button: { light: true, name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -111,7 +111,7 @@ const plansData = [
           }
         },
         price: { full: '$2,500' },
-        button: { light: true, name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration with 32 hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -130,7 +130,7 @@ const plansData = [
           }
         },
         price: { full: '$4,000' },
-        button: { light: true, name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration with 60 hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',
@@ -150,7 +150,7 @@ const plansData = [
           }
         },
         price: { full: '$10,000+' },
-        button: { light: true, name: 'Contact Us' },
+        button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration with 168+ hours of support',
           description: 'Please provide your details below, and ReportPortal will help you set up your subscription.',

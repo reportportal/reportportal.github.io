@@ -57,21 +57,21 @@ i {
 .terms-of-use {
   margin: 0 auto 40px;
   display: flex;
+}
 
-  .term-checkbox {
-    margin: 1px 14px 0 0;
-  }
+.term-checkbox {
+  margin: 1px 14px 0 0;
+}
 
-  .term-description {
-    display: inline-block;
-    font-family: $FONT-REGULAR;
-    font-size: 12px;
+.term-description {
+  display: inline-block;
+  font-family: $FONT-REGULAR;
+  font-size: 12px;
+}
 
-    a {
-      color: $COLOR-TOPAZ;
-      font-family: $FONT-HEADER;
-    }
-  }
+a {
+  color: $COLOR-TOPAZ;
+  font-family: $FONT-HEADER;
 }
 
 .button {
