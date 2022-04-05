@@ -36,7 +36,7 @@ const plansData = [
       {
         name: 'Start-Up',
         description: 'For small team',
-        price: { full: '$1000', sale: '$950' },
+        price: { full: '$1,000', sale: '$950' },
         button: { name: 'Sign Up' },
         form: {
           title: 'Contact form for package registration',
@@ -53,7 +53,7 @@ const plansData = [
       {
         name: 'Pro',
         description: 'For large companies',
-        price: { full: '$1500', sale: '$1425' },
+        price: { full: '$1,500', sale: '$1425' },
         button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',
@@ -71,7 +71,7 @@ const plansData = [
       {
         name: 'Enterprise',
         description: 'Enterprise-Ready',
-        price: { full: '$4000', sale: '$3800' },
+        price: { full: '$4,000', sale: '$3800' },
         button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',

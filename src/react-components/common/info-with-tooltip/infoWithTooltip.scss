@@ -33,7 +33,6 @@
   transition: opacity 0.3s, visibility 0.3s;
 
   &.visible {
-    z-index: 1;
     opacity: 1;
     visibility: visible;
   }
