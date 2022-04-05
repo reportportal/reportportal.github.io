@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './switcher.scss';
@@ -31,31 +31,47 @@ const Switcher = ({
   withItemsEqualWidth,
   withSeparator,
   size,
-}) => (
-  <div
-    className={cx(
-      'switcher',
-      className,
-      size,
-      {
-        'equal-width': withItemsEqualWidth,
-        'with-separator': withSeparator,
-      }
-    )}
-  >
-    {itemsData.map(({ id, isActive, element }) => (
+}) => {
+  const [highlightWidth, setHighlightWidth] = useState(false);
+  const [highlightX, setHighlightX] = useState(false);
+
+  const onClick = (e, id) => {
+    const { offsetWidth, offsetLeft } = e.currentTarget;
+    setHighlightWidth(offsetWidth);
+    setHighlightX(offsetLeft);
+    handleSelect(id);
+  }
+
+  return (
+    <div
+      className={cx(
+        'switcher',
+        className,
+        size,
+        {
+          'equal-width': withItemsEqualWidth,
+          'with-separator': withSeparator,
+        }
+      )}
+    >
       <div
-        key={id}
-        className={cx('switcher-item', { active: isActive })}
-        onClick={() => handleSelect(id)}
-      >
-        <div className={cx('item')}>
-          {element}
+        className={cx('highlight')}
+        style={{ width: `${highlightWidth}px`, transform: `translateX(${highlightX}px)` }}
+      />
+      {itemsData.map(({ id, isActive, element }) => (
+        <div
+          key={id}
+          className={cx('switcher-item', { active: isActive })}
+          onClick={(e) => onClick(e, id)}
+        >
+          <div className={cx('item')}>
+            {element}
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
-);
+      ))}
+    </div>
+  );
+}
 
 Switcher.propTypes = {
   itemsData: PropTypes.arrayOf(

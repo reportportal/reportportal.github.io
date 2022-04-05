@@ -17,7 +17,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import styles from './custom-checkbox.scss';
+import styles from './customCheckbox.scss';
 
 const cx = classNames.bind(styles);
 

@@ -47,4 +47,9 @@
   margin: 24px 24px 6px auto;
   background: url('../../../img/cross.svg') no-repeat;
   cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: url('../../../img/crossHover.svg') no-repeat;
+  }
 }

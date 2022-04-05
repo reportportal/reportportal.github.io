@@ -73,24 +73,39 @@
   height: 24px;
   width: 24px;
   padding-right: 8px;
+  transition: 0.3s;
+
+  &:hover {
+    background: url('../img/plusHover.svg') no-repeat 0 2px;
+  }
 }
 
 .compare-plans-table {
-  display: none;
+  display: table;
+  opacity: 0;
+  margin: 58px auto auto;
+  width: 956px;
+  visibility: collapse;
+  transition: opacity 0.6s;
 }
 
 .comparison-table {
-  padding-bottom: 79px;
+  padding-bottom: 21px;
 
   &.open {
     .condition-icon {
       background: url('../img/minus.svg') no-repeat 0 2px;
+      transition: 0.3s;
+
+      &:hover {
+        background: url('../img/minusHover.svg') no-repeat 0 2px;
+      }
     }
 
     .compare-plans-table {
-      display: table;
-      width: 956px;
-      margin: 58px auto auto;
+      visibility: visible;
+      opacity: 1;
+      margin-bottom: 58px;
     }
   }
 }
@@ -124,6 +139,7 @@
   text-align: left;
   width: 50%;
   cursor: pointer;
+  transition: 0.3s;
 
   &:hover {
     color: $COLOR-TEALISH;
