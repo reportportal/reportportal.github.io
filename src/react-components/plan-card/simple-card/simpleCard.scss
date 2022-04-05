@@ -14,21 +14,14 @@
  * limitations under the License.
  */
 
-$cardScale: 5px;
-$marginBetweenCards: 8px;
-
 .card {
-  $height: 268px;
-  $width: 244px;
-  $cardBottom: -25px;
-
-  width: $width;
-  height: $height;
+  width: 244px;
+  height: 268px;
   background: $COLOR-WHITE_TWO;
   box-shadow: 0 4px 15px $COLOR-WHITE-CARD-SHADOW;
   border-radius: 12px;
   position: relative;
-  bottom: $cardBottom;
+  bottom: -25px;
   transition: 0.2s;
 
   &.popular {
@@ -36,44 +29,16 @@ $marginBetweenCards: 8px;
     border-top: solid 3px $COLOR-GREEN-MOST-POPULAR;
     height: $popularHeight;
     bottom: 0;
-
-    &:hover {
-      height: calc(#{$popularHeight} + #{$cardScale} * 2);
-      bottom: $cardScale;
-      margin-bottom: calc(-#{$cardScale} * 2);
-    }
   }
 
   &:hover {
-    height: calc(#{$height} + #{$cardScale} * 2);
-    width: calc(#{$width} + #{$cardScale} * 2);
-    bottom: calc(#{$cardBottom} + #{$cardScale});
-    box-shadow: 0 4px 15px $COLOR-WHITE-CARD-SHADOW-WITH-OPACITY;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &:first-child {
-    margin-left: $cardScale;
-  }
-
-  &:last-child {
-    margin-right: $cardScale;
+    transform: scale(1.025);
+    box-shadow: 0 4px 15px rgba($COLOR-WHITE-CARD-SHADOW, 0.9);
   }
 }
 
 .card + .card {
-  margin-left: $marginBetweenCards;
-}
-
-.card:hover + .card, .card + .card:hover {
-  margin-left: calc(#{$marginBetweenCards} - #{$cardScale});
+  margin-left: 8px;
 }
 
 .popular-label {

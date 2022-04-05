@@ -38,7 +38,7 @@
   a {
     color: $COLOR-TEXT-INFO;
     font-family: $FONT-HEADER;
-    transition: 0.3s;
+    transition: color 0.3s;
 
     &:hover {
       color: $COLOR-TOPAZ;

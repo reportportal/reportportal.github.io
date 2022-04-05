@@ -26,7 +26,7 @@
     background: $COLOR-WHITE_TWO;
     border-radius: 3px;
     border: solid 2px $COLOR-TEXT-INFO;
-    transition: 0.3s;
+    transition: background 0.3s, border-color 0.3s;
   }
 
   &.checked {

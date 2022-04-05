@@ -22,7 +22,7 @@
   bottom: -3px;
   background: url('../../img/infoSmall.svg') no-repeat;
   margin-left: 4px;
-  transition: 0.3s;
+  transition: background 0.3s;
 
   &.active {
     background: url('../../img/infoSmallActive.svg') no-repeat;

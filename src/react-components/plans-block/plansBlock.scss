@@ -25,6 +25,7 @@
   display: inline-block;
   vertical-align: middle;
   padding-right: 4px;
+  transition: background 0.3s;
 
   &.cloud {
     background: url('../img/cloud.svg') no-repeat;
@@ -73,7 +74,7 @@
   height: 24px;
   width: 24px;
   padding-right: 8px;
-  transition: 0.3s;
+  transition: background 0.3s;
 
   &:hover {
     background: url('../img/plusHover.svg') no-repeat 0 2px;
@@ -95,7 +96,6 @@
   &.open {
     .condition-icon {
       background: url('../img/minus.svg') no-repeat 0 2px;
-      transition: 0.3s;
 
       &:hover {
         background: url('../img/minusHover.svg') no-repeat 0 2px;
@@ -139,7 +139,7 @@
   text-align: left;
   width: 50%;
   cursor: pointer;
-  transition: 0.3s;
+  transition: color 0.3s;
 
   &:hover {
     color: $COLOR-TEALISH;

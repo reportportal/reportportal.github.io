@@ -61,7 +61,7 @@
 @media all and (max-width: $SCREEN_XS_MAX) {
   .questions-form {
     padding-top: 34px;
-    background: #F3FCFC //todo
+    background: $COLOR-BACKGROUND-BLUE-SECONDARY;
   }
 
   .form {
