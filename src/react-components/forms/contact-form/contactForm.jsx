@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { FormikProvider, useFormik } from 'formik';
 import Button from 'react-components/common/button/button.jsx';
-import CustomCheckbox from 'react-components/common/custom-checkbox/custom-checkbox.jsx';
+import CustomCheckbox from 'react-components/common/custom-checkbox/customCheckbox.jsx';
 import FormField from 'react-components/forms/form-field/formField.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';

@@ -34,24 +34,34 @@
     border: 1px solid $COLOR-GRAY-91;
     box-sizing: border-box;
     border-radius: 25px;
+    position: relative;
+
+    .highlight {
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      background-color: $COLOR-TEALISH;
+      border-radius: 23px;
+      transition: 0.3s
+    }
 
     .switcher-item {
       line-height: 42px;
       display: inline-block;
+      position: relative;
+      font-family: $FONT-LIGHT;
 
       .item {
-        font-family: $FONT-LIGHT;
         font-size: 16px;
         color: $COLOR-TOPAZ;
         vertical-align: middle;
         text-align: center;
+        transition: font 0.3s, color 0.3s;
       }
 
       &.active {
         font-family: $FONT-HEADER;
         height: 42px;
-        background: $COLOR-TEALISH;
-        border-radius: 23px;
 
         .item {
           color: $COLOR-WHITE_TWO;
@@ -67,6 +77,10 @@
       .switcher-item + .switcher-item {
         background: url('../../img/separator.svg') no-repeat 0 5px;
       }
+    }
+
+    .highlight {
+      display: none;
     }
 
     .switcher-item {

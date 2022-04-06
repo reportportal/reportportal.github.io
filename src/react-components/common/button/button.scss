@@ -27,6 +27,7 @@
   text-align: center;
   border: none;
   font-family: $FONT-REGULAR;
+  transition: background 0.3s, color 0.3s, opacity 0.3s;
 
   &.standard {
     background: $COLOR-TEALISH;

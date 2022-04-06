@@ -36,8 +36,13 @@
   }
 
   a {
-    color: $COLOR-TOPAZ;
+    color: $COLOR-TEXT-INFO;
     font-family: $FONT-HEADER;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $COLOR-TOPAZ;
+    }
   }
 }
 
