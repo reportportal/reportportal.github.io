@@ -127,12 +127,14 @@ const PlansBlock = () => {
         size="big"
       />
       <div className={cx('selected-plan-name')}>{selectedPlanData.name}</div>
-      <Switcher
-        className={cx('period-switcher')}
-        itemsData={periodSwitcherData}
-        handleSelect={handlePeriodSwitcherSelect}
-        withSeparator
-      />
+      {!!periodSwitcherData.length &&
+        <Switcher
+          className={cx('period-switcher')}
+          itemsData={periodSwitcherData}
+          handleSelect={handlePeriodSwitcherSelect}
+          withSeparator
+        />
+      }
       <div className={cx('plan-cards')}>
         {selectedPlanData.plansInfo.map((
           {
