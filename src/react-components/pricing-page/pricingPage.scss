@@ -38,9 +38,10 @@
   white-space: pre-line;
 }
 
-@media all and (max-width: $SCREEN_IPAD) {
+@media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
   .pricing-page {
-    width: 1024px;
+    width: 100%;
+    max-width: 1024px;
   }
 }
 

@@ -58,6 +58,25 @@
   }
 }
 
+@media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
+  .form {
+    width: auto;
+  }
+
+  .questions-form {
+    padding: 35px 68px 0;
+    background: $COLOR-BACKGROUND-BLUE-SECONDARY;
+  }
+
+  .questions-form-field input {
+    background-color: $COLOR-BACKGROUND-BLUE-SECONDARY;
+  }
+
+  .questions-form-submit-button {
+    margin-bottom: 34px;
+  }
+}
+
 @media all and (max-width: $SCREEN_XS_MAX) {
   .questions-form {
     padding-top: 34px;
