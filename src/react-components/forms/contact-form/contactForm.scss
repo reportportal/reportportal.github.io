@@ -84,3 +84,13 @@
   border: none;
   margin: 0 auto 36px;
 }
+
+@media all and (max-width: $SCREEN_XS_MAX) {
+  .form-title {
+    font-size: 28px;
+  }
+
+  .contact-form {
+    padding: 0 16px;
+  }
+}

@@ -44,7 +44,7 @@ const PlansBlock = () => {
           id: name,
           element: <>
             <div className={cx('icon', { active: isActive }, iconType)} />
-            {name}
+            <div className={cx('switcher-name')}>{name}</div>
           </>,
           isActive,
         };
@@ -96,7 +96,7 @@ const PlansBlock = () => {
         <div key={name} className={cx('inline-title')}>
           {name}
           {info && (
-            <InfoWithTooltip tooltip={info}>
+            <InfoWithTooltip title={name} tooltip={info}>
               {(isActive) => <InfoIcon isActive={isActive} />}
             </InfoWithTooltip>
           )}
@@ -126,6 +126,7 @@ const PlansBlock = () => {
         withItemsEqualWidth
         size="big"
       />
+      <div className={cx('selected-plan-name')}>{selectedPlanData.name}</div>
       <Switcher
         className={cx('period-switcher')}
         itemsData={periodSwitcherData}
@@ -167,7 +168,10 @@ const PlansBlock = () => {
         <Table className={cx('compare-plans-table')} data={getComparisonTableData()} />
       </div>
       <div className={cx('description')}>
-        <div className={cx('name')}>{`${selectedPlanData.name} —`}</div>
+        <div className={cx('name')}>
+          {selectedPlanData.name}
+          <span className={cx('dash')}> —</span>
+        </div>
         <div className={cx('text')}>{selectedPlanData.description}</div>
       </div>
     </div>

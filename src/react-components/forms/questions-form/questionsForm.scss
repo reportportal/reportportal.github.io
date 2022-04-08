@@ -64,6 +64,10 @@
     background: $COLOR-BACKGROUND-BLUE-SECONDARY;
   }
 
+  .text {
+    padding: 0 22px 32px;
+  };
+
   .form {
     width: 100%;
     display: flex;
@@ -76,5 +80,13 @@
 
     width: calc(100% - #{$marginAroundFields} * 2);
     margin: 0 $marginAroundFields 36px;
+
+    input {
+      background-color: $COLOR-BACKGROUND-BLUE-SECONDARY;
+    }
+  }
+
+  .questions-form-submit-button {
+    margin: 12px auto 16px;
   }
 }

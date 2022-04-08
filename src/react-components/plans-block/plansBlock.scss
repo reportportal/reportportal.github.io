@@ -44,6 +44,14 @@
   }
 }
 
+.switcher-name {
+  display: inline-block;
+}
+
+.selected-plan-name {
+  display: none;
+}
+
 .period-switcher {
   width: 188px;
   margin: 0 0 8px auto;
@@ -180,5 +188,46 @@
   line-height: 24px;
   color: $COLOR-STEEL-GREY;
   max-width: 642px;
-  height: 72px;
+}
+
+@media all and (max-width: $SCREEN_XS_MAX) {
+  .plan-switcher {
+    width: auto;
+    margin: auto 16px;
+
+    .switcher-name {
+      display: none;
+    }
+  }
+
+  .selected-plan-name {
+    display: block;
+    color: $COLOR-STEEL-GREY;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 8px;
+    text-align: center;
+    font-family: $FONT-REGULAR;
+  }
+
+  .period-switcher {
+    margin: 53px auto 24px;
+  }
+
+  .plan-cards {
+    display: inline-block;
+  }
+
+  .description {
+    display: block;
+    padding: 0 16px 54px;
+  }
+
+  .name {
+    padding-bottom: 8px;
+  }
+
+  .dash {
+    display: none;
+  }
 }

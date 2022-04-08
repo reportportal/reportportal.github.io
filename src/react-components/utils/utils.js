@@ -14,32 +14,11 @@
  * limitations under the License.
  */
 
-.form-title {
-  margin: 0 54px 16px;
-  font-family: $FONT-LIGHT;
-  color: $COLOR-STEEL-GREY;
-  font-size: 24px;
-  line-height: 36px;
-  text-align: center;
-}
+const SCREEN_XS_MAX = 767;
+const SCREEN_SM_MAX = 1024;
 
-.form-description {
-  margin: 0 68px 32px;
-  font-family: $FONT-REGULAR;
-  color: $COLOR-STEEL-GREY;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-}
+const SCREEN_XS_MAX_MEDIA = `(max-width: ${SCREEN_XS_MAX}px)`;
+const SCREEN_SM_MAX_MEDIA = `(max-width: ${SCREEN_SM_MAX}px)`;
 
-.close-button {
-  width: 200px;
-  border: none;
-  margin: 0 auto 36px;
-}
-
-@media all and (max-width: $SCREEN_XS_MAX) {
-  .form-description {
-    margin: 0 24px 36px;
-  }
-}
+export const getIsMobileView = () => window.matchMedia(SCREEN_XS_MAX_MEDIA).matches;
+export const getIsTabletView = () => window.matchMedia(SCREEN_SM_MAX_MEDIA).matches;

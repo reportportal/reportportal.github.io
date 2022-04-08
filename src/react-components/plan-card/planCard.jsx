@@ -16,17 +16,27 @@
 
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
 import ClockCard from 'react-components/plan-card/clock-card/clockCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
 import SimpleCard from 'react-components/plan-card/simple-card/simpleCard.jsx';
 import ModalContext from '../layouts/modal-layout/modalContext';
+import styles from './planCard.scss';
+
+const cx = classNames.bind(styles);
 
 const PlanCard = ({ name, description, price, button, className, form, withPopular, withClock, withFullClock }) => {
   const { showModal } = useContext(ModalContext);
 
   const onClick = () => {
     showModal(
-      <ContactForm title={form.title} description={form.description} options={form.options} />,
+      <ContactForm
+        modalClassName={cx('contact-form')}
+        title={form.title}
+        description={form.description}
+        options={form.options}
+        backTo='Back to package'
+      />,
     );
   };
 
