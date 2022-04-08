@@ -20,6 +20,7 @@ import classNames from 'classnames/bind';
 import ClockCard from 'react-components/plan-card/clock-card/clockCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
 import SimpleCard from 'react-components/plan-card/simple-card/simpleCard.jsx';
+import { getIsMobileView } from 'react-components/utils/utils.js';
 import ModalContext from '../layouts/modal-layout/modalContext';
 import styles from './planCard.scss';
 
@@ -28,6 +29,8 @@ const cx = classNames.bind(styles);
 const PlanCard = ({ name, description, price, button, className, form, withPopular, withClock, withFullClock }) => {
   const { showModal } = useContext(ModalContext);
 
+  const backTo = getIsMobileView() ? 'Back to package' : null;
+
   const onClick = () => {
     showModal(
       <ContactForm
@@ -35,7 +38,7 @@ const PlanCard = ({ name, description, price, button, className, form, withPopul
         title={form.title}
         description={form.description}
         options={form.options}
-        backTo='Back to package'
+        backTo={backTo}
       />,
     );
   };
