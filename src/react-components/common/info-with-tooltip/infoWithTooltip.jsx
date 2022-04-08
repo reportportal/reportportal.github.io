@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import ModalPopup from 'react-components/layouts/modal-layout/modal-popup/modalPopup.jsx';
 import { getIsMobileView } from 'react-components/utils/utils.js';
+import ModalContext from '../../layouts/modal-layout/modalContext';
 import styles from './infoWithTooltip.scss';
 
 const cx = classNames.bind(styles);
 
-const InfoWithTooltip = ({ className, children, tooltip, onClick }) => {
+const InfoWithTooltip = ({ className, children, title, tooltip }) => {
+  const { showModal } = useContext(ModalContext);
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const [clientRect, setClientRect] = useState({});
 
@@ -33,6 +36,12 @@ const InfoWithTooltip = ({ className, children, tooltip, onClick }) => {
 
     setIsTooltipVisible(true);
     setClientRect(e.currentTarget.getBoundingClientRect());
+  };
+
+  const onClick = () => {
+    if (getIsMobileView()) {
+      showModal(<ModalPopup title={title} description={tooltip} />);
+    }
   };
 
   return (
@@ -61,12 +70,14 @@ const InfoWithTooltip = ({ className, children, tooltip, onClick }) => {
 InfoWithTooltip.propTypes = {
   className: PropTypes.string,
   children: PropTypes.func,
+  title: PropTypes.node.isRequired,
   tooltip: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
+  isMobileView: PropTypes.bool,
 };
 InfoWithTooltip.defaultProps = {
   className: '',
   children: null,
+  isMobileView: false,
 };
 
 export default InfoWithTooltip;

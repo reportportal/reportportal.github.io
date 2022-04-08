@@ -61,12 +61,7 @@
 @media all and (max-width: $SCREEN_XS_MAX) {
   .modal {
     width: auto;
-    margin: auto;
-    max-width: 298px;
-  }
-
-  .hidden {
-    display: none;
+    margin: auto 12px;
   }
 
   .back {

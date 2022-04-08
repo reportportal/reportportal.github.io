@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import Switcher from 'react-components/common/switcher/switcher.jsx';
 import PlanCard from 'react-components/plan-card/planCard.jsx';
 import Table from 'react-components/common/table/table.jsx';
 import InfoIcon from 'react-components/common/info-icon/infoIcon.jsx';
 import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
-import NotificationModal from 'react-components/layouts/modal-layout/notification-modal/notificationModal.jsx';
-import ModalContext from 'react-components/layouts/modal-layout/modalContext';
-import { getIsMobileView } from 'react-components/utils/utils.js';
 import plansData from './data';
 import styles from './plansBlock.scss';
 
@@ -32,7 +29,6 @@ const cx = classNames.bind(styles);
 const FULL_PERIOD = 'full';
 
 const PlansBlock = () => {
-  const { showModal } = useContext(ModalContext);
   const [selectedPlanData, setSelectedPlanData] = useState(plansData[0]);
   const [selectedPeriodId, setSelectedPeriodId] = useState(FULL_PERIOD);
   const [planSwitcherData, setPlanSwitcherData] = useState([]);
@@ -91,12 +87,6 @@ const PlansBlock = () => {
   const getComparisonTableData = () => {
     const headers = ['', ...selectedPlanData.plansInfo.map(({ name }) => name)];
 
-    const onInfoClick = (title, tooltip) => {
-      if (getIsMobileView()) {
-        showModal(<NotificationModal title={title} description={tooltip} />);
-      }
-    };
-
     const rows = selectedPlanData.compareTableTitles.map(({ id, name, info }) => {
       const options = selectedPlanData.plansInfo.map((plan) => plan.options[id]);
       const modifiedOptions = options.map(option =>
@@ -106,7 +96,7 @@ const PlansBlock = () => {
         <div key={name} className={cx('inline-title')}>
           {name}
           {info && (
-            <InfoWithTooltip tooltip={info} onClick={() => onInfoClick(name, info)}>
+            <InfoWithTooltip title={name} tooltip={info}>
               {(isActive) => <InfoIcon isActive={isActive} />}
             </InfoWithTooltip>
           )}
@@ -137,14 +127,12 @@ const PlansBlock = () => {
         size="big"
       />
       <div className={cx('selected-plan-name')}>{selectedPlanData.name}</div>
-      {!!periodSwitcherData.length &&
-        <Switcher
-          className={cx('period-switcher')}
-          itemsData={periodSwitcherData}
-          handleSelect={handlePeriodSwitcherSelect}
-          withSeparator
-        />
-      }
+      <Switcher
+        className={cx('period-switcher')}
+        itemsData={periodSwitcherData}
+        handleSelect={handlePeriodSwitcherSelect}
+        withSeparator
+      />
       <div className={cx('plan-cards')}>
         {selectedPlanData.plansInfo.map((
           {
