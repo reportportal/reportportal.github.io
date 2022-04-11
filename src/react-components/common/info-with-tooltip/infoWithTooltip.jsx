@@ -72,12 +72,10 @@ InfoWithTooltip.propTypes = {
   children: PropTypes.func,
   title: PropTypes.node.isRequired,
   tooltip: PropTypes.node.isRequired,
-  isMobileView: PropTypes.bool,
 };
 InfoWithTooltip.defaultProps = {
   className: '',
   children: null,
-  isMobileView: false,
 };
 
 export default InfoWithTooltip;
