@@ -22,7 +22,7 @@ import styles from './modal.scss';
 
 const cx = classNames.bind(styles);
 
-const Modal = ({ children, className, backTo }) => {
+const Modal = ({ children, className, backTo, withoutMobileCloseButton }) => {
   const { closeModal } = useContext(ModalContext);
   const wrapperRef = useRef();
 
@@ -40,8 +40,12 @@ const Modal = ({ children, className, backTo }) => {
             <i className={cx('arrow')}/>
             {backTo}
           </div>
-          : <i className={cx('close-button')} onClick={closeModal} />
+          : null
         }
+        <i
+          className={cx('close-button', { 'without-mobile-close-button': withoutMobileCloseButton })}
+          onClick={closeModal}
+        />
         {children}
       </div>
     </div>
@@ -52,10 +56,12 @@ Modal.propTypes = {
   children: PropTypes.element,
   className: PropTypes.string,
   backTo: PropTypes.node,
+  withoutMobileCloseButton: PropTypes.bool,
 };
 Modal.defaultProps = {
   className: '',
   backTo: null,
+  withoutMobileCloseButton: false,
 };
 
 export default Modal;

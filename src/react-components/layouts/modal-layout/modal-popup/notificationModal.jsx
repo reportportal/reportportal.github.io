@@ -18,22 +18,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
-import styles from './modalPopup.scss';
+import styles from './notificationModal.scss';
 
 const cx = classNames.bind(styles);
 
-const ModalPopup = ({ title, description }) => (
+const NotificationModal = ({ title, description }) => (
   <Modal>
-    <div className={cx('contact-form')}>
-      <div className={cx('form-title')}>{title}</div>
-      <div className={cx('form-description')}>{description}</div>
-    </div>
+    <div className={cx('form-title')}>{title}</div>
+    <div className={cx('form-description')}>{description}</div>
   </Modal>
 );
 
-ModalPopup.propTypes = {
+NotificationModal.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 
-export default ModalPopup;
+export default NotificationModal;

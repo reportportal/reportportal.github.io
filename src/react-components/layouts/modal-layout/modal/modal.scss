@@ -61,7 +61,12 @@
 @media all and (max-width: $SCREEN_XS_MAX) {
   .modal {
     width: auto;
-    margin: auto 12px;
+    margin: auto;
+    max-width: 298px;
+  }
+
+  .without-mobile-close-button {
+    display: none;
   }
 
   .back {
