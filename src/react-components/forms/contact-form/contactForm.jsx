@@ -75,7 +75,7 @@ const ContactForm = ({ className, title, description, options, modalClassName, b
   };
 
   return (
-    <Modal className={cx(modalClassName)} backTo={backTo}>
+    <Modal className={cx(modalClassName)} backTo={backTo} withoutMobileCloseButton>
       <div className={cx('contact-form', className)}>
         <div className={cx('form-title')}>{title}</div>
         <div className={cx('form-description')}>{description}</div>
