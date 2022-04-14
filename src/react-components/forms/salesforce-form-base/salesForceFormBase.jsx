@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 
 const SalesForceFormBase = ({ additionalFields }) => (
   <>
-    <input type='hidden' name='oid' value='00D7a000000AZdD'/>
+    <input type='hidden' name='oid' value='00D5t0000008hw3'/>
     <input type='hidden' name='retURL' value='http://'/>
     <input type='hidden' name='debug' value='1'/>
     <input type='hidden' name='debugEmail' value='olga_korenko@epam.com'/>
