@@ -17,26 +17,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import Button from 'react-components/common/button/button.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
-import styles from './modalInfoMessage.scss';
+import styles from './notificationModal.scss';
 
 const cx = classNames.bind(styles);
 
-const ModalInfoMessage = ({ onClose }) => (
+const NotificationModal = ({ title, description }) => (
   <Modal>
-    <div className={cx('contact-form')}>
-      <div className={cx('form-title')}>Thank You!</div>
-      <div className={cx('form-description')}>
-        We received your message! Our consultant will contact you within 4 working days.
-      </div>
-      <Button className={cx('close-button')} onClick={onClose}>Close</Button>
-    </div>
+    <div className={cx('form-title')}>{title}</div>
+    <div className={cx('form-description')}>{description}</div>
   </Modal>
 );
 
-ModalInfoMessage.propTypes = {
-  onClose: PropTypes.func.isRequired,
+NotificationModal.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
-export default ModalInfoMessage;
+export default NotificationModal;

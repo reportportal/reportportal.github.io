@@ -44,7 +44,8 @@
   }
   .socials-block {
     span {
-      font-size: 15px;
+      font-size: 13px;
+      line-height: 24px;
       a {
         text-decoration: none;
         color: $COLOR-TEALISH;
@@ -63,7 +64,7 @@
         margin-right: 9px;
         cursor: pointer;
         overflow: hidden;
-        width: 100px;
+        width: auto;
 
         .count-block {
           margin-left: 5px;
@@ -96,9 +97,9 @@
     height:auto;
     .icon-block {
       display: block;
-      margin-top: 10px;
+      margin-top: 11px;
       .item-icon {
-        margin: 0 15px;
+        margin: 0 14px;
       }
     }
     .copy {

@@ -30,7 +30,7 @@ import styles from './contactForm.scss';
 
 const cx = classNames.bind(styles);
 
-const ContactForm = ({ className, title, description, options, modalClassName }) => {
+const ContactForm = ({ className, title, description, options, modalClassName, backTo }) => {
   const { showModal, closeModal } = useContext(ModalContext);
   const [termsAgree, setTermsAgree] = useState(false);
   const [iframe, setIframe] = useState(null);
@@ -75,7 +75,7 @@ const ContactForm = ({ className, title, description, options, modalClassName })
   };
 
   return (
-    <Modal className={cx(modalClassName)}>
+    <Modal className={cx(modalClassName)} backTo={backTo} withoutMobileCloseButton>
       <div className={cx('contact-form', className)}>
         <div className={cx('form-title')}>{title}</div>
         <div className={cx('form-description')}>{description}</div>
@@ -136,7 +136,7 @@ const ContactForm = ({ className, title, description, options, modalClassName })
               onClick={onSubmit}
               disabled={!(isValid && dirty && termsAgree)}
             >
-              Contact Us
+              Send
             </Button>
           </form>
         </FormikProvider>
@@ -156,6 +156,7 @@ ContactForm.propTypes = {
       value: PropTypes.string,
     }),
   ),
+  backTo: PropTypes.node,
 };
 ContactForm.defaultProps = {
   modalClassName: '',
@@ -163,6 +164,7 @@ ContactForm.defaultProps = {
   title: '',
   description: '',
   options: [],
+  backTo: null,
 };
 
 export default ContactForm;

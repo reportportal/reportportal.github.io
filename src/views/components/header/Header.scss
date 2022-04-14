@@ -298,6 +298,9 @@
             &.git {
               width: 100px;
               padding: 15px 13px;
+              .count-block {
+                display: block;
+              }
             }
             &.slack {
               background: url(../../../common/img/social/icon-sl.svg) center no-repeat;

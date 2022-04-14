@@ -17,15 +17,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import { getIsMobileView } from 'react-components/utils/utils.js';
 import styles from './infoWithTooltip.scss';
 
 const cx = classNames.bind(styles);
 
-const InfoWithTooltip = ({ className, children, tooltip }) => {
+const InfoWithTooltip = ({ className, children, tooltip, onClick }) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const [clientRect, setClientRect] = useState({});
 
   const onHover = (e) => {
+    if (getIsMobileView()) {
+      return;
+    }
+
     setIsTooltipVisible(true);
     setClientRect(e.currentTarget.getBoundingClientRect());
   };
@@ -35,6 +40,7 @@ const InfoWithTooltip = ({ className, children, tooltip }) => {
       className={cx('info', className, { active: isTooltipVisible })}
       onMouseOver={onHover}
       onMouseOut={() => setIsTooltipVisible(false)}
+      onClick={onClick}
     >
       {children(isTooltipVisible)}
       <div
@@ -56,6 +62,7 @@ InfoWithTooltip.propTypes = {
   className: PropTypes.string,
   children: PropTypes.func,
   tooltip: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 InfoWithTooltip.defaultProps = {
   className: '',

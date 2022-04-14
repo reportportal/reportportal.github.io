@@ -39,6 +39,10 @@
   height: max-content;
 }
 
+.back {
+  display: none;
+}
+
 .close-button {
   display: block;
   height: 24px;
@@ -51,5 +55,34 @@
 
   &:hover {
     background: url('../../../img/crossHover.svg') no-repeat;
+  }
+}
+
+@media all and (max-width: $SCREEN_XS_MAX) {
+  .modal {
+    width: auto;
+    margin: auto;
+    max-width: 298px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .back {
+    display: block;
+    margin: 24px auto 28px 16px;
+    font-family: $FONT-HEADER;
+    font-size: 14px;
+    line-height: 20px;
+    color: $COLOR-TOPAZ;
+  }
+
+  .arrow {
+    display: inline-block;
+    background:  url('../../../img/arrow.svg') no-repeat 0 3px;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
   }
 }

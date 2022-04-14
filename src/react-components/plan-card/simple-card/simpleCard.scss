@@ -59,7 +59,7 @@
   line-height: 36px;
   text-align: center;
   color: $COLOR-CHARCOAL-GREY;
-  margin-top: 24px;
+  padding-top: 24px;
   margin-bottom: 4px;
 }
 
@@ -69,24 +69,6 @@
   text-align: center;
   color: $COLOR-STEEL-GREY;
   padding-bottom: 56px;
-}
-
-.double-level-description {
-  color: $COLOR-STEEL-GREY;
-}
-
-.first-level-description {
-  font-family: $FONT-HEADER;
-  font-size: 18px;
-  line-height: 16px;
-  margin-right: -55px;
-}
-
-.second-level-description {
-  font-family: $FONT-LIGHT;
-  font-size: 16px;
-  line-height: 20px;
-  margin-right: -100px;
 }
 
 .price {
@@ -115,4 +97,27 @@
   height: 40px;
   margin: auto;
   text-align: center;
+}
+
+@media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
+  .card {
+    flex-basis: 244px;
+    margin: 10px 10px;
+    bottom: 0;
+
+    &:first-child {
+      bottom: -25px;
+    }
+  }
+}
+
+@media all and (max-width: $SCREEN_XS_MAX) {
+  .card {
+    margin: auto;
+    bottom: 0;
+  }
+
+  .card + .card {
+    margin: 24px auto 0;
+  }
 }

@@ -26,6 +26,8 @@
 }
 
 .pricing-page-header {
+  width: 550px;
+  margin: 0 auto;
   padding-top: 64px;
   padding-bottom: 56px;
   font-family: $FONT-HEADER;
@@ -36,14 +38,28 @@
   white-space: pre-line;
 }
 
-@media all and (max-width: $SCREEN_IPAD) {
+@media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
   .pricing-page {
-    width: 1024px;
+    width: 100%;
+    max-width: 1024px;
   }
 }
 
 @media all and (max-width: $SCREEN_XS_MAX) {
   .pricing-page {
-    width: 320px;
+    min-width: 320px;
+    width: 100%;
+    max-width: 767px;
+  }
+
+  .pricing-page-header {
+    width: auto;
+    font-size: 26px;
+    line-height: 36px;
+    padding: 70px 32px 47px;
+  }
+
+  .pricing-page-wrapper {
+    background-size: auto 350px;
   }
 }

@@ -75,3 +75,9 @@
   50%	{ transform: scale(0.5); }
   100%	{ transform: scale(1); }
 }
+
+@media all and (max-width: $SCREEN_XS_MAX) {
+  .social .github-stars-count .count-block {
+    display: none;
+  }
+}
