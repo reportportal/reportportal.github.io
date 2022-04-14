@@ -19,8 +19,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { FormikProvider, useFormik } from 'formik';
 import Button from 'react-components/common/button/button.jsx';
-import CustomCheckbox from 'react-components/common/custom-checkbox/customCheckbox.jsx';
 import FormField from 'react-components/forms/form-field/formField.jsx';
+import MarketingAndTermsAgree from 'react-components/forms/common-parts/marketing-and-terms-agree/marketingAndTermAgree.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
@@ -58,6 +58,10 @@ const ContactForm = ({ className, title, description, options, modalClassName, b
       dummyframe.parentNode.removeChild(dummyframe);
     };
   }, []);
+
+  const onTermsAgreeChange = (agree) => {
+    setTermsAgree(agree)
+  };
 
   const onSubmit = () => {
     const showModalInfoMessage = () => {
@@ -113,23 +117,7 @@ const ContactForm = ({ className, title, description, options, modalClassName, b
               name="company"
               placeholder="Company name"
             />
-            <div className={cx('terms-of-use')}>
-              <CustomCheckbox
-                className={cx('term-checkbox')}
-                value={termsAgree}
-                onChange={(e) => setTermsAgree(e.target.checked)}
-              />
-              <div className={cx('term-description')}>
-                I have read and agree to the{' '}
-                <a target="_blank" href="">
-                  General Terms of Service
-                </a>{' '}
-                and <br /> the{' '}
-                <a target="_blank" href="">
-                  Privacy Policy
-                </a>
-              </div>
-            </div>
+            <MarketingAndTermsAgree onTermsAgreeChange={onTermsAgreeChange}/>
             <Button
               className={cx('button')}
               type='submit'

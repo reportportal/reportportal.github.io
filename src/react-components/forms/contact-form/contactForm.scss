@@ -34,16 +34,6 @@
       background: url('../../img/company.svg') center no-repeat;
     }
   }
-
-  a {
-    color: $COLOR-TEXT-INFO;
-    font-family: $FONT-HEADER;
-    transition: color 0.3s;
-
-    &:hover {
-      color: $COLOR-TOPAZ;
-    }
-  }
 }
 
 .form-title {
@@ -62,21 +52,6 @@
   font-size: 12px;
   line-height: 16px;
   text-align: center;
-}
-
-.terms-of-use {
-  margin: 0 auto 40px;
-  display: flex;
-}
-
-.term-checkbox {
-  margin: 1px 14px 0 0;
-}
-
-.term-description {
-  display: inline-block;
-  font-family: $FONT-REGULAR;
-  font-size: 12px;
 }
 
 .button {

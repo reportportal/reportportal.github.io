@@ -14,14 +14,34 @@
  * limitations under the License.
  */
 
-@media all and (max-width: $SCREEN_XS_MAX) {
-  .contact-form {
-    min-width: $SCREEN_XS_MIN;
-    max-width: $SCREEN_XS_MAX;
-    width: auto;
-    height: 100%;
-    margin: auto;
-    border-radius: 0;
-    overflow-y: auto;
+.terms-of-use, .marketing {
+  margin: 0 auto 40px;
+  display: flex;
+}
+
+.term-checkbox, .marketing-checkbox {
+  margin-right: 14px;
+}
+
+.term-description, .marketing-description {
+  display: inline-block;
+  font-family: $FONT-REGULAR;
+  font-size: 12px;
+  line-height: 16px;
+  color: $COLOR-STEEL-GREY;
+
+  a {
+    color: $COLOR-TOPAZ;
+    font-family: $FONT-HEADER;
+    transition: color 0.3s;
+    text-decoration: none;
+
+    &:hover {
+      color: $COLOR-TOPAZ-DARK;
+    }
   }
+}
+
+.red {
+  color: $COLOR--error-red;
 }
