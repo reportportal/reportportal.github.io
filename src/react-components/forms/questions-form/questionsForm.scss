@@ -78,6 +78,8 @@
 }
 
 @media all and (max-width: $SCREEN_XS_MAX) {
+  $marginAroundFields: 15px;
+
   .questions-form {
     padding-top: 34px;
     background: $COLOR-BACKGROUND-BLUE-SECONDARY;
@@ -88,17 +90,14 @@
   };
 
   .form {
-    width: 100%;
+    width: calc(100% - #{$marginAroundFields} * 2);
     display: flex;
-    margin: auto;
     justify-content: space-around;
+    margin: 0 $marginAroundFields;
   }
 
   .questions-form-field {
-    $marginAroundFields: 15px;
-
-    width: calc(100% - #{$marginAroundFields} * 2);
-    margin: 0 $marginAroundFields 36px;
+    width: 100%;
 
     input {
       background-color: $COLOR-BACKGROUND-BLUE-SECONDARY;

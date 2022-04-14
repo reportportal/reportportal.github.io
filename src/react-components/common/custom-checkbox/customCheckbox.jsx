@@ -21,9 +21,9 @@ import styles from './customCheckbox.scss';
 
 const cx = classNames.bind(styles);
 
-const CustomCheckbox = ({ className, onChange, value, disabled }) => (
+const CustomCheckbox = ({ className, onChange, value, disabled, name }) => (
   <label className={cx('custom-checkbox', className, { checked: value, disabled })}>
-    <input type="checkbox" onChange={onChange} disabled={disabled} checked={value} />
+    <input type="checkbox" id={name} name={name} value={value} onChange={onChange} disabled={disabled} checked={value} />
     <div className={cx('checkbox')}>
       <div className={cx('checkmark')} />
     </div>
@@ -33,13 +33,18 @@ const CustomCheckbox = ({ className, onChange, value, disabled }) => (
 CustomCheckbox.propTypes = {
   className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.bool,
+  value: PropTypes.oneOfType(
+    PropTypes.bool,
+    PropTypes.string,
+  ),
   disabled: PropTypes.bool,
+  name: PropTypes.string,
 };
 CustomCheckbox.defaultProps = {
   className: '',
   value: false,
   disabled: false,
+  name: '',
 };
 
 export default CustomCheckbox;

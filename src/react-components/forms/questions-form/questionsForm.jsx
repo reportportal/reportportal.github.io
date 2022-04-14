@@ -19,6 +19,7 @@ import { FormikProvider, useFormik } from 'formik';
 import classNames from 'classnames/bind';
 import Button from 'react-components/common/button/button.jsx';
 import FormField from 'react-components/forms/form-field/formField.jsx';
+import MarketingAndTermsAgree from 'react-components/forms/common-parts/marketing-and-terms-agree/marketingAndTermAgree.jsx';
 import ModalContext from '../../layouts/modal-layout/modalContext';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
@@ -30,6 +31,7 @@ const cx = classNames.bind(styles);
 const QuestionsForm = () => {
   const { showModal, closeModal } = useContext(ModalContext);
   const [iframe, setIframe] = useState(null);
+  const [termsAgree, setTermsAgree] = useState(false);
   const formik = useFormik({
     initialValues: {
       first_name: '',
@@ -55,7 +57,15 @@ const QuestionsForm = () => {
     };
   }, []);
 
+  const onTermsAgreeChange = (agree) => {
+    setTermsAgree(agree);
+  };
+
   const onSubmit = (resetFunction) => {
+    if (!termsAgree) {
+      return;
+    }
+
     const reset = () => {
       resetFunction();
       document.getElementById('questions-form').reset();
@@ -100,13 +110,14 @@ const QuestionsForm = () => {
             <FormField className={cx('questions-form-field')} name='last_name' maxLength={80} placeholder='Last name' />
             <FormField className={cx('questions-form-field')} name='email' type='email' maxLength={80} placeholder='Email' />
             <FormField className={cx('questions-form-field')} name='company' placeholder='Company name' />
+            <MarketingAndTermsAgree onTermsAgreeChange={onTermsAgreeChange}/>
             <Button
               className={cx('questions-form-submit-button')}
               type='submit'
               onClick={() => {
                 onSubmit(resetForm);
               }}
-              disabled={!(isValid && dirty)}
+              disabled={!(isValid && dirty && termsAgree)}
             >Send</Button>
           </form>
         </FormikProvider>

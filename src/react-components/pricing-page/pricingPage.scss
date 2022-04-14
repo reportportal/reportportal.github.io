@@ -47,7 +47,7 @@
 
 @media all and (max-width: $SCREEN_XS_MAX) {
   .pricing-page {
-    min-width: 320px;
+    min-width: $SCREEN_XS_MIN;
     width: 100%;
     max-width: 767px;
   }
