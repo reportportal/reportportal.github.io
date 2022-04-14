@@ -43,7 +43,7 @@ const Modal = ({ children, className, backTo, withoutMobileCloseButton }) => {
           : null
         }
         <i
-          className={cx('close-button', { 'without-mobile-close-button': withoutMobileCloseButton })}
+          className={cx('close-button', { hidden: withoutMobileCloseButton })}
           onClick={closeModal}
         />
         {children}

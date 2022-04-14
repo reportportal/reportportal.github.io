@@ -21,7 +21,7 @@ import PlanCard from 'react-components/plan-card/planCard.jsx';
 import Table from 'react-components/common/table/table.jsx';
 import InfoIcon from 'react-components/common/info-icon/infoIcon.jsx';
 import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
-import NotificationModal from 'react-components/layouts/modal-layout/modal-popup/notificationModal.jsx';
+import NotificationModal from 'react-components/layouts/modal-layout/notification-modal/notificationModal.jsx';
 import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import { getIsMobileView } from 'react-components/utils/utils.js';
 import plansData from './data';
