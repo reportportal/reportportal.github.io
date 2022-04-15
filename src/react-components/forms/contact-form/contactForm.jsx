@@ -59,10 +59,6 @@ const ContactForm = ({ className, title, description, options, modalClassName, b
     };
   }, []);
 
-  const onTermsAgreeChange = (agree) => {
-    setTermsAgree(agree)
-  };
-
   const onSubmit = () => {
     const showModalInfoMessage = () => {
       showModal(<ModalInfoMessage onClose={closeModal} />);
@@ -117,7 +113,7 @@ const ContactForm = ({ className, title, description, options, modalClassName, b
               name="company"
               placeholder="Company name"
             />
-            <MarketingAndTermsAgree onTermsAgreeChange={onTermsAgreeChange}/>
+            <MarketingAndTermsAgree termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree}/>
             <Button
               className={cx('button')}
               type='submit'

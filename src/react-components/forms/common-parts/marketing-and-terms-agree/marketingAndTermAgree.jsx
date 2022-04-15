@@ -22,14 +22,11 @@ import styles from './marketingAndTermsAgree.scss';
 
 const cx = classNames.bind(styles);
 
-const MarketingAndTermsAgree = ({ className, onTermsAgreeChange }) => {
-  const [termsAgree, setTermsAgree] = useState(false);
+const MarketingAndTermsAgree = ({ className, termsAgree, onTermsAgreeChange }) => {
   const [marketingAgree, setMarketingAgree] = useState(false);
 
   const onTermsAgree = (e) => {
-    const currentTermsAgree = e.target.checked;
-    setTermsAgree(currentTermsAgree);
-    onTermsAgreeChange(currentTermsAgree);
+    onTermsAgreeChange(e.target.checked);
   };
 
   const onMarketingAgreeChange = (e) => {
@@ -68,10 +65,12 @@ const MarketingAndTermsAgree = ({ className, onTermsAgreeChange }) => {
 }
 MarketingAndTermsAgree.propTypes = {
   className: PropTypes.string,
+  termsAgree: PropTypes.bool,
   onTermsAgreeChange: PropTypes.func,
 };
 MarketingAndTermsAgree.defaultProps = {
   className: '',
+  termsAgree: false,
   onTermsAgreeChange: () => null,
 };
 
