@@ -53,7 +53,7 @@ const plansData = [
       {
         name: 'Pro',
         description: 'For large companies',
-        price: { full: '$1,500', sale: '$1425' },
+        price: { full: '$1,500', sale: '$1,425' },
         button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',
@@ -71,7 +71,7 @@ const plansData = [
       {
         name: 'Enterprise',
         description: 'Enterprise-Ready',
-        price: { full: '$4,000', sale: '$3800' },
+        price: { full: '$4,000', sale: '$3,800' },
         button: { variant: 'light', name: 'Contact Us' },
         form: {
           title: 'Contact form for package registration',
