@@ -64,14 +64,12 @@ const ContactForm = ({ className, title, description, options, modalClassName, b
       showModal(<ModalInfoMessage onClose={closeModal} />);
     };
 
-    if (termsAgree) {
-      iframe.onload = () => {
-        showModalInfoMessage();
-      };
-      iframe.onerror = () => {
-        showModalInfoMessage();
-      };
-    }
+    iframe.onload = () => {
+      showModalInfoMessage();
+    };
+    iframe.onerror = () => {
+      showModalInfoMessage();
+    };
   };
 
   return (

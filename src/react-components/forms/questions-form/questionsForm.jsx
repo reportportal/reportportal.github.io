@@ -57,15 +57,7 @@ const QuestionsForm = () => {
     };
   }, []);
 
-  const onTermsAgreeChange = (agree) => {
-    setTermsAgree(agree);
-  };
-
   const onSubmit = (resetFunction) => {
-    if (!termsAgree) {
-      return;
-    }
-
     const reset = () => {
       resetFunction();
       document.getElementById('questions-form').reset();
@@ -110,7 +102,7 @@ const QuestionsForm = () => {
             <FormField className={cx('questions-form-field')} name='last_name' maxLength={80} placeholder='Last name' />
             <FormField className={cx('questions-form-field')} name='email' type='email' maxLength={80} placeholder='Email' />
             <FormField className={cx('questions-form-field')} name='company' placeholder='Company name' />
-            <MarketingAndTermsAgree termsAgree={termsAgree} onTermsAgreeChange={onTermsAgreeChange} />
+            <MarketingAndTermsAgree termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree} />
             <Button
               className={cx('questions-form-submit-button')}
               type='submit'
