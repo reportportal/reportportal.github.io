@@ -58,6 +58,14 @@
   }
 }
 
+.marketing-and-terms > div:nth-child(1) {
+  margin-bottom: 16px;
+}
+
+.marketing-and-terms > div:nth-child(2) {
+  margin-bottom: 36px;
+}
+
 @media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
   .form {
     width: auto;

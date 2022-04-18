@@ -14,34 +14,14 @@
  * limitations under the License.
  */
 
-.terms-of-use, .marketing {
-  margin: 0 auto 24px;
-  display: flex;
-}
-
-.term-checkbox, .marketing-checkbox {
-  margin-right: 14px;
-}
-
-.term-description, .marketing-description {
-  display: inline-block;
+.planSummary {
   font-family: $FONT-REGULAR;
-  font-size: 12px;
-  line-height: 16px;
   color: $COLOR-STEEL-GREY;
-
-  a {
-    color: $COLOR-TOPAZ;
-    font-family: $FONT-HEADER;
-    transition: color 0.3s;
-    text-decoration: none;
-
-    &:hover {
-      color: $COLOR-TOPAZ-DARK;
-    }
-  }
 }
 
-.red {
-  color: $COLOR--error-red;
+.name {
+  font-family: $FONT-HEADER;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 2px;
 }

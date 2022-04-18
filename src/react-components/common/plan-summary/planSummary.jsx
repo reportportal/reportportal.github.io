@@ -14,34 +14,28 @@
  * limitations under the License.
  */
 
-.terms-of-use, .marketing {
-  margin: 0 auto 24px;
-  display: flex;
-}
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './planSummary.scss';
+import classNames from 'classnames/bind';
 
-.term-checkbox, .marketing-checkbox {
-  margin-right: 14px;
-}
+const cx = classNames.bind(styles);
 
-.term-description, .marketing-description {
-  display: inline-block;
-  font-family: $FONT-REGULAR;
-  font-size: 12px;
-  line-height: 16px;
-  color: $COLOR-STEEL-GREY;
+const PlanSummary = ({ className, name, children }) => (
+  <div className={cx('planSummary', className)}>
+    <div className={cx('name')}>{name}</div>
+    {children}
+  </div>
+);
+PlanSummary.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  name: PropTypes.node,
+};
+PlanSummary.defaultProps = {
+  className: '',
+  children: null,
+  name: null,
+};
 
-  a {
-    color: $COLOR-TOPAZ;
-    font-family: $FONT-HEADER;
-    transition: color 0.3s;
-    text-decoration: none;
-
-    &:hover {
-      color: $COLOR-TOPAZ-DARK;
-    }
-  }
-}
-
-.red {
-  color: $COLOR--error-red;
-}
+export default PlanSummary;

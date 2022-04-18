@@ -102,7 +102,7 @@ const QuestionsForm = () => {
             <FormField className={cx('questions-form-field')} name='last_name' maxLength={80} placeholder='Last name' />
             <FormField className={cx('questions-form-field')} name='email' type='email' maxLength={80} placeholder='Email' />
             <FormField className={cx('questions-form-field')} name='company' placeholder='Company name' />
-            <MarketingAndTermsAgree termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree} />
+            <MarketingAndTermsAgree className={cx('marketing-and-terms')} termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree} />
             <Button
               className={cx('questions-form-submit-button')}
               type='submit'
