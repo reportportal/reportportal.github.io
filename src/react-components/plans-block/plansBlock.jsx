@@ -167,7 +167,9 @@ const PlansBlock = () => {
         <div className={cx('pseudo-table')}>
           {plans}
           <div className={cx('note')}>Minimum engagement type 6 month</div>
-          <div className={cx('terms')}>Terms & Conditions</div>
+          <a className={cx('terms')} target="_blank" href='http://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
+            Terms & Conditions
+          </a>
         </div>
       </div>;
     }
@@ -195,7 +197,9 @@ const PlansBlock = () => {
     const footer = (
       <td colSpan={headers.length}>
         <div className={cx('footer-row')}>
-          <div className={cx('terms')}>Terms & Conditions</div>
+          <a className={cx('terms')} target="_blank" href='http://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
+            Terms & Conditions
+          </a>
           <div className={cx('note')}>{selectedPlanData.footerDescription}</div>
         </div>
       </td>

@@ -24,14 +24,16 @@ const cx = classNames.bind(styles);
 
 const NotificationModal = ({ title, description }) => (
   <Modal>
-    <div className={cx('form-title')}>{title}</div>
-    <div className={cx('form-description')}>{description}</div>
+    <>
+      <div className={cx('form-title')}>{title}</div>
+      <div className={cx('form-description')}>{description}</div>
+    </>
   </Modal>
 );
 
 NotificationModal.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
+  description: PropTypes.node.isRequired,
 };
 
 export default NotificationModal;

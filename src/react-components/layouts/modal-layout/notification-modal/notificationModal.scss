@@ -36,5 +36,10 @@
   .form-description {
     margin: 0 24px 54px;
     text-align: left;
+
+    a, a:visited, a:hover, a:active {
+      color: $COLOR-TOPAZ;
+      text-decoration: none;
+    }
   }
 }

@@ -67,6 +67,7 @@ InfoWithTooltip.propTypes = {
 InfoWithTooltip.defaultProps = {
   className: '',
   children: null,
+  onClick: () => null,
 };
 
 export default InfoWithTooltip;
