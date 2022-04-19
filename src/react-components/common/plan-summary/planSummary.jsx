@@ -14,32 +14,28 @@
  * limitations under the License.
  */
 
-.form-title {
-  margin: 0 24px 16px;
-  font-family: $FONT-LIGHT;
-  color: $COLOR-STEEL-GREY;
-  font-size: 18px;
-  line-height: 32px;
-  text-align: center;
-}
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './planSummary.scss';
+import classNames from 'classnames/bind';
 
-.form-description {
-  margin: 0 68px 32px;
-  font-family: $FONT-REGULAR;
-  color: $COLOR-STEEL-GREY;
-  font-size: 12px;
-  line-height: 18px;
-  text-align: center;
-}
+const cx = classNames.bind(styles);
 
-@media all and (max-width: $SCREEN_XS_MAX) {
-  .form-description {
-    margin: 0 24px 54px;
-    text-align: left;
+const PlanSummary = ({ className, name, children }) => (
+  <div className={cx('planSummary', className)}>
+    <div className={cx('name')}>{name}</div>
+    {children}
+  </div>
+);
+PlanSummary.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  name: PropTypes.node,
+};
+PlanSummary.defaultProps = {
+  className: '',
+  children: null,
+  name: null,
+};
 
-    a, a:visited, a:hover, a:active {
-      color: $COLOR-TOPAZ;
-      text-decoration: none;
-    }
-  }
-}
+export default PlanSummary;

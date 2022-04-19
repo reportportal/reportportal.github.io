@@ -43,9 +43,9 @@ const MarketingAndTermsAgree = ({ className, termsAgree, onTermsAgreeChange }) =
         />
         <div className={cx('term-description')}>
           I consent to EPAM Systems, Inc. ("EPAM") processing my personal information as set out in the
-          <a target="_blank" href=""> Privacy Policy </a>
+          <a target="_blank" href='http://reportportal.io/docs/Privacy-Policy' rel='noreferrer'> Privacy Policy </a>
           and
-          <a target="_blank" href=""> Cookie Policy </a>
+          <a target="_blank" href='http://reportportal.io/docs/Cookie-Policy' rel='noreferrer'> Cookie Policy </a>
           and outside of my home jurisdiction.<span className={cx('red')}>*</span>
         </div>
       </div>

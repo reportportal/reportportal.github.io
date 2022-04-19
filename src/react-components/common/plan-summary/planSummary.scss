@@ -14,32 +14,14 @@
  * limitations under the License.
  */
 
-.form-title {
-  margin: 0 24px 16px;
-  font-family: $FONT-LIGHT;
-  color: $COLOR-STEEL-GREY;
-  font-size: 18px;
-  line-height: 32px;
-  text-align: center;
-}
-
-.form-description {
-  margin: 0 68px 32px;
+.planSummary {
   font-family: $FONT-REGULAR;
   color: $COLOR-STEEL-GREY;
-  font-size: 12px;
-  line-height: 18px;
-  text-align: center;
 }
 
-@media all and (max-width: $SCREEN_XS_MAX) {
-  .form-description {
-    margin: 0 24px 54px;
-    text-align: left;
-
-    a, a:visited, a:hover, a:active {
-      color: $COLOR-TOPAZ;
-      text-decoration: none;
-    }
-  }
+.name {
+  font-family: $FONT-HEADER;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 2px;
 }

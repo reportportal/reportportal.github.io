@@ -62,11 +62,12 @@ InfoWithTooltip.propTypes = {
   className: PropTypes.string,
   children: PropTypes.func,
   tooltip: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 InfoWithTooltip.defaultProps = {
   className: '',
   children: null,
+  onClick: () => null,
 };
 
 export default InfoWithTooltip;

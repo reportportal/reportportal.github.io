@@ -22,14 +22,43 @@ import Table from 'react-components/common/table/table.jsx';
 import InfoIcon from 'react-components/common/info-icon/infoIcon.jsx';
 import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
 import NotificationModal from 'react-components/layouts/modal-layout/notification-modal/notificationModal.jsx';
+import PlanSummary from 'react-components/common/plan-summary/planSummary.jsx';
 import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import { getIsMobileView } from 'react-components/utils/utils.js';
-import plansData from './data';
+import { plansData, getPlansDataByNames } from './data';
 import styles from './plansBlock.scss';
 
 const cx = classNames.bind(styles);
 
 const FULL_PERIOD = 'full';
+const planTypes = [
+  { id: 'weHost', name: 'We Host' },
+  { id: 'youHost', name: 'You Host & We Manage' },
+];
+const plansNames = {
+  weHost: ['Free', 'Start-Up', 'Pro', 'Enterprise'],
+  youHost: ['Package 32', 'Package 60', 'Package 168+'],
+};
+const compareTableTitles = {
+  instance: { id: 'instance', name: 'Individual Instance', info: 'You can choose instance type: multi-tenant (1 project on shared instances) or individual instances (only your company is on the instance)' },
+  support: { id: 'support', name: 'Professional Support (hours)', info: 'A Professional Support Hour is a blended hour, which may consist of the time of various specialists, whether it is the time of a business analyst, architect, lead automation engineer, DevOps (System Engineer) or performance engineer.It can be used for various purposes related to ReportPortal installation, configuration, integration, customization, feature implementation, TAF updates, test case implementation, etc.' },
+  storage: { id: 'storage', name: 'Data storage', info: 'This parameter defines how much data can be pulled into ReportPortal and saved in DB. The total amount of launches, tests, logs, and attachments in Gb are defined  on a daily basis, and the system automatically deletes over-usage in DB' },
+  history: { id: 'history', name: 'History' },
+  features: { id: 'features', name: 'Enterprise features', info: <span>Additional features which are not available in a scope of the Free Open Source version, <a href="" target="_blank" rel="noreferrer">link to the List with features and description</a></span> },
+};
+const planCompareTableTitles = {
+  weHost: [
+    compareTableTitles.instance,
+    compareTableTitles.support,
+    compareTableTitles.storage,
+    compareTableTitles.history,
+    compareTableTitles.features,
+  ],
+  youHost: [
+    compareTableTitles.support,
+    compareTableTitles.features,
+  ],
+};
 
 const PlansBlock = () => {
   const { showModal } = useContext(ModalContext);
@@ -38,6 +67,13 @@ const PlansBlock = () => {
   const [planSwitcherData, setPlanSwitcherData] = useState([]);
   const [periodSwitcherData, setPeriodSwitcherData] = useState([]);
   const [isComparisonTableOpened, setIsComparisonTableOpened] = useState(false);
+
+  const [selectedPlansData, setSelectedPlansData] = useState([]);
+  const [selectedPlanType, setSelectedPlanType] = useState(planTypes[0]);
+
+  useEffect(() => {
+    setSelectedPlansData(getPlansDataByNames(plansNames[selectedPlanType.id]));
+  }, [selectedPlanType]);
 
   useEffect(() => {
     setPlanSwitcherData(
@@ -73,6 +109,7 @@ const PlansBlock = () => {
     }
 
     setSelectedPlanData(plansData.find(({ name }) => name === id));
+    setSelectedPlanType(planTypes.find(({ name }) => name === id)); // todo refactoring
     setIsComparisonTableOpened(false);
   };
 
@@ -88,28 +125,70 @@ const PlansBlock = () => {
     setIsComparisonTableOpened(!isComparisonTableOpened);
   };
 
-  const getComparisonTableData = () => {
-    const headers = ['', ...selectedPlanData.plansInfo.map(({ name }) => name)];
+  const getComparisonTable = () => {
+    const titles = planCompareTableTitles[selectedPlanType.id];
 
-    const onInfoClick = (title, tooltip) => {
-      if (getIsMobileView()) {
-        showModal(<NotificationModal title={title} description={tooltip} />);
-      }
-    };
+    if (getIsMobileView()) {
+      const onInfoClick = (title, tooltip) => {
+        if (getIsMobileView()) {
+          showModal(<NotificationModal title={title} description={tooltip} />);
+        }
+      };
 
-    const rows = selectedPlanData.compareTableTitles.map(({ id, name, info }) => {
-      const options = selectedPlanData.plansInfo.map((plan) => plan.options[id]);
+      const plans = selectedPlansData.map(({ name, options }) => {
+        const rows = titles.map(({ id, name, info }, index ) => {
+          let option = options[id];
+          if (id === 'support') {
+            option = option ? `${option} hours`: '';
+            name = 'Professional Support';
+          }
+
+          return <div key={index} className={cx('plan-row', { disable: !option })}>
+            <i className={cx('row-status')} />
+            {option && option !== true &&
+              <>
+                <span className={cx('option')}>{option}</span>
+                {' of '}
+              </>
+            }
+            {name}
+            {!!option && info &&
+              <InfoWithTooltip className={cx('info-with-tooltip')} tooltip={info} onClick={() => onInfoClick(name, info)}>
+                {(isActive) => <InfoIcon isActive={isActive}/>}
+              </InfoWithTooltip>
+            }
+          </div>
+        });
+
+        return <PlanSummary className={cx('plan-summary')} key={name} name={name}>{rows}</PlanSummary>
+      });
+
+      return <div className={cx('pseudo-table-wrapper')}>
+        <div className={cx('pseudo-table')}>
+          {plans}
+          <div className={cx('note')}>Minimum engagement type 6 month</div>
+          <a className={cx('terms')} target="_blank" href='http://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
+            Terms & Conditions
+          </a>
+        </div>
+      </div>;
+    }
+
+    const headers = ['', ...selectedPlansData.map(({ name }) => name)];
+
+    const rows = titles.map(({ id, name, info }) => {
+      const options = selectedPlansData.map((plan) => plan.options[id]);
       const modifiedOptions = options.map(option =>
         option === true ? <div className={cx('true-icon')} /> : option,
       );
       return [
         <div key={name} className={cx('inline-title')}>
           {name}
-          {info && (
-            <InfoWithTooltip tooltip={info} onClick={() => onInfoClick(name, info)}>
+          {info &&
+            <InfoWithTooltip tooltip={info}>
               {(isActive) => <InfoIcon isActive={isActive} />}
             </InfoWithTooltip>
-          )}
+          }
         </div>,
         ...modifiedOptions,
       ];
@@ -118,13 +197,15 @@ const PlansBlock = () => {
     const footer = (
       <td colSpan={headers.length}>
         <div className={cx('footer-row')}>
-          <div className={cx('terms')}>Terms & Conditions</div>
+          <a className={cx('terms')} target="_blank" href='http://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
+            Terms & Conditions
+          </a>
           <div className={cx('note')}>{selectedPlanData.footerDescription}</div>
         </div>
       </td>
     );
 
-    return { headers, rows, footer };
+    return <Table className={cx('compare-plans-table')} data={{ headers, rows, footer }} />
   };
 
   return (
@@ -177,7 +258,7 @@ const PlansBlock = () => {
           <div className={cx('condition-icon')} />
           Compare plans
         </div>
-        <Table className={cx('compare-plans-table')} data={getComparisonTableData()} />
+        {getComparisonTable()}
       </div>
       <div className={cx('description')}>
         <div className={cx('name')}>

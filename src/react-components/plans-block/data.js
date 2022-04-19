@@ -8,7 +8,7 @@ const planCompareTableTitles = {
   features: { id: 'features', name: 'Enterprise features', info: <span>Additional features which are not available in a scope of the Free Open Source version, <a href="" target="_blank" rel="noreferrer">link to the List with features and description</a></span> },
 };
 
-const plansData = [
+export const plansData = [
   {
     name: 'We Host',
     iconType: 'cloud',
@@ -169,4 +169,62 @@ const plansData = [
   },
 ];
 
-export default plansData;
+const plansData2 = [
+  {
+    name: 'Free',
+    price: { full: '$0', sale: '$0' },
+    options: {
+      storage: '3 Gb',
+      history: '7 days',
+      features: true,
+    },
+  },
+  {
+    name: 'Start-Up',
+    price: { full: '$1,000', sale: '$950' },
+    options: {
+      storage: '50 Gb',
+      history: '90 days',
+      features: true,
+    },
+  },
+  {
+    name: 'Pro',
+    price: { full: '$1,500', sale: '$1,425' },
+    options: {
+      instance: true,
+      support: '8',
+      storage: '200 Gb',
+      history: '1 year',
+      features: true,
+    },
+  },
+  {
+    name: 'Enterprise',
+    price: { full: '$4,000', sale: '$3,800' },
+    options: {
+      instance: true,
+      support: '10',
+      storage: '500 Gb',
+      history: '5 years',
+      features: true,
+    },
+  },
+  {
+    name: 'Package 32',
+    price: { full: '$2,500' },
+    options: { support: '32' },
+  },
+  {
+    name: 'Package 60',
+    price: { full: '$4,000' },
+    options: { support: '60' },
+  },
+  {
+    name: 'Package 168+',
+    price: { full: '$10,000+' },
+    options: { support: '168+', features: true },
+  },
+];
+
+export const getPlansDataByNames = (names) => plansData2.filter(({ name }) => names.includes(name))
