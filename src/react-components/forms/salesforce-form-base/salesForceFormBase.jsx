@@ -22,7 +22,6 @@ const SalesForceFormBase = ({ additionalFields }) => (
     <input type='hidden' name='oid' value='00D5t0000008hw3'/>
     <input type='hidden' name='retURL' value='http://'/>
     <input type='hidden' name='debug' value='1'/>
-    <input type='hidden' name='debugEmail' value='olga_korenko@epam.com'/>
     <select className="hidden" id='lead_source' name='lead_source' style={{ display: 'none' }}>
       <option value='ReportPortal'>ReportPortal</option>
     </select>

@@ -19,6 +19,7 @@ import { FormikProvider, useFormik } from 'formik';
 import classNames from 'classnames/bind';
 import Button from 'react-components/common/button/button.jsx';
 import FormField from 'react-components/forms/form-field/formField.jsx';
+import FormFieldWrapper from 'react-components/forms/form-field-wrapper/formFieldWrapper.jsx';
 import MarketingAndTermsAgree from 'react-components/forms/common-parts/marketing-and-terms-agree/marketingAndTermAgree.jsx';
 import ModalContext from '../../layouts/modal-layout/modalContext';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
@@ -61,6 +62,7 @@ const QuestionsForm = () => {
     const reset = () => {
       resetFunction();
       document.getElementById('questions-form').reset();
+      setTermsAgree(false);
     };
 
     showModal(<ModalInfoMessage onClose={closeModal} />);
@@ -102,7 +104,9 @@ const QuestionsForm = () => {
             <FormField className={cx('questions-form-field')} name='last_name' maxLength={80} placeholder='Last name' />
             <FormField className={cx('questions-form-field')} name='email' type='email' maxLength={80} placeholder='Email' />
             <FormField className={cx('questions-form-field')} name='company' placeholder='Company name' />
-            <MarketingAndTermsAgree className={cx('marketing-and-terms')} termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree} />
+            <FormFieldWrapper name='00N5t000000hwUy'>
+              <MarketingAndTermsAgree className={cx('marketing-and-terms')} termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree} />
+            </FormFieldWrapper>
             <Button
               className={cx('questions-form-submit-button')}
               type='submit'
@@ -110,7 +114,9 @@ const QuestionsForm = () => {
                 onSubmit(resetForm);
               }}
               disabled={!(isValid && dirty && termsAgree)}
-            >Send</Button>
+            >
+              Send
+            </Button>
           </form>
         </FormikProvider>
       </div>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import CustomCheckbox from 'react-components/common/custom-checkbox/customCheckbox.jsx';
@@ -22,15 +22,17 @@ import styles from './marketingAndTermsAgree.scss';
 
 const cx = classNames.bind(styles);
 
-const MarketingAndTermsAgree = ({ className, termsAgree, onTermsAgreeChange }) => {
-  const [marketingAgree, setMarketingAgree] = useState(false);
+const MarketingAndTermsAgree = ({
+  className,
+  termsAgree,
+  onTermsAgreeChange,
+  value: marketingValue,
+  name: marketingName,
+  onChange: onMarketingChange,
+}) => {
 
   const onTermsAgree = (e) => {
     onTermsAgreeChange(e.target.checked);
-  };
-
-  const onMarketingAgreeChange = (e) => {
-    setMarketingAgree(e.target.checked ? '1' : false);
   };
 
   return (
@@ -52,9 +54,9 @@ const MarketingAndTermsAgree = ({ className, termsAgree, onTermsAgreeChange }) =
       <div className={cx('marketing')}>
         <CustomCheckbox
           className={cx('marketing-checkbox')}
-          value={marketingAgree}
-          name='00N5t000000hwUy'
-          onChange={onMarketingAgreeChange}
+          value={marketingValue}
+          name={marketingName}
+          onChange={onMarketingChange}
         />
         <div className={cx('marketing-description')}>
           I would like to receive updates by email on Reportportal.io news, product releases, support advertising and marketing notes.
@@ -67,11 +69,17 @@ MarketingAndTermsAgree.propTypes = {
   className: PropTypes.string,
   termsAgree: PropTypes.bool,
   onTermsAgreeChange: PropTypes.func,
+  value: PropTypes.bool,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
 };
 MarketingAndTermsAgree.defaultProps = {
   className: '',
   termsAgree: false,
   onTermsAgreeChange: () => null,
+  value: false,
+  name: '',
+  onChange: () => {},
 };
 
 export default MarketingAndTermsAgree;
