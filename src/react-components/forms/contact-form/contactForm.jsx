@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { FormikProvider, useFormik } from 'formik';
 import Button from 'react-components/common/button/button.jsx';
-import FormField from 'react-components/forms/form-field/formField.jsx';
+import FormInput from 'react-components/forms/form-input/formInput.jsx';
 import MarketingAndTermsAgree from 'react-components/forms/common-parts/marketing-and-terms-agree/marketingAndTermAgree.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
@@ -88,30 +88,30 @@ const ContactForm = ({ className, title, description, options, modalClassName, b
                 <input key={option.name} type="hidden" name={option.name} value={option.value} />
               ))}
             />
-            <FormField
+            <FormInput
+              name='first_name'
               icon={<i className={cx('user-icon')} />}
-              name="first_name"
-              placeholder="First name"
+              placeholder='First name'
             />
-            <FormField
+            <FormInput
+              name='last_name'
               icon={<i className={cx('user-icon')} />}
-              name="last_name"
               maxLength={80}
-              placeholder="Last name"
+              placeholder='Last name'
             />
-            <FormField
+            <FormInput
+              name='email'
               icon={<i className={cx('email-icon')} />}
-              name="email"
-              type="email"
+              type='email'
               maxLength={80}
-              placeholder="Email"
+              placeholder='Email'
             />
-            <FormField
+            <FormInput
+              name='company'
               icon={<i className={cx('company-icon')} />}
-              name="company"
-              placeholder="Company name"
+              placeholder='Company name'
             />
-            <MarketingAndTermsAgree termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree}/>
+            <MarketingAndTermsAgree termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree} />
             <Button
               className={cx('button')}
               type='submit'

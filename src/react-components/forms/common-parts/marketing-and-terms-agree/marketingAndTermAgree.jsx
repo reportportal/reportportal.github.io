@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import CustomCheckbox from 'react-components/common/custom-checkbox/customCheckbox.jsx';
+import FormFieldWrapper from 'react-components/forms/form-field-wrapper/formFieldWrapper.jsx';
 import styles from './marketingAndTermsAgree.scss';
 
 const cx = classNames.bind(styles);
 
-const MarketingAndTermsAgree = ({ className, termsAgree, onTermsAgreeChange }) => {
-  const [marketingAgree, setMarketingAgree] = useState(false);
+const MarketingAndTermsAgree = ({
+  className,
+  termsAgree,
+  onTermsAgreeChange,
+}) => {
 
   const onTermsAgree = (e) => {
     onTermsAgreeChange(e.target.checked);
-  };
-
-  const onMarketingAgreeChange = (e) => {
-    setMarketingAgree(e.target.checked ? '1' : false);
   };
 
   return (
@@ -50,12 +50,11 @@ const MarketingAndTermsAgree = ({ className, termsAgree, onTermsAgreeChange }) =
         </div>
       </div>
       <div className={cx('marketing')}>
-        <CustomCheckbox
-          className={cx('marketing-checkbox')}
-          value={marketingAgree}
-          name='00N5t000000hwUy'
-          onChange={onMarketingAgreeChange}
-        />
+        <FormFieldWrapper name='00N5t000000hwUy'>
+          <CustomCheckbox
+            className={cx('marketing-checkbox')}
+          />
+        </FormFieldWrapper>
         <div className={cx('marketing-description')}>
           I would like to receive updates by email on Reportportal.io news, product releases, support advertising and marketing notes.
         </div>
