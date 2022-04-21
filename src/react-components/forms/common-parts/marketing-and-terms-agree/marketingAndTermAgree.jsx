@@ -18,6 +18,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import CustomCheckbox from 'react-components/common/custom-checkbox/customCheckbox.jsx';
+import FormFieldWrapper from 'react-components/forms/form-field-wrapper/formFieldWrapper.jsx';
 import styles from './marketingAndTermsAgree.scss';
 
 const cx = classNames.bind(styles);
@@ -26,9 +27,6 @@ const MarketingAndTermsAgree = ({
   className,
   termsAgree,
   onTermsAgreeChange,
-  value: marketingValue,
-  name: marketingName,
-  onChange: onMarketingChange,
 }) => {
 
   const onTermsAgree = (e) => {
@@ -52,12 +50,11 @@ const MarketingAndTermsAgree = ({
         </div>
       </div>
       <div className={cx('marketing')}>
-        <CustomCheckbox
-          className={cx('marketing-checkbox')}
-          value={marketingValue}
-          name={marketingName}
-          onChange={onMarketingChange}
-        />
+        <FormFieldWrapper name='00N5t000000hwUy'>
+          <CustomCheckbox
+            className={cx('marketing-checkbox')}
+          />
+        </FormFieldWrapper>
         <div className={cx('marketing-description')}>
           I would like to receive updates by email on Reportportal.io news, product releases, support advertising and marketing notes.
         </div>
@@ -69,17 +66,11 @@ MarketingAndTermsAgree.propTypes = {
   className: PropTypes.string,
   termsAgree: PropTypes.bool,
   onTermsAgreeChange: PropTypes.func,
-  value: PropTypes.bool,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
 };
 MarketingAndTermsAgree.defaultProps = {
   className: '',
   termsAgree: false,
   onTermsAgreeChange: () => null,
-  value: false,
-  name: '',
-  onChange: () => {},
 };
 
 export default MarketingAndTermsAgree;

@@ -20,7 +20,6 @@ import classNames from 'classnames/bind';
 import { FormikProvider, useFormik } from 'formik';
 import Button from 'react-components/common/button/button.jsx';
 import FormField from 'react-components/forms/form-field/formField.jsx';
-import FormFieldWrapper from 'react-components/forms/form-field-wrapper/formFieldWrapper.jsx';
 import MarketingAndTermsAgree from 'react-components/forms/common-parts/marketing-and-terms-agree/marketingAndTermAgree.jsx';
 import Modal from 'react-components/layouts/modal-layout/modal/modal.jsx';
 import SalesForceFormBase from 'react-components/forms/salesforce-form-base/salesForceFormBase.jsx';
@@ -112,9 +111,7 @@ const ContactForm = ({ className, title, description, options, modalClassName, b
               name="company"
               placeholder="Company name"
             />
-            <FormFieldWrapper name='00N5t000000hwUy'>
-              <MarketingAndTermsAgree termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree} />
-            </FormFieldWrapper>
+            <MarketingAndTermsAgree termsAgree={termsAgree} onTermsAgreeChange={setTermsAgree} />
             <Button
               className={cx('button')}
               type='submit'
