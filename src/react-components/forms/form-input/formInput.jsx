@@ -15,19 +15,23 @@
  */
 
 import React from 'react';
-import {useField} from 'formik';
 import PropTypes from 'prop-types';
+import FormFieldWrapper from 'react-components/forms/form-field-wrapper/formFieldWrapper.jsx';
+import InputField from 'react-components/common/input-field/inputField.jsx';
 
-const FormFieldWrapper = ({
-  children,
+const FormInput = ({
+  name,
   ...props
-}) => {
-  const [field, meta] = useField(props);
-
-  return React.Children.map(children, child => React.cloneElement(child, { ...props, ...field, ...meta }));
+}) => (
+  <FormFieldWrapper name={name}>
+    <InputField {...props} />
+  </FormFieldWrapper>
+);
+FormInput.propTypes = {
+  name: PropTypes.string,
 };
-FormFieldWrapper.propTypes = {
-  children: PropTypes.node.isRequired,
+FormInput.defaultProps = {
+  name: '',
 };
 
-export default FormFieldWrapper;
+export default FormInput;
