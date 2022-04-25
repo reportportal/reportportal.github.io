@@ -84,7 +84,7 @@ const QuestionsForm = () => {
         <FormikProvider value={formik}>
           <form
             id='questions-form'
-            action='https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
+            action={process.env.SALESFORCE_URL}
             method='POST'
             target='dummyQuestionFrame'
             className={cx('inner-form')}
