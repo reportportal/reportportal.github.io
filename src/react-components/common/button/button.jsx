@@ -31,7 +31,7 @@ const Button = ({ children, onClick, className, type, disabled, variant }) => (
 );
 Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.string.isRequired]),
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   className: PropTypes.string,
   type: PropTypes.string,
   disabled: PropTypes.bool,
@@ -43,6 +43,7 @@ Button.defaultProps = {
   type: 'button',
   disabled: false,
   variant: VARIANT_STANDARD,
+  onClick: () => null,
 };
 
 export default Button;

@@ -3,9 +3,9 @@ import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import template from './Header.jade';
 import './Header.scss';
-import AskServiceModal from 'components/modals/askServiceModal';
 
 import GitHubStarsCount from 'components/gitHubStarsCount';
+import AskServiceButton from 'react-components/forms/header-buttons/headerButtons.jsx';
 
 const WITHOUT_SHADOW_CLASS = 'without-shadow';
 
@@ -35,6 +35,8 @@ export default Epoxy.View.extend({
         }
       }
     });
+    this.view = new AskServiceButton({ model: null, el: $('#header-buttons', this.$el) });
+    $('#header-buttons', this.$el).append(this.view.render());
   },
   onClickLink(e) {
     e.preventDefault();
@@ -53,10 +55,6 @@ export default Epoxy.View.extend({
     this.mainScrollEl.stop().animate({
       scrollTop: 0,
     }, 500, 'swing');
-  },
-  onClickAskService(e) {
-    e.preventDefault();
-    Router.modals.show(new AskServiceModal());
   },
   openSocial(e) {
     $(e.currentTarget).hasClass('mail')
