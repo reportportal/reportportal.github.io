@@ -14,5 +14,5 @@
  * limitations under the License.
  */
 
-export const url = process.env.SALESFORCE_URL;
-export const oid = process.env.SALESFORCE_OID;
+export const salesforceUrl = process.env.SALESFORCE_URL;
+export const salesforceOid = process.env.SALESFORCE_OID;
