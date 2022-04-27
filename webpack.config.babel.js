@@ -15,6 +15,7 @@ const defaultEnv = {
   proxyDocumentation: false,
   production: false,
 };
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env = defaultEnv) => ({
   mode: process.env.production ? 'production' : 'development',
@@ -112,6 +113,7 @@ module.exports = (env = defaultEnv) => ({
     ],
   },
   plugins: [
+    new Dotenv(),
     new MiniCssExtractPlugin({ filename: '[name].[fullhash:6].css' }),
     new HtmlWebpackPlugin({
       template: './src/index.jade',

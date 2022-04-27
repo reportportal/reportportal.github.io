@@ -3,6 +3,7 @@
 *.log
 node_modules
 dist
+.env
 
 # Mac/OSX
 .DS_Store
