@@ -5,7 +5,7 @@ import template from './Header.jade';
 import './Header.scss';
 
 import GitHubStarsCount from 'components/gitHubStarsCount';
-import AskServiceButton from 'react-components/forms/header-buttons/headerButtons.jsx';
+import HeaderButtons from 'react-components/header/header-buttons/headerButtons.jsx';
 
 const WITHOUT_SHADOW_CLASS = 'without-shadow';
 
@@ -35,7 +35,7 @@ export default Epoxy.View.extend({
         }
       }
     });
-    this.view = new AskServiceButton({ model: null, el: $('#header-buttons', this.$el) });
+    this.view = new HeaderButtons({ model: null, el: $('#header-buttons', this.$el) });
     $('#header-buttons', this.$el).append(this.view.render());
   },
   onClickLink(e) {
