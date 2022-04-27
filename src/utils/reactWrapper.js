@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Epoxy from 'backbone.epoxy';
-import ModalProvider from 'react-components/layouts/modal-layout/modal-provider/modalProvider';
+import ModalProvider from 'react-components/layouts/modal-layout/modal-provider/modalProvider.jsx';
 
 export default (Component) =>
   Epoxy.View.extend({
