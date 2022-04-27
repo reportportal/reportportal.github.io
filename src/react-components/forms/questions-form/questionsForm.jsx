@@ -25,6 +25,7 @@ import SalesForceFormBase from 'react-components/forms/salesforce-form-base/sale
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
 import { validate } from 'react-components/forms/contact-form/util.js';
 import styles from './questionsForm.scss';
+import { url } from 'react-components/utils/salesforceConfig'
 
 const cx = classNames.bind(styles);
 
@@ -84,7 +85,7 @@ const QuestionsForm = () => {
         <FormikProvider value={formik}>
           <form
             id='questions-form'
-            action={process.env.SALESFORCE_URL}
+            action={url}
             method='POST'
             target='dummyQuestionFrame'
             className={cx('inner-form')}

@@ -26,6 +26,7 @@ import SalesForceFormBase from 'react-components/forms/salesforce-form-base/sale
 import ModalInfoMessage from 'react-components/layouts/modal-layout/modal-info-message/modalInfoMessage.jsx';
 import ModalContext from '../../layouts/modal-layout/modalContext';
 import { validate } from './util.js';
+import { url } from 'react-components/utils/salesforceConfig'
 import styles from './contactForm.scss';
 
 const cx = classNames.bind(styles);
@@ -79,7 +80,7 @@ const ContactForm = ({ className, title, description, options, modalClassName, b
         <div className={cx('form-description')}>{description}</div>
         <FormikProvider value={formik}>
           <form
-            action={process.env.SALESFORCE_URL}
+            action={url}
             method='POST'
             target='dummyframe'
           >

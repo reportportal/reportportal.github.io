@@ -16,10 +16,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { oid } from 'react-components/utils/salesforceConfig'
 
 const SalesForceFormBase = ({ additionalFields }) => (
   <>
-    <input type='hidden' name='oid' value={process.env.SALESFORCE_OID}/>
+    <input type='hidden' name='oid' value={oid}/>
     <input type='hidden' name='retURL' value='http://'/>
     <select className="hidden" id='lead_source' name='lead_source' style={{ display: 'none' }}>
       <option value='ReportPortal'>ReportPortal</option>
