@@ -6,6 +6,7 @@ import './Header.scss';
 
 import GitHubStarsCount from 'components/gitHubStarsCount';
 import HeaderButtons from 'react-components/header/header-buttons/headerButtons.jsx';
+import renderReactComponent from 'utils/backboneReactRender';
 
 const WITHOUT_SHADOW_CLASS = 'without-shadow';
 
@@ -35,8 +36,8 @@ export default Epoxy.View.extend({
         }
       }
     });
-    this.view = new HeaderButtons({ model: null, el: $('#header-buttons', this.$el) });
-    $('#header-buttons', this.$el).append(this.view.render());
+    renderReactComponent(this, '#header-buttons', HeaderButtons);
+    renderReactComponent(this, '#middle-block', HeaderButtons);
   },
   onClickLink(e) {
     e.preventDefault();

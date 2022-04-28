@@ -57,7 +57,7 @@ const HeaderButtons = () => {
         onClick={onclick}
         variant='light'
       >
-        Ask service
+        Ask Service
       </Button>
     </>
   );
