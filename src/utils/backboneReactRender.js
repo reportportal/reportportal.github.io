@@ -14,31 +14,9 @@
  * limitations under the License.
  */
 
-.button {
-  display: inline-block;
-  height: 40px;
-  width: 138px;
-  text-decoration: none;
-  margin-left: 14px;
-}
+import {$} from 'backbone';
 
-.description {
-  text-align: left;
-}
-
-@media all and (max-width: $SCREEN_XS_MAX) {
-  .contact-form {
-    min-width: $SCREEN_XS_MIN;
-    max-width: $SCREEN_XS_MAX;
-    width: auto;
-    height: 100%;
-    margin: auto;
-    border-radius: 0;
-    overflow-y: auto;
-  }
-
-  .button {
-    margin-left: 25px;
-    margin-bottom: 12px;
-  }
+export default function renderReactComponent(context, selector, reactComponent) {
+  context.headerButtons = new reactComponent({ model: null, el: $(selector, context.$el) });
+  $(selector, context.$el).append(context.headerButtons.render());
 }

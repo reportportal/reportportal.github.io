@@ -19,14 +19,14 @@ import Epoxy from 'backbone.epoxy';
 import Footer from 'components/footer';
 import PricingPage from 'react-components/pricing-page/pricingPage.jsx';
 import template from './pricing-page.jade';
+import renderReactComponent from 'utils/backboneReactRender';
 
 export default Epoxy.View.extend({
   template,
   className: 'pricing-page',
   initialize() {
     this.renderTemplate();
-    this.view = new PricingPage({ model: null, el: $('[data-js-sections-container]', this.$el) });
-    $('[data-js-sections-container]', this.$el).append(this.view.render());
+    renderReactComponent(this, '[data-js-sections-container]', PricingPage);
     this.footer = new Footer();
     $('[data-js-footer-container]', this.$el).html(this.footer.$el);
   },
