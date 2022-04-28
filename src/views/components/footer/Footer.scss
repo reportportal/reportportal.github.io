@@ -50,6 +50,10 @@
         &:visited {
           color: $COLOR-CHARCOAL-GREY;
         }
+
+        &:hover {
+          color: $COLOR-TOPAZ-DARK;
+        }
       }
 
       .separator {
