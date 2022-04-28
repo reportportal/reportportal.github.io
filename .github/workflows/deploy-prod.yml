@@ -13,7 +13,7 @@
 
 name: Deploy to GitHub pages
 env:
-  SALESFORCE_URL: https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
+  SALESFORCE_URL: https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
   SALESFORCE_OID: 00D5t0000008hw3
 
 on:
