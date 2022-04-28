@@ -16,7 +16,7 @@
 
 import {$} from 'backbone';
 
-export default function renderReactComponent(context, selector, reactComponent) {
-  context.headerButtons = new reactComponent({ model: null, el: $(selector, context.$el) });
-  $(selector, context.$el).append(context.headerButtons.render());
+export default function renderReactComponent(context, selector, ReactComponent) {
+  context.Component = new ReactComponent({ model: null, el: $(selector, context.$el) });
+  $(selector, context.$el).append(context.Component.render());
 }
