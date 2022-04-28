@@ -17,6 +17,6 @@
 import {$} from 'backbone';
 
 export default function renderReactComponent(context, selector, ReactComponent) {
-  context.Component = new ReactComponent({ model: null, el: $(selector, context.$el) });
-  $(selector, context.$el).append(context.Component.render());
+  context.view = new ReactComponent({ model: null, el: $(selector, context.$el) });
+  $(selector, context.$el).append(context.view.render());
 }
