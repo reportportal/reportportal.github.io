@@ -49,7 +49,7 @@ const HeaderButtons = () => {
     <>
       <a href='https://saas.reportportal.io/ui/' target="_blank" rel="noreferrer">
         <Button className={cx('button')}>
-          Sign in
+          Sign In
         </Button>
       </a>
       <Button
