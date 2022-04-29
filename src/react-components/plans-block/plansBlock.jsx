@@ -258,7 +258,9 @@ const PlansBlock = () => {
           <div className={cx('condition-icon')} />
           Compare plans
         </div>
-        {getComparisonTable()}
+        <div className={cx('table-wrapper')}>
+          {getComparisonTable()}
+        </div>
       </div>
       <div className={cx('description')}>
         <div className={cx('name')}>

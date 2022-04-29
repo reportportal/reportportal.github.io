@@ -166,11 +166,19 @@
   font-family: $FONT-HEADER;
 }
 
+.table-wrapper {
+  height: 0;
+}
+
 .comparison-table {
   padding-bottom: 21px;
   position: relative;
 
   &.open {
+    .table-wrapper {
+      height: auto;
+    }
+
     .condition-icon {
       background: url('../img/minus.svg') no-repeat 0 2px;
 
