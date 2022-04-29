@@ -36,8 +36,10 @@ export default Epoxy.View.extend({
         }
       }
     });
-    renderReactComponent(this, '#header-buttons', HeaderButtons);
-    renderReactComponent(this, '#middle-block', HeaderButtons);
+    const headerButtons = $('#header-buttons', this.$el);
+    const middleBlock = $('#middle-block', this.$el);
+    this.view = renderReactComponent(headerButtons, HeaderButtons);
+    this.view = renderReactComponent(middleBlock, HeaderButtons);
   },
   onClickLink(e) {
     e.preventDefault();
