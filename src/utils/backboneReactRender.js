@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import {$} from 'backbone';
+export default function renderReactComponent(container, ReactComponent) {
+  const component = new ReactComponent({ model: null, el: container });
+  container.append(component.render());
 
-export default function renderReactComponent(context, selector, ReactComponent) {
-  context.Component = new ReactComponent({ model: null, el: $(selector, context.$el) });
-  $(selector, context.$el).append(context.Component.render());
+  return component;
 }

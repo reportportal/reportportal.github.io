@@ -26,7 +26,8 @@ export default Epoxy.View.extend({
   className: 'pricing-page',
   initialize() {
     this.renderTemplate();
-    renderReactComponent(this, '[data-js-sections-container]', PricingPage);
+    const pricingPage = $('[data-js-sections-container]', this.$el);
+    this.view = renderReactComponent(pricingPage, PricingPage);
     this.footer = new Footer();
     $('[data-js-footer-container]', this.$el).html(this.footer.$el);
   },

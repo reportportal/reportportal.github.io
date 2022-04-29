@@ -10,35 +10,58 @@
     height: 100%;
     margin: 0 auto;
   }
-  .copyright-block{
+  .copyright-block {
     overflow: hidden;
     margin-top: 25px;
     font-size: 12px;
     color: $COLOR-CHARCOAL-GREY;
-    .copy {
+    display: flex;
+    justify-content: space-between;;
+
+    .copy .epam-logo {
       display: inline-block;
-      float: left;
-      .epam-logo {
-        display: inline-block;
-        width: 40px;
-        height: 15px;
-        vertical-align: middle;
-        margin: 0 5px;
-        background: url(./img/epamLogo.svg) center no-repeat;
-        cursor: pointer;
-      }
+      width: 40px;
+      height: 15px;
+      vertical-align: middle;
+      margin: 0 5px;
+      background: url(./img/epamLogo.svg) center no-repeat;
+      cursor: pointer;
+      text-align: center;
     }
-    .friends{
-      float: right;
-      .jfrog{
-        background: url(./img/jfrog.svg);
-        background-size: contain;
-        width: 75px;
-        height: 20px;
+    .friends .jfrog {
+      background: url(./img/jfrog.svg);
+      background-size: contain;
+      width: 75px;
+      height: 20px;
+      display: inline-block;
+      background-repeat: no-repeat;
+      vertical-align: text-top;
+      margin-left: 5px;
+    }
+    .policy {
+      a {
         display: inline-block;
-        background-repeat: no-repeat;
-        vertical-align: text-top;
-        margin-left: 5px;
+        height: 16px;
+        font-size: 12px;
+        font-family: $FONT-REGULAR;
+        text-decoration: none;
+        color: $COLOR-CHARCOAL-GREY;
+
+        &:visited {
+          color: $COLOR-CHARCOAL-GREY;
+        }
+
+        &:hover {
+          color: $COLOR-TOPAZ-DARK;
+        }
+      }
+
+      .separator {
+        height: 17px;
+        width: 1px;
+        background-color: $COLOR-CHARCOAL-GREY;
+        margin: 0 8px -3px 8px;
+        display: inline-block;
       }
     }
   }
@@ -88,10 +111,6 @@
       text-align: center;
       padding-top: 25px;
     }
-    .copy {
-      margin: 0 auto;
-      text-align: center;
-    }
   }
   @media (max-width: 600px) {
     height:auto;
@@ -103,28 +122,23 @@
       }
     }
     .copy {
-      width: 290px;
       text-align: left;
       padding-top: 30px;
     }
-    .socials-block{
+    .socials-block {
       text-align: center;
     }
-    .copyright-block{
+    .copyright-block {
       margin: 0;
       text-align: center;
-      .copy{
+      display: block;
+      .copy, .friends, .policy {
         text-align: center;
-        float: unset;
         margin-top: 15px;
-        padding: 0;
         display: block;
       }
-      .friends{
-        float: unset;
-        text-align: center;
-        margin-top: 15px;
-        display: block;
+      .copy {
+        padding: 0;
       }
     }
   }
