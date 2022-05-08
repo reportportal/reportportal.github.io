@@ -14,7 +14,32 @@
  * limitations under the License.
  */
 
+.plan-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding-bottom: 64px;
+  width: 100%;
+  justify-content: center;
+}
+
+@media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
+  .plan-cards::after {
+    content: '';
+    width: 100%;
+    order: 0;
+  }
+
+  .plan-card:nth-child(3), .plan-card:nth-child(3) ~ .plan-card {
+    order: 1;
+  }
+}
+
 @media all and (max-width: $SCREEN_XS_MAX) {
+  .plan-cards {
+    display: inline-block;
+  }
+
   .contact-form {
     min-width: $SCREEN_XS_MIN;
     max-width: $SCREEN_XS_MAX;

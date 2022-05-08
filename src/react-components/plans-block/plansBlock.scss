@@ -57,15 +57,6 @@
   margin: 0 0 8px auto;
 }
 
-.plan-cards {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  padding-bottom: 64px;
-  width: 100%;
-  justify-content: center;
-}
-
 .table-header {
   font-family: $FONT-LIGHT;
   font-size: 24px;
@@ -278,16 +269,6 @@
     margin: 17px auto 65px;
   }
 
-  .plan-cards::after {
-    content: '';
-    width: 100%;
-    order: 0;
-  }
-
-  .plan-card:nth-child(3), .plan-card:nth-child(3) ~ .plan-card {
-    order: 1;
-  }
-
   .description {
     margin: auto;
     max-width: 610px;
@@ -327,10 +308,6 @@
 
   .period-switcher {
     margin: 53px auto 24px;
-  }
-
-  .plan-cards {
-    display: inline-block;
   }
 
   .description {

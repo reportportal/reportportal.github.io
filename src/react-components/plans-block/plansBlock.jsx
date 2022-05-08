@@ -15,73 +15,42 @@
  */
 
 import React, { useContext, useEffect, useState } from 'react';
+import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import classNames from 'classnames/bind';
 import Switcher from 'react-components/common/switcher/switcher.jsx';
-import PlanCard from 'react-components/plan-card/planCard.jsx';
 import Table from 'react-components/common/table/table.jsx';
 import InfoIcon from 'react-components/common/info-icon/infoIcon.jsx';
 import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
 import NotificationModal from 'react-components/layouts/modal-layout/notification-modal/notificationModal.jsx';
+import PlanCards from 'react-components/plans-block/plan-cards/planCards.jsx';
 import PlanSummary from 'react-components/common/plan-summary/planSummary.jsx';
-import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import { getIsMobileView } from 'react-components/utils/utils.js';
-import { plansData, getPlansDataByNames } from './data';
+import { getPlansDataByNames, periods, planTypes } from './data';
+import { WE_HOST_ID, FULL_PERIOD } from './constants';
 import styles from './plansBlock.scss';
 
 const cx = classNames.bind(styles);
 
-const FULL_PERIOD = 'full';
-const planTypes = [
-  { id: 'weHost', name: 'We Host' },
-  { id: 'youHost', name: 'You Host & We Manage' },
-];
-const plansNames = {
-  weHost: ['Free', 'Start-Up', 'Pro', 'Enterprise'],
-  youHost: ['Package 32', 'Package 60', 'Package 168+'],
-};
-const compareTableTitles = {
-  instance: { id: 'instance', name: 'Individual Instance', info: 'You can choose instance type: multi-tenant (1 project on shared instances) or individual instances (only your company is on the instance)' },
-  support: { id: 'support', name: 'Professional Support (hours)', info: 'A Professional Support Hour is a blended hour, which may consist of the time of various specialists, whether it is the time of a business analyst, architect, lead automation engineer, DevOps (System Engineer) or performance engineer.It can be used for various purposes related to ReportPortal installation, configuration, integration, customization, feature implementation, TAF updates, test case implementation, etc.' },
-  storage: { id: 'storage', name: 'Data storage', info: 'This parameter defines how much data can be pulled into ReportPortal and saved in DB. The total amount of launches, tests, logs, and attachments in Gb are defined  on a daily basis, and the system automatically deletes over-usage in DB' },
-  history: { id: 'history', name: 'History' },
-  features: { id: 'features', name: 'Enterprise features', info: <span>Additional features which are not available in a scope of the Free Open Source version, <a href="http://reportportal.io/docs/Enterprise-Features" target="_blank" rel="noreferrer">link to the List with features and description</a></span> },
-};
-const planCompareTableTitles = {
-  weHost: [
-    compareTableTitles.instance,
-    compareTableTitles.support,
-    compareTableTitles.storage,
-    compareTableTitles.history,
-    compareTableTitles.features,
-  ],
-  youHost: [
-    compareTableTitles.support,
-    compareTableTitles.features,
-  ],
-};
-
 const PlansBlock = () => {
   const { showModal } = useContext(ModalContext);
-  const [selectedPlanData, setSelectedPlanData] = useState(plansData[0]);
-  const [selectedPeriodId, setSelectedPeriodId] = useState(FULL_PERIOD);
+  const [selectedPlanType, setSelectedPlanType] = useState(planTypes[0]);
   const [planSwitcherData, setPlanSwitcherData] = useState([]);
+  const [selectedPlansData, setSelectedPlansData] = useState([]);
+  const [selectedPeriodId, setSelectedPeriodId] = useState(FULL_PERIOD);
   const [periodSwitcherData, setPeriodSwitcherData] = useState([]);
   const [isComparisonTableOpened, setIsComparisonTableOpened] = useState(false);
 
-  const [selectedPlansData, setSelectedPlansData] = useState([]);
-  const [selectedPlanType, setSelectedPlanType] = useState(planTypes[0]);
-
   useEffect(() => {
-    setSelectedPlansData(getPlansDataByNames(plansNames[selectedPlanType.id]));
+    setSelectedPlansData(getPlansDataByNames(selectedPlanType.planNames));
   }, [selectedPlanType]);
 
   useEffect(() => {
     setPlanSwitcherData(
-      plansData.map(({ name, iconType, }) => {
-        const isActive = selectedPlanData.name === name;
+      planTypes.map(({ name, id, iconType }) => {
+        const isActive = selectedPlanType.id === id;
 
         return {
-          id: name,
+          id,
           element: <>
             <div className={cx('icon', { active: isActive }, iconType)} />
             <div className={cx('switcher-name')}>{name}</div>
@@ -91,25 +60,25 @@ const PlansBlock = () => {
       })
     );
     setSelectedPeriodId(FULL_PERIOD);
-  }, [selectedPlanData]);
+  }, [selectedPlanType]);
 
   useEffect(() => {
-    const { periods = [] } = selectedPlanData;
-    const currentPeriodSwitcherData = periods.map(({ id, name }) => ({
-      id,
-      element: name,
-      isActive: selectedPeriodId === id,
-    }));
-    setPeriodSwitcherData(currentPeriodSwitcherData);
-  }, [selectedPlanData, selectedPeriodId]);
+    setPeriodSwitcherData(selectedPlanType.id === WE_HOST_ID
+      ? periods.map(({ id, name }) => ({
+        id,
+        element: name,
+        isActive: selectedPeriodId === id,
+      }))
+      : []
+    );
+  }, [selectedPlanType, selectedPeriodId]);
 
-  const handlePlanSwitcherSelect = (id) => {
-    if (selectedPlanData.name === id) {
+  const handlePlanSwitcherSelect = (planId) => {
+    if (selectedPlanType.id === planId) {
       return;
     }
 
-    setSelectedPlanData(plansData.find(({ name }) => name === id));
-    setSelectedPlanType(planTypes.find(({ name }) => name === id)); // todo refactoring
+    setSelectedPlanType(planTypes.find(({ id }) => id === planId));
     setIsComparisonTableOpened(false);
   };
 
@@ -126,7 +95,7 @@ const PlansBlock = () => {
   };
 
   const getComparisonTable = () => {
-    const titles = planCompareTableTitles[selectedPlanType.id];
+    const titles = selectedPlanType.planCompareTableTitles;
 
     if (getIsMobileView()) {
       const onInfoClick = (title, tooltip) => {
@@ -197,10 +166,10 @@ const PlansBlock = () => {
     const footer = (
       <td colSpan={headers.length}>
         <div className={cx('footer-row')}>
-          <a className={cx('terms')} target="_blank" href='http://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
+          <a className={cx('terms')} target="_blank" href='https://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
             Terms & Conditions
           </a>
-          <div className={cx('note')}>{selectedPlanData.footerDescription}</div>
+          <div className={cx('note')}>{selectedPlanType.footerDescription}</div>
         </div>
       </td>
     );
@@ -217,7 +186,7 @@ const PlansBlock = () => {
         withItemsEqualWidth
         size="big"
       />
-      <div className={cx('selected-plan-name')}>{selectedPlanData.name}</div>
+      <div className={cx('selected-plan-name')}>{selectedPlanType.name}</div>
       {!!periodSwitcherData.length &&
         <Switcher
           className={cx('period-switcher')}
@@ -226,33 +195,10 @@ const PlansBlock = () => {
           withSeparator
         />
       }
-      <div className={cx('plan-cards')}>
-        {selectedPlanData.plansInfo.map((
-          {
-            popular,
-            withClock,
-            withFullClock,
-            name,
-            shortName,
-            price,
-            description,
-            button,
-            form
-          }) => (
-          <PlanCard
-            className={cx('plan-card')}
-            withClock={withClock}
-            withFullClock={withFullClock}
-            withPopular={popular}
-            key={name}
-            name={shortName || name}
-            price={price[selectedPeriodId]}
-            description={description}
-            button={button}
-            form={form}
-          />
-        ))}
-      </div>
+      <PlanCards
+        plansData={selectedPlansData}
+        periodId={selectedPeriodId}
+      />
       <div className={cx('comparison-table', { open: isComparisonTableOpened })}>
         <div className={cx('table-header')} onClick={onComparisonTableClick}>
           <div className={cx('condition-icon')} />
@@ -264,10 +210,10 @@ const PlansBlock = () => {
       </div>
       <div className={cx('description')}>
         <div className={cx('name')}>
-          {selectedPlanData.name}
+          {selectedPlanType.name}
           <span className={cx('dash')}> —</span>
         </div>
-        <div className={cx('text')}>{selectedPlanData.description}</div>
+        <div className={cx('text')}>{selectedPlanType.description}</div>
       </div>
     </div>
   );

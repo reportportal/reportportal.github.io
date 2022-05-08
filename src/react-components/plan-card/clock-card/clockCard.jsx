@@ -22,7 +22,7 @@ import styles from './clockCard.scss';
 
 const cx = classNames.bind(styles);
 
-const ClockCard = ({ name, description, price, button, className, withPopular, withFullClock, onClick }) => (
+const ClockCard = ({ name, firstLevelDescription, secondLevelDescription, price, button, className, withPopular, withFullClock }) => (
   <div className={cx(
     'card-with-clock',
     className,
@@ -34,8 +34,8 @@ const ClockCard = ({ name, description, price, button, className, withPopular, w
     <div className={cx('name')}>{name}</div>
     <div className={cx('short-description')}>
       <div className={cx('double-level-description')}>
-        <div className={cx('first-level-description')}>{description.firstLevelDescription}</div>
-        <div className={cx('second-level-description')}>{description.secondLevelDescription}</div>
+        <div className={cx('first-level-description')}>{firstLevelDescription}</div>
+        <div className={cx('second-level-description')}>{secondLevelDescription}</div>
       </div>
     </div>
     <div className={cx('price')}>
@@ -43,7 +43,7 @@ const ClockCard = ({ name, description, price, button, className, withPopular, w
       <span className={cx('period')}>/per month</span>
     </div>
     {button && (
-      <Button className={cx('card-button')} onClick={onClick} variant={button.variant}>
+      <Button className={cx('card-button')} onClick={button.onClick} variant='light'>
         {button.name}
       </Button>
     )}
@@ -52,23 +52,21 @@ const ClockCard = ({ name, description, price, button, className, withPopular, w
 
 ClockCard.propTypes = {
   name: PropTypes.string,
-  description: PropTypes.shape({
-    firstLevelDescription: PropTypes.node,
-    secondLevelDescription: PropTypes.node,
-  }),
+  firstLevelDescription: PropTypes.node,
+  secondLevelDescription: PropTypes.node,
   price: PropTypes.string,
   button: PropTypes.shape({
     name: PropTypes.string,
-    variant: PropTypes.string,
+    onClick: PropTypes.func,
   }),
   className: PropTypes.string,
   withPopular: PropTypes.bool,
   withFullClock: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
 };
 ClockCard.defaultProps = {
   name: '',
-  description: null,
+  firstLevelDescription: null,
+  secondLevelDescription: null,
   price: '',
   button: null,
   className: '',
