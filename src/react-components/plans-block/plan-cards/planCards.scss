@@ -23,7 +23,7 @@
   justify-content: center;
 }
 
-@media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
+@media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
   .plan-cards::after {
     content: '';
     width: 100%;
@@ -35,14 +35,14 @@
   }
 }
 
-@media all and (max-width: $SCREEN_XS_MAX) {
+@media all and (max-width: $MOBILE_MAX) {
   .plan-cards {
     display: inline-block;
   }
 
   .contact-form {
-    min-width: $SCREEN_XS_MIN;
-    max-width: $SCREEN_XS_MAX;
+    min-width: $MOBILE_MIN;
+    max-width: $MOBILE_MAX;
     width: auto;
     height: 100%;
     margin: auto;

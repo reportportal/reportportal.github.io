@@ -89,7 +89,7 @@
 
       .item {
         font-size: 16px;
-        color: $COLOR-STEEL-GREY;
+        color: $COLOR-TEALISH;
         vertical-align: middle;
         text-align: center;
         padding: 4px;
@@ -98,7 +98,7 @@
 
       &.active {
         .item {
-          color: $COLOR-TEALISH;
+          color: $COLOR-STEEL-GREY;
         }
       }
     }

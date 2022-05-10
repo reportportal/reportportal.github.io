@@ -28,6 +28,7 @@ const HeaderButtons = () => {
   const { showModal } = useContext(ModalContext);
 
   const onclick = () => {
+    document.body.classList.remove('side-open');
     showModal(
       <ContactForm
         modalClassName={cx('contact-form')}

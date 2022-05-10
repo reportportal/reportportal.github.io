@@ -21,7 +21,7 @@ import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import SimpleCard from 'react-components/plan-card/simple-card/simpleCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
 import ClockCard from 'react-components/plan-card/clock-card/clockCard.jsx';
-import { FREE, START_UP, PRO, ENTERPRISE, PACKAGE_32, PACKAGE_60, PACKAGE_168 } from '../constants';
+import { FREE, START_UP, PRO, ENTERPRISE, PACKAGE_32, PACKAGE_60, PACKAGE_168, YOU_HOST_ID, WE_HOST_ID } from '../constants';
 import styles from './planCards.scss';
 
 const cx = classNames.bind(styles);
@@ -29,7 +29,30 @@ const cx = classNames.bind(styles);
 const PlanCards = ({ plansData, periodId }) => {
   const { showModal } = useContext(ModalContext);
 
-  const onButtonClick = (title, description, options) => {
+  const onButtonClick = (type, packageName) => {
+    let title;
+    const description = 'Please provide your details below, and ReportPortal will help you set up your subscription.';
+    const SALESFORCE_SOURCE_NAME = 'ReportPortalSource__c';
+    let options;
+
+    switch (type) {
+      case WE_HOST_ID:
+        title = 'Contact form for package registration';
+        options = [{
+          name: SALESFORCE_SOURCE_NAME,
+          value: `Landing page/ "We Host" / Request ${packageName} Plan`,
+        }];
+        break;
+      case YOU_HOST_ID:
+        title = `Contact form for package registration with ${packageName} hours of support`;
+        options = [{
+          name: SALESFORCE_SOURCE_NAME,
+          value: `Landing page/ "You Host|We manage" / Request Support "Package ${packageName}"`,
+        }];
+        break;
+      default:
+    }
+
     showModal(
       <ContactForm
         modalClassName={cx('contact-form')}
@@ -51,11 +74,7 @@ const PlanCards = ({ plansData, periodId }) => {
         price={price}
         button={{
           name: 'Sign Up',
-          onClick: () => onButtonClick(
-            'Contact form for package registration',
-            'Please provide your details below, and ReportPortal will help you set up your subscription.',
-            [{name: 'ReportPortalSource__c', value: 'Landing page/ "We Host" / Request Free Plan'}],
-          ),
+          onClick: () => onButtonClick(WE_HOST_ID, FREE),
         }}
       />
     ),
@@ -69,11 +88,7 @@ const PlanCards = ({ plansData, periodId }) => {
         withPopular
         button={{
           name: 'Sign Up',
-          onClick: () => onButtonClick(
-            'Contact form for package registration',
-            'Please provide your details below, and ReportPortal will help you set up your subscription.',
-            [{name: 'ReportPortalSource__c', value: 'Landing page/ "We Host" / Request Start Up Plan'}],
-          ),
+          onClick: () => onButtonClick(WE_HOST_ID, START_UP),
         }}
       />
     ),
@@ -86,11 +101,7 @@ const PlanCards = ({ plansData, periodId }) => {
         price={price}
         button={{
           name: 'Contact Us',
-          onClick: () => onButtonClick(
-            'Contact form for package registration',
-            'Please provide your details below, and ReportPortal will help you set up your subscription.',
-            [{name: 'ReportPortalSource__c', value: 'Landing page/ "We Host" / Request Pro Plan'}],
-          ),
+          onClick: () => onButtonClick(WE_HOST_ID, PRO),
         }}
       />
     ),
@@ -103,11 +114,7 @@ const PlanCards = ({ plansData, periodId }) => {
         price={price}
         button={{
           name: 'Contact Us',
-          onClick: () => onButtonClick(
-            'Contact form for package registration',
-            'Please provide your details below, and ReportPortal will help you set up your subscription.',
-            [{name: 'ReportPortalSource__c', value: 'Landing page/ "We Host" / Request Enterprise Plan'}],
-          ),
+          onClick: () => onButtonClick(WE_HOST_ID, ENTERPRISE),
         }}
       />
     ),
@@ -121,14 +128,7 @@ const PlanCards = ({ plansData, periodId }) => {
         price={price}
         button={{
           name: 'Contact Us',
-          onClick: () => onButtonClick(
-            'Contact form for package registration with 32 hours of support',
-            'Please provide your details below, and ReportPortal will help you set up your subscription.',
-            [{
-              name: 'ReportPortalSource__c',
-              value: 'Landing page/ "You Host|We manage" / Request Support "Package 32"'
-            }],
-          ),
+          onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_32),
         }}
       />
     ),
@@ -143,14 +143,7 @@ const PlanCards = ({ plansData, periodId }) => {
         withPopular
         button={{
           name: 'Contact Us',
-          onClick: () => onButtonClick(
-            'Contact form for package registration with 60 hours of support',
-            'Please provide your details below, and ReportPortal will help you set up your subscription.',
-            [{
-              name: 'ReportPortalSource__c',
-              value: 'Landing page/ "You Host|We manage" / Request Support "Package 60"'
-            }],
-          ),
+          onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_60),
         }}
       />
     ),
@@ -165,14 +158,7 @@ const PlanCards = ({ plansData, periodId }) => {
         withFullClock
         button={{
           name: 'Contact Us',
-          onClick: () => onButtonClick(
-            'Contact form for package registration with 168+ hours of support',
-            'Please provide your details below, and ReportPortal will help you set up your subscription.',
-            [{
-              name: 'ReportPortalSource__c',
-              value: 'Landing page/ "You Host|We manage" / Request Support "Package 168+"'
-            }],
-          ),
+          onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_168),
         }}
       />
     ),
@@ -188,7 +174,7 @@ PlanCards.propTypes = {
   plansData: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      price: PropTypes.string,
+      price: PropTypes.object,
     }),
   ),
   periodId: PropTypes.string.isRequired,

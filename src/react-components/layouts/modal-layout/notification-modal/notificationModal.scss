@@ -32,7 +32,7 @@
   text-align: center;
 }
 
-@media all and (max-width: $SCREEN_XS_MAX) {
+@media all and (max-width: $TABLET_MAX) {
   .form-description {
     margin: 0 24px 54px;
     text-align: left;

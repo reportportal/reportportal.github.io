@@ -24,7 +24,7 @@ import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithT
 import NotificationModal from 'react-components/layouts/modal-layout/notification-modal/notificationModal.jsx';
 import PlanCards from 'react-components/plans-block/plan-cards/planCards.jsx';
 import PlanSummary from 'react-components/common/plan-summary/planSummary.jsx';
-import { getIsMobileView } from 'react-components/utils/utils.js';
+import { getIsTabletView } from 'react-components/utils/utils.js';
 import { getPlansDataByNames, periods, planTypes } from './data';
 import { WE_HOST_ID, FULL_PERIOD } from './constants';
 import styles from './plansBlock.scss';
@@ -97,11 +97,9 @@ const PlansBlock = () => {
   const getComparisonTable = () => {
     const titles = selectedPlanType.planCompareTableTitles;
 
-    if (getIsMobileView()) {
+    if (getIsTabletView()) {
       const onInfoClick = (title, tooltip) => {
-        if (getIsMobileView()) {
-          showModal(<NotificationModal title={title} description={tooltip} />);
-        }
+        showModal(<NotificationModal title={title} description={tooltip} />);
       };
 
       const plans = selectedPlansData.map(({ name, options }) => {
@@ -123,7 +121,7 @@ const PlansBlock = () => {
             {name}
             {!!option && info &&
               <InfoWithTooltip className={cx('info-with-tooltip')} tooltip={info} onClick={() => onInfoClick(name, info)}>
-                {(isActive) => <InfoIcon isActive={isActive}/>}
+                {() => <InfoIcon/>}
               </InfoWithTooltip>
             }
           </div>
@@ -135,8 +133,8 @@ const PlansBlock = () => {
       return <div className={cx('pseudo-table-wrapper')}>
         <div className={cx('pseudo-table')}>
           {plans}
-          <div className={cx('note')}>Minimum engagement type 6 month</div>
-          <a className={cx('terms')} target="_blank" href='http://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
+          <div className={cx('note')}>{selectedPlanType.footerDescription}</div>
+          <a className={cx('terms')} target="_blank" href='https://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
             Terms & Conditions
           </a>
         </div>

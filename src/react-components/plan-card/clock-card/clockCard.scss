@@ -109,7 +109,7 @@
   text-align: center;
 }
 
-@media all and (max-width: $SCREEN_XS_MAX) {
+@media all and (max-width: $MOBILE_MAX) {
   .card-with-clock {
     margin: auto;
   }

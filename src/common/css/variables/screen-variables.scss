@@ -1,5 +1,3 @@
-// todo refactoring
-
 $SCREEN_XS_MIN: 320px;
 $SCREEN_XS_MAX: 767px;
 
@@ -11,4 +9,8 @@ $SCREEN_MD_MAX: 1199px;
 
 $SCREEN_LG_MIN: 1200px;
 
-$SCREEN_IPAD: 1024px;
+$MOBILE_MIN: 320px;
+$MOBILE_MAX: 640px;
+$TABLET_MIN: 641px;
+$TABLET_MAX: 1024px;
+$DESKTOP_MIN: 1025px;

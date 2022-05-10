@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-const SCREEN_XS_MAX = 767;
-const SCREEN_SM_MAX = 1024;
+const MOBILE_MAX = 640;
+const TABLET_MAX = 1024;
 
-const SCREEN_XS_MAX_MEDIA = `(max-width: ${SCREEN_XS_MAX}px)`;
-const SCREEN_SM_MAX_MEDIA = `(max-width: ${SCREEN_SM_MAX}px)`;
+const SCREEN_MOBILE_MAX_MEDIA = `(max-width: ${MOBILE_MAX}px)`;
+const SCREEN_TABLET_MAX_MEDIA = `(max-width: ${TABLET_MAX}px)`;
 
-export const getIsMobileView = () => window.matchMedia(SCREEN_XS_MAX_MEDIA).matches;
-export const getIsTabletView = () => window.matchMedia(SCREEN_SM_MAX_MEDIA).matches;
+export const getIsMobileView = () => window.matchMedia(SCREEN_MOBILE_MAX_MEDIA).matches;
+export const getIsTabletView = () => window.matchMedia(SCREEN_TABLET_MAX_MEDIA).matches;
