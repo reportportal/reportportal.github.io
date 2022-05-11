@@ -64,109 +64,106 @@ const PlanCards = ({ plansData, periodId }) => {
     );
   };
 
-  const plans = {
-    [FREE]: (price) => (
-      <SimpleCard
-        key={FREE}
-        className={cx('plan-card')}
-        name={FREE}
-        description='For quick start'
-        price={price}
-        button={{
-          name: 'Sign Up',
-          onClick: () => onButtonClick(WE_HOST_ID, FREE),
-        }}
-      />
-    ),
-    [START_UP]: (price) => (
-      <SimpleCard
-        key={START_UP}
-        className={cx('plan-card', 'popular')}
-        name={START_UP}
-        description='For small team'
-        price={price}
-        withPopular
-        button={{
-          name: 'Sign Up',
-          onClick: () => onButtonClick(WE_HOST_ID, START_UP),
-        }}
-      />
-    ),
-    [PRO]: (price) => (
-      <SimpleCard
-        key={PRO}
-        className={cx('plan-card')}
-        name={PRO}
-        description='For large companies'
-        price={price}
-        button={{
-          name: 'Contact Us',
-          onClick: () => onButtonClick(WE_HOST_ID, PRO),
-        }}
-      />
-    ),
-    [ENTERPRISE]: (price) => (
-      <SimpleCard
-        key={ENTERPRISE}
-        className={cx('plan-card')}
-        name={ENTERPRISE}
-        description='Enterprise-Ready'
-        price={price}
-        button={{
-          name: 'Contact Us',
-          onClick: () => onButtonClick(WE_HOST_ID, ENTERPRISE),
-        }}
-      />
-    ),
-    [PACKAGE_32]: (price) => (
-      <ClockCard
-        key={PACKAGE_32}
-        className={cx('plan-card')}
-        name='32'
-        firstLevelDescription='hours'
-        secondLevelDescription='of support'
-        price={price}
-        button={{
-          name: 'Contact Us',
-          onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_32),
-        }}
-      />
-    ),
-    [PACKAGE_60]: (price) => (
-      <ClockCard
-        key={PACKAGE_60}
-        className={cx('plan-card', 'popular')}
-        name='60'
-        firstLevelDescription='hours'
-        secondLevelDescription='of support'
-        price={price}
-        withPopular
-        button={{
-          name: 'Contact Us',
-          onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_60),
-        }}
-      />
-    ),
-    [PACKAGE_168]: (price) => (
-      <ClockCard
-        key={PACKAGE_168}
-        className={cx('plan-card')}
-        name='168+'
-        firstLevelDescription='hours'
-        secondLevelDescription='of support'
-        price={price}
-        withFullClock
-        button={{
-          name: 'Contact Us',
-          onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_168),
-        }}
-      />
-    ),
+  const getPlan = (name, price) => {
+    switch (name) {
+      case FREE:
+        return <SimpleCard
+          key={FREE}
+          className={cx('plan-card')}
+          name={FREE}
+          description='For quick start'
+          price={price}
+          button={{
+            name: 'Sign Up',
+            onClick: () => onButtonClick(WE_HOST_ID, FREE),
+          }}
+        />;
+      case START_UP:
+        return <SimpleCard
+          key={START_UP}
+          className={cx('plan-card', 'popular')}
+          name={START_UP}
+          description='For small team'
+          price={price}
+          withPopular
+          button={{
+            name: 'Sign Up',
+            onClick: () => onButtonClick(WE_HOST_ID, START_UP),
+          }}
+        />;
+      case PRO:
+        return <SimpleCard
+          key={PRO}
+          className={cx('plan-card')}
+          name={PRO}
+          description='For large companies'
+          price={price}
+          button={{
+            name: 'Contact Us',
+            onClick: () => onButtonClick(WE_HOST_ID, PRO),
+          }}
+        />;
+      case ENTERPRISE:
+        return <SimpleCard
+          key={ENTERPRISE}
+          className={cx('plan-card')}
+          name={ENTERPRISE}
+          description='Enterprise-Ready'
+          price={price}
+          button={{
+            name: 'Contact Us',
+            onClick: () => onButtonClick(WE_HOST_ID, ENTERPRISE),
+          }}
+        />;
+      case PACKAGE_32:
+        return <ClockCard
+          key={PACKAGE_32}
+          className={cx('plan-card')}
+          name='32'
+          firstLevelDescription='hours'
+          secondLevelDescription='of support'
+          price={price}
+          button={{
+            name: 'Contact Us',
+            onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_32),
+          }}
+        />;
+      case PACKAGE_60:
+        return <ClockCard
+          key={PACKAGE_60}
+          className={cx('plan-card', 'popular')}
+          name='60'
+          firstLevelDescription='hours'
+          secondLevelDescription='of support'
+          price={price}
+          withPopular
+          button={{
+            name: 'Contact Us',
+            onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_60),
+          }}
+        />;
+      case PACKAGE_168:
+        return <ClockCard
+          key={PACKAGE_168}
+          className={cx('plan-card')}
+          name='168+'
+          firstLevelDescription='hours'
+          secondLevelDescription='of support'
+          price={price}
+          withFullClock
+          button={{
+            name: 'Contact Us',
+            onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_168),
+          }}
+        />;
+      default:
+        throw new Error('wrong package name');
+    }
   };
 
   return (
     <div className={cx('plan-cards')}>
-      {plansData.map(({ name, price }) => (plans[name](price[periodId])))}
+      {plansData.map(({ name, price }) => getPlan(name, price[periodId]))}
     </div>
   );
 };
