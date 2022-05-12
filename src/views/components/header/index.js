@@ -10,6 +10,10 @@ import renderReactComponent from 'utils/backboneReactRender';
 
 const WITHOUT_SHADOW_CLASS = 'without-shadow';
 
+const closeSideBlock = () => {
+  $('body').removeClass('side-open');
+};
+
 export default Epoxy.View.extend({
   template,
   className: 'header',
@@ -39,11 +43,11 @@ export default Epoxy.View.extend({
     const headerButtons = $('#header-buttons', this.$el);
     const middleBlock = $('#middle-block', this.$el);
     renderReactComponent(headerButtons, HeaderButtons);
-    renderReactComponent(middleBlock, HeaderButtons);
+    renderReactComponent(middleBlock, HeaderButtons, { onOpen: closeSideBlock });
   },
   onClickLink(e) {
     e.preventDefault();
-    $('body').removeClass('side-open');
+    closeSideBlock();
     const link = $(e.currentTarget).data('js-link') || '';
     Router.navigate(link, { trigger: true });
   },
@@ -51,7 +55,7 @@ export default Epoxy.View.extend({
     $('body').toggleClass('side-open');
   },
   onClickCloseSideblock() {
-    $('body').removeClass('side-open');
+    closeSideBlock();
   },
   onClickLogo() {
     Router.navigate('#', { trigger: true });

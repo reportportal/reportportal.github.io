@@ -15,6 +15,7 @@
  */
 
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
@@ -24,11 +25,11 @@ import styles from './headerButtons.scss';
 
 const cx = classNames.bind(styles);
 
-const HeaderButtons = () => {
+const HeaderButtons = ({ onOpen }) => {
   const { showModal } = useContext(ModalContext);
 
   const onclick = () => {
-    document.body.classList.remove('side-open');
+    onOpen();
     showModal(
       <ContactForm
         modalClassName={cx('contact-form')}
@@ -63,5 +64,11 @@ const HeaderButtons = () => {
     </>
   );
 };
+HeaderButtons.propTypes = {
+  onOpen: PropTypes.func,
+};
+HeaderButtons.defaultProps = {
+  onOpen: () => null,
+}
 
 export default reactWrapper(HeaderButtons);

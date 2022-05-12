@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-export default function renderReactComponent(container, ReactComponent) {
-  const component = new ReactComponent({ model: null, el: container });
+export default function renderReactComponent(container, ReactComponent, props) {
+  const component = new ReactComponent({ model: props, el: container });
   container.append(component.render());
 
   return component;
