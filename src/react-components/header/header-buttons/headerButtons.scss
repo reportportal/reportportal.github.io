@@ -26,10 +26,10 @@
   text-align: left;
 }
 
-@media all and (max-width: $SCREEN_XS_MAX) {
+@media all and (max-width: $TABLET_MAX) {
   .contact-form {
-    min-width: $SCREEN_XS_MIN;
-    max-width: $SCREEN_XS_MAX;
+    min-width: $MOBILE_MIN;
+    max-width: $MOBILE_MAX;
     width: auto;
     height: 100%;
     margin: auto;

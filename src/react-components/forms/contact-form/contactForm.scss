@@ -60,7 +60,7 @@
   margin: 0 auto 36px;
 }
 
-@media all and (max-width: $SCREEN_XS_MAX) {
+@media all and (max-width: $MOBILE_MAX) {
   .form-title {
     font-size: 28px;
   }

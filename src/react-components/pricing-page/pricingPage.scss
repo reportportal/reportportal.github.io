@@ -15,9 +15,8 @@
  */
 
 .pricing-page-wrapper {
-  background-image: url(../img/backgroundPricingPageFullHD.svg);
-  background-repeat: no-repeat;
-  background-size: 100% auto;
+  background: url(../img/backgroundPricingPageFullHD.svg) no-repeat left top / 100% auto,
+              url(../img/backgroundBlue.svg) no-repeat left bottom / auto 487px;
 }
 
 .pricing-page {
@@ -38,16 +37,20 @@
   white-space: pre-line;
 }
 
-@media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
+@media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
   .pricing-page {
     width: 100%;
     max-width: 1024px;
   }
+
+  .pricing-page-wrapper {
+    background-size: auto 350px;
+  }
 }
 
-@media all and (max-width: $SCREEN_XS_MAX) {
+@media all and (max-width: $MOBILE_MAX) {
   .pricing-page {
-    min-width: $SCREEN_XS_MIN;
+    min-width: $MOBILE_MIN;
     width: 100%;
     max-width: 767px;
   }

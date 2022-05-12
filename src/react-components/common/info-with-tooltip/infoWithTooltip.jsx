@@ -17,7 +17,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { getIsMobileView } from 'react-components/utils/utils.js';
+import { getIsTabletView } from 'react-components/utils/utils.js';
 import styles from './infoWithTooltip.scss';
 
 const cx = classNames.bind(styles);
@@ -27,7 +27,7 @@ const InfoWithTooltip = ({ className, children, tooltip, onClick }) => {
   const [clientRect, setClientRect] = useState({});
 
   const onHover = (e) => {
-    if (getIsMobileView()) {
+    if (getIsTabletView()) {
       return;
     }
 

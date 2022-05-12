@@ -16,7 +16,7 @@ export default Epoxy.View.extend({
   events: {
     'click [data-js-link]': 'onClickLink',
     'click [data-js-toggle-sideblock]': 'onClickToggleSideblock',
-    'click [data-js-side-content-close]': 'onClickCloseSideblock',
+    'click [data-js-side-content-close]': 'closeSideBlock',
     'click [data-js-href]': 'openSocial',
     'click [data-js-logo]': 'onClickLogo',
     'click [data-js-modal]': 'onClickAskService',
@@ -39,19 +39,19 @@ export default Epoxy.View.extend({
     const headerButtons = $('#header-buttons', this.$el);
     const middleBlock = $('#middle-block', this.$el);
     renderReactComponent(headerButtons, HeaderButtons);
-    renderReactComponent(middleBlock, HeaderButtons);
+    renderReactComponent(middleBlock, HeaderButtons, { onOpen: this.closeSideBlock });
+  },
+  closeSideBlock() {
+    $('body').removeClass('side-open');
   },
   onClickLink(e) {
     e.preventDefault();
-    $('body').removeClass('side-open');
+    this.closeSideBlock();
     const link = $(e.currentTarget).data('js-link') || '';
     Router.navigate(link, { trigger: true });
   },
   onClickToggleSideblock() {
     $('body').toggleClass('side-open');
-  },
-  onClickCloseSideblock() {
-    $('body').removeClass('side-open');
   },
   onClickLogo() {
     Router.navigate('#', { trigger: true });

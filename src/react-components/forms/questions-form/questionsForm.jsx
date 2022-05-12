@@ -79,7 +79,7 @@ const QuestionsForm = () => {
     <div className={cx('questions-form')}>
       <div className={cx('header')}>Do you have a question?</div>
       <div className={cx('text')}>
-        For more details please leave your e-mail and we will contact you within 3 business days.
+        For more details please leave your e-mail and we will contact you within 4 business days.
       </div>
       <div className={cx('form')}>
         <FormikProvider value={formik}>

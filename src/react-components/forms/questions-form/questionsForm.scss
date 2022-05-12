@@ -56,6 +56,10 @@
   &:nth-child(even) {
     margin-right: $marginBetweenFields;
   }
+
+  input {
+    background-color: $COLOR-BACKGROUND-BLUE-SECONDARY;
+  }
 }
 
 .marketing-and-terms > div:nth-child(1) {
@@ -66,7 +70,7 @@
   margin-bottom: 36px;
 }
 
-@media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
+@media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
   .form {
     width: auto;
   }
@@ -74,10 +78,6 @@
   .questions-form {
     padding: 35px 68px 0;
     background: $COLOR-BACKGROUND-BLUE-SECONDARY;
-  }
-
-  .questions-form-field input {
-    background-color: $COLOR-BACKGROUND-BLUE-SECONDARY;
   }
 
   .questions-form-submit-button {
@@ -106,10 +106,6 @@
 
   .questions-form-field {
     width: 100%;
-
-    input {
-      background-color: $COLOR-BACKGROUND-BLUE-SECONDARY;
-    }
   }
 
   .questions-form-submit-button {

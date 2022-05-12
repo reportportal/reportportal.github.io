@@ -33,10 +33,10 @@ const CustomCheckbox = ({ className, onChange, value, disabled, name }) => (
 CustomCheckbox.propTypes = {
   className: PropTypes.string,
   onChange: PropTypes.func,
-  value: PropTypes.oneOfType(
+  value: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.string,
-  ),
+  ]),
   disabled: PropTypes.bool,
   name: PropTypes.string,
 };

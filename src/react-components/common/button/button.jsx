@@ -21,9 +21,6 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const VARIANT_STANDARD = 'standard';
-const VARIANT_LIGHT = 'light';
-
 const Button = ({ children, onClick, className, type, disabled, variant }) => (
   <button className={cx('button', className, variant)} type={type} onClick={onClick} disabled={disabled}>
     {children}
@@ -35,14 +32,14 @@ Button.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
   disabled: PropTypes.bool,
-  variant: PropTypes.oneOf([VARIANT_STANDARD, VARIANT_LIGHT]),
+  variant: PropTypes.oneOf(['standard', 'light']),
 };
 Button.defaultProps = {
   children: '',
   className: '',
   type: 'button',
   disabled: false,
-  variant: VARIANT_STANDARD,
+  variant: 'standard',
   onClick: () => null,
 };
 

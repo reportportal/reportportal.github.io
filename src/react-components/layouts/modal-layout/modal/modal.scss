@@ -58,7 +58,7 @@
   }
 }
 
-@media all and (max-width: $SCREEN_XS_MAX) {
+@media all and (max-width: $MOBILE_MAX) {
   .modal {
     width: auto;
     margin: auto;

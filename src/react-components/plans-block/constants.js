@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-const MOBILE_MAX = 640;
-const TABLET_MAX = 1024;
-
-const SCREEN_MOBILE_MAX_MEDIA = `(max-width: ${MOBILE_MAX}px)`;
-const SCREEN_TABLET_MAX_MEDIA = `(max-width: ${TABLET_MAX}px)`;
-
-export const getIsMobileView = () => window.matchMedia(SCREEN_MOBILE_MAX_MEDIA).matches;
-export const getIsTabletView = () => window.matchMedia(SCREEN_TABLET_MAX_MEDIA).matches;
+export const WE_HOST_ID = 'weHost';
+export const YOU_HOST_ID = 'youHost';
+export const FULL_PERIOD = 'full';
+export const FREE = 'Free';
+export const START_UP = 'Start-Up';
+export const PRO = 'Pro';
+export const ENTERPRISE = 'Enterprise';
+export const PACKAGE_32 = 'Package 32';
+export const PACKAGE_60 = 'Package 60';
+export const PACKAGE_168 = 'Package 168+';

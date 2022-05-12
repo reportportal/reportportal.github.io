@@ -57,15 +57,6 @@
   margin: 0 0 8px auto;
 }
 
-.plan-cards {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  padding-bottom: 64px;
-  width: 100%;
-  justify-content: center;
-}
-
 .table-header {
   font-family: $FONT-LIGHT;
   font-size: 24px;
@@ -100,6 +91,7 @@
 }
 
 .pseudo-table-wrapper {
+  position: fixed;
   background: $COLOR--pale-grey;
   opacity: 0;
   max-height: 0;
@@ -194,6 +186,7 @@
     }
 
     .pseudo-table-wrapper {
+      position: inherit;
       opacity: 1;
       max-height: 1080px;
     }
@@ -266,6 +259,7 @@
 }
 
 .text {
+  font-family: $FONT-LIGHT;
   font-size: 16px;
   line-height: 24px;
   color: $COLOR-STEEL-GREY;
@@ -273,19 +267,13 @@
   flex: 0 1 auto;
 }
 
-@media all and (max-width: $SCREEN_IPAD) and (min-width: $SCREEN_SM_MIN) {
+@media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
   .period-switcher {
     margin: 17px auto 65px;
   }
 
-  .plan-cards::after {
-    content: '';
-    width: 100%;
-    order: 0;
-  }
-
-  .plan-card:nth-child(3), .plan-card:nth-child(3) ~ .plan-card {
-    order: 1;
+  .comparison-table {
+    padding-bottom: 64px;
   }
 
   .description {
@@ -304,7 +292,7 @@
   }
 }
 
-@media all and (max-width: $SCREEN_XS_MAX) {
+@media all and (max-width: $MOBILE_MAX) {
   .plan-switcher {
     width: auto;
     margin: auto 16px;
@@ -329,8 +317,8 @@
     margin: 53px auto 24px;
   }
 
-  .plan-cards {
-    display: inline-block;
+  .comparison-table {
+    padding-bottom: 35px;
   }
 
   .description {
