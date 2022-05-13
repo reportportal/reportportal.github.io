@@ -14,33 +14,37 @@
  * limitations under the License.
  */
 
-.button {
-  display: inline-block;
-  height: 40px;
-  width: 138px;
-  text-decoration: none;
-  margin-left: 14px;
-}
+.simple-switcher {
+  width: fit-content;
+  display: flex;
+  height: 22px;
+  background-color: $COLOR-WHITE_TWO;
+  border: 1px solid $COLOR-TOPAZ;
+  box-sizing: border-box;
+  border-radius: 12px;
+  position: relative;
+  padding: 1px;
 
-.description {
-  text-align: left;
-}
-
-@media all and (max-width: $TABLET_MAX) {
-  .button {
-    margin-left: 25px;
-    margin-bottom: 12px;
+  &.active {
+    background-color: #C0EDF3;
   }
-}
 
-@media all and (max-width: $MOBILE_MAX) {
-  .contact-form {
-    min-width: $MOBILE_MIN;
-    max-width: $MOBILE_MAX;
-    width: auto;
-    height: 100%;
-    margin: auto;
-    border-radius: 0;
-    overflow-y: auto;
+  .highlight {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-color: $COLOR-TOPAZ;
+    border-radius: 23px;
+    transition: 0.3s;
+  }
+
+  .switcher-item {
+    flex-grow: 1;
+    flex-basis: 0;
+    line-height: 18px;
+    display: inline-block;
+    position: relative;
+    width: 18px;
+    height: 18px;
   }
 }

@@ -57,7 +57,7 @@ export const planTypes = [
 ];
 
 export const periods = [
-  { id: 'sale', name: 'Yearly save 5%' },
+  { id: 'sale', name: 'Yearly (save 5%)' },
   { id: FULL_PERIOD, name: 'Monthly' },
 ];
 

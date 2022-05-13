@@ -17,6 +17,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import RadioPoint from 'react-components/common/radio-point/radioPoint.jsx';
 import styles from './switcher.scss';
 
 const cx = classNames.bind(styles);
@@ -30,6 +31,8 @@ const Switcher = ({
   handleSelect,
   withItemsEqualWidth,
   withSeparator,
+  withPoint,
+  withRevertColor,
   size,
 }) => {
   const [highlightWidth, setHighlightWidth] = useState(false);
@@ -61,18 +64,18 @@ const Switcher = ({
       {itemsData.map(({ id, isActive, element }) => (
         <div
           key={id}
-          className={cx('switcher-item', { active: isActive })}
+          className={cx('switcher-item', { active: isActive, 'revert-color': withRevertColor })}
           onClick={(e) => onClick(e, id)}
         >
           <div className={cx('item')}>
+            {withPoint && <RadioPoint className={cx('point')} active={isActive} />}
             {element}
           </div>
         </div>
       ))}
     </div>
   );
-}
-
+};
 Switcher.propTypes = {
   itemsData: PropTypes.arrayOf(
     PropTypes.shape({
@@ -85,12 +88,16 @@ Switcher.propTypes = {
   className: PropTypes.string,
   withItemsEqualWidth: PropTypes.bool,
   withSeparator: PropTypes.bool,
+  withPoint: PropTypes.bool,
+  withRevertColor: PropTypes.bool,
   size: PropTypes.oneOf([BIG, SMALL]),
 };
 Switcher.defaultProps = {
   className: '',
   withItemsEqualWidth: false,
   withSeparator: false,
+  withPoint: false,
+  withRevertColor: false,
   size: SMALL,
 };
 
