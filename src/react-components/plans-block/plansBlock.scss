@@ -52,27 +52,12 @@
   display: none;
 }
 
-.period-switcher-wrapper {
-  display: flex;
-  width: fit-content;
-}
-
-.period-switcher, .period-switcher-wrapper {
+.period-switcher, .simple-period-switcher {
   margin: 0 0 8px auto;
 }
 
 .simple-period-switcher {
-  display: inline-block;
-  margin-right: 8px;
-}
-
-.period-switcher-name {
-  display: inline-block;
-  font-family: $FONT-REGULAR;
-  font-size: 14px;
-  line-height: 20px;
-  color: $COLOR-STEEL-GREY;
-  width: 105px;
+  width: 155px;
 }
 
 .table-header {
@@ -286,7 +271,7 @@
 }
 
 @media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
-  .period-switcher, .period-switcher-wrapper {
+  .period-switcher, .simple-period-switcher {
     margin: 17px auto 65px;
   }
 
@@ -331,7 +316,7 @@
     margin-bottom: 77px;
   }
 
-  .period-switcher, .period-switcher-wrapper {
+  .period-switcher, .simple-period-switcher {
     margin: 53px auto 24px;
   }
 

@@ -14,68 +14,47 @@
  * limitations under the License.
  */
 
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './simpleSwitcher.scss';
 
 const cx = classNames.bind(styles);
 
-const highlightWidth = 18;
-
 const SimpleSwitcher = ({
   className,
-  itemsData,
-  handleSelect,
-}) => {
-  const [highlightX, setHighlightX] = useState(0);
-  const [isOn, setIsOn] = useState(false);
-
-  useEffect(() => {
-    const index = itemsData.findIndex(({ isActive }) => isActive);
-    if (index > 0) {
-      setHighlightX(highlightWidth * index);
-    }
-  }, [itemsData, setHighlightX]);
-
-  useEffect(() => {
-    setIsOn(highlightX > 0);
-  }, [highlightX]);
-
-  const onClick = (e, id) => {
-    const { offsetLeft } = e.currentTarget;
-    setHighlightX(offsetLeft - 1);
-    handleSelect(id);
-  };
-
-  return (
-    <div className={cx('simple-switcher', className, { active: isOn })}>
-      <div
-        className={cx('highlight')}
-        style={{ width: `${highlightWidth}px`, transform: `translateX(${highlightX}px)` }}
-      />
-      {itemsData.map(({ id, isActive }) => (
-        <div
-          key={id}
-          className={cx('switcher-item', { active: isActive })}
-          onClick={(e) => onClick(e, id)}
-        />
-      ))}
+  onChange,
+  label,
+  name,
+  checked,
+  disabled,
+}) => (
+  <label className={cx('simple-switcher', className, { checked, disabled })}>
+    <input type='checkbox' id={name} name={name} value={checked} onChange={onChange} disabled={disabled} checked={checked} />
+    <div className={cx('switcher')}>
+      <div className={cx('item')} />
     </div>
-  );
-};
+    <div className={cx('label')}>
+      {checked ? label.onLabel : label.offLabel}
+    </div>
+  </label>
+);
 SimpleSwitcher.propTypes = {
-  itemsData: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      isActive: PropTypes.bool.isRequired,
-    }),
-  ).isRequired,
-  handleSelect: PropTypes.func.isRequired,
   className: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  label: PropTypes.shape({
+    onLabel: PropTypes.string.isRequired,
+    offLabel: PropTypes.string.isRequired,
+  }),
+  name: PropTypes.string.isRequired,
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 SimpleSwitcher.defaultProps = {
   className: '',
+  label: null,
+  checked: false,
+  disabled: false,
 };
 
 export default SimpleSwitcher;

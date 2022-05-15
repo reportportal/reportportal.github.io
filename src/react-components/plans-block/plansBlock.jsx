@@ -27,7 +27,7 @@ import PlanSummary from 'react-components/common/plan-summary/planSummary.jsx';
 import SimpleSwitcher from 'react-components/common/simple-switcher/simpleSwitcher.jsx';
 import { getIsTabletView } from 'react-components/utils/utils.js';
 import { getPlansDataByNames, periods, planTypes } from './data';
-import { WE_HOST_ID, FULL_PERIOD } from './constants';
+import { WE_HOST_ID, FULL_PERIOD, SALE_PERIOD } from './constants';
 import styles from './plansBlock.scss';
 
 const cx = classNames.bind(styles);
@@ -89,6 +89,14 @@ const PlansBlock = () => {
     }
 
     setSelectedPeriodId(id);
+  };
+
+  const onSimpleSwitcherChange = (e) => {
+    if (e.target.checked) {
+      setSelectedPeriodId(SALE_PERIOD);
+    } else {
+      setSelectedPeriodId(FULL_PERIOD);
+    }
   };
 
   const onComparisonTableClick = () => {
@@ -205,13 +213,17 @@ const PlansBlock = () => {
               withPoint
             />
           </div>
-          <div id='period-switcher-3' className={cx('period-switcher-wrapper')} style={{ display: 'none' }}>
+          <div id='period-switcher-3' style={{ display: 'none' }}>
             <SimpleSwitcher
               className={cx('simple-period-switcher')}
-              itemsData={periodSwitcherData}
-              handleSelect={handlePeriodSwitcherSelect}
+              onChange={onSimpleSwitcherChange}
+              label={{
+                onLabel: periodSwitcherData[0].element,
+                offLabel: periodSwitcherData[1].element,
+              }}
+              name='simple-period-switcher'
+              checked={selectedPeriodId !== FULL_PERIOD}
             />
-            <div className={cx('period-switcher-name')}>{periodSwitcherData.find(({ id }) => id === selectedPeriodId).element}</div>
           </div>
         </>
       }
