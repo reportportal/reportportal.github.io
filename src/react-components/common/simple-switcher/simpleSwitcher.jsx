@@ -34,18 +34,13 @@ const SimpleSwitcher = ({
     <div className={cx('switcher')}>
       <div className={cx('item')} />
     </div>
-    <div className={cx('label')}>
-      {checked ? label.onLabel : label.offLabel}
-    </div>
+    <div className={cx('label')}>{label}</div>
   </label>
 );
 SimpleSwitcher.propTypes = {
   className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  label: PropTypes.shape({
-    onLabel: PropTypes.string.isRequired,
-    offLabel: PropTypes.string.isRequired,
-  }),
+  label: PropTypes.node,
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,

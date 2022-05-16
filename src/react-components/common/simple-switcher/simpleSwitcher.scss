@@ -17,9 +17,10 @@
 .simple-switcher {
   display: flex;
   cursor: pointer;
+  width: fit-content;
 
   &.checked .switcher {
-    background-color: #C0EDF3;
+    background-color: $ACTIVE-BACKGROUND;
 
     .item {
       transform: translateX(18px);

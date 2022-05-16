@@ -217,10 +217,7 @@ const PlansBlock = () => {
             <SimpleSwitcher
               className={cx('simple-period-switcher')}
               onChange={onSimpleSwitcherChange}
-              label={{
-                onLabel: periodSwitcherData[0].element,
-                offLabel: periodSwitcherData[1].element,
-              }}
+              label={periods.find(({ id }) => id === SALE_PERIOD).name}
               name='simple-period-switcher'
               checked={selectedPeriodId !== FULL_PERIOD}
             />
