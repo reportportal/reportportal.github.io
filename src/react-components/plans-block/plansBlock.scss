@@ -52,8 +52,7 @@
   display: none;
 }
 
-.period-switcher {
-  width: 188px;
+.period-switcher, .simple-period-switcher {
   margin: 0 0 8px auto;
 }
 
@@ -268,7 +267,7 @@
 }
 
 @media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
-  .period-switcher {
+  .period-switcher, .simple-period-switcher {
     margin: 17px auto 65px;
   }
 
@@ -313,7 +312,7 @@
     margin-bottom: 77px;
   }
 
-  .period-switcher {
+  .period-switcher, .simple-period-switcher {
     margin: 53px auto 24px;
   }
 

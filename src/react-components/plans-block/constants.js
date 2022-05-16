@@ -17,6 +17,7 @@
 export const WE_HOST_ID = 'weHost';
 export const YOU_HOST_ID = 'youHost';
 export const FULL_PERIOD = 'full';
+export const SALE_PERIOD = 'sale';
 export const FREE = 'Free';
 export const START_UP = 'Start-Up';
 export const PRO = 'Pro';

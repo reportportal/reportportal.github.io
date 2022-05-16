@@ -16,7 +16,19 @@
 
 import React from 'react';
 
-import { WE_HOST_ID, YOU_HOST_ID, FULL_PERIOD, FREE, START_UP, PRO, ENTERPRISE, PACKAGE_32, PACKAGE_60, PACKAGE_168 } from './constants';
+import {
+  WE_HOST_ID,
+  YOU_HOST_ID,
+  FULL_PERIOD,
+  SALE_PERIOD,
+  FREE,
+  START_UP,
+  PRO,
+  ENTERPRISE,
+  PACKAGE_32,
+  PACKAGE_60,
+  PACKAGE_168,
+} from './constants';
 
 const compareTableTitles = {
   instance: { id: 'instance', name: 'Individual Instance', info: 'You can choose instance type: multi-tenant (1 project on shared instances) or individual instances (only your company is on the instance)' },
@@ -57,7 +69,7 @@ export const planTypes = [
 ];
 
 export const periods = [
-  { id: 'sale', name: 'Yearly save 5%' },
+  { id: SALE_PERIOD, name: 'Yearly (save 5%)' },
   { id: FULL_PERIOD, name: 'Monthly' },
 ];
 
