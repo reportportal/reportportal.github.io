@@ -24,15 +24,12 @@ const cx = classNames.bind(styles);
 
 const InfoWithTooltip = ({ className, children, tooltip, onClick }) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-  const [clientRect, setClientRect] = useState({});
 
-  const onHover = (e) => {
+  const onHover = () => {
     if (getIsTabletView()) {
       return;
     }
-
     setIsTooltipVisible(true);
-    setClientRect(e.currentTarget.getBoundingClientRect());
   };
 
   return (
@@ -43,15 +40,7 @@ const InfoWithTooltip = ({ className, children, tooltip, onClick }) => {
       onClick={onClick}
     >
       {children(isTooltipVisible)}
-      <div
-        className={cx('hover-area', { visible: isTooltipVisible })}
-        style={{
-          top: `${clientRect.y}px`,
-          left: `${clientRect.x}px`,
-          paddingTop: `${clientRect.height + 9}px`,
-          paddingLeft: '6px',
-        }}
-      >
+      <div className={cx('hover-area', { visible: isTooltipVisible })}>
         <div className={cx('tooltip')}>{tooltip}</div>
       </div>
     </div>

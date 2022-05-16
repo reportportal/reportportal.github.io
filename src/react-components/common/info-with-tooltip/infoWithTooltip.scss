@@ -25,12 +25,14 @@
 
 .hover-area {
   z-index: 1;
-  position: fixed;
+  position: absolute;
   width: 207px;
   display: block;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
+  padding-top: 7px;
+  padding-left: 6px;
 
   &.visible {
     opacity: 1;
