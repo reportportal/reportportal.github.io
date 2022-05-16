@@ -105,6 +105,10 @@
         padding: 4px;
         font-family: $FONT-REGULAR;
 
+        &.with-point {
+          font-size: 14px;
+        }
+
         .point {
           display: inline-block;
           margin: 0 8px -4px 0;
