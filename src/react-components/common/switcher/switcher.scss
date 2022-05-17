@@ -105,20 +105,32 @@
         padding: 4px;
         font-family: $FONT-REGULAR;
 
-        &.with-point {
-          font-size: 14px;
-        }
-
         .point {
           display: inline-block;
           margin: 0 8px -4px 0;
         }
       }
 
-      &.active {
-        .item {
-          color: $COLOR-TEALISH;
-        }
+      &.active .item {
+        color: $COLOR-TEALISH;
+      }
+
+      &.with-point .item {
+        font-size: 14px;
+      }
+
+      &.with-point + .with-point {
+        margin: 0 0 0 24px;
+      }
+    }
+  }
+
+  &.revert {
+    flex-direction: row-reverse;
+
+    &.small {
+      .with-point + .with-point {
+        margin: 0 24px 0 0;
       }
     }
   }
