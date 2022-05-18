@@ -119,8 +119,8 @@
         font-size: 14px;
       }
 
-      &.with-point + .with-point {
-        margin: 0 0 0 24px;
+      &.with-point:not(:last-child) {
+        margin: 0 24px 0 0;
       }
     }
   }
@@ -129,8 +129,8 @@
     flex-direction: row-reverse;
 
     &.small {
-      .with-point + .with-point {
-        margin: 0 24px 0 0;
+      .with-point:not(:last-child) {
+        margin: 0 0 0 24px;
       }
     }
   }

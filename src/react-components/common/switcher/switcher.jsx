@@ -59,10 +59,12 @@ const Switcher = ({
         }
       )}
     >
-      <div
-        className={cx('highlight')}
-        style={{ width: `${highlightWidth}px`, transform: `translateX(${highlightX}px)` }}
-      />
+      {size === BIG &&
+        <div
+          className={cx('highlight')}
+          style={{ width: `${highlightWidth}px`, transform: `translateX(${highlightX}px)` }}
+        />
+      }
       {itemsData.map(({ id, isActive, element }) => (
         <div
           key={id}
