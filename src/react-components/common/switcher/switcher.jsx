@@ -69,7 +69,7 @@ const Switcher = ({
           className={cx('switcher-item', { active: isActive, 'revert-color': withRevertColor, 'with-point': withPoint })}
           onClick={(e) => onClick(e, id)}
         >
-          <div className={cx('item', {'with-point': withPoint})}>
+          <div className={cx('item')}>
             {withPoint && <RadioPoint className={cx('point')} active={isActive} />}
             {element}
           </div>
