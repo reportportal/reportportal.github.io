@@ -207,10 +207,11 @@ const PlansBlock = () => {
           </div>
           <div id='period-switcher-2'>
             <Switcher
-              className={cx('period-switcher')}
+              className={cx('period-switcher', 'with-point')}
               itemsData={periodSwitcherData}
               handleSelect={handlePeriodSwitcherSelect}
               withPoint
+              revertItems
             />
           </div>
           <div id='period-switcher-3' style={{ display: 'none' }}>

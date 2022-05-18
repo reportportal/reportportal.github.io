@@ -33,6 +33,7 @@ const Switcher = ({
   withSeparator,
   withPoint,
   withRevertColor,
+  revertItems,
   size,
 }) => {
   const [highlightWidth, setHighlightWidth] = useState(false);
@@ -54,20 +55,23 @@ const Switcher = ({
         {
           'equal-width': withItemsEqualWidth,
           'with-separator': withSeparator,
+          'revert': revertItems,
         }
       )}
     >
-      <div
-        className={cx('highlight')}
-        style={{ width: `${highlightWidth}px`, transform: `translateX(${highlightX}px)` }}
-      />
+      {size === BIG &&
+        <div
+          className={cx('highlight')}
+          style={{ width: `${highlightWidth}px`, transform: `translateX(${highlightX}px)` }}
+        />
+      }
       {itemsData.map(({ id, isActive, element }) => (
         <div
           key={id}
-          className={cx('switcher-item', { active: isActive, 'revert-color': withRevertColor })}
+          className={cx('switcher-item', { active: isActive, 'revert-color': withRevertColor, 'with-point': withPoint })}
           onClick={(e) => onClick(e, id)}
         >
-          <div className={cx('item', {'with-point': withPoint})}>
+          <div className={cx('item')}>
             {withPoint && <RadioPoint className={cx('point')} active={isActive} />}
             {element}
           </div>
@@ -91,6 +95,7 @@ Switcher.propTypes = {
   withPoint: PropTypes.bool,
   withRevertColor: PropTypes.bool,
   size: PropTypes.oneOf([BIG, SMALL]),
+  revertItems: PropTypes.bool,
 };
 Switcher.defaultProps = {
   className: '',
@@ -99,6 +104,7 @@ Switcher.defaultProps = {
   withPoint: false,
   withRevertColor: false,
   size: SMALL,
+  revertItems: false,
 };
 
 export default Switcher;
