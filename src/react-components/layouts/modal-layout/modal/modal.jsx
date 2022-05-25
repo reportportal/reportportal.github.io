@@ -34,19 +34,21 @@ const Modal = ({ children, className, backTo, withoutMobileCloseButton }) => {
 
   return (
     <div className={cx('background')} onClick={handleClickOutside}>
-      <div className={cx('modal', className)} ref={wrapperRef}>
-        {backTo
-          ? <div className={cx('back')} onClick={closeModal}>
-            <i className={cx('arrow')}/>
-            {backTo}
-          </div>
-          : null
-        }
-        <i
-          className={cx('close-button', { hidden: withoutMobileCloseButton })}
-          onClick={closeModal}
-        />
-        {children}
+      <div className={cx('modal-wrapper')}>
+        <div className={cx('modal', className)} ref={wrapperRef}>
+          {backTo
+            ? <div className={cx('back')} onClick={closeModal}>
+              <i className={cx('arrow')}/>
+              {backTo}
+            </div>
+            : null
+          }
+          <i
+            className={cx('close-button', { hidden: withoutMobileCloseButton })}
+            onClick={closeModal}
+          />
+          {children}
+        </div>
       </div>
     </div>
   );
