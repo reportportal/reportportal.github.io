@@ -123,7 +123,7 @@ export default {
     };
   },
   buildIndex(text) {
-    let data = text.split(' ');
+    let data = text.replaceAll('/', '%2F').split(' ');
     if (data.length > 3) {
       data = text.split(' ', 3);
     }
