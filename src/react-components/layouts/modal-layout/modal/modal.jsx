@@ -18,6 +18,7 @@ import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import ModalContext from '../modalContext';
+import { Scrollbars } from 'react-custom-scrollbars';
 import styles from './modal.scss';
 
 const cx = classNames.bind(styles);
@@ -34,22 +35,24 @@ const Modal = ({ children, className, backTo, withoutMobileCloseButton }) => {
 
   return (
     <div className={cx('background')} onClick={handleClickOutside}>
-      <div className={cx('modal-wrapper')}>
-        <div className={cx('modal', className)} ref={wrapperRef}>
-          {backTo
-            ? <div className={cx('back')} onClick={closeModal}>
-              <i className={cx('arrow')}/>
-              {backTo}
-            </div>
-            : null
-          }
-          <i
-            className={cx('close-button', { hidden: withoutMobileCloseButton })}
-            onClick={closeModal}
-          />
-          {children}
+      <Scrollbars>
+        <div className={cx('modal-wrapper')}>
+          <div className={cx('modal', className)} ref={wrapperRef}>
+            {backTo
+              ? <div className={cx('back')} onClick={closeModal}>
+                <i className={cx('arrow')}/>
+                {backTo}
+              </div>
+              : null
+            }
+            <i
+              className={cx('close-button', { hidden: withoutMobileCloseButton })}
+              onClick={closeModal}
+            />
+            {children}
+          </div>
         </div>
-      </div>
+      </Scrollbars>
     </div>
   );
 };
