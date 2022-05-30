@@ -25,19 +25,19 @@ const cx = classNames.bind(styles);
 
 const Modal = ({ children, className, backTo, withoutMobileCloseButton }) => {
   const { closeModal } = useContext(ModalContext);
-  const wrapperRef = useRef();
+  const modalWrapperRef = useRef();
 
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.current.contains(event.target)) {
+    if (modalWrapperRef.current.className === event.target.className) {
       closeModal();
     }
   };
 
   return (
     <div className={cx('background')} onClick={handleClickOutside}>
-      <Scrollbars>
-        <div className={cx('modal-wrapper')}>
-          <div className={cx('modal', className)} ref={wrapperRef}>
+      <Scrollbars autoHide hideTracksWhenNotNeeded >
+        <div className={cx('modal-wrapper')} ref={modalWrapperRef}>
+          <div className={cx('modal', className)}>
             {backTo
               ? <div className={cx('back')} onClick={closeModal}>
                 <i className={cx('arrow')}/>
