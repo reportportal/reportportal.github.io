@@ -25,7 +25,6 @@
 
 .modal-wrapper {
   height: 100%;
-  overflow: scroll;
 
   &::before {
     content: '';
@@ -46,7 +45,6 @@
   height: max-content;
   display: inline-block;
   vertical-align: middle;
-  overflow: scroll;
 }
 
 .back {
@@ -86,6 +84,7 @@
     font-size: 14px;
     line-height: 20px;
     color: $COLOR-TOPAZ;
+    text-align: left;
   }
 
   .arrow {
