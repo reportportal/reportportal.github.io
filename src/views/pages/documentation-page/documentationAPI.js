@@ -492,7 +492,7 @@ export default {
   },
   urlNavigateTo(id) {
     const questions = this.lunrData.questions;
-    const query = !id ? [questions[0].titleForIndex] : decodeURIComponent(id).split('>');
+    const query = !id ? [questions[0].titleForIndex] : decodeURIComponent(id).replaceAll('/', '%2F').split('>');
     _.each(questions, (el, key) => {
       if (el.titleForIndex.trim() === query[0].trim()) {
         this.onContentLoadListener(el, query);
