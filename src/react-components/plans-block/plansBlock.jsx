@@ -171,7 +171,7 @@ const PlansBlock = () => {
     });
 
     const footer = (
-      <td colSpan={headers.length}>
+      <td colSpan={headers.length + 2}>
         <div className={cx('footer-row')}>
           <a className={cx('terms')} target="_blank" href='https://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
             Terms & Conditions
