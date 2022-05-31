@@ -24,6 +24,9 @@
 
   &:first-child {
     padding-left: 24px;
+  }
+
+  &:nth-child(2) {
     font-family: $FONT-REGULAR;
   }
 

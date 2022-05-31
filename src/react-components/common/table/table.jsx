@@ -29,7 +29,9 @@ const Table = ({
   <table className={cx('table', className)}>
     <thead className={cx('header')}>
       <tr>
+        <Cell className={cx('header-cell', 'padding-cell')}/>
         {data.headers.map(header => <Cell key={header} className={cx('header-cell')}>{header}</Cell>)}
+        <Cell className={cx('header-cell', 'padding-cell')}/>
       </tr>
     </thead>
     <tbody className={cx('body')}>
@@ -37,7 +39,9 @@ const Table = ({
         key={i}
         className={cx('row')}
       >
+        <Cell className={cx('cell', 'padding-cell')}/>
         {row.map((cell, j) => <Cell className={cx('cell')} key={`${i}-${j}`}>{cell}</Cell>)}
+        <Cell className={cx('cell', 'padding-cell')}/>
       </tr>)}
       {data.footer && <tr className={cx('footer')}>{data.footer}</tr>}
     </tbody>
