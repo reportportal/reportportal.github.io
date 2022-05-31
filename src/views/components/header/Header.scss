@@ -130,9 +130,9 @@
     background-color: $COLOR-WHITE_TWO;
     box-shadow: 0 1px 5px 0 rgba(189, 199, 204, 0.9);
     z-index: 10;
+    overflow: hidden;
     .top-block {
-      position: absolute;
-      top: 0;
+      position: relative;
       width: 100%;
       .title {
         width: 100%;
@@ -171,9 +171,10 @@
       }
     }
     #middle-block {
-      position: absolute;
-      top: 364px;
+      position: relative;
       width: 100%;
+      margin-top: 18px;
+      padding-bottom: 160px;
     }
     .bottom-block {
       position: absolute;
@@ -237,20 +238,20 @@
             }
           }
         }
-
       }
     }
   }
 }
 .side-open {
   .side-content {
-    min-height: 615px;
+    min-height: 630px;
+    overflow: unset;
   }
 
   .side-content-close {
     width: 100%;
     height: 100%;
-    min-height: 615px;
+    min-height: 630px;
     position: absolute;
     z-index: 10;
   }
