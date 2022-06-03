@@ -24,12 +24,11 @@ export default Epoxy.View.extend({
       jsonp: 'jsonp',
       crossDomain: true,
       async: true,
-    })
-      .done((data) => {
-        _.each(data, (item, i) => {
-          const text = this.calcTitle(item.title);
-          const duration = this.calcDuration(item.duration);
-          const el = `
+    }).done((data) => {
+      _.each(data, (item, i) => {
+        const text = this.calcTitle(item.title);
+        const duration = this.calcDuration(item.duration);
+        const el = `
             <div class="carousel-item"> 
                 <a target="_blank" href="https://www.youtube.com/watch?v=${item.id}">
                     <div class="hider">
@@ -39,20 +38,20 @@ export default Epoxy.View.extend({
                    ${text}
                 </a>
             </div>`;
-          if (i < 4) {
-            $('[data-js-left]').append(el);
-          } else {
-            $('[data-js-right]').append(el);
-          }
-        });
-        $('[data-js-right]').append(`
+        if (i < 4) {
+          $('[data-js-left]').append(el);
+        } else {
+          $('[data-js-right]').append(el);
+        }
+      });
+      $('[data-js-right]').append(`
             <div class="carousel-item more-link">
-                <a target="_blank" href="http://youtube.com/c/ReportPortalCommunity">
+                <a target="_blank" href="https://www.youtube.com/c/ReportPortal">
                     <div>More videos</div>
                 </a>
             </div>`);
-        this.gallery = new SwipeGallery({ selector: $('.slider-container') });
-      });
+      this.gallery = new SwipeGallery({ selector: $('.slider-container') });
+    });
   },
   onClickNext() {
     this.gallery.next();
