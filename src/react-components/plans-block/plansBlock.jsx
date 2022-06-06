@@ -27,7 +27,7 @@ import PlanSummary from 'react-components/common/plan-summary/planSummary.jsx';
 import SimpleSwitcher from 'react-components/common/simple-switcher/simpleSwitcher.jsx';
 import { getIsTabletView } from 'react-components/utils/utils.js';
 import { getPlansDataByNames, periods, planTypes } from './data';
-import { WE_HOST_ID, FULL_PERIOD, SALE_PERIOD } from './constants';
+import { FULL_PERIOD, SALE_PERIOD } from './constants';
 import styles from './plansBlock.scss';
 
 const cx = classNames.bind(styles);
@@ -37,7 +37,7 @@ const PlansBlock = () => {
   const [selectedPlanType, setSelectedPlanType] = useState(planTypes[0]);
   const [planSwitcherData, setPlanSwitcherData] = useState([]);
   const [selectedPlansData, setSelectedPlansData] = useState([]);
-  const [selectedPeriodId, setSelectedPeriodId] = useState(FULL_PERIOD);
+  const [selectedPeriodId, setSelectedPeriodId] = useState(SALE_PERIOD);
   const [periodSwitcherData, setPeriodSwitcherData] = useState([]);
   const [isComparisonTableOpened, setIsComparisonTableOpened] = useState(false);
 
@@ -60,17 +60,16 @@ const PlansBlock = () => {
         };
       })
     );
-    setSelectedPeriodId(FULL_PERIOD);
+    setSelectedPeriodId(SALE_PERIOD);
   }, [selectedPlanType]);
 
   useEffect(() => {
-    setPeriodSwitcherData(selectedPlanType.id === WE_HOST_ID
-      ? periods.map(({ id, name }) => ({
+    setPeriodSwitcherData(
+      periods.map(({ id, name }) => ({
         id,
         element: name,
         isActive: selectedPeriodId === id,
       }))
-      : []
     );
   }, [selectedPlanType, selectedPeriodId]);
 

@@ -178,7 +178,7 @@
 }
 
 .comparison-table {
-  padding-bottom: 21px;
+  padding-bottom: 28px;
   position: relative;
 
   &.open {
@@ -258,7 +258,7 @@
   max-width: 792px;
   margin: auto;
   display: flex;
-  padding-bottom: 92px;
+  padding-bottom: 104px;
 }
 
 .name {
@@ -285,7 +285,7 @@
 
 @media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
   .period-switcher, .simple-period-switcher {
-    margin: 17px auto 65px;
+    margin: 17px auto 64px;
   }
 
   .simple-period-switcher {

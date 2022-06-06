@@ -28,22 +28,37 @@ const Table = ({
 }) => (
   <table className={cx('table', className)}>
     <thead className={cx('header')}>
-      <tr>
-        <Cell className={cx('header-cell', 'padding-cell')}/>
-        {data.headers.map(header => <Cell key={header} className={cx('header-cell')}>{header}</Cell>)}
-        <Cell className={cx('header-cell', 'padding-cell')}/>
-      </tr>
+    <tr>
+      <Cell className={cx('header-cell', 'padding-cell')}/>
+      {data.headers.map(header => <Cell key={header} className={cx('header-cell')}>{header}</Cell>)}
+      <Cell className={cx('header-cell', 'padding-cell')}/>
+    </tr>
     </thead>
     <tbody className={cx('body')}>
-      {data.rows.map((row, i) => <tr
-        key={i}
-        className={cx('row')}
-      >
-        <Cell className={cx('cell', 'padding-cell')}/>
-        {row.map((cell, j) => <Cell className={cx('cell')} key={`${i}-${j}`}>{cell}</Cell>)}
-        <Cell className={cx('cell', 'padding-cell')}/>
-      </tr>)}
-      {data.footer && <tr className={cx('footer')}>{data.footer}</tr>}
+    {data.rows.map((row, i) => <tr
+      key={i}
+      className={cx('row')}
+    >
+      <Cell className={cx('cell', 'padding-cell')}/>
+      {row.map((cell, j) =>
+        typeof cell === 'object' && cell !== null && cell.isMultiLine
+          ? <Cell
+            className={cx('cell', { 'multi-line': cell.isMultiLine })}
+            key={`${i}-${j}`}
+          >
+            {cell.value}
+          </Cell>
+          : <Cell
+            className={cx('cell')}
+            key={`${i}-${j}`}
+          >
+            {cell}
+          </Cell>
+
+      )}
+      <Cell className={cx('cell', 'padding-cell')}/>
+    </tr>)}
+    {data.footer && <tr className={cx('footer')}>{data.footer}</tr>}
     </tbody>
   </table>
 );
@@ -52,7 +67,15 @@ Table.propTypes = {
   className: PropTypes.string,
   data: PropTypes.shape({
     headers: PropTypes.arrayOf(PropTypes.node).isRequired,
-    rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.node)).isRequired,
+    rows: PropTypes.arrayOf(PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.node,
+        PropTypes.shape({
+          isMultiLine: PropTypes.bool,
+          value: PropTypes.node,
+        })
+      ])
+    )).isRequired,
     footer: PropTypes.element,
   }).isRequired,
 };

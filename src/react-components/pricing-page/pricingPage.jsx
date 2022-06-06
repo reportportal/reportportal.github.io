@@ -29,7 +29,7 @@ const Layout = () => (
     <>
       <div className={cx('pricing-page')}>
         <div className={cx('pricing-page-header')}>
-          Flexible options for cloud or self hosted installation
+          Flexible options for cloud or self-hosted installation
         </div>
         <PlansBlock />
         <QuestionsForm />

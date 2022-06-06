@@ -21,7 +21,7 @@ import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import SimpleCard from 'react-components/plan-card/simple-card/simpleCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
 import ClockCard from 'react-components/plan-card/clock-card/clockCard.jsx';
-import { FREE, START_UP, PRO, ENTERPRISE, PACKAGE_32, PACKAGE_60, PACKAGE_168, YOU_HOST_ID, WE_HOST_ID } from '../constants';
+import { STARTUP, BUSINESS, ENTERPRISE, PACKAGE_25, PACKAGE_60, PACKAGE_168, YOU_HOST_ID, WE_HOST_ID } from '../constants';
 import styles from './planCards.scss';
 
 const cx = classNames.bind(styles);
@@ -66,41 +66,29 @@ const PlanCards = ({ plansData, periodId }) => {
 
   const getPlan = (name, price) => {
     switch (name) {
-      case FREE:
+      case STARTUP:
         return <SimpleCard
-          key={FREE}
+          key={STARTUP}
           className={cx('plan-card')}
-          name={FREE}
-          description='For quick start'
+          name={STARTUP}
+          description='Shared instance, essential storage, data retention and technical support'
           price={price}
           button={{
             name: 'Sign Up',
-            onClick: () => onButtonClick(WE_HOST_ID, FREE),
+            onClick: () => onButtonClick(WE_HOST_ID, STARTUP),
           }}
         />;
-      case START_UP:
+      case BUSINESS:
         return <SimpleCard
-          key={START_UP}
+          key={BUSINESS}
           className={cx('plan-card', 'popular')}
-          name={START_UP}
-          description='For small team'
+          name={BUSINESS}
+          description='Individual instance, more flexibility, enhanced security and more technical support hours'
           price={price}
           withPopular
           button={{
             name: 'Sign Up',
-            onClick: () => onButtonClick(WE_HOST_ID, START_UP),
-          }}
-        />;
-      case PRO:
-        return <SimpleCard
-          key={PRO}
-          className={cx('plan-card')}
-          name={PRO}
-          description='For large companies'
-          price={price}
-          button={{
-            name: 'Contact Us',
-            onClick: () => onButtonClick(WE_HOST_ID, PRO),
+            onClick: () => onButtonClick(WE_HOST_ID, BUSINESS),
           }}
         />;
       case ENTERPRISE:
@@ -108,24 +96,25 @@ const PlanCards = ({ plansData, periodId }) => {
           key={ENTERPRISE}
           className={cx('plan-card')}
           name={ENTERPRISE}
-          description='Enterprise-Ready'
+          description='Custom conditions for custom needs'
           price={price}
           button={{
             name: 'Contact Us',
             onClick: () => onButtonClick(WE_HOST_ID, ENTERPRISE),
           }}
+          withPeriod={false}
         />;
-      case PACKAGE_32:
+      case PACKAGE_25:
         return <ClockCard
-          key={PACKAGE_32}
+          key={PACKAGE_25}
           className={cx('plan-card')}
-          name='32'
-          firstLevelDescription='hours'
-          secondLevelDescription='of support'
+          name='25'
+          firstLevelDescription='professional'
+          secondLevelDescription='service hours'
           price={price}
           button={{
             name: 'Contact Us',
-            onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_32),
+            onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_25),
           }}
         />;
       case PACKAGE_60:
@@ -133,8 +122,8 @@ const PlanCards = ({ plansData, periodId }) => {
           key={PACKAGE_60}
           className={cx('plan-card', 'popular')}
           name='60'
-          firstLevelDescription='hours'
-          secondLevelDescription='of support'
+          firstLevelDescription='professional'
+          secondLevelDescription='service hours'
           price={price}
           withPopular
           button={{
@@ -147,8 +136,8 @@ const PlanCards = ({ plansData, periodId }) => {
           key={PACKAGE_168}
           className={cx('plan-card')}
           name='168+'
-          firstLevelDescription='hours'
-          secondLevelDescription='of support'
+          firstLevelDescription='professional'
+          secondLevelDescription='service hours'
           price={price}
           withFullClock
           button={{

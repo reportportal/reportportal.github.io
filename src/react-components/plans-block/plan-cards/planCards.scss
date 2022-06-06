@@ -24,14 +24,8 @@
 }
 
 @media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
-  .plan-cards::after {
-    content: '';
-    width: 100%;
-    order: 0;
-  }
-
-  .plan-card:nth-child(3), .plan-card:nth-child(3) ~ .plan-card {
-    order: 1;
+  .plan-cards {
+    display: inline-block;
   }
 }
 
