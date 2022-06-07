@@ -22,7 +22,7 @@
   width: 175px;
   position: relative;
   border-radius: 12px;
-  margin-top: 110px;
+  margin-top: 24px;
   order: 1;
 
   &.with-full-clock {
@@ -41,7 +41,7 @@
 }
 
 .card-with-clock + .card-with-clock {
-  margin-left: 50px;
+  margin-left: 100px;
 }
 
 .name {
@@ -71,14 +71,14 @@
   font-family: $FONT-HEADER;
   font-size: 18px;
   line-height: 16px;
-  margin-right: -55px;
+  margin-right: -110px;
 }
 
 .second-level-description {
   font-family: $FONT-LIGHT;
   font-size: 16px;
   line-height: 20px;
-  margin-right: -100px;
+  margin-right: -120px;
 }
 
 .price {
@@ -109,7 +109,7 @@
   text-align: center;
 }
 
-@media all and (max-width: $MOBILE_MAX) {
+@media all and (max-width: $TABLET_MAX) {
   .card-with-clock {
     margin: auto;
   }

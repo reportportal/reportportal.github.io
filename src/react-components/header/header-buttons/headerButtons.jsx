@@ -59,7 +59,7 @@ const HeaderButtons = ({ onOpen }) => {
         onClick={onclick}
         variant='light'
       >
-        Ask Service
+        Ask for Service
       </Button>
     </>
   );

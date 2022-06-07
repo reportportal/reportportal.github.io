@@ -1,8 +1,10 @@
 .footer {
   width: 100%;
+  max-width: 1920px;
   background: $COLOR--pale-grey;
   padding: 26px 10px 10px 10px;
   box-sizing: border-box;
+  margin: auto;
   .footer-content {
     position: relative;
     max-width: 1000px;

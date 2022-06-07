@@ -22,7 +22,7 @@ import styles from './simpleCard.scss';
 
 const cx = classNames.bind(styles);
 
-const SimpleCard = ({ name, description, price, className, withPopular, button }) => (
+const SimpleCard = ({ name, description, price, className, withPopular, withPeriod, button }) => (
   <div className={cx('card', className, { popular: withPopular })}>
     {withPopular && <div className={cx('popular-label')}>Most popular</div>}
     <div className={cx('name')}>{name}</div>
@@ -31,7 +31,7 @@ const SimpleCard = ({ name, description, price, className, withPopular, button }
     </div>
     <div className={cx('price')}>
       {price}
-      <span className={cx('period')}>/per month</span>
+      {withPeriod && <span className={cx('period')}>/per month</span>}
     </div>
     {button && (
       <Button className={cx('card-button')} onClick={button.onClick} variant={withPopular ? 'standard' : 'light'}>
@@ -51,6 +51,7 @@ SimpleCard.propTypes = {
   }),
   className: PropTypes.string,
   withPopular: PropTypes.bool,
+  withPeriod: PropTypes.bool,
 };
 SimpleCard.defaultProps = {
   name: '',
@@ -59,6 +60,7 @@ SimpleCard.defaultProps = {
   button: null,
   className: '',
   withPopular: false,
+  withPeriod: true,
 };
 
 export default SimpleCard;

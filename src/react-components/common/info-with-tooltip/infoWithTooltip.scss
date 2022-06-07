@@ -50,6 +50,11 @@
   font-size: 12px;
   line-height: 14px;
   color: $COLOR-STEEL-GREY;
+  font-family: $FONT-REGULAR;
+
+  b {
+    font-family: $FONT-HEADER;
+  }
 
   &::before {
     border: 6px solid transparent;

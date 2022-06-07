@@ -15,8 +15,10 @@
  */
 
 .pricing-page-wrapper {
-  background: url(../img/backgroundPricingPageFullHD.svg) no-repeat left top / 100% auto,
-              url(../img/backgroundBlue.svg) no-repeat left bottom / auto 487px;
+  max-width: 1920px;
+  margin: auto;
+  background: url(../img/backgroundPricingPageFullHD.svg) no-repeat center top / 100% auto,
+              url(../img/backgroundBlue.svg) repeat-x left bottom / auto 487px;
 }
 
 .pricing-page {

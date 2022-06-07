@@ -80,6 +80,13 @@
   &.padding-cell {
     border-bottom: none;
   }
+
+  &.multi-line {
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 19px;
+    white-space: pre-line;
+  }
 }
 
 .footer {
