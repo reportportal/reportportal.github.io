@@ -14,56 +14,33 @@
  * limitations under the License.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import ModalContext from 'react-components/layouts/modal-layout/modalContext';
-import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
+import AskForServiceButton from 'react-components/buttons/ask-for-service-button/askForServiceButton.jsx';
 import Button from 'react-components/common/button/button.jsx';
 import reactWrapper from 'utils/reactWrapper';
 import styles from './headerButtons.scss';
 
 const cx = classNames.bind(styles);
 
-const HeaderButtons = ({ onOpen }) => {
-  const { showModal } = useContext(ModalContext);
-
-  const onclick = () => {
-    onOpen();
-    showModal(
-      <ContactForm
-        modalClassName={cx('contact-form')}
-        title='Need more help?'
-        description={<div className={cx('description')}>
-          ReportPortal is free and open source under the Apache 2.0 license, with no charges or hidden fees.<br/>
-          <br/>
-          But if you’re looking for dedicated professional support for installation, integration, or customization, we offer support plans for businesses of all sizes.<br/>
-          <br/>
-          Want to learn more? Please leave a business email and we’ll be in touch!
-        </div>}
-        options={[{ name: 'ReportPortalSource__c', value: 'Landing page/ Ask service' }]}
-        backTo='Back to landing'
-      />
-    );
-  };
-
-  return (
+const HeaderButtons = ({ onOpen }) => (
     <>
       <a href='https://saas.reportportal.io/ui/' target="_blank" rel="noreferrer">
-        <Button className={cx('button')}>
+        <Button
+          className={cx('button')}
+          variant='light'
+        >
           Sign In
         </Button>
       </a>
-      <Button
+      <AskForServiceButton
+        onOpen={onOpen}
         className={cx('button')}
-        onClick={onclick}
-        variant='light'
-      >
-        Ask for Service
-      </Button>
+        options={[{ name: 'ReportPortalSource__c', value: 'Landing page/ Ask service' }]}
+      />
     </>
   );
-};
 HeaderButtons.propTypes = {
   onOpen: PropTypes.func,
 };

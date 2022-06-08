@@ -1,7 +1,6 @@
 import { $ } from 'backbone';
 import Router from 'router';
 import PreviewModal from 'components/modals/previewModal';
-import AskServiceModal from 'components/modals/askServiceModal';
 import IndexPageSection from '../../sectionView';
 import template from './index-page_welcome.jade';
 import './index-page_welcome.scss';
@@ -10,6 +9,8 @@ import Site1 from './img/site1.png';
 import Site2 from './img/site2.png';
 import Site3 from './img/site3.png';
 import Site4 from './img/site4.png';
+import { AskForServiceButtonWrappered } from 'react-components/buttons/ask-for-service-button/askForServiceButton.jsx';
+import renderReactComponent from 'utils/backboneReactRender';
 
 const images = [Site1, Site2, Site3, Site4];
 
@@ -18,7 +19,6 @@ export default IndexPageSection.extend({
   className: 'index-page_welcome',
   events: {
     'click .video-preview': 'onClickPreview',
-    'click .ask-service-mobile': 'onClickAskService',
   },
   initialize() {
     this.renderTemplate();
@@ -26,6 +26,15 @@ export default IndexPageSection.extend({
     this.bg2 = $('[data-js-wave-2]', this.$el);
     this.bg3 = $('[data-js-wave-3]', this.$el);
     $('.site', this.$el).attr('src', this.getRandomElement(images));
+
+    const askForServiceButton = $('.ask-for-service-button', this.$el);
+    renderReactComponent(
+      askForServiceButton,
+      AskForServiceButtonWrappered,
+      {
+        options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ ask for service body' }]
+      },
+    );
   },
   getSections() {
     return [
@@ -48,9 +57,5 @@ export default IndexPageSection.extend({
   onClickPreview(e) {
     e.preventDefault();
     Router.modals.show(new PreviewModal({ src: $(e.currentTarget).attr('href') }));
-  },
-  onClickAskService(e) {
-    e.preventDefault();
-    Router.modals.show(new AskServiceModal());
   },
 });

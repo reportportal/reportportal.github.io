@@ -19,12 +19,20 @@
   height: 40px;
   width: 138px;
   text-decoration: none;
-  margin-left: 14px;
 }
 
-@media all and (max-width: $TABLET_MAX) {
-  .button {
-    margin-left: 25px;
-    margin-bottom: 12px;
+.description {
+  text-align: left;
+}
+
+@media all and (max-width: $MOBILE_MAX) {
+  .contact-form {
+    min-width: $MOBILE_MIN;
+    max-width: $MOBILE_MAX;
+    width: auto;
+    height: 100%;
+    margin: auto;
+    border-radius: 0;
+    overflow-y: auto;
   }
 }
