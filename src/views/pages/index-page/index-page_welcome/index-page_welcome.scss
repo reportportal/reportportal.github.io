@@ -119,7 +119,7 @@ $COLOR-BOOk-GREY: #ececec;
       }
     }
   }
-  .ask-service-mobile {
+  #ask-for-service-button {
     display: none;
   }
   .noutebook {
@@ -179,20 +179,6 @@ $COLOR-BOOk-GREY: #ececec;
     }
   }
   @media (max-width: $MIDDLE-INTERFACE-WIDTH) {
-    .ask-service-mobile {
-      display: block;
-      cursor: pointer;
-      margin: 20px auto 0 auto;
-      width: 117px;
-      border-radius: 3px;
-      color: $COLOR-WHITE_TWO;
-      background-color: $COLOR-TEALISH;
-      font-size: 15px;
-      text-align: center;
-      line-height: 34px;
-      text-decoration: none;
-      border: none;
-    }
     h1 {
       max-width: 400px;
       margin: 0 auto;
@@ -262,6 +248,13 @@ $COLOR-BOOk-GREY: #ececec;
         border-bottom-left-radius: 25px 7px;
         border-bottom-right-radius: 25px 7px;
       }
+    }
+  }
+  @media (max-width: 1024px) {
+    #ask-for-service-button {
+      display: block;
+      margin: 20px auto 0 auto;
+      width: fit-content;
     }
   }
 }
