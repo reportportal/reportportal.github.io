@@ -20,6 +20,7 @@ import classNames from 'classnames/bind';
 import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
 import Button from 'react-components/common/button/button.jsx';
+import reactWrapper from 'utils/reactWrapper';
 import styles from './askForServiceButton.scss';
 
 const cx = classNames.bind(styles);
@@ -72,3 +73,4 @@ AskForServiceButton.defaultProps = {
 }
 
 export default AskForServiceButton;
+export const AskForServiceButtonWrappered = reactWrapper(AskForServiceButton);

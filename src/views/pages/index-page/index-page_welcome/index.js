@@ -9,7 +9,7 @@ import Site1 from './img/site1.png';
 import Site2 from './img/site2.png';
 import Site3 from './img/site3.png';
 import Site4 from './img/site4.png';
-import AskForServiceButtonWrappered from 'react-components/buttons/ask-for-service-button/wrapper/askForServiceButtonWrappered.jsx';
+import { AskForServiceButtonWrappered } from 'react-components/buttons/ask-for-service-button/askForServiceButton.jsx';
 import renderReactComponent from 'utils/backboneReactRender';
 
 const images = [Site1, Site2, Site3, Site4];
