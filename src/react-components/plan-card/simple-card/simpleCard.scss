@@ -43,9 +43,9 @@
 
 .popular-label {
   display: block;
-  width: 76px;
+  width: fit-content;
   height: 16px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 16px;
   text-align: center;
   color: $COLOR-GREEN-MOST-POPULAR;
@@ -63,7 +63,7 @@
 }
 
 .short-description {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 16px;
   text-align: center;
   max-width: 204px;

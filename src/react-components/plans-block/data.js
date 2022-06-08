@@ -118,7 +118,7 @@ export const planTypes = [
     id: YOU_HOST_ID,
     name: 'You Host & We Manage',
     iconType: 'home',
-    footerDescription: '*minimum engagement type 6 month',
+    footerDescription: '*payment is made quarterly',
     description: 'ReportPortal instance deployed on-premise behind your firewall or in the Cloud. All your test data is located on your own instance and it is 100% secured.',
     planNames: [PACKAGE_25, PACKAGE_60, PACKAGE_168],
     planCompareTableTitles: [

@@ -113,9 +113,16 @@ const PlansBlock = () => {
       const plans = selectedPlansData.map(({ name, options }) => {
         const rows = titles.map(({ id, name, info }, index ) => {
           let option = options[id];
+          let currentName = name;
           if (id === 'support') {
-            option = option ? `${option} hours`: '';
-            name = 'Professional Support';
+            if (option) {
+              option = typeof option === 'object'
+                ? option.value
+                : `${option} hours`;
+            } else {
+              option = '';
+            }
+            currentName = 'Technical support';
           }
 
           return <div key={index} className={cx('plan-row', { disable: !option })}>
@@ -126,9 +133,9 @@ const PlansBlock = () => {
                 {' of '}
               </>
             }
-            {name}
+            {currentName}
             {!!option && info &&
-              <InfoWithTooltip className={cx('info-with-tooltip')} tooltip={info} onClick={() => onInfoClick(name, info)}>
+              <InfoWithTooltip className={cx('info-with-tooltip')} tooltip={info} onClick={() => onInfoClick(currentName, info)}>
                 {() => <InfoIcon/>}
               </InfoWithTooltip>
             }
