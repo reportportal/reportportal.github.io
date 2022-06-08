@@ -27,12 +27,11 @@ export default IndexPageSection.extend({
     this.bg3 = $('[data-js-wave-3]', this.$el);
     $('.site', this.$el).attr('src', this.getRandomElement(images));
 
-    const askForServiceButton = $('#ask-for-service-button', this.$el);
+    const askForServiceButton = $('.ask-for-service-button', this.$el);
     renderReactComponent(
       askForServiceButton,
       AskForServiceButtonWrappered,
       {
-        className: 'ask-for-service-buttons',
         options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ ask for service body' }]
       },
     );
