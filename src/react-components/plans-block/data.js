@@ -62,7 +62,7 @@ const compareTableTitles = {
   },
   additionalSupport: {
     id: 'additionalSupport',
-    name: 'Additional technical support hours',
+    name: 'Additional technical support',
     info: <span>
       If your usage exceeds the specified quantity of technical support hours included into the subscription package, you will need to pay for the exceeding amount at pay-as-you-go system.<br/>
       <br/>
@@ -142,6 +142,7 @@ const plansData = [
       storage: '100 Gb',
       retention: '12 months',
       support: '5',
+      additionalSupport: '$150/h',
       features: true,
     },
   },
@@ -153,7 +154,7 @@ const plansData = [
       storage: '1 Tb',
       retention: '5 years',
       support: '10',
-      additionalSupport: '$150/ hour',
+      additionalSupport: '$150/h',
       features: true,
     },
   },
@@ -169,6 +170,7 @@ const plansData = [
         value: 'Dedicated\n' +
         'specialist',
       },
+      additionalSupport: '$150/h',
       features: true,
     },
   },

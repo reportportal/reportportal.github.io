@@ -125,7 +125,8 @@
 .pseudo-table {
   display: none;
   flex-direction: column;
-  width: max-content;
+  width: 100%;
+  max-width: max-content;
   margin: 12px auto 0;
   padding-top: 47px;
   padding-bottom: 36px;
@@ -141,29 +142,45 @@
 }
 
 .plan-summary {
+  width: calc(100% - 60px);
+  height: max-content;
   margin: 0 auto 39px;
-  width: 100%;
+  padding: 0 30px;
 }
 
 .row-status {
-  display: inline-block;
-  height: 18px;
-  width: 18px;
-  background: url('../img/checkMarkBlue.svg') no-repeat;
-  margin-right: 8px;
+  height: auto;
+  margin: auto 18px auto 0;
+
+  i {
+    display: block;
+    height: 18px;
+    width: 18px;
+    background: url('../img/checkMarkBlue.svg') no-repeat;
+  }
+}
+
+.row-text {
+  max-width: calc(100% - 58px);
 }
 
 .info-with-tooltip {
-  height: 16px;
+  height: auto;
+  margin: auto 0;
+
+  i {
+    bottom: 0;
+  }
 }
 
 .plan-row {
+  display: flex;
   margin-top: 6px;
 
   &.disable {
     color: $COLOR-TEXT-INFO;
 
-    .row-status {
+    .row-status i {
       background: url('../img/crossGray.svg') no-repeat;
     }
   }
