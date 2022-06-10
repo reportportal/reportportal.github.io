@@ -114,26 +114,46 @@ const PlansBlock = () => {
         const rows = titles.map(({ id, name, info }, index ) => {
           let option = options[id];
           let currentName = name;
-          if (id === 'support') {
-            if (option) {
-              option = typeof option === 'object'
-                ? option.value
-                : `${option} hours`;
-            } else {
-              option = '';
-            }
-            currentName = 'Technical support';
+          let preposition = ' of ';
+          switch (id) {
+            case 'support':
+              if (!option) {
+                option = '';
+                currentName = 'Technical support';
+                break;
+              }
+
+              if (typeof option === 'object') {
+                option = option.value;
+                currentName = '';
+              } else {
+                option = `${option} hours`;
+                currentName = 'Technical support';
+              }
+              break;
+            case 'additionalSupport':
+              preposition = ' for ';
+              break;
+            case 'professionalSupport':
+              option = `${option} hours`;
+              currentName = 'Professional service';
+              break;
+            default:
           }
 
           return <div key={index} className={cx('plan-row', { disable: !option })}>
-            <i className={cx('row-status')} />
-            {option && option !== true &&
-              <>
-                <span className={cx('option')}>{option}</span>
-                {' of '}
-              </>
-            }
-            {currentName}
+            <div className={cx('row-status')}>
+              <i/>
+            </div>
+            <div className={cx('row-text')}>
+              {option && option !== true &&
+                <>
+                  <span className={cx('option')}>{option}</span>
+                  {currentName && preposition}
+                </>
+              }
+              {currentName}
+            </div>
             {!!option && info &&
               <InfoWithTooltip className={cx('info-with-tooltip')} tooltip={info} onClick={() => onInfoClick(currentName, info)}>
                 {() => <InfoIcon/>}
@@ -148,7 +168,7 @@ const PlansBlock = () => {
       return <div className={cx('pseudo-table-wrapper')}>
         <div className={cx('pseudo-table')}>
           {plans}
-          <div className={cx('note')}>{selectedPlanType.footerDescription}</div>
+          <div className={cx('note')}>Payment is made quarterly</div>
           <a className={cx('terms')} target="_blank" href='https://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
             Terms & Conditions
           </a>
