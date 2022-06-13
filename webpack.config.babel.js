@@ -103,7 +103,7 @@ module.exports = (env = defaultEnv) => ({
         ],
       },
       {
-        test: /\.(gif|png|jpg|svg|woff|woff2|ttf|eot)$/,
+        test: /\.(gif|png|jpg|svg|woff|woff2|ttf|eot|md)$/,
         type: 'asset/resource',
       },
       {
@@ -143,6 +143,11 @@ module.exports = (env = defaultEnv) => ({
           }),
         ]
       : []),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/resources', to: 'downloads' },
+      ],
+    }),
   ],
   devtool: env.dev ? 'inline-source-map' : false,
   devServer: {

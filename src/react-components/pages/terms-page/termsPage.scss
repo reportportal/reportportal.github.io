@@ -1,0 +1,91 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.terms-page {
+  width: 100%;
+  font-family: $FONT-REGULAR;
+  color: $COLOR-STEEL-GREY;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.content {
+  max-width: 956px;
+  margin: auto;
+  padding-bottom: 64px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.title {
+  height: 190px;
+  background: url(../../img/termsBackground.svg) no-repeat center;
+  background-size: cover;
+  font-size: 42px;
+  line-height: 190px;
+  text-align: center;
+  color: $COLOR-BACKGROUND-POPUP;
+  margin-bottom: 40px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+
+.download-button {
+  display: inline-block;
+  margin-bottom: 40px;
+  width: 258px;
+}
+
+.markdown {
+  p {
+    padding-bottom: 40px;
+  }
+
+  strong, b {
+    font-family: $FONT-HEADER;
+  }
+
+  h1 {
+    font-family: $FONT-LIGHT;
+    padding-bottom: 16px;
+    font-size: 24px;
+    line-height: 36px;
+    color: $COLOR-TOPAZ;
+  }
+}
+
+@media all and (max-width: $TABLET_MAX) {
+  .content {
+    margin: auto 77px;
+  }
+}
+
+@media all and (max-width: $MOBILE_MAX) {
+  .title {
+    vertical-align: middle;
+    padding: 0 16px 32px;
+  }
+
+  .content {
+    margin: auto 16px;
+  }
+}

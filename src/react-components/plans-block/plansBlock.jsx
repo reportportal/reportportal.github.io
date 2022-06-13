@@ -138,6 +138,12 @@ const PlansBlock = () => {
               option = `${option} hours`;
               currentName = 'Professional service';
               break;
+            case 'storage':
+            case 'retention':
+              if(option === 'Unlimited') {
+                preposition = ' ';
+              }
+              break;
             default:
           }
 
