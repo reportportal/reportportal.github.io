@@ -35,22 +35,20 @@ const TermsPage = () => {
   }, []);
 
   return (
-    <BodyLayout className={cx('terms-page-wrapper')}>
-      <div className={cx('terms-page')}>
-        <div className={cx('title')}>Terms and Conditions</div>
-        <div className={cx('content')}>
-          <div className={cx('description')}>The following Terms and Conditions (“Terms”) govern Customer’s use of the
-            Report Portal Platform and any Services provided by Test IO, Inc (“Test IO”). The Report Portal Platform and
-            any other software is licensed and not sold.
-          </div>
-          <a href='/downloads/ReportPortal%20Terms%20of%20Service.pdf' download>
-            <Button className={cx('download-button')} variant={'light'}>Download Term and Conditions</Button>
-          </a>
-          <div className={cx('markdown')}>
-            <ReactMarkdown>
-              {termsMarkdownText}
-            </ReactMarkdown>
-          </div>
+    <BodyLayout className={cx('terms-page')}>
+      <div className={cx('title')}>Terms and Conditions</div>
+      <div className={cx('content')}>
+        <div className={cx('description')}>The following Terms and Conditions (“Terms”) govern Customer’s use of the
+          Report Portal Platform and any Services provided by Test IO, Inc (“Test IO”). The Report Portal Platform and
+          any other software is licensed and not sold.
+        </div>
+        <a href='/downloads/ReportPortal%20Terms%20of%20Service.pdf' download>
+          <Button className={cx('download-button')} variant={'light'}>Download Term and Conditions</Button>
+        </a>
+        <div className={cx('markdown')}>
+          <ReactMarkdown>
+            {termsMarkdownText}
+          </ReactMarkdown>
         </div>
       </div>
     </BodyLayout>

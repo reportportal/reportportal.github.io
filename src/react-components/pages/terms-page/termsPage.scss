@@ -20,16 +20,6 @@
   color: $COLOR-STEEL-GREY;
   font-size: 16px;
   line-height: 24px;
-
-  strong, b {
-    font-family: $FONT-HEADER;
-  }
-
-  h1 {
-    font-size: 24px;
-    line-height: 36px;
-    color: $COLOR-TOPAZ;
-  }
 }
 
 .content {
@@ -66,13 +56,20 @@
 }
 
 .markdown {
+  p {
+    padding-bottom: 40px;
+  }
+
+  strong, b {
+    font-family: $FONT-HEADER;
+  }
+
   h1 {
     font-family: $FONT-LIGHT;
     padding-bottom: 16px;
-  }
-
-  p {
-    padding-bottom: 40px;
+    font-size: 24px;
+    line-height: 36px;
+    color: $COLOR-TOPAZ;
   }
 }
 
@@ -84,12 +81,8 @@
 
 @media all and (max-width: $MOBILE_MAX) {
   .title {
-    font-size: 32px;
-    line-height: 40px;
     vertical-align: middle;
-    display: table-cell;
     padding: 0 16px 32px;
-    width: $MOBILE_MAX;
   }
 
   .content {
