@@ -8,7 +8,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 const root = path.join(__dirname, '/');
 const defaultEnv = {
@@ -144,7 +143,7 @@ module.exports = (env = defaultEnv) => ({
           }),
         ]
       : []),
-    new CopyPlugin({
+    new CopyWebpackPlugin({
       patterns: [
         { from: 'src/resources', to: 'downloads' },
       ],
