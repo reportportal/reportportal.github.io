@@ -8,6 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const root = path.join(__dirname, '/');
 const defaultEnv = {
@@ -103,7 +104,7 @@ module.exports = (env = defaultEnv) => ({
         ],
       },
       {
-        test: /\.(gif|png|jpg|svg|woff|woff2|ttf|eot)$/,
+        test: /\.(gif|png|jpg|svg|woff|woff2|ttf|eot|md)$/,
         type: 'asset/resource',
       },
       {
@@ -143,6 +144,11 @@ module.exports = (env = defaultEnv) => ({
           }),
         ]
       : []),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/resources', to: 'downloads' },
+      ],
+    }),
   ],
   devtool: env.dev ? 'inline-source-map' : false,
   devServer: {

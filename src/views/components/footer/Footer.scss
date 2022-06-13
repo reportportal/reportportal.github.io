@@ -19,28 +19,34 @@
     color: $COLOR-CHARCOAL-GREY;
     display: flex;
     justify-content: space-between;;
-
-    .copy .epam-logo {
-      display: inline-block;
-      width: 40px;
-      height: 15px;
-      vertical-align: middle;
-      margin: 0 5px;
-      background: url(./img/epamLogo.svg) center no-repeat;
-      cursor: pointer;
-      text-align: center;
+    .copy {
+      min-width: max-content;
+      .epam-logo {
+        display: inline-block;
+        width: 40px;
+        height: 15px;
+        vertical-align: middle;
+        margin: 0 5px;
+        background: url(./img/epamLogo.svg) center no-repeat;
+        cursor: pointer;
+        text-align: center;
+      }
     }
-    .friends .jfrog {
-      background: url(./img/jfrog.svg);
-      background-size: contain;
-      width: 75px;
-      height: 20px;
-      display: inline-block;
-      background-repeat: no-repeat;
-      vertical-align: text-top;
-      margin-left: 5px;
+    .friends {
+      min-width: max-content;
+      .jfrog {
+        background: url(./img/jfrog.svg);
+        background-size: contain;
+        width: 75px;
+        height: 20px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        vertical-align: text-top;
+        margin-left: 5px;
+      }
     }
     .policy {
+      min-width: max-content;
       a {
         display: inline-block;
         height: 16px;
@@ -114,7 +120,7 @@
       padding-top: 25px;
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     height:auto;
     .icon-block {
       display: block;
