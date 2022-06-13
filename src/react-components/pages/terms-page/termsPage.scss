@@ -15,6 +15,7 @@
  */
 
 .terms-page {
+  width: 100%;
   font-family: $FONT-REGULAR;
   color: $COLOR-STEEL-GREY;
   font-size: 16px;
@@ -43,7 +44,8 @@
 
 .title {
   height: 190px;
-  background: url(../../img/termsBackground.svg) no-repeat center top / 1440px auto;
+  background: url(../../img/termsBackground.svg) no-repeat center;
+  background-size: cover;
   font-size: 42px;
   line-height: 190px;
   text-align: center;
