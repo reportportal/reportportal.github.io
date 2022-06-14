@@ -7,15 +7,14 @@
     .logo(data-js-logo)
       img(src=require("./img/logo.svg"))
     .right-block
-      button.ask-service(data-js-modal) Ask Service
-      a.try-demo(href='http://demo.reportportal.io' target="_blank") Try demo
-      .icons-block(data-js-social-container)
-      .git.social(data-js-top-github-stars-container, data-js-href="https://github.com/reportportal/reportportal")
-      a.menu-item.menu-item__community(data-js-link="community", href="/community") Community
-      a.menu-item(data-js-link="releases", href="/releases") Releases
-      a.menu-item(data-js-link="docs", href="/docs") Docs
-      a.menu-item(data-js-link="installation", href="/installation") Install
-      a.menu-item(data-js-link="features", href="/features") Features
+      #header-buttons
+      .menu-items
+        a.menu-item(data-js-link="features", href="/features") Features
+        a.menu-item(data-js-link="installation", href="/installation") Install
+        a.menu-item(data-js-link="docs", href="/docs") Docs
+        a.menu-item(data-js-link="releases", href="/releases") Releases
+        a.menu-item(data-js-link="pricing", href="/pricing") Pricing
+        a.menu-item(data-js-link="community", href="/community") Community
 .side-content
   .top-block
     .title MENU
@@ -23,7 +22,9 @@
     .menu-item.menu-item__index(data-js-link="installation") Installation
     .menu-item.menu-item__documentation(data-js-link="docs") Documentation
     .menu-item.menu-item__releases(data-js-link="releases") Releases
+    .menu-item.menu-item__community(data-js-link="pricing") Pricing
     .menu-item.menu-item__community(data-js-link="community") Community
+  #middle-block
   .bottom-block
     .title SHARE
     .icons-block

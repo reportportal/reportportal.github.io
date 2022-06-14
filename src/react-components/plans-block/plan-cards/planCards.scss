@@ -1,0 +1,46 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.plan-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding-bottom: 64px;
+  width: 100%;
+  justify-content: center;
+}
+
+@media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
+  .plan-cards {
+    display: inline-block;
+  }
+}
+
+@media all and (max-width: $MOBILE_MAX) {
+  .plan-cards {
+    display: inline-block;
+  }
+
+  .contact-form {
+    min-width: $MOBILE_MIN;
+    max-width: $MOBILE_MAX;
+    width: auto;
+    height: 100%;
+    margin: auto;
+    border-radius: 0;
+    overflow-y: auto;
+  }
+}

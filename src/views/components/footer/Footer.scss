@@ -1,8 +1,10 @@
 .footer {
   width: 100%;
+  max-width: 1920px;
   background: $COLOR--pale-grey;
   padding: 26px 10px 10px 10px;
   box-sizing: border-box;
+  margin: auto;
   .footer-content {
     position: relative;
     max-width: 1000px;
@@ -10,14 +12,15 @@
     height: 100%;
     margin: 0 auto;
   }
-  .copyright-block{
+  .copyright-block {
     overflow: hidden;
     margin-top: 25px;
     font-size: 12px;
     color: $COLOR-CHARCOAL-GREY;
+    display: flex;
+    justify-content: space-between;;
     .copy {
-      display: inline-block;
-      float: left;
+      min-width: max-content;
       .epam-logo {
         display: inline-block;
         width: 40px;
@@ -26,11 +29,12 @@
         margin: 0 5px;
         background: url(./img/epamLogo.svg) center no-repeat;
         cursor: pointer;
+        text-align: center;
       }
     }
-    .friends{
-      float: right;
-      .jfrog{
+    .friends {
+      min-width: max-content;
+      .jfrog {
         background: url(./img/jfrog.svg);
         background-size: contain;
         width: 75px;
@@ -41,10 +45,38 @@
         margin-left: 5px;
       }
     }
+    .policy {
+      min-width: max-content;
+      a {
+        display: inline-block;
+        height: 16px;
+        font-size: 12px;
+        font-family: $FONT-REGULAR;
+        text-decoration: none;
+        color: $COLOR-CHARCOAL-GREY;
+
+        &:visited {
+          color: $COLOR-CHARCOAL-GREY;
+        }
+
+        &:hover {
+          color: $COLOR-TOPAZ-DARK;
+        }
+      }
+
+      .separator {
+        height: 17px;
+        width: 1px;
+        background-color: $COLOR-CHARCOAL-GREY;
+        margin: 0 8px -3px 8px;
+        display: inline-block;
+      }
+    }
   }
   .socials-block {
     span {
-      font-size: 15px;
+      font-size: 13px;
+      line-height: 24px;
       a {
         text-decoration: none;
         color: $COLOR-TEALISH;
@@ -58,6 +90,24 @@
     .item-icon {
       display: inline-block;
       margin-left: 17px;
+
+      &.git {
+        margin-right: 9px;
+        cursor: pointer;
+        overflow: hidden;
+        width: auto;
+
+        .count-block {
+          margin-left: 5px;
+          background-color: $COLOR-WHITE_TWO;
+        }
+
+        &:hover {
+          .github-icon {
+            background: url(../../../common/img/social/icon-gh-hover.svg) center no-repeat;
+          }
+        }
+      }
     }
   }
   @media (max-width: 900px) {
@@ -69,43 +119,34 @@
       text-align: center;
       padding-top: 25px;
     }
-    .copy {
-      margin: 0 auto;
-      text-align: center;
-    }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     height:auto;
     .icon-block {
       display: block;
-      margin-top: 10px;
+      margin-top: 11px;
       .item-icon {
-        margin: 0 15px;
+        margin: 0 14px;
       }
     }
     .copy {
-      width: 290px;
       text-align: left;
       padding-top: 30px;
     }
-    .socials-block{
+    .socials-block {
       text-align: center;
     }
-    .copyright-block{
+    .copyright-block {
       margin: 0;
       text-align: center;
-      .copy{
+      display: block;
+      .copy, .friends, .policy {
         text-align: center;
-        float: unset;
         margin-top: 15px;
-        padding: 0;
         display: block;
       }
-      .friends{
-        float: unset;
-        text-align: center;
-        margin-top: 15px;
-        display: block;
+      .copy {
+        padding: 0;
       }
     }
   }

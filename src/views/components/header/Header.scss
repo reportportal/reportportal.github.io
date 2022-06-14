@@ -12,10 +12,7 @@
     height: 60px;
     width: 100%;
 
-    @media (max-width: $SCREEN_SM_MAX) {
-      height: 85px;
-    }
-    @media (max-width: $SCREEN_XS_MAX) {
+    @media (max-width: $TABLET_MAX) {
       height: 60px;
     }
 
@@ -26,7 +23,7 @@
 
     .header-content {
       height: 100%;
-      width: 1000px;
+      max-width: 1000px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -35,13 +32,7 @@
       -moz-box-sizing: border-box;
       box-sizing: border-box;
 
-      @media (max-width: $SCREEN_SM_MAX) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-      }
-      @media (max-width: $SCREEN_XS_MAX) {
+      @media (max-width: $TABLET_MAX) {
         display: block;
         padding-top: 0;
       }
@@ -55,7 +46,7 @@
         height: 60px;
         padding: 20px 15px;
 
-        @media (max-width: $SCREEN_XS_MAX) {
+        @media (max-width: $TABLET_MAX) {
           display: block;
         }
 
@@ -75,11 +66,7 @@
           vertical-align: middle;
         }
 
-        @media (max-width: $SCREEN_SM_MAX) {
-          margin: 0 0 5px 10px;
-        }
-
-        @media (max-width: $SCREEN_XS_MAX) {
+        @media (max-width: $TABLET_MAX) {
           margin: 0 auto;
           height: 60px;
           line-height: 60px;
@@ -89,14 +76,12 @@
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
+        width: 100%;
 
-        @media (max-width: $SCREEN_XS_MAX) {
+        @media (max-width: $TABLET_MAX) {
           display: none;
         }
 
-        & > * {
-          float: right;
-        }
         .icons-block {
           .header__social {
             margin-top: 2px;
@@ -105,91 +90,31 @@
             }
           }
         }
-        .git {
-          margin-right: 9px;
-          cursor: pointer;
-          overflow: hidden;
 
-          &:hover {
-            .github-icon {
-              background: url(../../../common/img/social/icon-gh-hover.svg) center no-repeat;
+        .menu-items {
+          margin-left: auto;
+          margin-right: auto;
+
+          .menu-item {
+            padding: 8px 0;
+            font-size: 15px;
+            color: $COLOR-STEEL-GREY;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 6px;
+
+            &.active {
+              font-family: $FONT-HEADER;
             }
-          }
-        }
 
-        .menu-item {
-          padding: 8px 0;
-          font-size: 15px;
-          color: $COLOR-STEEL-GREY;
-          cursor: pointer;
-          text-align: center;
-          text-decoration: none;
-          margin: 0 6px;
-          &.menu-item__community{
-            margin-right: 16px;
-          }
-          &.active {
-            font-family: $FONT-HEADER;
-          }
+            @media (max-width: $MOBILE_MAX) {
+              margin: 0 7px;
 
-          @media (max-width: $SCREEN_SM_MAX) {
-            margin: 0 7px;
-
-            &.menu-item__community{
-              margin-right: 15px;
+              &.menu-item__community {
+                margin-right: 15px;
+              }
             }
-          }
-        }
-        .try-demo{
-          box-sizing: border-box;
-          width: 117px;
-          margin-left: 10px;
-          border-radius: 3px;
-          border: 1px solid $COLOR-TOPAZ;
-          color: $COLOR-TOPAZ;
-          font-size: 15px;
-          text-align: center;
-          line-height: 32px;
-          text-decoration: none;
-          &:hover{
-            color: $COLOR-TOPAZ;
-            border-color: $COLOR-TOPAZ;
-          }
-          @media(max-width: $SCREEN_SM_MAX){
-            width: auto;
-            padding: 0 7px;
-            margin-left: 0;
-            margin-right: 10px;
-          }
-          @media (max-width: $SCREEN_XS_MAX) {
-            display: none;
-          }
-        }
-        .ask-service {
-          box-sizing: border-box;
-          width: 117px;
-          margin-left: 10px;
-          padding: 0;
-          border-radius: 3px;
-          color: $COLOR-WHITE_TWO;
-          background-color: $COLOR-TEALISH;
-          border: 1px solid $COLOR-TEALISH;
-          font-size: 15px;
-          text-align: center;
-          line-height: 32px;
-          cursor: pointer;
-          &:hover{
-            background-color: $COLOR-TOPAZ;
-            border-color: $COLOR-TEALISH;
-          }
-          @media(max-width: $SCREEN_SM_MAX){
-            width: auto;
-            padding: 0 7px;
-            margin-left: 0;
-            margin-right: 10px;
-          }
-          @media (max-width: $SCREEN_XS_MAX) {
-            display: none;
           }
         }
       }
@@ -205,9 +130,9 @@
     background-color: $COLOR-WHITE_TWO;
     box-shadow: 0 1px 5px 0 rgba(189, 199, 204, 0.9);
     z-index: 10;
+    overflow: hidden;
     .top-block {
-      position: absolute;
-      top: 0;
+      position: relative;
       width: 100%;
       .title {
         width: 100%;
@@ -244,6 +169,12 @@
           font-family: $FONT-HEADER;
         }
       }
+    }
+    #middle-block {
+      position: relative;
+      width: 100%;
+      margin-top: 18px;
+      padding-bottom: 160px;
     }
     .bottom-block {
       position: absolute;
@@ -283,6 +214,9 @@
             &.git {
               width: 100px;
               padding: 15px 13px;
+              .count-block {
+                display: block;
+              }
             }
             &.slack {
               background: url(../../../common/img/social/icon-sl.svg) center no-repeat;
@@ -302,18 +236,22 @@
             &.mail {
               background: url(../../../common/img/social/icon-mail.svg) center no-repeat;
             }
-
           }
         }
-
       }
     }
   }
 }
 .side-open {
+  .side-content {
+    min-height: 630px;
+    overflow: unset;
+  }
+
   .side-content-close {
     width: 100%;
     height: 100%;
+    min-height: 630px;
     position: absolute;
     z-index: 10;
   }

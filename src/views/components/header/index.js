@@ -3,10 +3,10 @@ import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import template from './Header.jade';
 import './Header.scss';
-import AskServiceModal from 'components/modals/askServiceModal';
 
-import HeaderSocial from './__social';
 import GitHubStarsCount from 'components/gitHubStarsCount';
+import HeaderButtons from 'react-components/header/header-buttons/headerButtons.jsx';
+import renderReactComponent from 'utils/backboneReactRender';
 
 const WITHOUT_SHADOW_CLASS = 'without-shadow';
 
@@ -16,7 +16,7 @@ export default Epoxy.View.extend({
   events: {
     'click [data-js-link]': 'onClickLink',
     'click [data-js-toggle-sideblock]': 'onClickToggleSideblock',
-    'click [data-js-side-content-close]': 'onClickCloseSideblock',
+    'click [data-js-side-content-close]': 'closeSideBlock',
     'click [data-js-href]': 'openSocial',
     'click [data-js-logo]': 'onClickLogo',
     'click [data-js-modal]': 'onClickAskService',
@@ -24,12 +24,8 @@ export default Epoxy.View.extend({
   initialize(options) {
     this.mainScrollEl = options.mainScrollEl;
     this.renderTemplate();
-    this.headerSocial = new HeaderSocial();
-    $('[data-js-social-container]', this.$el).html(this.headerSocial.$el);
     this.gitHubStarsCount = new GitHubStarsCount();
     $('[data-js-github-stars-container]', this.$el).html(this.gitHubStarsCount.$el);
-    this.gitTopHubStarsCount = new GitHubStarsCount();
-    $('[data-js-top-github-stars-container]', this.$el).html(this.gitTopHubStarsCount.$el);
     this.scrollActivePage = false;
     this.mainScrollEl.scroll((e) => {
       if (this.scrollActivePage) {
@@ -40,28 +36,28 @@ export default Epoxy.View.extend({
         }
       }
     });
+    const headerButtons = $('#header-buttons', this.$el);
+    const middleBlock = $('#middle-block', this.$el);
+    renderReactComponent(headerButtons, HeaderButtons);
+    renderReactComponent(middleBlock, HeaderButtons, { onOpen: this.closeSideBlock });
+  },
+  closeSideBlock() {
+    $('body').removeClass('side-open');
   },
   onClickLink(e) {
     e.preventDefault();
-    $('body').removeClass('side-open');
+    this.closeSideBlock();
     const link = $(e.currentTarget).data('js-link') || '';
     Router.navigate(link, { trigger: true });
   },
   onClickToggleSideblock() {
     $('body').toggleClass('side-open');
   },
-  onClickCloseSideblock() {
-    $('body').removeClass('side-open');
-  },
   onClickLogo() {
     Router.navigate('#', { trigger: true });
     this.mainScrollEl.stop().animate({
       scrollTop: 0,
     }, 500, 'swing');
-  },
-  onClickAskService(e) {
-    e.preventDefault();
-    Router.modals.show(new AskServiceModal());
   },
   openSocial(e) {
     $(e.currentTarget).hasClass('mail')

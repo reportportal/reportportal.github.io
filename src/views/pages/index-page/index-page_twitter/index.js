@@ -47,24 +47,19 @@ export default IndexPageSection.extend({
     parseEntitie(entities.hashtags, entity => `<a data-js-social-link target="_blank" href="https://twitter.com/hashtag/${entity.text}">#${entity.text}</a>`);
     parseEntitie(entities.media, entity => `<a data-js-social-link target="_blank" href="${entity.url}">${entity.display_url}</a>`);
     replaceObjects.sort((a, b) => a.start - b.start);
-    currentReplaceObject = replaceObjects.shift();
     _.each(text, (letter, index) => {
       if (!currentReplaceObject && replaceObjects.length) {
         currentReplaceObject = replaceObjects.shift();
       }
+
       if (!currentReplaceObject || index < currentReplaceObject.start) {
         result += letter;
-        return true;
-      }
-      if (currentReplaceObject.start === index) {
+      } else if (currentReplaceObject.start === index) {
         result += currentReplaceObject.html;
-        return true;
-      }
-      if (index >= currentReplaceObject.end) {
-        result += letter;
+      } else if (index >= currentReplaceObject.end) {
         currentReplaceObject = null;
+        result += ' ';
       }
-      return true;
     });
     return result.replace(/\n/g, '<br>');
   },

@@ -15,6 +15,7 @@ const defaultEnv = {
   proxyDocumentation: false,
   production: false,
 };
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env = defaultEnv) => ({
   mode: process.env.production ? 'production' : 'development',
@@ -24,8 +25,10 @@ module.exports = (env = defaultEnv) => ({
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.[contenthash:6].js',
     assetModuleFilename: 'resources/[name].[contenthash:6][ext]',
+    clean: true,
   },
   resolve: {
+    extensions: ['.js', '.jsx', '.scss'],
     alias: {
       modernizr: path.resolve(__dirname, '.modernizrrc'),
       router: path.resolve(__dirname, 'src/router'),
@@ -33,16 +36,16 @@ module.exports = (env = defaultEnv) => ({
       components: path.resolve(__dirname, 'src/views/components'),
       utils: path.resolve(__dirname, 'src/utils'),
       common: path.resolve(__dirname, 'src/common'),
+      'react-components': path.resolve(__dirname, 'src/react-components'),
     },
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env'],
           cacheDirectory: path.join(root, '.cache'),
         },
       },
@@ -55,26 +58,52 @@ module.exports = (env = defaultEnv) => ({
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc)ss$/,
+        exclude: path.resolve(__dirname, './src/react-components/'),
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { sourceMap: env.dev } },
-          { loader: 'sass-loader', options: { sourceMap: env.dev } },
+          'sass-loader',
           {
             loader: 'sass-resources-loader',
             options: {
               resources: [
                 path.resolve(__dirname, 'src/common/css/variables/**/*.scss'),
                 path.resolve(__dirname, 'src/common/css/mixins.scss'),
-              ]
+              ],
             },
           },
         ],
       },
       {
-        test: /\.(gif|png|jpg|svg|woff|woff2|ttf|eot)$/,
+        test: /\.(sa|sc)ss$/,
+        include: path.resolve(__dirname, 'src/react-components/'),
+        exclude: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]--[contenthash:base64:5]',
+              },
+              importLoaders: 1,
+            },
+          },
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.resolve(__dirname, 'src/common/css/variables/**/*.scss'),
+                path.resolve(__dirname, 'src/common/css/mixins.scss'),
+              ],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(gif|png|jpg|svg|woff|woff2|ttf|eot|md)$/,
         type: 'asset/resource',
       },
       {
@@ -84,30 +113,41 @@ module.exports = (env = defaultEnv) => ({
     ],
   },
   plugins: [
+    new Dotenv(),
     new MiniCssExtractPlugin({ filename: '[name].[fullhash:6].css' }),
-    new HtmlWebpackPlugin({ template: './src/index.jade' }),
+    new HtmlWebpackPlugin({
+      template: './src/index.jade',
+      favicon: './src/common/img/favicon.ico',
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new WebpackNotifierPlugin({ skipFirstNotification: true }),
     new webpack.DefinePlugin({
       LOCAL_DOCUMENTATION: JSON.stringify(env.proxyDocumentation),
     }),
-    ...env.production ? [
-      new CleanWebpackPlugin(),
-      new CopyWebpackPlugin({
-        patterns: [
-          { from: 'CNAME' },
-          { from: 'sitemap.xml' },
-          { from: 'google95cc3d56e1325c3b.html' },
-          { from: 'src/404.html' },
-        ],
-      }),
-      new CompressionPlugin({
-        filename: '[path][base].gz',
-        algorithm: 'gzip',
-        threshold: 10240,
-        minRatio: 0.8,
-      }),
-    ] : [],
+    ...(env.production
+      ? [
+          new CleanWebpackPlugin(),
+          new CopyWebpackPlugin({
+            patterns: [
+              { from: 'CNAME' },
+              { from: 'sitemap.xml' },
+              { from: 'google95cc3d56e1325c3b.html' },
+              { from: 'src/404.html' },
+            ],
+          }),
+          new CompressionPlugin({
+            filename: '[path][base].gz',
+            algorithm: 'gzip',
+            threshold: 10240,
+            minRatio: 0.8,
+          }),
+        ]
+      : []),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/resources', to: 'downloads' },
+      ],
+    }),
   ],
   devtool: env.dev ? 'inline-source-map' : false,
   devServer: {
@@ -124,33 +164,39 @@ module.exports = (env = defaultEnv) => ({
       aggregateTimeout: 200,
       poll: 1000,
     },
-    proxy: env.proxyDocumentation ? {
-      '/documentation.html*': {
-        target: 'http://localhost:9020/',
-        bypass(req, res, options) {
-          console.log(`proxy url: ${req.url}`);
-        },
-      },
-      '/docs/Images/**': {
-        pathRewrite: { '^/docs': '' },
-        target: 'http://localhost:9020/',
-        bypass(req, res, options) {
-          console.log(`proxy url: ${req.url}`);
-        },
-      },
-    } : {},
-
+    proxy: env.proxyDocumentation
+      ? {
+          '/documentation.html*': {
+            target: 'http://localhost:9020/',
+            bypass(req, res, options) {
+              console.log(`proxy url: ${req.url}`);
+            },
+          },
+          '/docs/Images/**': {
+            pathRewrite: { '^/docs': '' },
+            target: 'http://localhost:9020/',
+            bypass(req, res, options) {
+              console.log(`proxy url: ${req.url}`);
+            },
+          },
+        }
+      : {},
   },
   optimization: {
     minimize: !!env.production,
-    minimizer: env.production ? [new TerserPlugin({
-      terserOptions: {
-        format: {
-          comments: false,
-        },
-      },
-      extractComments: false,
-    }), new CssMinimizerPlugin()] : [],
+    minimizer: env.production
+      ? [
+          new TerserPlugin({
+            terserOptions: {
+              format: {
+                comments: false,
+              },
+            },
+            extractComments: false,
+          }),
+          new CssMinimizerPlugin(),
+        ]
+      : [],
   },
   performance: {
     hints: false,

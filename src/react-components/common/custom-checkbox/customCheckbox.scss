@@ -1,0 +1,92 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.custom-checkbox {
+  input {
+    display: none;
+  }
+
+  .checkbox {
+    display: block;
+    height: 12px;
+    width: 12px;
+    background: $COLOR-WHITE_TWO;
+    border-radius: 3px;
+    border: solid 2px $COLOR-TEXT-INFO;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  &.checked {
+    .checkbox {
+      background: $COLOR-TOPAZ;
+      border-color: $COLOR-TOPAZ;
+    }
+
+    .checkmark {
+      height: 12px;
+      width: 12px;
+      background: url('../../img/checkmarkForCheckbox.svg') center no-repeat;
+    }
+  }
+
+  &:hover:not(.disabled) {
+    .checkbox {
+      border-color: $COLOR-STEEL-GREY;
+    }
+
+    &.checked {
+      .checkbox {
+        background: $COLOR-TEALISH;
+        border-color: $COLOR-TEALISH;
+      }
+    }
+  }
+
+  &:active:not(.disabled) {
+    .checkbox {
+      background: $COLOR-TEALISH;
+      border-color: $COLOR-TEALISH;
+    }
+  }
+
+  &.disabled {
+    .checkbox {
+      background: $COLOR-WHITE_TWO;
+      border-color: $COLOR-TEXT-INFO;
+    }
+    &.checked {
+      .checkmark {
+        background: url('../../img/checkmarkForCheckboxDisable.svg') center no-repeat;
+      }
+    }
+  }
+}
+
+@media all and (max-width: $SCREEN_XS_MAX) {
+  .custom-checkbox {
+    margin-top: 8px;
+    margin-left: 8px;
+  }
+
+  .checkbox {
+    transform: scale(2);
+
+    &:hover {
+      background: $COLOR-WHITE_TWO;
+      border-color: $COLOR-TEXT-INFO;
+    }
+  }
+}

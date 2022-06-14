@@ -1,0 +1,379 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.plan-switcher {
+  width: 618px;
+  margin: auto;
+}
+
+.icon {
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 4px;
+  transition: background 0.3s;
+
+  &.cloud {
+    background: url('../img/cloud.svg') no-repeat;
+
+    &.active {
+      background: url('../img/cloudActive.svg') no-repeat;
+    }
+  }
+
+  &.home {
+    background: url('../img/home.svg') no-repeat;
+
+    &.active {
+      background: url('../img/homeActive.svg') no-repeat;
+    }
+  }
+}
+
+.switcher-name {
+  display: inline-block;
+}
+
+.selected-plan-name {
+  display: none;
+}
+
+.period-switcher, .simple-period-switcher {
+  margin: 8px 45px 8px auto;
+}
+
+.with-point, .simple-period-switcher {
+  margin-top: 40px;
+}
+
+.simple-period-switcher {
+  display: inline-block;
+  float: right;
+}
+
+.period-switcher-name {
+  display: inline-block;
+  font-family: $FONT-REGULAR;
+  font-size: 14px;
+  line-height: 20px;
+  color: $COLOR-STEEL-GREY;
+}
+
+.table-header {
+  font-family: $FONT-LIGHT;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  color: $COLOR-STEEL-GREY;
+  width: fit-content;
+  margin: auto;
+  cursor: pointer;
+}
+
+.condition-icon {
+  background: url('../img/plus.svg') no-repeat 0 2px;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  padding-right: 8px;
+  transition: background 0.3s;
+
+  &:hover {
+    background: url('../img/plusHover.svg') no-repeat 0 2px;
+  }
+}
+
+.compare-plans-table {
+  display: table;
+  opacity: 0;
+  margin: 58px auto auto;
+  width: 956px;
+  visibility: collapse;
+  transition: opacity 0.6s;
+}
+
+.pseudo-table-wrapper {
+  background: $COLOR--pale-grey;
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.6s, max-height 0.6s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 19px);
+    top: 48px;
+    border: 19px solid transparent;
+    border-top: 19px solid $COLOR-WHITE_TWO;
+  }
+}
+
+.pseudo-table {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  max-width: max-content;
+  margin: 12px auto 0;
+  padding-top: 47px;
+  padding-bottom: 36px;
+
+  .terms, .note {
+    width: 100%;
+    text-align: center;
+  }
+
+  .note {
+    margin-bottom: 8px;
+  }
+}
+
+.plan-summary {
+  width: calc(100% - 60px);
+  height: max-content;
+  margin: 0 auto 39px;
+  padding: 0 30px;
+}
+
+.row-status {
+  height: auto;
+  margin: auto 18px auto 0;
+
+  i {
+    display: block;
+    height: 18px;
+    width: 18px;
+    background: url('../img/checkMarkBlue.svg') no-repeat;
+  }
+}
+
+.row-text {
+  max-width: calc(100% - 58px);
+}
+
+.info-with-tooltip {
+  height: auto;
+  margin: auto 0;
+
+  i {
+    bottom: 0;
+  }
+}
+
+.plan-row {
+  display: flex;
+  margin-top: 6px;
+
+  &.disable {
+    color: $COLOR-TEXT-INFO;
+
+    .row-status i {
+      background: url('../img/crossGray.svg') no-repeat;
+    }
+  }
+}
+
+.option {
+  font-family: $FONT-HEADER;
+}
+
+.table-wrapper {
+  height: 0;
+}
+
+.comparison-table {
+  padding-bottom: 28px;
+  position: relative;
+
+  &.open {
+    .table-wrapper {
+      height: auto;
+    }
+
+    .condition-icon {
+      background: url('../img/minus.svg') no-repeat 0 2px;
+
+      &:hover {
+        background: url('../img/minusHover.svg') no-repeat 0 2px;
+      }
+    }
+
+    .compare-plans-table {
+      visibility: visible;
+      opacity: 1;
+      margin-bottom: 58px;
+    }
+
+    .pseudo-table-wrapper {
+      opacity: 1;
+      max-height: 1080px;
+    }
+
+    .pseudo-table {
+      display: flex;
+    }
+  }
+}
+
+.true-icon {
+  width: 24px;
+  height: 24px;
+  background: url('../img/checkmark.svg') no-repeat 0 4px;
+  margin: auto;
+}
+
+.inline-title {
+  width: 380px;
+  text-align: left;
+  padding-left: 18px;
+}
+
+.footer-row {
+  width: auto;
+  padding: 0 42px 10px;
+}
+
+.terms {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 16px;
+  color: $COLOR-TEXT-INFO;
+  text-decoration: underline;
+  text-align: left;
+  width: 50%;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $COLOR-TEALISH;
+  }
+}
+
+.note {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  color: $COLOR-TEXT-INFO;
+  width: 50%;
+}
+
+.description {
+  max-width: 792px;
+  margin: auto;
+  display: flex;
+  padding-bottom: 104px;
+}
+
+.name {
+  font-family: $FONT-LIGHT;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  color: $COLOR-TOPAZ;
+  padding-right: 16px;
+  width: fit-content;
+  white-space: nowrap;
+  margin-top: -7px;
+  flex: 0 0 auto;
+}
+
+.text {
+  font-family: $FONT-LIGHT;
+  font-size: 16px;
+  line-height: 24px;
+  color: $COLOR-STEEL-GREY;
+  max-width: 642px;
+  flex: 0 1 auto;
+}
+
+@media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
+  .period-switcher, .simple-period-switcher {
+    margin: 17px auto 64px;
+  }
+
+  .simple-period-switcher {
+    width: 100%;
+    text-align: center;
+  }
+
+  .comparison-table {
+    padding-bottom: 64px;
+  }
+
+  .description {
+    margin: auto;
+    max-width: 610px;
+  }
+
+  .name {
+    width: 138px;
+    margin-right: 20px;
+    white-space: unset;
+  }
+
+  .dash {
+    display: none;
+  }
+}
+
+@media all and (max-width: $MOBILE_MAX) {
+  .plan-switcher {
+    width: auto;
+    margin: auto 16px;
+
+    .switcher-name {
+      display: none;
+    }
+  }
+
+  .selected-plan-name {
+    display: block;
+    color: $COLOR-STEEL-GREY;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 8px;
+    text-align: center;
+    font-family: $FONT-REGULAR;
+    margin-bottom: 77px;
+  }
+
+  .period-switcher, .simple-period-switcher {
+    margin: 53px auto 24px;
+  }
+
+  .simple-period-switcher {
+    width: 100%;
+    text-align: center;
+  }
+
+  .comparison-table {
+    padding-bottom: 35px;
+  }
+
+  .description {
+    display: block;
+    padding: 0 16px 54px;
+  }
+
+  .name {
+    padding-bottom: 8px;
+  }
+
+  .dash {
+    display: none;
+  }
+}

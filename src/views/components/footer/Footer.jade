@@ -7,11 +7,18 @@
       .item-icon.icon-yt(data-js-href="https://www.youtube.com/c/ReportPortal")
       .item-icon.icon-vk(data-js-href="https://vk.com/reportportal_io")
       .item-icon.icon-sl(data-js-href="https://reportportal-slack-auto.herokuapp.com/")
-      .item-icon.icon-gh(data-js-href="https://github.com/reportportal/reportportal")
+      .item-icon.git.social(data-js-top-github-stars-container, data-js-href="https://github.com/reportportal/reportportal")
   .copyright-block
-    span.copy
+    .copy
       | Sponsored by
       div.epam-logo(data-js-epam-logo)
       | Licensed under Apache v2.0
-    span.friends
-      | Friends with <i class='jfrog'/>
+    .friends
+      | Friends with
+      i.jfrog
+    .policy
+      a.privacy(href='https://privacy.epam.com/core/interaction/showpolicy?type=CommonPrivacyPolicy' target='_blank') Privacy Policy
+      .separator
+      a.cookie(href='https://privacy.epam.com/core/interaction/showpolicy?type=CommonCookiePolicy' target='_blank') Cookie Policy
+      .separator
+      a.terms(href='/legal/terms' target='_blank') Terms & Conditions

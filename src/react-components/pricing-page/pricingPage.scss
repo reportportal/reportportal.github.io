@@ -1,0 +1,70 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.pricing-page-wrapper {
+  max-width: 1920px;
+  margin: auto;
+  background: url(../img/backgroundPricingPageFullHD.svg) no-repeat center top / 100% auto,
+              url(../img/backgroundBlue.svg) repeat-x left bottom / auto 487px;
+}
+
+.pricing-page {
+  width: 1000px;
+  margin: auto;
+}
+
+.pricing-page-header {
+  width: 550px;
+  margin: 0 auto;
+  padding-top: 64px;
+  padding-bottom: 56px;
+  font-family: $FONT-HEADER;
+  font-size: 42px;
+  line-height: 54px;
+  text-align: center;
+  color: $COLOR-STEEL-GREY;
+  white-space: pre-line;
+}
+
+@media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
+  .pricing-page {
+    width: 100%;
+    max-width: 1024px;
+  }
+
+  .pricing-page-wrapper {
+    background-size: auto 350px;
+  }
+}
+
+@media all and (max-width: $MOBILE_MAX) {
+  .pricing-page {
+    min-width: $MOBILE_MIN;
+    width: 100%;
+    max-width: 767px;
+  }
+
+  .pricing-page-header {
+    width: auto;
+    font-size: 26px;
+    line-height: 36px;
+    padding: 70px 32px 47px;
+  }
+
+  .pricing-page-wrapper {
+    background-size: auto 350px;
+  }
+}
