@@ -36,15 +36,15 @@ const compareTableTitles = {
     info: <span>
       You can choose instance type:<br/>
       <br/>
-      <b>Shared instance</b> you share a multi-tenant instance of application with other clients. Access limited on the project. Better for profitability.<br/>
+      <b>Shared instance:</b> you share a multi-tenant instance of application with other clients. Access limited on the project. Better for profitability.<br/>
       <br/>
-      <b>Dedicated instance</b> only your company is on this instance. Better for data isolation, simplified scalability, increased availability, personalization, company-based authorization.
+      <b>Dedicated instance:</b> only your company is on this instance. Better for data isolation, simplified scalability, increased availability, personalization, company-based authorization.
     </span>,
   },
   storage: {
     id: 'storage',
     name: 'Data storage',
-    info: 'This parameter defines how much data can be pulled into ReportPortal and saved in DB. The total amount of launches, tests, logs and attachments in Gb are defined on a daily basis. The system automatically deletes over-usage in DB.',
+    info: 'This parameter defines how much data can be pulled into ReportPortal and saved in DB. The total amount of launches, tests, logs and attachments in Gb is defined on a daily basis. The system automatically deletes over-usage in DB.',
   },
   retention: {
     id: 'retention',
@@ -75,7 +75,7 @@ const compareTableTitles = {
     id: 'features',
     name: 'Enterprise features',
     info: <span>
-      Additional features which are not available in a scope of the Free Open Source version, <a href="https://reportportal.io/docs/Enterprise-Features" target="_blank" rel="noreferrer">link to the List with features and description</a>
+      Additional features which are not available in a scope of the Free Open Source version, <a href="https://reportportal.io/docs/Enterprise-Features" target="_blank" rel="noreferrer">link to the List with features and description.</a>
     </span>,
   },
   minimumCommitment: {
