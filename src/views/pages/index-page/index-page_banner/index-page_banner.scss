@@ -1,0 +1,72 @@
+@import '../../pageSectionMixin';
+$COLOR-background: #F3FCFC;
+
+.index-page_banner {
+  .section-container {
+    @include content-section;
+  }
+
+  .banner-container {
+    position: relative;
+    max-width: 840px;
+    margin: 20px auto auto;
+    padding: 32px 16px;
+    background: $COLOR-background;
+    border: 2px solid $COLOR-TEALISH;
+    border-radius: 8px;
+    text-align: center;
+    color: $COLOR-CHARCOAL-GREY;
+    font-family: $FONT-REGULAR;
+  }
+
+  .title {
+    margin-bottom: 16px;
+    font-size: 42px;
+    line-height: 38px;
+    font-weight: 700;
+
+    @media (max-width: $SCREEN_SM_MIN) {
+      line-height: 46px;
+    }
+  }
+
+  .sub-title {
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .link {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 18px;
+    color: $COLOR-TOPAZ;
+    font-weight: 700;
+    transition: all ease 0.3s;
+
+    &:hover {
+      color: $COLOR-TEALISH;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 16px;
+    font-size: 32px;
+    color: $COLOR-TEALISH;
+    cursor: pointer;
+    transition: all ease 0.3s;
+
+    &:after {
+      content: '×';
+      display: block;
+      line-height: 16px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
