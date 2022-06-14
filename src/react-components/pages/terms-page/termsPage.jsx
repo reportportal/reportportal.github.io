@@ -36,7 +36,11 @@ const TermsPage = () => {
 
   return (
     <BodyLayout className={cx('terms-page')}>
-      <div className={cx('title')}>Terms and Conditions</div>
+      <div className={cx('background')}>
+        <div className={cx('title')}>
+          Terms and Conditions
+        </div>
+      </div>
       <div className={cx('content')}>
         <div className={cx('description')}>The following Terms and Conditions (“Terms”) govern Customer’s use of the
           Report Portal Platform and any Services provided by Test IO, Inc (“Test IO”). The Report Portal Platform and
