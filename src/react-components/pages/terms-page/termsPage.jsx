@@ -47,7 +47,7 @@ const TermsPage = () => {
           any other software is licensed and not sold.
         </div>
         <a href='/downloads/ReportPortal%20Terms%20and%20Conditions.pdf' download>
-          <Button className={cx('download-button')} variant={'light'}>Download Term and Conditions</Button>
+          <Button className={cx('download-button')} variant={'light'}>Download Terms and Conditions</Button>
         </a>
         <div className={cx('markdown')}>
           <ReactMarkdown>
