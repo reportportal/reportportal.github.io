@@ -180,7 +180,6 @@ const plansData = [
     options: {
       professionalSupport: '25',
       minimumCommitment: '6 months',
-      features: true,
     },
   },
   {
@@ -189,7 +188,6 @@ const plansData = [
     options: {
       professionalSupport: '60',
       minimumCommitment: '6 months',
-      features: true,
     },
   },
   {
