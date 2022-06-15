@@ -50,7 +50,7 @@ const MarketingAndTermsAgree = ({
         </div>
       </div>
       <div className={cx('marketing')}>
-        <FormFieldWrapper name='00N5t000000hwUy'>
+        <FormFieldWrapper name='00N7T000000i00E'>
           <CustomCheckbox
             className={cx('marketing-checkbox')}
           />
