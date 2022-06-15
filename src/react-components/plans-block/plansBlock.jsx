@@ -237,7 +237,7 @@ const PlansBlock = () => {
               withRevertColor
             />
           </div>
-          <div id='period-switcher-2'>
+          <div id='period-switcher-2' style={{ opacity: 0 }}>
             <Switcher
               className={cx('period-switcher', 'with-point')}
               itemsData={periodSwitcherData}
