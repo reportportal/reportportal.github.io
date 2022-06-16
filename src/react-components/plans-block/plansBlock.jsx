@@ -54,7 +54,7 @@ const PlansBlock = () => {
           id,
           element: <>
             <div className={cx('icon', { active: isActive }, iconType)} />
-            <div className={cx('switcher-name')}>{name}</div>
+            <div className={cx('switcher-name')} style={{ display: 'none' }}>{name}</div>
           </>,
           isActive,
         };
