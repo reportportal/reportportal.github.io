@@ -31,7 +31,7 @@ export default Epoxy.View.extend({
   },
   getDocumentationHtml() {
     const promiseProxy = $.Deferred();
-    let url = '//reportportal.io/documentation/';
+    let url = process.env.DOCUMENTATION_URL;
     if (LOCAL_DOCUMENTATION) {
       url = '/';
     }

@@ -465,9 +465,9 @@ export default {
     const regexp = /data-js-md-path="([A-Za-z0-9\-_/]*\.md)"/;
     const linkToMD = question.body.match(regexp);
     if (linkToMD && linkToMD[1] /* && !(linkToMD[1].indexOf('index.md') + 1) */) {
-      $docWrapper.append('<a href="'
-        + `https://github.com/reportportal/documentation/edit/master/${linkToMD[1].replace('/computeds', '')}`
-        + '" class="edit-on-github" target="_blank">'
+      $docWrapper.append(
+        `<a href="${process.env.DOCUMENTATION_BRANCH}${linkToMD[1].replace('/computeds', '')}"`
+        + 'class="edit-on-github" target="_blank">'
         + '<span>If you see inconsistencies, typos or want to add something, please</span>'
         + '<span class="color-blue">send us Pull Request into source</span>'
         + '</a>');
