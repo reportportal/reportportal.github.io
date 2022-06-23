@@ -26,12 +26,12 @@ const cx = classNames.bind(styles);
 
 const HeaderButtons = ({ onOpen }) => (
     <>
-      <a href='https://saas.reportportal.io/ui/' target="_blank" rel="noreferrer">
+      <a href='https://demo.reportportal.io/ui/' target="_blank" rel="noreferrer">
         <Button
           className={cx('button')}
           variant='light'
         >
-          Sign In
+          Try demo
         </Button>
       </a>
       <AskForServiceButton
