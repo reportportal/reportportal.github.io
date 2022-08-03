@@ -75,7 +75,7 @@ const compareTableTitles = {
     id: 'features',
     name: 'Enterprise features',
     info: <span>
-      Additional features which are not available in a scope of the Free Open Source version, <a href="https://reportportal.io/docs/Enterprise-Features" target="_blank" rel="noreferrer">link to the List with features and description.</a>
+      Additional features which are not available in a scope of the Free Open Source version, <a href="/docs/Enterprise-Features" target="_blank" rel="noreferrer">link to the List with features and description.</a>
     </span>,
   },
   minimumCommitment: {
