@@ -175,7 +175,7 @@ const PlansBlock = () => {
         <div className={cx('pseudo-table')}>
           {plans}
           <div className={cx('note')}>Payment is made quarterly</div>
-          <a className={cx('terms')} target="_blank" href='https://reportportal.io/legal/terms' rel='noreferrer'>
+          <a className={cx('terms')} target="_blank" href='/legal/terms' rel='noreferrer'>
             Terms & Conditions
           </a>
         </div>
