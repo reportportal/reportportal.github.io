@@ -206,7 +206,7 @@ const PlansBlock = () => {
         withItemsEqualWidth
         size='big'
       />
-      <div className={cx('selected-plan-name')}>{selectedPlanType.name}</div>
+      <div className={cx('selected-plan-name')} style={{ visibility: 'hidden' }} >{selectedPlanType.name}</div>
       {periods.length &&
         <SimpleSwitcher
           className={cx('simple-period-switcher')}
