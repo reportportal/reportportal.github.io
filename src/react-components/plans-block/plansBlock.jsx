@@ -38,7 +38,6 @@ const PlansBlock = () => {
   const [planSwitcherData, setPlanSwitcherData] = useState([]);
   const [selectedPlansData, setSelectedPlansData] = useState([]);
   const [selectedPeriodId, setSelectedPeriodId] = useState(SALE_PERIOD);
-  const [periodSwitcherData, setPeriodSwitcherData] = useState([]);
   const [isComparisonTableOpened, setIsComparisonTableOpened] = useState(false);
 
   useEffect(() => {
@@ -62,16 +61,6 @@ const PlansBlock = () => {
     );
     setSelectedPeriodId(SALE_PERIOD);
   }, [selectedPlanType]);
-
-  useEffect(() => {
-    setPeriodSwitcherData(
-      periods.map(({ id, name }) => ({
-        id,
-        element: name,
-        isActive: selectedPeriodId === id,
-      }))
-    );
-  }, [selectedPlanType, selectedPeriodId]);
 
   const handlePlanSwitcherSelect = (planId) => {
     if (selectedPlanType.id === planId) {
@@ -218,7 +207,7 @@ const PlansBlock = () => {
         size='big'
       />
       <div className={cx('selected-plan-name')}>{selectedPlanType.name}</div>
-      {!!periodSwitcherData.length &&
+      {periods.length &&
         <SimpleSwitcher
           className={cx('simple-period-switcher')}
           onChange={onSimpleSwitcherChange}
