@@ -52,12 +52,8 @@
   display: none;
 }
 
-.period-switcher, .simple-period-switcher {
-  margin: 8px 45px 8px auto;
-}
-
-.with-point, .simple-period-switcher {
-  margin-top: 40px;
+.simple-period-switcher {
+  margin: 40px 45px 8px auto;
 }
 
 .simple-period-switcher {
@@ -301,13 +297,10 @@
 }
 
 @media all and (max-width: $TABLET_MAX) and (min-width: $TABLET_MIN) {
-  .period-switcher, .simple-period-switcher {
-    margin: 17px auto 64px;
-  }
-
   .simple-period-switcher {
     width: 100%;
     text-align: center;
+    margin: 17px auto 64px;
   }
 
   .comparison-table {
@@ -351,13 +344,10 @@
     margin-bottom: 77px;
   }
 
-  .period-switcher, .simple-period-switcher {
-    margin: 53px auto 24px;
-  }
-
   .simple-period-switcher {
     width: 100%;
     text-align: center;
+    margin: 53px auto 24px;
   }
 
   .comparison-table {
