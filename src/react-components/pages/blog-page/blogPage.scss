@@ -91,6 +91,25 @@
     margin: 32px auto 64px;
     max-width: 100%;
   }
+
+  h3 {
+    font-size: 26px;
+    line-height: 32px;
+    font-family: $FONT-LIGHT;
+    color: $COLOR-STEEL-GREY;
+    margin-bottom: 24px;
+
+    &.with-margin-top {
+      margin-top: 64px;
+    }
+  }
+
+  h4 {
+    color: $COLOR-STEEL-GREY;
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 20px;
+  }
 }
 
 .title {
@@ -99,25 +118,6 @@
   margin-top: 40px;
   margin-bottom: 64px;
   color: $COLOR-STEEL-GREY;
-}
-
-.inner-header {
-  font-size: 26px;
-  line-height: 32px;
-  font-family: $FONT-LIGHT;
-  color: $COLOR-STEEL-GREY;
-  margin-bottom: 24px;
-
-  &.with-margin-top {
-    margin-top: 64px;
-  }
-}
-
-.inner-second-header {
-  color: $COLOR-STEEL-GREY;
-  font-size: 20px;
-  line-height: 32px;
-  margin-bottom: 20px;
 }
 
 .list {
