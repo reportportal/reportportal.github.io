@@ -1,0 +1,283 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.blog-page {
+  width: 100%;
+  font-family: $FONT-REGULAR;
+  font-size: 16px;
+  line-height: 26px;
+  color: $COLOR-CHARCOAL-GREY;
+  position: relative;
+}
+
+.additional-background {
+  position: absolute;
+  z-index: -1;
+  height: 187px;
+  width: 100%;
+  background: url(../../img/backgroundBlue.svg);
+}
+
+.background {
+  height: 212px;
+  background-image: url(../../img/blogBackground.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  display: flex;
+  align-items: center;
+}
+
+.background-content {
+  height: 100%;
+  width: 100%;
+  max-width: 702px;
+  margin: 0 auto;
+  color: $COLOR-STEEL-GREY;
+}
+
+.date {
+  font-size: 14px;
+  line-height: 26px;
+  margin-top: 120px;
+  color: $COLOR-STEEL-GREY;
+}
+
+.tags {
+  margin-top: 1px;
+  display: inline-block;
+}
+
+.tag {
+  font-size: 12px;
+  line-height: 26px;
+  color: $COLOR-STEEL-GREY;
+  margin-right: 12px;
+}
+
+.content {
+  max-width: 702px;
+  margin: auto;
+  padding-bottom: 120px;
+
+  a {
+    text-decoration: none;
+    color: $COLOR-TEALISH;
+
+    &:hover {
+      color: $COLOR_TOPAZ_TWO;;
+    }
+  }
+
+  p + p {
+    margin-top: 32px;
+  }
+
+  img {
+    display: block;
+    margin: 32px auto 64px;
+    max-width: 100%;
+  }
+}
+
+.title {
+  font-size: 36px;
+  line-height: 40px;
+  margin-top: 40px;
+  margin-bottom: 64px;
+  color: $COLOR-STEEL-GREY;
+}
+
+.inner-header {
+  font-size: 26px;
+  line-height: 32px;
+  font-family: $FONT-LIGHT;
+  color: $COLOR-STEEL-GREY;
+  margin-bottom: 24px;
+
+  &.with-margin-top {
+    margin-top: 64px;
+  }
+}
+
+.inner-second-header {
+  color: $COLOR-STEEL-GREY;
+  font-size: 20px;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
+
+.list {
+  margin-bottom: 32px;
+}
+
+.list-item {
+  margin-bottom: 32px;
+  display: list-item;
+  list-style: none;
+
+  &::before {
+    content: "\2022";
+    color: $COLOR-TEALISH;
+    display: inline-block;
+    width: 24px;
+    vertical-align: top;
+    font-size: 30px;
+    font-family: $MaterialIcons;
+    line-height: 20px;
+  }
+}
+
+.list-item-text {
+  display: inline-block;
+  max-width: calc(100% - 24px);
+}
+
+.notice {
+  width: 100%;
+  border: 3px solid $COLOR-TEALISH;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: $COLOR--blog-info-message;
+  font-size: 20px;
+  line-height: 26px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.notice-text {
+  text-align: center;
+  width: auto;
+  max-width: 600px;
+  margin: 35px 100px;
+}
+
+.blue {
+  color: $COLOR-TEALISH;
+}
+
+.big {
+  font-size: 32px;
+  line-height: 26px;
+}
+
+.simple-notice {
+  margin-top: -32px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 48px;
+
+  th {
+    font-family: $FONT-HEADER;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  tr td:first-child, th:first-child {
+    width: 140px;
+    text-align: left;
+  }
+
+  td, th {
+    border: 1px solid $COLOR--grid-table;
+    padding: 10px;
+
+    &.blue-cell {
+      background: $COLOR--table-background;
+    }
+  }
+}
+
+.red {
+  color: $COLOR--error;
+}
+
+.note {
+  margin-top: 32px;
+  margin-bottom: 48px;
+
+  + .note {
+    margin-top: -16px;
+  }
+}
+
+.note-content {
+  display: inline-block;
+  width: calc(100% - 26px);
+  position: relative;
+  margin-left: 26px;
+  max-width: 600px;
+
+  &::before {
+    content: "";
+    background: $COLOR--note;
+    width: 6px;
+    height: 100%;
+    position: absolute;
+    left: -26px;
+  }
+}
+
+.name {
+  font-family: $FONT-HEADER;
+  margin-bottom: 8px;
+}
+
+@media all and (max-width: $TABLET_MAX) {
+  .content, .background-content {
+    max-width: calc(100% - 136px);
+    width: 702px;
+  }
+
+  .content {
+    padding-bottom: 106px;
+  }
+}
+
+@media all and (max-width: $MOBILE_MAX) {
+  .content, .background-content {
+    max-width: calc(100% - 48px);
+  }
+
+  .background {
+    background-position: -1030px center;
+  }
+  .additional-background {
+    height: 268px;
+  }
+
+  .date {
+    margin-top: 190px;
+  }
+
+  .content {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+
+  .notice-text {
+    margin: 24px;
+  }
+}

@@ -57,12 +57,12 @@
   width: 24px;
   box-shadow: none;
   margin: 24px 24px 6px auto;
-  background: url('../../../img/cross.svg') no-repeat;
+  background: url('/src/react-components/img/cross.svg') no-repeat;
   cursor: pointer;
   transition: background 0.3s;
 
   &:hover {
-    background: url('../../../img/crossHover.svg') no-repeat;
+    background: url('/src/react-components/img/crossHover.svg') no-repeat;
   }
 }
 
@@ -89,7 +89,7 @@
 
   .arrow {
     display: inline-block;
-    background:  url('../../../img/arrow.svg') no-repeat 0 3px;
+    background:  url('/src/react-components/img/arrow.svg') no-repeat 0 3px;
     width: 16px;
     height: 16px;
     margin-right: 8px;

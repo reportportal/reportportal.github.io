@@ -22,7 +22,7 @@ import Table from 'react-components/common/table/table.jsx';
 import InfoIcon from 'react-components/common/info-icon/infoIcon.jsx';
 import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
 import NotificationModal from 'react-components/layouts/modal-layout/notification-modal/notificationModal.jsx';
-import PlanCards from 'react-components/plans-block/plan-cards/planCards.jsx';
+import PlanCards from 'react-components/pages/pricing-page/plans-block/plan-cards/planCards.jsx';
 import PlanSummary from 'react-components/common/plan-summary/planSummary.jsx';
 import SimpleSwitcher from 'react-components/common/simple-switcher/simpleSwitcher.jsx';
 import { getIsTabletView } from 'react-components/utils/utils.js';
@@ -53,7 +53,7 @@ const PlansBlock = () => {
           id,
           element: <>
             <div className={cx('icon', { active: isActive }, iconType)} style={{ display: 'none' }} />
-            <div className={cx('switcher-name')} style={{ display: 'none' }}>{name}</div>
+            <div className={cx('switcher-name')} style={{ visibility: 'hidden' }}>{name}</div>
           </>,
           isActive,
         };

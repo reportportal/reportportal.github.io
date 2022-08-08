@@ -19,22 +19,20 @@ import classNames from 'classnames/bind';
 import reactWrapper from 'utils/reactWrapper';
 import BodyLayout from 'react-components/layouts/bodyLayout.jsx';
 import QuestionsForm from 'react-components/forms/questions-form/questionsForm.jsx';
-import PlansBlock from 'react-components/plans-block/plansBlock.jsx';
+import PlansBlock from 'react-components/pages/pricing-page/plans-block/plansBlock.jsx';
 import styles from './pricingPage.scss';
 
 const cx = classNames.bind(styles);
 
 const Layout = () => (
   <BodyLayout className={cx('pricing-page-wrapper')}>
-    <>
-      <div className={cx('pricing-page')}>
-        <div className={cx('pricing-page-header')}>
-          Flexible options for cloud or self-hosted installation
-        </div>
-        <PlansBlock />
-        <QuestionsForm />
+    <div className={cx('pricing-page')}>
+      <div className={cx('pricing-page-header')}>
+        Flexible options for cloud or self-hosted installation
       </div>
-    </>
+      <PlansBlock />
+      <QuestionsForm />
+    </div>
   </BodyLayout>
 );
 
