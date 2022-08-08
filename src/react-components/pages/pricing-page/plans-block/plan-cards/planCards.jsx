@@ -18,9 +18,9 @@ import React, { useContext } from 'react';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import ModalContext from 'react-components/layouts/modal-layout/modalContext';
-import SimpleCard from 'react-components/plan-card/simple-card/simpleCard.jsx';
+import SimpleCard from 'react-components/pages/pricing-page/plans-block/plan-cards/plan-card/simple-card/simpleCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
-import ClockCard from 'react-components/plan-card/clock-card/clockCard.jsx';
+import ClockCard from 'react-components/pages/pricing-page/plans-block/plan-cards/plan-card/clock-card/clockCard.jsx';
 import { STARTUP, BUSINESS, ENTERPRISE, PACKAGE_25, PACKAGE_60, PACKAGE_168, YOU_HOST_ID, WE_HOST_ID } from '../constants';
 import styles from './planCards.scss';
 
