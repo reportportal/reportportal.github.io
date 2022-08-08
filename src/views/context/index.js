@@ -11,6 +11,7 @@ import FeaturesPage from 'pages/features-page';
 import ReleasesPage from 'pages/releases-page';
 import PricingPage from 'pages/pricing-page';
 import TermsPage from 'pages/terms-page';
+import BlogPage from 'pages/blog-page';
 
 export default Epoxy.View.extend({
   template,
@@ -35,6 +36,10 @@ export default Epoxy.View.extend({
   renderTerms() {
     this.header.activatePage('');
     this.renderPage(TermsPage);
+  },
+  renderBlog() {
+    this.header.activatePage('');
+    this.renderPage(BlogPage);
   },
   renderCommunity() {
     this.header.activatePage('community');
