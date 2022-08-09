@@ -98,6 +98,12 @@ const QuestionsForm = () => {
                   name='ReportPortalSource__c'
                   value='Landing page'
                 />,
+                <input
+                  key='lead_source'
+                  type='hidden'
+                  name='lead_source'
+                  value='RP_Landing'
+                />,
               ]}
             />
             <FormInput className={cx('questions-form-field')} name='first_name' placeholder='First name' />
