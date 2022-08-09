@@ -37,7 +37,10 @@ const HeaderButtons = ({ onOpen }) => (
       <AskForServiceButton
         onOpen={onOpen}
         className={cx('button')}
-        options={[{ name: 'ReportPortalSource__c', value: 'Landing page/ Ask service' }]}
+        options={[
+          { name: 'ReportPortalSource__c', value: 'Landing page/ Ask service' },
+          { name: 'lead_source', value: 'RP_Landing' },
+        ]}
       />
     </>
   );
