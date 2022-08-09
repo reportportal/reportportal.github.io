@@ -153,7 +153,7 @@ const BlogPage = () => (
       <img src={performanceImg} alt="deletion by IDs performance comparison" />
       <div className={cx('notice')}>
         <div className={cx('notice-text')}>
-          In comparison with index, logs deletion by IDs from data streamers — <span className={cx('blue')}>29 times faster</span>
+          In comparison with index, logs deletion by IDs from data streams — <span className={cx('blue', 'semibold')}>29 times faster</span>
         </div>
       </div>
       <div className={cx('simple-notice')}>
