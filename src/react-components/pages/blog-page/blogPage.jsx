@@ -50,11 +50,6 @@ const dataStreamsBenefits = [
   'Various index rollover conditions – fast creation of the new generation. It means that a new generation of this data stream is created when the limit is reached (by logs count, by logs amount, by date). So, logs of this data stream proceed to the new generation. Limits can be specified in the IML policy.',
 ];
 
-const notes = [
-  'Before version 5.8, double logging might increase the resources – processor and dick space.',
-  'We are already using the ElasticSearch license, so, no new license is required. For now, we stay on version 7.10 with Apache 2.0. We might switch to OpenSearch in prospect.',
-];
-
 const BlogPage = () => (
   <BodyLayout className={cx('blog-page')}>
     <div className={cx('additional-background')} />
@@ -165,7 +160,10 @@ const BlogPage = () => (
       <p>
         We recommend updating to version 5.7.2 for smooth transition of full logging to ElasticSearch, especially if you have many logs. If you update to version 5.7.2, use it for 3-4 months before version 5.8. This period will be enough for the vast of projects to generate enough logs history inside ElasticSearch. And then update to version 5.8 once it available. Since all logs will already be stored in ElasticSearch, no efforts will be required to do the migration. Along with version 5.8 we will distribute a migration script and instructions for data migration. So that you can easily migrate from early 5.x version.
       </p>
-      {notes.map((note, i) => (
+      {[
+        'Before version 5.8, double logging might increase the resources – processor and dick space.',
+        'We are already using the ElasticSearch license, so, no new license is required. For now, we stay on version 7.10 with Apache 2.0. We might switch to OpenSearch in prospect.',
+      ].map((note, i) => (
         <div key={`note${i}`} className={cx('note')}>
           <div className={cx('note-content')}>
             <div className={cx('name')}>{`Note ${i+1}`}</div>

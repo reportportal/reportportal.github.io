@@ -22,6 +22,9 @@ const SalesForceFormBase = ({ additionalFields }) => (
   <>
     <input type='hidden' name='oid' value={salesforceOid}/>
     <input type='hidden' name='retURL' value='http://'/>
+    <select className="hidden" id='lead_source' name='lead_source' style={{ display: 'none' }}>
+      <option value='ReportPortal'>ReportPortal</option>
+    </select>
     <select className="hidden" id='lead_status' name='lead_status' style={{ display: 'none' }}>
       <option value='New'>New</option>
     </select>
