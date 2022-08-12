@@ -16,3 +16,4 @@
 
 export const salesforceUrl = process.env.SALESFORCE_URL;
 export const salesforceOid = process.env.SALESFORCE_OID;
+export const salesforceMarketingAgreeInputName = process.env.SALESFORCE_MARKETING_AGREE_INPUT_NAME;
