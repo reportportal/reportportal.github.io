@@ -32,7 +32,10 @@ export default IndexPageSection.extend({
       askForServiceButton,
       AskForServiceButtonWrappered,
       {
-        options: [{ name: 'ReportPortalSource__c', value: 'Landing page/ ask for service body' }]
+        options: [
+          { name: 'ReportPortalSource__c', value: 'Landing page/ ask for service body' },
+          { name: 'lead_source', value: 'RP General' },
+        ]
       },
     );
   },
