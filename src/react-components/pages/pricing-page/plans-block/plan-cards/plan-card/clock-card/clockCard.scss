@@ -15,7 +15,7 @@
  */
 
 .card-with-clock {
-  background: url('../../img/clock.svg') no-repeat 15px 0;
+  background: url('/src/react-components/img/clock.svg') no-repeat 15px 0;
   height: 249px;
   box-shadow: none;
   bottom: 0;
@@ -26,7 +26,7 @@
   order: 1;
 
   &.with-full-clock {
-    background: url('../../img/clockMax.svg') no-repeat 15px 0;
+    background: url('/src/react-components/img/clockMax.svg') no-repeat 15px 0;
 
     .name {
       padding-right: 0;
@@ -34,7 +34,7 @@
   }
 
   &.popular {
-    background: url('../../img/clockGreen.svg') no-repeat 15px 0;
+    background: url('/src/react-components/img/clockGreen.svg') no-repeat 15px 0;
     border: none;
     height: 249px;
   }

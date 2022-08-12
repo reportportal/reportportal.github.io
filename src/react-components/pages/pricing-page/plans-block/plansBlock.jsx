@@ -22,7 +22,7 @@ import Table from 'react-components/common/table/table.jsx';
 import InfoIcon from 'react-components/common/info-icon/infoIcon.jsx';
 import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
 import NotificationModal from 'react-components/layouts/modal-layout/notification-modal/notificationModal.jsx';
-import PlanCards from 'react-components/plans-block/plan-cards/planCards.jsx';
+import PlanCards from 'react-components/pages/pricing-page/plans-block/plan-cards/planCards.jsx';
 import PlanSummary from 'react-components/common/plan-summary/planSummary.jsx';
 import SimpleSwitcher from 'react-components/common/simple-switcher/simpleSwitcher.jsx';
 import { getIsTabletView } from 'react-components/utils/utils.js';
@@ -38,7 +38,6 @@ const PlansBlock = () => {
   const [planSwitcherData, setPlanSwitcherData] = useState([]);
   const [selectedPlansData, setSelectedPlansData] = useState([]);
   const [selectedPeriodId, setSelectedPeriodId] = useState(SALE_PERIOD);
-  const [periodSwitcherData, setPeriodSwitcherData] = useState([]);
   const [isComparisonTableOpened, setIsComparisonTableOpened] = useState(false);
 
   useEffect(() => {
@@ -53,8 +52,8 @@ const PlansBlock = () => {
         return {
           id,
           element: <>
-            <div className={cx('icon', { active: isActive }, iconType)} />
-            <div className={cx('switcher-name')}>{name}</div>
+            <div className={cx('icon', { active: isActive }, iconType)} style={{ display: 'none' }} />
+            <div className={cx('switcher-name')} style={{ visibility: 'hidden' }}>{name}</div>
           </>,
           isActive,
         };
@@ -63,16 +62,6 @@ const PlansBlock = () => {
     setSelectedPeriodId(SALE_PERIOD);
   }, [selectedPlanType]);
 
-  useEffect(() => {
-    setPeriodSwitcherData(
-      periods.map(({ id, name }) => ({
-        id,
-        element: name,
-        isActive: selectedPeriodId === id,
-      }))
-    );
-  }, [selectedPlanType, selectedPeriodId]);
-
   const handlePlanSwitcherSelect = (planId) => {
     if (selectedPlanType.id === planId) {
       return;
@@ -80,14 +69,6 @@ const PlansBlock = () => {
 
     setSelectedPlanType(planTypes.find(({ id }) => id === planId));
     setIsComparisonTableOpened(false);
-  };
-
-  const handlePeriodSwitcherSelect = (id) => {
-    if (selectedPeriodId === id) {
-      return;
-    }
-
-    setSelectedPeriodId(id);
   };
 
   const onSimpleSwitcherChange = (e) => {
@@ -175,7 +156,7 @@ const PlansBlock = () => {
         <div className={cx('pseudo-table')}>
           {plans}
           <div className={cx('note')}>Payment is made quarterly</div>
-          <a className={cx('terms')} target="_blank" href='https://reportportal.io/docs/Terms-&-Conditions' rel='noreferrer'>
+          <a className={cx('terms')} target="_blank" href='/legal/terms' rel='noreferrer'>
             Terms & Conditions
           </a>
         </div>
@@ -225,37 +206,15 @@ const PlansBlock = () => {
         withItemsEqualWidth
         size='big'
       />
-      <div className={cx('selected-plan-name')}>{selectedPlanType.name}</div>
-      {!!periodSwitcherData.length &&
-        <>
-          <div id='period-switcher-1' style={{ display: 'none' }}>
-            <Switcher
-              className={cx('period-switcher')}
-              itemsData={periodSwitcherData}
-              handleSelect={handlePeriodSwitcherSelect}
-              withSeparator
-              withRevertColor
-            />
-          </div>
-          <div id='period-switcher-2' style={{ opacity: 0 }}>
-            <Switcher
-              className={cx('period-switcher', 'with-point')}
-              itemsData={periodSwitcherData}
-              handleSelect={handlePeriodSwitcherSelect}
-              withPoint
-              revertItems
-            />
-          </div>
-          <div id='period-switcher-3' style={{ display: 'none' }}>
-            <SimpleSwitcher
-              className={cx('simple-period-switcher')}
-              onChange={onSimpleSwitcherChange}
-              label={periods.find(({ id }) => id === SALE_PERIOD).name}
-              name='simple-period-switcher'
-              checked={selectedPeriodId !== FULL_PERIOD}
-            />
-          </div>
-        </>
+      <div className={cx('selected-plan-name')} style={{ visibility: 'hidden' }} >{selectedPlanType.name}</div>
+      {periods.length &&
+        <SimpleSwitcher
+          className={cx('simple-period-switcher')}
+          onChange={onSimpleSwitcherChange}
+          label={periods.find(({ id }) => id === SALE_PERIOD).name}
+          name='simple-period-switcher'
+          checked={selectedPeriodId !== FULL_PERIOD}
+        />
       }
       <PlanCards
         plansData={selectedPlansData}

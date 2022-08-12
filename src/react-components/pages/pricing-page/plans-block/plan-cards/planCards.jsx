@@ -18,9 +18,9 @@ import React, { useContext } from 'react';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import ModalContext from 'react-components/layouts/modal-layout/modalContext';
-import SimpleCard from 'react-components/plan-card/simple-card/simpleCard.jsx';
+import SimpleCard from 'react-components/pages/pricing-page/plans-block/plan-cards/plan-card/simple-card/simpleCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
-import ClockCard from 'react-components/plan-card/clock-card/clockCard.jsx';
+import ClockCard from 'react-components/pages/pricing-page/plans-block/plan-cards/plan-card/clock-card/clockCard.jsx';
 import { STARTUP, BUSINESS, ENTERPRISE, PACKAGE_25, PACKAGE_60, PACKAGE_168, YOU_HOST_ID, WE_HOST_ID } from '../constants';
 import styles from './planCards.scss';
 
@@ -33,22 +33,35 @@ const PlanCards = ({ plansData, periodId }) => {
     let title;
     const description = 'Please provide your details below, and ReportPortal will help you set up your subscription.';
     const SALESFORCE_SOURCE_NAME = 'ReportPortalSource__c';
+    const LEAD_SOURCE = 'lead_source';
     let options;
 
     switch (type) {
       case WE_HOST_ID:
         title = 'Contact form for package registration';
-        options = [{
-          name: SALESFORCE_SOURCE_NAME,
-          value: `Landing page/ "We Host" / Request ${packageName} Plan`,
-        }];
+        options = [
+          {
+            name: SALESFORCE_SOURCE_NAME,
+            value: `Landing page/ "We Host" / Request ${packageName} Plan`,
+          },
+          {
+            name: LEAD_SOURCE,
+            value: 'RP_SaaS',
+          },
+        ];
         break;
       case YOU_HOST_ID:
         title = `Contact form for package registration with ${packageName} hours of support`;
-        options = [{
-          name: SALESFORCE_SOURCE_NAME,
-          value: `Landing page/ "You Host|We manage" / Request Support "Package ${packageName}"`,
-        }];
+        options = [
+          {
+            name: SALESFORCE_SOURCE_NAME,
+            value: `Landing page/ "You Host|We manage" / Request Support "Package ${packageName}"`,
+          },
+          {
+            name: LEAD_SOURCE,
+            value: 'RP_Service',
+          },
+        ];
         break;
       default:
     }

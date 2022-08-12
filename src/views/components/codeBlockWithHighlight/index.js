@@ -2,7 +2,7 @@ import { $ } from 'backbone';
 import template from './CodeBlockWithHighlightComponent.jade';
 import Epoxy from 'backbone.epoxy';
 
-import Highlight from 'highlight.js/lib/highlight';
+import highlight from 'highlight.js/lib/core';
 import LangPowershell from 'highlight.js/lib/languages/powershell';
 import LangXml from 'highlight.js/lib/languages/xml';
 import LangJava from 'highlight.js/lib/languages/java';
@@ -17,13 +17,13 @@ export default Epoxy.View.extend({
   initialize(options) {
     this.language = options.language;
     this.binaryContent = options.binaryContent;
-    Highlight.registerLanguage(this.language, this.getLanguage(this.language));
+    highlight.registerLanguage(this.language, this.getLanguage(this.language));
     this.render({ binaryContent: this.binaryContent });
   },
   render(options) {
     this.$el.html(template({ binaryContent: options.binaryContent }));
     $('[data-js-code]', this.$el).addClass(this.language);
-    Highlight.highlightBlock($('[data-js-code]', this.$el)[0]);
+    highlight.highlightElement($('[data-js-code]', this.$el)[0]);
   },
   getLanguage(lang) {
     let langLibrary;
