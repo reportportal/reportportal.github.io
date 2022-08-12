@@ -19,6 +19,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import CustomCheckbox from 'react-components/common/custom-checkbox/customCheckbox.jsx';
 import FormFieldWrapper from 'react-components/forms/form-field-wrapper/formFieldWrapper.jsx';
+import { salesforceMarketingAgreeInputName } from 'react-components/utils/salesforceConfig'
 import styles from './marketingAndTermsAgree.scss';
 
 const cx = classNames.bind(styles);
@@ -50,7 +51,7 @@ const MarketingAndTermsAgree = ({
         </div>
       </div>
       <div className={cx('marketing')}>
-        <FormFieldWrapper name='00N7T000000i00E'>
+        <FormFieldWrapper name={salesforceMarketingAgreeInputName}>
           <CustomCheckbox
             className={cx('marketing-checkbox')}
           />
