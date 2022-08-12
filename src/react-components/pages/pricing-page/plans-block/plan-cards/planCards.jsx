@@ -33,35 +33,22 @@ const PlanCards = ({ plansData, periodId }) => {
     let title;
     const description = 'Please provide your details below, and ReportPortal will help you set up your subscription.';
     const SALESFORCE_SOURCE_NAME = 'ReportPortalSource__c';
-    const LEAD_SOURCE = 'lead_source';
     let options;
 
     switch (type) {
       case WE_HOST_ID:
         title = 'Contact form for package registration';
-        options = [
-          {
-            name: SALESFORCE_SOURCE_NAME,
-            value: `Landing page/ "We Host" / Request ${packageName} Plan`,
-          },
-          {
-            name: LEAD_SOURCE,
-            value: 'RP_SaaS',
-          },
-        ];
+        options = [{
+          name: SALESFORCE_SOURCE_NAME,
+          value: `Landing page/ "We Host" / Request ${packageName} Plan`,
+        }];
         break;
       case YOU_HOST_ID:
         title = `Contact form for package registration with ${packageName} hours of support`;
-        options = [
-          {
-            name: SALESFORCE_SOURCE_NAME,
-            value: `Landing page/ "You Host|We manage" / Request Support "Package ${packageName}"`,
-          },
-          {
-            name: LEAD_SOURCE,
-            value: 'RP_Service',
-          },
-        ];
+        options = [{
+          name: SALESFORCE_SOURCE_NAME,
+          value: `Landing page/ "You Host|We manage" / Request Support "Package ${packageName}"`,
+        }];
         break;
       default:
     }
