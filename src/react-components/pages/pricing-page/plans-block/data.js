@@ -148,7 +148,7 @@ const plansData = [
   },
   {
     name: BUSINESS,
-    price: { full: '$2,500', sale: '$2,350' },
+    price: { full: '$2,500', sale: '$2,375' },
     options: {
       instance: true,
       storage: '1 Tb',
