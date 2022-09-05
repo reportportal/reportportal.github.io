@@ -49,7 +49,7 @@ const elasticSearchBenefits = [
 ];
 
 const dataStreamsBenefits = [
-  <>Logs deletion by IDs <b>is x29 times faster</b> in data streams compared to Indices.</>,
+  <>Logs deletion by IDs is <b>x29 times faster</b> in data streams compared to Indices.</>,
   'Fast logs insertion (reporting) at the time of the high workload.',
   'Creation of cheap data nodes for old data, e.g., HDD with low resources. ElasticSearch allows configuring the old data storage using ILM (Index Lifetime Management) policy. It might be useful, for example, if your project uses some information once per week/month, etc.',
   'Various index rollover conditions – fast creation of the new generation. It means that a new generation of this data stream is created when the limit is reached (by logs count, by logs amount, by date). So, logs of this data stream proceed to the new generation. Limits can be specified in the IML policy per project.',
@@ -168,7 +168,7 @@ const BlogPage = () => (
         Why we use Data Streams?
       </h3>
       <p>
-        Elasticsearch provides a special approach for storing log data: <span className={cx('italic')}>“A data stream lets you store append-only time series data across multiple indices while giving you a single named resource for requests. Data Streams are well-suited for logs, events, metrics, and other continuously generated data,”</span> – described in <a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html#data-streams" rel="noreferrer">the official elastic search documentation.</a>
+        Elasticsearch provides a special approach for storing log data: <span className={cx('italic')}>“A data stream lets you store append-only time series data across multiple indices while giving you a single named resource for requests. Data Streams are well-suited for logs, events, metrics, and other continuously generated data,”</span> – described in the <a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html#data-streams" rel="noreferrer">official elastic search documentation.</a>
       </p>
       <h3 className={cx('with-margin-top')}>
         Data Streams benefits
