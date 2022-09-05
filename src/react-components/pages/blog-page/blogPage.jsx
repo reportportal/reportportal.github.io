@@ -34,25 +34,25 @@ const tags = [
 ];
 
 const transition = [
-  'ReportPortal v5.7 is the last version with log storage in PostgreSQL',
-  'ReportPortal v5.7.2 is the version with a double logging mechanism: logs are stored both in PG and Elastic at the moment of entry',
+  'ReportPortal v5.7 is the last version with log storage in PostgreSQL.',
+  'ReportPortal v5.7.2 is the version with a double logging mechanism: logs are stored both in PG and Elastic at the moment of entry.',
   'ReportPortal v5.8 is the version with logs storage in Elastic only.',
 ];
 
 const elasticSearchBenefits = [
-  'Reduced disk space usage, with a smaller footprint up to x8.5.',
-  'Reduced maintenance of the PostgreSQL database, and reduced requirements for the shape sizes by at least x2 times.',
-  'Reduction of database load used by pattern analysis up to 5x times.',
+  <>Reduced disk space usage, with a smaller footprint <span className={cx('semibold')}>up to x8.5.</span></>,
+  <>Reduced maintenance of the PostgreSQL database, and reduced requirements for the shape sizes by at <span className={cx('semibold')}>least x2 times.</span></>,
+  <>Reduction of database load used by pattern analysis up to <span className={cx('semibold')}>5x times.</span></>,
   'Full-text search capabilities for text logs (x33 times quicker for text queries, and less CPU utilization 1 – 16x times in comparison with PostgreSQL).',
   'Similar performance with PostgreSQL on getting logs by ID.',
   'Storing logs in different indices per project allows to get project data faster and reduces the risks of locks occurrence.',
 ];
 
 const dataStreamsBenefits = [
-  <>Logs deletion by IDs <b>is x29 times faster</b> in data streams compared to Indices;</>,
-  'Fast logs insertion (reporting) at the time of the high workload;',
-  'Creation of cheap data nodes for old data, e.g., HDD with low resources. ElasticSearch allows configuring the old data storage using ILM (Index Lifetime Management) policy. It might be useful, for example, if your project uses some information once per week/month, etc;',
-  'Various index rollover conditions – fast creation of the new generation. It means that a new generation of this data stream is created when the limit is reached (by logs count, by logs amount, by date). So, logs of this data stream proceed to the new generation. Limits can be specified in the IML policy per project;',
+  <>Logs deletion by IDs <b>is x29 times faster</b> in data streams compared to Indices.</>,
+  'Fast logs insertion (reporting) at the time of the high workload.',
+  'Creation of cheap data nodes for old data, e.g., HDD with low resources. ElasticSearch allows configuring the old data storage using ILM (Index Lifetime Management) policy. It might be useful, for example, if your project uses some information once per week/month, etc.',
+  'Various index rollover conditions – fast creation of the new generation. It means that a new generation of this data stream is created when the limit is reached (by logs count, by logs amount, by date). So, logs of this data stream proceed to the new generation. Limits can be specified in the IML policy per project.',
 ];
 
 const notes = [
@@ -66,7 +66,7 @@ const BlogPage = () => (
     <div className={cx('background')}>
       <div className={cx('background-content')}>
         <div className={cx('date')}>
-          August 8, 2022
+          September 5, 2022
         </div>
         <div className={cx('tags')}>
           {tags.map((tag, i) => (
@@ -124,7 +124,7 @@ const BlogPage = () => (
         ))}
       </ul>
       <p>
-        The average time frame of 3 months between releases will give time for Elastic to pre-aggregate enough of the data for a smooth daily routine. The upgrade to the version 5.8 will turn off the logs in PostgreSQL and clean it up. Along with the v5.8 we will still release the migration scripts, which will do most of the work automatically. But in order to minimize downtime, we recommend you use 5.7.2 for a while.
+        The average time frame of 3 months between releases will give time for Elastic to pre-aggregate enough data for a smooth daily routine. The upgrade to the version 5.8 will turn off the logs in PostgreSQL and clean it up. Along with the v5.8 we will still release the migration scripts, which will do most of the work automatically. But in order to minimize downtime, we recommend you use 5.7.2 for a while.
       </p>
       <p>
         There is still an option to turn off saving of the logs into ElasticSearch in v5.7.2, if needed. In this case log messages will be stored in PostgreSQL only. Double logging is active if there are configured settings for ElasticSearch in both `service-api` and `service-jobs` services. Please, note that configurations must be added or absent for both services. Nevertheless, a full migration of logs to ElasticSearch is planned in version 5.8.
@@ -134,7 +134,7 @@ const BlogPage = () => (
       </p>
       <img src={appImg} alt="report portal app" />
       <h3>
-        Why we use ElasticSearch?
+        Why ElasticSearch?
       </h3>
       <p>
         PostgreSQL was previously used as a database for log storage, but – according to the performance tests – this is not the most effective way. Log messages take up the most space in the database, so we decided to transfer them to ElasticSearch. Logs migration to ElasticSearch will significantly reduce storage occupied by the log table. It will improve overall database performance (timings and costs of infrastructure).
@@ -168,7 +168,7 @@ const BlogPage = () => (
         Why we use Data Streams?
       </h3>
       <p>
-        Elasticsearch provides a special approach for storing log data: “A data stream lets you store append-only time series data across multiple indices while giving you a single named resource for requests. Data Streams are well-suited for logs, events, metrics, and other continuously generated data,” – described in <a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html#data-streams" rel="noreferrer">the official elastic search documentation.</a>
+        Elasticsearch provides a special approach for storing log data: <span className={cx('italic')}>“A data stream lets you store append-only time series data across multiple indices while giving you a single named resource for requests. Data Streams are well-suited for logs, events, metrics, and other continuously generated data,”</span> – described in <a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html#data-streams" rel="noreferrer">the official elastic search documentation.</a>
       </p>
       <h3 className={cx('with-margin-top')}>
         Data Streams benefits
