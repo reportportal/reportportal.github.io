@@ -73,8 +73,11 @@
   margin: auto;
   padding-bottom: 120px;
 
+  b {
+    font-family: $FONT-HEADER;
+  }
+
   a {
-    text-decoration: none;
     color: $COLOR-TEALISH;
 
     &:hover {
@@ -82,8 +85,14 @@
     }
   }
 
-  p + p {
-    margin-top: 32px;
+  p {
+    & + p {
+      margin-top: 32px;
+    }
+
+    & + .simple-list, + .list {
+      margin-top: 24px;
+    }
   }
 
   img {
@@ -122,6 +131,11 @@
 
 .list {
   margin-bottom: 32px;
+}
+
+.simple-list {
+  list-style-type: decimal;
+  margin-left: 56px;
 }
 
 .list-item {
@@ -196,7 +210,6 @@
   }
 
   tr td:first-child, th:first-child {
-    width: 140px;
     text-align: left;
   }
 
@@ -263,13 +276,23 @@
 @media all and (max-width: $MOBILE_MAX) {
   .content, .background-content {
     max-width: calc(100% - 48px);
+
+    h3 {
+      font-size: 24px;
+    }
   }
 
   .background {
     background-position: -1030px center;
   }
+
   .additional-background {
     height: 268px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 32px;
   }
 
   .date {
@@ -293,5 +316,13 @@
   .big {
     font-size: 21px;
     line-height: 18px;
+  }
+
+  .simple-list {
+    margin-left: 36px;
+  }
+
+  .table {
+    font-size: 12px;
   }
 }
