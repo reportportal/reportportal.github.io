@@ -127,7 +127,7 @@ const BlogPage = () => (
         The average time frame of 3 months between releases will give time for Elastic to pre-aggregate enough data for a smooth daily routine. The upgrade to the version 5.8 will turn off the logs in PostgreSQL and clean it up. Along with the v5.8 we will still release the migration scripts, which will do most of the work automatically. But in order to minimize downtime, we recommend you use 5.7.2 for a while.
       </p>
       <p>
-        There is still an option to turn off saving of the logs into ElasticSearch in v5.7.2, if needed. In this case log messages will be stored in PostgreSQL only. Double logging is active if there are configured settings for ElasticSearch in both `service-api` and `service-jobs` services. Please, note that configurations must be added or absent for both services. Nevertheless, a full migration of logs to ElasticSearch is planned in version 5.8.
+        Hence, version 5.7.2 has the ability to enable double entry, but this is disabled in default configuration. The reason of doing so is to prevent issues related to the elastic failures, since it has to be re-shaped before accessing all logs. We plan to share instructions along with v5.8. Thus, by default in 5.7.2 log messages will be stored in PostgreSQL only. Double logging will become active if there are configured settings for ElasticSearch in both `service-api` and `service-jobs` services. Please, note that configurations must be added or absent for both services. Nevertheless, a full migration of logs to ElasticSearch is planned in version 5.8.
       </p>
       <p>
         Here is some visual representation for reference.
