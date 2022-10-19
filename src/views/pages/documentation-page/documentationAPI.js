@@ -352,11 +352,12 @@ export default {
   initListeners(questions) {
     const $searchField = $('#search');
     $searchField.on('keyup', () => {
-      if ($searchField.val() < 2) {
+      const query = $searchField.val();
+      window.dataLayer.push({ event: 'search_event', query, event_name: 'onChange' });
+      if (query.length < 2) {
         this.renderQuestionList(questions);
         return;
       }
-      const query = $searchField.val();
       const results = window.idx.search(query).map(
         result => questions.filter(q => q.id === parseInt(result.ref, 10))[0],
       );
