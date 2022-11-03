@@ -17,8 +17,8 @@
 import React from 'react';
 
 import {
-  WE_HOST_ID,
-  YOU_HOST_ID,
+  SAAS_ID,
+  ON_PREMISES_ID,
   FULL_PERIOD,
   SALE_PERIOD,
   STARTUP,
@@ -98,8 +98,8 @@ const compareTableTitles = {
 
 export const planTypes = [
   {
-    id: WE_HOST_ID,
-    name: 'We Host',
+    id: SAAS_ID,
+    name: 'SaaS',
     iconType: 'cloud',
     footerDescription: '*payment is made quarterly',
     description: 'An instance of ReportPortal application is hosted for you.\n' +
@@ -115,8 +115,8 @@ export const planTypes = [
     ],
   },
   {
-    id: YOU_HOST_ID,
-    name: 'You Host & We Manage',
+    id: ON_PREMISES_ID,
+    name: 'On-Premises',
     iconType: 'home',
     footerDescription: '*payment is made quarterly',
     description: 'ReportPortal instance deployed on-premise behind your firewall or in the Cloud. All your test data is located on your own instance and it is 100% secured.',

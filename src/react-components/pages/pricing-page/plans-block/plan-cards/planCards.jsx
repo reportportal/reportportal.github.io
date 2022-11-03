@@ -21,7 +21,7 @@ import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import SimpleCard from 'react-components/pages/pricing-page/plans-block/plan-cards/plan-card/simple-card/simpleCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
 import ClockCard from 'react-components/pages/pricing-page/plans-block/plan-cards/plan-card/clock-card/clockCard.jsx';
-import { STARTUP, BUSINESS, ENTERPRISE, PACKAGE_25, PACKAGE_60, PACKAGE_168, YOU_HOST_ID, WE_HOST_ID } from '../constants';
+import { STARTUP, BUSINESS, ENTERPRISE, PACKAGE_25, PACKAGE_60, PACKAGE_168, SAAS_ID, ON_PREMISES_ID } from '../constants';
 import styles from './planCards.scss';
 
 const cx = classNames.bind(styles);
@@ -37,12 +37,12 @@ const PlanCards = ({ plansData, periodId }) => {
     let options;
 
     switch (type) {
-      case WE_HOST_ID:
+      case SAAS_ID:
         title = 'Contact form for package registration';
         options = [
           {
             name: SALESFORCE_SOURCE_NAME,
-            value: `Landing page/ "We Host" / Request ${packageName} Plan`,
+            value: `Landing page/ "SaaS" / Request ${packageName} Plan`,
           },
           {
             name: LEAD_SOURCE,
@@ -50,12 +50,12 @@ const PlanCards = ({ plansData, periodId }) => {
           },
         ];
         break;
-      case YOU_HOST_ID:
+      case ON_PREMISES_ID:
         title = `Contact form for package registration with ${packageName} hours of support`;
         options = [
           {
             name: SALESFORCE_SOURCE_NAME,
-            value: `Landing page/ "You Host|We manage" / Request Support "Package ${packageName}"`,
+            value: `Landing page/ "On-Premises" / Request Support "Package ${packageName}"`,
           },
           {
             name: LEAD_SOURCE,
@@ -88,7 +88,7 @@ const PlanCards = ({ plansData, periodId }) => {
           price={price}
           button={{
             name: 'Sign Up',
-            onClick: () => onButtonClick(WE_HOST_ID, STARTUP),
+            onClick: () => onButtonClick(SAAS_ID, STARTUP),
           }}
         />;
       case BUSINESS:
@@ -101,7 +101,7 @@ const PlanCards = ({ plansData, periodId }) => {
           withPopular
           button={{
             name: 'Sign Up',
-            onClick: () => onButtonClick(WE_HOST_ID, BUSINESS),
+            onClick: () => onButtonClick(SAAS_ID, BUSINESS),
           }}
         />;
       case ENTERPRISE:
@@ -113,7 +113,7 @@ const PlanCards = ({ plansData, periodId }) => {
           price={price}
           button={{
             name: 'Contact Us',
-            onClick: () => onButtonClick(WE_HOST_ID, ENTERPRISE),
+            onClick: () => onButtonClick(SAAS_ID, ENTERPRISE),
           }}
           withPeriod={false}
         />;
@@ -127,7 +127,7 @@ const PlanCards = ({ plansData, periodId }) => {
           price={price}
           button={{
             name: 'Contact Us',
-            onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_25),
+            onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_25),
           }}
         />;
       case PACKAGE_60:
@@ -141,7 +141,7 @@ const PlanCards = ({ plansData, periodId }) => {
           withPopular
           button={{
             name: 'Contact Us',
-            onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_60),
+            onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_60),
           }}
         />;
       case PACKAGE_168:
@@ -155,7 +155,7 @@ const PlanCards = ({ plansData, periodId }) => {
           withFullClock
           button={{
             name: 'Contact Us',
-            onClick: () => onButtonClick(YOU_HOST_ID, PACKAGE_168),
+            onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_168),
           }}
         />;
       default:
