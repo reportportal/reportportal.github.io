@@ -17,8 +17,8 @@
 import React from 'react';
 
 import {
-  WE_HOST_ID,
-  YOU_HOST_ID,
+  SAAS_ID,
+  ON_PREMISES_ID,
   FULL_PERIOD,
   SALE_PERIOD,
   STARTUP,
@@ -44,12 +44,12 @@ const compareTableTitles = {
   storage: {
     id: 'storage',
     name: 'Data storage',
-    info: 'This parameter defines how much data can be pulled into ReportPortal and saved in DB. The total amount of launches, tests, logs and attachments in Gb is defined on a daily basis. The system automatically deletes over-usage in DB.',
+    info: 'Data storage defines how much data can be pulled into ReportPortal and saved in database (PostgreSQL) and object storage (MinIO). The Data storage is divided between PostgreSQL (launches + tests + logs) and MinIO (attachments) in ratio 50% to 50%. On a daily basis system calculates the stored data and deletes over usage both in PostgreSQL and MinIO.',
   },
   retention: {
     id: 'retention',
     name: 'Data retention',
-    info: 'This parameter defines how long your test results will be stored in ReportPortal.',
+    info: 'Data retention defines how long your test results will be stored in ReportPortal. However, Data is stored within the Data Storage limits and the over usage will be deleted.',
   },
   support: {
     id: 'support',
@@ -98,8 +98,8 @@ const compareTableTitles = {
 
 export const planTypes = [
   {
-    id: WE_HOST_ID,
-    name: 'We Host',
+    id: SAAS_ID,
+    name: 'SaaS',
     iconType: 'cloud',
     footerDescription: '*payment is made quarterly',
     description: 'An instance of ReportPortal application is hosted for you.\n' +
@@ -115,8 +115,8 @@ export const planTypes = [
     ],
   },
   {
-    id: YOU_HOST_ID,
-    name: 'You Host & We Manage',
+    id: ON_PREMISES_ID,
+    name: 'On-Premises',
     iconType: 'home',
     footerDescription: '*payment is made quarterly',
     description: 'ReportPortal instance deployed on-premise behind your firewall or in the Cloud. All your test data is located on your own instance and it is 100% secured.',

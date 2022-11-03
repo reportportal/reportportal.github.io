@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-export const WE_HOST_ID = 'weHost';
-export const YOU_HOST_ID = 'youHost';
+export const SAAS_ID = 'SaaS';
+export const ON_PREMISES_ID = 'On-Premises';
 export const FULL_PERIOD = 'full';
 export const SALE_PERIOD = 'sale';
 export const STARTUP = 'Startup';
