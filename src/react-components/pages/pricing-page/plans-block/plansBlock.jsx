@@ -52,8 +52,8 @@ const PlansBlock = () => {
         return {
           id,
           element: <>
-            <div className={cx('icon', { active: isActive }, iconType)} style={{ display: 'none' }} />
-            <div className={cx('switcher-name')} style={{ visibility: 'hidden' }}>{name}</div>
+            <div className={cx('icon', { active: isActive }, iconType)} />
+            <div className={cx('switcher-name')}>{name}</div>
           </>,
           isActive,
         };
@@ -206,7 +206,7 @@ const PlansBlock = () => {
         withItemsEqualWidth
         size='big'
       />
-      <div className={cx('selected-plan-name')} style={{ visibility: 'hidden' }} >{selectedPlanType.name}</div>
+      <div className={cx('selected-plan-name')} >{selectedPlanType.name}</div>
       {periods.length &&
         <SimpleSwitcher
           className={cx('simple-period-switcher')}
