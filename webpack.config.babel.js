@@ -12,7 +12,6 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const root = path.join(__dirname, '/');
 const defaultEnv = {
   dev: true,
-  proxyDocumentation: false,
   production: false,
 };
 const Dotenv = require('dotenv-webpack');
@@ -121,9 +120,6 @@ module.exports = (env = defaultEnv) => ({
     }),
     new webpack.HotModuleReplacementPlugin(),
     new WebpackNotifierPlugin({ skipFirstNotification: true }),
-    new webpack.DefinePlugin({
-      LOCAL_DOCUMENTATION: JSON.stringify(env.proxyDocumentation),
-    }),
     ...(env.production
       ? [
           new CleanWebpackPlugin(),
@@ -164,23 +160,7 @@ module.exports = (env = defaultEnv) => ({
       aggregateTimeout: 200,
       poll: 1000,
     },
-    proxy: env.proxyDocumentation
-      ? {
-          '/documentation.html*': {
-            target: 'http://localhost:9020/',
-            bypass(req, res, options) {
-              console.log(`proxy url: ${req.url}`);
-            },
-          },
-          '/docs/Images/**': {
-            pathRewrite: { '^/docs': '' },
-            target: 'http://localhost:9020/',
-            bypass(req, res, options) {
-              console.log(`proxy url: ${req.url}`);
-            },
-          },
-        }
-      : {},
+    proxy: {},
   },
   optimization: {
     minimize: !!env.production,

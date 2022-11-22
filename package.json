@@ -7,7 +7,6 @@
     "lint": "eslint -f node_modules/eslint-friendly-formatter \"src/**/*.js\" --fix",
     "test": "",
     "dev": "webpack serve --env dev",
-    "dev:local:documentation": "webpack serve --env proxyDocumentation --env dev",
     "build": "webpack --env production"
   },
   "author": "",

@@ -64,7 +64,6 @@ const Router = Backbone.Router.extend({
   },
   openDocumentation(id) {
     this.context.renderDocumentation(id);
-    this.header.$el.removeClass('without-shadow');
   },
   openInstallation() {
     this.context.renderInstallation();
