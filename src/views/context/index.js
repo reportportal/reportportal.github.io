@@ -56,9 +56,6 @@ export default Epoxy.View.extend({
     this.header.activatePage('features');
     this.renderPage(FeaturesPage);
   },
-  renderDocumentation(id) {
-    window.location.href = process.env.DOCUMENTATION_URL + (id || '');
-  },
   renderReleases(id) {
     this.header.activatePage('releases');
     this.renderPageWithSections(id, 'releases-page', ReleasesPage);

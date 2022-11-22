@@ -160,7 +160,6 @@ module.exports = (env = defaultEnv) => ({
       aggregateTimeout: 200,
       poll: 1000,
     },
-    proxy: {},
   },
   optimization: {
     minimize: !!env.production,
