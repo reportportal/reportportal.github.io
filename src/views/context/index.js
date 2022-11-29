@@ -5,7 +5,6 @@ import './Context.scss';
 
 import IndexPage from 'pages/index-page';
 import CommunityPage from 'pages/community-page';
-import DocumentationPage from 'pages/documentation-page';
 import InstallationPage from 'pages/installation-page';
 import FeaturesPage from 'pages/features-page';
 import ReleasesPage from 'pages/releases-page';
@@ -56,10 +55,6 @@ export default Epoxy.View.extend({
   renderFeatures() {
     this.header.activatePage('features');
     this.renderPage(FeaturesPage);
-  },
-  renderDocumentation(id) {
-    this.header.activatePage('docs');
-    this.renderPageWithSections(id, 'documentation-page', DocumentationPage);
   },
   renderReleases(id) {
     this.header.activatePage('releases');
