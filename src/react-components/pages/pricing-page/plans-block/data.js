@@ -137,7 +137,7 @@ export const periods = [
 const plansData = [
   {
     name: STARTUP,
-    price: { full: '$600', sale: '$570' },
+    price: { full: '$630', sale: '$600' },
     options: {
       storage: '100 Gb',
       retention: '12 months',
@@ -148,7 +148,7 @@ const plansData = [
   },
   {
     name: BUSINESS,
-    price: { full: '$2,500', sale: '$2,375' },
+    price: { full: '$2,625', sale: '$2,500' },
     options: {
       instance: true,
       storage: '1 Tb',
@@ -176,7 +176,7 @@ const plansData = [
   },
   {
     name: PACKAGE_25,
-    price: { full: '$3,000', sale: '$2,850' },
+    price: { full: '$3,150', sale: '$3,000' },
     options: {
       professionalSupport: '25',
       minimumCommitment: '6 months',
@@ -184,7 +184,7 @@ const plansData = [
   },
   {
     name: PACKAGE_60,
-    price: { full: '$6,000', sale: '$5,700' },
+    price: { full: '$6,300', sale: '$6,000' },
     options: {
       professionalSupport: '60',
       minimumCommitment: '6 months',
@@ -192,7 +192,7 @@ const plansData = [
   },
   {
     name: PACKAGE_168,
-    price: { full: '$14,000+', sale: '$13,300+' },
+    price: { full: '$14,700+', sale: '$14,000+' },
     options: {
       professionalSupport: '168+',
       minimumCommitment: '3 months',
