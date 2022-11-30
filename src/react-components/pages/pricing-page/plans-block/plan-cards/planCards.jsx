@@ -18,10 +18,20 @@ import React, { useContext } from 'react';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import ModalContext from 'react-components/layouts/modal-layout/modalContext';
-import SimpleCard from 'react-components/pages/pricing-page/plans-block/plan-cards/plan-card/simple-card/simpleCard.jsx';
 import ContactForm from 'react-components/forms/contact-form/contactForm.jsx';
-import ClockCard from 'react-components/pages/pricing-page/plans-block/plan-cards/plan-card/clock-card/clockCard.jsx';
-import { STARTUP, BUSINESS, ENTERPRISE, PACKAGE_25, PACKAGE_60, PACKAGE_168, SAAS_ID, ON_PREMISES_ID } from '../constants';
+import SimpleCard from './plan-card/simple-card/simpleCard.jsx';
+import ClockCard from './plan-card/clock-card/clockCard.jsx';
+import {
+  STARTUP,
+  BUSINESS,
+  ENTERPRISE,
+  PACKAGE_25,
+  PACKAGE_60,
+  PACKAGE_168,
+  SAAS_ID,
+  ON_PREMISES_ID,
+  OPEN_SOURCE
+} from '../constants';
 import styles from './planCards.scss';
 
 const cx = classNames.bind(styles);
@@ -30,10 +40,10 @@ const PlanCards = ({ plansData, periodId }) => {
   const { showModal } = useContext(ModalContext);
 
   const onButtonClick = (type, packageName) => {
-    let title;
     const description = 'Please provide your details below, and ReportPortal will help you set up your subscription.';
     const SALESFORCE_SOURCE_NAME = 'ReportPortalSource__c';
     const LEAD_SOURCE = 'lead_source';
+    let title;
     let options;
 
     switch (type) {
@@ -82,7 +92,6 @@ const PlanCards = ({ plansData, periodId }) => {
       case STARTUP:
         return <SimpleCard
           key={STARTUP}
-          className={cx('plan-card')}
           name={STARTUP}
           description='Shared instance, essential storage, data retention and technical support'
           price={price}
@@ -94,7 +103,6 @@ const PlanCards = ({ plansData, periodId }) => {
       case BUSINESS:
         return <SimpleCard
           key={BUSINESS}
-          className={cx('plan-card', 'popular')}
           name={BUSINESS}
           description='Individual instance, more flexibility, enhanced security and more technical support hours'
           price={price}
@@ -107,7 +115,6 @@ const PlanCards = ({ plansData, periodId }) => {
       case ENTERPRISE:
         return <SimpleCard
           key={ENTERPRISE}
-          className={cx('plan-card')}
           name={ENTERPRISE}
           description='Custom conditions for custom needs'
           price={price}
@@ -120,11 +127,11 @@ const PlanCards = ({ plansData, periodId }) => {
       case PACKAGE_25:
         return <ClockCard
           key={PACKAGE_25}
-          className={cx('plan-card')}
           name='25'
           firstLevelDescription='professional'
           secondLevelDescription='service hours'
           price={price}
+          type="min"
           button={{
             name: 'Contact Us',
             onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_25),
@@ -133,12 +140,11 @@ const PlanCards = ({ plansData, periodId }) => {
       case PACKAGE_60:
         return <ClockCard
           key={PACKAGE_60}
-          className={cx('plan-card', 'popular')}
           name='60'
           firstLevelDescription='professional'
           secondLevelDescription='service hours'
           price={price}
-          withPopular
+          type="mid"
           button={{
             name: 'Contact Us',
             onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_60),
@@ -147,15 +153,25 @@ const PlanCards = ({ plansData, periodId }) => {
       case PACKAGE_168:
         return <ClockCard
           key={PACKAGE_168}
-          className={cx('plan-card')}
           name='168+'
           firstLevelDescription='professional'
           secondLevelDescription='service hours'
           price={price}
-          withFullClock
+          type="max"
           button={{
             name: 'Contact Us',
             onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_168),
+          }}
+        />;
+      case OPEN_SOURCE:
+        return <ClockCard
+          key={OPEN_SOURCE}
+          name={OPEN_SOURCE}
+          price={price}
+          perMonth={false}
+          button={{
+            name: 'Start now',
+            onClick: () => window.open('https://reportportal.io/installation', '_blank'),
           }}
         />;
       default:

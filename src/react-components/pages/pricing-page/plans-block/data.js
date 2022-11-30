@@ -27,6 +27,7 @@ import {
   PACKAGE_25,
   PACKAGE_60,
   PACKAGE_168,
+  OPEN_SOURCE,
 } from './constants';
 
 const compareTableTitles = {
@@ -120,7 +121,7 @@ export const planTypes = [
     iconType: 'home',
     footerDescription: '*payment is made quarterly',
     description: 'ReportPortal instance deployed on-premise behind your firewall or in the Cloud. All your test data is located on your own instance and it is 100% secured.',
-    planNames: [PACKAGE_25, PACKAGE_60, PACKAGE_168],
+    planNames: [OPEN_SOURCE, PACKAGE_25, PACKAGE_60, PACKAGE_168],
     planCompareTableTitles: [
       compareTableTitles.professionalSupport,
       compareTableTitles.minimumCommitment,
@@ -134,8 +135,8 @@ export const periods = [
   { id: FULL_PERIOD, name: 'Quarterly' },
 ];
 
-const plansData = [
-  {
+const plansData = {
+  [STARTUP]: {
     name: STARTUP,
     price: { full: '$630', sale: '$600' },
     options: {
@@ -146,7 +147,7 @@ const plansData = [
       features: true,
     },
   },
-  {
+  [BUSINESS]: {
     name: BUSINESS,
     price: { full: '$2,625', sale: '$2,500' },
     options: {
@@ -158,7 +159,7 @@ const plansData = [
       features: true,
     },
   },
-  {
+  [ENTERPRISE]: {
     name: ENTERPRISE,
     price: { full: 'Custom price', sale: 'Custom price' },
     options: {
@@ -174,7 +175,7 @@ const plansData = [
       features: true,
     },
   },
-  {
+  [PACKAGE_25]: {
     name: PACKAGE_25,
     price: { full: '$3,150', sale: '$3,000' },
     options: {
@@ -182,7 +183,7 @@ const plansData = [
       minimumCommitment: '6 months',
     },
   },
-  {
+  [PACKAGE_60]: {
     name: PACKAGE_60,
     price: { full: '$6,300', sale: '$6,000' },
     options: {
@@ -190,7 +191,7 @@ const plansData = [
       minimumCommitment: '6 months',
     },
   },
-  {
+  [PACKAGE_168]: {
     name: PACKAGE_168,
     price: { full: '$14,700+', sale: '$14,000+' },
     options: {
@@ -199,6 +200,11 @@ const plansData = [
       features: true,
     },
   },
-];
+  [OPEN_SOURCE]: {
+    name: OPEN_SOURCE,
+    price: { full: 'Free', sale: 'Free' },
+    options: {},
+  },
+}
 
-export const getPlansDataByNames = (names) => plansData.filter(({ name }) => names.includes(name))
+export const getPlansDataByNames = (planNames) => planNames.map((name) => plansData[name]).filter(Boolean);
