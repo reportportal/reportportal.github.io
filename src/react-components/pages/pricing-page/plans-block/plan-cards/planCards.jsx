@@ -100,7 +100,7 @@ const PlanCards = ({ plansData, periodId }) => {
           price={price}
           withPopular
           button={{
-            name: 'Sign Up',
+            name: 'Contact Us',
             onClick: () => onButtonClick(SAAS_ID, BUSINESS),
           }}
         />;

@@ -19,7 +19,7 @@ import classNames from 'classnames/bind';
 import reactWrapper from 'utils/reactWrapper';
 import BodyLayout from 'react-components/layouts/bodyLayout.jsx';
 import QuestionsForm from 'react-components/forms/questions-form/questionsForm.jsx';
-import PlansBlock from 'react-components/pages/pricing-page/plans-block/plansBlock.jsx';
+import PlansBlock from './plans-block/plansBlock.jsx';
 import styles from './pricingPage.scss';
 
 const cx = classNames.bind(styles);
