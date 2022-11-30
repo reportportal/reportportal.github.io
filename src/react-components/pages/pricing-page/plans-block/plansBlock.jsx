@@ -17,13 +17,10 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import Switcher from 'react-components/common/switcher/switcher';
-import Table from 'react-components/common/table/table';
-import InfoIcon from 'react-components/common/info-icon/infoIcon';
-import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip';
 import SimpleSwitcher from 'react-components/common/simple-switcher/simpleSwitcher';
 import { getIsTabletView } from 'react-components/utils/utils.js';
 import ComparisonList from './comparison/comparison-list/comparisonList';
-import Terms from './comparison/terms/terms';
+import ComparisonTable from './comparison/comparison-table/comparisonTable';
 import PlanCards from './plan-cards/planCards';
 import { getPlansDataByNames, periods, planTypes } from './data';
 import { FULL_PERIOD, SALE_PERIOD } from './constants';
@@ -81,49 +78,24 @@ const PlansBlock = () => {
     setIsComparisonTableOpened(!isComparisonTableOpened);
   };
 
-  const getComparisonTable = () => {
-    const titles = selectedPlanType.planCompareTableTitles;
-
+  const renderComparison = () => {
     if (getIsTabletView()) {
       return (
         <ComparisonList
-          planData={selectedPlansData}
+          plansData={selectedPlansData}
           planType={selectedPlanType}
           isOpen={isComparisonTableOpened}
         />
       );
     }
 
-    const headers = ['', ...selectedPlansData.map(({ name }) => name)];
-
-    const rows = titles.map(({ id, name, info }) => {
-      const options = selectedPlansData.map((plan) => plan.options[id]);
-      const modifiedOptions = options.map(option =>
-        option === true ? <div className={cx('true-icon')} /> : option,
-      );
-      return [
-        <div key={name} className={cx('inline-title')}>
-          {name}
-          {info &&
-            <InfoWithTooltip tooltip={info}>
-              {(isActive) => <InfoIcon isActive={isActive} />}
-            </InfoWithTooltip>
-          }
-        </div>,
-        ...modifiedOptions,
-      ];
-    });
-
-    const footer = (
-      <td colSpan={headers.length + 2}>
-        <div className={cx('footer-row')}>
-          <Terms />
-          <div className={cx('note')}>{selectedPlanType.footerDescription}</div>
-        </div>
-      </td>
+    return (
+      <ComparisonTable
+        plansData={selectedPlansData}
+        planType={selectedPlanType}
+        isOpen={isComparisonTableOpened}
+      />
     );
-
-    return <Table className={cx('compare-plans-table')} data={{ headers, rows, footer }} />
   };
 
   return (
@@ -149,13 +121,13 @@ const PlansBlock = () => {
         plansData={selectedPlansData}
         periodId={selectedPeriodId}
       />
-      <div className={cx('comparison-table', { open: isComparisonTableOpened })}>
-        <div className={cx('table-header')} onClick={onComparisonTableClick}>
+      <div className={cx('comparison', { open: isComparisonTableOpened })}>
+        <div className={cx('header')} onClick={onComparisonTableClick}>
           <div className={cx('condition-icon')} />
           Compare plans
         </div>
-        <div className={cx('table-wrapper')}>
-          {getComparisonTable()}
+        <div className={cx('content-wrapper')}>
+          {renderComparison()}
         </div>
       </div>
       <div className={cx('description')}>

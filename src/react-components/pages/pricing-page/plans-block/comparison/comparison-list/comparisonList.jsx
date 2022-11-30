@@ -11,7 +11,7 @@ import styles from './comparisonList.scss';
 
 const cx = classNames.bind(styles);
 
-const ComparisonList = ({ planData, planType, isOpen }) => {
+const ComparisonList = ({ plansData, planType, isOpen }) => {
   const { showModal } = useContext(ModalContext);
   const titles = planType.planCompareTableTitles;
 
@@ -19,7 +19,7 @@ const ComparisonList = ({ planData, planType, isOpen }) => {
     showModal(<NotificationModal title={title} description={tooltip} />);
   };
 
-  const plans = planData.map(({ name: planName, options }) => {
+  const plans = plansData.map(({ name: planName, options }) => {
     const rows = titles.map(({ id, name, info }, index ) => {
       let option = options[id];
       let currentName = name;
@@ -100,7 +100,7 @@ const ComparisonList = ({ planData, planType, isOpen }) => {
   </div>;
 }
 ComparisonList.propTypes = {
-  planData: PropTypes.array.isRequired,
+  plansData: PropTypes.array.isRequired,
   planType: PropTypes.shape({
     planCompareTableTitles: PropTypes.array.isRequired,
   }).isRequired,

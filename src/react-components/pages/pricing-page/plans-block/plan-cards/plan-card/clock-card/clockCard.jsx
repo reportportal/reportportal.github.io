@@ -26,10 +26,10 @@ const ClockCard = ({ name, firstLevelDescription, secondLevelDescription, price,
   <div className={cx('clock-card')}>
     <div className={cx('clock', { [type]: type })}>
       <span className={cx('name')}>{name}</span>
-        <div className={cx('double-level-description')}>
-          <span className={cx('first-level-description')}>{firstLevelDescription}</span>
-          <span className={cx('second-level-description')}>{secondLevelDescription}</span>
-        </div>
+      <div className={cx('double-level-description')}>
+        <span className={cx('first-level-description')}>{firstLevelDescription}</span>
+        <span className={cx('second-level-description')}>{secondLevelDescription}</span>
+      </div>
     </div>
     <div className={cx('price-and-action')}>
       <div className={cx('price')}>
