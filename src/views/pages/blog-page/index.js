@@ -17,17 +17,17 @@
 import { $ } from 'backbone';
 import Epoxy from 'backbone.epoxy';
 import Footer from 'components/footer';
-import BlogPage from 'react-components/pages/blog-page/blogPage.jsx';
+import BlogPage from 'react-components/pages/blog/blogPage.jsx';
 import template from './blog-page.jade';
 import renderReactComponent from 'utils/backboneReactRender';
 
 export default Epoxy.View.extend({
   template,
   className: 'blog-page',
-  initialize() {
+  initialize(options) {
     this.renderTemplate();
     const blogPage = $('[data-js-sections-container]', this.$el);
-    this.view = renderReactComponent(blogPage, BlogPage);
+    this.view = renderReactComponent(blogPage, BlogPage, { blogName: options.blogName });
     this.footer = new Footer();
     $('[data-js-footer-container]', this.$el).html(this.footer.$el);
   },

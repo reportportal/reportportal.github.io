@@ -31,7 +31,7 @@ const Router = Backbone.Router.extend({
     'docs/:id': 'openDocumentation',
     pricing: 'openPricing',
     'legal/terms': 'openTerms',
-    'blog/double-entry-in-5.7.2': 'openBlog',
+    'blog/:blogName': 'openBlog',
     community: 'openCommunity',
     installation: 'openInstallation',
     'installation/integration': 'openInstallationIntegration',
@@ -54,8 +54,8 @@ const Router = Backbone.Router.extend({
     this.context.renderTerms();
     this.header.$el.addClass('without-shadow');
   },
-  openBlog() {
-    this.context.renderBlog();
+  openBlog(blogName) {
+    this.context.renderBlog(blogName);
     this.header.$el.addClass('without-shadow');
   },
   openCommunity() {
