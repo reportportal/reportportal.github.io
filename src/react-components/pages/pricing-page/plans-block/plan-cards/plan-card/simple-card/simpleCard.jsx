@@ -26,15 +26,17 @@ const SimpleCard = ({ name, description, price, className, withPopular, withPeri
   <div className={cx('card', className, { popular: withPopular })}>
     {withPopular && <div className={cx('popular-label')}>Most popular</div>}
     <div className={cx('name')}>{name}</div>
-    <div className={cx('short-description')}>
-      {description}
-    </div>
+    <div className={cx('short-description')}>{description}</div>
     <div className={cx('price')}>
       {price}
       {withPeriod && <span className={cx('period')}>/per month</span>}
     </div>
     {button && (
-      <Button className={cx('card-button')} onClick={button.onClick} variant={withPopular ? 'standard' : 'light'}>
+      <Button
+        className={cx('card-button')}
+        onClick={button.onClick}
+        variant={withPopular ? 'standard' : 'light'}
+      >
         {button.name}
       </Button>
     )}

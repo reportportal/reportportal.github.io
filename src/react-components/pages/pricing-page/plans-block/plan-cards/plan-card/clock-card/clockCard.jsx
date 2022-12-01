@@ -22,7 +22,15 @@ import styles from './clockCard.scss';
 
 const cx = classNames.bind(styles);
 
-const ClockCard = ({ name, firstLevelDescription, secondLevelDescription, price, button, type, perMonth }) => (
+const ClockCard = ({
+  name,
+  firstLevelDescription,
+  secondLevelDescription,
+  price,
+  button,
+  type,
+  perMonth,
+}) => (
   <div className={cx('clock-card')}>
     <div className={cx('clock', { [type]: type })}>
       <span className={cx('name')}>{name}</span>
@@ -37,7 +45,7 @@ const ClockCard = ({ name, firstLevelDescription, secondLevelDescription, price,
         {perMonth && <span className={cx('period')}>/per month</span>}
       </div>
       {button && (
-        <Button className={cx('card-button')} onClick={button.onClick} variant='light'>
+        <Button className={cx('card-button')} onClick={button.onClick} variant="light">
           {button.name}
         </Button>
       )}

@@ -46,13 +46,15 @@ const PlansBlock = () => {
 
         return {
           id,
-          element: <>
-            <div className={cx('icon', { active: isActive }, iconType)} />
-            <div className={cx('switcher-name')}>{name}</div>
-          </>,
+          element: (
+            <>
+              <div className={cx('icon', { active: isActive }, iconType)} />
+              <div className={cx('switcher-name')}>{name}</div>
+            </>
+          ),
           isActive,
         };
-      })
+      }),
     );
     setSelectedPeriodId(SALE_PERIOD);
   }, [selectedPlanType]);
@@ -105,30 +107,25 @@ const PlansBlock = () => {
         itemsData={planSwitcherData}
         handleSelect={handlePlanSwitcherSelect}
         withItemsEqualWidth
-        size='big'
+        size="big"
       />
-      <div className={cx('selected-plan-name')} >{selectedPlanType.name}</div>
-      {periods.length &&
+      <div className={cx('selected-plan-name')}>{selectedPlanType.name}</div>
+      {periods.length && (
         <SimpleSwitcher
           className={cx('simple-period-switcher')}
           onChange={onSimpleSwitcherChange}
           label={periods.find(({ id }) => id === SALE_PERIOD).name}
-          name='simple-period-switcher'
+          name="simple-period-switcher"
           checked={selectedPeriodId !== FULL_PERIOD}
         />
-      }
-      <PlanCards
-        plansData={selectedPlansData}
-        periodId={selectedPeriodId}
-      />
+      )}
+      <PlanCards plansData={selectedPlansData} periodId={selectedPeriodId} />
       <div className={cx('comparison', { open: isComparisonTableOpened })}>
         <div className={cx('header')} onClick={onComparisonTableClick}>
           <div className={cx('condition-icon')} />
           Compare plans
         </div>
-        <div className={cx('content-wrapper')}>
-          {renderComparison()}
-        </div>
+        <div className={cx('content-wrapper')}>{renderComparison()}</div>
       </div>
       <div className={cx('description')}>
         <div className={cx('name')}>

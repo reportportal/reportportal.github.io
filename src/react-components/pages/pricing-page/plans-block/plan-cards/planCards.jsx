@@ -30,7 +30,7 @@ import {
   PACKAGE_168,
   SAAS_ID,
   ON_PREMISES_ID,
-  OPEN_SOURCE
+  OPEN_SOURCE,
 } from '../constants';
 import styles from './planCards.scss';
 
@@ -40,7 +40,8 @@ const PlanCards = ({ plansData, periodId }) => {
   const { showModal } = useContext(ModalContext);
 
   const onButtonClick = (type, packageName) => {
-    const description = 'Please provide your details below, and ReportPortal will help you set up your subscription.';
+    const description =
+      'Please provide your details below, and ReportPortal will help you set up your subscription.';
     const SALESFORCE_SOURCE_NAME = 'ReportPortalSource__c';
     const LEAD_SOURCE = 'lead_source';
     let title;
@@ -82,98 +83,112 @@ const PlanCards = ({ plansData, periodId }) => {
         title={title}
         description={description}
         options={options}
-        backTo='Back to package'
-      />
+        backTo="Back to package"
+      />,
     );
   };
 
   const getPlan = (name, price) => {
     switch (name) {
       case STARTUP:
-        return <SimpleCard
-          key={STARTUP}
-          name={STARTUP}
-          description='Shared instance, essential storage, data retention and technical support'
-          price={price}
-          button={{
-            name: 'Sign Up',
-            onClick: () => onButtonClick(SAAS_ID, STARTUP),
-          }}
-        />;
+        return (
+          <SimpleCard
+            key={STARTUP}
+            name={STARTUP}
+            description="Shared instance, essential storage, data retention and technical support"
+            price={price}
+            button={{
+              name: 'Sign Up',
+              onClick: () => onButtonClick(SAAS_ID, STARTUP),
+            }}
+          />
+        );
       case BUSINESS:
-        return <SimpleCard
-          key={BUSINESS}
-          name={BUSINESS}
-          description='Individual instance, more flexibility, enhanced security and more technical support hours'
-          price={price}
-          withPopular
-          button={{
-            name: 'Contact Us',
-            onClick: () => onButtonClick(SAAS_ID, BUSINESS),
-          }}
-        />;
+        return (
+          <SimpleCard
+            key={BUSINESS}
+            name={BUSINESS}
+            description="Individual instance, more flexibility, enhanced security and more technical support hours"
+            price={price}
+            withPopular
+            button={{
+              name: 'Contact Us',
+              onClick: () => onButtonClick(SAAS_ID, BUSINESS),
+            }}
+          />
+        );
       case ENTERPRISE:
-        return <SimpleCard
-          key={ENTERPRISE}
-          name={ENTERPRISE}
-          description='Custom conditions for custom needs'
-          price={price}
-          button={{
-            name: 'Contact Us',
-            onClick: () => onButtonClick(SAAS_ID, ENTERPRISE),
-          }}
-          withPeriod={false}
-        />;
+        return (
+          <SimpleCard
+            key={ENTERPRISE}
+            name={ENTERPRISE}
+            description="Custom conditions for custom needs"
+            price={price}
+            button={{
+              name: 'Contact Us',
+              onClick: () => onButtonClick(SAAS_ID, ENTERPRISE),
+            }}
+            withPeriod={false}
+          />
+        );
       case PACKAGE_25:
-        return <ClockCard
-          key={PACKAGE_25}
-          name='25'
-          firstLevelDescription='professional'
-          secondLevelDescription='service hours'
-          price={price}
-          type="min"
-          button={{
-            name: 'Contact Us',
-            onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_25),
-          }}
-        />;
+        return (
+          <ClockCard
+            key={PACKAGE_25}
+            name="25"
+            firstLevelDescription="professional"
+            secondLevelDescription="service hours"
+            price={price}
+            type="min"
+            button={{
+              name: 'Contact Us',
+              onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_25),
+            }}
+          />
+        );
       case PACKAGE_60:
-        return <ClockCard
-          key={PACKAGE_60}
-          name='60'
-          firstLevelDescription='professional'
-          secondLevelDescription='service hours'
-          price={price}
-          type="mid"
-          button={{
-            name: 'Contact Us',
-            onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_60),
-          }}
-        />;
+        return (
+          <ClockCard
+            key={PACKAGE_60}
+            name="60"
+            firstLevelDescription="professional"
+            secondLevelDescription="service hours"
+            price={price}
+            type="mid"
+            button={{
+              name: 'Contact Us',
+              onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_60),
+            }}
+          />
+        );
       case PACKAGE_168:
-        return <ClockCard
-          key={PACKAGE_168}
-          name='168+'
-          firstLevelDescription='professional'
-          secondLevelDescription='service hours'
-          price={price}
-          type="max"
-          button={{
-            name: 'Contact Us',
-            onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_168),
-          }}
-        />;
+        return (
+          <ClockCard
+            key={PACKAGE_168}
+            name="168+"
+            firstLevelDescription="professional"
+            secondLevelDescription="service hours"
+            price={price}
+            type="max"
+            button={{
+              name: 'Contact Us',
+              onClick: () => onButtonClick(ON_PREMISES_ID, PACKAGE_168),
+            }}
+          />
+        );
       case OPEN_SOURCE:
-        return <ClockCard
-          key={OPEN_SOURCE}
-          name={OPEN_SOURCE}
-          price={price}
-          perMonth={false}
-          button={{
-            name: 'Start now',
-            onClick: () => window.open('https://reportportal.io/installation', '_blank'),
-          }}
-        />;
+        return (
+          <ClockCard
+            key={OPEN_SOURCE}
+            name={OPEN_SOURCE}
+            price={price}
+            perMonth={false}
+            button={{
+              name: 'Start now',
+              onClick: () => window.open('https://reportportal.io/installation', '_blank'),
+            }}
+          />
+        );
       default:
         throw new Error('wrong package name');
     }
@@ -193,6 +208,6 @@ PlanCards.propTypes = {
     }),
   ),
   periodId: PropTypes.string.isRequired,
-}
+};
 
 export default PlanCards;

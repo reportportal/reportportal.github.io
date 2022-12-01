@@ -34,13 +34,20 @@ const compareTableTitles = {
   instance: {
     id: 'instance',
     name: 'Individual Instance',
-    info: <span>
-      You can choose instance type:<br/>
-      <br/>
-      <b>Shared instance:</b> you share a multi-tenant instance of application with other clients. Access limited on the project. Better for profitability.<br/>
-      <br/>
-      <b>Dedicated instance:</b> only your company is on this instance. Better for data isolation, simplified scalability, increased availability, personalization, company-based authorization.
-    </span>,
+    info: (
+      <span>
+        You can choose instance type:
+        <br />
+        <br />
+        <b>Shared instance:</b> you share a multi-tenant instance of application with other clients.
+        Access limited on the project. Better for profitability.
+        <br />
+        <br />
+        <b>Dedicated instance:</b> only your company is on this instance. Better for data isolation,
+        simplified scalability, increased availability, personalization, company-based
+        authorization.
+      </span>
+    ),
   },
   storage: {
     id: 'storage',
@@ -55,45 +62,73 @@ const compareTableTitles = {
   support: {
     id: 'support',
     name: 'Technical support hours',
-    info: <span>
-      A technical support hour (pre-paid) is a blended hour, included into your subscription plan, which may consist of the time of various specialists, whether it is the time of a business analyst, architect, lead automation engineer, DevOps (System Engineer) or performance engineer.<br/>
-      <br/>
-      It can be used for various purposes related to ReportPortal installation, configuration, integration, customization, feature implementation, TAF updates, test case implementation, etc.
-    </span>,
+    info: (
+      <span>
+        A technical support hour (pre-paid) is a blended hour, included into your subscription plan,
+        which may consist of the time of various specialists, whether it is the time of a business
+        analyst, architect, lead automation engineer, DevOps (System Engineer) or performance
+        engineer.
+        <br />
+        <br />
+        It can be used for various purposes related to ReportPortal installation, configuration,
+        integration, customization, feature implementation, TAF updates, test case implementation,
+        etc.
+      </span>
+    ),
   },
   additionalSupport: {
     id: 'additionalSupport',
     name: 'Additional technical support',
-    info: <span>
-      If your usage exceeds the specified quantity of technical support hours included into the subscription package, you will need to pay for the exceeding amount at pay-as-you-go system.<br/>
-      <br/>
-      A technical support hour is a blended hour, which may consist of the time of various specialists, whether it is the time of a business analyst, architect, lead automation engineer, DevOps (System Engineer) or performance engineer.<br/>
-      <br/>
-      It can be used for various purposes related to ReportPortal installation, configuration, integration, customization, feature implementation, TAF updates, test case implementation, etc.
-    </span>,
+    info: (
+      <span>
+        If your usage exceeds the specified quantity of technical support hours included into the
+        subscription package, you will need to pay for the exceeding amount at pay-as-you-go system.
+        <br />
+        <br />
+        A technical support hour is a blended hour, which may consist of the time of various
+        specialists, whether it is the time of a business analyst, architect, lead automation
+        engineer, DevOps (System Engineer) or performance engineer.
+        <br />
+        <br />
+        It can be used for various purposes related to ReportPortal installation, configuration,
+        integration, customization, feature implementation, TAF updates, test case implementation,
+        etc.
+      </span>
+    ),
   },
   features: {
     id: 'features',
     name: 'Enterprise features',
-    info: <span>
-      Additional features which are not available in a scope of the Free Open Source version, <a href="/docs/Enterprise-Features" target="_blank" rel="noreferrer">link to the List with features and description.</a>
-    </span>,
+    info: (
+      <span>
+        Additional features which are not available in a scope of the Free Open Source version,{' '}
+        <a href="/docs/Enterprise-Features" target="_blank" rel="noreferrer">
+          link to the List with features and description.
+        </a>
+      </span>
+    ),
   },
   minimumCommitment: {
     id: 'minimumCommitment',
     name: 'Minimum commitment',
-    info: <span>
-      Minimum commitment of time for use of a certain subscription package.
-    </span>,
+    info: <span>Minimum commitment of time for use of a certain subscription package.</span>,
   },
   professionalSupport: {
     id: 'professionalSupport',
     name: 'Professional service hours',
-    info: <span>
-      A professional service hour is a blended hour included into your subscription plan, which may consist of the time of various specialists, whether it is the time of a business analyst, architect, lead automation engineer, DevOps (System Engineer) or performance engineer.<br/>
-      <br/>
-      It can be used for various purposes related to ReportPortal installation, configuration, integration, customization, feature implementation, TAF updates, test case implementation, etc.
-    </span>,
+    info: (
+      <span>
+        A professional service hour is a blended hour included into your subscription plan, which
+        may consist of the time of various specialists, whether it is the time of a business
+        analyst, architect, lead automation engineer, DevOps (System Engineer) or performance
+        engineer.
+        <br />
+        <br />
+        It can be used for various purposes related to ReportPortal installation, configuration,
+        integration, customization, feature implementation, TAF updates, test case implementation,
+        etc.
+      </span>
+    ),
   },
 };
 
@@ -103,7 +138,8 @@ export const planTypes = [
     name: 'SaaS',
     iconType: 'cloud',
     footerDescription: '*payment is made quarterly',
-    description: 'An instance of ReportPortal application is hosted for you.\n' +
+    description:
+      'An instance of ReportPortal application is hosted for you.\n' +
       'ReportPortal Team takes care about infrastructure, availability, backups, monitoring and version updates and provides support by request.',
     planNames: [STARTUP, BUSINESS, ENTERPRISE],
     planCompareTableTitles: [
@@ -120,7 +156,8 @@ export const planTypes = [
     name: 'On-Premises',
     iconType: 'home',
     footerDescription: '*payment is made quarterly',
-    description: 'ReportPortal instance deployed on-premise behind your firewall or in the Cloud. All your test data is located on your own instance and it is 100% secured.',
+    description:
+      'ReportPortal instance deployed on-premise behind your firewall or in the Cloud. All your test data is located on your own instance and it is 100% secured.',
     planNames: [OPEN_SOURCE, PACKAGE_25, PACKAGE_60, PACKAGE_168],
     planCompareTableTitles: [
       compareTableTitles.professionalSupport,
@@ -168,8 +205,7 @@ const plansData = {
       retention: 'Unlimited',
       support: {
         isMultiLine: true,
-        value: 'Dedicated\n' +
-        'specialist',
+        value: 'Dedicated\nspecialist',
       },
       additionalSupport: '$150/h',
       features: true,
@@ -205,6 +241,7 @@ const plansData = {
     price: { full: 'Free', sale: 'Free' },
     options: {},
   },
-}
+};
 
-export const getPlansDataByNames = (planNames) => planNames.map((name) => plansData[name]).filter(Boolean);
+export const getPlansDataByNames = (planNames) =>
+  planNames.map((name) => plansData[name]).filter(Boolean);

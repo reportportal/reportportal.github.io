@@ -15,17 +15,17 @@ const ComparisonTable = ({ plansData, planType, isOpen }) => {
 
   const rows = titles.map(({ id, name, info }) => {
     const options = plansData.map((plan) => plan.options[id]);
-    const modifiedOptions = options.map(option =>
+    const modifiedOptions = options.map((option) =>
       option === true ? <div className={cx('true-icon')} /> : option,
     );
     return [
       <div key={name} className={cx('inline-title')}>
         {name}
-        {info &&
+        {info && (
           <InfoWithTooltip tooltip={info}>
             {(isActive) => <InfoIcon isActive={isActive} />}
           </InfoWithTooltip>
-        }
+        )}
       </div>,
       ...modifiedOptions,
     ];
@@ -46,7 +46,7 @@ const ComparisonTable = ({ plansData, planType, isOpen }) => {
       data={{ headers, rows, footer }}
     />
   );
-}
+};
 ComparisonTable.propTypes = {
   plansData: PropTypes.array.isRequired,
   planType: PropTypes.shape({

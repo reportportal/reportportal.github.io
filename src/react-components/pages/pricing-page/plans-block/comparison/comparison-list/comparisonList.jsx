@@ -20,7 +20,7 @@ const ComparisonList = ({ plansData, planType, isOpen }) => {
   };
 
   const plans = plansData.map(({ name: planName, options }) => {
-    const rows = titles.map(({ id, name, info }, index ) => {
+    const rows = titles.map(({ id, name, info }, index) => {
       let option = options[id];
       let currentName = name;
       let preposition = ' of ';
@@ -59,52 +59,56 @@ const ComparisonList = ({ plansData, planType, isOpen }) => {
           break;
       }
 
-      return <div key={index} className={cx('plan-row', { disable: !option })}>
-        <div className={cx('row-status')}>
-          <i/>
+      return (
+        <div key={index} className={cx('plan-row', { disable: !option })}>
+          <div className={cx('row-status')}>
+            <i />
+          </div>
+          <div className={cx('row-text')}>
+            {option && option !== true && (
+              <>
+                <span className={cx('option')}>{option}</span>
+                {currentName && preposition}
+              </>
+            )}
+            {currentName}
+          </div>
+          {!!option && info && (
+            <InfoWithTooltip
+              className={cx('info-with-tooltip')}
+              tooltip={info}
+              onClick={() => onInfoClick(currentName, info)}
+            >
+              {() => <InfoIcon />}
+            </InfoWithTooltip>
+          )}
         </div>
-        <div className={cx('row-text')}>
-          {option && option !== true &&
-            <>
-              <span className={cx('option')}>{option}</span>
-              {currentName && preposition}
-            </>
-          }
-          {currentName}
-        </div>
-        {!!option && info &&
-          <InfoWithTooltip className={cx('info-with-tooltip')} tooltip={info} onClick={() => onInfoClick(currentName, info)}>
-            {() => <InfoIcon />}
-          </InfoWithTooltip>
-        }
-      </div>
+      );
     });
 
     return (
-      <PlanSummary
-        key={planName}
-        className={cx('plan-summary')}
-        name={planName}
-      >
+      <PlanSummary key={planName} className={cx('plan-summary')} name={planName}>
         {rows}
       </PlanSummary>
     );
   });
 
-  return <div className={cx('comparison-list-wrapper', { opened: isOpen })}>
-    <div className={cx('comparison-list')}>
-      {plans}
-      <div className={cx('note')}>Payment is made quarterly</div>
-      <Terms className={cx('terms')} />
+  return (
+    <div className={cx('comparison-list-wrapper', { opened: isOpen })}>
+      <div className={cx('comparison-list')}>
+        {plans}
+        <div className={cx('note')}>Payment is made quarterly</div>
+        <Terms className={cx('terms')} />
+      </div>
     </div>
-  </div>;
-}
+  );
+};
 ComparisonList.propTypes = {
   plansData: PropTypes.array.isRequired,
   planType: PropTypes.shape({
     planCompareTableTitles: PropTypes.array.isRequired,
   }).isRequired,
   isOpen: PropTypes.bool.isRequired,
-}
+};
 
 export default ComparisonList;
