@@ -15,17 +15,17 @@
  */
 
 import React, { useContext, useEffect, useState } from 'react';
-import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import classNames from 'classnames/bind';
+import ModalContext from 'react-components/layouts/modal-layout/modalContext';
 import Switcher from 'react-components/common/switcher/switcher.jsx';
 import Table from 'react-components/common/table/table.jsx';
 import InfoIcon from 'react-components/common/info-icon/infoIcon.jsx';
 import InfoWithTooltip from 'react-components/common/info-with-tooltip/infoWithTooltip.jsx';
 import NotificationModal from 'react-components/layouts/modal-layout/notification-modal/notificationModal.jsx';
-import PlanCards from 'react-components/pages/pricing-page/plans-block/plan-cards/planCards.jsx';
 import PlanSummary from 'react-components/common/plan-summary/planSummary.jsx';
 import SimpleSwitcher from 'react-components/common/simple-switcher/simpleSwitcher.jsx';
 import { getIsTabletView } from 'react-components/utils/utils.js';
+import PlanCards from './plan-cards/planCards.jsx';
 import { getPlansDataByNames, periods, planTypes } from './data';
 import { FULL_PERIOD, SALE_PERIOD } from './constants';
 import styles from './plansBlock.scss';
