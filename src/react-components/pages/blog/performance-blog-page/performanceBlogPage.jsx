@@ -33,7 +33,7 @@ const tags = [
   'performance',
 ];
 
-const date = 'December 1, 2022';
+const date = 'December 2, 2022';
 
 const blogTitle = 'Performance improvements in 5.7.3';
 
