@@ -36,16 +36,16 @@ const BlogPage = ({ blogName }) => {
             default:
                 return null;
         }
-    }
+    };
 
     return (
         <BodyLayout className={cx('blog-page')}>
             {getBlog()}
         </BodyLayout>
-    )
+    );
 };
 BlogPage.propTypes = {
     blogName: PropTypes.string.isRequired,
-}
+};
 
 export default reactWrapper(BlogPage);

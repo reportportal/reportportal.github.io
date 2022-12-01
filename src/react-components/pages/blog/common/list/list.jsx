@@ -43,10 +43,10 @@ List.propTypes = {
     title: PropTypes.string,
     list: PropTypes.arrayOf(PropTypes.node).isRequired,
     isSimple: PropTypes.bool,
-}
+};
 List.defaultProps = {
     title: '',
     isSimple: false,
-}
+};
 
 export default List;

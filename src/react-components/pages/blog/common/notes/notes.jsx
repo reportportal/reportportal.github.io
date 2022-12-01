@@ -33,10 +33,10 @@ const Notes = ({ notes }) => (
 );
 Notes.propTypes = {
     notes: PropTypes.arrayOf(PropTypes.string).isRequired,
-}
+};
 Notes.defaultProps = {
     title: '',
     isSimple: false,
-}
+};
 
 export default Notes;

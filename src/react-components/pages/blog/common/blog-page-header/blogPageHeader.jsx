@@ -43,6 +43,6 @@ const BlogPageHeader = ({ tags, date }) => (
 BlogPageHeader.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
     date: PropTypes.string.isRequired,
-}
+};
 
 export default BlogPageHeader;

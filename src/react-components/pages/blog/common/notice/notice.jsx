@@ -34,9 +34,9 @@ const Notice = ({ children, isSimple }) => {
 Notice.propTypes = {
     children: PropTypes.node.isRequired,
     isSimple: PropTypes.bool,
-}
+};
 Notice.defaultProps = {
     isSimple: false,
-}
+};
 
 export default Notice;

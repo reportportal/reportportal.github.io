@@ -32,7 +32,6 @@ const BlogPageContent = ({ children, title }) => (
 BlogPageContent.propTypes = {
     children: PropTypes.node.isRequired,
     title: PropTypes.string.isRequired,
-}
-
+};
 
 export default BlogPageContent;
