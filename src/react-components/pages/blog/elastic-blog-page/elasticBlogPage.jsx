@@ -176,7 +176,7 @@ const ElasticBlogPage = () => (
       </table>
       <img src={performanceImg} alt="deletion by IDs performance comparison" />
       <Notice>
-          In comparison with index, logs deletion by IDs from data streams — <b className={cx('blue', 'semibold')}>29 times faster</b>
+          In comparison with index, logs deletion by IDs from data streams — <b className={cx('blue')}>29 times faster</b>
       </Notice>
       <Notice isSimple>
         You can find more details about ElasticSearch Data Streams <a target="_blank" href='https://opster.com/guides/elasticsearch/data-architecture/elasticsearch-data-streams/' rel="noreferrer">here.</a>

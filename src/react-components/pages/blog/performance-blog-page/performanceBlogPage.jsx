@@ -33,7 +33,7 @@ const tags = [
   'performance',
 ];
 
-const date = 'December 1, 2022';
+const date = 'December 2, 2022';
 
 const blogTitle = 'Performance improvements in 5.7.3';
 
@@ -58,7 +58,7 @@ const PerformanceBlogPage = () => (
       </h4>
       <img src={capacityImg} alt="Capacity improvement" />
       <Notice>
-        <b className={cx('blue', 'semibold')}>Benefit for the user: </b>It helps to speed up your reporting on the same environment just because of the version upgrade.
+        <b className={cx('blue')}>Benefits: </b>It helps to speed up your reporting on the same environment just because of the version upgrade.
       </Notice>
       <h3 className={cx('with-margin-top')}>
         2. Response times for building history and filtering at all levels have become at least 18% faster compared to version 5.7.2.
@@ -71,10 +71,10 @@ const PerformanceBlogPage = () => (
       </h4>
       <img src={responseTimeImg} alt="Response time improvement" />
       <Notice>
-        <b className={cx('blue', 'semibold')}>Benefit for the user: </b>Test history and filters load faster compared to the previous version.
+        <b className={cx('blue')}>Benefits: </b>Test history and filters load faster compared to the previous version.
       </Notice>
       <p>
-        Check out the  <a target="_blank" href="https://reportportal.io/releases" rel="noreferrer">Release notes</a> for the full list of what’s new in version 5.7.3.
+        Check out the Release notes for the full list of what’s new in version 5.7.3.
       </p>
       <h3 className={cx('with-margin-top')}>
         3. RabbitMQ version updates.
@@ -99,7 +99,7 @@ const PerformanceBlogPage = () => (
       </h4>
       <img src={rabbitMemoryOldImg} alt="Old memory usage" />
       <Notice>
-        <b className={cx('blue', 'semibold')}>Benefit for the user: </b>It helps to decrease RabbitMQ resource utilization even under high workloads in the same environment just because of the version upgrade.
+        <b className={cx('blue')}>Benefits: </b>It helps to decrease RabbitMQ resource utilization even under high workloads in the same environment just because of the version upgrade.
       </Notice>
       <p>
         Thus, thanks to performance improvements in version 5.7.3 you can speed up your reporting and decrease resources usage of the ReportPortal even under the high workload.
