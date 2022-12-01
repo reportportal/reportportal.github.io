@@ -33,7 +33,7 @@ const tags = [
   'performance',
 ];
 
-const date = 'November 30, 2022';
+const date = 'December 1, 2022';
 
 const blogTitle = 'Performance improvements in 5.7.3';
 
@@ -48,7 +48,10 @@ const PerformanceBlogPage = () => (
         1. The system capacity has increased up to 13% compared to version 5.7.2.
       </h3>
       <p>
-        We updated the libraries in the scope of fixing Spring Framework Remote Code Execution (RCE) Vulnerability (Spring4Shell). As a result, the system capacity (requests per second) was increased up to 13% on the small server compared to version 5.7.2 during performance testing.
+        We updated the libraries in the scope of fixing Spring Framework Remote Code Execution (RCE) Vulnerability (Spring4Shell). As a result, the system capacity (requests per second) was increased up to 13% on the small server type* compared to version 5.7.2 during performance testing.
+      </p>
+      <p>
+        * it is a small server type from the recommended optimal Kubernetes cluster configuration (you can check it out <a target="_blank" href="https://reportportal.io/docs/Optimal-Performance-Hardware" rel="noreferrer">here</a>).
       </p>
       <h4 className={cx('with-margin-top')}>
         Throughput (max), RPS
@@ -98,6 +101,12 @@ const PerformanceBlogPage = () => (
       <Notice>
         <b className={cx('blue', 'semibold')}>Benefit for the user: </b>It helps to decrease RabbitMQ resource utilization even under high workloads in the same environment just because of the version upgrade.
       </Notice>
+      <p>
+        Thus, thanks to performance improvements in version 5.7.3 you can speed up your reporting and decrease resources usage of the ReportPortal even under the high workload.
+      </p>
+      <p>
+        With 5.7.3 version we are also addressing a huge list of security vulnerabilities. Please, see Release notes for details.
+      </p>
     </BlogPageContent>
   </>
 );
