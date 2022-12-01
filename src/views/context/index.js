@@ -37,9 +37,9 @@ export default Epoxy.View.extend({
     this.header.activatePage('');
     this.renderPage(TermsPage);
   },
-  renderBlog() {
+  renderBlog(blogName) {
     this.header.activatePage('');
-    this.renderPage(BlogPage);
+    this.renderPage(BlogPage, { blogName });
   },
   renderCommunity() {
     this.header.activatePage('community');
@@ -51,7 +51,7 @@ export default Epoxy.View.extend({
   },
   renderInstallationAndScroll() {
     this.header.activatePage('installation');
-    this.renderPage(InstallationPage, true);
+    this.renderPage(InstallationPage, { isScroll: true });
   },
   renderFeatures() {
     this.header.activatePage('features');
@@ -75,13 +75,14 @@ export default Epoxy.View.extend({
     $('[data-js-content-container]', this.$el).html(this.currentPage.$el);
     this.currentPage.onShow && this.currentPage.onShow();
   },
-  renderPage(pageView, isScroll) {
+  renderPage(pageView, params = {}) {
+    const { isScroll } = params;
     this.currentPage && this.currentPage.destroy();
     this.mainScrollEl.scrollTop(0);
     if (isScroll) {
       this.currentPage = new pageView({ mainScrollEl: this.mainScrollEl, isScroll });
     } else {
-      this.currentPage = new pageView({ mainScrollEl: this.mainScrollEl });
+      this.currentPage = new pageView({ mainScrollEl: this.mainScrollEl, ...params });
     }
     $('[data-js-content-container]', this.$el).html(this.currentPage.$el);
     this.currentPage.onShow && this.currentPage.onShow();

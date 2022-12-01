@@ -1,0 +1,122 @@
+/*
+ * Copyright 2022 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.content {
+  max-width: 702px;
+  margin: auto;
+  padding-bottom: 120px;
+
+  b {
+    font-family: $FONT-HEADER;
+  }
+
+  a {
+    color: $COLOR-TEALISH;
+
+    &:hover {
+      color: $COLOR_TOPAZ_TWO;;
+    }
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  p {
+    & + p {
+      margin-top: 32px;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 32px auto 64px;
+    max-width: 100%;
+  }
+
+  h3 {
+    font-size: 26px;
+    line-height: 32px;
+    font-family: $FONT-LIGHT;
+    color: $COLOR-STEEL-GREY;
+    margin-bottom: 24px;
+  }
+
+  h4 {
+    color: $COLOR-STEEL-GREY;
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 20px;
+  }
+}
+
+.title {
+  font-size: 36px;
+  line-height: 40px;
+  margin-top: 40px;
+  margin-bottom: 64px;
+  color: $COLOR-STEEL-GREY;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 48px;
+
+  th {
+    font-family: $FONT-HEADER;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  tr td:first-child, th:first-child {
+    text-align: left;
+  }
+
+  td, th {
+    border: 1px solid $COLOR--grid-table;
+    padding: 10px;
+  }
+}
+
+@media all and (max-width: $TABLET_MAX) {
+  .content {
+    max-width: calc(100% - 136px);
+    width: 702px;
+  }
+
+  .content {
+    padding-bottom: 106px;
+  }
+}
+
+@media all and (max-width: $MOBILE_MAX) {
+  .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .content {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+}

@@ -16,14 +16,17 @@
 
 import React from 'react';
 import classNames from 'classnames/bind';
-import reactWrapper from 'utils/reactWrapper';
-import BodyLayout from 'react-components/layouts/bodyLayout.jsx';
 import appImg from './img/app.png';
 import elasticSearchImg from './img/elasticSearch.png';
 import performanceImg from './img/performance.png';
 import responseTimesImg from './img/responseTimes.png';
 import storageImg from './img/storage.png';
-import styles from './blogPage.scss';
+import BlogPageHeader from '../common/blog-page-header/blogPageHeader';
+import BlogPageContent from '../common/blog-page-content/blogPageContent';
+import List from '../common/list/list';
+import Notice from '../common/notice/notice';
+import Notes from '../common/notes/notes';
+import styles from './elasticBlogPage.scss';
 
 const cx = classNames.bind(styles);
 
@@ -33,6 +36,10 @@ const tags = [
   'datastreams',
 ];
 
+const date = 'September 5, 2022';
+
+const blogTitle = 'ReportPortal moves test logs from PostgreSQL to Elastic-type engines';
+
 const transition = [
   'ReportPortal v5.7 is the last version with log storage in PostgreSQL.',
   'ReportPortal v5.7.2 is the version with a double logging mechanism: logs are stored both in PG and Elastic at the moment of entry.',
@@ -40,9 +47,9 @@ const transition = [
 ];
 
 const elasticSearchBenefits = [
-  <>Reduced disk space usage, with a smaller footprint <span className={cx('semibold')}>up to x8.5.</span></>,
-  <>Reduced maintenance of the PostgreSQL database, and reduced requirements for the shape sizes by at <span className={cx('semibold')}>least x2 times.</span></>,
-  <>Reduction of database load used by pattern analysis up to <span className={cx('semibold')}>5x times.</span></>,
+  <>Reduced disk space usage, with a smaller footprint <b>up to x8.5.</b></>,
+  <>Reduced maintenance of the PostgreSQL database, and reduced requirements for the shape sizes by at <b>least x2 times.</b></>,
+  <>Reduction of database load used by pattern analysis up to <b>5x times.</b></>,
   'Full-text search capabilities for text logs (x33 times quicker for text queries, and less CPU utilization 1 – 16x times in comparison with PostgreSQL).',
   'Similar performance with PostgreSQL on getting logs by ID.',
   'Storing logs in different indices per project allows to get project data faster and reduces the risks of locks occurrence.',
@@ -60,27 +67,10 @@ const notes = [
   'We are already using the ElasticSearch license, so, no new license is required. For now, we stay on version 7.10 with Apache 2.0. We might switch to OpenSearch in prospect.',
 ];
 
-const BlogPage = () => (
-  <BodyLayout className={cx('blog-page')}>
-    <div className={cx('additional-background')} />
-    <div className={cx('background')}>
-      <div className={cx('background-content')}>
-        <div className={cx('date')}>
-          September 5, 2022
-        </div>
-        <div className={cx('tags')}>
-          {tags.map((tag, i) => (
-            <span key={`tag${i}`} className={cx('tag')}>
-              #{tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-    <div className={cx('content')}>
-      <div className={cx('title')}>
-        ReportPortal moves test logs from PostgreSQL to Elastic-type engines
-      </div>
+const ElasticBlogPage = () => (
+  <>
+    <BlogPageHeader tags={tags} date={date} />
+    <BlogPageContent title={blogTitle}>
       <p>
         The ReportPortal’s essence is based on assistance in working with automated testing results, and it all starts with the aggregation of results at a single place. For a long time, the relational database served well as a storage place for us. But the more test cases you run, the more storage you need to keep all related logs.
       </p>
@@ -111,18 +101,10 @@ const BlogPage = () => (
       <h3 className={cx('with-margin-top')}>
         Smooth transition of logs from PostgreSQL to ElasticSearch Data Streams
       </h3>
-      <p>
-        To minimize the effort of our users with data migration, we decided to introduce the interim version (5.7.2) with double-logging. Here is how it looks in the version:
-      </p>
-      <ul className={cx('list')}>
-        {transition.map((item, i) => (
-          <li key={`list-item${i}`} className={cx('list-item')}>
-            <div className={cx('list-item-text')}>
-              {item}
-            </div>
-          </li>
-        ))}
-      </ul>
+      <List
+          title={'To minimize the effort of our users with data migration, we decided to introduce the interim version (5.7.2) with double-logging. Here is how it looks in the version:'}
+          list={transition}
+      />
       <p>
         The average time frame of 3 months between releases will give time for Elastic to pre-aggregate enough data for a smooth daily routine. The upgrade to the version 5.8 will turn off the logs in PostgreSQL and clean it up. Along with the v5.8 we will still release the migration scripts, which will do most of the work automatically. But in order to minimize downtime, we recommend you use 5.7.2 for a while.
       </p>
@@ -146,42 +128,28 @@ const BlogPage = () => (
       <h3>
         What would you get with the ReportPortal v5.8 and the switch to the ElasticSearch logging?
       </h3>
-      <p>
-        It’s not something that you will see at the first moment, but definitely will benefit you in the long run, with outcomes like:
-      </p>
-      <ul className={cx('simple-list')}>
-        {elasticSearchBenefits.map((item, i) => (
-          <li key={`simple-list-item${i}`} className={cx('simple-list-item')}>
-            <div className={cx('simple-list-item-text')}>
-              {item}
-            </div>
-          </li>
-        ))}
-      </ul>
+      <List
+          title={'It’s not something that you will see at the first moment, but definitely will benefit you in the long run, with outcomes like:'}
+          list={elasticSearchBenefits}
+          isSimple
+      />
       <img src={storageImg} alt="rows of logs and storage usage" />
-      <div className={cx('notice')}>
-        <div className={cx('notice-text')}>
+      <Notice>
           ElasticSearch is lower by storage up to <span className={cx('blue', 'big')}>8.5x</span> times.
-        </div>
-      </div>
+      </Notice>
       <h3>
         Why we use Data Streams?
       </h3>
       <p>
-        Elasticsearch provides a special approach for storing log data: <span className={cx('italic')}>“A data stream lets you store append-only time series data across multiple indices while giving you a single named resource for requests. Data Streams are well-suited for logs, events, metrics, and other continuously generated data,”</span> – described in the <a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html#data-streams" rel="noreferrer">official elastic search documentation.</a>
+        Elasticsearch provides a special approach for storing log data: <i>“A data stream lets you store append-only time series data across multiple indices while giving you a single named resource for requests. Data Streams are well-suited for logs, events, metrics, and other continuously generated data,”</i> – described in the <a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html#data-streams" rel="noreferrer">official elastic search documentation.</a>
       </p>
       <h3 className={cx('with-margin-top')}>
         Data Streams benefits
       </h3>
-      <ul className={cx('simple-list')}>
-        {dataStreamsBenefits.map((item, i) => (
-          <li key={`simple-list-item${i}`} className={cx('simple-list-item')}>
-            <div className={cx('simple-list-item-text')}>
-              {item}
-            </div>
-          </li>
-        ))}
-      </ul>
+      <List
+        list={dataStreamsBenefits}
+        isSimple
+      />
       <img src={responseTimesImg} alt="response times over time" />
       <h4>
         Response times table (95pct)
@@ -207,33 +175,24 @@ const BlogPage = () => (
         </tr>
       </table>
       <img src={performanceImg} alt="deletion by IDs performance comparison" />
-      <div className={cx('notice')}>
-        <div className={cx('notice-text')}>
-          In comparison with index, logs deletion by IDs from data streams — <span className={cx('blue', 'semibold')}>29 times faster</span>
-        </div>
-      </div>
-      <div className={cx('simple-notice')}>
+      <Notice>
+          In comparison with index, logs deletion by IDs from data streams — <b className={cx('blue', 'semibold')}>29 times faster</b>
+      </Notice>
+      <Notice isSimple>
         You can find more details about ElasticSearch Data Streams <a target="_blank" href='https://opster.com/guides/elasticsearch/data-architecture/elasticsearch-data-streams/' rel="noreferrer">here.</a>
-      </div>
+      </Notice>
       <h3>
         What effort is required from users?
       </h3>
       <p>
         We recommend updating to version 5.7.2 for a smooth transition of full logging to ElasticSearch, especially if you have many logs. If you update to version 5.7.2, use it for 3-4 months before version 5.8. This period will be enough for the vast majority of projects to generate enough logs history inside ElasticSearch. And then update to version 5.8 once it is available. Since all logs will already be stored in ElasticSearch, no efforts will be required to do the migration. Along with version 5.8 we will distribute a migration script and instructions for data migration so that you can easily migrate from the early 5.x version.
       </p>
-      {notes.map((note, i) => (
-        <div key={`note${i}`} className={cx('note')}>
-          <div className={cx('note-content')}>
-            <div className={cx('name')}>{`Note ${i+1}`}</div>
-            <div className={cx('text')}>{note}</div>
-          </div>
-        </div>
-      ))}
+      <Notes notes={notes} />
       <p>
         To summarize, using of ElasticSearch and Data Streams will bring significant performance benefits.
       </p>
-    </div>
-  </BodyLayout>
+    </BlogPageContent>
+  </>
 );
 
-export default reactWrapper(BlogPage);
+export default ElasticBlogPage;
