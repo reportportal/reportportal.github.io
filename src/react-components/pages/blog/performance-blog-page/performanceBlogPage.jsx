@@ -41,12 +41,12 @@ const PerformanceBlogPage = () => (
   <>
     <BlogPageHeader tags={tags} date={date} />
     <BlogPageContent title={blogTitle}>
+      <h3>
+        The system capacity has increased up to 13% compared to version 5.7.2
+      </h3>
       <p>
         We are glad to announce some performance optimizations in version 5.7.3.
       </p>
-      <h3 className={cx('with-margin-top')}>
-        1. The system capacity has increased up to 13% compared to version 5.7.2.
-      </h3>
       <p>
         We updated the libraries in the scope of fixing Spring Framework Remote Code Execution (RCE) Vulnerability (Spring4Shell). As a result, the system capacity (requests per second) was increased up to 13% on the small server type* compared to version 5.7.2 during performance testing.
       </p>
@@ -61,7 +61,7 @@ const PerformanceBlogPage = () => (
         <b className={cx('blue')}>Benefits: </b>It helps to speed up your reporting on the same environment just because of the version upgrade.
       </Notice>
       <h3 className={cx('with-margin-top')}>
-        2. Response times for building history and filtering at all levels have become at least 18% faster compared to version 5.7.2.
+        Response times for building history and filtering at all levels have become at least 18% faster compared to version 5.7.2
       </h3>
       <p>
         5.7.3 version also brings performance optimizations in the core operations. The optimizations make basic functionality (filtering at all levels and test history building) at least 18% faster compared to version 5.7.2.
@@ -77,7 +77,7 @@ const PerformanceBlogPage = () => (
         Check out the Release notes for the full list of what’s new in version 5.7.3.
       </p>
       <h3 className={cx('with-margin-top')}>
-        3. RabbitMQ version updates.
+        RabbitMQ version updates
       </h3>
       <p>
         We updated the RabbitMQ version from 3.9.17 to 3.10.7 and faced less RAM and CPU usage of the RabbitMQ container under the high load (more than 1 million messages in the 20 queues total).
