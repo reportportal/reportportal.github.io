@@ -15,7 +15,7 @@ const ComparisonTable = ({ plansData, planType, isOpen }) => {
 
   const rows = titles.map(({ id, name, info }) => {
     const options = plansData.map((plan) => plan.options[id]);
-    const modifiedOptions = options.map((option) =>
+    const modifiedOptions = options.map((option = '-') =>
       option === true ? <div className={cx('true-icon')} /> : option,
     );
     return [
