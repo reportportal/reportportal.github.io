@@ -45,9 +45,11 @@ const ComparisonList = ({ plansData, planType, isOpen }) => {
           break;
         case 'professionalSupport':
           if (option) {
+            currentName = 'Professional service';
             option = `${option} hours`;
+          } else {
+            currentName = 'Professional service hours';
           }
-          currentName = 'Professional service';
           break;
         case 'storage':
         case 'retention':
