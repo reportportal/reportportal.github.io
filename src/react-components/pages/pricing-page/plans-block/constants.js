@@ -24,3 +24,4 @@ export const ENTERPRISE = 'Enterprise';
 export const PACKAGE_25 = 'Package 25';
 export const PACKAGE_60 = 'Package 60';
 export const PACKAGE_168 = 'Package 168+';
+export const OPEN_SOURCE = 'Open Source';

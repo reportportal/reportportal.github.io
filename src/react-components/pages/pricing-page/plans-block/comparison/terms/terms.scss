@@ -1,0 +1,15 @@
+.terms {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 16px;
+  color: $COLOR-TEXT-INFO;
+  text-decoration: underline;
+  text-align: left;
+  width: 50%;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $COLOR-TEALISH;
+  }
+}
