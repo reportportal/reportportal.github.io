@@ -184,7 +184,7 @@ const PlanCards = ({ plansData, periodId }) => {
             price={price}
             perMonth={false}
             button={{
-              name: 'Start now',
+              name: 'Start Now',
               onClick: () => window.open('https://reportportal.io/installation', '_blank'),
             }}
           />
