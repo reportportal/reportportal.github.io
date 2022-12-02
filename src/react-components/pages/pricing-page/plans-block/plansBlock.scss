@@ -69,7 +69,7 @@
   color: $COLOR-STEEL-GREY;
 }
 
-.table-header {
+.header {
   font-family: $FONT-LIGHT;
   font-size: 24px;
   line-height: 36px;
@@ -93,109 +93,16 @@
   }
 }
 
-.compare-plans-table {
-  display: table;
-  opacity: 0;
-  margin: 58px auto auto;
-  width: 956px;
-  visibility: collapse;
-  transition: opacity 0.6s;
-}
-
-.pseudo-table-wrapper {
-  background: $COLOR--pale-grey;
-  opacity: 0;
-  max-height: 0;
-  transition: opacity 0.6s, max-height 0.6s;
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: calc(50% - 19px);
-    top: 48px;
-    border: 19px solid transparent;
-    border-top: 19px solid $COLOR-WHITE_TWO;
-  }
-}
-
-.pseudo-table {
-  display: none;
-  flex-direction: column;
-  width: 100%;
-  max-width: max-content;
-  margin: 12px auto 0;
-  padding-top: 47px;
-  padding-bottom: 36px;
-
-  .terms, .note {
-    width: 100%;
-    text-align: center;
-  }
-
-  .note {
-    margin-bottom: 8px;
-  }
-}
-
-.plan-summary {
-  width: calc(100% - 60px);
-  height: max-content;
-  margin: 0 auto 39px;
-  padding: 0 30px;
-}
-
-.row-status {
-  height: auto;
-  margin: auto 18px auto 0;
-
-  i {
-    display: block;
-    height: 18px;
-    width: 18px;
-    background: url('/src/react-components/img/checkMarkBlue.svg') no-repeat;
-  }
-}
-
-.row-text {
-  max-width: calc(100% - 58px);
-}
-
-.info-with-tooltip {
-  height: auto;
-  margin: auto 0;
-
-  i {
-    bottom: 0;
-  }
-}
-
-.plan-row {
-  display: flex;
-  margin-top: 6px;
-
-  &.disable {
-    color: $COLOR-TEXT-INFO;
-
-    .row-status i {
-      background: url('/src/react-components/img/crossGray.svg') no-repeat;
-    }
-  }
-}
-
-.option {
-  font-family: $FONT-HEADER;
-}
-
-.table-wrapper {
+.content-wrapper {
   height: 0;
 }
 
-.comparison-table {
+.comparison {
   padding-bottom: 28px;
   position: relative;
 
   &.open {
-    .table-wrapper {
+    .content-wrapper {
       height: auto;
     }
 
@@ -206,65 +113,7 @@
         background: url('/src/react-components/img/minusHover.svg') no-repeat 0 2px;
       }
     }
-
-    .compare-plans-table {
-      visibility: visible;
-      opacity: 1;
-      margin-bottom: 58px;
-    }
-
-    .pseudo-table-wrapper {
-      opacity: 1;
-      max-height: 1080px;
-    }
-
-    .pseudo-table {
-      display: flex;
-    }
   }
-}
-
-.true-icon {
-  width: 24px;
-  height: 24px;
-  background: url('/src/react-components/img/checkmark.svg') no-repeat 0 4px;
-  margin: auto;
-}
-
-.inline-title {
-  width: 380px;
-  text-align: left;
-  padding-left: 18px;
-}
-
-.footer-row {
-  width: auto;
-  padding: 0 42px 10px;
-}
-
-.terms {
-  display: inline-block;
-  font-size: 12px;
-  line-height: 16px;
-  color: $COLOR-TEXT-INFO;
-  text-decoration: underline;
-  text-align: left;
-  width: 50%;
-  cursor: pointer;
-  transition: color 0.3s;
-
-  &:hover {
-    color: $COLOR-TEALISH;
-  }
-}
-
-.note {
-  display: inline-block;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: right;
-  color: $COLOR-TEXT-INFO;
-  width: 50%;
 }
 
 .description {
@@ -303,7 +152,7 @@
     margin: 17px auto 64px;
   }
 
-  .comparison-table {
+  .comparison {
     padding-bottom: 64px;
   }
 
@@ -350,7 +199,7 @@
     margin: 53px auto 24px;
   }
 
-  .comparison-table {
+  .comparison {
     padding-bottom: 35px;
   }
 

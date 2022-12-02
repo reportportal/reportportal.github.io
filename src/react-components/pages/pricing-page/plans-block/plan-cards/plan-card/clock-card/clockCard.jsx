@@ -22,31 +22,34 @@ import styles from './clockCard.scss';
 
 const cx = classNames.bind(styles);
 
-const ClockCard = ({ name, firstLevelDescription, secondLevelDescription, price, button, className, withPopular, withFullClock }) => (
-  <div className={cx(
-    'card-with-clock',
-    className,
-    {
-      popular: withPopular,
-      'with-full-clock': withFullClock,
-    },
-  )}>
-    <div className={cx('name')}>{name}</div>
-    <div className={cx('short-description')}>
+const ClockCard = ({
+  name,
+  firstLevelDescription,
+  secondLevelDescription,
+  price,
+  button,
+  type,
+  perMonth,
+}) => (
+  <div className={cx('clock-card')}>
+    <div className={cx('clock', { [type]: type })}>
+      <span className={cx('name')}>{name}</span>
       <div className={cx('double-level-description')}>
-        <div className={cx('first-level-description')}>{firstLevelDescription}</div>
-        <div className={cx('second-level-description')}>{secondLevelDescription}</div>
+        <span className={cx('first-level-description')}>{firstLevelDescription}</span>
+        <span className={cx('second-level-description')}>{secondLevelDescription}</span>
       </div>
     </div>
-    <div className={cx('price')}>
-      {price}
-      <span className={cx('period')}>/per month</span>
+    <div className={cx('price-and-action')}>
+      <div className={cx('price')}>
+        {price}
+        {perMonth && <span className={cx('period')}>/per month</span>}
+      </div>
+      {button && (
+        <Button className={cx('card-button')} onClick={button.onClick} variant="light">
+          {button.name}
+        </Button>
+      )}
     </div>
-    {button && (
-      <Button className={cx('card-button')} onClick={button.onClick} variant='light'>
-        {button.name}
-      </Button>
-    )}
   </div>
 );
 
@@ -60,8 +63,8 @@ ClockCard.propTypes = {
     onClick: PropTypes.func,
   }),
   className: PropTypes.string,
-  withPopular: PropTypes.bool,
-  withFullClock: PropTypes.bool,
+  type: PropTypes.oneOf(['default', 'min', 'mid', 'max']),
+  perMonth: PropTypes.bool,
 };
 ClockCard.defaultProps = {
   name: '',
@@ -70,8 +73,8 @@ ClockCard.defaultProps = {
   price: '',
   button: null,
   className: '',
-  withPopular: false,
-  withFullClock: false,
+  type: 'default',
+  perMonth: true,
 };
 
 export default ClockCard;

@@ -1,0 +1,98 @@
+.comparison-list-wrapper {
+  background: $COLOR--pale-grey;
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.6s, max-height 0.6s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 19px);
+    top: 48px;
+    border: 19px solid transparent;
+    border-top: 19px solid $COLOR-WHITE_TWO;
+  }
+
+  &.opened {
+    max-height: 1080px;
+    opacity: 1;
+
+    .comparison-list {
+      display: flex;
+    }
+  }
+}
+
+.comparison-list {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  max-width: max-content;
+  margin: 12px auto 0;
+  padding-top: 47px;
+  padding-bottom: 36px;
+}
+
+.plan-summary {
+  width: calc(100% - 60px);
+  height: max-content;
+  margin: 0 auto 39px;
+  padding: 0 30px;
+}
+
+.row-status {
+  height: auto;
+  margin: auto 18px auto 0;
+
+  i {
+    display: block;
+    height: 18px;
+    width: 18px;
+    background: url('/src/react-components/img/checkMarkBlue.svg') no-repeat;
+  }
+}
+
+.row-text {
+  max-width: calc(100% - 58px);
+}
+
+.plan-row {
+  display: flex;
+  margin-top: 6px;
+
+  &.disable {
+    color: $COLOR-TEXT-INFO;
+
+    .row-status i {
+      background: url('/src/react-components/img/crossGray.svg') no-repeat;
+    }
+  }
+}
+
+.option {
+  font-family: $FONT-HEADER;
+}
+
+.info-with-tooltip {
+  height: auto;
+  margin: auto 0;
+
+  i {
+    bottom: 0;
+  }
+}
+
+.terms {
+  width: 100%;
+  text-align: center;
+}
+
+.note {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: $COLOR-TEXT-INFO;
+}

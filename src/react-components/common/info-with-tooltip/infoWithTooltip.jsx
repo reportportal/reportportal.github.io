@@ -39,7 +39,7 @@ const InfoWithTooltip = ({ className, children, tooltip, onClick }) => {
       onMouseOut={() => setIsTooltipVisible(false)}
       onClick={onClick}
     >
-      {children(isTooltipVisible)}
+      {typeof children === 'function' ? children(isTooltipVisible) : children}
       <div className={cx('hover-area', { visible: isTooltipVisible })}>
         <div className={cx('tooltip')}>{tooltip}</div>
       </div>
@@ -49,7 +49,7 @@ const InfoWithTooltip = ({ className, children, tooltip, onClick }) => {
 
 InfoWithTooltip.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.func,
+  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   tooltip: PropTypes.node.isRequired,
   onClick: PropTypes.func,
 };
