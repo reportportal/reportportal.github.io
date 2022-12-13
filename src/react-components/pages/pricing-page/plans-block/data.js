@@ -98,12 +98,12 @@ const compareTableTitles = {
   },
   features: {
     id: 'features',
-    name: 'Enterprise features',
+    name: 'Premium features',
     info: (
       <span>
-        Additional features which are not available in a scope of the Free Open Source version,{' '}
-        <a href="/docs/Enterprise-Features" target="_blank" rel="noreferrer">
-          link to the List with features and description.
+        Advanced features which come on top of Free Open Source edition. See{' '}
+        <a href="/docs/Premium-Features" target="_blank" rel="noreferrer">
+          the List of features and description.
         </a>
       </span>
     ),
