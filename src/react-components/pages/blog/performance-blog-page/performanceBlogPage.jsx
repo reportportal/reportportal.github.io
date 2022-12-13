@@ -74,7 +74,7 @@ const PerformanceBlogPage = () => (
         <b className={cx('blue')}>Benefits: </b>Test history and filters load faster compared to the previous version.
       </Notice>
       <p>
-        Check out the Release notes for the full list of what’s new in version 5.7.3.
+        Check out the <a target="_blank" href="https://reportportal.io/releases" rel="noreferrer">Release notes</a> for the full list of what’s new in version 5.7.3.
       </p>
       <h3 className={cx('with-margin-top')}>
         RabbitMQ version updates
@@ -105,7 +105,7 @@ const PerformanceBlogPage = () => (
         Thus, thanks to performance improvements in version 5.7.3 you can speed up your reporting and decrease resources usage of the ReportPortal even under the high workload.
       </p>
       <p>
-        With 5.7.3 version we are also addressing a huge list of security vulnerabilities. Please, see Release notes for details.
+        With 5.7.3 version we are also addressing a huge list of security vulnerabilities. Please, see <a target="_blank" href="https://reportportal.io/releases" rel="noreferrer">Release notes</a> for details.
       </p>
     </BlogPageContent>
   </>
