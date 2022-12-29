@@ -1,6 +1,8 @@
 import { $ } from 'backbone';
 import Router from 'router';
+import renderReactComponent from 'utils/backboneReactRender';
 import PreviewModal from 'components/modals/previewModal';
+import { AskForServiceButtonWrapped } from 'react-components/buttons/ask-for-service-button/askForServiceButton';
 import IndexPageSection from '../../sectionView';
 import template from './index-page_welcome.jade';
 import './index-page_welcome.scss';
@@ -9,8 +11,6 @@ import Site1 from './img/site1.png';
 import Site2 from './img/site2.png';
 import Site3 from './img/site3.png';
 import Site4 from './img/site4.png';
-import { AskForServiceButtonWrappered } from 'react-components/buttons/ask-for-service-button/askForServiceButton.jsx';
-import renderReactComponent from 'utils/backboneReactRender';
 
 const images = [Site1, Site2, Site3, Site4];
 
@@ -28,21 +28,15 @@ export default IndexPageSection.extend({
     $('.site', this.$el).attr('src', this.getRandomElement(images));
 
     const askForServiceButton = $('.ask-for-service-button', this.$el);
-    renderReactComponent(
-      askForServiceButton,
-      AskForServiceButtonWrappered,
-      {
-        options: [
-          { name: 'ReportPortalSource__c', value: 'Landing page/ ask for service body' },
-          { name: 'lead_source', value: 'RP General' },
-        ]
-      },
-    );
+    renderReactComponent(askForServiceButton, AskForServiceButtonWrapped, {
+      options: [
+        { name: 'ReportPortalSource__c', value: 'Landing page/ ask for service body' },
+        { name: 'lead_source', value: 'RP General' },
+      ],
+    });
   },
   getSections() {
-    return [
-      { checkScroll: this.checkScroll.bind(this), el: this.el },
-    ];
+    return [{ checkScroll: this.checkScroll.bind(this), el: this.el }];
   },
   checkScroll(scrollTop, scrollElTop, scrollStart) {
     if (scrollElTop < 1300) {
