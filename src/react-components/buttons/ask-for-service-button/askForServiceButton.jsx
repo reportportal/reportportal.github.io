@@ -33,25 +33,28 @@ const AskForServiceButton = ({ onOpen, className, options }) => {
     showModal(
       <ContactForm
         modalClassName={cx('contact-form')}
-        title='Need more help?'
-        description={<div className={cx('description')}>
-          ReportPortal is free and open source under the Apache 2.0 license, with no charges or hidden fees.<br/>
-          <br/>
-          But if you’re looking for dedicated professional support for installation, integration, or customization, we offer support plans for businesses of all sizes.<br/>
-          <br/>
-          Want to learn more? Please leave a business email and we’ll be in touch!
-        </div>}
+        title="Need more help?"
+        description={
+          <div className={cx('description')}>
+            ReportPortal is free and open source under the Apache 2.0 license, with no charges or
+            hidden fees.
+            <br />
+            <br />
+            But if you’re looking for dedicated professional support for installation, integration,
+            or customization, we offer support plans for businesses of all sizes.
+            <br />
+            <br />
+            Want to learn more? Please leave a business email and we’ll be in touch!
+          </div>
+        }
         options={options}
-        backTo='Back to landing'
-      />
+        backTo="Back to landing"
+      />,
     );
   };
 
   return (
-    <Button
-      className={cx('button', className)}
-      onClick={onclick}
-    >
+    <Button className={cx('button', className)} onClick={onclick}>
       Ask for Service
     </Button>
   );
@@ -70,7 +73,7 @@ AskForServiceButton.defaultProps = {
   onOpen: () => null,
   classNames: '',
   options: [],
-}
+};
 
 export default AskForServiceButton;
-export const AskForServiceButtonWrappered = reactWrapper(AskForServiceButton);
+export const AskForServiceButtonWrapped = reactWrapper(AskForServiceButton);
