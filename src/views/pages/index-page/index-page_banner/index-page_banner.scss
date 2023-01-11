@@ -25,6 +25,12 @@ $COLOR-background: #F3FCFC;
     line-height: 38px;
     font-weight: 700;
 
+    .flag {
+      display: inline-block;
+      height: 30px;
+      margin-left: 10px;
+    }
+
     @media (max-width: $SCREEN_SM_MIN) {
       line-height: 46px;
     }
