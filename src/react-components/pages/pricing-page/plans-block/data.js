@@ -177,7 +177,7 @@ const plansData = {
     name: STARTUP,
     price: { full: '$630', sale: '$600' },
     options: {
-      storage: '100 Gb',
+      storage: '100 GB',
       retention: '12 months',
       support: '5',
       additionalSupport: '$150/h',
@@ -189,7 +189,7 @@ const plansData = {
     price: { full: '$2,625', sale: '$2,500' },
     options: {
       instance: true,
-      storage: '1 Tb',
+      storage: '1 TB',
       retention: '5 years',
       support: '10',
       additionalSupport: '$150/h',
