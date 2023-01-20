@@ -9,13 +9,6 @@
       "classes": true
     }
   },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.config.babel.js"
-      }
-    }
-  },
   "env": {
     "browser": true,
     "node": true
