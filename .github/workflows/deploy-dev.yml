@@ -15,17 +15,12 @@ name: Deploy to AWS S3
 env:
   AWS_S3_BUCKET_NAME : "rpp-landing"
   AWS_REGION_NAME : "eu-central-1"
-  BUILD_DIR : "dist/"
-  SALESFORCE_URL: https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
-  SALESFORCE_OID: 00D5t0000008hw3
-  SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N5t000000hwUy
-  DOCUMENTATION_URL: //rpp-docs.s3.eu-central-1.amazonaws.com/
-  DOCUMENTATION_BRANCH: https://github.com/reportportal/documentation/edit/develop/
+  BUILD_DIR : "public/"
 
 on:
   push:
     branches:
-      - develop
+      - new-landing
 
 jobs:
   empty-s3-bucket:
@@ -51,19 +46,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 12.13.0
+          node-version: 14
 
       - name: Install of node dependencies
         run: npm install
 
       - name: create env file
         run: |
-          touch .env
-          echo SALESFORCE_URL=${{ env.SALESFORCE_URL }} >> .env
-          echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env
-          echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env
-          echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env
-          echo DOCUMENTATION_BRANCH=${{ env.DOCUMENTATION_BRANCH }} >> .env
+          touch .env.production
+          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} >> .env.production
+          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} >> .env.production
 
       - name: Build the source code
         run: npm run build
