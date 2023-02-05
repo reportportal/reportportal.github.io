@@ -2,9 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import get from 'lodash/get';
 
-import Layout from '../components/layout';
-import Hero from '../components/hero';
-import ArticlePreview from '../components/article-preview';
+import { Layout } from '../components/Layout';
+import { Hero } from '../components/Hero';
+import { ArticlePreview } from '../components/ArticlePreview';
 
 class RootIndex extends React.Component {
   render() {
@@ -28,7 +28,7 @@ export default RootIndex;
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [date], order: DESC }) {
+    allContentfulBlogPost(sort: { date: DESC }) {
       nodes {
         date(formatString: "MMMM Do, YYYY")
         title {

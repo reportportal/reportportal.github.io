@@ -1,7 +1,16 @@
+const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
+
+  await axios
+    .get('https://status.reportportal.io/github/stars')
+    .then((response) => response.data)
+    .then((data) => {
+      fs.writeFileSync('static/github.json', JSON.stringify(data));
+    });
 
   const blogPost = path.resolve('./src/templates/blog-post.js');
 
@@ -21,7 +30,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   );
 
   if (result.errors) {
-    reporter.panicOnBuild(`There was an error loading your Contentful posts`, result.errors);
+    reporter.panicOnBuild('There was an error loading your Contentful posts', result.errors);
 
     return;
   }
