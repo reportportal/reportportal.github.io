@@ -16,8 +16,7 @@ env:
   SALESFORCE_URL: https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
   SALESFORCE_OID: 00D24000000k2Rp
   SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N7T000000i00E
-  DOCUMENTATION_URL: //reportportal.io/documentation/
-  DOCUMENTATION_BRANCH: https://github.com/reportportal/documentation/edit/master/
+  DOCUMENTATION_URL: https://reportportal.io/docs/
 
 on:
   push:
@@ -45,7 +44,6 @@ jobs:
           echo SALESFORCE_URL=${{ env.SALESFORCE_URL }} >> .env
           echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env
-          echo DOCUMENTATION_BRANCH=${{ env.DOCUMENTATION_BRANCH }} >> .env
           echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env
 
       - name: Build the source code

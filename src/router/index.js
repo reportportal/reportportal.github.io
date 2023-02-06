@@ -13,11 +13,13 @@ const redirectToRoute = (link) => {
   currentRouter.navigate(link, { trigger: true, replace: true });
 };
 
+const DOCS_URL = process.env.DOCUMENTATION_URL || 'https://reportportal.io/docs/';
+
 const Router = Backbone.Router.extend({
   initialize() {
     const mainPageContainer = $('[data-js-main-page-container]');
     const mainScrollEl = BaronScroll(mainPageContainer);
-    this.header = new Header({ mainScrollEl });
+    this.header = new Header({ mainScrollEl, DOCS_URL });
     $('[data-js-header-container]').html(this.header.$el);
     this.modals = new Modals();
     $('[data-js-modal-container]').html(this.modals.$el);
@@ -27,8 +29,6 @@ const Router = Backbone.Router.extend({
   },
   routes: {
     '': 'openIndex',
-    docs: 'openDocumentation',
-    'docs/:id': 'openDocumentation',
     pricing: 'openPricing',
     'legal/terms': 'openTerms',
     'blog/:blogName': 'openBlog',
@@ -61,10 +61,6 @@ const Router = Backbone.Router.extend({
   openCommunity() {
     this.context.renderCommunity();
     this.header.$el.addClass('without-shadow');
-  },
-  openDocumentation(id) {
-    this.context.renderDocumentation(id);
-    this.header.$el.removeClass('without-shadow');
   },
   openInstallation() {
     this.context.renderInstallation();

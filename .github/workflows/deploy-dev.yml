@@ -19,13 +19,13 @@ env:
   SALESFORCE_URL: https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
   SALESFORCE_OID: 00D5t0000008hw3
   SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N5t000000hwUy
-  DOCUMENTATION_URL: //rpp-docs.s3.eu-central-1.amazonaws.com/
-  DOCUMENTATION_BRANCH: https://github.com/reportportal/documentation/edit/develop/
+  DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com/
 
 on:
   push:
     branches:
       - develop
+  workflow_dispatch:
 
 jobs:
   empty-s3-bucket:
@@ -63,7 +63,6 @@ jobs:
           echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env
           echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env
-          echo DOCUMENTATION_BRANCH=${{ env.DOCUMENTATION_BRANCH }} >> .env
 
       - name: Build the source code
         run: npm run build
