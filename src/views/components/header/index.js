@@ -22,6 +22,7 @@ export default Epoxy.View.extend({
     'click [data-js-modal]': 'onClickAskService',
   },
   initialize(options) {
+    this.DOCS_URL = options.DOCS_URL;
     this.mainScrollEl = options.mainScrollEl;
     this.renderTemplate();
     this.gitHubStarsCount = new GitHubStarsCount();

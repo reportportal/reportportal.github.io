@@ -13,10 +13,9 @@ const Dotenv = require('dotenv-webpack');
 const root = path.join(__dirname, '/');
 const defaultEnv = {
   NODE_ENV: 'development',
-  proxyDocumentation: false,
 };
 
-module.exports = ({ NODE_ENV: mode, proxyDocumentation } = defaultEnv) => {
+module.exports = ({ NODE_ENV: mode } = defaultEnv) => {
   const isProd = mode === 'production';
 
   return {
@@ -123,9 +122,6 @@ module.exports = ({ NODE_ENV: mode, proxyDocumentation } = defaultEnv) => {
       }),
       new webpack.HotModuleReplacementPlugin(),
       new WebpackNotifierPlugin({ skipFirstNotification: true }),
-      new webpack.DefinePlugin({
-        LOCAL_DOCUMENTATION: JSON.stringify(proxyDocumentation),
-      }),
       ...(isProd
         ? [
           new CleanWebpackPlugin(),
@@ -166,23 +162,6 @@ module.exports = ({ NODE_ENV: mode, proxyDocumentation } = defaultEnv) => {
         aggregateTimeout: 200,
         poll: 1000,
       },
-      proxy: proxyDocumentation
-        ? {
-          '/documentation.html*': {
-            target: 'http://localhost:9020/',
-            bypass(req, res, options) {
-              console.log(`proxy url: ${req.url}`);
-            },
-          },
-          '/docs/Images/**': {
-            pathRewrite: { '^/docs': '' },
-            target: 'http://localhost:9020/',
-            bypass(req, res, options) {
-              console.log(`proxy url: ${req.url}`);
-            },
-          },
-        }
-        : {},
     },
     optimization: {
       minimize: isProd,

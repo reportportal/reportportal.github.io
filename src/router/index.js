@@ -13,11 +13,13 @@ const redirectToRoute = (link) => {
   currentRouter.navigate(link, { trigger: true, replace: true });
 };
 
+const DOCS_URL = process.env.DOCUMENTATION_URL;
+
 const Router = Backbone.Router.extend({
   initialize() {
     const mainPageContainer = $('[data-js-main-page-container]');
     const mainScrollEl = BaronScroll(mainPageContainer);
-    this.header = new Header({ mainScrollEl });
+    this.header = new Header({ mainScrollEl, DOCS_URL });
     $('[data-js-header-container]').html(this.header.$el);
     this.modals = new Modals();
     $('[data-js-modal-container]').html(this.modals.$el);
@@ -63,8 +65,8 @@ const Router = Backbone.Router.extend({
     this.header.$el.addClass('without-shadow');
   },
   openDocumentation(id) {
-    this.context.renderDocumentation(id);
-    this.header.$el.removeClass('without-shadow');
+    const params = id.replace('>', '#') || '';
+    window.location.href = DOCS_URL + params;
   },
   openInstallation() {
     this.context.renderInstallation();
