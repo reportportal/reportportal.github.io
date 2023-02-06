@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>https://reportportal.io/</loc>
+        <lastmod>2022-12-01T07:16:36+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://reportportal.io/features</loc>
+    </url>
+    <url>
+        <loc>https://reportportal.io/installation</loc>
+    </url>
+    <url>
+        <loc>https://reportportal.io/community</loc>
+    </url>
+    <url>
+        <loc>https://reportportal.io/pricing</loc>
+    </url>
+    <url>
+        <loc>https://reportportal.io/releases</loc>
+    </url>
+    <url>
+        <loc>https://reportportal.io/legal/terms</loc>
+    </url>
+</urlset>
