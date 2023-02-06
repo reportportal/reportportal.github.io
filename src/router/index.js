@@ -13,7 +13,7 @@ const redirectToRoute = (link) => {
   currentRouter.navigate(link, { trigger: true, replace: true });
 };
 
-const DOCS_URL = process.env.DOCUMENTATION_URL;
+const DOCS_URL = process.env.DOCUMENTATION_URL || 'https://reportportal.io/docs/';
 
 const Router = Backbone.Router.extend({
   initialize() {
@@ -29,8 +29,6 @@ const Router = Backbone.Router.extend({
   },
   routes: {
     '': 'openIndex',
-    docs: 'openDocumentation',
-    'docs/:id': 'openDocumentation',
     pricing: 'openPricing',
     'legal/terms': 'openTerms',
     'blog/:blogName': 'openBlog',
@@ -63,10 +61,6 @@ const Router = Backbone.Router.extend({
   openCommunity() {
     this.context.renderCommunity();
     this.header.$el.addClass('without-shadow');
-  },
-  openDocumentation(id) {
-    const params = id.replace('>', '#') || '';
-    window.location.href = DOCS_URL + params;
   },
   openInstallation() {
     this.context.renderInstallation();
