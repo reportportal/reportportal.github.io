@@ -124,27 +124,26 @@ module.exports = ({ NODE_ENV: mode } = defaultEnv) => {
       new WebpackNotifierPlugin({ skipFirstNotification: true }),
       ...(isProd
         ? [
-          new CleanWebpackPlugin(),
-          new CopyWebpackPlugin({
-            patterns: [
-              { from: 'CNAME' },
-              { from: 'sitemap.xml' },
-              { from: 'google95cc3d56e1325c3b.html' },
-              { from: 'src/404.html' },
-            ],
-          }),
-          new CompressionPlugin({
-            filename: '[path][base].gz',
-            algorithm: 'gzip',
-            threshold: 10240,
-            minRatio: 0.8,
-          }),
-        ]
+            new CleanWebpackPlugin(),
+            new CopyWebpackPlugin({
+              patterns: [
+                { from: 'CNAME' },
+                { from: 'sitemap.xml' },
+                { from: 'sitemap-landing.xml' },
+                { from: 'google95cc3d56e1325c3b.html' },
+                { from: 'src/404.html' },
+              ],
+            }),
+            new CompressionPlugin({
+              filename: '[path][base].gz',
+              algorithm: 'gzip',
+              threshold: 10240,
+              minRatio: 0.8,
+            }),
+          ]
         : []),
       new CopyWebpackPlugin({
-        patterns: [
-          { from: 'src/resources', to: 'downloads' },
-        ],
+        patterns: [{ from: 'src/resources', to: 'downloads' }],
       }),
     ],
     devtool: isProd ? false : 'inline-source-map',
@@ -167,20 +166,20 @@ module.exports = ({ NODE_ENV: mode } = defaultEnv) => {
       minimize: isProd,
       minimizer: isProd
         ? [
-          new TerserPlugin({
-            terserOptions: {
-              format: {
-                comments: false,
+            new TerserPlugin({
+              terserOptions: {
+                format: {
+                  comments: false,
+                },
               },
-            },
-            extractComments: false,
-          }),
-          new CssMinimizerPlugin(),
-        ]
+              extractComments: false,
+            }),
+            new CssMinimizerPlugin(),
+          ]
         : [],
     },
     performance: {
       hints: false,
     },
   };
-}
+};
