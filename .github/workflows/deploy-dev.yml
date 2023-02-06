@@ -19,7 +19,7 @@ env:
   SALESFORCE_URL: https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
   SALESFORCE_OID: 00D5t0000008hw3
   SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N5t000000hwUy
-  DOCUMENTATION_URL: https://rpp-docs.s3.eu-central-1.amazonaws.com/
+  DOCUMENTATION_URL: https://rpp-docs.s3-website.eu-central-1.amazonaws.com/
 
 on:
   push:
