@@ -18,26 +18,6 @@
   color: $COLOR-TEALISH;
 }
 
-.big {
-  font-size: 32px;
-  line-height: 26px;
-}
-
-.red {
-  color: $COLOR--error;
-}
-
-.blue-cell {
-  background: $COLOR--table-background;
-}
-
 .notice-wider-text {
   max-width: 640px;
-}
-
-@media all and (max-width: $MOBILE_MAX) {
-  .big {
-    font-size: 21px;
-    line-height: 18px;
-  }
 }
