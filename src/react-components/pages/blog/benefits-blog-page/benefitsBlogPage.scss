@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 EPAM Systems
+ * Copyright 2023 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,18 @@
 .big {
   font-size: 32px;
   line-height: 26px;
+}
+
+.red {
+  color: $COLOR--error;
+}
+
+.blue-cell {
+  background: $COLOR--table-background;
+}
+
+.notice-wider-text {
+  max-width: 640px;
 }
 
 @media all and (max-width: $MOBILE_MAX) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 EPAM Systems
+ * Copyright 2023 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,33 +19,27 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import reactWrapper from 'utils/reactWrapper';
 import BodyLayout from 'react-components/layouts/bodyLayout.jsx';
-import { ELASTIC_BLOG, PERFORMANCE_BLOG } from './constants';
+import { ELASTIC_BLOG, PERFORMANCE_BLOG, BENEFITS_BLOG } from './constants';
 import ElasticBlogPage from './elastic-blog-page/elasticBlogPage';
 import PerformanceBlogPage from './performance-blog-page/performanceBlogPage';
+import BenefitsBlogPage from './benefits-blog-page/benefitsBlogPage';
 import styles from './blogPage.scss';
 
 const cx = classNames.bind(styles);
 
-const BlogPage = ({ blogName }) => {
-    const getBlog = () => {
-        switch (blogName) {
-            case ELASTIC_BLOG:
-                return <ElasticBlogPage />;
-            case PERFORMANCE_BLOG:
-                return <PerformanceBlogPage />;
-            default:
-                return null;
-        }
-    };
+const blogPages = {
+  [ELASTIC_BLOG]: ElasticBlogPage,
+  [PERFORMANCE_BLOG]: PerformanceBlogPage,
+  [BENEFITS_BLOG]: BenefitsBlogPage,
+};
 
-    return (
-        <BodyLayout className={cx('blog-page')}>
-            {getBlog()}
-        </BodyLayout>
-    );
+const BlogPage = ({ blogName }) => {
+  const Blog = blogPages[blogName];
+
+  return <BodyLayout className={cx('blog-page')}>{Blog && <Blog />}</BodyLayout>;
 };
 BlogPage.propTypes = {
-    blogName: PropTypes.string.isRequired,
+  blogName: PropTypes.string.isRequired,
 };
 
 export default reactWrapper(BlogPage);

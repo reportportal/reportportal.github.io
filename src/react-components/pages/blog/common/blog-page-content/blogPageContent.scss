@@ -43,7 +43,7 @@
 
   img {
     display: block;
-    margin: 32px auto 64px;
+    margin: 24px auto;
     max-width: 100%;
   }
 
@@ -52,6 +52,7 @@
     line-height: 32px;
     font-family: $FONT-LIGHT;
     color: $COLOR-STEEL-GREY;
+    margin-top: 64px;
     margin-bottom: 24px;
   }
 
@@ -59,6 +60,7 @@
     color: $COLOR-STEEL-GREY;
     font-size: 20px;
     line-height: 32px;
+    margin-top: 32px;
     margin-bottom: 20px;
   }
 

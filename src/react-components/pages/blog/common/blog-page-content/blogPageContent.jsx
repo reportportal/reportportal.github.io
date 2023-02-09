@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 EPAM Systems
+ * Copyright 2023 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,16 +22,14 @@ import styles from './blogPageContent.scss';
 const cx = classNames.bind(styles);
 
 const BlogPageContent = ({ children, title }) => (
-    <div className={cx('content')}>
-        <div className={cx('title')}>
-            {title}
-        </div>
-        {children}
-    </div>
+  <div className={cx('content')}>
+    <div className={cx('title')}>{title}</div>
+    {children}
+  </div>
 );
 BlogPageContent.propTypes = {
-    children: PropTypes.node.isRequired,
-    title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default BlogPageContent;
