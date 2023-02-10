@@ -102,7 +102,7 @@ const compareTableTitles = {
     info: (
       <span>
         Advanced features which come on top of Free Open Source edition. See{' '}
-        <a href="/docs/terms-and-conditions/PremiumFeatures" target="_blank" rel="noreferrer">
+        <a href="https://reportportal.io/docs/terms-and-conditions/PremiumFeatures" target="_blank" rel="noreferrer">
           the List of features and description.
         </a>
       </span>

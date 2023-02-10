@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-h3 {
-  &.with-margin-top {
-    margin-top: 64px;
-  }
-}
-
 .blue {
   color: $COLOR-TEALISH;
 }
@@ -35,6 +29,10 @@ h3 {
 
 .blue-cell {
   background: $COLOR--table-background;
+}
+
+.centered {
+  text-align: center;
 }
 
 @media all and (max-width: $MOBILE_MAX) {
