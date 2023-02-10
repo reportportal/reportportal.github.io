@@ -43,7 +43,7 @@ const PerformanceBlogPage = () => (
         We updated the libraries in the scope of fixing Spring Framework Remote Code Execution (RCE) Vulnerability (Spring4Shell). As a result, the system capacity (requests per second) was increased up to 13% on the small server type* compared to version 5.7.2 during performance testing.
       </p>
       <p>
-        * it is a small server type from the recommended optimal Kubernetes cluster configuration (you can check it out <a target="_blank" href="https://reportportal.io/docs/Optimal-Performance-Hardware" rel="noreferrer">here</a>).
+        * it is a small server type from the recommended optimal Kubernetes cluster configuration (you can check it out <a target="_blank" href="https://reportportal.io/docs/installation-steps/OptimalPerformanceHardwareSetup" rel="noreferrer">here</a>).
       </p>
       <h4>
         Throughput (max), RPS
