@@ -1,0 +1,38 @@
+@mixin font-scale($size) {
+  $scale: map-get(
+    (
+      'x-small': (
+        'font-size': 13px,
+        'line-height': 1.5,
+      ),
+      'small': (
+        'font-size': 14px,
+        'line-height': 1.5,
+      ),
+      'base': (
+        'font-size': 16px,
+        'line-height': 1.5,
+      ),
+      'medium': (
+        'font-size': 20px,
+        'line-height': 1.5,
+      ),
+      'large': (
+        'font-size': 24px,
+        'line-height': 1.4,
+      ),
+      'x-large': (
+        'font-size': 32px,
+        'line-height': 1.3,
+      ),
+      'x2-large': (
+        'font-size': 40px,
+        'line-height': 1.5,
+      ),
+    ),
+    $size
+  );
+
+  font-size: map-get($scale, 'font-size');
+  line-height: map-get($scale, 'line-height');
+}

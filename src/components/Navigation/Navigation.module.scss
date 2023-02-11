@@ -1,15 +1,14 @@
-@import "src/styles/mixins/_font";
-
-$color-hover: #2F3C5F;
+@import 'src/styles/mixins/font';
 
 .header {
   background: var(--text-service);
   color: var(--text-white);
-  transition: background .5s;
+  transition: background 0.5s;
 
+  &.header__active,
   &:hover {
     background: var(--bg-white);
-    color: $color-hover;
+    color: var(--text-primary);
   }
 }
 
@@ -27,6 +26,7 @@ $color-hover: #2F3C5F;
   width: 100%;
   align-content: flex-end;
   justify-content: space-between;
+  position: relative;
 }
 
 .navigation__logoLink {
@@ -34,15 +34,16 @@ $color-hover: #2F3C5F;
   line-height: 0;
 
   svg {
-    transition: fill .4s;
+    transition: fill 0.4s;
   }
 
+  .header__active &,
   .header:hover & {
-    [class*=logo-block] {
-      fill: #00B0D1;
+    [class*='logo-block'] {
+      fill: #00b0d1;
     }
 
-    [class*=logo-title] {
+    [class*='logo-title'] {
       fill: var(--text-dark);
     }
   }
@@ -68,26 +69,37 @@ $color-hover: #2F3C5F;
   color: inherit;
   cursor: pointer;
   background: unset;
-  transition: color .4s;
+  transition: color 0.4s;
 
+  &.navigation__linkActive,
   &:hover {
     color: var(--color-primary-500);
+  }
 
-    .navigation__arrow svg {
-      stroke: var(--color-primary-500) !important;
-    }
+  &:active {
+    color: var(--color-primary-700);
   }
 }
 
 .navigation__arrow {
-  padding-left: 7px;
+  position: relative;
+  padding-left: 8px;
 
   svg {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
     stroke: var(--bg-white);
-    transition: stroke .4s;
+    transition: stroke 0.4s;
 
     .header:hover & {
       stroke: var(--text-primary);
+    }
+  }
+
+  .navigation__linkActive & {
+    svg {
+      transform: translate(0, -50%) rotate(180deg);
     }
   }
 }
@@ -99,55 +111,24 @@ $color-hover: #2F3C5F;
 }
 
 .navigation__github {
+  color: #edeff6;
   display: flex;
   align-items: center;
   margin-right: 8px;
 
-  .header:hover &:hover {
-    path {
-      fill: var(--color-primary-500) !important;
-      color: var(--color-primary-500);
-    }
+  & text {
+    @include font-noto-sans();
 
-    .navigation__github-value {
-      color: var(--color-primary-500);
-      border-color: var(--color-primary-500);
-    }
+    font-size: 13px;
+    font-weight: 500;
   }
 
-  .github {
-    .header:hover & path {
-      fill: var(--text-service);
-    }
-  }
-}
-
-.navigation__github-value {
-  @include font-poppins($fw-medium);
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin-left: 4px;
-  padding: 0 5px;
-  border: 1px solid rgba(255, 255, 255, 50%);
-  border-radius: 7px;
-  font-size: 13px;
-  line-height: 20px;
-  color: #EDEFF7;
-
+  .header__active &,
   .header:hover & {
     color: var(--text-service);
-    border-color: var(--text-light-grey);
-  }
 
-  .star {
-    display: initial;
-    width: initial;
-    padding-right: 4px;
-
-    .header:hover & path {
-      fill: var(--text-light-grey);
+    &:hover {
+      color: var(--color-primary-500);
     }
   }
 }
@@ -165,8 +146,9 @@ $color-hover: #2F3C5F;
   font-size: 16px;
   color: var(--text-white);
   text-align: center;
-  transition: all .2s cubic-bezier(.645,.045,.355,1);
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
+  .header__active &,
   .header:hover & {
     color: var(--color-primary-600);
   }
@@ -179,6 +161,7 @@ $color-hover: #2F3C5F;
   border: 2px solid var(--bg-white);
   border-radius: 6px;
 
+  .header__active &,
   .header:hover & {
     border-color: var(--color-primary-600);
 
