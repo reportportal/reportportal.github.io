@@ -1,0 +1,31 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+
+.section-card {
+  @include font-scale(small);
+
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    @include font-poppins($fw-semi-bold);
+
+    padding-left: 8px;
+    margin: 0 0 18px;
+    color: #8791ab;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    @include font-poppins();
+    @include font-scale(small);
+
+    color: var(--text-primary);
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+
+  &__footer {
+    margin-top: 24px;
+  }
+}

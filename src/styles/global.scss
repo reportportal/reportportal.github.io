@@ -1,5 +1,6 @@
-@import "variables";
-@import "font/poppins";
+@import 'variables';
+@import 'font/poppins';
+@import 'font/noto-sans';
 
 html {
   scroll-behavior: smooth;
@@ -47,4 +48,10 @@ a:hover {
 
 a.active {
   font-weight: var(--bold);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
 }
