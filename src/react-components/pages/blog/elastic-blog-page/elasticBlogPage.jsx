@@ -30,16 +30,6 @@ import styles from './elasticBlogPage.scss';
 
 const cx = classNames.bind(styles);
 
-const tags = [
-  'article',
-  'elasticsearch',
-  'datastreams',
-];
-
-const date = 'September 5, 2022';
-
-const blogTitle = 'ReportPortal moves test logs from PostgreSQL to Elastic-type engines';
-
 const transition = [
   'ReportPortal v5.7 is the last version with log storage in PostgreSQL.',
   'ReportPortal v5.7.2 is the version with a double logging mechanism: logs are stored both in PG and Elastic at the moment of entry.',
@@ -69,8 +59,8 @@ const notes = [
 
 const ElasticBlogPage = () => (
   <>
-    <BlogPageHeader tags={tags} date={date} />
-    <BlogPageContent title={blogTitle}>
+    <BlogPageHeader tags={['article', 'elasticsearch', 'datastreams']} date={'September 5, 2022'} />
+    <BlogPageContent title={'ReportPortal moves test logs from PostgreSQL to Elastic-type engines'}>
       <p>
         The ReportPortal’s essence is based on assistance in working with automated testing results, and it all starts with the aggregation of results at a single place. For a long time, the relational database served well as a storage place for us. But the more test cases you run, the more storage you need to keep all related logs.
       </p>
@@ -98,7 +88,7 @@ const ElasticBlogPage = () => (
       <p>
         Please read our findings below.
       </p>
-      <h3 className={cx('with-margin-top')}>
+      <h3>
         Smooth transition of logs from PostgreSQL to ElasticSearch Data Streams
       </h3>
       <List
@@ -143,7 +133,7 @@ const ElasticBlogPage = () => (
       <p>
         Elasticsearch provides a special approach for storing log data: <i>“A data stream lets you store append-only time series data across multiple indices while giving you a single named resource for requests. Data Streams are well-suited for logs, events, metrics, and other continuously generated data,”</i> – described in the <a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html#data-streams" rel="noreferrer">official elastic search documentation.</a>
       </p>
-      <h3 className={cx('with-margin-top')}>
+      <h3>
         Data Streams benefits
       </h3>
       <List
@@ -176,11 +166,11 @@ const ElasticBlogPage = () => (
       </table>
       <img src={performanceImg} alt="deletion by IDs performance comparison" />
       <Notice>
-          In comparison with index, logs deletion by IDs from data streams — <b className={cx('blue')}>29 times faster</b>
+        In comparison with index, logs deletion by IDs from data streams — <b className={cx('blue')}>29 times faster</b>
       </Notice>
-      <Notice isSimple>
+      <p className={cx('centered')}>
         You can find more details about ElasticSearch Data Streams <a target="_blank" href='https://opster.com/guides/elasticsearch/data-architecture/elasticsearch-data-streams/' rel="noreferrer">here.</a>
-      </Notice>
+      </p>
       <h3>
         What effort is required from users?
       </h3>

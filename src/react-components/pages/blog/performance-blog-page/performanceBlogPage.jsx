@@ -29,18 +29,10 @@ import styles from './performanceBlogPage.scss';
 
 const cx = classNames.bind(styles);
 
-const tags = [
-  'performance',
-];
-
-const date = 'December 2, 2022';
-
-const blogTitle = 'Performance improvements in 5.7.3';
-
 const PerformanceBlogPage = () => (
   <>
-    <BlogPageHeader tags={tags} date={date} />
-    <BlogPageContent title={blogTitle}>
+    <BlogPageHeader tags={['performance']} date={'December 2, 2022'} />
+    <BlogPageContent title={'Performance improvements in 5.7.3'}>
       <h3>
         The system capacity has increased up to 13% compared to version 5.7.2
       </h3>
@@ -51,22 +43,22 @@ const PerformanceBlogPage = () => (
         We updated the libraries in the scope of fixing Spring Framework Remote Code Execution (RCE) Vulnerability (Spring4Shell). As a result, the system capacity (requests per second) was increased up to 13% on the small server type* compared to version 5.7.2 during performance testing.
       </p>
       <p>
-        * it is a small server type from the recommended optimal Kubernetes cluster configuration (you can check it out <a target="_blank" href="https://reportportal.io/docs/Optimal-Performance-Hardware" rel="noreferrer">here</a>).
+        * it is a small server type from the recommended optimal Kubernetes cluster configuration (you can check it out <a target="_blank" href="https://reportportal.io/docs/installation-steps/OptimalPerformanceHardwareSetup" rel="noreferrer">here</a>).
       </p>
-      <h4 className={cx('with-margin-top')}>
+      <h4>
         Throughput (max), RPS
       </h4>
       <img src={capacityImg} alt="Capacity improvement" />
       <Notice>
         <b className={cx('blue')}>Benefits: </b>It helps to speed up your reporting on the same environment just because of the version upgrade.
       </Notice>
-      <h3 className={cx('with-margin-top')}>
+      <h3>
         Response times for building history and filtering at all levels have become at least 18% faster compared to version 5.7.2
       </h3>
       <p>
         5.7.3 version also brings performance optimizations in the core operations. The optimizations make basic functionality (filtering at all levels and test history building) at least 18% faster compared to version 5.7.2.
       </p>
-      <h4 className={cx('with-low-margin-top')}>
+      <h4>
         Response times, ms.
       </h4>
       <img src={responseTimeImg} alt="Response time improvement" />
@@ -76,25 +68,25 @@ const PerformanceBlogPage = () => (
       <p>
         Check out the <a target="_blank" href="https://reportportal.io/releases" rel="noreferrer">Release notes</a> for the full list of what’s new in version 5.7.3.
       </p>
-      <h3 className={cx('with-margin-top')}>
+      <h3>
         RabbitMQ version updates
       </h3>
       <p>
         We updated the RabbitMQ version from 3.9.17 to 3.10.7 and faced less RAM and CPU usage of the RabbitMQ container under the high load (more than 1 million messages in the 20 queues total).
       </p>
-      <h4 className={cx('with-low-margin-top')}>
+      <h4>
         CPU Usage : rabbitmq-0 v.3.10.5
       </h4>
       <img src={rabbitCpuNewImg} alt="New CPU usage" />
-      <h4 className={cx('with-low-margin-top')}>
+      <h4>
         Memory Usage : rabbitmq-0 v.3.10.5
       </h4>
       <img src={rabbitMemoryNewImg} alt="New memory usage" />
-      <h4 className={cx('with-low-margin-top')}>
+      <h4>
         CPU Usage : rabbitmq-0 v.3.9.17
       </h4>
       <img src={rabbitCpuOldImg} alt="Old CPU usage" />
-      <h4 className={cx('with-low-margin-top')}>
+      <h4>
         Memory Usage : rabbitmq-0 v.3.9.17
       </h4>
       <img src={rabbitMemoryOldImg} alt="Old memory usage" />

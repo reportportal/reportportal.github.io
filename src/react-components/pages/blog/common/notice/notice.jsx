@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 EPAM Systems
+ * Copyright 2023 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,22 +21,19 @@ import styles from './notice.scss';
 
 const cx = classNames.bind(styles);
 
-const Notice = ({ children, isSimple }) => {
-    const prefix = isSimple ? 'simple-' : '';
-
-    return (
-    <div className={cx(`${prefix}notice`)}>
-        <div className={cx(`${prefix}notice-text`)}>
-            {children}
-        </div>
+const Notice = ({ children, contentClassName }) => {
+  return (
+    <div className={cx('notice')}>
+      <p className={cx('notice-content', contentClassName)}>{children}</p>
     </div>
-)};
+  );
+};
 Notice.propTypes = {
-    children: PropTypes.node.isRequired,
-    isSimple: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  contentClassName: PropTypes.string,
 };
 Notice.defaultProps = {
-    isSimple: false,
+  contentClassName: '',
 };
 
 export default Notice;

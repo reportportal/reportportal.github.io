@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 EPAM Systems
+ * Copyright 2023 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,38 +16,28 @@
 
 .notice {
   width: 100%;
-  border: 3px solid $COLOR-TEALISH;
   box-sizing: border-box;
+  border: 3px solid $COLOR-TEALISH;
   border-radius: 8px;
+  margin: 24px 0;
   background: $COLOR--blog-info-message;
+}
+
+.notice-content {
+  width: auto;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 48px;
   font-size: 20px;
-  line-height: 26px;
+  line-height: 34px;
   font-style: italic;
   text-align: center;
-  margin-bottom: 64px;
-}
-
-.notice-text {
-  text-align: center;
-  width: auto;
-  max-width: 600px;
-  margin: 35px 100px;
-}
-
-.simple-notice {
-  margin-top: -32px;
-  width: 100%;
-  text-align: center;
-  margin-bottom: 64px;
 }
 
 @media all and (max-width: $MOBILE_MAX) {
-  .notice {
+  .notice-content {
+    padding: 24px;
     font-size: 16px;
     line-height: 18px;
-  }
-
-  .notice-text {
-    margin: 24px;
   }
 }
