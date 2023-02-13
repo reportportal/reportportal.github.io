@@ -18,12 +18,12 @@
 .side-content
   .top-block
     .title MENU
-    .menu-item.menu-item__features(data-js-link="features") Features
-    .menu-item.menu-item__index(data-js-link="installation") Installation
-    .menu-item.menu-item__documentation(data-js-link="docs") Documentation
-    .menu-item.menu-item__releases(data-js-link="releases") Releases
-    .menu-item.menu-item__community(data-js-link="pricing") Pricing
-    .menu-item.menu-item__community(data-js-link="community") Community
+    a.menu-item.menu-item__features(data-js-link="features") Features
+    a.menu-item.menu-item__index(data-js-link="installation") Installation
+    a.menu-item.menu-item__documentation(href=`${this.DOCS_URL}` target="_blank") Documentation
+    a.menu-item.menu-item__releases(data-js-link="releases") Releases
+    a.menu-item.menu-item__community(data-js-link="pricing") Pricing
+    a.menu-item.menu-item__community(data-js-link="community") Community
   #middle-block
   .bottom-block
     .title SHARE
