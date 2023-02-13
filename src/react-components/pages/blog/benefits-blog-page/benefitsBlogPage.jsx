@@ -38,7 +38,7 @@ const cx = classNames.bind(styles);
 
 const BenefitsBlogPage = () => (
   <>
-    <BlogPageHeader tags={['tips and tricks']} date={'February XX, 2023'} />
+    <BlogPageHeader tags={['tips and tricks']} date={'February 13, 2023'} />
     <BlogPageContent title={'Tips to get ReportPortal benefits'}>
       <p>
         ReportPortal is a one-stop solution to manage all your automation results and reports in one place. In this article our QA engineers shared their advice on how to use all ReportPortal capabilities to reduce test results analysis efforts and get pure visibility about product's health.
