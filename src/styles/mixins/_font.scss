@@ -1,0 +1,13 @@
+@import '../variables/typography';
+
+@mixin font-poppins($weight: $fw-regular, $font-style: false) {
+  font-family: 'Poppins', Arial, sans-serif;
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $font-style {
+    font-style: $font-style;
+  }
+}
