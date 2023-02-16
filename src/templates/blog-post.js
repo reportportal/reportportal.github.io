@@ -3,13 +3,12 @@ import { Link, graphql } from 'gatsby';
 import get from 'lodash/get';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { BLOCKS } from '@contentful/rich-text-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import readingTime from 'reading-time';
 
-import Layout from '../components/layout';
-import Hero from '../components/hero';
+import { Layout } from '../components/Layout';
+import { Hero } from '../components/Hero';
+
 import * as styles from './blog-post.module.css';
 
 class BlogPostTemplate extends React.Component {
@@ -22,7 +21,7 @@ class BlogPostTemplate extends React.Component {
 
     const options = {
       renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        'embedded-asset-block': (node) => {
           const { gatsbyImageData } = node.data.target;
 
           console.log(node.data.target);
