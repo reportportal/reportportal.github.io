@@ -15,11 +15,11 @@ export default {
 
     this.menuItems = [];
     this.dataMap = sortedData.reduce((acc, item) => {
-      acc[item.name] = item.body;
+      acc[item.tag_name] = item.body;
       this.menuItems.push({
-        id: item.name,
-        name: item.name,
-        link: encodeURIComponent(item.name),
+        id: item.tag_name,
+        name: item.tag_name,
+        link: encodeURIComponent(item.tag_name),
         externalLink: `https://github.com/reportportal/reportportal/releases/${item.tag_name}`,
         publishedDate: this.formatReleaseDate(item.published_at),
         prerelease: item.prerelease,
