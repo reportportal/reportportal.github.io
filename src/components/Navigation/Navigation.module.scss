@@ -1,4 +1,5 @@
 @import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
 
 .header {
   background: var(--text-service);
@@ -58,13 +59,12 @@
 
 .navigation__link {
   @include font-poppins($fw-semi-bold);
+  @include font-scale(base);
 
   display: block;
   min-inline-size: max-content;
   padding: 28px 16px;
   border: unset;
-  font-size: 16px;
-  line-height: 20px;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -117,10 +117,8 @@
   margin-right: 8px;
 
   & text {
-    @include font-noto-sans();
-
-    font-size: 13px;
-    font-weight: 500;
+    @include font-noto-sans($fw-medium);
+    @include font-scale(x-small);
   }
 
   .header__active &,
@@ -135,15 +133,14 @@
 
 .loginButton {
   @include font-poppins($fw-semi-bold);
+  @include font-scale(base);
 
   display: inline-block;
   margin-left: 16px;
   background-color: transparent;
   box-shadow: none;
-  line-height: 20px;
   padding: 10px 21.5px;
   outline: none;
-  font-size: 16px;
   color: var(--text-white);
   text-align: center;
   transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);

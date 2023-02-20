@@ -42,12 +42,11 @@
 
   &__body-link {
     @include font-poppins($fw-semi-bold);
+    @include font-scale(base);
 
     position: relative;
     margin-top: 12px;
     padding: 8px 32px 8px 8px;
-    font-size: 16px;
-    line-height: 20px;
     color: var(--text-primary);
     border: none;
     background: transparent;
@@ -110,6 +109,7 @@
 
   &__btn-action {
     @include font-poppins($fw-semi-bold);
+    @include font-scale(base);
 
     display: flex;
     align-items: center;
@@ -117,8 +117,6 @@
     background: linear-gradient(55deg, #0081a7 19.29%, var(--color-primary-600) 90.72%);
     border-radius: 4px;
     border: none;
-    font-size: 16px;
-    line-height: 20px;
     color: #ffffff;
     padding: 10px 21px;
     cursor: pointer;
@@ -178,10 +176,9 @@
 
   &__btn-text {
     @include font-poppins($fw-semi-bold);
+    @include font-scale(base);
 
     border: none;
-    font-size: 16px;
-    line-height: 20px;
     padding: 10px 8px 10px 40px;
     background: transparent;
     position: relative;
