@@ -42,7 +42,7 @@ export const LearnMenu = () => {
     <SectionCard
       title="Video Guides"
       cover={<YoutubeCover />}
-      text="Watch our video guides to get more acquainted with the ReportPortal"
+      text="Watch our video guides to get more acquainted with ReportPortal"
     >
       <div className={getBlocksWith('__btn-group')}>
         <a

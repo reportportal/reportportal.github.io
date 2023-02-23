@@ -18,7 +18,7 @@ export const CommunityMenu = () => {
       className="contribution-card"
       title="Github Contribution"
       cover={<GithubCover />}
-      text="Our team makes ReportPortal, but it’s our community that shapes and develops it better."
+      text="Our team makes ReportPortal, but it’s our community that shapes and improves it."
     >
       <div className={getBlocksWith('__btn-group')}>
         <a

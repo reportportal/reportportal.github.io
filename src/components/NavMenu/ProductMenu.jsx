@@ -23,7 +23,7 @@ export const ProductMenu = () => {
     <SectionList
       className="general-list"
       title="General"
-      columnsAmount={2}
+      itemsPerRow={1}
       items={[
         {
           icon: <InstallIcon />,
@@ -41,7 +41,7 @@ export const ProductMenu = () => {
     <SectionList
       className="features-list"
       title="Features"
-      columnsAmount={2}
+      itemsPerRow={3}
       items={[
         {
           icon: <ReportingIcon />,
@@ -85,37 +85,37 @@ export const ProductMenu = () => {
         {
           iconClass: 'jira-cloud',
           title: 'Jira Server',
-          link: 'https://reportportal.io/docs/Jira-Server',
+          link: 'https://reportportal.io/docs/plugins/JiraServer',
         },
         {
           iconClass: 'jira-server',
           title: 'Jira Cloud',
-          link: 'https://reportportal.io/docs/Jira-Cloud',
+          link: 'https://reportportal.io/docs/plugins/JiraCloud',
         },
         {
           iconClass: 'azure-do',
           title: 'Azure DevOps',
-          link: 'https://reportportal.io/docs/Azure-DevOps-BTS',
+          link: 'https://reportportal.io/docs/plugins/AzureDevOpsBTS/',
         },
         {
           iconClass: 'rally',
           title: 'Rally',
-          link: 'https://reportportal.io/docs/Rally',
+          link: 'https://reportportal.io/docs/plugins/Rally/',
         },
         {
           iconClass: 'sauce-labs',
           title: 'Sauce Labs',
-          link: 'https://reportportal.io/docs/Sauce-Labs',
+          link: 'https://reportportal.io/docs/plugins/SauceLabs/',
         },
         {
           iconClass: 'ldap',
           title: 'LDAP',
-          link: 'https://reportportal.io/docs/LDAP-Auth',
+          link: 'https://reportportal.io/docs/reportportal-configuration/authorization/LDAP/',
         },
         {
           iconClass: 'saml',
           title: 'SAML',
-          link: 'https://reportportal.io/docs/Azure-SAML',
+          link: 'https://reportportal.io/docs/reportportal-configuration/authorization/SAMLProvider/',
         },
       ]}
     />
