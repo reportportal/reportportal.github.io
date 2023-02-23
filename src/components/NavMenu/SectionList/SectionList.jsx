@@ -1,4 +1,5 @@
 import React from 'react';
+import { chunk } from 'lodash';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../utils';
@@ -32,29 +33,19 @@ const InfoItem = ({ text }) => {
   return <div className={getBlocksWith()}>{text}</div>;
 };
 
-export const SectionList = ({ title, items, columnsAmount = 1, className = '' }) => {
-  const columns = [];
-  const itemsPerColumnAmount = items.length / columnsAmount;
+export const SectionList = ({ title, items, itemsPerRow = items.length, className = '' }) => {
   const getBlocksWith = createBemBlockBuilder(['section-list', className]);
-
-  for (let columnIndex = 0; columnIndex < columnsAmount; columnIndex += 1) {
-    columns.push(
-      <div key={columnIndex} className={getBlocksWith('__col')}>
-        {items
-          .slice(
-            columnIndex * itemsPerColumnAmount,
-            columnIndex * itemsPerColumnAmount + itemsPerColumnAmount,
-          )
-          .map((data) =>
-            data.type === 'info' ? (
-              <InfoItem key="info" {...data} />
-            ) : (
-              <SectionItem key={data.title} className={getBlocksWith('__item')} {...data} />
-            ),
-          )}
-      </div>,
-    );
-  }
+  const columns = chunk(items, itemsPerRow).map((column, columnIndex) => (
+    <div key={columnIndex} className={getBlocksWith('__col')}>
+      {column.map((data) =>
+        data.type === 'info' ? (
+          <InfoItem key="info" {...data} />
+        ) : (
+          <SectionItem key={data.title} className={getBlocksWith('__item')} {...data} />
+        ),
+      )}
+    </div>
+  ));
 
   return (
     <div className={getBlocksWith()}>
