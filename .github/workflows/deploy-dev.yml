@@ -21,6 +21,7 @@ on:
   push:
     branches:
       - new-landing
+  workflow_dispatch:
 
 jobs:
   empty-s3-bucket:
@@ -46,7 +47,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 18
 
       - name: Install of node dependencies
         run: npm install
