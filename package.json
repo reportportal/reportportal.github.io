@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
     "@contentful/rich-text-plain-text-renderer": "*",
     "ahooks": "^3.7.4",
     "antd": "^5.1.7",
@@ -26,11 +27,11 @@
     "gatsby-source-graphql": "^5.5.0",
     "gatsby-transformer-sharp": "^5.5.0",
     "gh-pages": "^3.1.0",
+    "jotai": "^2.0.2",
     "lodash": "^4.17.21",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "^7.43.2",
     "reading-time": "^2.0.0-1"
   },
   "devDependencies": {

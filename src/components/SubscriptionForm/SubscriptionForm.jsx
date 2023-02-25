@@ -1,19 +1,25 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import Icon from '@ant-design/icons';
+import { Input, Form } from 'antd';
+import { useAtom } from 'jotai';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { EnvelopeIcon } from '../NavMenu/icons/Envelope';
+import { subscriptionFormAtom } from '../Layout';
 
 import './SubscriptionForm.scss';
 
-export const SubscriptionForm = ({ isSubmitted, isAlreadySubscribed }) => {
-  const { register, handleSubmit, formState } = useForm();
+export const SubscriptionForm = () => {
+  const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
+  const [form] = Form.useForm();
   const getBlocksWith = createBemBlockBuilder(['subscription-form']);
 
-  const isFormInvalid = formState.isSubmitted && !formState.isValid;
-  const onSubmit = () => {};
+  const handleFinish = () => {
+    setSubscriptionFormState((prevState) => ({ ...prevState, isSubmitted: true }));
+  };
 
-  if (isSubmitted) {
+  if (subscriptionFormState.isSubmitted) {
     return (
       <div className={getBlocksWith('__card')}>
         <span className={getBlocksWith('__card-title')}>Thank you for the request!</span>
@@ -24,7 +30,7 @@ export const SubscriptionForm = ({ isSubmitted, isAlreadySubscribed }) => {
     );
   }
 
-  if (isAlreadySubscribed) {
+  if (subscriptionFormState.isAlreadySubscribed) {
     return (
       <div className={getBlocksWith('__card')}>
         <span className={getBlocksWith('__card-title')}>Already subscribed!</span>
@@ -35,27 +41,53 @@ export const SubscriptionForm = ({ isSubmitted, isAlreadySubscribed }) => {
     );
   }
 
+  const validateMessages = {
+    required: 'Please use a valid email format',
+    pattern: {
+      mismatch: 'Please use a valid email format',
+    },
+  };
+
   return (
-    <form
+    <Form
+      validateMessages={validateMessages}
+      form={form}
+      onFinish={handleFinish}
       className={cx(getBlocksWith('__form'), getBlocksWith('__form--error'))}
-      onSubmit={handleSubmit(onSubmit)}
     >
       <div className={getBlocksWith('__form-group')}>
-        <input
+        <Form.Item
           className={getBlocksWith('__form-input')}
-          {...register('email', { required: true, pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g })}
-        />
+          name={['email']}
+          rules={[{ required: true, pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g }]}
+        >
+          <Input
+            placeholder="Email address"
+            prefix={<Icon component={(props) => <Icon component={EnvelopeIcon} {...props} />} />}
+          />
+        </Form.Item>
       </div>
-      <button className={cx('btn', 'btn--primary')} disabled={isFormInvalid} type="submit">
-        Subscribe
-      </button>
-      {formState.isSubmitted && formState.errors.email?.type === 'pattern' && (
-        <span className={getBlocksWith('__form-error')}>Please use a valid email format</span>
-      )}
+      <Form.Item shouldUpdate>
+        {() => (
+          <button
+            type="submit"
+            className={cx('btn', 'btn--primary')}
+            disabled={
+              form.isFieldsTouched(true) &&
+              form.getFieldsError().some(({ errors }) => Boolean(errors.length))
+            }
+          >
+            Subscribe
+          </button>
+        )}
+      </Form.Item>
       <span className={getBlocksWith('__form-info')}>
         By subscribing, you agree to receive marketing emails from Report Portal team and associated
-        partners and accept our <a href="https://contentful.com/">Privacy Policy</a>
+        partners and accept our{' '}
+        <a href="https://privacy.epam.com/core/interaction/showpolicy?type=CommonPrivacyPolicy">
+          Privacy Policy
+        </a>
       </span>
-    </form>
+    </Form>
   );
 };
