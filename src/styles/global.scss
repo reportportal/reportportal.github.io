@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'font/poppins';
 @import 'font/noto-sans';
+@import 'buttons';
 
 html {
   scroll-behavior: smooth;
@@ -54,4 +55,8 @@ a.active {
   display: flex;
   justify-content: space-between;
   gap: 24px;
+}
+
+.full-width {
+  width: 100%;
 }

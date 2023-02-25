@@ -125,13 +125,10 @@ export const ProductMenu = () => {
     <div className={getBlocksWith('__footer')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
-          <button type="button" className={getBlocksWith('__btn-action')}>
+          <button type="button" className={cx('btn', 'btn--primary')}>
             Try free trial
           </button>
-          <button
-            type="button"
-            className={cx(getBlocksWith('__btn-action'), getBlocksWith('__btn-action--outline'))}
-          >
+          <button type="button" className={cx('btn', 'btn--outline')}>
             Get a quote
           </button>
         </div>

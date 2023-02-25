@@ -47,11 +47,7 @@ export const LearnMenu = () => {
       <div className={getBlocksWith('__btn-group')}>
         <a
           href="https://www.youtube.com/@ReportPortal"
-          className={cx(
-            getBlocksWith('__btn-action'),
-            getBlocksWith('__btn-action--outline'),
-            getBlocksWith('__btn-action--full-width'),
-          )}
+          className={cx('btn', 'btn--outline', 'full-width')}
         >
           Follow us on YouTube
         </a>

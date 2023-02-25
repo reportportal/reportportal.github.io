@@ -92,10 +92,7 @@ export const OfferingsMenu = () => {
     <div className={getBlocksWith('__footer')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
-          <button
-            type="button"
-            className={cx(getBlocksWith('__btn-action'), getBlocksWith('__btn-action--outline'))}
-          >
+          <button type="button" className={cx('btn', 'btn--outline')}>
             Get a quote
           </button>
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { SubscriptionForm } from '../SubscriptionForm';
 import { GithubCover } from './covers/GithubCover';
 import { HeartIcon } from './icons/HeartIcon';
 import { ForkIcon } from './icons/ForkIcon';
@@ -22,23 +23,15 @@ export const CommunityMenu = () => {
     >
       <div className={getBlocksWith('__btn-group')}>
         <a
+          className={cx('btn', 'btn--outline', 'full-width')}
           href="https://github.com/reportportal/reportportal"
-          className={cx(
-            getBlocksWith('__btn-action'),
-            getBlocksWith('__btn-action--outline'),
-            getBlocksWith('__btn-action--full-width'),
-          )}
         >
           <ForkIcon />
           Fork
         </a>
         <a
+          className={cx('btn', 'btn--outline', 'full-width')}
           href="https://github.com/sponsors/reportportal"
-          className={cx(
-            getBlocksWith('__btn-action'),
-            getBlocksWith('__btn-action--outline'),
-            getBlocksWith('__btn-action--full-width'),
-          )}
         >
           <HeartIcon />
           Sponsor
@@ -73,7 +66,9 @@ export const CommunityMenu = () => {
 
   const footer = (
     <div className={getBlocksWith('__footer')}>
-      <div className={getBlocksWith('__footer-container')}>By subscribing, you agree</div>
+      <div className={getBlocksWith('__footer-container')}>
+        <SubscriptionForm />
+      </div>
     </div>
   );
 

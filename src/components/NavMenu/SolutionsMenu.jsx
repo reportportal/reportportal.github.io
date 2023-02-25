@@ -51,14 +51,7 @@ export const SolutionsMenu = () => {
       text="Over 1200 companies around the globe use ReportPortal."
     >
       <div className={getBlocksWith('__btn-group')}>
-        <button
-          type="button"
-          className={cx(
-            getBlocksWith('__btn-action'),
-            getBlocksWith('__btn-action--outline'),
-            getBlocksWith('__btn-action--full-width'),
-          )}
-        >
+        <button type="button" className={cx('btn', 'btn--outline', 'full-width')}>
           Explore Case Studies
         </button>
       </div>

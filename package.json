@@ -4,7 +4,7 @@
   "description": "Landing for ReportPortal",
   "main": "n/a",
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "gatsby develop -p 8080",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "setup": "node ./bin/setup.js",
@@ -30,6 +30,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.43.2",
     "reading-time": "^2.0.0-1"
   },
   "devDependencies": {
