@@ -190,6 +190,8 @@ export const Navigation = () => {
             <div className={styles.navigation__actions} hidden={!githubCounter}>
               <a
                 href="https://github.com/reportportal/reportportal"
+                target="_blank"
+                rel="noreferrer"
                 className={styles.navigation__github}
               >
                 <GithubIcon text={githubCounter} />

@@ -10,6 +10,7 @@
   &:hover {
     background: var(--bg-white);
     color: var(--text-primary);
+    box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
   }
 }
 
@@ -71,11 +72,11 @@
   background: unset;
   transition: color 0.4s;
 
-  &.navigation__linkActive,
   &:hover {
     color: var(--color-primary-500);
   }
 
+  &.navigation__linkActive,
   &:active {
     color: var(--color-primary-700);
   }
@@ -139,7 +140,7 @@
   margin-left: 16px;
   background-color: transparent;
   box-shadow: none;
-  padding: 10px 21.5px;
+  padding: 9px 21.5px;
   outline: none;
   color: var(--text-white);
   text-align: center;
@@ -148,6 +149,10 @@
   .header__active &,
   .header:hover & {
     color: var(--color-primary-600);
+
+    &:hover {
+      color: var(--color-primary-500);
+    }
   }
 }
 

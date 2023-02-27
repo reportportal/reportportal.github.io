@@ -77,7 +77,8 @@
   border-radius: 8px;
 
   a {
-    color: var(--color-primary-700);
+    font-weight: $fw-bold;
+    color: var(--color-primary-600);
   }
 }
 
