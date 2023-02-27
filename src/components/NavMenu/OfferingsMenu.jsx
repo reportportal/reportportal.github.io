@@ -12,7 +12,7 @@ import { QualityAssessmentIcon } from './icons/QualityAssessmentIcon';
 import './Menu.scss';
 
 export const OfferingsMenu = () => {
-  const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
+  const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-offerings']);
   const pricingListInfo = (
     <span>
       <a href="#">Install</a> and use ReportPortal absolutely for free. If you need support or

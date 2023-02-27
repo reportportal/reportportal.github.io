@@ -9,7 +9,7 @@
 
     padding-left: 8px;
     margin: 0 0 18px;
-    color: #8791ab;
+    color: var(--text-service);
     text-transform: uppercase;
   }
 
@@ -34,6 +34,11 @@
   &--no-text {
     padding-top: 14px;
     padding-bottom: 14px;
+
+    svg,
+    .section-item-icon {
+      top: 6px;
+    }
   }
 
   &:hover {
@@ -69,6 +74,7 @@
 .info-item {
   @include font-poppins();
 
+  margin-left: 8px;
   padding: 8px 16px;
   margin-bottom: 8px;
   color: #8791ab;
@@ -90,6 +96,11 @@
   .section-item {
     &:not(:last-child) {
       margin-bottom: 4px;
+
+      .menu-dialog-offerings &,
+      .menu-dialog-community & {
+        margin-bottom: 16px;
+      }
     }
   }
 }

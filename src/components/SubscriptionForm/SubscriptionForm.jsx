@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
 import { useAtom } from 'jotai';
@@ -13,11 +13,23 @@ import './SubscriptionForm.scss';
 export const SubscriptionForm = () => {
   const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
   const [form] = Form.useForm();
+  const [isValid, setIsValid] = useState(true);
+  const email = Form.useWatch('email', form);
   const getBlocksWith = createBemBlockBuilder(['subscription-form']);
 
   const handleFinish = () => {
+    if (!email || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
+      setIsValid(false);
+
+      return;
+    }
+
     setSubscriptionFormState((prevState) => ({ ...prevState, isSubmitted: true }));
   };
+
+  useEffect(() => {
+    setIsValid(true);
+  }, [email]);
 
   if (subscriptionFormState.isSubmitted) {
     return (
@@ -41,25 +53,21 @@ export const SubscriptionForm = () => {
     );
   }
 
-  const validateMessages = {
-    required: 'Please use a valid email format',
-    pattern: {
-      mismatch: 'Please use a valid email format',
-    },
-  };
-
   return (
     <Form
-      validateMessages={validateMessages}
       form={form}
       onFinish={handleFinish}
       className={cx(getBlocksWith('__form'), getBlocksWith('__form--error'))}
     >
       <div className={getBlocksWith('__form-group')}>
         <Form.Item
+          validateTrigger="onSubmit"
           className={getBlocksWith('__form-input')}
           name={['email']}
-          rules={[{ required: true, pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g }]}
+          {...(!isValid && {
+            validateStatus: 'error',
+            help: 'Please use a valid email format',
+          })}
         >
           <Input
             placeholder="Email address"
@@ -72,10 +80,7 @@ export const SubscriptionForm = () => {
           <button
             type="submit"
             className={cx('btn', 'btn--primary')}
-            disabled={
-              form.isFieldsTouched(true) &&
-              form.getFieldsError().some(({ errors }) => Boolean(errors.length))
-            }
+            disabled={form.isFieldsTouched(true) && !isValid}
           >
             Subscribe
           </button>

@@ -12,7 +12,7 @@ import { SectionCard } from './SectionCard';
 import './Menu.scss';
 
 export const CommunityMenu = () => {
-  const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
+  const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
 
   const contributionCard = (
     <SectionCard

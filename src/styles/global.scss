@@ -60,3 +60,7 @@ a.active {
 .full-width {
   width: 100%;
 }
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+}

@@ -97,6 +97,10 @@
       align-items: center;
       min-width: 576px;
       padding: 32px;
+
+      .menu-dialog-community & {
+        max-width: 576px;
+      }
     }
   }
 
