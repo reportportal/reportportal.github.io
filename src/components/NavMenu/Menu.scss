@@ -99,16 +99,13 @@
       padding: 32px;
 
       .menu-dialog-community & {
-        max-width: 576px;
+        width: min-content;
       }
     }
   }
 
   &__btn-group {
-    display: flex;
-    justify-content: space-between;
-    max-width: 287px;
-    width: 100%;
+    display: inline-flex;
     gap: 16px;
   }
 
@@ -116,7 +113,7 @@
     padding: 10px 21px;
 
     &--outline {
-      padding: 8px 16px;
+      padding: 8px 14px;
     }
   }
 

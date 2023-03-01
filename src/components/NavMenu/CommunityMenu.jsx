@@ -21,7 +21,7 @@ export const CommunityMenu = () => {
       cover={<GithubCover />}
       text="Our team makes ReportPortal, but it’s our community that shapes and improves it."
     >
-      <div className={getBlocksWith('__btn-group')}>
+      <div className={cx(getBlocksWith('__btn-group'), 'full-width')}>
         <a
           className={cx('btn', 'btn--outline', 'full-width')}
           href="https://github.com/reportportal/reportportal"

@@ -12,7 +12,7 @@ import {
   CommunityMenu,
   MenuContainer,
 } from '../NavMenu';
-import { GithubIcon, NavLogoIcon, ArrowIcon } from './icons';
+import { GithubIcon, NavLogoIcon, ArrowIcon, BurgerIcon } from './icons';
 
 import * as styles from './Navigation.module.scss';
 
@@ -188,27 +188,32 @@ export const Navigation = () => {
               </li>
             </ul>
             <div className={styles.navigation__actions} hidden={!githubCounter}>
-              <a
-                href="https://github.com/reportportal/reportportal"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.navigation__github}
-              >
-                <GithubIcon text={githubCounter} />
-              </a>
-              <div className="navigation__auth">
-                <div className="navigation__auth-button-group">
-                  <a className={styles.loginButton} href="https://saas.reportportal.io/ui/#login">
-                    Log in
-                  </a>
-                  <a
-                    className={styles.signupButton}
-                    href="https://saas.reportportal.io/ui/#login?registration=true"
-                  >
-                    Sign up
-                  </a>
+              <div className={styles.navigation__actionsAuth}>
+                <a
+                  href="https://github.com/reportportal/reportportal"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.navigation__github}
+                >
+                  <GithubIcon text={githubCounter} />
+                </a>
+                <div className="navigation__auth">
+                  <div className="navigation__auth-button-group">
+                    <a className={styles.loginButton} href="https://saas.reportportal.io/ui/#login">
+                      Log in
+                    </a>
+                    <a
+                      className={styles.signupButton}
+                      href="https://saas.reportportal.io/ui/#login?registration=true"
+                    >
+                      Sign up
+                    </a>
+                  </div>
                 </div>
               </div>
+              <button type="button" className={styles.burgerButton}>
+                <BurgerIcon />
+              </button>
             </div>
           </nav>
         </div>

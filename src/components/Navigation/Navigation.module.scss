@@ -1,5 +1,7 @@
+@import 'src/styles/variables';
 @import 'src/styles/mixins/font';
 @import 'src/styles/mixins/font-scale';
+@import 'src/styles/mixins/breakpoint';
 
 .header {
   background: var(--text-service);
@@ -52,10 +54,40 @@
 }
 
 .navigation__list {
-  display: flex;
+  display: none;
   margin: 0;
   padding-left: 0;
   list-style: none;
+
+  @include breakpoint(1060px) {
+    display: flex;
+  }
+}
+
+.burgerButton {
+  padding: 8px;
+  border: none;
+  margin-left: 24px;
+  color: var(--text-white);
+  background: none;
+  cursor: pointer;
+
+  @include breakpoint(1060px) {
+    display: none;
+  }
+
+  svg {
+    vertical-align: middle;
+  }
+
+  .header__active &,
+  .header:hover & {
+    color: var(--text-dark);
+
+    &:hover {
+      color: var(--color-primary-500);
+    }
+  }
 }
 
 .navigation__link {
@@ -111,11 +143,24 @@
   flex: 0 0 auto;
 }
 
+.navigation__actionsAuth {
+  display: none;
+  align-items: center;
+
+  @include breakpoint($tablet-sm) {
+    display: flex;
+  }
+}
+
 .navigation__github {
-  color: #edeff6;
-  display: flex;
+  display: none;
   align-items: center;
   margin-right: 8px;
+  color: var(--text-purple-grey);
+
+  @include breakpoint(1160px) {
+    display: flex;
+  }
 
   & text {
     @include font-noto-sans($fw-medium);
@@ -171,11 +216,5 @@
       background-color: var(--color-primary-600);
       color: var(--text-white);
     }
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .navigation__github {
-    display: none;
   }
 }
