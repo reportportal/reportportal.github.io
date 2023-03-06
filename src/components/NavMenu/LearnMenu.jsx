@@ -11,31 +11,38 @@ import { SuccessStoriesIcon } from './icons/SuccessStoriesIcon';
 
 import './Menu.scss';
 
-export const LearnMenu = () => {
+export const LearnMenu = ({ isDesktop = true }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
 
+  let resourcesItems = [
+    {
+      icon: <DocumentationIcon />,
+      title: 'Documentation',
+      text: 'All the technical docs',
+    },
+    {
+      icon: <BlogIcon />,
+      title: 'Blog',
+      text: 'News, updates and more',
+    },
+    {
+      icon: <SuccessStoriesIcon />,
+      title: 'Success stories',
+      text: 'Our Case Studies',
+    },
+  ];
+
+  if (!isDesktop) {
+    resourcesItems = resourcesItems.concat({
+      iconClass: 'youtube',
+      title: 'YouTube channel',
+      text: 'Subscribe and watch video guides',
+      link: 'https://www.youtube.com/@ReportPortal',
+    });
+  }
+
   const resourcesList = (
-    <SectionList
-      className="resources-list"
-      title="Resources"
-      items={[
-        {
-          icon: <DocumentationIcon />,
-          title: 'Documentation',
-          text: 'All the technical docs',
-        },
-        {
-          icon: <BlogIcon />,
-          title: 'Blog',
-          text: 'News, updates and more',
-        },
-        {
-          icon: <SuccessStoriesIcon />,
-          title: 'Success stories',
-          text: 'Our Case Studies',
-        },
-      ]}
-    />
+    <SectionList className="resources-list" title="Resources" items={resourcesItems} />
   );
 
   const videoGuidesCard = (
@@ -54,6 +61,10 @@ export const LearnMenu = () => {
       </div>
     </SectionCard>
   );
+
+  if (!isDesktop) {
+    return <div className={getBlocksWith()}>{resourcesList}</div>;
+  }
 
   return (
     <div className={getBlocksWith()}>

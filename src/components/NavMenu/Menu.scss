@@ -1,19 +1,20 @@
 @import 'src/styles/mixins/font';
 @import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
 
 .menu-dialog {
-  position: absolute;
-  left: 50%;
-  z-index: 9999;
-  background: #ffffff;
-  border-top: 1px solid #edeff7;
   border-radius: 0 0 16px 16px;
-  box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
-  transform: translate(-50%, 0);
-  overflow: hidden;
 
-  &__body {
-    background: var(--bg-light-grey);
+  .is-desktop & {
+    background: var(--bg-white);
+    position: absolute;
+    left: 50%;
+    z-index: 9999;
+    transform: translate(-50%, 0);
+    border-top: 1px solid #edeff7;
+    box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
+    overflow: hidden;
   }
 
   &__body-row {
@@ -22,12 +23,12 @@
 
   &__body-col--lf {
     padding: 32px;
-    background: #ffffff;
   }
 
   &__body-col--rt {
     padding: 32px 32px 32px 24px;
     border-left: 1px solid #edeff7;
+    background: var(--bg-light-grey);
   }
 
   &__body-col--flex-column {
@@ -154,12 +155,8 @@
   margin-bottom: 16px;
 }
 
-.general-list {
-  margin-bottom: 40px;
-
-  &__item {
-    @include font-poppins($fw-semi-bold);
-  }
+.is-desktop .services-list {
+  margin-top: 0;
 }
 
 .integrations-list__item {
@@ -292,21 +289,14 @@
   }
 }
 
-.community-list__item {
-  &-icon {
-    &--slack {
-      background-image: url('icons/slack-1.svg');
-    }
-
-    &--twitter {
-      background-image: url('icons/twitter-1.svg');
-    }
-
-    &--youtube {
-      background-image: url('icons/youtube-1.svg');
-    }
+.resources-list__item-icon {
+  &--youtube {
+    background-image: url('icons/youtube-2.svg');
   }
+}
 
+.community-list__item {
+  &,
   &:hover {
     .community-list__item-icon {
       &--slack {
@@ -322,12 +312,27 @@
       }
     }
   }
+
+  .is-desktop & {
+    &-icon {
+      &--slack {
+        background-image: url('icons/slack-1.svg');
+      }
+
+      &--twitter {
+        background-image: url('icons/twitter-1.svg');
+      }
+
+      &--youtube {
+        background-image: url('icons/youtube-1.svg');
+      }
+    }
+  }
 }
 
-.contribution-card {
-  width: 256px;
-}
-
-.resources-list__col {
-  width: 256px;
+.is-desktop {
+  .resources-list__col,
+  .contribution-card {
+    width: 256px;
+  }
 }

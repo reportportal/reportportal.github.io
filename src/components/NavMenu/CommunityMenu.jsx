@@ -11,7 +11,7 @@ import { SectionCard } from './SectionCard';
 
 import './Menu.scss';
 
-export const CommunityMenu = () => {
+export const CommunityMenu = ({ isDesktop = true }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
 
   const contributionCard = (
@@ -42,7 +42,7 @@ export const CommunityMenu = () => {
 
   const communityList = (
     <SectionList
-      className={cx('section-list--secondary', 'community-list')}
+      className={cx('community-list', { 'section-list--secondary': isDesktop })}
       title="Join the Community"
       items={[
         {
@@ -71,6 +71,10 @@ export const CommunityMenu = () => {
       </div>
     </div>
   );
+
+  if (!isDesktop) {
+    return <div className={getBlocksWith()}>{communityList}</div>;
+  }
 
   return (
     <div className={getBlocksWith()}>

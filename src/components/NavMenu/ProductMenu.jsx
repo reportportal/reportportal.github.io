@@ -16,14 +16,14 @@ import { ArrowIcon } from './ArrowIcon';
 
 import './Menu.scss';
 
-export const ProductMenu = () => {
-  const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
+export const ProductMenu = ({ isDesktop = true }) => {
+  const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-product']);
 
   const generalList = (
     <SectionList
       className="general-list"
       title="General"
-      itemsPerRow={1}
+      itemsPerRow={isDesktop ? 1 : 2}
       items={[
         {
           icon: <InstallIcon />,
@@ -41,7 +41,7 @@ export const ProductMenu = () => {
     <SectionList
       className="features-list"
       title="Features"
-      itemsPerRow={3}
+      itemsPerRow={isDesktop ? 3 : 6}
       items={[
         {
           icon: <ReportingIcon />,
@@ -140,41 +140,45 @@ export const ProductMenu = () => {
     </div>
   );
 
+  if (!isDesktop) {
+    return (
+      <div className={getBlocksWith()}>
+        {generalList}
+        {featuresList}
+        <button className={cx(getBlocksWith('__body-link'))}>
+          See all features
+          <ArrowIcon />
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className={getBlocksWith()}>
-      <div>
-        <div className={getBlocksWith('__body')}>
-          <div className={getBlocksWith('__body-row')}>
-            <div className={getBlocksWith('__body-col--lf')}>
-              {generalList}
-              <div>
-                {featuresList}
-                <div>
-                  <button className={cx(getBlocksWith('__body-link'))}>
-                    See all features
-                    <ArrowIcon />
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              className={cx(
-                getBlocksWith('__body-col--rt'),
-                getBlocksWith('__body-col--flex-column'),
-              )}
-            >
-              {integrationsList}
-              <div>
-                <button className={getBlocksWith('__body-link')}>
-                  See all integrations
-                  <ArrowIcon />
-                </button>
-              </div>
-            </div>
+      <div className={getBlocksWith('__body-row')}>
+        <div className={getBlocksWith('__body-col--lf')}>
+          {generalList}
+          {featuresList}
+          <div>
+            <button className={cx(getBlocksWith('__body-link'))}>
+              See all features
+              <ArrowIcon />
+            </button>
           </div>
         </div>
-        {footer}
+        <div
+          className={cx(getBlocksWith('__body-col--rt'), getBlocksWith('__body-col--flex-column'))}
+        >
+          {integrationsList}
+          <div>
+            <button className={getBlocksWith('__body-link')}>
+              See all integrations
+              <ArrowIcon />
+            </button>
+          </div>
+        </div>
       </div>
+      {footer}
     </div>
   );
 };

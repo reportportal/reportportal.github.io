@@ -11,7 +11,7 @@ import { QualityAssessmentIcon } from './icons/QualityAssessmentIcon';
 
 import './Menu.scss';
 
-export const OfferingsMenu = () => {
+export const OfferingsMenu = ({ isDesktop = true }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-offerings']);
   const pricingListInfo = (
     <span>
@@ -20,27 +20,31 @@ export const OfferingsMenu = () => {
     </span>
   );
 
+  let pricingConfig = [
+    {
+      icon: <SaaSIcon />,
+      title: 'SaaS',
+      text: 'Our team hosts application instance for your organization',
+    },
+    {
+      icon: <OnPremiseIcon />,
+      title: 'On-premises',
+      text: "ReportPortal instance resides within your organisation's premises",
+    },
+  ];
+
+  if (isDesktop) {
+    pricingConfig = [
+      {
+        type: 'info',
+        text: pricingListInfo,
+      },
+      ...pricingConfig,
+    ];
+  }
+
   const pricingList = (
-    <SectionList
-      className="pricing-list"
-      title="Pricing"
-      items={[
-        {
-          type: 'info',
-          text: pricingListInfo,
-        },
-        {
-          icon: <SaaSIcon />,
-          title: 'SaaS',
-          text: 'Our team hosts application instance for your organization',
-        },
-        {
-          icon: <OnPremiseIcon />,
-          title: 'On-premises',
-          text: "ReportPortal instance resides within your organisation's premises",
-        },
-      ]}
-    />
+    <SectionList className="pricing-list" title="Pricing" items={pricingConfig} />
   );
 
   const servicesList = (
@@ -99,6 +103,15 @@ export const OfferingsMenu = () => {
       </div>
     </div>
   );
+
+  if (!isDesktop) {
+    return (
+      <div className={getBlocksWith()}>
+        {pricingList}
+        {servicesList}
+      </div>
+    );
+  }
 
   return (
     <div className={getBlocksWith()}>

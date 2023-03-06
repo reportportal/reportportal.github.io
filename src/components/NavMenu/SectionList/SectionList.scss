@@ -4,6 +4,10 @@
 .section-list {
   @include font-scale(small);
 
+  &:not(:first-child) {
+    margin-top: 40px;
+  }
+
   &__title {
     @include font-poppins($fw-semi-bold);
 
