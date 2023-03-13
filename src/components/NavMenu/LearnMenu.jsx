@@ -42,7 +42,12 @@ export const LearnMenu = ({ isDesktop = true }) => {
   }
 
   const resourcesList = (
-    <SectionList className="resources-list" title="Resources" items={resourcesItems} />
+    <SectionList
+      showTitle={isDesktop}
+      className="resources-list"
+      title="Resources"
+      items={resourcesItems}
+    />
   );
 
   const videoGuidesCard = (

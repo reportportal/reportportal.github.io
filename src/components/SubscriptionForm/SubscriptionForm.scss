@@ -72,6 +72,8 @@
     .ant-input {
       @include font-poppins($fw-medium);
       @include font-scale(base);
+
+      line-height: 1;
     }
   }
 
@@ -96,26 +98,5 @@
     a {
       text-decoration: underline;
     }
-  }
-}
-
-.subscription-form__card {
-  @include font-scale(base);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  min-height: 80px;
-
-  &-title {
-    @include font-poppins($fw-semi-bold);
-  }
-
-  &-subtitle {
-    @include font-noto-sans();
-
-    margin-top: 8px;
   }
 }

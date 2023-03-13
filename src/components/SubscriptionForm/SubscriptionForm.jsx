@@ -7,6 +7,7 @@ import cx from 'classnames';
 import { createBemBlockBuilder } from '../../utils';
 import { EnvelopeIcon } from '../NavMenu/icons/Envelope';
 import { subscriptionFormAtom } from '../Layout';
+import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';
 
@@ -33,23 +34,19 @@ export const SubscriptionForm = () => {
 
   if (subscriptionFormState.isSubmitted) {
     return (
-      <div className={getBlocksWith('__card')}>
-        <span className={getBlocksWith('__card-title')}>Thank you for the request!</span>
-        <span className={getBlocksWith('__card-subtitle')}>
-          Please check your inbox to confirm the subscription.
-        </span>
-      </div>
+      <SubscriptionFormCard
+        title="Thank you for the request!"
+        subtitle="Please check your inbox to confirm the subscription."
+      />
     );
   }
 
   if (subscriptionFormState.isAlreadySubscribed) {
     return (
-      <div className={getBlocksWith('__card')}>
-        <span className={getBlocksWith('__card-title')}>Already subscribed!</span>
-        <span className={getBlocksWith('__card-subtitle')}>
-          You already have a subscription linked to this email address.
-        </span>
-      </div>
+      <SubscriptionFormCard
+        title="Already subscribed!"
+        subtitle="You already have a subscription linked to this email address."
+      />
     );
   }
 

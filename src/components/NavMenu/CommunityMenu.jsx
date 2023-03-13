@@ -43,6 +43,7 @@ export const CommunityMenu = ({ isDesktop = true }) => {
   const communityList = (
     <SectionList
       className={cx('community-list', { 'section-list--secondary': isDesktop })}
+      showTitle={isDesktop}
       title="Join the Community"
       items={[
         {

@@ -2,7 +2,7 @@ import React from 'react';
 import { chunk } from 'lodash';
 import cx from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder, isAbsoluteURL } from '../../../utils';
 
 import './SectionList.scss';
 
@@ -14,6 +14,10 @@ const SectionItem = ({ title, link = '#', icon, iconClass, text, className = '' 
       key={title}
       href={link}
       className={cx(getBlocksWith(), { [getBlocksWith('--no-text')]: !text })}
+      {...(isAbsoluteURL(link) && {
+        target: '_blank',
+        rel: 'noreferrer',
+      })}
     >
       {icon}
       {iconClass && (
@@ -33,7 +37,13 @@ const InfoItem = ({ text }) => {
   return <div className={getBlocksWith()}>{text}</div>;
 };
 
-export const SectionList = ({ title, items, itemsPerRow = items.length, className = '' }) => {
+export const SectionList = ({
+  title,
+  showTitle = true,
+  items,
+  itemsPerRow = items.length,
+  className = '',
+}) => {
   const getBlocksWith = createBemBlockBuilder(['section-list', className]);
   const columns = chunk(items, itemsPerRow).map((column, columnIndex) => (
     <div key={columnIndex} className={getBlocksWith('__col')}>
@@ -41,7 +51,12 @@ export const SectionList = ({ title, items, itemsPerRow = items.length, classNam
         data.type === 'info' ? (
           <InfoItem key="info" {...data} />
         ) : (
-          <SectionItem key={data.title} className={getBlocksWith('__item')} {...data} />
+          <SectionItem
+            showTitle={showTitle}
+            key={data.title}
+            className={getBlocksWith('__item')}
+            {...data}
+          />
         ),
       )}
     </div>
@@ -49,7 +64,7 @@ export const SectionList = ({ title, items, itemsPerRow = items.length, classNam
 
   return (
     <div className={getBlocksWith()}>
-      <p className={getBlocksWith('__title')}>{title}</p>
+      {showTitle && <p className={getBlocksWith('__title')}>{title}</p>}
       <div className="row">{columns}</div>
     </div>
   );

@@ -39,8 +39,7 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
         type: 'info',
         text: pricingListInfo,
       },
-      ...pricingConfig,
-    ];
+    ].concat(pricingConfig);
   }
 
   const pricingList = (
@@ -73,7 +72,7 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
 
   const pricingForSolutionsList = (
     <SectionList
-      className={cx('section-list--secondary', 'pricing-solutions-list')}
+      className={cx('pricing-solutions-list', { 'section-list--secondary': isDesktop })}
       title="Pricing for Solutions"
       items={[
         {
@@ -109,6 +108,7 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
       <div className={getBlocksWith()}>
         {pricingList}
         {servicesList}
+        {pricingForSolutionsList}
       </div>
     );
   }

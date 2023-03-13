@@ -17,7 +17,14 @@ import {
   CommunityMenu,
   MenuContainer,
 } from '../NavMenu';
-import { GithubIcon, NavLogoIcon, ArrowIcon, BurgerIcon, CrossIcon } from './icons';
+import {
+  GithubIcon,
+  NavLogoIcon,
+  ArrowIconDesktop,
+  BurgerIcon,
+  CrossIcon,
+  ArrowIconMobile,
+} from './icons';
 
 import './Navigation.scss';
 
@@ -31,6 +38,8 @@ const menusInitialState = {
   community: false,
 };
 
+const menuOrder = ['product', 'solutions', 'offerings', 'learn', 'community'];
+
 const menuItems = {
   product: { Component: ProductMenu },
   solutions: { Component: SolutionsMenu },
@@ -41,9 +50,9 @@ const menuItems = {
 
 export const Navigation = () => {
   const menuLinksRef = useRef(null);
-  const [isMobileMenuOpen, { toggle: toggleMobileMenu }] = useToggle();
+  const [isMobileMenuOpen, { toggle: toggleMobileMenu, setLeft: closeMobileMenu }] = useToggle();
   const [githubCounter, setGithubCounter] = useState(githubStats.repos.reportportal);
-  const isDesktop = useMediaQuery({ query: '(min-width: 1060px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
 
   const getBlocksWith = createBemBlockBuilder(['top-header']);
 
@@ -72,7 +81,7 @@ export const Navigation = () => {
   }, []);
 
   const logo = (
-    <Link to="/" className={getBlocksWith('-navigation__logoLink')}>
+    <Link to="/" onClick={closeMobileMenu} className={getBlocksWith('-navigation__logoLink')}>
       <NavLogoIcon />
     </Link>
   );
@@ -114,7 +123,7 @@ export const Navigation = () => {
               className={cx(getBlocksWith('-navigation__list'), 'is-desktop')}
               role="list"
             >
-              {Object.keys(menuItems).map((menuItem) => {
+              {menuOrder.map((menuItem) => {
                 const { Component } = menuItems[menuItem];
 
                 return (
@@ -131,7 +140,7 @@ export const Navigation = () => {
                     >
                       {upperFirst(menuItem)}
                       <span className={getBlocksWith('-navigation__arrow')}>
-                        <ArrowIcon />
+                        <ArrowIconDesktop />
                       </span>
                     </button>
                     <MenuContainer
@@ -202,7 +211,7 @@ export const Navigation = () => {
           onClose={toggleMobileMenu}
         >
           <Collapse expandIconPosition="end" ghost accordion>
-            {Object.keys(menuItems).map((menuItem) => {
+            {menuOrder.map((menuItem) => {
               const { Component } = menuItems[menuItem];
 
               return (
@@ -212,7 +221,7 @@ export const Navigation = () => {
                     <>
                       {upperFirst(menuItem)}
                       <span className={getBlocksWith('-navigation__arrow')}>
-                        <ArrowIcon />
+                        <ArrowIconMobile />
                       </span>
                     </>
                   }

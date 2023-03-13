@@ -14,6 +14,7 @@ export const SolutionsMenu = ({ isDesktop = true }) => {
   const solutionsList = (
     <SectionList
       className="solutions-list"
+      showTitle={isDesktop}
       title="Our Solutions"
       items={[
         {

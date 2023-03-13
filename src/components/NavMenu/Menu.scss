@@ -10,7 +10,7 @@
     background: var(--bg-white);
     position: absolute;
     left: 50%;
-    z-index: 9999;
+    z-index: var(--z-index);
     transform: translate(-50%, 0);
     border-top: 1px solid #edeff7;
     box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
@@ -257,21 +257,14 @@
   background: url('icons/external-link.svg') no-repeat;
 }
 
-.pricing-solutions-list__item {
-  &-icon {
-    &--drill4j {
-      background-image: url('icons/drill4j-1.svg');
-    }
-
-    &--healenium {
-      background-image: url('icons/healenium-1.svg');
-    }
-
-    &--qa-space {
-      background-image: url('icons/qa-space-1.svg');
-    }
+.resources-list__item-icon {
+  &--youtube {
+    background-image: url('icons/youtube-2.svg');
   }
+}
 
+.pricing-solutions-list__item {
+  &,
   &:hover {
     .pricing-solutions-list__item-icon {
       &--drill4j {
@@ -287,11 +280,21 @@
       }
     }
   }
-}
 
-.resources-list__item-icon {
-  &--youtube {
-    background-image: url('icons/youtube-2.svg');
+  .is-desktop & {
+    &-icon {
+      &--drill4j {
+        background-image: url('icons/drill4j-1.svg');
+      }
+
+      &--healenium {
+        background-image: url('icons/healenium-1.svg');
+      }
+
+      &--qa-space {
+        background-image: url('icons/qa-space-1.svg');
+      }
+    }
   }
 }
 
