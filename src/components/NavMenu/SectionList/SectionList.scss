@@ -4,12 +4,16 @@
 .section-list {
   @include font-scale(small);
 
+  &:not(:first-child) {
+    margin-top: 40px;
+  }
+
   &__title {
     @include font-poppins($fw-semi-bold);
 
     padding-left: 8px;
     margin: 0 0 18px;
-    color: #8791ab;
+    color: var(--text-service);
     text-transform: uppercase;
   }
 
@@ -26,6 +30,7 @@
   position: relative;
   display: flex;
   padding: 8px 8px 8px 52px;
+  line-height: 24px;
 
   &:not(:last-child) {
     margin-bottom: 8px;
@@ -34,6 +39,12 @@
   &--no-text {
     padding-top: 14px;
     padding-bottom: 14px;
+    line-height: 20px;
+
+    svg,
+    .section-item-icon {
+      top: 6px;
+    }
   }
 
   &:hover {
@@ -69,6 +80,7 @@
 .info-item {
   @include font-poppins();
 
+  margin-left: 8px;
   padding: 8px 16px;
   margin-bottom: 8px;
   color: #8791ab;
@@ -77,7 +89,8 @@
   border-radius: 8px;
 
   a {
-    color: var(--color-primary-700);
+    font-weight: $fw-bold;
+    color: var(--color-primary-600);
   }
 }
 
@@ -89,6 +102,11 @@
   .section-item {
     &:not(:last-child) {
       margin-bottom: 4px;
+
+      .menu-dialog-offerings &,
+      .menu-dialog-community & {
+        margin-bottom: 16px;
+      }
     }
   }
 }
