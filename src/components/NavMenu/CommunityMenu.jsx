@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { SubscriptionForm } from '../SubscriptionForm';
 import { GithubCover } from './covers/GithubCover';
 import { HeartIcon } from './icons/HeartIcon';
 import { ForkIcon } from './icons/ForkIcon';
@@ -10,8 +11,8 @@ import { SectionCard } from './SectionCard';
 
 import './Menu.scss';
 
-export const CommunityMenu = () => {
-  const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
+export const CommunityMenu = ({ isDesktop = true }) => {
+  const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
 
   const contributionCard = (
     <SectionCard
@@ -20,25 +21,17 @@ export const CommunityMenu = () => {
       cover={<GithubCover />}
       text="Our team makes ReportPortal, but it’s our community that shapes and improves it."
     >
-      <div className={getBlocksWith('__btn-group')}>
+      <div className={cx(getBlocksWith('__btn-group'), 'full-width')}>
         <a
+          className={cx('btn', 'btn--outline', 'full-width')}
           href="https://github.com/reportportal/reportportal"
-          className={cx(
-            getBlocksWith('__btn-action'),
-            getBlocksWith('__btn-action--outline'),
-            getBlocksWith('__btn-action--full-width'),
-          )}
         >
           <ForkIcon />
           Fork
         </a>
         <a
+          className={cx('btn', 'btn--outline', 'full-width')}
           href="https://github.com/sponsors/reportportal"
-          className={cx(
-            getBlocksWith('__btn-action'),
-            getBlocksWith('__btn-action--outline'),
-            getBlocksWith('__btn-action--full-width'),
-          )}
         >
           <HeartIcon />
           Sponsor
@@ -49,7 +42,8 @@ export const CommunityMenu = () => {
 
   const communityList = (
     <SectionList
-      className={cx('section-list--secondary', 'community-list')}
+      className={cx('community-list', { 'section-list--secondary': isDesktop })}
+      showTitle={isDesktop}
       title="Join the Community"
       items={[
         {
@@ -73,9 +67,15 @@ export const CommunityMenu = () => {
 
   const footer = (
     <div className={getBlocksWith('__footer')}>
-      <div className={getBlocksWith('__footer-container')}>By subscribing, you agree</div>
+      <div className={getBlocksWith('__footer-container')}>
+        <SubscriptionForm />
+      </div>
     </div>
   );
+
+  if (!isDesktop) {
+    return <div className={getBlocksWith()}>{communityList}</div>;
+  }
 
   return (
     <div className={getBlocksWith()}>

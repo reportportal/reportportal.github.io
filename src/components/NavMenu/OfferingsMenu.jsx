@@ -11,8 +11,8 @@ import { QualityAssessmentIcon } from './icons/QualityAssessmentIcon';
 
 import './Menu.scss';
 
-export const OfferingsMenu = () => {
-  const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
+export const OfferingsMenu = ({ isDesktop = true }) => {
+  const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-offerings']);
   const pricingListInfo = (
     <span>
       <a href="#">Install</a> and use ReportPortal absolutely for free. If you need support or
@@ -20,27 +20,30 @@ export const OfferingsMenu = () => {
     </span>
   );
 
+  let pricingConfig = [
+    {
+      icon: <SaaSIcon />,
+      title: 'SaaS',
+      text: 'Our team hosts application instance for your organization',
+    },
+    {
+      icon: <OnPremiseIcon />,
+      title: 'On-premises',
+      text: "ReportPortal instance resides within your organisation's premises",
+    },
+  ];
+
+  if (isDesktop) {
+    pricingConfig = [
+      {
+        type: 'info',
+        text: pricingListInfo,
+      },
+    ].concat(pricingConfig);
+  }
+
   const pricingList = (
-    <SectionList
-      className="pricing-list"
-      title="Pricing"
-      items={[
-        {
-          type: 'info',
-          text: pricingListInfo,
-        },
-        {
-          icon: <SaaSIcon />,
-          title: 'SaaS',
-          text: 'Our team hosts application instance for your organization',
-        },
-        {
-          icon: <OnPremiseIcon />,
-          title: 'On-premises',
-          text: "ReportPortal instance resides within your organisation's premises",
-        },
-      ]}
-    />
+    <SectionList className="pricing-list" title="Pricing" items={pricingConfig} />
   );
 
   const servicesList = (
@@ -69,7 +72,7 @@ export const OfferingsMenu = () => {
 
   const pricingForSolutionsList = (
     <SectionList
-      className={cx('section-list--secondary', 'pricing-solutions-list')}
+      className={cx('pricing-solutions-list', { 'section-list--secondary': isDesktop })}
       title="Pricing for Solutions"
       items={[
         {
@@ -92,16 +95,23 @@ export const OfferingsMenu = () => {
     <div className={getBlocksWith('__footer')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
-          <button
-            type="button"
-            className={cx(getBlocksWith('__btn-action'), getBlocksWith('__btn-action--outline'))}
-          >
+          <button type="button" className={cx('btn', 'btn--outline')}>
             Get a quote
           </button>
         </div>
       </div>
     </div>
   );
+
+  if (!isDesktop) {
+    return (
+      <div className={getBlocksWith()}>
+        {pricingList}
+        {servicesList}
+        {pricingForSolutionsList}
+      </div>
+    );
+  }
 
   return (
     <div className={getBlocksWith()}>
