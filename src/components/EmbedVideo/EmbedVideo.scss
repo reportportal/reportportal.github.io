@@ -1,0 +1,35 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.video-responsive {
+  @include breakpoint(960px) {
+    width: 960px !important;
+    transform-origin: unset !important;
+  }
+
+  .ant-modal-content {
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .ant-modal-body {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+
+    @include breakpoint(960px) {
+      width: 960px;
+      height: 544px;
+      aspect-ratio: unset;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}

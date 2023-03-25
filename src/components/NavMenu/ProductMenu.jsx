@@ -1,7 +1,9 @@
 import React from 'react';
+import { useAtom } from 'jotai';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { watchProductOverviewAtom } from '../Layout';
 import { SectionList } from './SectionList';
 import { PlayIcon } from './icons/PlayIcon';
 import { InstallIcon } from './icons/InstallIcon';
@@ -18,6 +20,7 @@ import './Menu.scss';
 
 export const ProductMenu = ({ isDesktop = true }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-product']);
+  const [, setWatchProductOverviewState] = useAtom(watchProductOverviewAtom);
 
   const generalList = (
     <SectionList
@@ -132,7 +135,11 @@ export const ProductMenu = ({ isDesktop = true }) => {
             Get a quote
           </button>
         </div>
-        <button type="button" className={getBlocksWith('__btn-text')}>
+        <button
+          type="button"
+          className={getBlocksWith('__btn-text')}
+          onClick={() => setWatchProductOverviewState({ isOpen: true })}
+        >
           <PlayIcon />
           Watch product overview
         </button>

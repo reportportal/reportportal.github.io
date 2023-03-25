@@ -1,28 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
 
 import { Layout } from '../components/Layout';
-import { Hero } from '../components/Hero';
 import { ArticlePreview } from '../components/ArticlePreview';
+import { Showcase } from '../components/Showcase';
 
-class RootIndex extends React.Component {
-  render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes');
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes');
-
-    return (
-      <Layout location={this.props.location}>
-        <Hero
-          image={author.heroImage?.gatsbyImage}
-          title={author?.name}
-          content={author?.shortBio}
-        />
-        <ArticlePreview posts={posts} />
-      </Layout>
-    );
-  }
-}
+const RootIndex = ({ data, location }) => {
+  return (
+    <Layout location={location}>
+      <Showcase />
+      <ArticlePreview posts={data.allContentfulBlogPost.nodes} />
+    </Layout>
+  );
+};
 
 export default RootIndex;
 

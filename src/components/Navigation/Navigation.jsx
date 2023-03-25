@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useRef, useState } from 'react';
-import { Link } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'gatsby';
+import { useAtom } from 'jotai';
 import { useToggle } from 'ahooks';
 import { Drawer, Collapse } from 'antd';
 import { upperFirst } from 'lodash';
@@ -9,6 +10,7 @@ import cx from 'classnames';
 
 import githubStats from '../../../static/github.json';
 import { createBemBlockBuilder } from '../../utils';
+import { watchProductOverviewAtom } from '../Layout';
 import {
   SolutionsMenu,
   ProductMenu,
@@ -50,6 +52,8 @@ const menuItems = {
 
 export const Navigation = () => {
   const menuLinksRef = useRef(null);
+  const [watchProductOverviewState] = useAtom(watchProductOverviewAtom);
+
   const [isMobileMenuOpen, { toggle: toggleMobileMenu, setLeft: closeMobileMenu }] = useToggle();
   const [githubCounter, setGithubCounter] = useState(githubStats.repos.reportportal);
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
@@ -79,6 +83,12 @@ export const Navigation = () => {
 
     fetchGithubStars();
   }, []);
+
+  useEffect(() => {
+    if (watchProductOverviewState.isOpen) {
+      updateMenus();
+    }
+  }, [watchProductOverviewState.isOpen]);
 
   const logo = (
     <Link to="/" onClick={closeMobileMenu} className={getBlocksWith('-navigation__logoLink')}>

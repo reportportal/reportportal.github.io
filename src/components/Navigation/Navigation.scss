@@ -4,7 +4,8 @@
 @import 'src/styles/mixins/breakpoint';
 
 .top-header {
-  background: var(--text-service);
+  position: relative;
+  z-index: var(--z-index);
   color: var(--text-white);
   transition: background 0.5s;
 
