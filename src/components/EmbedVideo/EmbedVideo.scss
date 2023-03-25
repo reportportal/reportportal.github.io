@@ -1,9 +1,11 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
+$video-desktop-width: 960px;
+
 .video-responsive {
-  @include breakpoint(960px) {
-    width: 960px !important;
+  @include breakpoint($video-desktop-width) {
+    width: $video-desktop-width !important;
     transform-origin: unset !important;
   }
 
@@ -20,8 +22,8 @@
     margin: 0 auto;
     aspect-ratio: 16 / 9;
 
-    @include breakpoint(960px) {
-      width: 960px;
+    @include breakpoint($video-desktop-width) {
+      width: $video-desktop-width;
       height: 544px;
       aspect-ratio: unset;
     }

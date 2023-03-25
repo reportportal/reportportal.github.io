@@ -4,17 +4,19 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
+import {
+  PlayIcon,
+  InstallIcon,
+  ReleaseIcon,
+  DefectTypeIcon,
+  AiIcon,
+  RtAnalyticsIcon,
+  QualityGatesIcon,
+  PieChartIcon,
+  ReportingIcon,
+  ArrowIcon,
+} from './icons';
 import { SectionList } from './SectionList';
-import { PlayIcon } from './icons/PlayIcon';
-import { InstallIcon } from './icons/InstallIcon';
-import { ReleaseIcon } from './icons/ReleaseIcon';
-import { DefectTypeIcon } from './icons/DefectTypeIcon';
-import { AiIcon } from './icons/AiIcon';
-import { RtAnalyticsIcon } from './icons/RtAnalyticsIcon';
-import { QualityGatesIcon } from './icons/QualityGatesIcon';
-import { PieChartIcon } from './icons/PieChartIcon';
-import { ReportingIcon } from './icons/ReportingIcon';
-import { ArrowIcon } from './ArrowIcon';
 
 import './Menu.scss';
 

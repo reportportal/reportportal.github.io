@@ -27,7 +27,7 @@
   }
 
   &--large {
-    padding: 18px 32px;
+    padding: 16px 32px;
   }
 
   &--primary {
@@ -95,17 +95,17 @@
 
     &:hover,
     &:active:not(:disabled) {
-      background: #ebfbff;
-      border-color: #ebfbff;
-      color: #00b4d5;
+      background: var(--color-primary-100);
+      border-color: var(--color-primary-100);
+      color: var(--color-primary-500);
     }
 
     &:active:not(:disabled) {
-      color: #0081a7;
+      color: var(--color-primary-700);
     }
 
     &:hover {
-      color: #00b4d5;
+      color: var(--color-primary-500);
     }
   }
 }

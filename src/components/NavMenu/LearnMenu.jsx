@@ -5,9 +5,7 @@ import { createBemBlockBuilder } from '../../utils';
 import { YoutubeCover } from './covers/YoutubeCover';
 import { SectionList } from './SectionList';
 import { SectionCard } from './SectionCard';
-import { DocumentationIcon } from './icons/DocumentationIcon';
-import { BlogIcon } from './icons/BlogIcon';
-import { SuccessStoriesIcon } from './icons/SuccessStoriesIcon';
+import { DocumentationIcon, BlogIcon, SuccessStoriesIcon } from './icons';
 
 import './Menu.scss';
 

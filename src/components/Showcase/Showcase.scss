@@ -8,8 +8,8 @@ $header-height: 76px;
 .showcase {
   position: relative;
   padding: 64px + $header-height 16px 274px;
-  backdrop-filter: blur(6px);
   margin-top: -$header-height;
+  backdrop-filter: blur(6px);
   color: var(--white);
 
   @include breakpoint($tablet-sm) {
@@ -18,9 +18,9 @@ $header-height: 76px;
 
   &__container {
     position: absolute;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   &__title {
@@ -55,9 +55,9 @@ $header-height: 76px;
 
   &__btn-group {
     display: flex;
-    gap: 24px;
     flex-direction: row;
     justify-content: space-between;
+    gap: 24px;
     padding: 0;
 
     button {
@@ -86,6 +86,7 @@ $header-height: 76px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    color: var(--text-white);
     background: transparent;
     border: none;
     cursor: pointer;
@@ -96,35 +97,28 @@ $header-height: 76px;
 
       display: block;
       margin-top: 12px;
-      color: var(--text-white);
     }
 
-    svg {
+    .showcase__btn-watch-video-icon {
+      display: block;
       width: 48px;
       height: 48px;
+      background-image: url('icons/play-icon.svg');
     }
 
     &:hover {
-      color: #00b4d5;
+      color: var(--color-primary-200);
 
-      svg {
-        fill: #00b4d5;
-
-        & > path:nth-child(1) {
-          stroke: #00b4d5;
-        }
+      .showcase__btn-watch-video-icon {
+        background-image: url('icons/play-icon-hover.svg');
       }
     }
 
     &:active {
-      color: #0081a7;
+      color: var(--color-primary-700);
 
-      svg {
-        fill: #0081a7;
-
-        & > path:nth-child(1) {
-          stroke: #0081a7;
-        }
+      .showcase__btn-watch-video-icon {
+        background-image: url('icons/play-icon-active.svg');
       }
     }
   }

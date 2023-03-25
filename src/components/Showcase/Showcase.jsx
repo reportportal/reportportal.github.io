@@ -21,19 +21,7 @@ export const Showcase = () => {
 
   const watchVideoBtn = (
     <button className={getBlocksWith('__btn-watch-video')} onClick={toggleEmbedVideoOpen}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
-        <path
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M24 44a20 20 0 1 0 0-40 20 20 0 0 0 0 40Z"
-        />
-        <path
-          fill="#fff"
-          d="M20 19.74a2 2 0 0 1 3.1-1.67l6.4 4.27a2 2 0 0 1 0 3.32l-6.4 4.27a2 2 0 0 1-3.1-1.67v-8.52Z"
-        />
-      </svg>
+      <span className={getBlocksWith('__btn-watch-video-icon')} />
       <span>Watch video</span>
     </button>
   );
