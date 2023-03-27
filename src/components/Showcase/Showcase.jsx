@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useAtom } from 'jotai';
 import cx from 'classnames';
 
@@ -6,7 +6,8 @@ import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
 import { EmbedVideo } from '../EmbedVideo';
 
-import videoSrc from './RP_promo_video.mp4';
+import videoSrc1 from './RP_promo_video.mp4';
+import videoSrc2 from './RP_promo_video.webm';
 
 import './Showcase.scss';
 
@@ -16,14 +17,9 @@ export const Showcase = () => {
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
 
-  const toggleEmbedVideoOpen = () =>
-    setWatchProductOverviewState(({ isOpen }) => ({ isOpen: !isOpen }));
-
-  const watchVideoBtn = (
-    <button className={getBlocksWith('__btn-watch-video')} onClick={toggleEmbedVideoOpen}>
-      <span className={getBlocksWith('__btn-watch-video-icon')} />
-      <span>Watch video</span>
-    </button>
+  const toggleEmbedVideoOpen = useCallback(
+    () => setWatchProductOverviewState(({ isOpen }) => ({ isOpen: !isOpen })),
+    [],
   );
 
   return (
@@ -31,7 +27,8 @@ export const Showcase = () => {
       <div className={getBlocksWith()}>
         <div className={getBlocksWith('__bg-video-container')}>
           <video className={getBlocksWith('__bg-video')} autoPlay loop muted>
-            <source src={videoSrc} type="video/mp4" />
+            <source src={videoSrc2} type="video/webm" />
+            <source src={videoSrc1} type="video/mp4" />
             Your browser does not support the video tag
           </video>
         </div>
@@ -48,7 +45,12 @@ export const Showcase = () => {
             <button className={cx('btn', 'btn--outline-2', 'btn--large')}>Get a quote</button>
           </div>
         </div>
-        <div className={getBlocksWith('__watch-video-container')}>{watchVideoBtn}</div>
+        <div className={getBlocksWith('__watch-video-container')}>
+          <button className={getBlocksWith('__btn-watch-video')} onClick={toggleEmbedVideoOpen}>
+            <span className={getBlocksWith('__btn-watch-video-icon')} />
+            <span>Watch video</span>
+          </button>
+        </div>
       </div>
       <EmbedVideo
         isOpen={watchProductOverviewState.isOpen}

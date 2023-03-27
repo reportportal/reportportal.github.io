@@ -5,9 +5,10 @@
 
 .top-header {
   position: relative;
+  top: 0;
   z-index: var(--z-index);
   color: var(--text-white);
-  transition: background 0.2s;
+  transform: translate3d(0, 0, 0);
 
   &--active,
   &:hover {
@@ -36,10 +37,6 @@
   &__logoLink {
     padding: 18px 0;
     line-height: 0;
-
-    path {
-      transition: fill 0.2s;
-    }
 
     .top-header--active &,
     .ant-drawer-title &,
@@ -78,7 +75,6 @@
     color: inherit;
     cursor: pointer;
     background: unset;
-    transition: color 0.2s;
 
     &:hover {
       color: var(--color-primary-500);
@@ -96,7 +92,6 @@
 
     svg {
       transform: rotate(180deg);
-      transition: stroke 0.2s;
       vertical-align: middle;
 
       .header:hover & {
@@ -131,7 +126,6 @@
     align-items: center;
     margin-right: 8px;
     color: var(--text-purple-grey);
-    transition: color 0.2s;
 
     @include breakpoint(1224px) {
       display: flex;
@@ -163,7 +157,6 @@
     outline: none;
     color: var(--text-white);
     text-align: center;
-    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
     .top-header--active &,
     .top-header:hover & {
