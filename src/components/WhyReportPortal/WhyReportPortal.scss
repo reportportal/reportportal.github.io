@@ -31,6 +31,16 @@
 
   &__content {
     margin-top: 64px;
+
+    @include breakpoint($tablet-sm) {
+      margin-top: 64px;
+    }
+  }
+}
+
+.why-report-portal {
+  @include breakpoint($tablet-sm) {
+    padding-top: 200px;
   }
 }
 
@@ -38,16 +48,19 @@
   list-style: none;
   margin: 0;
   padding: 32px 0;
-  gap: 24px;
+  gap: 64px;
   display: grid;
   grid-template-columns: repeat(1, 280px);
   justify-content: center;
 
   @include breakpoint($tablet-sm) {
+    justify-content: space-between;
     grid-template-columns: repeat(2, 280px);
   }
 
   @include breakpoint($desktop-sm) {
+    gap: 24px;
+    justify-content: center;
     grid-template-columns: repeat(4, 280px);
   }
 

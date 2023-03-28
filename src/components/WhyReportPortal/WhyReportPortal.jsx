@@ -8,7 +8,7 @@ import { OpenSourceIcon } from './icons/OpenSourceIcon';
 
 import './WhyReportPortal.scss';
 
-const getBlocksWith = createBemBlockBuilder(['landing-section']);
+const getBlocksWith = createBemBlockBuilder(['landing-section', 'why-report-portal']);
 const getBlocksWithList = createBemBlockBuilder(['why-report-portal-list']);
 
 export const WhyReportPortal = () => (

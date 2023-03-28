@@ -13,7 +13,7 @@ export const EmbedVideo = ({ isOpen, embedId, onClick }) => {
       footer={null}
       closable={false}
       onCancel={onClick}
-      maskStyle={{ backgroundColor: 'rgba(255,255,255,0.3)' }}
+      maskStyle={{ backgroundColor: 'rgba(47, 60, 95, 0.5)', backdropFilter: 'blur(8px)' }}
     >
       <iframe
         src={`https://www.youtube.com/embed/${embedId}`}

@@ -116,15 +116,19 @@ export const Navigation = () => {
     </Link>
   );
 
+  const headerHeight = 76;
   const isSticky = scrollDirection !== 'down' || isMenuOpen;
-  const isActive = isMenuOpen || scrollY > 76;
+  const isActive = isMenuOpen || scrollY > headerHeight;
 
   return (
     <header
       className={cx(getBlocksWith(), {
         [getBlocksWith('--active')]: isActive,
       })}
-      style={{ position: isSticky ? 'sticky' : 'relative' }}
+      style={{
+        position: isSticky ? 'sticky' : 'relative',
+        top: scrollY > headerHeight && !isSticky ? `-${headerHeight}px` : 0,
+      }}
     >
       <div className={getBlocksWith('__wrapper')}>
         <nav className={getBlocksWith('-navigation')} aria-label="Main Navigation">

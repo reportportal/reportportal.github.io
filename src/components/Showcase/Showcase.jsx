@@ -6,8 +6,8 @@ import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
 import { EmbedVideo } from '../EmbedVideo';
 
-import videoSrc1 from './RP_promo_video.mp4';
-import videoSrc2 from './RP_promo_video.webm';
+import videoSrcMp4 from './RP_promo_video.mp4';
+import videoSrcWebm from './RP_promo_video.webm';
 
 import './Showcase.scss';
 
@@ -27,8 +27,8 @@ export const Showcase = () => {
       <div className={getBlocksWith()}>
         <div className={getBlocksWith('__bg-video-container')}>
           <video className={getBlocksWith('__bg-video')} autoPlay loop muted>
-            <source src={videoSrc2} type="video/webm" />
-            <source src={videoSrc1} type="video/mp4" />
+            <source src={videoSrcWebm} type="video/webm" />
+            <source src={videoSrcMp4} type="video/mp4" />
             Your browser does not support the video tag
           </video>
         </div>

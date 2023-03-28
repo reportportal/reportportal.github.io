@@ -9,7 +9,6 @@ $header-height: 76px;
   position: relative;
   padding: 64px + $header-height 16px 274px;
   margin-top: -$header-height;
-  backdrop-filter: blur(6px);
   color: var(--white);
 
   @include breakpoint($tablet-sm) {
@@ -139,6 +138,7 @@ $header-height: 76px;
         rgba(0, 129, 167, 0.85) 0%,
         rgba(98, 115, 197, 0.85) 100%
       );
+      backdrop-filter: blur(6px);
       top: 0;
       right: 0;
       bottom: 0;
