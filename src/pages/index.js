@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-
-import { Layout } from '../components/Layout';
-import { Hero } from '../components/Hero';
 import { ArticlePreview } from '../components/ArticlePreview';
+import { Features } from '../components/Features';
+import { Hero } from '../components/Hero';
+import { Layout } from '../components/Layout';
+import React from 'react';
+import get from 'lodash/get';
+import { graphql } from 'gatsby';
 
 class RootIndex extends React.Component {
   render() {
@@ -13,12 +13,7 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Hero
-          image={author.heroImage?.gatsbyImage}
-          title={author?.name}
-          content={author?.shortBio}
-        />
-        <ArticlePreview posts={posts} />
+        <Features />
       </Layout>
     );
   }
