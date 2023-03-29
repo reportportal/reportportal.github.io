@@ -1,36 +1,25 @@
 import * as styles from './Features.module.scss';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { featuresList, navigationList } from './dataSource.js';
+import { customerIcons, featuresList, frameworkIconsDotNet, frameworkIconsJava, languageList, navigationList } from './dataSource.js';
 
 import ImageDashboard from '../../svg/ImageDashboard.svg';
 import arrow from '../../svg/arrow.svg';
 
 export const Features = () => {
+  const [currentLang, setActiveLang] = useState('java');
 
 
-  const ref = useRef()
+  function currentFrameworks() {
+    if  (currentLang == "java") {
+      return  frameworkIconsJava
+    } else {
+      return frameworkIconsDotNet
+    }
 
-  // The scroll listener
-  const handleScroll = useCallback(() => {
-    console.log("scrolling")
-  }, [])
-
-
-  function screen() {
-    const div = ref.current
-    div.addEventListener("scroll", handleScroll)
   }
-
-  useEffect(() => {
-    const div = ref.current
-    div.addEventListener("scroll", handleScroll)
-  }, [handleScroll])
-
-  screen() 
-
   return (
-    <div id={styles.features_container}  ref={ref}>
+    <div id={styles.features_container}>
       <div className={styles.backgroundhero}>
         <div className={styles.backgroundhero_heading}>
           <h2>Features</h2>
@@ -41,7 +30,7 @@ export const Features = () => {
         </div>
       </div>
 
-      <div className={styles.features_explorer} >
+      <div className={styles.features_explorer}>
         <div className={styles.features_heading}>
           <h1>Explore ReportPortal features</h1>
         </div>
@@ -72,6 +61,50 @@ export const Features = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className={styles.integrations}>
+        <div className={styles.integrations_heading}>
+          <h1>Integrate with your existing test automation process</h1>
+          <h2>
+            Integrate ReportPortal with frameworks, bug tracking systems, infrastructure providers
+            you already use and others so as to streamline the development and testing processes
+          </h2>
+          <button>See all integrations</button>
+        </div>
+
+        <div className={styles.intergrations_customers}>
+          {customerIcons.map((icon) => (
+            <div className={styles.intergrations_customer_icon}>
+              <img src={icon}></img>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.frameworks}>
+        <h1>Supported frameworks</h1>
+        <h2>Explore supported frameworks by language</h2>
+
+        <div className={styles.frameworks_box}>
+          <div className={styles.frameworks_box_header}>
+            {languageList.map((lang) => (
+              <div
+                onClick={() => setActiveLang(lang.id)}
+                className={lang.id == currentLang ? styles.active_lang : ''}
+              >
+                {lang.lang}
+              </div>
+            ))}
+          </div>
+          <div className={styles.frameworks_box_content}>
+            {currentFrameworks().map((java) => (
+              <div className={styles.frameworks_box_content_item}>
+                <img src={java.icon}></img>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
