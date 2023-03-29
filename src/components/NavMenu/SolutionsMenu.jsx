@@ -8,12 +8,13 @@ import { CaseStudiesCover } from './covers/CaseStudiesCover';
 
 import './Menu.scss';
 
-export const SolutionsMenu = () => {
+export const SolutionsMenu = ({ isDesktop = true }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
 
   const solutionsList = (
     <SectionList
       className="solutions-list"
+      showTitle={isDesktop}
       title="Our Solutions"
       items={[
         {
@@ -50,30 +51,25 @@ export const SolutionsMenu = () => {
       cover={<CaseStudiesCover />}
       text="Over 1200 companies around the globe use ReportPortal."
     >
-      <div className={getBlocksWith('__btn-group')}>
-        <button
-          type="button"
-          className={cx(
-            getBlocksWith('__btn-action'),
-            getBlocksWith('__btn-action--outline'),
-            getBlocksWith('__btn-action--full-width'),
-          )}
-        >
+      <div className={cx(getBlocksWith('__btn-group'), 'full-width')}>
+        <button type="button" className={cx('btn', 'btn--outline', 'full-width')}>
           Explore Case Studies
         </button>
       </div>
     </SectionCard>
   );
 
+  if (!isDesktop) {
+    return <div className={getBlocksWith()}>{solutionsList}</div>;
+  }
+
   return (
     <div className={getBlocksWith()}>
       <div>
-        <div className={getBlocksWith('__body')}>
-          <div className={getBlocksWith('__body-row')}>
-            <div className={cx(getBlocksWith('__body-col--lf'))}>{solutionsList}</div>
-            <div className={cx(getBlocksWith('__body-col--rt'), getBlocksWith('__body-col--card'))}>
-              {caseStudiesCard}
-            </div>
+        <div className={getBlocksWith('__body-row')}>
+          <div className={cx(getBlocksWith('__body-col--lf'))}>{solutionsList}</div>
+          <div className={cx(getBlocksWith('__body-col--rt'), getBlocksWith('__body-col--card'))}>
+            {caseStudiesCard}
           </div>
         </div>
       </div>

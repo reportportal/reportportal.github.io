@@ -1,0 +1,102 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+
+.subscription-form__form {
+  @include font-poppins();
+  @include font-scale(base);
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-column-gap: 16px;
+
+  .ant-form-item {
+    margin-bottom: 0;
+  }
+
+  .ant-input-prefix span {
+    line-height: 0;
+  }
+
+  .ant-form-item-explain-error {
+    color: var(--graphics-coral);
+  }
+
+  .btn {
+    padding: 11px 16px;
+  }
+
+  .subscription-form__form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .subscription-form__form-input {
+    .ant-input-affix-wrapper {
+      padding: 8px 14px;
+      border-radius: 4px;
+      border-color: var(--text-light-grey);
+
+      svg {
+        color: var(--text-light-grey);
+      }
+
+      &:hover {
+        border-color: var(--text-service);
+
+        svg {
+          color: var(--text-service);
+        }
+      }
+
+      &-status-error {
+        border-color: var(--graphics-coral);
+      }
+
+      &-focused,
+      &-focused[class*='error'] {
+        &,
+        &:hover {
+          border-color: var(--color-primary-600);
+
+          svg {
+            color: var(--color-primary-600);
+          }
+        }
+      }
+    }
+
+    .ant-input-prefix {
+      margin-inline-end: 10px;
+    }
+
+    .ant-input {
+      @include font-poppins($fw-medium);
+      @include font-scale(base);
+
+      line-height: 1;
+    }
+  }
+
+  .subscription-form__form-error,
+  .subscription-form__form-info {
+    @include font-scale(small);
+
+    grid-column-start: 1;
+  }
+
+  .subscription-form__form-error {
+    margin-top: 4px;
+  }
+
+  .subscription-form__form-info {
+    @include font-noto-sans();
+    @include font-scale(x-small);
+
+    margin-top: 8px;
+    color: var(--text-service);
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}

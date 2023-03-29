@@ -1,4 +1,5 @@
 import React from 'react';
+import { atom } from 'jotai';
 
 import '../../styles/global.scss';
 
@@ -6,17 +7,15 @@ import { Seo } from '../Seo';
 import { Navigation } from '../Navigation';
 import { Footer } from '../Footer';
 
-export class Layout extends React.Component {
-  render() {
-    const { children } = this.props;
+export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscribed: false });
 
-    return (
-      <>
-        <Seo />
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
-      </>
-    );
-  }
-}
+export const Layout = ({ children }) => {
+  return (
+    <>
+      <Seo />
+      <Navigation />
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
+};
