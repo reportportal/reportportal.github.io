@@ -18,6 +18,55 @@ $header-offset: 178px;
   color: #8791ab;
 }
 
+@mixin button-clear {
+  width: 221px;
+  height: 56px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #009dbb;
+  border: 2px solid #009dbb;
+  border-radius: 4px;
+  background: transparent;
+  margin: 64px auto;
+
+  &:hover {
+    cursor: pointer;
+    background: #ebfbff;
+  }
+
+  &:active {
+    background: #ebfbff;
+    border: 1px solid #0081a7;
+  }
+}
+
+@mixin button-filled {
+  width: 221px;
+  height: 56px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+  border: 0px;
+  background: linear-gradient(55deg, #0081a7 19.29%, #009dbb 90.72%);
+  border-radius: 4px;
+  margin: 64px auto;
+
+  &:hover {
+    cursor: pointer;
+    background: #00b4d5;
+  }
+
+  &:active {
+    background: #0081a7;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 
@@ -227,22 +276,7 @@ html {
   }
 
   button {
-    width: 221px;
-    height: 56px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    color: #009dbb;
-    border: 2px solid #009dbb;
-    border-radius: 4px;
-    background: transparent;
-    margin: 64px auto;
-
-    &:hover {
-      cursor: pointer;
-    }
+    @include button-clear();
   }
 
   .intergrations_customers {
@@ -314,7 +348,6 @@ html {
         height: 100%;
         width: 100%;
         margin: 0 20px 0 20px;
-        // border:1px solid red;
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
@@ -334,13 +367,17 @@ html {
 
     .frameworks_box_content {
       display: flex;
-      padding: 24px ;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      
-      
+      padding: 24px;
+      flex-flow: wrap;
+      justify-content: space-between;
+
+      &::after {
+        content: '';
+        width: 219px;
+      }
+
       .frameworks_box_content_item {
-        margin-bottom:24px;
+        margin-bottom: 24px;
         padding: 0px 12px;
         width: 219px;
         height: 80px;
@@ -349,12 +386,162 @@ html {
         display: flex;
         justify-content: center;
       }
+
       img {
         height: 100%;
         width: 110px;
       }
-
     }
+  }
+}
+
+.subscription {
+  display: flex;
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  .subscription_leading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+
+    .subscription_leading_heading {
+      h1 {
+        @include features-title();
+        width: 465px;
+        height: 128px;
+      }
+
+      h2 {
+        @include features-caption();
+        width: 465px;
+        height: 96px;
+        b {
+          color: #2f3c5f;
+        }
+      }
+    }
+    .subscription_leading_button_group {
+      :nth-child(1) {
+        @include button-filled();
+        margin-right: 15px;
+      }
+      :nth-child(2) {
+        @include button-clear();
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .subscription_trailing {
+    width: 50%;
+  }
+}
+
+.faq {
+  border-bottom: 1px solid #edeff7;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: calc(200px + 74px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .faq_heading {
+    text-align: center;
+
+    h1 {
+      @include features-title();
+      width: 952px;
+      height: 64px;
+    }
+  }
+
+  .faq_content {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    width: 792px;
+
+    .faq_content_item {
+      border-bottom: 3px solid #e4e8f1;
+      line-height: 16px;
+      padding: 40px 0 22px 0;
+
+      .faq_content_item_title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+
+          color: #222b45;
+        }
+        img {
+          height: 24px;
+          width: 24px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .faq_content_item_description {
+        p {
+          font-family: 'Noto Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          color: #222b45;
+        }
+      }
+
+      .arrowshown {
+        transform: rotate(-90deg);
+      }
+      .collapsed {
+        display: none;
+      }
+      .shown {
+        display: block;
+      }
+    }
+  }
+}
+
+.contact_us {
+  position: relative;
+  top:-74px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  height: 148px;
+  box-shadow: 0px 4px 16px rgba(16, 46, 52, 0.1);
+  border-radius: 16px;
+  margin:auto;
+  padding: 0 64px 0 64px;
+  background: #FFFFFF;
+
+  h1{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    color: #2F3C5F;
+  }
+  div{
+    flex-grow: 1;
+  }
+  button{
+    @include button-filled();
   }
 }
 

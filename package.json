@@ -21,6 +21,7 @@
     "ahooks": "^3.7.4",
     "antd": "^5.1.7",
     "classnames": "^2.3.2",
+    "dompurify": "^3.0.1",
     "framer-motion": "^10.0.1",
     "gatsby": "^5.5.0",
     "gatsby-plugin-google-tagmanager": "^5.7.0",

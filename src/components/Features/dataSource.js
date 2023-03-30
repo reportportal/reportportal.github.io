@@ -67,9 +67,15 @@ export const featuresList = [
 ];
 
 
+export const collapsableList = [
+    { id: 1, title: 'What is meant by "Premium feature"?', description : "Premium feature is an advanced feature which comes on top of Free Open Source edition. It comes at no cost with SaaS offering and included into the 168+ Managed Services package.<br/> <br/> See the the <span style='color:#009DBB'>List of features</span> and their description." },
+    { id: 2, title: 'What capabilities does Rest API provide?' , description: "REST API enables users to easily integrate any testing framework or third-party tool with ReportPortal so as to report data into ReportPortal, call analyze action, add attributes, merge/update/finish launches. Besides, you can pull the data from ReportPortal in order to update the statuses in the pipeline, generate custom reports and many more."}
+]
+
+
 export const languageList = [
     { lang: "Java", id: "java", },
-    { lang: ".NET", id: "net" },
+    { lang: ".NET", id: "dotnet" },
     { lang: "JavaScript", id: "javascript" },
     { lang: "Python", id: "python" },
     { lang: "PHP", id: "php" },
@@ -107,3 +113,38 @@ export const frameworkIconsDotNet = [
     { icon: icons_frameworks.specflow },
     { icon: icons_frameworks.unitnet }
 ]
+
+export const frameworkIconsJavascript = [
+    { icon: icons_frameworks.cucumber },
+    { icon: icons_frameworks.jasmine },
+    { icon: icons_frameworks.mocha },
+    { icon: icons_frameworks.nightwatch },
+    { icon: icons_frameworks.jest },
+    { icon: icons_frameworks.cypress },
+    { icon: icons_frameworks.codecept },
+    { icon: icons_frameworks.postman },
+    { icon: icons_frameworks.testcafe },
+    { icon: icons_frameworks.webdriver },
+    { icon: icons_frameworks.playwright }
+]
+
+export const frameworkIconsPython = [
+    { icon: icons_frameworks.pytest },
+    { icon: icons_frameworks.robotframework },
+    { icon: icons_frameworks.pythonbehave },
+    { icon: icons_frameworks.nose }
+]
+
+export const frameworkIconsPhp = [
+    { icon: icons_frameworks.behat },
+    { icon: icons_frameworks.phpunit },
+    { icon: icons_frameworks.codeception }
+]
+
+
+export const frameworkIconsOther = [
+    { icon: icons_frameworks.st },
+    { icon: icons_frameworks.gwen },
+    { icon: icons_frameworks.gauge }
+]
+
