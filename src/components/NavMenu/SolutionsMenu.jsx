@@ -2,9 +2,9 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { CaseStudiesCover } from './covers/CaseStudiesCover';
 import { SectionList } from './SectionList';
 import { SectionCard } from './SectionCard';
-import { CaseStudiesCover } from './covers/CaseStudiesCover';
 
 import './Menu.scss';
 

@@ -1,0 +1,97 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.landing-section {
+  padding: 120px 64px;
+
+  @include breakpoint($tablet-sm) {
+    @include font-scale(x3-large);
+
+    padding: 120px;
+  }
+
+  &__title {
+    @include font-poppins($fw-bold);
+    @include font-scale(x4-medium);
+
+    margin: 0;
+    color: var(--text-primary);
+    text-align: center;
+
+    @include breakpoint($phone-lg) {
+      @include font-scale(large);
+    }
+
+    @include breakpoint($tablet-sm) {
+      @include font-scale(x3-large);
+    }
+  }
+
+  &__content {
+    margin-top: 64px;
+
+    @include breakpoint($tablet-sm) {
+      margin-top: 64px;
+    }
+  }
+}
+
+.why-report-portal {
+  @include breakpoint($tablet-sm) {
+    padding-top: 200px;
+  }
+}
+
+.why-report-portal-list {
+  list-style: none;
+  margin: 0;
+  padding: 32px 0;
+  gap: 64px;
+  display: grid;
+  grid-template-columns: repeat(1, 280px);
+  justify-content: center;
+
+  @include breakpoint($tablet-sm) {
+    justify-content: space-between;
+    grid-template-columns: repeat(2, 280px);
+  }
+
+  @include breakpoint($desktop-sm) {
+    gap: 24px;
+    justify-content: center;
+    grid-template-columns: repeat(4, 280px);
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 1;
+    width: 282px;
+
+    h3 {
+      @include font-poppins($fw-semi-bold);
+      @include font-scale(medium);
+
+      @include breakpoint($tablet-sm) {
+        @include font-scale(x2-medium);
+      }
+
+      text-align: center;
+      margin: 40px 0 0;
+      color: var(--text-primary);
+    }
+
+    span {
+      @include font-noto-sans();
+      @include font-scale(medium);
+
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--text-primary);
+      text-align: center;
+    }
+  }
+}
