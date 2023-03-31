@@ -26,3 +26,12 @@
   src: local('Poppins-SemiBold'), local('Poppins-SemiBold'),
     url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: $fw-bold;
+  font-display: swap;
+  font-style: normal;
+  src: local('Poppins-Bold'), local('Poppins-Bold'),
+    url('/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
