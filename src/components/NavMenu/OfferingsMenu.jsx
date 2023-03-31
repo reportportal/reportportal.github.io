@@ -3,11 +3,7 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { SectionList } from './SectionList';
-import { OnPremiseIcon } from './icons/OnPremiseIcon';
-import { SaaSIcon } from './icons/SaaSIcon';
-import { TaaSIcon } from './icons/TaaSIcon';
-import { TAaaSIcon } from './icons/TAaaSIcon';
-import { QualityAssessmentIcon } from './icons/QualityAssessmentIcon';
+import { OnPremiseIcon, SaaSIcon, TaaSIcon, TAaaSIcon, QualityAssessmentIcon } from './icons';
 
 import './Menu.scss';
 

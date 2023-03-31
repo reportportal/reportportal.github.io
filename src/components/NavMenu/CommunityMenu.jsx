@@ -4,10 +4,9 @@ import cx from 'classnames';
 import { createBemBlockBuilder } from '../../utils';
 import { SubscriptionForm } from '../SubscriptionForm';
 import { GithubCover } from './covers/GithubCover';
-import { HeartIcon } from './icons/HeartIcon';
-import { ForkIcon } from './icons/ForkIcon';
 import { SectionList } from './SectionList';
 import { SectionCard } from './SectionCard';
+import { HeartIcon, ForkIcon } from './icons';
 
 import './Menu.scss';
 

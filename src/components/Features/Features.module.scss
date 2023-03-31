@@ -502,7 +502,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   .faq_heading {
     text-align: center;
 
@@ -517,7 +516,13 @@ body {
     margin-top: 60px;
     display: flex;
     flex-direction: column;
-    max-width: 792px;
+    width: 100%;
+   
+
+    @include breakpoint($desktop-size-breakpoint) {
+      width: 792px;
+      
+    }
 
     .faq_content_item {
       border-bottom: 3px solid #e4e8f1;

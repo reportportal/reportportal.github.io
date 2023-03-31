@@ -4,8 +4,12 @@
 @import 'src/styles/mixins/breakpoint';
 
 .top-header {
+  position: relative;
+  top: 0;
+  z-index: var(--z-index);
   color: var(--text-white);
-  transition: background 0.5s;
+  transform: translate3d(0, 0, 0);
+  transition: background 0.3s, top 0.3s;
 
   &--active,
   &:hover {
@@ -36,7 +40,7 @@
     line-height: 0;
 
     path {
-      transition: fill 0.5s;
+      transition: fill 0.3s;
     }
 
     .top-header--active &,
@@ -76,7 +80,7 @@
     color: inherit;
     cursor: pointer;
     background: unset;
-    transition: color 0.5s;
+    transition: color 0.3s;
 
     &:hover {
       color: var(--color-primary-500);
@@ -94,8 +98,8 @@
 
     svg {
       transform: rotate(180deg);
-      transition: stroke 0.5s;
       vertical-align: middle;
+      transition: stroke 0.3s;
 
       .header:hover & {
         stroke: var(--text-primary);
@@ -129,7 +133,7 @@
     align-items: center;
     margin-right: 8px;
     color: var(--text-purple-grey);
-    transition: color 0.5s;
+    transition: color 0.3s;
 
     @include breakpoint(1224px) {
       display: flex;
@@ -161,7 +165,7 @@
     outline: none;
     color: var(--text-white);
     text-align: center;
-    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
     .top-header--active &,
     .top-header:hover & {
