@@ -40,12 +40,12 @@ export const Features = () => {
 
   return (
     <div id={styles.features_container}>
-      <div className={styles.backgroundhero}>
+      <div className={styles.background_hero}>
         <div className={styles.backgroundhero_heading}>
-          <h2>Features</h2>
+          <h2>FEATURES</h2>
           <h1>Empower your testing process with ReportPortal</h1>
         </div>
-        <div className={styles.imagedashboard}>
+        <div className={styles.image_dashboard}>
           <img src={icons_common.dashboard}></img>
         </div>
       </div>
@@ -68,7 +68,7 @@ export const Features = () => {
       <div className={styles.feature_list}>
         {featuresList.map((feature) => (
           <div className={styles.feature_blockitem} id={feature.link}>
-            <div className={styles.features_description}>
+            <div className={styles.features_leading}>
               <h1>{feature.title}</h1>
               <p>{feature.description}</p>
               <a>
@@ -76,7 +76,7 @@ export const Features = () => {
               </a>
             </div>
 
-            <div className={styles.features_image}>
+            <div className={styles.features_trailing}>
               <img src={feature.image}></img>
             </div>
           </div>
@@ -137,11 +137,11 @@ export const Features = () => {
             </h2>
           </div>
           <div className={styles.subscription_leading_button_group}>
-            <button>Start free trial</button>
-            <button>Get a quote</button>
+            <button className={`btn`}>Start free trial</button>
+            <button className='btn-clear'>Get a quote</button>
           </div>
         </div>
-        <div classNem={styles.subscription_trailing}>
+        <div className={styles.subscription_trailing}>
           <img src={icons_common.subscription}></img>
         </div>
       </div>
@@ -170,15 +170,13 @@ export const Features = () => {
         </div>
       </div>
 
-
       <div className={styles.contact_us}>
+        <div  className={styles.contact_info_block}>
         <h1>Still have questions about our features?</h1>
-        <div></div>
-        <button>Contact Us</button>
+        <button className='btn'>Contact Us</button>
+        </div>
 
       </div>
-
-
 
     </div>
   );

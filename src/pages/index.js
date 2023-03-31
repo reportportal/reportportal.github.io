@@ -13,8 +13,19 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+        <Hero
+          image={author.heroImage?.gatsbyImage}
+          title={author?.name}
+          content={author?.shortBio}
+        />
+        <ArticlePreview posts={posts} />
+      </Layout>
+      
+      /* Comment Layout Abobe and uncomment this one to Render Features Page
+      <Layout location={this.props.location}>
         <Features />
       </Layout>
+      */
     );
   }
 }
