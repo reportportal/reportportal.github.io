@@ -23,8 +23,12 @@ CONTENTFUL_ACCESS_TOKEN={ACCESS_TOKEN}
 
 ### Option 2:
 
-- Run `npm run setup`
-- Use next information for prompts during setup:
+Run the next command to start setup:
+```bash
+npm run setup
+```
+
+Use next information for prompts during setup:
 
 1. Open Contentful and grab Space_ID from URL - https://app.contentful.com/spaces/{SPACE_ID}/home (requires [Contentful account](#ask-admin-to-give-you-credentials-to-contentful))
 2. Content Management API access token (see [Get API Keys](#get-api-keys))
