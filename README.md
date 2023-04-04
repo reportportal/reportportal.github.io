@@ -34,11 +34,11 @@ CONTENTFUL_ACCESS_TOKEN={ACCESS_TOKEN}
 - https://www.contentful.com
 
 ### Get API Keys
-- Get logged in to contentful https://www.contentful.com
+- Get logged in to [contentful](https://www.contentful.com)
 - Go to Contentful -> Settings -> API Keys -> Content Delivery/Preview Tokens
 - Open one of the items and copy Content Delivery API access token and Content Preview API access token
 - Go to Contentful -> Settings -> API Keys ->  Content management tokens
--  Generate your personal token
+- Generate your personal token
 
 ## Start App
 
