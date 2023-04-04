@@ -26,7 +26,7 @@ CONTENTFUL_ACCESS_TOKEN={ACCESS_TOKEN}
 - Run `npm run setup`
 - Use next information for prompts during setup:
 
-1. Open Contentful and grab Space_ID from url - https://app.contentful.com/spaces/SPACE_ID/home (requires [Contentful account](#ask-admin-to-give-you-credentials-to-contentful))
+1. Open Contentful and grab Space_ID from URL - https://app.contentful.com/spaces/{SPACE_ID}/home (requires [Contentful account](#ask-admin-to-give-you-credentials-to-contentful))
 2. Content Management API access token (see [Get API Keys](#get-api-keys))
 3. Content Delivery API access token (see [Get API Keys](#get-api-keys))
 
