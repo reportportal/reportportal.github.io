@@ -19,6 +19,7 @@
     color: $COLOR-CHARCOAL-GREY;
     display: flex;
     justify-content: space-between;;
+    align-items: center;
     .copy {
       min-width: max-content;
       .epam-logo {
@@ -34,15 +35,14 @@
     }
     .friends {
       min-width: max-content;
-      .jfrog {
-        background: url(./img/jfrog.svg);
-        background-size: contain;
-        width: 75px;
-        height: 20px;
+      .lambda-test {
         display: inline-block;
+        width: 210px;
+        height: 24px;
+        background: url(./img/lambdaTest.svg);
+        background-size: contain;
         background-repeat: no-repeat;
         vertical-align: text-top;
-        margin-left: 5px;
       }
     }
     .policy {
