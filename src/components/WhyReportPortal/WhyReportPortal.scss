@@ -3,13 +3,12 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
-.landing-section {
-  padding: 120px 64px;
+.why-report-portal {
+  padding-top: 120px;
+  padding-bottom: 120px;
 
-  @include breakpoint($tablet-sm) {
+  @include breakpoint($tablet-sm-exact) {
     @include font-scale(x3-large);
-
-    padding: 120px;
   }
 
   &__title {
@@ -45,8 +44,6 @@
 }
 
 .why-report-portal-list {
-  list-style: none;
-  margin: 0;
   padding: 32px 0;
   gap: 64px;
   display: grid;
@@ -54,7 +51,7 @@
   justify-content: center;
 
   @include breakpoint($tablet-sm) {
-    justify-content: space-between;
+    justify-content: space-around;
     grid-template-columns: repeat(2, 280px);
   }
 

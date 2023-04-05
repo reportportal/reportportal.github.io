@@ -1,5 +1,4 @@
 .meta {
-  font-family: var(--font-serif);
   font-size: var(--text-lg);
   font-style: italic;
   margin: 0 auto 1em;
@@ -25,7 +24,6 @@
 
 .article a {
   border-bottom: 1.5px solid currentColor;
-  font-weight: var(--medium);
 }
 
 .article a:hover {
@@ -49,7 +47,6 @@
 .article h5,
 .article h6 {
   font-size: var(--text-prose);
-  font-weight: var(--semibold);
   margin-bottom: 0.5em;
   margin-top: 3em;
 }
@@ -62,8 +59,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  list-style: none;
-  padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -89,7 +84,7 @@
   .article ul {
     padding-left: 5px;
   }
-  
+
   .article ol {
     padding-left: 5px;
   }
