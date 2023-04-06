@@ -1,0 +1,30 @@
+.switch {
+  display: inline-block;
+
+  &__inner {
+    display: flex;
+    border-radius: 80px;
+    background-color: var(--color-primary-500);
+    color: var(--white);
+    font-family: 'Poppins'; // !!!!!!!!!!!!
+    font-style: normal; // !!!!!!!!!!!!
+    font-weight: 600; // !!!!!!!!!!!!
+    font-size: 16px; // !!!!!!!!!!!!
+  }
+
+  .switch__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    border-radius: 80px;
+    background-color: transparent;
+  }
+  .switch__text {
+    margin-left: 10px; // !!!!!!!!!!!!
+  }
+  .switch__active {
+    background-color: var(--white);
+    color: var(--color-primary-500);
+  }
+}

@@ -1,0 +1,49 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.bg {
+  background: var(--primary);
+  background-image: url('./group-244.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+};
+
+// ----------------
+$header-height: 76px;  // !!! double
+
+.installer {
+  position: relative;
+  padding: 72px 16px 48px;
+  margin-top: -$header-height;
+  color: var(--white);
+  &__title {
+    @include font-poppins($fw-bold);
+    @include font-scale(large);
+
+    margin: 0;
+    text-align: center;
+
+    @include breakpoint($phone) {
+      @include font-scale(x3-large);
+    }
+
+    @include breakpoint($tablet-sm) {
+      @include font-scale(x4-large);
+    }
+  }
+
+  &__subtitle {
+    @include font-noto-sans();
+    @include font-scale(x2-medium);
+
+    margin-top: 16px;  // !!!!!!!!!!!!
+    text-align: center;
+  }
+}
+
+.btn__box {
+  display: flex;
+  justify-content: center;
+}
