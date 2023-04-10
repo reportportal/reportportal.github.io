@@ -1,0 +1,38 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/font-scale';
+
+.notes {
+  display: flex;
+  margin-top: var(--space-2xl);
+  margin-left: var(--space-2xl);
+
+  &__border{
+    width: 4px;
+    border-radius: 4px;
+    background-color: var(--bg-dark-grey);
+  }
+
+  &__content {
+    @include font-noto-sans();
+    padding-left: var(--space-2xl);
+    color: var(--text-light-grey);
+  }
+
+  &__title {
+    @include font-poppins($fw-semi-bold);
+    @include font-scale(small);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__text {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  &__importance {
+    background-color: var(--graphics-orange);
+  }
+}
+
