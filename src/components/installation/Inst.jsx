@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 
 import { Container } from '../Container';
@@ -25,15 +25,13 @@ const buttons = [
       <KubernetesIcon color={item.active ? 'var(--color-primary-500)' : 'var(--white)'} />
     ),
   },
-  // {
-  //   text: 'With Kubernetes11',
-  //   active: false,
-  //   iconComponent: (item) => <KubernetesIcon color={item.active ? '#36A8C4' : 'white'} />,
-  // },
 ];
 
 export const Inst = () => {
+  const [contentSate, setContentState] = useState(true);
+
   const handleSwitch = (data) => {
+    setContentState((previous) => !previous);
     console.log('=== handleSwitch ====>', data);
   };
   return (
@@ -43,24 +41,13 @@ export const Inst = () => {
           <h1 className={getBlocksWith('__title')}>Installation guide</h1>
           <p className={getBlocksWith('__subtitle')}>3 steps to get started with ReportPortal</p>
 
-          <div className="btn__box">
-            <SwitchButtons buttons={buttons} onSwitch={handleSwitch} btnWidth={'239px'} />
+          <div className={getBlocksWith('__btn-box')}>
+            <SwitchButtons buttons={buttons} onSwitch={handleSwitch} />
           </div>
         </Container>
       </div>
 
-      <Container>
-        <div style={{ background: 'gray' }}>
-          <p>HELLO</p>
-        </div>
-        <div className="btn btn--secondary" style={{ width: '150px' }}>
-          Button
-        </div>
-
-        <br />
-        <a className={cx('btn', 'btn--outline', 'full-width')}>Button</a>
-        <br />
-      </Container>
+      {contentSate ? <div>First Page</div> : <div>Second Page</div>}
     </div>
   );
 };

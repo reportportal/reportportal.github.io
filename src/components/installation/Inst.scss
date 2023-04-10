@@ -10,8 +10,7 @@
   background-size: cover;
 };
 
-// ----------------
-$header-height: 76px;  // !!! double
+$header-height: 76px;
 
 .installer {
   position: relative;
@@ -38,12 +37,31 @@ $header-height: 76px;  // !!! double
     @include font-noto-sans();
     @include font-scale(x2-medium);
 
-    margin-top: 16px;  // !!!!!!!!!!!!
+    margin-top: 16px;
     text-align: center;
+  }
+
+  &__btn-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--color-primary-600);
+    border-bottom: 2px solid transparent;
+    transition: all .4s ease-out;
+  }
+  
+  &__link:hover {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    transition: all .4s ease-out;
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 25px;
   }
 }
 
-.btn__box {
-  display: flex;
-  justify-content: center;
-}
