@@ -6,12 +6,12 @@ import { createBemBlockBuilder } from '../../utils';
 
 import './SwitchButtons.scss';
 
-// const getBlocksWith = createBemBlockBuilder(['installer']);
+const BUTTON_WIDTH = 239;
 
-export const SwitchButtons = ({buttons, onSwitch, btnWidth='auto'}) => {
+export const SwitchButtons = ({ buttons, onSwitch }) => {
   const [switchState, setSwitchState] = useState(buttons);
 
-  const onSwitchButton = (_, { btnName, active }) => {
+  const onSwitchButton = ({ btnName, active }) => {
     if (active) {
       return false
     }
@@ -23,15 +23,16 @@ export const SwitchButtons = ({buttons, onSwitch, btnWidth='auto'}) => {
     onSwitch(btnName);
   };
 
+  const getWidth = () =>  BUTTON_WIDTH * switchState.length
+
   return (
     <div className="switch">
-      <div className="switch__inner">
+      <div className="switch__inner" style={{maxWidth: getWidth()}}>
         {switchState && switchState.map((btn) => (
           <div
             key={btn.text}
             className={cx('switch__btn', { switch__active: btn.active })}
-            style={{width: btnWidth}}
-            onClick={(e) => onSwitchButton(e, { btnName: btn.text, active: btn.active })}
+            onClick={() => onSwitchButton({ btnName: btn.text, active: btn.active })}
           >
             {btn.iconComponent(btn)}
             <span className="switch__text">{btn.text}</span>
