@@ -1,0 +1,1 @@
+export DiogonalHero from './DiagonalHero';

@@ -1,0 +1,28 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.pricingCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include breakpoint($desktop-sm) {
+        flex-wrap: nowrap;
+
+        >div {
+            &:first-child {
+                ul {
+                    li {
+                        &:first-child {
+                            color: var(--graphics-jade);
+                            @include font-poppins($fw-bold);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
