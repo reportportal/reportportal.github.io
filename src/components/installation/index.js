@@ -1,1 +1,1 @@
-export * from './Inst';
+export * from './Installation';

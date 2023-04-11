@@ -14,7 +14,8 @@
     width: 100%;
     border-radius: 80px;
     background-color: var(--color-primary-500);
-    color: var(--white);
+    color: var(--text-white);
+
     @include font-poppins($fw-semi-bold);
   }
 

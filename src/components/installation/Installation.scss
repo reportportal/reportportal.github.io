@@ -3,20 +3,24 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
-.bg {
-  background: var(--primary);
-  background-image: url('./group-244.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-};
-
-$header-height: 76px;
-
 .installer {
   position: relative;
   padding: 72px 16px 48px;
   margin-top: -$header-height;
-  color: var(--white);
+  color: var(--text-white);
+  background: var(--color-primary-600);
+  background-image: url('./group-244.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__active-icon {
+    fill: var(--color-primary-500);
+  }
+
+  &__icon {
+    fill: var(--text-white);
+  }
+
   &__title {
     @include font-poppins($fw-bold);
     @include font-scale(large);
@@ -54,8 +58,8 @@ $header-height: 76px;
   }
   
   &__link:hover {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
+    color: var(--color-primary-600);
+    border-bottom-color: var(--color-primary-600);
     transition: all .4s ease-out;
   }
 

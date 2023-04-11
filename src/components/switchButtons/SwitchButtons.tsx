@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 
-import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../utils';
+
+const BUTTON_WIDTH = 239;
 
 import './SwitchButtons.scss';
 
-const BUTTON_WIDTH = 239;
+const getBlocksWith = createBemBlockBuilder(['switch']);
 
 export const SwitchButtons = ({ buttons, onSwitch }) => {
   const [switchState, setSwitchState] = useState(buttons);
 
   const onSwitchButton = ({ btnName, active }) => {
     if (active) {
-      return false
+      return false;
     }
 
     setSwitchState((previousSwitchState) => 
@@ -26,16 +27,16 @@ export const SwitchButtons = ({ buttons, onSwitch }) => {
   const getWidth = () =>  BUTTON_WIDTH * switchState.length
 
   return (
-    <div className="switch">
-      <div className="switch__inner" style={{maxWidth: getWidth()}}>
+    <div className={getBlocksWith()}>
+      <div className={getBlocksWith('__inner')} style={{maxWidth: getWidth()}}>
         {switchState && switchState.map((btn) => (
           <div
             key={btn.text}
-            className={cx('switch__btn', { switch__active: btn.active })}
+            className={cx(getBlocksWith('__btn'), { switch__active: btn.active })}
             onClick={() => onSwitchButton({ btnName: btn.text, active: btn.active })}
           >
             {btn.iconComponent(btn)}
-            <span className="switch__text">{btn.text}</span>
+            <span className={getBlocksWith('__text')}>{btn.text}</span>
           </div>
         ))}
       </div>
