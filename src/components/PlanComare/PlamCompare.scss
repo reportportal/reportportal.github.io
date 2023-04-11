@@ -4,8 +4,6 @@
 @import 'src/styles/mixins/breakpoint';
 
 .compareContainer {
-  outline: 1px solid red;
-
   &__title {
     @include font-poppins($fw-semi-bold);
     @include font-scale(x3-medium);
