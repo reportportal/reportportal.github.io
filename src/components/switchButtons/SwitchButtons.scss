@@ -10,13 +10,13 @@
   width: 100%;
 
   &__inner {
+    @include font-poppins($fw-semi-bold);
+
     display: flex;
     width: 100%;
     border-radius: 80px;
     background-color: var(--color-primary-500);
     color: var(--text-white);
-
-    @include font-poppins($fw-semi-bold);
   }
 
   &__btn {
