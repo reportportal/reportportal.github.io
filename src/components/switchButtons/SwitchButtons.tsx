@@ -24,11 +24,11 @@ export const SwitchButtons = ({ buttons, onSwitch }) => {
     onSwitch(btnName);
   };
 
-  const getWidth = () =>  BUTTON_WIDTH * switchState.length
+  const getWidth = () => BUTTON_WIDTH * switchState.length
 
   return (
     <div className={getBlocksWith()}>
-      <div className={getBlocksWith('__inner')} style={{maxWidth: getWidth()}}>
+      <div className={getBlocksWith('__inner')} style={{ maxWidth: getWidth() }}>
         {switchState && switchState.map((btn) => (
           <div
             key={btn.text}
