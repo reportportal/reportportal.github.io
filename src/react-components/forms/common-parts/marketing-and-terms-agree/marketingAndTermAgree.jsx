@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import CustomCheckbox from 'react-components/common/custom-checkbox/customCheckbox.jsx';
 import FormFieldWrapper from 'react-components/forms/form-field-wrapper/formFieldWrapper.jsx';
-import { salesforceMarketingAgreeInputName } from 'react-components/utils/salesforceConfig'
+import { salesforceMarketingAgreeInputName } from 'react-components/utils/salesforceConfig';
 import styles from './marketingAndTermsAgree.scss';
 
 const cx = classNames.bind(styles);
@@ -44,7 +44,7 @@ const MarketingAndTermsAgree = ({
         />
         <div className={cx('term-description')}>
           I consent to EPAM Systems, Inc. ("EPAM") processing my personal information as set out in the
-          <a target="_blank" href='https://privacy.epam.com/core/interaction/showpolicy?type=CommonPrivacyPolicy' rel='noreferrer'> Privacy Policy </a>
+          <a target="_blank" href='https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy' rel='noreferrer'> Privacy Policy </a>
           and
           <a target="_blank" href='https://privacy.epam.com/core/interaction/showpolicy?type=CommonCookiePolicy' rel='noreferrer'> Cookie Policy </a>
           and outside of my home jurisdiction.<span className={cx('red')}>*</span>
