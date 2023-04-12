@@ -29,6 +29,7 @@ import manualTestsDifferenceImage from './img/manualTestsDifference.jpg';
 import overallStatisticsWidgetImage from './img/overallStatisticsWidget.jpg';
 import notificationsImage from './img/notifications.jpg';
 import qualityGatesImage from './img/qualityGates.jpg';
+import BenefitsBackgroundImage from './img/benefitsBackground.svg';
 import BlogPageHeader from '../common/blog-page-header/blogPageHeader';
 import BlogPageContent from '../common/blog-page-content/blogPageContent';
 import Notice from '../common/notice/notice';
@@ -38,7 +39,11 @@ const cx = classNames.bind(styles);
 
 const BenefitsBlogPage = () => (
   <>
-    <BlogPageHeader tags={['tips and tricks']} date={'February 13, 2023'} />
+    <BlogPageHeader
+      tags={['tips and tricks']}
+      date={'February 13, 2023'}
+      background={BenefitsBackgroundImage}
+    />
     <BlogPageContent title={'Tips to get ReportPortal benefits'}>
       <p>
         ReportPortal is a one-stop solution to manage all your automation results and reports in one place. In this article our QA engineers shared their advice on how to use all ReportPortal capabilities to reduce test results analysis efforts and get pure visibility about product's health.
