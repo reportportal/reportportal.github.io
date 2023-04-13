@@ -22,6 +22,7 @@ import rabbitCpuNewImg from './img/rabbitCpuNew.png';
 import rabbitMemoryNewImg from './img/rabbitMemoryNew.png';
 import rabbitCpuOldImg from './img/rabbitCpuOld.png';
 import rabbitMemoryOldImg from './img/rabbitMemoryOld.png';
+import PerformanceBackgroundImage from './img/performanceBackground.svg';
 import BlogPageHeader from '../common/blog-page-header/blogPageHeader';
 import BlogPageContent from '../common/blog-page-content/blogPageContent';
 import Notice from '../common/notice/notice';
@@ -31,7 +32,11 @@ const cx = classNames.bind(styles);
 
 const PerformanceBlogPage = () => (
   <>
-    <BlogPageHeader tags={['performance']} date={'December 2, 2022'} />
+    <BlogPageHeader
+      tags={['performance']}
+      date={'December 2, 2022'}
+      background={PerformanceBackgroundImage}
+    />
     <BlogPageContent title={'Performance improvements in 5.7.3'}>
       <h3>
         The system capacity has increased up to 13% compared to version 5.7.2
