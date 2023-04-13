@@ -17,32 +17,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import BlogBackgroundImage from './img/blogBackground.svg';
 import styles from './blogPageHeader.scss';
 
 const cx = classNames.bind(styles);
 
-const BlogPageHeader = ({ tags, date }) => (
-    <>
-        <div className={cx('additional-background')}/>
-        <div className={cx('background')}>
-            <div className={cx('background-content')}>
-                <div className={cx('date')}>
-                    {date}
-                </div>
-                <div className={cx('tags')}>
-                    {tags.map((tag, i) => (
-                        <span key={`tag${i}`} className={cx('tag')}>
+const BlogPageHeader = ({ tags, date, background }) => (
+  <>
+    <div className={cx('additional-background')} />
+    <div className={cx('background')} style={{ backgroundImage: `url(${background})` }}>
+      <div className={cx('background-content')}>
+        <div className={cx('date')}>
+          {date}
+        </div>
+        <div className={cx('tags')}>
+          {tags.map((tag, i) => (
+            <span key={`tag${i}`} className={cx('tag')}>
               #{tag}
             </span>
-                    ))}
-                </div>
-            </div>
+          ))}
         </div>
-    </>
+      </div>
+    </div>
+  </>
 );
+
 BlogPageHeader.propTypes = {
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    date: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  date: PropTypes.string.isRequired,
+  background: PropTypes.object,
+};
+BlogPageHeader.defaultProps = {
+  background: BlogBackgroundImage,
 };
 
 export default BlogPageHeader;
