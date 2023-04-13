@@ -3,9 +3,9 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 
-const BUTTON_WIDTH = 239;
-
 import './SwitchButtons.scss';
+
+const BUTTON_WIDTH = 239;
 
 const getBlocksWith = createBemBlockBuilder(['switchbuttons']);
 
