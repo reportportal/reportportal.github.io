@@ -82,7 +82,7 @@ const AiBlogPage = () => (
         ReportPortal speeds up a CI/CD pipeline thanks to Quality Gates feature, which has AI-driven “New errors” rule. In what situation can it be useful? Suppose you have already identified some errors, and they are minor, and you can go to release with them, and there is one more build to test. If you care about new unique bugs, you can create Quality Gate with “New errors” rule which works in conjunction with the Unique Errors functionality. Quality Gate will fail if a new defect is detected.
       </p>
       <p>
-        “Amount of issues” Quality Gate rule is relevant to AI as well because Quality Gate with this rule is running after finish of Auto-Analysis. For example, if you have the rule “fail Quality Gate if there is at least 1 Product Bug”, and Auto-Analysis happens and marks an issue as Product Bug, then Quality Gate fails.
+        “Amount of issues” Quality Gate rule is relevant to AI as well because Quality Gate with this rule is running after finish of Auto-Analysis. For example, if you have the rule <i>“fail Quality Gate if there is at least 1 Product Bug”</i>, and Auto-Analysis happens and marks an issue as Product Bug, then Quality Gate fails.
       </p>
       <img src={QualityGateConfigurationImage} alt="Quality Gate Configuration" />
       <p>
