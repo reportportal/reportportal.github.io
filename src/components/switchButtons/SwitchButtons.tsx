@@ -7,7 +7,7 @@ const BUTTON_WIDTH = 239;
 
 import './SwitchButtons.scss';
 
-const getBlocksWith = createBemBlockBuilder(['switch']);
+const getBlocksWith = createBemBlockBuilder(['switchbuttons']);
 
 export const SwitchButtons = ({ buttons, onSwitch }) => {
   const [switchState, setSwitchState] = useState(buttons);
@@ -32,7 +32,7 @@ export const SwitchButtons = ({ buttons, onSwitch }) => {
         {switchState && switchState.map((btn) => (
           <div
             key={btn.text}
-            className={cx(getBlocksWith('__btn'), { switch__active: btn.active })}
+            className={cx(getBlocksWith('__btn'), { switchbuttons__active: btn.active })}
             onClick={() => onSwitchButton({ btnName: btn.text, active: btn.active })}
           >
             {btn.iconComponent(btn)}

@@ -5,10 +5,10 @@ import { createBemBlockBuilder } from '../../../../utils';
 
 import './Notice.scss';
 
-const getBlocksWith = createBemBlockBuilder(['notes']);
+const getBlocksWith = createBemBlockBuilder(['notice']);
 
 export const Notice = ({ importance = false, children }) => (
-  <div className="notes">
+  <div className={getBlocksWith()}>
     <div className={cx(getBlocksWith('__border'), { notes__importance: importance })} />
       <div className={getBlocksWith('__content')}>
         {importance && <div className={getBlocksWith('__title')}>Important!</div>}

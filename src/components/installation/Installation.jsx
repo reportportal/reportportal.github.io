@@ -9,7 +9,7 @@ import { SwitchButtons } from '../switchButtons';
 
 import './Installation.scss';
 
-const getBlocksWith = createBemBlockBuilder(['installer']);
+const getBlocksWith = createBemBlockBuilder(['installation']);
 
 const buttons = [
   {
@@ -17,7 +17,10 @@ const buttons = [
     active: true,
     iconComponent: (item) => (
       <DockerIcon
-        className={cx({ 'installer__active-icon': item.active, installer__icon: !item.active })}
+        className={cx({
+          'installation__active-icon': item.active,
+          installation__icon: !item.active,
+        })}
       />
     ),
   },
@@ -26,7 +29,10 @@ const buttons = [
     active: false,
     iconComponent: (item) => (
       <KubernetesIcon
-        className={cx({ 'installer__active-icon': item.active, installer__icon: !item.active })}
+        className={cx({
+          'installation__active-icon': item.active,
+          installation__icon: !item.active,
+        })}
       />
     ),
   },
