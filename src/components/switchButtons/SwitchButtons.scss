@@ -1,0 +1,43 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/mixins/breakpoint';
+
+.switchbuttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__inner {
+    @include font-poppins($fw-semi-bold);
+
+    display: flex;
+    width: 100%;
+    border-radius: 80px;
+    background-color: var(--color-primary-500);
+    color: var(--text-white);
+  }
+
+  &__btn {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    border-radius: 80px;
+    background-color: transparent;
+    transition: all .4s ease-out;
+    transform: scale(.95);
+    cursor: pointer;
+  }
+
+  &__text {
+    margin-left: 10px;
+  }
+
+  &__active {
+    background-color: var(--white);
+    color: var(--color-primary-500);
+    transform: scale(1);
+  }
+}
