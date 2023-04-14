@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { RealTimeAnalyticsIcon } from './icons/RealTimeAnalyticsIcon';
@@ -8,11 +9,11 @@ import { OpenSourceIcon } from './icons/OpenSourceIcon';
 
 import './WhyReportPortal.scss';
 
-const getBlocksWith = createBemBlockBuilder(['landing-section', 'why-report-portal']);
+const getBlocksWith = createBemBlockBuilder(['why-report-portal']);
 const getBlocksWithList = createBemBlockBuilder(['why-report-portal-list']);
 
 export const WhyReportPortal = () => (
-  <section className={getBlocksWith()}>
+  <section className={cx(getBlocksWith(), 'container')}>
     <h2 className={getBlocksWith('__title')}>Why ReportPortal?</h2>
     <div className={getBlocksWith('__content')}>
       <ul className={getBlocksWithList()}>
