@@ -41,9 +41,11 @@ export const DockerInstall = () => {
             <li>We strongly recommend to deploy in Linux based environment</li>
           </ul>
         </Notice>
+
         <Notice>
           For Windows users Docker requires 64-bit Windows 10 Pro (or higher) and Microsoft Hyper-V.
         </Notice>
+        
         <p className={getBlocksWith('__text-content')}>
           Instead of using Docker for deployment you can follow the steps described here.
         </p>

@@ -16,7 +16,6 @@
   color: var(--text-light-grey);
 }
 
-
 .installation {
   position: relative;
   padding: 72px 16px 48px;
@@ -86,6 +85,12 @@
     max-width: var(--size-max-width);
     margin: 0 auto;
     padding: 0 var(--size-gutter);
+
+    h3,
+    h5,
+    h6 {
+      @include font-poppins($fw-bold);
+    }
   }
 
   &__wrapper {
@@ -133,7 +138,6 @@
     width: 100%;
     margin: 14px 0;
 
-
     div[role=button] {
       position: absolute;
       right: 20px;
@@ -148,7 +152,7 @@
       display: inline-block;
       width: 100%;
       padding: 20px;
-
+      background-color: var(--bg-light-grey);
       color: var(--text-service);
       line-height: 24px;
     }
@@ -170,6 +174,33 @@
       &::marker {
         color:  var(--text-light-grey);
       }
+    }
+  }
+
+  &__access {
+    h5 {
+      @include font-scale(medium);
+
+      margin: 32px 0 16px;
+    }
+  
+    h6 {
+      @include font-scale(base);
+
+      margin: 16px 0 8px;
+    }
+    
+    &-container {
+      display: block;
+
+      @include breakpoint($tablet-sm) {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &-item {
+      flex-basis: 48.5%;
     }
   }
 }

@@ -11,10 +11,13 @@ export const Notice = ({ importance = false, children, title = '' }) => (
   <div className={getBlocksWith()}>
     <div className={cx(getBlocksWith('__border'), { notice__importance: importance })} />
       <div className={getBlocksWith('__content')}>
-        {importance || title &&
+        {importance && !title &&
           <div className={getBlocksWith('__title')}>
-              {importance && !title && 'Important!'}
-              {title && title}
+              Important!
+          </div>}
+        {!importance && title &&
+          <div className={getBlocksWith('__title')}>
+              {title}
           </div>}
         <div className={getBlocksWith('__text')}>
           {children}
