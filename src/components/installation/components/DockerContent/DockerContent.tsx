@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { DockerStepOne } from './DockerStepOne';
+import { DockerDeployingStep } from './DockerDeployingStep';
 import { DockerInstall } from './DockerInstall';
-import { DockerStepTwo } from './DockerStepTwo';
 
 import '../../Installation.scss';
 
@@ -11,8 +10,6 @@ export const DockerContent = () => {
   <div>
     <DockerInstall />
 
-    <DockerStepOne />
-
-    <DockerStepTwo />
+    <DockerDeployingStep />
   </div>
 )};

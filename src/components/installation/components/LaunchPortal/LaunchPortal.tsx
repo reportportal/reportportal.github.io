@@ -6,7 +6,7 @@ import { createBemBlockBuilder } from '../../../../utils';
 
 import '../../Installation.scss';
 
-export const DockerStepTwo = () => {
+export const LaunchPortal = () => {
   const { Text } = Typography;
   const getBlocksWith = createBemBlockBuilder(['installation']);
 

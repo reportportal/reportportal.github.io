@@ -13,13 +13,9 @@ export const DockerInstall = () => {
       <div className={getBlocksWith('__wrapper')}>
         <h3 className={getBlocksWith('__title-content')}>Install Docker</h3>
         <p className={getBlocksWith('__text-content')}>
-          <a
-            className={getBlocksWith('__link')}
-            href="https://docs.docker.com/get-docker/"
-          >
+          <a className={getBlocksWith('__link')} href="https://docs.docker.com/get-docker/">
             Download{' '}
-          </a>
-          and install Docker. It’s supported by all major Linux distributions, MacOS and Windows.
+          </a> and install Docker. It’s supported by all major Linux distributions, MacOS and Windows.
         </p>
 
         <Notice importance>
@@ -45,7 +41,7 @@ export const DockerInstall = () => {
         <Notice>
           For Windows users Docker requires 64-bit Windows 10 Pro (or higher) and Microsoft Hyper-V.
         </Notice>
-        
+
         <p className={getBlocksWith('__text-content')}>
           Instead of using Docker for deployment you can follow the steps described here.
         </p>

@@ -5,6 +5,8 @@ import cx from 'classnames';
 import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../utils';
 import { DockerContent } from './components/DockerContent';
+import { KubernetesContent } from './components/KubernetesContent';
+import { LaunchPortal } from './components/LaunchPortal';
 import { DockerIcon, KubernetesIcon } from './icons';
 import { SwitchButtons } from '../switchButtons';
 
@@ -59,7 +61,9 @@ export const Installation = () => {
         </Container>
       </div>
 
-      {contentSate ? <DockerContent /> : <div>Anather page</div>}
+      {contentSate ? <DockerContent /> : <KubernetesContent />}
+
+      <LaunchPortal />
     </div>
   );
 };
