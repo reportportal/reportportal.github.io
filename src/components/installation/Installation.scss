@@ -3,13 +3,27 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
+.code-text {
+  display: inline-block;
+  margin: 5px 0;
+  padding: 2px 10px;
+  border: 1px solid #EDEFF7;
+  border-radius: 8px;
+  color: var(--text-service);
+}
+
+.sub-text {
+  color: var(--text-light-grey);
+}
+
+
 .installation {
   position: relative;
   padding: 72px 16px 48px;
   margin-top: -$header-height;
   color: var(--text-white);
   background: var(--color-primary-600);
-  background-image: url('./group-244.svg');
+  background-image: url('./icons/group-244.svg');
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -67,5 +81,95 @@
     margin: 0;
     padding-left: 25px;
   }
-}
 
+  &__container {
+    max-width: var(--size-max-width);
+    margin: 0 auto;
+    padding: 0 var(--size-gutter);
+  }
+
+  &__wrapper {
+    @include font-noto-sans();
+    @include font-scale();
+
+    margin-top: 64px;
+    line-height: 24px;
+
+    @include breakpoint($tablet-sm) {
+      margin-top: 120px;
+    }
+    @include breakpoint($tablet-lg) {
+      margin-top: 160px;
+    }
+  }
+
+  &__title-content {
+    @include font-poppins($fw-bold);
+    @include font-scale(x4-medium);
+
+    margin-top: 0;
+    margin-bottom: 24px;
+
+    @include breakpoint($tablet-sm) {
+      @include font-scale(large); 
+    }
+  }
+
+  &__text-content {
+    @include font-noto-sans();
+    @include font-scale();
+  }
+
+  &__chapter {
+    @include font-noto-sans($fw-bold);
+    @include font-scale();
+
+    text-transform: uppercase;
+    color: var(--text-light-grey);
+  }
+
+  &__code {
+    display: inline-block;
+    width: 100%;
+    margin: 14px 0;
+
+
+    div[role=button] {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+
+    code {
+      @include roboto-mono();
+      @include font-scale();
+
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      padding: 20px;
+
+      color: var(--text-service);
+      line-height: 24px;
+    }
+
+    svg {
+      fill: var(--text-service);
+      &:hover {
+        fill: var(--text-light-grey);
+      }
+    }
+  }
+ 
+  &__marked-list {
+    padding-left: 30px;
+
+    li {
+      margin-bottom: 12px;
+
+      &::marker {
+        color:  var(--text-light-grey);
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import cx from 'classnames';
 
 import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../utils';
+import { DockerContent } from './components/DockerContent';
 import { DockerIcon, KubernetesIcon } from './icons';
 import { SwitchButtons } from '../switchButtons';
 
@@ -58,7 +59,7 @@ export const Installation = () => {
         </Container>
       </div>
 
-      {contentSate ? <div>First Page</div> : <div>Second Page</div>}
+      {contentSate ? <DockerContent /> : <div>Anather page</div>}
     </div>
   );
 };

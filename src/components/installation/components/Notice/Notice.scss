@@ -15,6 +15,7 @@
   &__content {
     @include font-noto-sans();
 
+    margin-top: var(--space-2xl);
     padding-left: var(--space-2xl);
     color: var(--text-light-grey);
   }
