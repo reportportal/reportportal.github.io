@@ -1,6 +1,10 @@
 @mixin font-scale($size: 'base') {
   $scale: map-get(
     (
+      's-small': (
+        'font-size': 10px,
+        'line-height': 1.5,
+      ),
       'x-small': (
         'font-size': 12px,
         'line-height': 1.5,

@@ -1,0 +1,93 @@
+import React, { useEffect, useState } from 'react';
+import cx from 'classnames';
+
+import { createBemBlockBuilder } from '../../../../utils';
+
+import './IntegrationScheme.scss';
+
+// const getBlocksWith = createBemBlockBuilder(['notice']);
+
+const nodePosition = {
+  0: 1,
+  2: 2,
+  4: 3
+}
+
+const ROW_NODE_NUMBER = 3;
+const ADJUSTING_COEFFICIENT = 4;
+
+export const SchemeRow = ({ portion, row, lastRow }) => {
+
+  const isEvenRow = () => !(row % 2 === 0);
+
+  const isFirstNode = (index) => row === 1 && index === 0;
+
+  const isDownArrow = (index) => {
+    if (row === lastRow) {return false};
+
+    return (isEvenRow() && index === 4 || !isEvenRow() && index === 0);
+  }
+
+  const calculateNumber = (index) => {
+    let number
+
+    if (isEvenRow()) {
+      return number = (row - 1) * ROW_NODE_NUMBER + nodePosition[index];
+    } else {
+      return number = (row - 1) * ROW_NODE_NUMBER + ADJUSTING_COEFFICIENT - nodePosition[index];
+    }
+  };
+
+  return (
+    <div className="scheme__row">
+      {portion.map((item, index) => (
+        <div className="scheme__col">
+          {
+            item.entity === 'node'
+              ? <Node
+                  key={item.text}
+                  row={isFirstNode(index)}
+                  direction={isEvenRow()}
+                  isDownArrow={isDownArrow(index)}
+                  number={calculateNumber(index)}
+                >{item.text}</Node>
+              : item.entity === 'event'
+                  ? <EventNode key={item.text} direction={isEvenRow()}>{item.text}</EventNode>
+                  : <ActionNode key={item.text} direction={isEvenRow()}>{item.text}</ActionNode>
+          }
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const Node = ({ children, direction, row, isDownArrow, number }) => (
+  <div className={cx(
+    'scheme__col-inner',
+    { 'scheme__col-inner-active': !direction },
+    { 'scheme__col-inner-first-node': row },
+    {'scheme__arrow-bottom': isDownArrow }
+  )}>
+    <div className="scheme__col-inner-number">{number}</div>
+    <p>{children}</p>
+  </div>
+)
+
+const EventNode = ({ children, direction }) => (
+  <div className={cx('scheme__col-action', {'scheme__col-action-active': !direction})}>
+    <p>{children}</p>
+    <div className={cx({'scheme__arrow-right': direction, 'scheme__arrow-left': !direction})} />
+
+  </div>
+)
+
+const ActionNode = ({ children, direction }) => (
+  <div className={cx(
+    'scheme__col-action',
+    'scheme__col-action-info',
+    { 'scheme__col-action-active': !direction }
+  )}>
+    <p>{children}</p> <span className="scheme__btn-arrow" />
+    <div className={cx({'scheme__arrow-right': direction, 'scheme__arrow-left': !direction})} />
+  </div>
+)

@@ -6,6 +6,7 @@ import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../utils';
 import { DockerIcon, KubernetesIcon } from './icons';
 import { SwitchButtons } from '../switchButtons';
+import { IntegrationScheme } from './components/IntegrationScheme';
 
 import './Installation.scss';
 
@@ -59,6 +60,8 @@ export const Installation = () => {
       </div>
 
       {contentSate ? <div>First Page</div> : <div>Second Page</div>}
+
+      <IntegrationScheme />
     </div>
   );
 };
