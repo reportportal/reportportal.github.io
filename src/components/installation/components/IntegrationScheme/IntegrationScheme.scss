@@ -21,7 +21,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      border-right: 2px dotted #99E1EE;
+      border-right: 2px dotted var(--color-primary-300);
       z-index: -100;
     }
   }
@@ -56,7 +56,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      border-left: 2px dotted #99E1EE;
+      border-left: 2px dotted var(--color-primary-300);
       z-index: -100;
     }
 
@@ -67,7 +67,7 @@
       flex: 1;
       height: 64px;
       border-radius: 8px;
-      background-color: #66D2E6;
+      background-color: var(--color-primary-400);
     }
 
     &-first {
@@ -85,7 +85,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-left: 2px dotted #99E1EE;
+    border-left: 2px dotted var(--color-primary-300);
 
     &-inner {
       @include font-noto-sans();
@@ -98,7 +98,8 @@
       align-items: center;
       flex: 1;
       margin: 0 8px;
-      background-color: #EDEFF6;
+      padding: 0 5px;
+      background-color: var(--bg-purple-grey);
       border-radius: 8px;
       text-align: center;
       color: var(--text-grey);
@@ -108,7 +109,7 @@
       }
 
       &-active {
-        background-color: #DEF5CB;
+        background-color: var(--bg-light-green);
       }
 
       &-first-node {
@@ -125,6 +126,23 @@
         font-size: 10px;
         color: var(--text-service);
       }
+
+      &-bottom {
+        position: absolute;
+        /* top: 50px; */
+        border-bottom: 2px dotted var(--color-primary-300);
+        border-right: 2px dotted var(--color-primary-300);
+        border-left: 2px dotted var(--color-primary-300);
+        /* width: 100%; */
+        bottom: -41px;
+        height: 12px;
+        left: -10px;
+        right: -9px;
+        /* border-radius: 30px; */
+        border-end-start-radius: 12px;
+        border-end-end-radius: 12px;
+        background: var(--bg-white);;
+      }
     }
 
     &-action {
@@ -133,11 +151,11 @@
 
       display: block;
       height: auto;
-      border: 1px solid #C3C8D5;
+      border: 1px solid var(--bg-dark-grey);
       border-radius: 16px;
       line-height: 0;
       padding: 0 10px;
-      background-color: #FFF;
+      background-color: var(--bg-white);
       
 
       &-info {

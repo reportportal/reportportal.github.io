@@ -15,17 +15,35 @@ const nodePosition = {
 
 const ROW_NODE_NUMBER = 3;
 const ADJUSTING_COEFFICIENT = 4;
+const LAST_ROW_NODE = 4;
+const FIRST_ROW_NODE = 0;
 
 export const SchemeRow = ({ portion, row, lastRow }) => {
 
   const isEvenRow = () => !(row % 2 === 0);
 
-  const isFirstNode = (index) => row === 1 && index === 0;
+  const isBoundaryNode = (index) => {
+    if (isLastRow()) {
+      return isLastNode(index);
+    }
+
+    return row === 1 && index === FIRST_ROW_NODE;
+  }
+
+  const isLastNode = (index) => {
+    if(!isEvenRow() && index === FIRST_ROW_NODE) {
+      return true
+    }
+
+    if(isEvenRow() && index === LAST_ROW_NODE) {
+      return true
+    }
+  }
 
   const isDownArrow = (index) => {
-    if (row === lastRow) {return false};
+    if (isLastRow()) {return false};
 
-    return (isEvenRow() && index === 4 || !isEvenRow() && index === 0);
+    return (isEvenRow() && index === LAST_ROW_NODE || !isEvenRow() && index === FIRST_ROW_NODE);
   }
 
   const calculateNumber = (index) => {
@@ -38,6 +56,8 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
     }
   };
 
+  const isLastRow = () => row === lastRow;
+
   return (
     <div className="scheme__row">
       {portion.map((item, index) => (
@@ -46,10 +66,11 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
             item.entity === 'node'
               ? <Node
                   key={item.text}
-                  row={isFirstNode(index)}
+                  row={isBoundaryNode(index)}
                   direction={isEvenRow()}
                   isDownArrow={isDownArrow(index)}
                   number={calculateNumber(index)}
+                  lastRow={isLastRow()}
                 >{item.text}</Node>
               : item.entity === 'event'
                   ? <EventNode key={item.text} direction={isEvenRow()}>{item.text}</EventNode>
@@ -61,15 +82,16 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
   )
 }
 
-const Node = ({ children, direction, row, isDownArrow, number }) => (
+const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
   <div className={cx(
     'scheme__col-inner',
     { 'scheme__col-inner-active': !direction },
     { 'scheme__col-inner-first-node': row },
-    {'scheme__arrow-bottom': isDownArrow }
+    { 'scheme__arrow-bottom': isDownArrow }
   )}>
     <div className="scheme__col-inner-number">{number}</div>
     <p>{children}</p>
+    <div className={cx({ 'scheme__col-inner-bottom': lastRow })} />
   </div>
 )
 
