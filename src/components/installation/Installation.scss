@@ -13,14 +13,6 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  &__active-icon {
-    fill: var(--color-primary-500);
-  }
-
-  &__icon {
-    fill: var(--text-white);
-  }
-
   &__title {
     @include font-poppins($fw-bold);
     @include font-scale(large);

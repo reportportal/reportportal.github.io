@@ -16,26 +16,12 @@ const buttons = [
   {
     text: 'With Docker',
     active: true,
-    iconComponent: (item) => (
-      <DockerIcon
-        className={cx({
-          'installation__active-icon': item.active,
-          installation__icon: !item.active,
-        })}
-      />
-    ),
+    iconComponent: () => <DockerIcon />,
   },
   {
     text: 'With Kubernetes',
     active: false,
-    iconComponent: (item) => (
-      <KubernetesIcon
-        className={cx({
-          'installation__active-icon': item.active,
-          installation__icon: !item.active,
-        })}
-      />
-    ),
+    iconComponent: () => <KubernetesIcon />,
   },
 ];
 
