@@ -7,7 +7,7 @@
   display: inline-block;
   margin: 5px 0;
   padding: 2px 10px;
-  border: 1px solid #EDEFF7;
+  border: 1px solid var(--graphics-light-gray);
   border-radius: 8px;
   color: var(--text-service);
 }
@@ -19,20 +19,12 @@
 .installation {
   position: relative;
   padding: 72px 16px 48px;
-  margin-top: -$header-height;
+  margin-top: $header-height;
   color: var(--text-white);
   background: var(--color-primary-600);
   background-image: url('./icons/group-244.svg');
   background-repeat: no-repeat;
   background-size: cover;
-
-  &__active-icon {
-    fill: var(--color-primary-500);
-  }
-
-  &__icon {
-    fill: var(--text-white);
-  }
 
   &__title {
     @include font-poppins($fw-bold);
@@ -103,6 +95,7 @@
     @include breakpoint($tablet-sm) {
       margin-top: 120px;
     }
+
     @include breakpoint($tablet-lg) {
       margin-top: 160px;
     }
@@ -153,14 +146,16 @@
       width: 100%;
       padding: 20px;
       background-color: var(--bg-light-grey);
+      border: 1px solid var(--graphics-light-gray);
       color: var(--text-service);
-      line-height: 24px;
+      line-height: var(--loose);
     }
 
     svg {
       fill: var(--text-service);
+      
       &:hover {
-        fill: var(--text-light-grey);
+        // fill: currentColor; //var(--text-light-grey);
       }
     }
   }
