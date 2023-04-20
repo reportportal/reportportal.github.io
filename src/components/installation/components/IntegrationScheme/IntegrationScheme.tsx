@@ -29,7 +29,7 @@ export const IntegrationScheme = () => {
                 </div>
 
               <div className="scheme__col-title">
-                <div className="scheme__col-title-inner">
+                <div className="scheme__col-title-inner scheme__col-title-second">
                     <p>Agent / Client</p>
                 </div>
               </div>

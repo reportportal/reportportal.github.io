@@ -77,6 +77,11 @@
       background-position: 50% 50%;
       background-size: contain;
       height: 102px;
+      margin-right: -1px;
+    }
+
+    &-second {
+      margin-right: -2px;
     }
   }
 
