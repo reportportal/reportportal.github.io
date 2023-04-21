@@ -473,20 +473,3 @@
   }
 }
 
-.btn-arrow {
-  position: relative;
-  width: 18px;
-  color: var(--color-primary-600);
-  
-  &::before{
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-left: 2px solid var(--color-primary-600);
-    border-bottom: 2px solid var(--color-primary-600);
-    transform: rotate(-45deg);
-    right: 2px;
-    top: 25%;
-  }
-}
