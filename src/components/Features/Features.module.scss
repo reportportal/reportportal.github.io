@@ -71,7 +71,6 @@ $mobile-horizontal-padding: 16px;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-
   color: white;
   border: 0px;
   background: linear-gradient(55deg, #0081a7 19.29%, #009dbb 90.72%);
@@ -179,6 +178,7 @@ body {
     padding: 0 16px 0 16px;
     border-bottom: 1px solid #edeff7;
     overflow-x: scroll;
+
     @include breakpoint($desktop-size-breakpoint) {
       padding: 0 120px 0 120px;
     }
@@ -215,6 +215,7 @@ body {
   align-items: center;
   margin: auto;
   margin-top: 208px;
+
   @include breakpoint($desktop-size-breakpoint) {
     width: 1112px;
   }
@@ -253,7 +254,6 @@ body {
       font-weight: 400;
       font-size: 20px;
       line-height: 32px;
-
       display: flex;
       align-items: center;
       color: #2f3c5f;
@@ -345,6 +345,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+
   h1 {
     @include features-title();
   }
@@ -436,6 +437,7 @@ body {
   flex-direction: column-reverse;
   padding-top: 120px;
   padding-bottom: 120px;
+
   @include breakpoint($desktop-size-breakpoint) {
     flex-direction: row;
     width: 100%;
@@ -469,12 +471,15 @@ body {
       flex-direction: column;
       justify-content: center;
       gap: 25px;
+
       @include breakpoint($desktop-size-breakpoint) {
         flex-direction: row;
       }
+
       button {
         @include button-filled();
       }
+
       :nth-child(2) {
         @include button-clear();
       }
@@ -517,7 +522,11 @@ body {
     margin-top: 60px;
     display: flex;
     flex-direction: column;
-    max-width: 792px;
+    width: 100%;
+
+    @include breakpoint($desktop-size-breakpoint) {
+      width: 792px;
+    }
 
     .faq_content_item {
       border-bottom: 3px solid #e4e8f1;
@@ -529,6 +538,7 @@ body {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
         h1 {
           font-family: 'Poppins';
           font-style: normal;
@@ -537,6 +547,7 @@ body {
 
           color: #222b45;
         }
+
         img {
           height: 24px;
           width: 24px;
@@ -559,9 +570,11 @@ body {
       .arrowshown {
         transform: rotate(-90deg);
       }
+
       .collapsed {
         display: none;
       }
+
       .shown {
         display: block;
       }
@@ -571,8 +584,10 @@ body {
 
 .contact_us {
   @include horizontal-spacer();
+
   display: flex;
   justify-content: center;
+
   .contact_info_block {
     position: relative;
     top: -74px;
@@ -587,6 +602,7 @@ body {
     padding: 0 64px 24px 64px;
     background: #ffffff;
     text-align: center;
+
     @include breakpoint($desktop-size-breakpoint) {
       flex-direction: row;
       padding: 0 64px 0px 64px;
@@ -600,8 +616,4 @@ body {
       @include button-filled();
     }
   }
-}
-
-.brdr {
-  border: 1px solid red;
 }
