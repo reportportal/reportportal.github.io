@@ -155,7 +155,7 @@
       fill: var(--text-service);
       
       &:hover {
-        // fill: currentColor; //var(--text-light-grey);
+        fill: var(--text-light-grey);
       }
     }
   }
