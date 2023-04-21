@@ -1,0 +1,71 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.installation {
+  position: relative;
+  padding: 72px 16px 48px;
+  margin-top: calc(-1 * var(--header-height));
+  color: var(--text-white);
+  background: var(--color-primary-600);
+  background-image: url('./group-244.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__active-icon {
+    fill: var(--color-primary-500);
+  }
+
+  &__icon {
+    fill: var(--text-white);
+  }
+
+  &__title {
+    @include font-poppins($fw-bold);
+    @include font-scale(large);
+
+    margin: 0;
+    text-align: center;
+
+    @include breakpoint($phone) {
+      @include font-scale(x3-large);
+    }
+
+    @include breakpoint($tablet-sm) {
+      @include font-scale(x4-large);
+    }
+  }
+
+  &__subtitle {
+    @include font-noto-sans();
+    @include font-scale(x2-medium);
+
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  &__btn-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--color-primary-600);
+    border-bottom: 2px solid transparent;
+    transition: all .4s ease-out;
+  }
+
+  &__link:hover {
+    color: var(--color-primary-600);
+    border-bottom-color: var(--color-primary-600);
+    transition: all .4s ease-out;
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 25px;
+  }
+}
+

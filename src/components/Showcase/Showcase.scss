@@ -3,16 +3,14 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
-$header-height: 76px;
-
 .showcase {
   position: relative;
-  padding: 64px + $header-height 16px 48px;
-  margin-top: -$header-height;
+  padding: calc(64px + var(--header-height)) 16px 48px;
+  margin-top: calc(-1 * var(--header-height));
   color: var(--white);
 
   @include breakpoint($tablet-sm) {
-    padding-top: 120px + $header-height;
+    padding-top: calc(120px + var(--header-height));
   }
 
   &__container {
@@ -150,5 +148,79 @@ $header-height: 76px;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  &__carousel-button {
+    background: none;
+    border: none;
+
+    &:last-child {
+      transform: rotateY(180deg);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .ant-carousel {
+    width: 852px;
+  }
+
+  &__carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 52px;
+
+    .slick-dots {
+      bottom: 0;
+      margin-top: 8px;
+
+      @keyframes progressAnimation {
+        100% {
+          background-position: left;
+        }
+      }
+
+      li,
+      li.slick-active {
+        width: 32px;
+        height: 2px;
+        margin-inline: 8px;
+
+        button {
+          background-color: rgba(255, 255, 255, 0.3);
+          border-radius: 0;
+          transition: none;
+
+          &,
+          &:hover {
+            opacity: unset;
+          }
+        }
+      }
+
+      li.slick-active button {
+        background: linear-gradient(to right, white 50%, rgba(255, 255, 255, 0.3) 0);
+        background-size: 200% 100%;
+        background-position: right;
+        animation: progressAnimation 5s forwards;
+      }
+    }
+  }
+
+  &__carousel,
+  &__carousel-mobile {
+    margin-top: 120px;
+  }
+
+  &__carousel-slide {
+    display: flex !important;
+    height: 80px;
+    padding-left: 24px;
+    padding-right: 24px;
+    align-items: center;
+    justify-content: space-around;
   }
 }

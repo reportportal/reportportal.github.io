@@ -4,10 +4,13 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful Starter',
-    description: 'Official Contentful Gatsby Starter',
+    title:
+      'ReportPortal test automation analytics platform and real-time reporting, powered by Machine Learning',
+    description:
+      'Provides real-time analytics in reporting, automated test results visualization and an integration with your existing test automation process. Powered by Machine Learning to categorize test automation fails, leveraging historical data. Free and Open Sourced. Fork Us on GitHub.',
   },
   plugins: [
+    'gatsby-plugin-svgr-svgo',
     'gatsby-plugin-sass',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',

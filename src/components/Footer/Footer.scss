@@ -7,17 +7,18 @@
   @include font-poppins();
   @include font-scale(small);
 
-  margin-top: 50px;
+  padding-top: 50px;
   padding-bottom: 48px;
+  border-top: 1px solid var(--bg-purple-grey);
   color: var(--text-service);
 
   @include breakpoint($tablet-sm-exact) {
-    margin-top: 72px;
+    padding-top: 64px;
     padding-bottom: 64px;
   }
 
   @include breakpoint($desktop-sm) {
-    margin-top: 72px;
+    padding-top: 72px;
     padding-bottom: 76px;
   }
 
@@ -37,7 +38,6 @@
     @include breakpoint($desktop-sm) {
       display: flex;
       row-gap: 24px;
-      margin-top: 104px;
     }
   }
 
@@ -145,6 +145,7 @@
     align-items: center;
     row-gap: 16px;
     margin-top: 32px;
+    font-weight: $fw-medium;
 
     @include breakpoint($tablet-sm-exact) {
       flex-direction: row;

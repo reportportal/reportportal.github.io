@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Divider } from 'antd';
 import cx from 'classnames';
 
@@ -111,13 +112,13 @@ const learnLinks = [
 
 export const Footer = () => {
   return (
-    <footer className={cx(getBlocksWith(), 'container')}>
-      <div className={getBlocksWith('__container')}>
+    <footer className={getBlocksWith()}>
+      <div className={cx(getBlocksWith('__container'), 'container')}>
         <section className={getBlocksWith('__navigation')}>
           <div className={getBlocksWith('__purpose')}>
-            <a href="/" className={getBlocksWith('__logo')}>
+            <Link to="/" className={getBlocksWith('__logo')}>
               <NavLogoIcon />
-            </a>
+            </Link>
             <span>
               ReportPortal is a service, that provides increased capabilities to speed up results
               analysis and reporting through the use of built-in analytic features.

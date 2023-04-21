@@ -7,8 +7,6 @@ $desktop-sm: 1239px;
 $desktop-md: 1499px;
 $desktop-lg: 1919px;
 
-$header-height: 76px;
-
 :root {
   /* palette */
   --white: #fff;
@@ -60,6 +58,7 @@ $header-height: 76px;
   /* size */
   --size-gutter: var(--space-2xl);
   --size-max-width: 1200px;
+  --header-height: 76px;
 
   --color-primary-800: #005a6e;
   --color-primary-700: #0081a7;
