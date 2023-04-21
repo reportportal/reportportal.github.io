@@ -1,10 +1,13 @@
 $phone: 411px;
 $phone-lg: 460px;
+$tablet-sm-exact: 768px;
 $tablet-sm: 769px;
 $tablet-lg: 1023px;
 $desktop-sm: 1239px;
 $desktop-md: 1499px;
 $desktop-lg: 1919px;
+
+$header-height: 76px;
 
 :root {
   /* palette */
@@ -81,6 +84,7 @@ $desktop-lg: 1919px;
   --bg-purple-grey: #edeff6;
   --bg-grey2: #f4f5fa;
   --bg-light-grey: #fbfcfd;
+  --bg-dark-grey: #c3c8d5;
   --bg-white: var(--text-white);
 
   --graphics-amber: #ffc800;

@@ -74,14 +74,17 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
         {
           iconClass: 'drill4j',
           title: 'Drill4J',
+          link: 'https://drill4j.github.io/',
         },
         {
           iconClass: 'healenium',
           title: 'Healenium',
+          link: 'https://healenium.io/',
         },
         {
           iconClass: 'qa-space',
           title: 'QaSpace',
+          link: 'https://marketplace.atlassian.com/apps/1214038/qaspace-test-management?tab=overview&hosting=server',
         },
       ]}
     />

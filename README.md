@@ -1,32 +1,53 @@
-# Start Up The Project
+# ReportPortal Landing page. Dev guide
 
 ## Prerequisites
-- Node JS V18 (* Must Have)
----
-## Ask admin to give you credentials to Contentful
-- https://www.contentful.com
----
+- Node.js v18 and above (* Must Have)
 
-## Get API Keys
-- Get logged in to contentful https://www.contentful.com
-- Go to Contentful -> Settings -> API Keys -> Conent Delivery/Preview Tokens
-- Open one of the items and copy Content Delivery API - access token and  Content Preview API - access token
-- Go to Contentful -> Settings -> API Keys ->  Content management tokens
--  Generate your personal token
----
+## Installation
+To install all project dependencies use the next command:
+```bash
+npm install
+```
 
 ## Setup App
 
-- Run `npm run setup` 
-- Use Next Information For Prompts During Setup
+### Option 1:
 
----
- 1. SpaceID https://app.contentful.com/spaces/SPACE_ID/home (open contentfull and grab space id from url)
- 2. Content Management API access token (STEP: Get API Keys)
- 3. Content Delivery API access token (STEP: Get API Keys)
+If you already have Space_ID and Content Delivery API access token and do not have access to the Contentful profile that's enough for basic setup.
+1. Create file `.env.development` (do not commit it to the VCS)
+2. Fill in it with:
+```bash
+CONTENTFUL_SPACE_ID={SPACE_ID}
+CONTENTFUL_ACCESS_TOKEN={ACCESS_TOKEN}
+```
 
+### Option 2:
 
- ## Start App
- `npm run dev`
+Run the next command to start setup:
+```bash
+npm run setup
+```
 
- App to listens to `8080` Port
+Use next information for prompts during setup:
+
+1. Open Contentful and grab Space_ID from URL - https://app.contentful.com/spaces/{SPACE_ID}/home (requires [Contentful account](#ask-admin-to-give-you-credentials-to-contentful))
+2. Content Management API access token (see [Get API Keys](#get-api-keys))
+3. Content Delivery API access token (see [Get API Keys](#get-api-keys))
+
+### Ask admin to give you credentials to Contentful
+- https://www.contentful.com
+
+### Get API Keys
+- Get logged in to [contentful](https://www.contentful.com)
+- Go to Contentful -> Settings -> API Keys -> Content Delivery/Preview Tokens
+- Open one of the items and copy Content Delivery API access token and Content Preview API access token
+- Go to Contentful -> Settings -> API Keys ->  Content management tokens
+- Generate your personal token
+
+## Start App
+
+1. To run the application in development mode use the following command:
+```bash
+npm run dev
+```
+2. Open `http://localhost:8080/`
