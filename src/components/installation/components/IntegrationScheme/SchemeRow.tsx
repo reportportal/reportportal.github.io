@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Button, Popover, Space } from 'antd';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../../utils';
@@ -74,13 +75,25 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
                 >{item.text}</Node>
               : item.entity === 'event'
                   ? <EventNode key={item.text} direction={isEvenRow()}>{item.text}</EventNode>
-                  : <ActionNode key={item.text} direction={isEvenRow()}>{item.text}</ActionNode>
+                  : <ActionNode key={item.text} direction={isEvenRow()}>
+                      {item.text}
+                      {/* <Popover content={content} placement="bottom" title="Title" trigger="click">
+                        <Button>h</Button>
+                      </Popover> */}
+                    </ActionNode>
           }
         </div>
       ))}
     </div>
   )
 }
+
+const content = (
+  <div>
+    <p>Content</p>
+    <p>Content</p>
+  </div>
+);
 
 const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
   <div className={cx(
@@ -95,21 +108,24 @@ const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
   </div>
 )
 
-const EventNode = ({ children, direction }) => (
+export const EventNode = ({ children, direction }) => (
   <div className={cx('scheme__col-action', {'scheme__col-action-active': !direction})}>
     <p>{children}</p>
     <div className={cx({'scheme__arrow-right': direction, 'scheme__arrow-left': !direction})} />
-
   </div>
 )
 
-const ActionNode = ({ children, direction }) => (
+export const ActionNode = ({ children, direction, infoArrow = true }) => (
   <div className={cx(
     'scheme__col-action',
     'scheme__col-action-info',
     { 'scheme__col-action-active': !direction }
   )}>
-    <p>{children}</p> <span className="scheme__btn-arrow" />
+    <p>{children}</p> {infoArrow && (
+      <Popover content={content} placement="bottom" title="Title" trigger="click" showArrow={false}>
+        <Button ><span className="scheme__btn-arrow" /></Button>
+      </Popover>
+    )}
     <div className={cx({'scheme__arrow-right': direction, 'scheme__arrow-left': !direction})} />
   </div>
 )
