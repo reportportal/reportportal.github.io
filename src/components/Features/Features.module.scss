@@ -71,7 +71,6 @@ $mobile-horizontal-padding: 16px;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-
   color: white;
   border: 0px;
   background: linear-gradient(55deg, #0081a7 19.29%, #009dbb 90.72%);
@@ -133,7 +132,6 @@ body {
       visibility: visible;
     }
   }
-
   h1 {
     @include features-title-text(white, 32px, 64px, 700);
     @include breakpoint($desktop-size-breakpoint) {
@@ -179,6 +177,7 @@ body {
     padding: 0 16px 0 16px;
     border-bottom: 1px solid #edeff7;
     overflow-x: scroll;
+
     @include breakpoint($desktop-size-breakpoint) {
       padding: 0 120px 0 120px;
     }
@@ -195,7 +194,6 @@ body {
         cursor: pointer;
         color: #009dbb;
       }
-
       span {
         font-family: 'Poppins';
         font-style: normal;
@@ -215,10 +213,10 @@ body {
   align-items: center;
   margin: auto;
   margin-top: 208px;
+
   @include breakpoint($desktop-size-breakpoint) {
     width: 1112px;
   }
-
   :nth-child(even) {
     flex-direction: row-reverse;
   }
@@ -237,28 +235,23 @@ body {
       flex: 1;
       margin: 0 30px 0 30px;
     }
-
     .features_leading {
       flex: 1;
       margin: 0 30px 0 30px;
     }
-
     h1 {
       @include features-title;
     }
-
     p {
       font-family: 'Noto Sans';
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
       line-height: 32px;
-
       display: flex;
       align-items: center;
       color: #2f3c5f;
     }
-
     a {
       margin-top: 42px;
       display: flex;
@@ -292,20 +285,16 @@ body {
     margin: auto;
     text-align: center;
   }
-
   h2 {
     @include features-caption;
     max-width: 720px;
-
     margin: 16px auto;
     text-align: center;
   }
-
   button {
     margin-top: 48px;
     @include button-clear();
   }
-
   .intergrations_customers {
     margin-top: 80px;
     height: 150px;
@@ -317,11 +306,9 @@ body {
     :nth-child(even) {
       margin-top: 35px;
     }
-
     :nth-child(odd) {
       margin-bottom: 35px;
     }
-
     .intergrations_customer_icon {
       margin-left: 70px;
       margin-right: 70px;
@@ -345,14 +332,13 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+
   h1 {
     @include features-title();
   }
-
   h2 {
     @include features-caption();
   }
-
   .frameworks_box {
     margin-top: 60px;
     width: 100%;
@@ -436,6 +422,7 @@ body {
   flex-direction: column-reverse;
   padding-top: 120px;
   padding-bottom: 120px;
+
   @include breakpoint($desktop-size-breakpoint) {
     flex-direction: row;
     width: 100%;
@@ -449,6 +436,7 @@ body {
     text-align: center;
 
     .subscription_leading_heading {
+
       h1 {
         @include features-title();
         max-width: 465px;
@@ -469,12 +457,15 @@ body {
       flex-direction: column;
       justify-content: center;
       gap: 25px;
+
       @include breakpoint($desktop-size-breakpoint) {
         flex-direction: row;
       }
+
       button {
         @include button-filled();
       }
+
       :nth-child(2) {
         @include button-clear();
       }
@@ -502,6 +493,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   .faq_heading {
     text-align: center;
 
@@ -518,7 +510,6 @@ body {
     flex-direction: column;
     width: 100%;
    
-
     @include breakpoint($desktop-size-breakpoint) {
       width: 792px;
       
@@ -534,6 +525,7 @@ body {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
         h1 {
           font-family: 'Poppins';
           font-style: normal;
@@ -542,6 +534,7 @@ body {
 
           color: #222b45;
         }
+
         img {
           height: 24px;
           width: 24px;
@@ -551,6 +544,7 @@ body {
         }
       }
       .faq_content_item_description {
+
         p {
           font-family: 'Noto Sans';
           font-style: normal;
@@ -564,9 +558,11 @@ body {
       .arrowshown {
         transform: rotate(-90deg);
       }
+
       .collapsed {
         display: none;
       }
+
       .shown {
         display: block;
       }
@@ -579,6 +575,7 @@ body {
   display: flex;
   justify-content: center;
   .contact_info_block {
+
     position: relative;
     top: -74px;
     display: flex;
@@ -592,6 +589,7 @@ body {
     padding: 0 64px 24px 64px;
     background: #ffffff;
     text-align: center;
+    
     @include breakpoint($desktop-size-breakpoint) {
       flex-direction: row;
       padding: 0 64px 0px 64px;
@@ -605,8 +603,4 @@ body {
       @include button-filled();
     }
   }
-}
-
-.brdr {
-  border: 1px solid red;
 }

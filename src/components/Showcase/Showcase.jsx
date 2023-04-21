@@ -1,15 +1,14 @@
+import './Showcase.scss';
+
 import React, { useCallback } from 'react';
-import { useAtom } from 'jotai';
-import cx from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { watchProductOverviewAtom } from '../Layout';
 import { EmbedVideo } from '../EmbedVideo';
-
+import { createBemBlockBuilder } from '../../utils';
+import cx from 'classnames';
+import { useAtom } from 'jotai';
 import videoSrcMp4 from './RP_promo_video.mp4';
 import videoSrcWebm from './RP_promo_video.webm';
-
-import './Showcase.scss';
+import { watchProductOverviewAtom } from '../Layout';
 
 const getBlocksWith = createBemBlockBuilder(['showcase']);
 

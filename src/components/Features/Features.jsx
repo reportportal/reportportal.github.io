@@ -13,7 +13,7 @@ import {
   frameworkIconsPython,
   languageList,
   navigationList,
-} from './dataSource.js';
+} from './dataSource';
 
 import DOMPurify from 'dompurify'
 import { icons_common } from '../../utils/imageSource';
@@ -46,28 +46,25 @@ export const Features = () => {
           <h1>Empower your testing process with ReportPortal</h1>
         </div>
         <div className={styles.image_dashboard}>
-          <img src={icons_common.dashboard}></img>
+          <img src={icons_common.dashboard} />
         </div>
       </div>
-
       <div className={styles.features_explorer}>
         <div className={styles.features_heading}>
           <h1>Explore ReportPortal features</h1>
         </div>
-
         <div className={styles.features_navigation}>
-          {navigationList.map((nav) => (
-            <a className={styles.navigation_item} href={nav.link}>
+          {navigationList.map((nav,index) => (
+            <a className={styles.navigation_item} href={nav.link} key={index}>
               <span>{nav.id}</span>
               <span>{nav.name}</span>
             </a>
           ))}
         </div>
       </div>
-
       <div className={styles.feature_list}>
-        {featuresList.map((feature) => (
-          <div className={styles.feature_blockitem} id={feature.link}>
+        {featuresList.map((feature,index) => (
+          <div className={styles.feature_blockitem} id={feature.link} key={index}>
             <div className={styles.features_leading}>
               <h1>{feature.title}</h1>
               <p>{feature.description}</p>
@@ -77,12 +74,11 @@ export const Features = () => {
             </div>
 
             <div className={styles.features_trailing}>
-              <img src={feature.image}></img>
+              <img src={feature.image} />
             </div>
           </div>
         ))}
       </div>
-
       <div className={styles.integrations}>
         <div className={styles.integrations_heading}>
           <h1>Integrate with your existing test automation process</h1>
@@ -92,41 +88,39 @@ export const Features = () => {
           </h2>
           <button>See all integrations</button>
         </div>
-
         <div className={styles.intergrations_customers}>
-          {customerIcons.map((icon) => (
-            <div className={styles.intergrations_customer_icon}>
-              <img src={icon}></img>
+          {customerIcons.map((icon,index) => (
+            <div className={styles.intergrations_customer_icon} key = {index}>
+              <img src={icon} />
             </div>
           ))}
         </div>
       </div>
-
       <div className={styles.frameworks}>
         <h1>Supported frameworks</h1>
         <h2>Explore supported frameworks by language</h2>
 
         <div className={styles.frameworks_box}>
           <div className={styles.frameworks_box_header}>
-            {languageList.map((lang) => (
+            {languageList.map((lang,index) => (
               <div
                 onClick={() => setActiveLang(lang.id)}
-                className={lang.id == currentLang ? styles.active_lang : ''}
+                className={lang.id == currentLang ? styles.active_lang : ""}
+                key={index}
               >
                 {lang.lang}
               </div>
             ))}
           </div>
           <div className={styles.frameworks_box_content}>
-            {currentFrameworks().map((java) => (
-              <div className={styles.frameworks_box_content_item}>
-                <img src={java.icon}></img>
+            {currentFrameworks().map((java,index) => (
+              <div className={styles.frameworks_box_content_item} key = {index}>
+                <img src={java.icon} />
               </div>
             ))}
           </div>
         </div>
       </div>
-
       <div className={styles.subscription}>
         <div className={styles.subscription_leading}>
           <div className={styles.subscription_leading_heading}>
@@ -137,26 +131,25 @@ export const Features = () => {
             </h2>
           </div>
           <div className={styles.subscription_leading_button_group}>
-            <button className={`btn`}>Start free trial</button>
-            <button className='btn-clear'>Get a quote</button>
+            <button className={"btn"}>Start free trial</button>
+            <button className="btn-clear">Get a quote</button>
           </div>
         </div>
         <div className={styles.subscription_trailing}>
-          <img src={icons_common.subscription}></img>
+          <img src={icons_common.subscription} />
         </div>
       </div>
-
       <div className={styles.faq}>
         <div className={styles.faq_heading}>
           <h1>Frequently asked qustions</h1>
         </div>
         <div className={styles.faq_content}>
-          {collapsableList.map((item) => (
-            <div className={styles.faq_content_item}>
+          {collapsableList.map((item,index) => (
+            <div className={styles.faq_content_item}  key= {index}>
               <div className={styles.faq_content_item_title}>
                 <h1>{item.title} </h1>
                 <img
-                  className={`${shownItem != item.id ? styles.arrowshown : ''}`}
+                  className={`${shownItem != item.id ? styles.arrowshown : ""}`}
                   src={icons_common.arrowalt}
                   onClick={() => setshownItem(item.id)}
                 />
@@ -169,15 +162,12 @@ export const Features = () => {
           ))}
         </div>
       </div>
-
       <div className={styles.contact_us}>
         <div  className={styles.contact_info_block}>
         <h1>Still have questions about our features?</h1>
-        <button className='btn'>Contact Us</button>
+        <button className="btn">Contact Us</button>
         </div>
-
       </div>
-
     </div>
   );
 };

@@ -2,7 +2,8 @@ import Features from '../components/Features';
 import { Layout } from '../components/Layout';
 import React from 'react';
 
-export default class FeaturesIndex extends React.Component {
+class FeaturesIndex extends React.Component {
+  
   render() {
 
     return (
@@ -12,3 +13,6 @@ export default class FeaturesIndex extends React.Component {
     );
   }
 }
+
+
+export default FeaturesIndex;

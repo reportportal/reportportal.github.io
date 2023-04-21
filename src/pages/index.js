@@ -9,12 +9,6 @@ const RootIndex = ({ location }) => {
     <Layout location={location}>
       <Features />
     </Layout>
-    
-      /* Comment Layout Abobe and uncomment this one to Render Features Page
-      <Layout location={this.props.location}>
-        <Features />
-      </Layout>
-      */
   );
 };
 
