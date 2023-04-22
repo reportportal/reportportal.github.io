@@ -61,10 +61,18 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
 
   const isLastRow = () => row === lastRow;
 
+  const constructElementKey = (index) =>
+    portion.reduce((acc, item, i) => {
+      if (i <= index) {
+        return acc + item.text;
+      }
+      return acc;
+    }, '');
+
   return (
     <div className={getBlocksWith('__row')}>
       {portion.map((item, index) => (
-        <div key={item.text} className={getBlocksWith('__col')}>
+        <div key={constructElementKey(index)} className={getBlocksWith('__col')}>
           {item.entity === 'node' ? (
             <Node
               row={isBoundaryNode(index)}
