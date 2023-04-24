@@ -21,10 +21,17 @@ export const LaunchPortal = () => {
           http://IP_ADDRESS:8080
         </Text>
 
-        <p>Otherwise, open <a className={getBlocksWith('__link')} href="#">ReportPortal</a> and login.</p>
+        <p>
+          Otherwise, open{' '}
+          <a className={getBlocksWith('__link')} href="#">
+            ReportPortal
+          </a>{' '}
+          and login.
+        </p>
 
         <Notice importance>
-          ReportPortal is ready for login when you see a list of services (API Service, Jobs Service, Authorization Service, Service UI) at the bottom of the Login Page.
+          ReportPortal is ready for login when you see a list of services (API Service, Jobs
+          Service, Authorization Service, Service UI) at the bottom of the Login Page.
         </Notice>
 
         <div className={getBlocksWith('__access')}>
@@ -69,4 +76,5 @@ export const LaunchPortal = () => {
         <p>Please change admin password for security reasons.</p>
       </div>
     </div>
-)}
+  );
+};

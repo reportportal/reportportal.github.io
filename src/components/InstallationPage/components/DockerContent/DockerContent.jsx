@@ -7,9 +7,10 @@ import '../../InstallationPage.scss';
 
 export const DockerContent = () => {
   return (
-  <div>
-    <DockerInstall />
+    <div>
+      <DockerInstall />
 
-    <DockerDeployingStep />
-  </div>
-)};
+      <DockerDeployingStep />
+    </div>
+  );
+};

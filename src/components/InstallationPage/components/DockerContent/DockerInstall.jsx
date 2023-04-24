@@ -15,22 +15,32 @@ export const DockerInstall = () => {
         <p className={getBlocksWith('__text-content')}>
           <a className={getBlocksWith('__link')} href="https://docs.docker.com/get-docker/">
             Download{' '}
-          </a> and install Docker. It’s supported by all major Linux distributions, MacOS and Windows.
+          </a>{' '}
+          and install Docker. It’s supported by all major Linux distributions, MacOS and Windows.
         </p>
 
         <Notice importance>
           <ul className={getBlocksWith('__list')}>
             <li>
               Recommended change resources limits at least 2 CPU 6 GB RAM for Docker Desktop:{' '}
-              <a className={getBlocksWith('__link')} href="https://docs.docker.com/desktop/settings/mac/#advanced">
+              <a
+                className={getBlocksWith('__link')}
+                href="https://docs.docker.com/desktop/settings/mac/#advanced"
+              >
                 MAC
               </a>{' '}
               |
-              <a className={getBlocksWith('__link')} href="https://docs.docker.com/desktop/settings/windows/">
+              <a
+                className={getBlocksWith('__link')}
+                href="https://docs.docker.com/desktop/settings/windows/"
+              >
                 Windows
               </a>{' '}
               |
-              <a className={getBlocksWith('__link')} href="https://docs.docker.com/desktop/settings/linux/#advanced">
+              <a
+                className={getBlocksWith('__link')}
+                href="https://docs.docker.com/desktop/settings/linux/#advanced"
+              >
                 Linux
               </a>
             </li>
@@ -50,4 +60,5 @@ export const DockerInstall = () => {
         </p>
       </div>
     </div>
-)};
+  );
+};
