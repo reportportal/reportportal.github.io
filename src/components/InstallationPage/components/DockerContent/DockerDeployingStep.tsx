@@ -4,7 +4,7 @@ import { Typography } from 'antd';
 import { Notice } from '../Notice';
 import { createBemBlockBuilder } from '../../../../utils';
 
-import '../../Installation.scss';
+import '../../InstallationPage.scss';
 
 export const DockerDeployingStep = () => {
   const { Text } = Typography;

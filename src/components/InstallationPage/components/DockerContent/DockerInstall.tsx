@@ -3,7 +3,7 @@ import React from 'react';
 import { Notice } from '../Notice';
 import { createBemBlockBuilder } from '../../../../utils';
 
-import '../../Installation.scss';
+import '../../InstallationPage.scss';
 
 export const DockerInstall = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);

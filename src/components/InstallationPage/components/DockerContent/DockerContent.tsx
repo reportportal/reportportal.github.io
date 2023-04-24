@@ -3,7 +3,7 @@ import React from 'react';
 import { DockerDeployingStep } from './DockerDeployingStep';
 import { DockerInstall } from './DockerInstall';
 
-import '../../Installation.scss';
+import '../../InstallationPage.scss';
 
 export const DockerContent = () => {
   return (

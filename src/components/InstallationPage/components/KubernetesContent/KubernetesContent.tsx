@@ -2,7 +2,7 @@ import React from 'react';
 
 import { createBemBlockBuilder } from '../../../../utils';
 
-import '../../Installation.scss';
+import '../../InstallationPage.scss';
 
 export const KubernetesContent = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
