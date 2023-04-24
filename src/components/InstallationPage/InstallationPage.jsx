@@ -6,7 +6,7 @@ import { DockerContent } from './components/DockerContent';
 import { KubernetesContent } from './components/KubernetesContent';
 import { LaunchPortal } from './components/LaunchPortal';
 import { DockerIcon, KubernetesIcon } from './icons';
-import { ButtonSwitcher } from '../SwitchButtons';
+import { ButtonSwitcher } from '../ButtonSwitcher';
 
 import './InstallationPage.scss';
 
