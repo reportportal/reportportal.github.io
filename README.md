@@ -60,6 +60,6 @@ npm run dev
 2. Choose "Run Workflow" from the dropdown menu.
 3. Enter the name of your branch and click on the "Run workflow" button.
 4. Wait for the deployment process to complete. You can check the progress in the "Actions" tab of your repository.
-5. Once the deployment is finished, verify that your changes have been deployed by checking the website at the following URL: https://reportportal.github.io/.
+5. Once the deployment is finished, verify that your changes have been deployed by checking the website at the following URL: http://rpp-landing.s3-website.eu-central-1.amazonaws.com/.
 
 That's it! Your changes should now be live on the website. If you encounter any issues during the deployment process, please consult the documentation or reach out to the project maintainers for assistance.
