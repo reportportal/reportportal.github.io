@@ -69,8 +69,8 @@
   }
 
   &__quote-btn {
-    color: var(--text-white);
-    border-color: var(--text-white);
+    color: var(--white);
+    border-color: var(--white);
   }
 
   &__watch-video-container {
@@ -83,7 +83,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    color: var(--text-white);
+    color: var(--white);
     background: transparent;
     border: none;
     cursor: pointer;
@@ -151,8 +151,10 @@
   }
 
   &__carousel-button {
+    padding: 0;
     background: none;
     border: none;
+    line-height: 0;
 
     &:last-child {
       transform: rotateY(180deg);
@@ -171,11 +173,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 52px;
+    gap: 32px;
 
     .slick-dots {
-      bottom: 0;
-      margin-top: 8px;
+      bottom: -8px;
 
       @keyframes progressAnimation {
         100% {
@@ -202,7 +203,7 @@
       }
 
       li.slick-active button {
-        background: linear-gradient(to right, white 50%, rgba(255, 255, 255, 0.3) 0);
+        background: linear-gradient(to right, var(--white) 50%, rgba(255, 255, 255, 0.3) 0);
         background-size: 200% 100%;
         background-position: right;
         animation: progressAnimation 5s forwards;
@@ -215,12 +216,15 @@
     margin-top: 120px;
   }
 
+  &__carousel-logo {
+    line-height: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   &__carousel-slide {
     display: flex !important;
     height: 80px;
-    padding-left: 24px;
-    padding-right: 24px;
     align-items: center;
-    justify-content: space-around;
   }
 }

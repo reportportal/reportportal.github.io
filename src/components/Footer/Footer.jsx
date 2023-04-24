@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { Divider } from 'antd';
 import cx from 'classnames';
+
+import { Link } from '../Link';
 
 import './Footer.scss';
 
@@ -17,16 +18,10 @@ const FooterList = ({ title, items }) => {
       <ul>
         {items.map((item) => (
           <li key={item.title}>
-            <a
-              href={item.link}
-              {...(isAbsoluteURL(item.link) && {
-                target: '_blank',
-                rel: 'noreferrer',
-              })}
-            >
+            <Link to={item.link}>
               {item.title}
               {isAbsoluteURL(item.link) && <ArrowIcon />}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -94,7 +89,7 @@ const solutionsLinks = [
 const learnLinks = [
   {
     title: 'Documentation',
-    link: '/documentation',
+    link: 'https://slack.epmrpp.reportportal.io/',
   },
   {
     title: 'Blog',
@@ -107,6 +102,25 @@ const learnLinks = [
   {
     title: 'FAQ',
     link: '/faq',
+  },
+];
+
+const socialLinks = [
+  {
+    link: 'https://slack.epmrpp.reportportal.io/',
+    icon: <SlackIcon />,
+  },
+  {
+    link: 'https://twitter.com/ReportPortal_io',
+    icon: <TwitterIcon />,
+  },
+  {
+    link: 'https://www.youtube.com/c/ReportPortal',
+    icon: <YoutubeIcon />,
+  },
+  {
+    link: 'https://github.com/reportportal/reportportal',
+    icon: <GithubIcon />,
   },
 ];
 
@@ -162,42 +176,13 @@ export const Footer = () => {
             </div>
           </div>
           <ul className={getBlocksWith('__social-links')}>
-            <li>
-              <a
-                href="https://slack.epmrpp.reportportal.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <SlackIcon />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/ReportPortal_io"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TwitterIcon />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/c/ReportPortal"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <YoutubeIcon />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/reportportal/reportportal"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GithubIcon />
-              </a>
-            </li>
+            {socialLinks.map((socialLink, index) => (
+              <li key={index}>
+                <a href={socialLink.link} target="_blank" rel="noopener noreferrer">
+                  {socialLink.icon}
+                </a>
+              </li>
+            ))}
           </ul>
         </section>
       </div>

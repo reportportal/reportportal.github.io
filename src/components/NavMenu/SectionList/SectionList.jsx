@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { chunk } from 'lodash';
 import cx from 'classnames';
 
-import { createBemBlockBuilder, isAbsoluteURL } from '../../../utils';
+import { createBemBlockBuilder } from '../../../utils';
+import { Link } from '../../Link';
 
 import './SectionList.scss';
 
@@ -15,10 +15,6 @@ const SectionItem = ({ title, link = '#', icon, iconClass, text, className = '' 
       key={title}
       to={link}
       className={cx(getBlocksWith(), { [getBlocksWith('--no-text')]: !text })}
-      {...(isAbsoluteURL(link) && {
-        target: '_blank',
-        rel: 'noreferrer',
-      })}
     >
       {icon}
       {iconClass && (

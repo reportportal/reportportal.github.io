@@ -9,7 +9,7 @@
 
   padding-top: 50px;
   padding-bottom: 48px;
-  border-top: 1px solid var(--bg-purple-grey);
+  border-top: 1px solid var(--purple-grey);
   color: var(--text-service);
 
   @include breakpoint($tablet-sm-exact) {
@@ -109,7 +109,7 @@
   }
 
   .ant-divider {
-    border-color: var(--bg-purple-grey);
+    border-color: var(--purple-grey);
     margin: 50px 0;
 
     @include breakpoint($tablet-sm-exact) {

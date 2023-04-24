@@ -8,7 +8,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "setup": "node ./bin/setup.js",
-    "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN"
+    "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN",
+    "format": "prettier --write \"**/*.{js,jsx,json,scss}\""
   },
   "author": "",
   "license": "ISC",

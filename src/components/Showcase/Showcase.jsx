@@ -1,13 +1,13 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Marquee from 'react-fast-marquee';
 import { useAtom } from 'jotai';
-import { Carousel } from 'antd';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
 import { EmbedVideo } from '../EmbedVideo';
+import { Carousel } from './Carousel/Carousel';
 import WalmartIcon from './icons/walmart.inline.svg';
 import DowJonesIcon from './icons/dowjones.inline.svg';
 import NokiaIcon from './icons/nokia.inline.svg';
@@ -15,7 +15,6 @@ import AthenaHealthIcon from './icons/athenahealth.inline.svg';
 import DisneyIcon from './icons/disney.inline.svg';
 import MastercardIcon from './icons/mastercard.inline.svg';
 import IbmIcon from './icons/ibm.inline.svg';
-import ArrowIcon from './icons/arrow.inline.svg';
 import SiemensIcon from './icons/siemens.inline.svg';
 import McKessonIcon from './icons/mckesson.inline.svg';
 import RedisIcon from './icons/redis.inline.svg';
@@ -69,7 +68,6 @@ const slides = [
 export const Showcase = () => {
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
-  const carouselRef = useRef(null);
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
 
   const toggleEmbedVideoOpen = useCallback(
@@ -106,37 +104,16 @@ export const Showcase = () => {
             <span>Watch video</span>
           </button>
         </div>
-        {isDesktop && (
-          <div className={getBlocksWith('__carousel')}>
-            <button
-              className={getBlocksWith('__carousel-button')}
-              onClick={() => carouselRef.current.prev()}
-            >
-              <ArrowIcon />
-            </button>
-            <Carousel ref={carouselRef} autoplay pauseOnHover={false} autoplaySpeed={5000}>
-              {slides.map((slide, index) => (
-                <div className={getBlocksWith('__carousel-slide')} key={index}>
-                  {slide.map((logo, logoIndex) => (
-                    <div className={getBlocksWith('__carousel-logo')} key={logoIndex}>
-                      {logo.icon}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </Carousel>
-            <button
-              className={getBlocksWith('__carousel-button')}
-              onClick={() => carouselRef.current.next()}
-            >
-              <ArrowIcon />
-            </button>
-          </div>
-        )}
+        {isDesktop && <Carousel slides={slides} />}
         {!isDesktop && (
-          <Marquee className={getBlocksWith('__carousel-mobile')} pauseOnHover gradient={false}>
+          <Marquee
+            className={getBlocksWith('__carousel-mobile')}
+            speed={25}
+            pauseOnHover
+            gradient={false}
+          >
             {slides.flat().map((slide, index) => (
-              <div className={getBlocksWith('__carousel-slide')} key={index}>
+              <div className={getBlocksWith('__carousel-logo')} key={index}>
                 {slide.icon}
               </div>
             ))}

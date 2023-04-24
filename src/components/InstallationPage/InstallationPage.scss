@@ -5,9 +5,9 @@
 
 .installation {
   position: relative;
-  padding: calc(72px + $header-height) 16px 48px;
-  margin-top: -$header-height;
-  color: var(--text-white);
+  padding: calc(72px + var(--header-height)) 16px 48px;
+  margin-top: calc(-1 * var(--header-height));
+  color: var(--white);
   background: var(--color-primary-600);
   background-image: url('./icons/group-244.svg');
   background-repeat: no-repeat;
@@ -47,13 +47,13 @@
     text-decoration: none;
     color: var(--color-primary-600);
     border-bottom: 2px solid transparent;
-    transition: all .4s ease-out;
-  }
-  
-  &__link:hover {
-    color: var(--color-primary-600);
-    border-bottom-color: var(--color-primary-600);
-    transition: all .4s ease-out;
+    transition: all 0.4s ease-out;
+
+    &:hover {
+      color: var(--color-primary-600);
+      border-bottom-color: var(--color-primary-600);
+      transition: all 0.4s ease-out;
+    }
   }
 
   &__list {
@@ -61,20 +61,10 @@
     padding-left: 25px;
   }
 
-  &__container {
-    max-width: var(--size-max-width);
-    margin: 0 auto;
-    padding: 0 var(--space-lg);
-
-    @include breakpoint($tablet-sm) {
-      padding: 0 var(--space-2xl);
-    }
-
-    h3,
-    h5,
-    h6 {
-      @include font-poppins($fw-bold);
-    }
+  h3,
+  h5,
+  h6 {
+    @include font-poppins($fw-bold);
   }
 
   &__wrapper {
@@ -101,7 +91,7 @@
     margin-bottom: 24px;
 
     @include breakpoint($tablet-sm) {
-      @include font-scale(large); 
+      @include font-scale(large);
     }
   }
 
@@ -122,9 +112,9 @@
     display: inline-block;
     width: 100%;
     margin: 14px 0;
-     white-space: pre-wrap;  
+    white-space: pre-wrap;
 
-    div[role=button] {
+    div[role='button'] {
       position: absolute;
       right: 20px;
       top: 20px;
@@ -140,22 +130,22 @@
       padding: 20px;
       padding-right: 40px;
       background-color: var(--bg-light-grey);
-      border: 1px solid var(--bg-purple-grey);
+      border: 1px solid var(--purple-grey);
       border-radius: 8px;
       color: var(--text-service);
-      line-height: var(--loose);
-      white-space: pre-wrap;  
+      line-height: 1.75;
+      white-space: pre-wrap;
     }
 
     svg {
       fill: var(--text-service);
-      
+
       &:hover {
         fill: var(--text-light-grey);
       }
     }
   }
- 
+
   &__marked-list {
     padding-left: 30px;
 
@@ -163,7 +153,7 @@
       margin-bottom: 12px;
 
       &::marker {
-        color:  var(--text-light-grey);
+        color: var(--text-light-grey);
       }
     }
   }
@@ -174,13 +164,13 @@
 
       margin: 32px 0 16px;
     }
-  
+
     h6 {
       @include font-scale(base);
 
       margin: 16px 0 8px;
     }
-    
+
     &-container {
       display: block;
 
@@ -194,18 +184,18 @@
       flex-basis: 48.5%;
     }
   }
-}
 
-.code-text {
-  display: inline-block;
-  margin: 5px 0;
-  padding: 2px 10px;
-  background-color: var(--bg-light-grey);
-  border: 1px solid var(--bg-purple-grey);
-  border-radius: 8px;
-  color: var(--text-service);
-}
+  &__code-text {
+    display: inline-block;
+    margin: 5px 0;
+    padding: 2px 10px;
+    background-color: var(--bg-light-grey);
+    border: 1px solid var(--purple-grey);
+    border-radius: 8px;
+    color: var(--text-service);
+  }
 
-.sub-text {
-  color: var(--text-service);
+  &__sub-text {
+    color: var(--text-service);
+  }
 }

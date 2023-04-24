@@ -17,8 +17,7 @@ body {
   @include font-noto-sans();
   @include font-scale();
 
-  background: var(--background);
-  color: var(--text-color);
+  background: var(--white);
   margin: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
