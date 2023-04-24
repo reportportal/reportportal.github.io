@@ -3,13 +3,13 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 
-import './SwitchButtons.scss';
+import './ButtonSwitcher.scss';
 
 const BUTTON_WIDTH = 239;
 
 const getBlocksWith = createBemBlockBuilder(['switchbuttons']);
 
-export const SwitchButtons = ({ buttons, onSwitch }) => {
+export const ButtonSwitcher = ({ buttons, onSwitch }) => {
   const [switchState, setSwitchState] = useState(buttons);
 
   const onSwitchButton = ({ btnName, active }) => {

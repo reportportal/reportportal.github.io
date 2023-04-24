@@ -6,7 +6,7 @@ import { DockerContent } from './components/DockerContent';
 import { KubernetesContent } from './components/KubernetesContent';
 import { LaunchPortal } from './components/LaunchPortal';
 import { DockerIcon, KubernetesIcon } from './icons';
-import { SwitchButtons } from '../SwitchButtons';
+import { ButtonSwitcher } from '../SwitchButtons';
 
 import './InstallationPage.scss';
 
@@ -40,7 +40,7 @@ export const InstallationPage = () => {
           <p className={getBlocksWith('__subtitle')}>3 steps to get started with ReportPortal</p>
 
           <div className={getBlocksWith('__btn-box')}>
-            <SwitchButtons buttons={buttons} onSwitch={handleSwitch} />
+            <ButtonSwitcher buttons={buttons} onSwitch={handleSwitch} />
           </div>
         </div>
       </div>

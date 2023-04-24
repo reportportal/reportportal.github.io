@@ -1,1 +1,1 @@
-export * from './SwitchButtons';
+export * from './ButtonSwitcher';
