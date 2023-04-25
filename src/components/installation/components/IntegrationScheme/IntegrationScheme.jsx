@@ -13,7 +13,7 @@ import './IntegrationScheme.scss';
 // should be deleted after merge:
 import './TemporaryFile.scss';
 
-const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
+const getGeneralBlocksWith = createBemBlockBuilder(['installation']); // Should be removed after All Containers and text should will be moved
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 
 export const IntegrationScheme = () => {
@@ -26,6 +26,8 @@ export const IntegrationScheme = () => {
   };
 
   return (
+    // All Containers and text should be moved into a content component. Organize as a separate componentm
+
     <div className={getGeneralBlocksWith('__container')}>
       <div className={getGeneralBlocksWith('__wrapper')}>
         <div className={getGeneralBlocksWith('__chapter')}>Step 3</div>

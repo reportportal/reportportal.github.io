@@ -10,29 +10,29 @@ const httpInfo = {
     url: '',
     scheme: '"id": "launchid"',
   },
-  'start-parent-rq': {
+  startParentRq: {
     type: 'HTTP request',
     url: 'POST http://rphost:port/api/v1/{projectName}/item',
     scheme:
       '"description": "description",\n"launch_id": "launchId",\n"name": "name",\n"parameters": [\n{\n"key": "parameter key",\n"value": "parameter value"\n}\n],\n"start_time": "2018-02-01T13:24:35.954Z",\n"tags": ["tag"],\n"type": "SUITE",\n"uniqueId": "uniquedId"',
   },
-  'start-parent-rs': {
+  startParentRs: {
     type: 'HTTP response',
     url: '',
     scheme: '"id": "ParentItemId"',
   },
-  'start-child-rq': {
+  startChildRq: {
     type: 'HTTP request',
     url: 'POST http://rphost:port/api/v1/{projectName}/item/{parentItem}',
     scheme:
       '"description": "Test description",\n"launch_id": "launchId",\n"name": "Test name",\n"parameters": [\n{\n"key": "parameter key",\n"value": "parameter value"\n}\n],\n"start_time": "2018-02-01T13:24:35.954Z ",\n"tags": ["tag"],\n"type": "SUITE",\n"uniqueId": "unique id"',
   },
-  'start-child-rs': {
+  startChildRs: {
     type: 'HTTP response',
     url: '',
     scheme: '"id": "ChildTestItemId"',
   },
-  'post-log-rq': {
+  postLogRq: {
     type: 'HTTP request',
     url: 'POST http://rphost:port/api/v1/{projectName}/log',
     scheme:
@@ -46,23 +46,23 @@ const httpInfo = {
       '"message": "Log message",\n' +
       '"time": "2018-02-01T13:24:36.954Z "',
   },
-  'post-log-rs': {
+  postLogRs: {
     type: 'HTTP response',
     url: '',
     scheme: '"id": "logid"',
   },
-  'finish-child-rq': {
+  finishChildRq: {
     type: 'HTTP request',
     url: 'PUT http://rphost:port/api/v1/{projectName}/item/{testItemId}',
     scheme:
       '"description": "description",\n"end_time": "2018-02-01T13:24:37.954Z ",\n"issue": {\n"comment": "comment_text",\n"externalSystemIssues": [\n{\n"submitDate": 0,\n"submitter": "string",\n"systemId": "string",\n"ticketId": "string",\n"url": "string"\n}\n],\n"issue_type": "string"\n},\n"status": "PASSED",\n"tags": ["tags"]',
   },
-  'finish-child-rs': {
+  finishChildRs: {
     type: 'HTTP response',
     url: '',
     scheme: '"msg": "message"',
   },
-  'finish-parent-rq': {
+  finishParentRq: {
     type: 'HTTP request',
     url: 'PUT http://rphost:port/api/v1/{projectName}/item/{testItemId}',
     scheme:
@@ -85,12 +85,12 @@ const httpInfo = {
       '"status": "PASSED",\n' +
       '"tags": ["tags"]',
   },
-  'finish-parent-rs': {
+  finishParentRs: {
     type: 'HTTP response',
     url: '',
     scheme: '"msg": "message"',
   },
-  'finish-launch-rq': {
+  finishLaunchRq: {
     type: 'HTTP request',
     url: 'PUT http://rphost:port/api/v1/{projectName}/launch/{launchId}/finish',
     scheme:
@@ -99,7 +99,7 @@ const httpInfo = {
       '"status": "PASSED",\n' +
       '"tags": ["tags"]',
   },
-  'finish-launch-rs': {
+  finishLaunchRs: {
     type: 'HTTP response',
     url: '',
     scheme: '"msg": "message"',
