@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React, { Fragment, forwardRef, useRef } from 'react';
+import React, { Fragment, useRef } from 'react';
 import { Button, Popover, Typography } from 'antd';
 import { useClickAway, useToggle } from 'ahooks';
 import cx from 'classnames';
@@ -107,8 +107,8 @@ const PopupContent = (info) => {
     if (info.scheme) {
       return (
         <div>
-          {info.scheme.split('\n').map((str) => (
-            <Fragment key={info.scheme}>
+          {info.scheme.split('\n').map((str, i) => (
+            <Fragment key={info.scheme + i}>
               {str} <br />
             </Fragment>
           ))}
@@ -147,10 +147,10 @@ const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
   <div
     className={cx(
       getBlocksWith('__col-inner'),
-      { 'scheme__col-inner-active': !direction },
-      { 'scheme__col-inner-first-node': row },
-      { 'scheme__arrow-bottom': isDownArrow },
-      { 'scheme__arrow-bottom-accent': !direction },
+      { [getBlocksWith('__col-inner-active')]: !direction },
+      { [getBlocksWith('__col-inner-first-node')]: row },
+      { [getBlocksWith('__arrow-bottom')]: isDownArrow },
+      { [getBlocksWith('__arrow-bottom-accent')]: !direction },
     )}
   >
     <div className={getBlocksWith('__col-inner-number')}>{number}</div>
@@ -160,16 +160,25 @@ const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
 );
 
 export const EventNode = ({ children, direction }) => (
-  <div className={cx(getBlocksWith('__col-action'), { 'scheme__col-action-active': !direction })}>
+  <div
+    className={cx(getBlocksWith('__col-action'), {
+      [getBlocksWith('__col-action-active')]: !direction,
+    })}
+  >
     <p>{children}</p>
-    <div className={cx({ 'scheme__arrow-right': direction, 'scheme__arrow-left': !direction })} />
+    <div
+      className={cx({
+        [getBlocksWith('__arrow-right')]: direction,
+        [getBlocksWith('__arrow-left')]: !direction,
+      })}
+    />
   </div>
 );
 
 export const ActionNode = ({ children, direction, infoArrow = true, info }) => (
   <div
     className={cx(getBlocksWith('__col-action'), getBlocksWith('__col-action-info'), {
-      'scheme__col-action-active': !direction,
+      [getBlocksWith('__col-action-active')]: !direction,
     })}
   >
     {infoArrow ? (
@@ -180,7 +189,12 @@ export const ActionNode = ({ children, direction, infoArrow = true, info }) => (
       <p>{children}</p>
     )}
 
-    <div className={cx({ 'scheme__arrow-right': direction, 'scheme__arrow-left': !direction })} />
+    <div
+      className={cx({
+        [getBlocksWith('__arrow-right')]: direction,
+        [getBlocksWith('__arrow-left')]: !direction,
+      })}
+    />
   </div>
 );
 
@@ -203,24 +217,25 @@ const GraphicArrow = ({ children, info }) => {
       showArrow={false}
     >
       <Button>
-        <div ref={ref} className={getBlocksWith('__btn-arrow-wrapper')} onClick={toggle}>
-          {children && children}
-          <span
-            className={cx(getBlocksWith('__btn-arrow'), { 'scheme__btn-arrow-active': state })}
-          />
+        <div ref={ref} onClick={toggle}>
+          <Arrow state={state}>{children}</Arrow>
         </div>
-        {/* <Arrow ref={ref} state={state}>
-          {children}
-        </Arrow> */}
       </Button>
     </Popover>
   );
 };
 
-// eslint-disable-next-line react/display-name
-export const Arrow = forwardRef(({ children = null, state }, ref) => (
-  <div ref={ref} className={getBlocksWith('__btn-arrow-wrapper')}>
-    {children && children}
-    <span className={cx(getBlocksWith('__btn-arrow'), { 'scheme__btn-arrow-active': state })} />
-  </div>
-));
+export const Arrow = ({ children = null, state }) => {
+  return (
+    <div className={getBlocksWith('__btn-arrow-wrapper')}>
+      <span className={cx({ [getBlocksWith('__btn-arrow-active-text')]: state })}>
+        {children && children}
+      </span>
+      <span
+        className={cx(getBlocksWith('__btn-arrow'), {
+          [getBlocksWith('__btn-arrow-active')]: state,
+        })}
+      />
+    </div>
+  );
+};

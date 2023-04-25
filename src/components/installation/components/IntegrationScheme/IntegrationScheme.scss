@@ -411,9 +411,10 @@
   }
 
   &__btn-arrow {
+    position: relative;
     width: 18px;
     color: var(--color-primary-600);
-    position: relative;
+
     &::before {
       content: '';
       position: absolute;
@@ -431,6 +432,16 @@
       &::before {
         top: -1px;
         transform: rotate(135deg);
+        border-left: 2px solid var(--color-primary-700);
+        border-bottom: 2px solid var(--color-primary-700);
+      }
+    }
+
+    &-active-text {
+      color: var(--color-primary-700);
+
+      &:hover {
+        color: var(--color-primary-500);
       }
     }
 
@@ -438,6 +449,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-primary-500);
+      }
+
+      &:hover .scheme__btn-arrow::before {
+        border-left: 2px solid var(--color-primary-500);
+        border-bottom: 2px solid var(--color-primary-500);
+      }
     }
   }
 

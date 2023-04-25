@@ -48,9 +48,9 @@ export const IntegrationScheme = () => {
 
         <div className="collapse__btn">
           <div className="collapse__btn-inner" onClick={toggleScheme}>
-            <p>See less</p>
-
-            <Arrow state={!state} />
+            <Arrow state={!state}>
+              <p>See less</p>
+            </Arrow>
           </div>
         </div>
       </div>

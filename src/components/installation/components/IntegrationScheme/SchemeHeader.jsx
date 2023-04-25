@@ -10,7 +10,9 @@ const getBlocksWith = createBemBlockBuilder(['scheme']);
 
 export const SchemeHeader = ({ state }) => (
   <div
-    className={cx(getBlocksWith(), getBlocksWith('__header'), { 'scheme__collapse-header': state })}
+    className={cx(getBlocksWith(), getBlocksWith('__header'), {
+      [getBlocksWith('__collapse-header')]: state,
+    })}
   >
     <div className={getBlocksWith('__header-container-header')}>
       <div className={cx(getBlocksWith('__row'), getBlocksWith('__row-header'))}>
