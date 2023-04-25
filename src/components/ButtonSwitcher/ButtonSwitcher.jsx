@@ -40,7 +40,7 @@ export const ButtonSwitcher = ({ buttons, onSwitch }) => {
               className={cx(getBlocksWith('__btn'), { switchbuttons__active: btn.active })}
               onClick={() => onSwitchButton({ btnName: btn.text, active: btn.active })}
             >
-              {btn.iconComponent(btn)}
+              <div className={getBlocksWith('__icon')}>{btn.iconComponent(btn)}</div>
               <span className={getBlocksWith('__text')}>{btn.text}</span>
             </div>
           ))}
