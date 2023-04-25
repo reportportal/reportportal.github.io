@@ -1,5 +1,5 @@
 // file Should be deleted after merging the 'content-text' branch
-// and be moved to general components (?)
+// Some of styles should be moved to general components or InstallationPage component (?)
 
 @import 'src/styles/mixins/font';
 @import 'src/styles/mixins/font-scale';
@@ -60,6 +60,8 @@
   &__popup {
     code {
       @include font-scale(s-small);
+
+      padding-right: 40px;
     }
 
     svg {

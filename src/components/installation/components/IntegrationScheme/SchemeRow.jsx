@@ -150,6 +150,7 @@ const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
       { 'scheme__col-inner-active': !direction },
       { 'scheme__col-inner-first-node': row },
       { 'scheme__arrow-bottom': isDownArrow },
+      { 'scheme__arrow-bottom-accent': !direction },
     )}
   >
     <div className={getBlocksWith('__col-inner-number')}>{number}</div>
