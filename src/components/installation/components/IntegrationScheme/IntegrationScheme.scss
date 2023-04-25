@@ -427,6 +427,20 @@
       align-items: center;
     }
   }
+
+  &__popup {
+    max-width: 280px;
+  }
+
+  &__popup-title {
+    @include font-noto-sans($fw-bold);
+    @include font-scale(x-small);
+  }
+
+  &__popup-text {
+    @include font-noto-sans();
+    @include font-scale(x-small);
+  }
 }
 
 .scheme__header {

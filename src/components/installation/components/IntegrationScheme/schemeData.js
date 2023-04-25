@@ -1,3 +1,5 @@
+import httpInfo from './httpInfo';
+
 export const data = [
   {
     row: 1,
@@ -5,7 +7,7 @@ export const data = [
       { entity: 'node', text: 'Starts launch' },
       { entity: 'event', text: 'event' },
       { entity: 'node', text: 'Launch info' },
-      { entity: 'action', text: 'http request', info: '' },
+      { entity: 'action', text: 'http request', info: httpInfo.startLaunchRq },
       { entity: 'node', text: 'Creates launch' },
     ],
   },
@@ -15,7 +17,7 @@ export const data = [
       { entity: 'node', text: 'Get Launch ID' },
       { entity: 'event', text: 'response' },
       { entity: 'node', text: 'Launch ID' },
-      { entity: 'action', text: 'http response', info: '' },
+      { entity: 'action', text: 'http response', info: httpInfo.startLaunchRs },
       { entity: 'node', text: 'Launch ID' },
     ],
   },

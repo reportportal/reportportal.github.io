@@ -10,6 +10,9 @@ import { data } from './schemeData';
 import '../../Installation.scss';
 import './IntegrationScheme.scss';
 
+// should be deleted after merge:
+import './TemporaryFile.scss';
+
 const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 

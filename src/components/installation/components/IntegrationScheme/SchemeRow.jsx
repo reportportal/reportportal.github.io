@@ -1,8 +1,8 @@
 /* eslint-disable no-nested-ternary */
-import React, { forwardRef, useRef } from 'react';
-import { Button, Popover } from 'antd';
-import cx from 'classnames';
+import React, { Fragment, forwardRef, useRef } from 'react';
+import { Button, Popover, Typography } from 'antd';
 import { useClickAway, useToggle } from 'ahooks';
+import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../../utils';
 
@@ -86,7 +86,9 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
           ) : item.entity === 'event' ? (
             <EventNode direction={isEvenRow()}>{item.text}</EventNode>
           ) : (
-            <ActionNode direction={isEvenRow()}>{item.text}</ActionNode>
+            <ActionNode info={item.info} direction={isEvenRow()}>
+              {item.text}
+            </ActionNode>
           )}
         </div>
       ))}
@@ -94,12 +96,52 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
   );
 };
 
-const content = (
-  <div>
-    <p>Content</p>
-    <p>Content</p>
-  </div>
+const createTitleComponent = (title) => (
+  <div className={getBlocksWith('__popup-title')}>{title}</div>
 );
+
+const PopupContent = (info) => {
+  const { Text } = Typography;
+
+  const formatText = () => {
+    if (info.scheme) {
+      return (
+        <div>
+          {info.scheme.split('\n').map((str) => (
+            <Fragment key={info.scheme}>
+              {str} <br />
+            </Fragment>
+          ))}
+        </div>
+      );
+    }
+    return '';
+  };
+
+  return (
+    <div>
+      {info ? (
+        <div>
+          <p className={getBlocksWith('__popup-text')}>{info.url}</p>
+          <Text
+            className={cx('copyable__code', 'copyable__popup')}
+            code
+            copyable={{
+              text: info.scheme,
+              format: 'text/plain',
+            }}
+          >
+            {formatText()}
+          </Text>
+        </div>
+      ) : (
+        <div>
+          <p>No Data</p>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
   <div
@@ -123,14 +165,14 @@ export const EventNode = ({ children, direction }) => (
   </div>
 );
 
-export const ActionNode = ({ children, direction, infoArrow = true }) => (
+export const ActionNode = ({ children, direction, infoArrow = true, info }) => (
   <div
     className={cx(getBlocksWith('__col-action'), getBlocksWith('__col-action-info'), {
       'scheme__col-action-active': !direction,
     })}
   >
     {infoArrow ? (
-      <GraphicArrow>
+      <GraphicArrow info={info}>
         <p>{children}</p>
       </GraphicArrow>
     ) : (
@@ -141,7 +183,7 @@ export const ActionNode = ({ children, direction, infoArrow = true }) => (
   </div>
 );
 
-const GraphicArrow = ({ children }) => {
+const GraphicArrow = ({ children, info }) => {
   const [state, { toggle }] = useToggle();
   const ref = useRef(null);
 
@@ -152,7 +194,13 @@ const GraphicArrow = ({ children }) => {
   }, ref);
 
   return (
-    <Popover content={content} placement="bottom" title="Title" trigger="click" showArrow={false}>
+    <Popover
+      content={PopupContent(info)}
+      placement="bottom"
+      title={createTitleComponent(info.type)}
+      trigger="click"
+      showArrow={false}
+    >
       <Button>
         <div ref={ref} className={getBlocksWith('__btn-arrow-wrapper')} onClick={toggle}>
           {children && children}

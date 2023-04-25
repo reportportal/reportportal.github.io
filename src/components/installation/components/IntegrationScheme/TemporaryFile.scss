@@ -1,0 +1,69 @@
+// file Should be deleted after merging the 'content-text' branch
+// and be moved to general components (?)
+
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+
+@import '../../../../styles/variables/typography';
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-weight: $fw-regular;
+  font-display: swap;
+  font-style: normal;
+  src: local('Roboto Mono Regular'), local('RobotoMono-Regular'),
+    url('/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf') format('truetype');
+}
+
+@mixin roboto-mono($weight: $fw-regular, $font-style: false) {
+  font-family: 'Roboto Mono', Arial, sans-serif;
+
+  @include font-info($weight, $font-style);
+}
+
+.copyable {
+
+  &__code {
+    display: inline-block;
+    width: 100%;
+    margin: 14px 0;
+
+    div[role=button] {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+
+    code {
+      @include roboto-mono();
+      @include font-scale();
+
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      padding: 20px;
+      background-color: var(--bg-light-grey);
+      border: 1px solid var(--bg-purple-grey);
+      color: var(--text-service);
+      line-height: var(--loose);
+    }
+
+    svg {
+      fill: var(--text-service);
+
+      &:hover {
+        fill: var(--text-light-grey);
+      }
+    }
+  }
+
+  &__popup {
+    code {
+      @include font-scale(s-small);
+    }
+
+    svg {
+      @include font-scale();
+    }
+  }
+}
