@@ -38,7 +38,7 @@ export const InstallationPage = () => {
   return (
     <div>
       <div className={getBlocksWith()}>
-        <div className={getBlocksWith('__container')}>
+        <div className="container">
           <h1 className={getBlocksWith('__title')}>Installation guide</h1>
           <p className={getBlocksWith('__subtitle')}>3 steps to get started with ReportPortal</p>
 

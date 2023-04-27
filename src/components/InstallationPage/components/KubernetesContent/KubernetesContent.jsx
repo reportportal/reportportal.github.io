@@ -8,7 +8,7 @@ export const KubernetesContent = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
 
   return (
-    <div className={getBlocksWith('__container')}>
+    <div className="container">
       <div className={getBlocksWith('__wrapper')}>
         <div className={getBlocksWith('__chapter')}>Step 1</div>
         <h3 className={getBlocksWith('__title-content')}>Configure and deploy ReportPortal</h3>

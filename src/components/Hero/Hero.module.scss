@@ -19,7 +19,6 @@
 }
 
 .details {
-  background: var(--background);
   left: 0;
   max-width: 40rem;
   width: 85%;
@@ -29,14 +28,14 @@
 
 .title {
   letter-spacing: -0.012em;
-  font-size: var(--text-title);
+  font-size: 16px;
   font-weight: var(--extrabold);
   line-height: var(--solid);
   margin: 0 0 var(--space-xl);
 }
 
 .content {
-  font-size: var(--text-lead);
+  font-size: 18px;
   font-weight: var(--semibold);
   margin: 0;
 }

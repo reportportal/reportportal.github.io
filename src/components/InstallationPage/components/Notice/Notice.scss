@@ -4,26 +4,26 @@
 
 .notice {
   display: flex;
-  margin-top: var(--space-2xl);
+  margin-top: 24px;
 
   &__border {
     width: 4px;
     border-radius: 4px;
-    background-color: var(--bg-dark-grey);
+    background-color: var(--text-light-grey);
   }
 
   &__content {
     @include font-noto-sans();
 
     margin-top: 8px;
-    padding-left: var(--space-2xl);
+    padding-left: 24px;
     color: var(--text-service);
   }
 
   &__title {
     @include font-poppins($fw-semi-bold);
     @include font-scale(small);
-    
+
     text-transform: uppercase;
     letter-spacing: 1px;
   }

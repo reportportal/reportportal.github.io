@@ -33,10 +33,12 @@ export const ProductMenu = ({ isDesktop = true }) => {
         {
           icon: <InstallIcon />,
           title: 'Installation',
+          link: '/installation',
         },
         {
           icon: <ReleaseIcon />,
           title: 'Releases',
+          link: '/releases',
         },
       ]}
     />

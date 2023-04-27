@@ -11,7 +11,7 @@ export const LaunchPortal = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
 
   return (
-    <div className={getBlocksWith('__container')}>
+    <div className="container">
       <div className={getBlocksWith('__wrapper')}>
         <div className={getBlocksWith('__chapter')}>Step 2</div>
         <h3 className={getBlocksWith('__title-content')}>Launch ReportPortal</h3>

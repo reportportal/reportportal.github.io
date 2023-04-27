@@ -11,7 +11,7 @@ export const DockerDeployingStep = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
 
   return (
-    <div className={getBlocksWith('__container')}>
+    <div className="container">
       <div className={getBlocksWith('__wrapper')}>
         <div className={getBlocksWith('__chapter')}>Step 1</div>
         <h3 className={getBlocksWith('__title-content')}>Configure and deploy ReportPortal</h3>
@@ -43,15 +43,15 @@ export const DockerDeployingStep = () => {
         <p>2. Make the ElasticSearch configuration prerequisites for the analyzer service:</p>
         <ul className={getBlocksWith('__marked-list')}>
           <li>
-            Set <span className="code-text">vm.max_map_count</span> kernel setting before
-            ReportPortal deploying with the following{' '}
+            Set <span className={getBlocksWith('__code-text')}>vm.max_map_count</span> kernel
+            setting before ReportPortal deploying with the following{' '}
             <a
               className={getBlocksWith('__link')}
               href="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html#docker-cli-run-prod-mode"
             >
               Commands
             </a>{' '}
-            <span className="sub-text">(optional)</span>
+            <span className={getBlocksWith('__sub-text')}>(optional)</span>
           </li>
           <li>Give right permissions to ElasticSearch data folder using the following commands:</li>
         </ul>
@@ -71,7 +71,8 @@ export const DockerDeployingStep = () => {
         </p>
 
         <p>
-          3. PostgreSQL Performance Tuning <span className="sub-text">(optional)</span>
+          3. PostgreSQL Performance Tuning{' '}
+          <span className={getBlocksWith('__sub-text')}>(optional)</span>
         </p>
         <p>
           Depends on your hardware configuration and parameters of your system, you can additionally
@@ -104,24 +105,25 @@ export const DockerDeployingStep = () => {
 
         <p>Where:</p>
         <p>
-          <span className="code-text">-p reportportal</span> — adds project prefix {'reportportal'}{' '}
-          to all containers up creates and starts containers
+          <span className={getBlocksWith('__code-text')}>-p reportportal</span> — adds project
+          prefix {'reportportal'} to all containers up creates and starts containers
         </p>
         <p>
-          <span className="code-text">-d</span> — daemon mode
+          <span className={getBlocksWith('__code-text')}>-d</span> — daemon mode
         </p>
         <p>
           {' '}
-          <span className="code-text">--force-recreate</span> — re-creates containers if there any
+          <span className={getBlocksWith('__code-text')}>--force-recreate</span> — re-creates
+          containers if there any
         </p>
       </div>
 
       <Notice title="Useful commands">
-        <span className="code-text">docker-compose logs</span> — shows logs from all containers{' '}
-        <br />
-        <span className="code-text">docker logs &lt;container_name&gt;</span> — shows logs from
-        selected container <br />
-        <p className="code-text">
+        <span className={getBlocksWith('__code-text')}>docker-compose logs</span> — shows logs from
+        all containers <br />
+        <span className={getBlocksWith('__code-text')}>docker logs &lt;container_name&gt;</span> —
+        shows logs from selected container <br />
+        <p className={getBlocksWith('__code-text')}>
           docker ps -a | grep {'"reportportal_"'} | awk {'{print $1}'} | xargs <br />
           docker rm -f
         </p>{' '}
