@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from '../components/Layout';
-import { Installation as InstallationPage } from '../components/installation';
+import { InstallationPage } from '../components/InstallationPage';
 
 import '../styles/global.scss';
 

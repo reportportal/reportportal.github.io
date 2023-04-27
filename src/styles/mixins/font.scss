@@ -21,3 +21,9 @@
 
   @include font-info($weight, $font-style);
 }
+
+@mixin roboto-mono($weight: $fw-regular, $font-style: false) {
+  font-family: 'Roboto Mono', 'Monaco', 'Courier New', monospace;
+
+  @include font-info($weight, $font-style);
+}
