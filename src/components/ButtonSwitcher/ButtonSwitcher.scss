@@ -3,7 +3,7 @@
 @import 'src/styles/mixins/font-scale';
 @import 'src/styles/mixins/breakpoint';
 
-.switchbuttons {
+.switcher {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -14,7 +14,7 @@
     display: flex;
     width: 100%;
     border-radius: 80px;
-    background-color: var(--color-primary-500);
+    background-color: rgba(255, 255, 255, 0.2);;
     color: var(--text-white);
   }
 
@@ -23,7 +23,7 @@
     width: 50%;
     align-items: center;
     justify-content: center;
-    padding: 14px;
+    padding: 11px;
     border-radius: 80px;
     background-color: transparent;
     transition: all .4s ease-out;
@@ -37,7 +37,20 @@
 
   &__active {
     background-color: var(--white);
-    color: var(--color-primary-500);
+    color: var(--color-primary-700);
     transform: scale(1);
+  }
+
+  &__icon {
+    display: none;
+    margin-bottom: -4px;
+
+    @include breakpoint($phone) {
+      display: none;
+    }
+
+    @include breakpoint($tablet-sm) {
+      display: inline-block;
+    }
   }
 }

@@ -1,0 +1,11 @@
+@import '../variables/typography';
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-weight: $fw-regular;
+  font-display: swap;
+  font-style: normal;
+  src: local('Roboto Mono Regular'), local('RobotoMono-Regular'),
+    url('/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf') format('truetype');
+}
+
