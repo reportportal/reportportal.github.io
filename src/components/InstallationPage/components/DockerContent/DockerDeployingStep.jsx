@@ -57,9 +57,9 @@ export const DockerDeployingStep = () => {
         </ul>
 
         <Text className={getBlocksWith('__code')} code copyable>
-          mkdir -p ./data/elasticsearch <br />
-          chmod 775 ./data/elasticsear <br />
-          chchgrp 1000 ./data/elasticsearch
+          {
+            'mkdir -p ./data/elasticsearch\nchmod 775 ./data/elasticsear\nchchgrp 1000 ./data/elasticsearch'
+          }
         </Text>
 
         <p>
@@ -80,35 +80,10 @@ export const DockerDeployingStep = () => {
         </p>
         <p>Please choose set the values of these variables that are right for your system:</p>
 
-        <Text
-          className={getBlocksWith('__code')}
-          code
-          copyable={{
-            text: `-c effective_io_concurrency=&nbsp;
-            -c shared_buffers=&nbsp;
-            -c max_connections=&nbsp;
-            -c effective_cache_size= 
-            -c maintenance_work_mem= 
-            -c random_page_cost= 
-            -c seq_page_cost= 
-            -c min_wal_size= 
-            -c max_wal_size= 
-            -c max_worker_processes= 
-            -c max_parallel_workers_per_gather=`,
-            format: 'text/plain',
-          }}
-        >
-          -c effective_io_concurrency= <br />
-          -c shared_buffers= <br />
-          -c max_connections= <br />
-          -c effective_cache_size= <br />
-          -c maintenance_work_mem= <br />
-          -c random_page_cost= <br />
-          -c seq_page_cost= <br />
-          -c min_wal_size= <br />
-          -c max_wal_size= <br />
-          -c max_worker_processes= <br />
-          -c max_parallel_workers_per_gather= <br />
+        <Text className={getBlocksWith('__code')} code copyable>
+          {
+            '-c effective_io_concurrency=\n-c shared_buffers=\n-c max_connections=\n-c effective_cache_size=\n-c maintenance_work_mem=\n-c random_page_cost=\n-c seq_page_cost=\n-c min_wal_size=\n-c max_wal_size=\n-c max_worker_processes=\n-c max_parallel_workers_per_gather=\n'
+          }
         </Text>
 
         <p>

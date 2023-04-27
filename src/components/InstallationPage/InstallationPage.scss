@@ -122,6 +122,7 @@
     display: inline-block;
     width: 100%;
     margin: 14px 0;
+     white-space: pre-wrap;  
 
     div[role=button] {
       position: absolute;
@@ -143,6 +144,7 @@
       border-radius: 8px;
       color: var(--text-service);
       line-height: var(--loose);
+      white-space: pre-wrap;  
     }
 
     svg {
