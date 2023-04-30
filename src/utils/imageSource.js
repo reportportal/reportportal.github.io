@@ -63,7 +63,7 @@ import vstest from '../svg/icon_framework_vstest.svg';
 import webdriver from '../svg/icon_framework_webdriver.svg';
 import xctest from '../svg/icon_framework_vstest.svg';
 
-export const icons_common = {
+export const iconsCommon = {
     subscription,dashboard,arrow,arrowalt
 }
 
@@ -80,12 +80,12 @@ export const features = {
 }
 
 
-export const icons_customers = {
+export const iconsCustomers = {
     azuresaml,jira,jira2,rally,saml,saucelabs,azuredo,octa,microsoft,ldap
 }
 
 
-export const icons_frameworks = {
+export const iconsFrameworks = {
     android, artos, cucumber, cucumber2, cucumber3, cucumber4, cucumber5, cucumber6, jbehave, junit,
     junit5,karate, nunit, scalatest, serenity, soapui, specflow, spock, testng, unitnet, vstest,
     jasmine,mocha,nightwatch,jest,cypress,codecept,postman,testcafe,webdriver,playwright,pytest,
