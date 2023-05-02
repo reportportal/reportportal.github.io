@@ -1,11 +1,10 @@
-import React from 'react';
-import { useBoolean } from 'ahooks';
+import React, { useState } from 'react';
 
 import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../utils';
 import { DockerIcon, KubernetesIcon } from './icons';
-import { ButtonSwitcher } from '../ButtonSwitcher';
 import { IntegrationScheme } from './components/IntegrationScheme';
+import { ButtonSwitcher } from '../ButtonSwitcher';
 
 import './InstallationPage.scss';
 
@@ -14,21 +13,25 @@ const getBlocksWith = createBemBlockBuilder(['installation']);
 const buttons = [
   {
     text: 'With Docker',
-    active: true,
     iconComponent: () => <DockerIcon />,
   },
   {
     text: 'With Kubernetes',
-    active: false,
     iconComponent: () => <KubernetesIcon />,
   },
 ];
 
-export const InstallationPage = () => {
-  const [contentSate, { toggle }] = useBoolean(true);
+const ACTIVE_BUTTON = buttons[0].text;
 
-  const handleSwitch = () => {
-    toggle();
+export const InstallationPage = () => {
+  const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
+
+  const isFirstBtnActive = () => activeButton === buttons[0].text;
+
+  const switchActiveBtn = (btnName) => {
+    if (btnName !== activeButton) {
+      setActiveButton(btnName);
+    }
   };
 
   return (
@@ -39,12 +42,16 @@ export const InstallationPage = () => {
           <p className={getBlocksWith('__subtitle')}>3 steps to get started with ReportPortal</p>
 
           <div className={getBlocksWith('__btn-box')}>
-            <ButtonSwitcher buttons={buttons} onSwitch={handleSwitch} />
+            <ButtonSwitcher
+              buttons={buttons}
+              onSwitch={switchActiveBtn}
+              activeBtnName={activeButton}
+            />
           </div>
         </Container>
       </div>
 
-      {contentSate ? <div>First Page</div> : <div>Second Page</div>}
+      {isFirstBtnActive ? <div>First Page</div> : <div>Second Page</div>}
 
       <IntegrationScheme />
     </div>
