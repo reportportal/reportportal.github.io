@@ -12,6 +12,10 @@
   transition: max-height 0.5s ease;
   color: var(--text-grey);
 
+  &__divider {
+    margin: 40px 0 60px;
+  }
+
   &__collapse {
     // collapsing
     max-height: 0;
@@ -208,7 +212,7 @@
       flex: 1;
       margin: 0 8px;
       padding: 0 5px;
-      background-color: var(--bg-purple-grey);
+      background-color: var(--purple-grey);
       border-radius: 8px;
       text-align: center;
       color: var(--text-grey);
@@ -506,7 +510,7 @@
   justify-content: center;
   width: 100%;
   max-width: 800px;
-  margin: 25px auto 0;
+  margin: 25px auto 50px;
 
   &::after {
     content: '';

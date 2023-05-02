@@ -55,9 +55,9 @@ export const InstallationPage = () => {
 
       {isFirstBtnActive() ? <DockerContent /> : <KubernetesContent />}
 
-      <IntegrationScheme />
-
       <LaunchPortal />
+
+      <IntegrationScheme />
     </div>
   );
 };

@@ -7,8 +7,10 @@ import cx from 'classnames';
 import { createBemBlockBuilder } from '../../../../utils';
 
 import './IntegrationScheme.scss';
+import '../../InstallationPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['scheme']);
+const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
 
 const nodePosition = {
   0: 1,
@@ -124,7 +126,7 @@ const PopupContent = (info) => {
         <div>
           <p className={getBlocksWith('__popup-text')}>{info.url}</p>
           <Text
-            className={cx('copyable__code', 'copyable__popup')}
+            className={cx(getGeneralBlocksWith('__code'), getGeneralBlocksWith('__popup'))}
             code
             copyable={{
               text: info.scheme,
