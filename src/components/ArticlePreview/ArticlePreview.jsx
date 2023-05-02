@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import { Container } from '../Container';
-
 import * as styles from './ArticlePreview.module.scss';
 
 export const ArticlePreview = ({ posts }) => {
@@ -11,7 +9,7 @@ export const ArticlePreview = ({ posts }) => {
   if (!Array.isArray(posts)) return null;
 
   return (
-    <Container>
+    <div className="container">
       <ul className={styles.articleList}>
         {posts.map((post) => {
           return (
@@ -27,6 +25,6 @@ export const ArticlePreview = ({ posts }) => {
           );
         })}
       </ul>
-    </Container>
+    </div>
   );
 };

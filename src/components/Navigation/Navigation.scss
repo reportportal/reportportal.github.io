@@ -7,13 +7,13 @@
   position: relative;
   top: 0;
   z-index: var(--z-index);
-  color: var(--text-white);
+  color: var(--white);
   transform: translate3d(0, 0, 0);
   transition: background 0.3s, top 0.3s;
 
   &--active,
   &:hover {
-    background: var(--bg-white);
+    background: var(--white);
     color: var(--text-primary);
     box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
   }
@@ -51,7 +51,7 @@
       }
 
       [class*='logo-title'] {
-        fill: var(--text-dark);
+        fill: var(--dark);
       }
     }
   }
@@ -129,7 +129,7 @@
     display: none;
     align-items: center;
     margin-right: 8px;
-    color: var(--text-purple-grey);
+    color: var(--purple-grey);
     transition: color 0.3s;
 
     @include breakpoint(1224px) {
@@ -160,7 +160,7 @@
     box-shadow: none;
     padding: 9px 21.5px;
     outline: none;
-    color: var(--text-white);
+    color: var(--white);
     text-align: center;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
@@ -178,7 +178,7 @@
     @extend .top-header-navigation__loginButton;
 
     display: inline-block;
-    border: 2px solid var(--bg-white);
+    border: 2px solid var(--white);
     border-radius: 6px;
     margin-left: 16px;
 
@@ -188,7 +188,7 @@
 
       &:hover {
         background-color: var(--color-primary-600);
-        color: var(--text-white);
+        color: var(--white);
       }
     }
   }
@@ -212,17 +212,17 @@
 }
 
 .top-header-navigation__burgerButton {
-  color: var(--text-white);
+  color: var(--white);
 
   .top-header--active &,
   .top-header:hover & {
-    color: var(--text-dark);
+    color: var(--dark);
   }
 }
 
 .top-header-navigation__closeButton {
   align-self: center;
-  color: var(--text-dark);
+  color: var(--dark);
 }
 
 .mobile-menu {

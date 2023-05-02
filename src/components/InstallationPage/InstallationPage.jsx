@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
-import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../utils';
-import { DockerIcon, KubernetesIcon } from './icons';
 import { IntegrationScheme } from './components/IntegrationScheme';
+import { DockerContent } from './components/DockerContent';
+import { KubernetesContent } from './components/KubernetesContent';
+import { LaunchPortal } from './components/LaunchPortal';
+import { DockerIcon, KubernetesIcon } from './icons';
 import { ButtonSwitcher } from '../ButtonSwitcher';
 
 import './InstallationPage.scss';
@@ -37,7 +39,7 @@ export const InstallationPage = () => {
   return (
     <div>
       <div className={getBlocksWith()}>
-        <Container>
+        <div className="container">
           <h1 className={getBlocksWith('__title')}>Installation guide</h1>
           <p className={getBlocksWith('__subtitle')}>3 steps to get started with ReportPortal</p>
 
@@ -48,12 +50,14 @@ export const InstallationPage = () => {
               activeBtnName={activeButton}
             />
           </div>
-        </Container>
+        </div>
       </div>
 
-      {isFirstBtnActive ? <div>First Page</div> : <div>Second Page</div>}
+      {isFirstBtnActive() ? <DockerContent /> : <KubernetesContent />}
 
       <IntegrationScheme />
+
+      <LaunchPortal />
     </div>
   );
 };

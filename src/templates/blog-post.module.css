@@ -28,7 +28,7 @@
 
 .article a:hover {
   border-bottom-color: transparent;
-  color: var(--primary);
+  color: var(--color-primary-500);
 }
 
 .article p {
