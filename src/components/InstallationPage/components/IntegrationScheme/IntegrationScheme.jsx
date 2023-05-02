@@ -7,7 +7,7 @@ import { Arrow, SchemeRow } from './SchemeRow';
 import { SchemeHeader } from './SchemeHeader';
 import { data } from './schemeData';
 
-import '../../Installation.scss';
+import '../../InstallationPage.scss';
 import './IntegrationScheme.scss';
 
 // should be deleted after merge:

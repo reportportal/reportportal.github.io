@@ -1,14 +1,13 @@
 import React from 'react';
 import { useBoolean } from 'ahooks';
-import cx from 'classnames';
 
 import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../utils';
 import { DockerIcon, KubernetesIcon } from './icons';
-import { SwitchButtons } from '../switchButtons';
+import { ButtonSwitcher } from '../ButtonSwitcher';
 import { IntegrationScheme } from './components/IntegrationScheme';
 
-import './Installation.scss';
+import './InstallationPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['installation']);
 
@@ -25,7 +24,7 @@ const buttons = [
   },
 ];
 
-export const Installation = () => {
+export const InstallationPage = () => {
   const [contentSate, { toggle }] = useBoolean(true);
 
   const handleSwitch = () => {
@@ -40,7 +39,7 @@ export const Installation = () => {
           <p className={getBlocksWith('__subtitle')}>3 steps to get started with ReportPortal</p>
 
           <div className={getBlocksWith('__btn-box')}>
-            <SwitchButtons buttons={buttons} onSwitch={handleSwitch} />
+            <ButtonSwitcher buttons={buttons} onSwitch={handleSwitch} />
           </div>
         </Container>
       </div>
