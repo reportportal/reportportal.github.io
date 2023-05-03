@@ -229,10 +229,12 @@ const GraphicArrow = ({ children, info }) => {
 
 export const Arrow = ({ children = null, state }) => {
   return (
-    <div className={getBlocksWith('__btn-arrow-wrapper')}>
-      <span className={cx({ [getBlocksWith('__btn-arrow-active-text')]: state })}>
-        {children && children}
-      </span>
+    <div
+      className={cx(getBlocksWith('__btn-arrow-wrapper'), {
+        [getBlocksWith('__btn-arrow-active-text')]: state,
+      })}
+    >
+      <span>{children && children}</span>
       <span
         className={cx(getBlocksWith('__btn-arrow'), {
           [getBlocksWith('__btn-arrow-active')]: state,
