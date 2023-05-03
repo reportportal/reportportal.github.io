@@ -9,7 +9,7 @@ export const DockerInstall = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
 
   return (
-    <div className="container">
+    <>
       <div className={getBlocksWith('__wrapper')}>
         <h3 className={getBlocksWith('__title-content')}>Install Docker</h3>
         <p className={getBlocksWith('__text-content')}>
@@ -59,6 +59,6 @@ export const DockerInstall = () => {
           Details about production deployment and system capacity are here.
         </p>
       </div>
-    </div>
+    </>
   );
 };
