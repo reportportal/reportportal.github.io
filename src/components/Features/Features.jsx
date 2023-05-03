@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 
 import * as styles from './Features.module.scss';
 
@@ -19,32 +19,23 @@ import {
 import { iconsCommon } from '../../utils/imageSource';
 
 export const Features = () => {
-  const [currentLang, setActiveLang] = useState('java');
-  const [shownItem, setshownItem] = useState();
+  const [currentLanguage, setActiveLanguage] = useState('java');
+  const [shownItem, setShownItem] = useState();
 
   function currentFrameworks() {
     const frameworks = {
-      'java': frameworkIconsJava,
-      'dotnet': frameworkIconsDotNet,
-      'javascript': frameworkIconsJavascript,
-      'python': frameworkIconsPython,
-      'php': frameworkIconsPhp
+      java: frameworkIconsJava,
+      dotnet: frameworkIconsDotNet,
+      javascript: frameworkIconsJavascript,
+      python: frameworkIconsPython,
+      php: frameworkIconsPhp,
     };
-  
-    return frameworks[currentLang] || frameworkIconsOther;
+
+    return frameworks[currentLanguage] || frameworkIconsOther;
   }
 
-  const setActiveLanguage = useCallback(langId => {
-    setActiveLang(langId)
-  }, []);
-
-
-  const setShownItem = useCallback(shownIte => {
-    setshownItem(shownIte)
-  }, []);
-  
   return (
-    <div id={styles.features_container}>
+    <div>
       <div className={styles.background_hero}>
         <div className={styles.backgroundhero_heading}>
           <h2>FEATURES</h2>
@@ -73,7 +64,7 @@ export const Features = () => {
             <div className={styles.features_leading}>
               <h1>{feature.title}</h1>
               <p>{feature.description}</p>
-              <a>
+              <a href="#">
                 Learn more <img src={iconsCommon.arrow} />
               </a>
             </div>
@@ -85,7 +76,7 @@ export const Features = () => {
         ))}
       </div>
       <div className={styles.integrations}>
-        <div className={styles.integrations_heading}>
+        <div>
           <h1>Integrate with your existing test automation process</h1>
           <h2>
             Integrate ReportPortal with frameworks, bug tracking systems, infrastructure providers
@@ -93,9 +84,9 @@ export const Features = () => {
           </h2>
           <button>See all integrations</button>
         </div>
-        <div className={styles.intergrations_customers}>
+        <div className={styles.integrations_customers}>
           {customerIcons.map((icon, index) => (
-            <div className={styles.intergrations_customer_icon} key={index}>
+            <div className={styles.integrations_customer_icon} key={index}>
               <img src={icon} />
             </div>
           ))}
@@ -109,9 +100,9 @@ export const Features = () => {
           <div className={styles.frameworks_box_header}>
             {languageList.map((lang, index) => (
               <div
-                onClick={() => setActiveLanguage(lang.id)}
-                className={lang.id == currentLang ? styles.active_lang : ""}
+                className={lang.id === currentLanguage ? styles.active_lang : ''}
                 key={index}
+                onClick={() => setActiveLanguage(lang.id)}
               >
                 {lang.lang}
               </div>
@@ -136,7 +127,7 @@ export const Features = () => {
             </h2>
           </div>
           <div className={styles.subscription_leading_button_group}>
-            <button className={"btn"}>Start free trial</button>
+            <button className={'btn'}>Start free trial</button>
             <button className="btn-clear">Get a quote</button>
           </div>
         </div>
@@ -146,7 +137,7 @@ export const Features = () => {
       </div>
       <div className={styles.faq}>
         <div className={styles.faq_heading}>
-          <h1>Frequently asked qustions</h1>
+          <h1>Frequently asked questions</h1>
         </div>
         <div className={styles.faq_content}>
           {collapsableList.map((item, index) => (
@@ -154,13 +145,16 @@ export const Features = () => {
               <div className={styles.faq_content_item_title}>
                 <h1>{item.title} </h1>
                 <img
-                  className={`${shownItem !== item.id ? styles.arrowshown : ""}`}
+                  className={`${shownItem !== item.id ? styles.arrowshown : ''}`}
                   src={iconsCommon.arrowalt}
                   onClick={() => setShownItem(item.id)}
                 />
               </div>
               <div
-                className={`${styles.faq_content_item_description} ${shownItem == item.id ? styles.shown : styles.collapsed}`}>
+                className={`${styles.faq_content_item_description} ${
+                  shownItem === item.id ? styles.shown : styles.collapsed
+                }`}
+              >
                 <p>{item.description}</p>
               </div>
             </div>

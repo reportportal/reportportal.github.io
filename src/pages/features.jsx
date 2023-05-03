@@ -1,18 +1,14 @@
-import Features from '../components/Features';
-import { Layout } from '../components/Layout';
 import React from 'react';
 
-class FeaturesIndex extends React.Component {
-  
-  render() {
+import { Features } from '../components/Features';
+import { Layout } from '../components/Layout';
 
-    return (
-      <Layout location={this.props.location}>
-        <Features />
-      </Layout>
-    );
-  }
-}
-
+const FeaturesIndex = ({ location }) => {
+  return (
+    <Layout location={location}>
+      <Features />
+    </Layout>
+  );
+};
 
 export default FeaturesIndex;
