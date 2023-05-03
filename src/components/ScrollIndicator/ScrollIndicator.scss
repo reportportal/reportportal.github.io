@@ -44,6 +44,14 @@ $starter-top-position: -200px;
     color: var(--text-light-grey);
     cursor: pointer;
 
+    &:hover {
+      color: var(--color-primary-500);
+    } 
+
+    &:hover::before {
+      border: 1px solid var(--color-primary-500);
+    }
+
     &.active {
       color: var(--text-primary);
 
