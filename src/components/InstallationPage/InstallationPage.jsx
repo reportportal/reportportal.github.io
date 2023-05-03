@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { createBemBlockBuilder } from '../../utils';
 import { KubernetesContent } from './components/KubernetesContent';
@@ -44,6 +45,7 @@ const ACTIVE_BUTTON = buttons[0].text;
 export const InstallationPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
   const [sections, setSections] = useState(dockerSections);
+  const isDesktop = useMediaQuery({ query: '(min-width: 800px)' });
 
   useEffect(() => {
     const activeButtonObject = buttons.find((button) => button.text === activeButton);
@@ -77,9 +79,11 @@ export const InstallationPage = () => {
       </div>
 
       <div className={getBlocksWith('__main')}>
-        <div className={getBlocksWith('__main-indicator')}>
-          <ScrollIndicator sections={sections} />
-        </div>
+        {isDesktop && (
+          <div className={getBlocksWith('__main-indicator')}>
+            <ScrollIndicator sections={sections} />
+          </div>
+        )}
 
         <div className={getBlocksWith('__main-content')}>
           {isFirstBtnActive() ? (
