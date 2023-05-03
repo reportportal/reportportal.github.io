@@ -24,33 +24,31 @@ export const IntegrationScheme = () => {
   };
 
   return (
-    <div className="container">
-      <div className={getGeneralBlocksWith('__container')}>
-        <div className={getGeneralBlocksWith('__wrapper')}>
-          <div className={getGeneralBlocksWith('__chapter')}>Step 3</div>
-          <h3 className={getGeneralBlocksWith('__title-content')}>
-            Integrate with your test framework
-          </h3>
-          <p>Integration scheme:</p>
+    <div className={getGeneralBlocksWith('__container')}>
+      <div className={getGeneralBlocksWith('__wrapper')}>
+        <div className={getGeneralBlocksWith('__chapter')}>Step 3</div>
+        <h3 className={getGeneralBlocksWith('__title-content')}>
+          Integrate with your test framework
+        </h3>
+        <p>Integration scheme:</p>
 
-          <Divider className={getBlocksWith('__divider')} />
+        <Divider className={getBlocksWith('__divider')} />
 
-          <SchemeHeader state={state} />
+        <SchemeHeader state={state} />
 
-          <div className={cx(getBlocksWith(), { scheme__collapse: state })}>
-            <div className={getBlocksWith('__container')}>
-              {data.map(({ cells, row }) => (
-                <SchemeRow key={row} portion={cells} row={row} lastRow={lastRow()} />
-              ))}
-            </div>
+        <div className={cx(getBlocksWith(), { scheme__collapse: state })}>
+          <div className={getBlocksWith('__container')}>
+            {data.map(({ cells, row }) => (
+              <SchemeRow key={row} portion={cells} row={row} lastRow={lastRow()} />
+            ))}
           </div>
+        </div>
 
-          <div className="collapse__btn">
-            <div className="collapse__btn-inner" onClick={toggleScheme}>
-              <Arrow state={!state}>
-                <p>See less</p>
-              </Arrow>
-            </div>
+        <div className="collapse__btn">
+          <div className="collapse__btn-inner" onClick={toggleScheme}>
+            <Arrow state={!state}>
+              <p>See less</p>
+            </Arrow>
           </div>
         </div>
       </div>

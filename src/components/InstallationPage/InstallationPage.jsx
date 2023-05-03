@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 
 import { createBemBlockBuilder } from '../../utils';
 import { IntegrationScheme } from './components/IntegrationScheme';
-import { DockerContent } from './components/DockerContent';
 import { KubernetesContent } from './components/KubernetesContent';
 import { LaunchPortal } from './components/LaunchPortal';
 import { DockerIcon, KubernetesIcon } from './icons';
 import { ButtonSwitcher } from '../ButtonSwitcher';
+import { DockerDeployingStep } from './components/DockerContent/DockerDeployingStep';
+import { DockerInstall } from './components/DockerContent/DockerInstall';
 
 import './InstallationPage.scss';
 
@@ -53,11 +54,36 @@ export const InstallationPage = () => {
         </div>
       </div>
 
-      {isFirstBtnActive() ? <DockerContent /> : <KubernetesContent />}
+      {/* These all extra div-tags are nassessary for the scroll functionality in the next task */}
+      <div>
+        <div>
+          <div className="container">
+            {isFirstBtnActive() ? (
+              <>
+                <div>
+                  <DockerInstall />
+                </div>
 
-      <LaunchPortal />
+                <div>
+                  <DockerDeployingStep />
+                </div>
+              </>
+            ) : (
+              <div>
+                <KubernetesContent />
+              </div>
+            )}
 
-      <IntegrationScheme />
+            <div>
+              <LaunchPortal />
+            </div>
+
+            <div>
+              <IntegrationScheme />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
