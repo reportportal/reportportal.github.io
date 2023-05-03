@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import { createBemBlockBuilder } from '../../utils';
@@ -44,13 +44,12 @@ const ACTIVE_BUTTON = buttons[0].text;
 
 export const InstallationPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
-  const [sections, setSections] = useState(dockerSections);
   const isDesktop = useMediaQuery({ query: '(min-width: 800px)' });
 
-  useEffect(() => {
+  const getSections = useMemo(() => {
     const activeButtonObject = buttons.find((button) => button.text === activeButton);
 
-    setSections(activeButtonObject.scrollPoints);
+    return activeButtonObject ? activeButtonObject.scrollPoints : null;
   }, [activeButton]);
 
   const isFirstBtnActive = () => activeButton === buttons[0].text;
@@ -81,7 +80,7 @@ export const InstallationPage = () => {
       <div className={getBlocksWith('__main')}>
         {isDesktop && (
           <div className={getBlocksWith('__main-indicator')}>
-            <ScrollIndicator sections={sections} />
+            <ScrollIndicator sections={getSections} />
           </div>
         )}
 
