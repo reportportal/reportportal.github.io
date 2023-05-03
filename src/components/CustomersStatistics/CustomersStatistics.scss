@@ -1,0 +1,122 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.customers-statistics {
+  padding: 68px 0 152px;
+  background-image: var(--gradient-primary-2);
+  color: var(--white);
+
+  @include breakpoint($tablet-sm-exact) {
+    padding: 68px 24px 120px;
+  }
+
+  &__container {
+    background-image: url('./world.svg');
+    background-position: 16px 0;
+    background-repeat: no-repeat;
+    background-size: 720px 239px;
+
+    @include breakpoint($tablet-sm-exact) {
+      background-position: top center;
+      background-size: contain;
+    }
+  }
+
+  &__content {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @include breakpoint($tablet-sm-exact) {
+      max-width: 996px;
+      margin: 0 auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__title {
+    @include font-poppins($fw-bold);
+    @include font-scale(x4-medium);
+
+    margin: 0;
+    padding-top: 52px;
+
+    @include breakpoint($desktop-sm) {
+      @include font-scale(x3-large);
+    }
+  }
+
+  &__sub-title {
+    @include font-noto-sans();
+    @include font-scale(x2-medium);
+
+    margin: 16px 0 0;
+  }
+
+  &__title,
+  &__sub-title {
+    @include breakpoint($tablet-sm-exact) {
+      text-align: center;
+    }
+
+    @include breakpoint($desktop-sm) {
+      text-align: left;
+    }
+  }
+}
+
+.customers-statistics-list {
+  display: grid;
+  gap: 48px;
+  padding: 48px 0 0;
+
+  @include breakpoint($tablet-sm-exact) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  @include breakpoint($desktop-sm) {
+    justify-content: center;
+    gap: 45.33px;
+    padding: 80px 0 0;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 16px;
+    border-left: 1px solid var(--text-service);
+
+    strong {
+      &:nth-child(1) {
+        @include font-poppins($fw-bold);
+        @include font-scale(x4-medium);
+
+        @include breakpoint($tablet-sm-exact) {
+          @include font-scale(large);
+        }
+      }
+
+      &:nth-child(2) {
+        @include font-poppins($fw-semi-bold);
+        @include font-scale();
+      }
+    }
+
+    span {
+      @include font-noto-sans();
+      @include font-scale();
+
+      margin-top: 8px;
+      color: var(--text-light-grey);
+
+      @include breakpoint($desktop-sm) {
+        display: inline-block;
+        width: 95%;
+      }
+    }
+  }
+}

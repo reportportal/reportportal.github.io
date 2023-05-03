@@ -40,3 +40,5 @@ export const Carousel = memo(({ slides }) => {
     </div>
   );
 });
+
+Carousel.displayName = 'Carousel';
