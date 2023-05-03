@@ -13,6 +13,19 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  &__main {
+    display: flex;
+
+    &-indicator {
+      flex: 3;
+    }
+
+    &-content {
+      
+      flex: 7;
+    }
+  }
+
   &__title {
     @include font-poppins($fw-bold);
     @include font-scale(large);

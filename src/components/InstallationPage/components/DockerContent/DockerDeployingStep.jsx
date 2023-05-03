@@ -11,7 +11,7 @@ export const DockerDeployingStep = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
 
   return (
-    <div className="container">
+    <>
       <div className={getBlocksWith('__wrapper')}>
         <div className={getBlocksWith('__chapter')}>Step 1</div>
         <h3 className={getBlocksWith('__title-content')}>Configure and deploy ReportPortal</h3>
@@ -129,6 +129,6 @@ export const DockerDeployingStep = () => {
         </p>{' '}
         <br />— deletes all ReportPortal containers
       </Notice>
-    </div>
+    </>
   );
 };
