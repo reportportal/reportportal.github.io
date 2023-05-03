@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { KubernetesContent } from './components/KubernetesContent';
@@ -84,24 +85,24 @@ export const InstallationPage = () => {
           </div>
         )}
 
-        <div className={getBlocksWith('__main-content')}>
+        <div className={cx(getBlocksWith('__main-content'), 'container')}>
           {isFirstBtnActive() ? (
             <>
-              <div className="container" name="section-1" id="part-1">
+              <div name="section-1" id="part-1">
                 <DockerInstall />
               </div>
 
-              <div className="container" key="section-2" name="section-2" id="part-2">
+              <div key="section-2" name="section-2" id="part-2">
                 <DockerDeployingStep />
               </div>
             </>
           ) : (
-            <div className="container" name="section-1" id="part-1">
+            <div name="section-1" id="part-1">
               <KubernetesContent />
             </div>
           )}
 
-          <div className="container" key="section-3" name="section-3" id="part-3">
+          <div key="section-3" name="section-3" id="part-3">
             <LaunchPortal />
           </div>
 
