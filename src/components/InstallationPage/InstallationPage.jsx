@@ -47,11 +47,11 @@ export const InstallationPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
   const isDesktop = useMediaQuery({ query: '(min-width: 800px)' });
 
-  const getSections = useMemo(() => {
+  const getSections = () => {
     const activeButtonObject = buttons.find((button) => button.text === activeButton);
 
     return activeButtonObject ? activeButtonObject.scrollPoints : null;
-  }, [activeButton]);
+  };
 
   const isFirstBtnActive = () => activeButton === buttons[0].text;
 
@@ -81,7 +81,7 @@ export const InstallationPage = () => {
       <div className={getBlocksWith('__main')}>
         {isDesktop && (
           <div className={getBlocksWith('__main-indicator')}>
-            <ScrollIndicator sections={getSections} />
+            <ScrollIndicator sections={getSections()} />
           </div>
         )}
 
