@@ -5,18 +5,22 @@ import { createBemBlockBuilder } from '../../utils';
 
 import './ButtonSwitcher.scss';
 
-const BUTTON_WIDTH = 239;
+const INCREASED_BUTTON_NUMBER = 3;
 
 const getBlocksWith = createBemBlockBuilder(['switcher']);
 
 export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
-  const getWidth = () => BUTTON_WIDTH * buttons.length;
+  const buttonsMode = () => buttons.length === INCREASED_BUTTON_NUMBER;
 
   const isActive = (btnName) => btnName === activeBtnName;
 
   return (
     <div className={getBlocksWith()}>
-      <div className={getBlocksWith('__inner')} style={{ maxWidth: getWidth() }}>
+      <div
+        className={cx(getBlocksWith('__inner'), {
+          [getBlocksWith('__inner-increased')]: buttonsMode(),
+        })}
+      >
         {buttons.map((btn) => (
           <div
             key={btn.text}
