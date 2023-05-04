@@ -45,12 +45,10 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
   const isLastRow = () => row === lastRow;
 
   const constructElementKey = (index) =>
-    portion.reduce((acc, item, i) => {
-      if (i <= index) {
-        return acc + item.text;
-      }
-      return acc;
-    }, '');
+    portion
+      .slice(0, index + 1)
+      .map((item) => item.text)
+      .join('');
 
   return (
     <div className={getBlocksWith('__row')}>
