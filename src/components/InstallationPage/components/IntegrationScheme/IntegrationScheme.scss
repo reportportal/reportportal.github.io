@@ -3,13 +3,13 @@
 
 .scheme {
   width: 100%;
-  max-height: auto;
+  // max-height: auto;
   max-width: 800px;
   margin: 0 auto 0;
   // collapsing 
-  overflow: hidden;
-  max-height: none;
-  transition: max-height 0.5s ease;
+  // overflow: hidden;
+  // max-height: none;
+  // transition: max-height 0.5s ease;
   color: var(--text-grey);
 
   &__divider {
@@ -19,12 +19,15 @@
   &__collapse {
     // collapsing
     max-height: 0;
+    // overflow: hidden;
+    // // max-height: none;
+    // transition: max-height 0.5s ease;
 
     .scheme__container {
       // collapsing 
       transform: scaleY(0);
       transform-origin: top;
-      transition: transform 0.5s ease;
+      transition: all 0.3s ease;
     }
   }
 
@@ -87,7 +90,8 @@
   &__container {
     // collapsing 
     transform: scaleY(1);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
+    transform-origin: bottom;
 
     position: relative;
     margin-bottom: 30px;

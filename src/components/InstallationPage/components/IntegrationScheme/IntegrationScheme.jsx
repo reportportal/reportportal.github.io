@@ -36,7 +36,7 @@ export const IntegrationScheme = () => {
 
         <SchemeHeader state={state} />
 
-        <div className={cx(getBlocksWith(), { scheme__collapse: state })}>
+        <div className={cx(getBlocksWith(), { [getBlocksWith('__collapse')]: state })}>
           <div className={getBlocksWith('__container')}>
             {data.map(({ cells, row }) => (
               <SchemeRow key={row} portion={cells} row={row} lastRow={lastRow()} />
