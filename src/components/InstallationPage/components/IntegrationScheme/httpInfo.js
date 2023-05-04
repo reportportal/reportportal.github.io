@@ -1,4 +1,4 @@
-const httpInfo = {
+export const httpInfo = {
   startLaunchRq: {
     type: 'HTTP request',
     url: 'POST http://rphost:port/api/v1/{projectName}/launch',
@@ -105,5 +105,3 @@ const httpInfo = {
     scheme: '"msg": "message"',
   },
 };
-
-export default httpInfo;

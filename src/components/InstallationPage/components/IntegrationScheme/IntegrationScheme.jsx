@@ -6,7 +6,7 @@ import { Divider } from 'antd';
 import { createBemBlockBuilder } from '../../../../utils';
 import { Arrow, SchemeRow } from './SchemeRow';
 import { SchemeHeader } from './SchemeHeader';
-import { data } from './schemeData';
+import { schemeData } from './schemeData';
 
 import '../../InstallationPage.scss';
 import './IntegrationScheme.scss';
@@ -17,11 +17,7 @@ const getBlocksWith = createBemBlockBuilder(['scheme']);
 export const IntegrationScheme = () => {
   const [state, { toggle }] = useToggle();
 
-  const lastRow = () => data.length;
-
-  const toggleScheme = () => {
-    toggle();
-  };
+  const lastRow = () => schemeData.length;
 
   return (
     <div className={getGeneralBlocksWith('__container')}>
@@ -38,14 +34,14 @@ export const IntegrationScheme = () => {
 
         <div className={cx(getBlocksWith(), { [getBlocksWith('__collapse')]: state })}>
           <div className={getBlocksWith('__container')}>
-            {data.map(({ cells, row }) => (
+            {schemeData.map(({ cells, row }) => (
               <SchemeRow key={row} portion={cells} row={row} lastRow={lastRow()} />
             ))}
           </div>
         </div>
 
         <div className="collapse__btn">
-          <div className="collapse__btn-inner" onClick={toggleScheme}>
+          <div className="collapse__btn-inner" onClick={toggle}>
             <Arrow state={!state}>
               <p>See less</p>
             </Arrow>

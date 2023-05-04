@@ -1,6 +1,6 @@
-import httpInfo from './httpInfo';
+import { httpInfo } from './httpInfo';
 
-export const data = [
+export const schemeData = [
   {
     row: 1,
     cells: [

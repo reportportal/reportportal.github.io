@@ -1,16 +1,16 @@
 /* eslint-disable no-nested-ternary */
-import React, { Fragment, useRef } from 'react';
-import { Button, Popover, Typography } from 'antd';
+import React, { useRef } from 'react';
+import { Button, Popover } from 'antd';
 import { useClickAway, useToggle } from 'ahooks';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../../utils';
+import { PopupContent } from './PopupContent';
 
 import './IntegrationScheme.scss';
 import '../../InstallationPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['scheme']);
-const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
 
 const nodePosition = {
   0: 1,
@@ -26,40 +26,21 @@ const FIRST_ROW_NODE = 0;
 export const SchemeRow = ({ portion, row, lastRow }) => {
   const isEvenRow = () => !(row % 2 === 0);
 
-  const isBoundaryNode = (index) => {
-    if (isLastRow()) {
-      return isLastNode(index);
-    }
+  const isBoundaryNode = (index) =>
+    isLastRow() ? isLastNode(index) : row === 1 && index === FIRST_ROW_NODE;
 
-    return row === 1 && index === FIRST_ROW_NODE;
-  };
+  const isLastNode = (index) =>
+    !!((!isEvenRow() && index === FIRST_ROW_NODE) || (isEvenRow() && index === LAST_ROW_NODE));
 
-  const isLastNode = (index) => {
-    if (!isEvenRow() && index === FIRST_ROW_NODE) {
-      return true;
-    }
+  const isDownArrow = (index) =>
+    isLastRow()
+      ? false
+      : (isEvenRow() && index === LAST_ROW_NODE) || (!isEvenRow() && index === FIRST_ROW_NODE);
 
-    if (isEvenRow() && index === LAST_ROW_NODE) {
-      return true;
-    }
-
-    return false;
-  };
-
-  const isDownArrow = (index) => {
-    if (isLastRow()) {
-      return false;
-    }
-
-    return (isEvenRow() && index === LAST_ROW_NODE) || (!isEvenRow() && index === FIRST_ROW_NODE);
-  };
-
-  const calculateNumber = (index) => {
-    if (isEvenRow()) {
-      return (row - 1) * ROW_NODE_NUMBER + nodePosition[index];
-    }
-    return (row - 1) * ROW_NODE_NUMBER + ADJUSTING_COEFFICIENT - nodePosition[index];
-  };
+  const calculateNumber = (index) =>
+    isEvenRow()
+      ? (row - 1) * ROW_NODE_NUMBER + nodePosition[index]
+      : (row - 1) * ROW_NODE_NUMBER + ADJUSTING_COEFFICIENT - nodePosition[index];
 
   const isLastRow = () => row === lastRow;
 
@@ -101,49 +82,6 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
 const createTitleComponent = (title) => (
   <div className={getBlocksWith('__popup-title')}>{title}</div>
 );
-
-const PopupContent = (info) => {
-  const { Text } = Typography;
-
-  const formatText = () => {
-    if (info.scheme) {
-      return (
-        <div>
-          {info.scheme.split('\n').map((str, i) => (
-            <Fragment key={info.scheme + i}>
-              {str} <br />
-            </Fragment>
-          ))}
-        </div>
-      );
-    }
-    return '';
-  };
-
-  return (
-    <div>
-      {info ? (
-        <div>
-          <p className={getBlocksWith('__popup-text')}>{info.url}</p>
-          <Text
-            className={cx(getGeneralBlocksWith('__code'), getGeneralBlocksWith('__popup'))}
-            code
-            copyable={{
-              text: info.scheme,
-              format: 'text/plain',
-            }}
-          >
-            {formatText()}
-          </Text>
-        </div>
-      ) : (
-        <div>
-          <p>No Data</p>
-        </div>
-      )}
-    </div>
-  );
-};
 
 const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
   <div
@@ -227,7 +165,7 @@ const GraphicArrow = ({ children, info }) => {
   );
 };
 
-export const Arrow = ({ children = null, state }) => {
+export const Arrow = ({ children, state }) => {
   return (
     <div
       className={cx(getBlocksWith('__btn-arrow-wrapper'), {
