@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { createBemBlockBuilder } from '../../utils';
 import { IntegrationScheme } from './components/IntegrationScheme';
@@ -28,6 +29,7 @@ const ACTIVE_BUTTON = buttons[0].text;
 
 export const InstallationPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
+  const isDesktop = useMediaQuery({ query: '(min-width: 1100px)' });
 
   const isFirstBtnActive = () => activeButton === buttons[0].text;
 
@@ -54,7 +56,7 @@ export const InstallationPage = () => {
         </div>
       </div>
 
-      {/* These all extra div-tags are nassessary for the scroll functionality in the next task */}
+      {/* These all extra div-tags are necessary for the scroll functionality in the next task */}
       <div>
         <div>
           <div className="container">
@@ -78,9 +80,11 @@ export const InstallationPage = () => {
               <LaunchPortal />
             </div>
 
-            <div>
-              <IntegrationScheme />
-            </div>
+            {isDesktop && (
+              <div>
+                <IntegrationScheme />
+              </div>
+            )}
           </div>
         </div>
       </div>

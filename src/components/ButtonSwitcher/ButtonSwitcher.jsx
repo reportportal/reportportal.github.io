@@ -10,7 +10,7 @@ const INCREASED_BUTTON_NUMBER = 3;
 const getBlocksWith = createBemBlockBuilder(['switcher']);
 
 export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
-  const buttonsMode = () => buttons.length === INCREASED_BUTTON_NUMBER;
+  const hasAdditionalButton = () => buttons.length === INCREASED_BUTTON_NUMBER;
 
   const isActive = (btnName) => btnName === activeBtnName;
 
@@ -18,7 +18,7 @@ export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
     <div className={getBlocksWith()}>
       <div
         className={cx(getBlocksWith('__inner'), {
-          [getBlocksWith('__inner-increased')]: buttonsMode(),
+          [getBlocksWith('__inner-increased')]: hasAdditionalButton(),
         })}
       >
         {buttons.map((btn) => (

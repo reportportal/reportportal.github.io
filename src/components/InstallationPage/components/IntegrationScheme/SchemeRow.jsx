@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import React, { useRef } from 'react';
 import { Button, Popover } from 'antd';
 import { useClickAway, useToggle } from 'ahooks';
@@ -50,27 +49,35 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
       .map((item) => item.text)
       .join('');
 
+  const renderEntity = (item, index) => {
+    const entities = {
+      node: (
+        <Node
+          row={isBoundaryNode(index)}
+          direction={isEvenRow()}
+          isDownArrow={isDownArrow(index)}
+          number={calculateNumber(index)}
+          lastRow={isLastRow()}
+        >
+          {item.text}
+        </Node>
+      ),
+      event: <EventNode direction={isEvenRow()}>{item.text}</EventNode>,
+      action: (
+        <ActionNode info={item.info} direction={isEvenRow()}>
+          {item.text}
+        </ActionNode>
+      ),
+    };
+
+    return entities[item.entity];
+  };
+
   return (
     <div className={getBlocksWith('__row')}>
       {portion.map((item, index) => (
         <div key={constructElementKey(index)} className={getBlocksWith('__col')}>
-          {item.entity === 'node' ? (
-            <Node
-              row={isBoundaryNode(index)}
-              direction={isEvenRow()}
-              isDownArrow={isDownArrow(index)}
-              number={calculateNumber(index)}
-              lastRow={isLastRow()}
-            >
-              {item.text}
-            </Node>
-          ) : item.entity === 'event' ? (
-            <EventNode direction={isEvenRow()}>{item.text}</EventNode>
-          ) : (
-            <ActionNode info={item.info} direction={isEvenRow()}>
-              {item.text}
-            </ActionNode>
-          )}
+          {renderEntity(item, index)}
         </div>
       ))}
     </div>
@@ -93,7 +100,7 @@ const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
   >
     <div className={getBlocksWith('__col-inner-number')}>{number}</div>
     <p>{children}</p>
-    <div className={cx({ 'scheme__col-inner-bottom': lastRow })} />
+    <div className={cx({ [getBlocksWith('__col-inner-bottom')]: lastRow })} />
   </div>
 );
 
@@ -163,19 +170,17 @@ const GraphicArrow = ({ children, info }) => {
   );
 };
 
-export const Arrow = ({ children, state }) => {
-  return (
-    <div
-      className={cx(getBlocksWith('__btn-arrow-wrapper'), {
-        [getBlocksWith('__btn-arrow-active-text')]: state,
+export const Arrow = ({ children, state }) => (
+  <div
+    className={cx(getBlocksWith('__btn-arrow-wrapper'), {
+      [getBlocksWith('__btn-arrow-active-text')]: state,
+    })}
+  >
+    <span>{children && children}</span>
+    <span
+      className={cx(getBlocksWith('__btn-arrow'), {
+        [getBlocksWith('__btn-arrow-active')]: state,
       })}
-    >
-      <span>{children && children}</span>
-      <span
-        className={cx(getBlocksWith('__btn-arrow'), {
-          [getBlocksWith('__btn-arrow-active')]: state,
-        })}
-      />
-    </div>
-  );
-};
+    />
+  </div>
+);
