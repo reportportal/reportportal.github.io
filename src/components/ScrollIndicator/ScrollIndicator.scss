@@ -31,11 +31,15 @@ $starter-top-position: -200px;
 
     &-item {
       height: 140px;
+
+      &-substring {
+        @include font-noto-sans();
+      }
     }
   }
 
   &__link {
-    @include font-noto-sans();
+    @include font-noto-sans($fw-semi-bold);
 
     position: relative;
     display: inline-block;
@@ -53,12 +57,16 @@ $starter-top-position: -200px;
     }
 
     &.active {
-      color: var(--text-primary);
+      color: #2F3C5F; //var(--text-primary);
 
       &::before {
         background-color: var(--color-primary-500);
         transition: background-color .4s ease-out;
         border: none;
+      }
+
+      .indicatory__box-item-substring {
+        color: #5F6578
       }
     }
 
