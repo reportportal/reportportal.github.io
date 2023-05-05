@@ -45,7 +45,7 @@ const ACTIVE_BUTTON = buttons[0].text;
 
 export const InstallationPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
-  const isDesktop = useMediaQuery({ query: '(min-width: 800px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1100px)' });
 
   const getSections = () => {
     const activeButtonObject = buttons.find((button) => button.text === activeButton);
@@ -106,19 +106,21 @@ export const InstallationPage = () => {
             <LaunchPortal />
           </div>
 
-          <div
-            key="section-4"
-            name="section-4"
-            id="part-4"
-            style={{
-              width: '100%',
-              height: '100vh',
-              textAlign: 'center',
-              background: '#F4EAD5',
-            }}
-          >
-            Empty Section
-          </div>
+          {isDesktop && (
+            <div
+              key="section-4"
+              name="section-4"
+              id="part-4"
+              style={{
+                width: '100%',
+                height: '100vh',
+                textAlign: 'center',
+                background: '#F4EAD5',
+              }}
+            >
+              Empty Section
+            </div>
+          )}
         </div>
       </div>
     </div>

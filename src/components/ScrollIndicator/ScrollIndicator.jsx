@@ -4,20 +4,22 @@ import { createBemBlockBuilder } from '../../utils';
 import '../InstallationPage/InstallationPage.scss';
 import './ScrollIndicator.scss';
 
-const getBlocksWithInd = createBemBlockBuilder(['indicatory']);
+const getBlocksWith = createBemBlockBuilder(['indicatory']);
 
 import { Link } from 'react-scroll';
 
 export const ScrollIndicator = ({ sections }) => {
+  const getSubstring = (title, substringNumber) => title.split('\n')[substringNumber];
+
   return (
     <>
       {sections && (
-        <div className={getBlocksWithInd()}>
-          <div className={getBlocksWithInd('__box')}>
+        <div className={getBlocksWith()}>
+          <div className={getBlocksWith('__box')}>
             {sections.map((section) => (
-              <div key={section.id} className={getBlocksWithInd('__box-item')}>
+              <div key={section.id} className={getBlocksWith('__box-item')}>
                 <Link
-                  className={getBlocksWithInd('__link')}
+                  className={getBlocksWith('__link')}
                   activeClass="active"
                   to={section.id}
                   spy={true}
@@ -25,7 +27,11 @@ export const ScrollIndicator = ({ sections }) => {
                   offset={-70}
                   duration={500}
                 >
-                  {section.title}
+                  <span>{getSubstring(section.title, 0)}</span>
+                  <br />
+                  <span className={getBlocksWith('__box-item-substring')}>
+                    {getSubstring(section.title, 1)}
+                  </span>
                 </Link>
               </div>
             ))}
