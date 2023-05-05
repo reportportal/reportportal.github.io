@@ -57,7 +57,7 @@ $starter-top-position: -200px;
     }
 
     &.active {
-      color: #2F3C5F; //var(--text-primary);
+      color: var(--text-primary);
 
       &::before {
         background-color: var(--color-primary-500);
@@ -66,7 +66,7 @@ $starter-top-position: -200px;
       }
 
       .indicatory__box-item-substring {
-        color: #5F6578
+        color: var(--text-grey);
       }
     }
 
