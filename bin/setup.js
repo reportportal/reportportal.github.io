@@ -1,7 +1,8 @@
 const spaceImport = require('contentful-import');
-const exportFile = require('../contentful/export.json');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
+
+const exportFile = require('../contentful/export.json');
 const path = require('path');
 const { writeFileSync } = require('fs');
 
@@ -66,29 +67,22 @@ inquirer
     );
 
     configFiles.forEach((file) => {
-      const fileArr = [
-        '# All environment variables will be sourced',
-        '# and made available to gatsby-config.js, gatsby-node.js, etc.',
-        '# Do NOT commit this file to source control',
-        `CONTENTFUL_SPACE_ID='${config.spaceId}'`,
-        `CONTENTFUL_ACCESS_TOKEN='${config.accessToken}'`,
-      ];
+      const message = `
+        # All environment variables will be sourced'
+        # and made available to gatsby-config.js, gatsby-node.js, etc.
+        # Do NOT commit this file to source control'
+        ${CONTENTFUL_SPACE_ID}='${config.spaceId}'
+        ${CONTENTFUL_ACCESS_TOKEN}='${config.accessToken}'
+        ${
+          file.includes('development')
+            ? `# To add draft content preview, uncomment the below line and use the Content Preview API Access Token
+             # CONTENTFUL_HOST='preview.contentful.com'
+             `
+            : ''
+        }
+      `;
 
-      writeFileSync(
-        file,
-        fileArr
-          .concat(
-            file.includes('development')
-              ? [
-                  '# To add draft content preview, uncomment the below line and use the Content Preview API Access Token',
-                  "# CONTENTFUL_HOST='preview.contentful.com'",
-                ]
-              : [],
-          )
-          .filter(Boolean)
-          .join('\n') + '\n',
-        'utf8',
-      );
+      writeFileSync(file, message, 'utf8');
       console.log(`Config file ${chalk.yellow(file)} written`);
     });
     return { spaceId, managementToken };

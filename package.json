@@ -9,7 +9,8 @@
     "serve": "gatsby serve",
     "setup": "node ./bin/setup.js",
     "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN",
-    "format": "prettier --write \"**/*.{js,jsx,json,scss}\""
+    "format": "prettier --write \"**/*.{js,jsx,json,scss}\"",
+    "lint": "eslint . --ext .js,.jsx --cache"
   },
   "author": "",
   "license": "ISC",
