@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 
@@ -16,16 +16,16 @@ import './InstallationPage.scss';
 const getBlocksWith = createBemBlockBuilder(['installation']);
 
 const kubernetesSections = [
-  { title: 'Step 1\nConfigure and deploy ReportPortal', id: 'section-1' },
-  { title: 'Step 1\nLaunch ReportPortal', id: 'section-3' },
-  { title: 'Step 3\nIntegrate with your test framework', id: 'section-4' },
+  { step: 'Step 1', title: 'Configure and deploy ReportPortal', id: 'section-1' },
+  { step: 'Step 2', title: 'Launch ReportPortal', id: 'section-3' },
+  { step: 'Step 3', title: 'Integrate with your test framework', id: 'section-4' },
 ];
 
 const dockerSections = [
-  { title: 'Install Docker', id: 'section-1' },
-  { title: 'Step 1\nConfigure and deploy ReportPortal', id: 'section-2' },
-  { title: 'Step 2\nLaunch ReportPortal', id: 'section-3' },
-  { title: 'Step 3\nIntegrate with your test framework', id: 'section-4' },
+  { step: '', title: 'Install Docker', id: 'section-1' },
+  { step: 'Step 1', title: 'Configure and deploy ReportPortal', id: 'section-2' },
+  { step: 'Step 2', title: 'Launch ReportPortal', id: 'section-3' },
+  { step: 'Step 3', title: 'Integrate with your test framework', id: 'section-4' },
 ];
 
 const buttons = [
