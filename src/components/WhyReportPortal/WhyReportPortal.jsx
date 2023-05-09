@@ -35,7 +35,7 @@ export const WhyReportPortal = () => (
         <li>
           <OpenSourceIcon />
           <h3>Open source</h3>
-          <span>Deploy ReportPortal from our GitHub repository </span>
+          <span>Deploy ReportPortal from our GitHub repository</span>
         </li>
       </ul>
     </div>
