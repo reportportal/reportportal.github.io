@@ -1,0 +1,74 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+$header-height: 76px;
+
+.diagonalHero {
+  background: url('./assets/bg.svg') no-repeat center bottom;
+  min-height: 500px;
+  position: relative;
+  padding: 64px + $header-height 16px 274px;
+  margin-top: -$header-height;
+
+  &__title {
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+    @include font-poppins($fw-bold);
+    @include font-scale(large);
+
+    @include breakpoint($tablet-sm) {
+      @include font-scale(x3-large);
+    }
+
+    @include breakpoint($desktop-sm) {
+      @include font-scale(x4-large);
+    }
+  }
+
+  &__subTitle {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    @include font-poppins();
+    @include font-scale(x2-medium);
+
+    @include breakpoint($tablet-sm) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__container {
+    max-width: var(--size-max-width);
+    margin: 0 auto;
+  }
+}
+
+.heroColumns {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+
+  * {
+    color: white;
+  }
+
+  &__small {
+    width: 100%;
+    margin-bottom: 5px;
+    @include font-poppins($fw-semi-bold);
+    @include font-scale(medium);
+  }
+
+  &__big {
+    height: 100%;
+    @include font-noto-sans();
+    @include font-scale(base);
+  }
+}
+
+.hero-inner-wrapper {
+  padding: 80px 0;
+}
