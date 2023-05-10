@@ -1,21 +1,18 @@
 import React from 'react';
 
-// import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../../../utils';
 import { ButtonSwitcher } from '../../../ButtonSwitcher';
 import { ContentToggleSwitcher } from '../ContentToggleSwitcher';
 
-import './DiagonalHero.scss';
+import './Hero.scss';
 
-export const DiagonalHero = ({ buttons, switchActiveBtn, activeButton }) => {
-  const getHeroBlocksWith = createBemBlockBuilder(['diagonalHero']);
-  const getBlocksWithHeroColumns = createBemBlockBuilder(['heroColumns']);
+const getHeroBlocksWith = createBemBlockBuilder(['hero']);
 
+export const Hero = ({ buttons, switchActiveBtn, activeButton }) => {
   return (
     <div className={getHeroBlocksWith()}>
-      {/* <Container> */}
       <h1 className={getHeroBlocksWith('__title')}>ReportPortal services pricing</h1>
-      <p className={getHeroBlocksWith('__subTitle')}>
+      <p className={getHeroBlocksWith('__subtitle')}>
         Flexible options for small teams to global enterprises
       </p>
 
@@ -23,16 +20,15 @@ export const DiagonalHero = ({ buttons, switchActiveBtn, activeButton }) => {
         <ButtonSwitcher buttons={buttons} onSwitch={switchActiveBtn} activeBtnName={activeButton} />
       </div>
 
-      <div className={getBlocksWithHeroColumns()}>
-        <div className={getBlocksWithHeroColumns('__small')}>SaaS</div>
-        <div className={getBlocksWithHeroColumns('__big')}>
+      <div className={getHeroBlocksWith('__wrapper')}>
+        <div className={getHeroBlocksWith('__wrapper-title')}>SaaS</div>
+        <div className={getHeroBlocksWith('__wrapper-subtitle')}>
           An instance of ReportPortal application is hosted for you. ReportPortal team takes care
           about infrastructure, availability, backups, monitoring and version updates and provides
           support by request.
         </div>
       </div>
       <ContentToggleSwitcher />
-      {/* </Container> */}
     </div>
   );
 };

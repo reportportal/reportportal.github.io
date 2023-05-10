@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { DiagonalHero } from './components/DiogonalHero';
+import { Hero } from './components/Hero';
 import { PricingCards } from './components/PricingCards';
-import { PlanCompare } from './components/PlanComare';
+import { ComparePlans } from './components/ComparePlans';
 import { ServerIcon, CloudIcon } from './icons';
 
 import './PricingPage.scss';
@@ -33,15 +33,12 @@ export const PricingPage = () => {
 
   return (
     <div>
-      <DiagonalHero
-        buttons={buttons}
-        switchActiveBtn={switchActiveBtn}
-        activeButton={activeButton}
-      />
+      <Hero buttons={buttons} switchActiveBtn={switchActiveBtn} activeButton={activeButton} />
+
       {isFirstBtnActive() ? (
         <>
           <PricingCards />
-          <PlanCompare />
+          <ComparePlans />
         </>
       ) : (
         <p>Another page</p>

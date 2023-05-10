@@ -1,0 +1,70 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.hero {
+  position: relative;
+  min-height: 500px;
+  padding: calc(64px + var(--header-height)) 16px 274px;
+  margin-top: calc(-1 * var(--header-height));
+  background: url('./assets/bg.svg') no-repeat center bottom;
+
+  &__btn-box {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 80px;
+  }
+
+  &__title {
+    @include font-poppins($fw-bold);
+    @include font-scale(large);
+
+    margin-bottom: 0;
+    color: white;
+    text-align: center;
+    
+    @include breakpoint($tablet-sm) {
+      @include font-scale(x3-large);
+    }
+
+    @include breakpoint($desktop-sm) {
+      @include font-scale(x4-large);
+    }
+  }
+
+  &__subtitle {
+    @include font-poppins();
+    @include font-scale(x2-medium);
+    
+    margin-bottom: 30px;
+    color: white;
+    text-align: center;
+    
+    @include breakpoint($tablet-sm) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__wrapper {
+    display: flex; 
+    max-width: 800px;
+    margin: 0 auto 90px;
+    color: white;
+  
+    &-title {
+      @include font-poppins($fw-semi-bold);
+      @include font-scale(medium);
+  
+      margin-bottom: 5px;
+      margin-right: 40px;
+    }
+  
+    &-subtitle {
+      @include font-noto-sans();
+      @include font-scale(base);    
+    }
+  }
+}
+
+

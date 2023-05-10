@@ -2,10 +2,10 @@ import React from 'react';
 // import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../../../utils';
 import { useMediaQuery } from 'react-responsive';
-import './PlamCompare.scss';
+import './ComparePlans.scss';
 import { $desktopSm } from '../../../../utils/breakpoint';
 
-export const PlanCompare = () => {
+export const ComparePlans = () => {
   const getCompareContainer = createBemBlockBuilder(['compareContainer']);
   const getCompareTable = createBemBlockBuilder(['compareTable']);
   const isDesktop = useMediaQuery({ query: $desktopSm });
