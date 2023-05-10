@@ -15,6 +15,7 @@ export const pricingData = [
     price: {
       currency: '$',
       value: 629,
+      discountedValue: 599,
       period: 'month',
       message: '',
     },
@@ -38,6 +39,7 @@ export const pricingData = [
     price: {
       currency: '$',
       value: 2939,
+      discountedValue: 2799,
       period: 'month',
       message: '',
     },
@@ -60,7 +62,8 @@ export const pricingData = [
     ],
     price: {
       currency: '',
-      value: '',
+      value: 0,
+      discountedValue: 0,
       period: '',
       message: 'Let’s talk',
     },

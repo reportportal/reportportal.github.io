@@ -7,9 +7,9 @@ import './PricingCard.scss';
 
 const getPricingCard = createBemBlockBuilder(['card']);
 
-export const PricingCard = (card) => {
+export const PricingCard = ({ card, discountState }) => {
   const { title, description, listItems, price, actionText, isPopular, actionVariant } = card;
-  const { currency, value, period, message } = price;
+  const { currency, value, period, message, discountedValue } = price;
 
   const formatNumberWithCommas = (number) =>
     number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -34,7 +34,7 @@ export const PricingCard = (card) => {
           ) : (
             <>
               <span>
-                {currency} {formatNumberWithCommas(value)}
+                {currency} {formatNumberWithCommas(discountState ? discountedValue : value)}
               </span>
               / {period}
             </>

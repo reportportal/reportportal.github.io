@@ -7,8 +7,11 @@ import './PricingCards.scss';
 
 const getPricingCards = createBemBlockBuilder(['cards']);
 
-export const PricingCards = ({ pricingData }) => (
+export const PricingCards = ({ pricingData, discountState }) => (
   <div className={getPricingCards()}>
-    {pricingData && pricingData.map((card) => <PricingCard {...card} key={card.id} />)}
+    {pricingData &&
+      pricingData.map((card) => (
+        <PricingCard discountState={discountState} card={card} key={card.id} />
+      ))}
   </div>
 );
