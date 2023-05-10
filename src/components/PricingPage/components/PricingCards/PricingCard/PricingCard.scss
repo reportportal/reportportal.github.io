@@ -41,7 +41,7 @@
     @include font-poppins($fw-semi-bold);
     @include font-scale(x3-medium);
 
-    color: var(--text-dark);  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    color: var(--dark);
     text-align: center;
 
     @include breakpoint($tablet-sm) {
@@ -87,6 +87,7 @@
 
   ul {
     position: relative;
+    margin-bottom: 50px;
     padding: 0 15px;
     list-style: none;
 

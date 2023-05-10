@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Container } from '../Container';
 import { createBemBlockBuilder } from '../../../../utils';
 import { useMediaQuery } from 'react-responsive';
 import './ComparePlans.scss';
@@ -11,7 +10,6 @@ export const ComparePlans = () => {
   const isDesktop = useMediaQuery({ query: $desktopSm });
 
   return (
-    // <Container>
     <div className={getCompareContainer()}>
       <div className={getCompareContainer('__title')}>Compare plans</div>
       <div className={getCompareContainer('__desktopCols')}>
@@ -83,6 +81,5 @@ export const ComparePlans = () => {
         </div>
       </div>
     </div>
-    // </Container>
   );
 };

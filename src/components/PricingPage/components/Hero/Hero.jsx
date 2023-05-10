@@ -2,13 +2,13 @@ import React from 'react';
 
 import { createBemBlockBuilder } from '../../../../utils';
 import { ButtonSwitcher } from '../../../ButtonSwitcher';
-import { ContentToggleSwitcher } from '../ContentToggleSwitcher';
+import { DiscountSwitcher } from '../DiscountSwitcher';
 
 import './Hero.scss';
 
 const getHeroBlocksWith = createBemBlockBuilder(['hero']);
 
-export const Hero = ({ buttons, switchActiveBtn, activeButton }) => {
+export const Hero = ({ buttons, switchActiveBtn, activeButton, switchDiscount, discountState }) => {
   return (
     <div className={getHeroBlocksWith()}>
       <h1 className={getHeroBlocksWith('__title')}>ReportPortal services pricing</h1>
@@ -28,7 +28,8 @@ export const Hero = ({ buttons, switchActiveBtn, activeButton }) => {
           support by request.
         </div>
       </div>
-      <ContentToggleSwitcher />
+
+      <DiscountSwitcher switchDiscount={switchDiscount} discountState={discountState} />
     </div>
   );
 };

@@ -3,41 +3,42 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
-.contentToggleSwitcher {
+.switcher {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  align-items: center;
   margin: 30px auto;
-  gap: 8px;
+  gap: 8px;  
+  align-items: center;
 
   &__option {
-    color: var(--white);
     @include font-noto-sans();
     @include font-scale(base);
+
+    color: var(--white);
   }
 
   &__switcher {
+    position: relative;    
     width: 46px;
     height: 30px;
     background: var(--white);
     border-radius: 30px;
-    position: relative;
     cursor: pointer;
 
     &:before {
       content: '';
       position: absolute;
+      left: 5px;
+      top: 5px;      
       width: 20px;
       height: 20px;
       border-radius: 100%;
       background: var(--color-primary-500);
-      left: 5px;
-      top: 5px;
       transition: transform 0.3s;
     }
 
-    &--active {
+    &-active {
       &:before {
         right: 5px;
         left: auto;

@@ -9,6 +9,10 @@ const getPricingCard = createBemBlockBuilder(['card']);
 
 export const PricingCard = (card) => {
   const { title, description, listItems, price, actionText, isPopular, actionVariant } = card;
+  const { currency, value, period, message } = price;
+
+  const formatNumberWithCommas = (number) =>
+    number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   return (
     <div className={getPricingCard()}>
@@ -25,11 +29,17 @@ export const PricingCard = (card) => {
 
       <div className={getPricingCard('__bottom-panel')}>
         <div className={getPricingCard('__price')}>
-          <span>{price.value}</span>
-          {price.period && price.period}
+          {message ? (
+            <span>{message}</span>
+          ) : (
+            <>
+              <span>
+                {currency} {formatNumberWithCommas(value)}
+              </span>
+              / {period}
+            </>
+          )}
         </div>
-
-        {/* `btn--${actionVariant}`, 'btn--large')   -?????????????????????   */}
 
         <button type="button" className={cx('btn', `btn--${actionVariant}`, 'btn--large')}>
           {actionText}
