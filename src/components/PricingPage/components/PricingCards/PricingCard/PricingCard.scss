@@ -3,15 +3,15 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
-.pricingCard {
-  box-shadow: 0px 4px 16px rgba(16, 46, 52, 0.1);
-  background: var(--bg-white);
-  border-radius: 15px;
-  padding: 30px;
+.card {
   position: relative;
   width: 100%;
   max-width: 387px;
-
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 16px rgba(16, 46, 52, 0.1);
+  background: var(--white);
+  
   @include breakpoint($desktop-sm) {
     padding-bottom: 160px;
   }
@@ -20,26 +20,28 @@
     box-shadow: 0px 8px 24px rgba(57, 109, 120, 0.12);
   }
 
-  &--popular {
-    background: var(--graphics-amber);
-    color: var(--text-white);
-    border-radius: 15px;
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -15px;
-    z-index: 2;
+  &__popular {
     @include font-poppins($fw-semi-bold);
     @include font-scale(small);
-    text-transform: uppercase;
+
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    border-radius: 15px;
     padding: 4px 30px;
+    transform: translateX(-50%);
+    background: var(--graphics-amber);
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--white);    
+    z-index: 2;
   }
 
-  &--title {
+  &__title {
     @include font-poppins($fw-semi-bold);
     @include font-scale(x3-medium);
-    color: var(--text-dark);
+
+    color: var(--text-dark);  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     text-align: center;
 
     @include breakpoint($tablet-sm) {
@@ -48,27 +50,30 @@
     }
   }
 
-  &--description {
+  &__description {
     @include font-noto-sans(base);
-    color: vat(--text-primary);
+
     margin-bottom: 40px;
     text-align: center;
+    color: vat(--text-primary);
   }
 
-  &--price {
+  &__price {
     @include font-noto-sans(base);
-    color: vat(--text-primary);
+
     margin-bottom: 25px;
+    color: vat(--text-primary);
 
     span {
       @include font-scale(large);
       @include font-poppins($fw-bold);
+
       display: inline-block;
       margin-right: 5px;
     }
   }
 
-  &--bottonPanel {
+  &__bottom-panel {
     position: static;
     text-align: center;
 
@@ -86,20 +91,21 @@
     list-style: none;
 
     li {
-      position: relative;
-      color: var(--text-primary);
       @include font-poppins($fw-medium);
       @include font-scale(base);
+
+      position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
+      color: var(--text-primary);
 
       &:before {
         content: '';
-        width: 8px;
-        height: 8px;
         position: absolute;
         left: 0;
-        top: 5px;
+        top: 5px;        
+        width: 8px;
+        height: 8px;
         border-radius: 100%;
         background: var(--gradient-primary);
       }
@@ -107,8 +113,7 @@
   }
 
   .btn {
-    margin: 0 auto;
     width: 100%;
+    margin: 0 auto;
   }
-
 }

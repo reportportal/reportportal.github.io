@@ -47,10 +47,14 @@
   }
 
   &__wrapper {
-    display: flex; 
+    display: block; 
     max-width: 800px;
     margin: 0 auto 90px;
     color: white;
+
+    @include breakpoint($tablet-sm) {
+      display: flex;
+    }
   
     &-title {
       @include font-poppins($fw-semi-bold);

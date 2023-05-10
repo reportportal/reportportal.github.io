@@ -3,26 +3,28 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
-.pricingCards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -250px 20px 200px;
+  gap: 40px 20px;
 
-    @include breakpoint($desktop-sm) {
-        flex-wrap: nowrap;
+  @include breakpoint($desktop-sm) {
+    flex-wrap: nowrap;
+  }
 
-        >div {
-            &:first-child {
-                ul {
-                    li {
-                        &:first-child {
-                            color: var(--graphics-jade);
-                            @include font-poppins($fw-bold);
-                        }
-                    }
-                }
-            }
+  >div {
+    &:first-child {
+      ul {
+        li {
+          &:first-child {
+            @include font-poppins($fw-bold);
+
+            color: var(--graphics-jade);
+          }
         }
+      }
     }
+  }
 }

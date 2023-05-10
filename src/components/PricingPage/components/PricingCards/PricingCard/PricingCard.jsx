@@ -1,27 +1,35 @@
 import React from 'react';
-import './PricingCard.scss';
-import { createBemBlockBuilder } from '../../../../../utils';
 import cx from 'classnames';
+
+import { createBemBlockBuilder } from '../../../../../utils';
+
+import './PricingCard.scss';
+
+const getPricingCard = createBemBlockBuilder(['card']);
 
 export const PricingCard = (card) => {
   const { title, description, listItems, price, actionText, isPopular, actionVariant } = card;
-  const getPricingCard = createBemBlockBuilder(['pricingCard']);
+
   return (
     <div className={getPricingCard()}>
-      {isPopular && <div className={getPricingCard('--popular')}>Most popular</div>}
-      <div className={getPricingCard('--title')}>{title}</div>
-      <div className={getPricingCard('--description')}>{description}</div>
+      {isPopular && <div className={getPricingCard('__popular')}>Most popular</div>}
+
+      <div className={getPricingCard('__title')}>{title}</div>
+      <div className={getPricingCard('__description')}>{description}</div>
+
       <ul>
         {listItems.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
 
-      <div className={getPricingCard('--bottonPanel')}>
-        <div className={getPricingCard('--price')}>
+      <div className={getPricingCard('__bottom-panel')}>
+        <div className={getPricingCard('__price')}>
           <span>{price.value}</span>
           {price.period && price.period}
         </div>
+
+        {/* `btn--${actionVariant}`, 'btn--large')   -?????????????????????   */}
 
         <button type="button" className={cx('btn', `btn--${actionVariant}`, 'btn--large')}>
           {actionText}

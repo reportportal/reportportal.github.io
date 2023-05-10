@@ -1,4 +1,4 @@
-export const data = [
+export const pricingData = [
   {
     id: 1,
     title: 'Startup',
