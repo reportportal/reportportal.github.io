@@ -5,19 +5,20 @@
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 630px;
   width: 100%;
   max-width: 387px;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0px 4px 16px rgba(16, 46, 52, 0.1);
   background: var(--white);
-  
-  @include breakpoint($desktop-sm) {
-    padding-bottom: 160px;
-  }
+  box-shadow: 0px 4px 16px rgba(16, 46, 52, 0.1);
+  transition: box-shadow 0.4s ease-out;
 
   &:hover {
-    box-shadow: 0px 8px 24px rgba(57, 109, 120, 0.12);
+    box-shadow: 0px 8px 24px rgba(57, 109, 120, 0.3);
   }
 
   &__popular {
@@ -41,8 +42,8 @@
     @include font-poppins($fw-semi-bold);
     @include font-scale(x3-medium);
 
-    color: var(--dark);
     text-align: center;
+    color: var(--dark);
 
     @include breakpoint($tablet-sm) {
       @include font-scale(large);
@@ -53,8 +54,11 @@
   &__description {
     @include font-noto-sans(base);
 
+    height: 80px;
+    margin-top: 8px;
     margin-bottom: 40px;
     text-align: center;
+    line-height: 1.5;
     color: vat(--text-primary);
   }
 
@@ -74,15 +78,7 @@
   }
 
   &__bottom-panel {
-    position: static;
     text-align: center;
-
-    @include breakpoint($desktop-sm) {
-      position: absolute;
-      left: 30px;
-      bottom: 30px;
-      right: 30px;
-    }
   }
 
   ul {

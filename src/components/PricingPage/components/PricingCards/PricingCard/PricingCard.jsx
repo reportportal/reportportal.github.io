@@ -16,17 +16,18 @@ export const PricingCard = ({ card, discountState }) => {
 
   return (
     <div className={getPricingCard()}>
-      {isPopular && <div className={getPricingCard('__popular')}>Most popular</div>}
+      <div>
+        {isPopular && <div className={getPricingCard('__popular')}>Most popular</div>}
 
-      <div className={getPricingCard('__title')}>{title}</div>
-      <div className={getPricingCard('__description')}>{description}</div>
+        <div className={getPricingCard('__title')}>{title}</div>
+        <div className={getPricingCard('__description')}>{description}</div>
 
-      <ul>
-        {listItems.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-
+        <ul>
+          {listItems.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
       <div className={getPricingCard('__bottom-panel')}>
         <div className={getPricingCard('__price')}>
           {message ? (

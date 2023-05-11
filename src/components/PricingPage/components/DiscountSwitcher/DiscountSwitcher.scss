@@ -35,13 +35,13 @@
       height: 20px;
       border-radius: 100%;
       background: var(--color-primary-500);
-      transition: transform 0.3s;
+      transition: left 0.4s ease-out;
     }
 
     &-active {
       &:before {
         right: 5px;
-        left: auto;
+        left: 21px;
       }
     }
   }
