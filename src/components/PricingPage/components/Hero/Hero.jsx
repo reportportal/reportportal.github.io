@@ -2,7 +2,7 @@ import React from 'react';
 
 import { createBemBlockBuilder } from '../../../../utils';
 import { ButtonSwitcher } from '../../../ButtonSwitcher';
-import { DiscountSwitcher } from '../DiscountSwitcher';
+import { DiscountSwitcher } from '../../../DiscountSwitcher';
 
 import './Hero.scss';
 

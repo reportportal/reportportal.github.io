@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { createBemBlockBuilder } from '../../../../utils';
+import { createBemBlockBuilder } from '../../utils';
 
 import './DiscountSwitcher.scss';
 
