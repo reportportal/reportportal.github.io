@@ -1,85 +1,78 @@
-import React from 'react';
-import { createBemBlockBuilder } from '../../../../utils';
+import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import './ComparePlans.scss';
+import { Collapse } from 'antd';
+import { RightOutlined } from '@ant-design/icons';
+
+import { createBemBlockBuilder } from '../../../../utils';
 import { $desktopSm } from '../../../../utils/breakpoint';
+import { dataPlans } from './dataPlans';
+// import { Arrow } from './icons/Arrow';
+
+import './ComparePlans.scss';
+
+const getCompareContainer = createBemBlockBuilder(['compare']);
 
 export const ComparePlans = () => {
-  const getCompareContainer = createBemBlockBuilder(['compareContainer']);
-  const getCompareTable = createBemBlockBuilder(['compareTable']);
   const isDesktop = useMediaQuery({ query: $desktopSm });
+  const { Panel } = Collapse;
+
+  const handleArrowPosition = (isActive) => {
+    // isActive ? (isDesktop ? 90 : -90) : isDesktop ? 0 : 90;
+    let angle;
+    if (isActive) {
+      angle = isDesktop ? 90 : -90;
+    } else {
+      angle = isDesktop ? 0 : 90;
+    }
+    return angle;
+  };
 
   return (
     <div className={getCompareContainer()}>
       <div className={getCompareContainer('__title')}>Compare plans</div>
-      <div className={getCompareContainer('__desktopCols')}>
-        <div>Startup</div>
-        <div>Business</div>
-        <div>Enterprise</div>
-      </div>
-      {!isDesktop && <div className={getCompareContainer('__description')}>Main functionality</div>}
-      <div className={getCompareTable()}>
-        <div className={getCompareTable('__row')}>
-          <div className={getCompareTable('__title')}>Instance type</div>
-          <div className={getCompareTable('__collapsedSection')}>
-            <div className={getCompareTable('__rowDescription')}>
-              <p>
-                Shared instance is used by more than one tenant/client. Tenants access is restricted
-                to the project space owned by them. Cost-effective option.
-              </p>
-              <p>
-                Dedicated instance is hosted for one tenant/client only. No shared database and
-                infrastructure — better for data isolation, availability, security and company-based
-                company-based authorization.
-              </p>
-            </div>
-            <div className={getCompareTable('__compareData')}>
-              <div>
-                {!isDesktop && <div className={getCompareTable('__mobile')}>Startup</div>}
-                <div className={getCompareTable('__info')}>Shared</div>
-              </div>
-              <div>
-                {!isDesktop && <div className={getCompareTable('__mobile')}>Business</div>}
-                <div className={getCompareTable('__info')}>Individual</div>
-              </div>
-              <div>
-                {!isDesktop && <div className={getCompareTable('__mobile')}>Enterprise</div>}
-                <div className={getCompareTable('__info')}>Individual</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={getCompareTable('__row')}>
-          <div className={getCompareTable('__title')}>Data storage</div>
-          <div className={getCompareTable('__collapsedSection')}>
-            <div className={getCompareTable('__rowDescription')}>
-              <p>
-                Shared instance is used by more than one tenant/client. Tenants access is restricted
-                to the project space owned by them. Cost-effective option.
-              </p>
-              <p>
-                Dedicated instance is hosted for one tenant/client only. No shared database and
-                infrastructure — better for data isolation, availability, security and company-based
-                company-based authorization.
-              </p>
-            </div>
-            <div className={getCompareTable('__compareData')}>
-              <div>
-                {!isDesktop && <div className={getCompareTable('__mobile')}>Startup</div>}
-                <div className={getCompareTable('__info')}>100 Gb.</div>
-              </div>
-              <div>
-                {!isDesktop && <div className={getCompareTable('__mobile')}>Business</div>}
-                <div className={getCompareTable('__info')}>1 Tb.</div>
-              </div>
-              <div>
-                {!isDesktop && <div className={getCompareTable('__mobile')}>Enterprise</div>}
-                <div className={getCompareTable('__info')}>Extended storage</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      {isDesktop && <ColumnsHeader />}
+
+      {!isDesktop && <div className={getCompareContainer('__tab-title')}>Main functionality</div>}
+
+      <Collapse
+        defaultActiveKey={['1']}
+        ghost
+        expandIconPosition="start"
+        expandIcon={({ isActive }) => (
+          <RightOutlined
+            className={getCompareContainer('__collapse-icon')}
+            rotate={handleArrowPosition(isActive)}
+            // rotate={isActive ? 90 : 0}
+            // rotate={isActive ? -90 : 90}
+          />
+        )}
+        // expandIcon={({ isActive }) => <Arrow rotate={isActive ? 90 : 0} />}
+      >
+        {dataPlans.map(({ description, feature }, ...rowData) => (
+          <Panel header={<ExpendableRow feature={feature} rowData={rowData} />} key={feature}>
+            <DescriptionCell description={description} />
+          </Panel>
+        ))}
+      </Collapse>
     </div>
   );
+};
+
+const ColumnsHeader = () => {
+  return (
+    <div className={getCompareContainer('__cols')}>
+      <div>Startup</div>
+      <div>Business</div>
+      <div>Enterprise</div>
+    </div>
+  );
+};
+
+const ExpendableRow = ({ feature }) => {
+  return <div className={getCompareContainer('__row-title')}>{feature}</div>;
+};
+
+const DescriptionCell = ({ description }) => {
+  return <div className={getCompareContainer('__description')}>{description}</div>;
 };

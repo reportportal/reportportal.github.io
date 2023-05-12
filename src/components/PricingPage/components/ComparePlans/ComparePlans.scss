@@ -3,46 +3,51 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
-.compareContainer {
+.compare {
+
   &__title {
     @include font-poppins($fw-semi-bold);
     @include font-scale(x3-medium);
-    text-align: center;
-    color: var(--text-primary);
+
     position: relative;
     margin-bottom: 60px;
-
+    text-align: center;
+    color: var(--text-primary);
+    
     @include breakpoint($tablet-sm) {
       @include font-scale(large);
+
       margin-bottom: 40px;
     }
 
-    &:after {
-      margin-left: 15px;
-      content: '';
-      top: 5px;
-      width: 15px;
-      height: 18px;
-      background: url('./arrow.svg') no-repeat center;
-      background-size: 20px;
-      display: inline-block;
-      position: relative;
-      @include breakpoint($desktop-sm) {
-        display: none;
-      }
-    }
+    // &:after {
+    //   content: '';
+    //   position: relative;
+    //   display: inline-block;
+    //   margin-left: 15px;
+    //   top: 5px;
+    //   width: 15px;
+    //   height: 18px;
+    //   background: url('./arrow.svg') no-repeat center;
+    //   background-size: 20px;
+      
+    //   @include breakpoint($desktop-sm) {
+    //     display: none;
+    //   }
+    // }
   }
 
-  &__description {
-    text-align: center;
+  &__tab-title {
     @include font-noto-sans($fw-semi-bold);
     @include font-scale(base);
-    text-transform: uppercase;
+
     margin-bottom: 40px;
+    text-align: center;
+    text-transform: uppercase;
     color: var(--text-primary);
   }
 
-  &__desktopCols {
+  &__cols {
     display: none;
     margin-bottom: 30px;
 
@@ -59,118 +64,27 @@
       }
     }
   }
-}
 
-.compareTable {
-  @include breakpoint($desktop-sm) {
-    box-shadow: 0 8px 16px rgba(16, 46, 52, 0.12);
-  }
+  &__row-title {
+    @include font-noto-sans();
+    @include font-scale(medium);
 
-  &__row {
-    position: relative;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background: var(--bg-white);
-    padding: 15px 25px;
-    box-shadow: 0 8px 16px rgba(16, 46, 52, 0.12);
-
-    &:after {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      content: '';
-      width: 15px;
-      height: 18px;
-      background: url('./arrow.svg') no-repeat center;
-      background-size: 20px;
-    }
-
-    @include breakpoint($desktop-sm) {
-      box-shadow: none;
-      padding: 25px 25px 25px 95px;
-      &:nth-child(2n) {
-        background: var(--text-lightest-grey);
-      }
-
-      &:after {
-        left: 40px;
-        top: 30px;
-        right: auto;
-        transform: rotate(90deg);
-      }
-
-    }
-  }
-
-  &__title {
-    padding-right: 50px;
     color: var(--text-primary);
-    @include font-poppins($fw-regular);
-    @include font-scale(small);
-    @include breakpoint($desktop-sm) {
-      @include font-poppins($fw-regular);
-      @include font-scale(medium);
-      margin-bottom: 10px;
-    }
   }
 
-  &__collapsedSection {
-    @include font-poppins($fw-regular);
+  &__description {
+    @include font-poppins();
     @include font-scale(small);
-    @include breakpoint($desktop-sm) {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-  }
 
-  &__rowDescription {
-    @include font-poppins($fw-regular);
-    @include font-scale(small);
+    margin-left: 25px;
     color: var(--text-service);
-    margin-bottom: 15px;
-
-    p {
-      font: inherit;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    @include breakpoint($desktop-sm) {
-      width: 40%;
-    }
   }
 
-  &__compareData {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    align-content: center;
-    justify-content: space-between;
-
-    > div {
-      width: 33%;
+  .ant-collapse-expand-icon {
+    .compare__collapse-icon.anticon {
+      margin-top: 5px;
+      font-size: 18px;
+      color: var(--text-primary);
     }
-
-    @include breakpoint($desktop-sm) {
-      width: 60%;
-    }
-  }
-
-  &__mobile {
-    @include font-poppins($fw-medium);
-    @include font-scale(base);
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  &__info {
-    text-align: center;
-    color: var(--text-primary);
-    @include font-poppins($fw-medium);
-    @include font-scale(small);
   }
 }
