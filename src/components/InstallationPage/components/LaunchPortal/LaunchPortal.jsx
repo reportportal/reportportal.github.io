@@ -22,7 +22,12 @@ export const LaunchPortal = () => {
 
       <p>
         Otherwise, open{' '}
-        <a className={getBlocksWith('__link')} href="#">
+        <a
+          className={getBlocksWith('__link')}
+          href="http://localhost:8080/ui/"
+          target="_blank"
+          rel="noreferrer"
+        >
           ReportPortal
         </a>{' '}
         and login.
