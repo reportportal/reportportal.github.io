@@ -19,9 +19,9 @@ export const KubernetesContent = () => {
         Kubernetes/Helm configs for installation ReportPortal can be find at the following link:{' '}
         <a
           className={getBlocksWith('__link')}
-          href="https://github.com/reportportal/kubernetes/tree/master/reportportal"
+          href="https://github.com/reportportal/kubernetes/tree/develop/reportportal"
         >
-          https://github.com/reportportal/kubernetes/tree/master/reportportal
+          https://github.com/reportportal/kubernetes/tree/develop/reportportal
         </a>
       </p>
     </div>

@@ -18,7 +18,10 @@ export const DockerDeployingStep = () => {
         <p>
           Following guide describes deployment on Linux/Mac. In case you went with Docker on
           Windows, please proceed with the
-          <a className={getBlocksWith('__link')} href="#">
+          <a
+            className={getBlocksWith('__link')}
+            href="https://reportportal.io/docs/installation-steps/DeployWithDockerOnWindows/"
+          >
             {' '}
             instruction
           </a>
@@ -64,7 +67,10 @@ export const DockerDeployingStep = () => {
 
         <p>
           For more details about ElasticSearch installation with Docker visit
-          <a className={getBlocksWith('__link')} href="#">
+          <a
+            className={getBlocksWith('__link')}
+            href="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html#_notes_for_production_use_and_defaults"
+          >
             {' '}
             guide
           </a>
@@ -88,12 +94,12 @@ export const DockerDeployingStep = () => {
         </Text>
 
         <p>
-          You can also change PostgreSQL host by passing a new value to POSTGRES_SERVER environment{' '}
+          You can change PostgreSQL password by editing environment variables in{' '}
           <a
             className={getBlocksWith('__link')}
-            href="http://rpp-docs.s3-website.eu-central-1.amazonaws.com/installation-steps/AdditionalConfigurationParameters/"
+            href="https://github.com/reportportal/reportportal/blob/master/docker-compose.yml"
           >
-            variable
+            docker-compose.yml
           </a>
           .
         </p>

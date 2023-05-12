@@ -3,6 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { IntegrationScheme } from './components/IntegrationScheme';
 import { KubernetesContent } from './components/KubernetesContent';
 import { LaunchPortal } from './components/LaunchPortal';
 import { DockerIcon, KubernetesIcon } from './icons';
@@ -107,18 +108,8 @@ export const InstallationPage = () => {
           </div>
 
           {isDesktop && (
-            <div
-              key="section-4"
-              name="section-4"
-              id="part-4"
-              style={{
-                width: '100%',
-                height: '100vh',
-                textAlign: 'center',
-                background: '#F4EAD5',
-              }}
-            >
-              Empty Section
+            <div key="section-4" name="section-4" id="part-4">
+              <IntegrationScheme />
             </div>
           )}
         </div>
