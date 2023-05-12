@@ -29,6 +29,11 @@
     &-content {
       flex: 7;
     }
+
+    &-inner {
+      width: 100%;
+      max-width: 690px;
+    }
   }
 
   &__title {

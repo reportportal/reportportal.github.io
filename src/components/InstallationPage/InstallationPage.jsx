@@ -87,31 +87,33 @@ export const InstallationPage = () => {
         )}
 
         <div className={cx(getBlocksWith('__main-content'), 'container')}>
-          {isFirstBtnActive() ? (
-            <>
+          <div className={cx({ [getBlocksWith('__main-inner')]: isDesktop })}>
+            {isFirstBtnActive() ? (
+              <>
+                <div name="section-1" id="part-1">
+                  <DockerInstall />
+                </div>
+
+                <div key="section-2" name="section-2" id="part-2">
+                  <DockerDeployingStep />
+                </div>
+              </>
+            ) : (
               <div name="section-1" id="part-1">
-                <DockerInstall />
+                <KubernetesContent />
               </div>
+            )}
 
-              <div key="section-2" name="section-2" id="part-2">
-                <DockerDeployingStep />
-              </div>
-            </>
-          ) : (
-            <div name="section-1" id="part-1">
-              <KubernetesContent />
+            <div key="section-3" name="section-3" id="part-3">
+              <LaunchPortal />
             </div>
-          )}
 
-          <div key="section-3" name="section-3" id="part-3">
-            <LaunchPortal />
+            {isDesktop && (
+              <div key="section-4" name="section-4" id="part-4">
+                <IntegrationScheme />
+              </div>
+            )}
           </div>
-
-          {isDesktop && (
-            <div key="section-4" name="section-4" id="part-4">
-              <IntegrationScheme />
-            </div>
-          )}
         </div>
       </div>
     </div>
