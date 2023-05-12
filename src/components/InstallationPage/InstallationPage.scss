@@ -12,6 +12,29 @@
   background-image: url('./icons/group-244.svg');
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 20;
+
+  &__main {
+    display: flex;
+    margin: 0;
+
+    @include breakpoint($tablet-sm) {
+      margin: 0 20px;
+    }
+
+    &-indicator {
+      flex: 3;
+    }
+
+    &-content {
+      flex: 7;
+    }
+
+    &-inner {
+      width: 100%;
+      max-width: 690px;
+    }
+  }
 
   &__title {
     @include font-poppins($fw-bold);
