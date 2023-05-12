@@ -146,6 +146,18 @@
     }
   }
 
+  &__popup {
+    code {
+      @include font-scale(s-small);
+
+      padding-right: 40px;
+    }
+
+    svg {
+      @include font-scale();
+    }
+  }
+
   &__marked-list {
     padding-left: 30px;
 
@@ -199,3 +211,4 @@
     color: var(--text-service);
   }
 }
+

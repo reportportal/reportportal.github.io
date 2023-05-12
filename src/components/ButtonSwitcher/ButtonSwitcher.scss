@@ -13,9 +13,14 @@
 
     display: flex;
     width: 100%;
+    max-width: 480px;
     border-radius: 80px;
     background-color: rgba(255, 255, 255, 0.2);
     color: var(--white);
+  }
+
+  &__inner-increased {
+    max-width: 720px;
   }
 
   &__btn {

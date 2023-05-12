@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { createBemBlockBuilder } from '../../utils';
-import { DockerContent } from './components/DockerContent';
+import { IntegrationScheme } from './components/IntegrationScheme';
 import { KubernetesContent } from './components/KubernetesContent';
 import { LaunchPortal } from './components/LaunchPortal';
 import { DockerIcon, KubernetesIcon } from './icons';
 import { ButtonSwitcher } from '../ButtonSwitcher';
+import { DockerDeployingStep } from './components/DockerContent/DockerDeployingStep';
+import { DockerInstall } from './components/DockerContent/DockerInstall';
 
 import './InstallationPage.scss';
 
@@ -26,6 +29,7 @@ const ACTIVE_BUTTON = buttons[0].text;
 
 export const InstallationPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
+  const isDesktop = useMediaQuery({ query: '(min-width: 1100px)' });
 
   const isFirstBtnActive = () => activeButton === buttons[0].text;
 
@@ -52,9 +56,38 @@ export const InstallationPage = () => {
         </div>
       </div>
 
-      {isFirstBtnActive() ? <DockerContent /> : <KubernetesContent />}
+      {/* These all extra div-tags are necessary for the scroll functionality in the next task */}
+      <div>
+        <div>
+          <div className="container">
+            {isFirstBtnActive() ? (
+              <>
+                <div>
+                  <DockerInstall />
+                </div>
 
-      <LaunchPortal />
+                <div>
+                  <DockerDeployingStep />
+                </div>
+              </>
+            ) : (
+              <div>
+                <KubernetesContent />
+              </div>
+            )}
+
+            <div>
+              <LaunchPortal />
+            </div>
+
+            {isDesktop && (
+              <div>
+                <IntegrationScheme />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
