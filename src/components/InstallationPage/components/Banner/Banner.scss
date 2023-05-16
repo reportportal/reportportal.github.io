@@ -1,0 +1,59 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.banner {
+  background: linear-gradient(85.23deg, #F4F6FA 1.92%, #EEF0F7 53.85%);
+  border-radius: 16px;
+  overflow: hidden;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 50px 50px;
+    background-image: url("./assets/bg-up.svg"), url("./assets/bg-dawn.svg");
+    background-position: bottom left, top right;
+    background-repeat: no-repeat, no-repeat;
+
+    @include breakpoint($tablet-lg) {
+      flex-direction: row;
+    }
+  }
+
+  &__titles {
+    text-align: center;
+
+    @include breakpoint($tablet-lg) {
+      text-align: start;
+    }
+  }
+
+  &__title {
+    @include font-poppins($fw-bold);
+    @include font-scale(large);
+
+    line-height: 48px;
+    color: var(--text-primary);
+  }
+
+  &__subtitle {
+    @include font-noto-sans();
+    @include font-scale(medium);
+
+    line-height: 32px;
+    color: #2F3C5F;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+
+    @include breakpoint($tablet-lg) {
+      margin-top: 10px;
+    }
+  }
+}

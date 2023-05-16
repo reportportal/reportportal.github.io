@@ -11,6 +11,7 @@ import { ButtonSwitcher } from '../ButtonSwitcher';
 import { ScrollIndicator } from '../ScrollIndicator';
 import { DockerDeployingStep } from './components/DockerContent/DockerDeployingStep';
 import { DockerInstall } from './components/DockerContent/DockerInstall';
+import { Banner } from './components/Banner';
 
 import './InstallationPage.scss';
 
@@ -79,41 +80,64 @@ export const InstallationPage = () => {
         </div>
       </div>
 
-      <div className={getBlocksWith('__main')}>
-        {isDesktop && (
-          <div className={getBlocksWith('__main-indicator')}>
-            <ScrollIndicator sections={getSections()} />
-          </div>
-        )}
-
-        <div className={cx(getBlocksWith('__main-content'), 'container')}>
-          <div className={cx({ [getBlocksWith('__main-inner')]: isDesktop })}>
-            {isFirstBtnActive() ? (
-              <>
-                <div name="section-1" id="part-1">
-                  <DockerInstall />
-                </div>
-
-                <div key="section-2" name="section-2" id="part-2">
-                  <DockerDeployingStep />
-                </div>
-              </>
-            ) : (
-              <div name="section-1" id="part-1">
-                <KubernetesContent />
-              </div>
-            )}
-
-            <div key="section-3" name="section-3" id="part-3">
-              <LaunchPortal />
+      <div className="container">
+        <div className={getBlocksWith('__main')}>
+          {isDesktop && (
+            <div className={getBlocksWith('__main-indicator')}>
+              <ScrollIndicator sections={getSections()} />
             </div>
+          )}
 
-            {isDesktop && (
-              <div key="section-4" name="section-4" id="part-4">
-                <IntegrationScheme />
+          <div className={cx(getBlocksWith('__main-content'), 'container')}>
+            <div className={cx({ [getBlocksWith('__main-inner')]: isDesktop })}>
+              {isFirstBtnActive() ? (
+                <>
+                  <div name="section-1" id="part-1">
+                    <DockerInstall />
+                  </div>
+
+                  <div key="section-2" name="section-2" id="part-2">
+                    <DockerDeployingStep />
+                  </div>
+                </>
+              ) : (
+                <div name="section-1" id="part-1">
+                  <KubernetesContent />
+                </div>
+              )}
+
+              <div key="section-3" name="section-3" id="part-3">
+                <LaunchPortal />
               </div>
-            )}
+
+              {isDesktop && (
+                <div key="section-4" name="section-4" id="part-4">
+                  <IntegrationScheme />
+                </div>
+              )}
+              <div>
+                <p className={getBlocksWith('__text-content')}>
+                  If there is not an integration with your test framework, you can make it on your
+                  own.
+                </p>
+                <p className={getBlocksWith('__text-content')}>
+                  Please don’t forget to share your integration. We really appreciate your
+                  contribution to ReportPortal development. Examples of contributions you can find
+                  at{' '}
+                  <a
+                    className={getBlocksWith('__link')}
+                    href="https://github.com/reportportal/reportportal"
+                  >
+                    Github page
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div className={getBlocksWith('__banner')}>
+          <Banner />
         </div>
       </div>
     </div>

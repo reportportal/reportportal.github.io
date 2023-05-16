@@ -121,6 +121,8 @@
   &__text-content {
     @include font-noto-sans();
     @include font-scale();
+
+    line-height: 24px;
   }
 
   &__chapter {
@@ -232,6 +234,19 @@
 
   &__sub-text {
     color: var(--text-service);
+  }
+
+  &__banner {
+    margin: 0 16px;
+    margin-top: 144px;
+    margin-bottom: 60px;
+    line-height: 24px;
+
+    @include breakpoint($tablet-lg) {
+      margin: 0 24px;
+      margin-top: 230px;
+      margin-bottom: 100px;
+    }
   }
 }
 
