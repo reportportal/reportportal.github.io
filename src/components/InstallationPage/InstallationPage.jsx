@@ -110,11 +110,10 @@ export const InstallationPage = () => {
                 <LaunchPortal />
               </div>
 
-              {isDesktop && (
-                <div key="section-4" name="section-4" id="part-4">
-                  <IntegrationScheme />
-                </div>
-              )}
+              <div key="section-4" name="section-4" id="part-4">
+                <IntegrationScheme />
+              </div>
+
               <div>
                 <p className={getBlocksWith('__text-content')}>
                   If there is not an integration with your test framework, you can make it on your

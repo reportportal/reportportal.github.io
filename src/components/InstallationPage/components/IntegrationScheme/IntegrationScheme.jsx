@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import { useMediaQuery } from 'react-responsive';
 import { useToggle } from 'ahooks';
 import { Divider } from 'antd';
 
@@ -15,7 +16,8 @@ const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 
 export const IntegrationScheme = () => {
-  const [state, { toggle }] = useToggle();
+  const [state, { toggle }] = useToggle(true);
+  const isDesktop = useMediaQuery({ query: '(min-width: 750px)' });
 
   const lastRow = () => schemeData.length;
 
@@ -30,22 +32,29 @@ export const IntegrationScheme = () => {
 
         <Divider className={getBlocksWith('__divider')} />
 
-        <SchemeHeader state={state} />
+        {isDesktop && (
+          <>
+            <SchemeHeader state={state} />
+            <div className={cx(getBlocksWith(), { [getBlocksWith('__collapse')]: state })}>
+              <div className={getBlocksWith('__container')}>
+                {schemeData.map(({ cells, row }) => (
+                  <SchemeRow key={row} portion={cells} row={row} lastRow={lastRow()} />
+                ))}
+              </div>
+            </div>
+          </>
+        )}
 
-        <div className={cx(getBlocksWith(), { [getBlocksWith('__collapse')]: state })}>
-          <div className={getBlocksWith('__container')}>
-            {schemeData.map(({ cells, row }) => (
-              <SchemeRow key={row} portion={cells} row={row} lastRow={lastRow()} />
-            ))}
-          </div>
-        </div>
+        {!isDesktop && <div className={getBlocksWith('__mocked')} />}
 
         <div className="collapse__btn">
-          <div className="collapse__btn-inner" onClick={toggle}>
-            <Arrow state={!state}>
-              <p>See {state ? 'more' : 'less'}</p>
-            </Arrow>
-          </div>
+          {isDesktop && (
+            <div className="collapse__btn-inner" onClick={toggle}>
+              <Arrow state={!state}>
+                <p>See {state ? 'more' : 'less'}</p>
+              </Arrow>
+            </div>
+          )}
         </div>
       </div>
     </div>

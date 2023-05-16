@@ -1,11 +1,30 @@
 @import 'src/styles/mixins/font';
 @import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
 
 .scheme {
   width: 100%;
   max-width: 800px;
   margin: 0 auto 0;
   color: var(--text-grey);
+
+  &__mocked {
+    height: 60px;
+    margin-top: -20px;
+    margin-bottom: 44px;
+    background-image: url('./img/Scheme.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include breakpoint($phone) {
+      height: 35px;
+    }
+    
+    @include breakpoint($phone-lg) {
+      height: 80px;
+    }
+  }
 
   &__divider {
     margin: 40px 0 60px;
@@ -104,6 +123,10 @@
     &-header {
       height: 105px;
     }
+  }
+
+  &__col-title-last {
+    margin-right: -1px;
   }
 
   &__col-title {
@@ -499,7 +522,7 @@
       position: absolute;
       top: 50px;
       left: 0;
-      right: 0;
+      right: -1px;
       bottom: 0;
       border-right: 2px dotted var(--color-primary-300);
       z-index: -100;
@@ -526,7 +549,7 @@
     top: 50%;
     left: 0;
     right: 0;
-    border-top: 1px solid var(--text-light-grey);
+    border-top: 1px solid var(--purple-grey);
     transform: translate(0,-50%);
     z-index: -10;
   }
@@ -537,7 +560,7 @@
 
     display: flex;
     justify-content: center;
-    border: 1px solid var(--text-light-grey);
+    border: 1px solid var(--purple-grey);
     border-radius: 16px;
     line-height: 0;
     padding: 0 10px;
