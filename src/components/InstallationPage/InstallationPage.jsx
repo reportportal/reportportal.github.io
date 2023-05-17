@@ -114,7 +114,7 @@ export const InstallationPage = () => {
                 <IntegrationScheme />
               </div>
 
-              <div>
+              <div className={getBlocksWith('__final')}>
                 <p className={getBlocksWith('__text-content')}>
                   If there is not an integration with your test framework, you can make it on your
                   own.

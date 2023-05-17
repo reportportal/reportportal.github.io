@@ -17,7 +17,7 @@ const getBlocksWith = createBemBlockBuilder(['scheme']);
 
 export const IntegrationScheme = () => {
   const [state, { toggle }] = useToggle(true);
-  const isDesktop = useMediaQuery({ query: '(min-width: 750px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 800px)' });
 
   const lastRow = () => schemeData.length;
 

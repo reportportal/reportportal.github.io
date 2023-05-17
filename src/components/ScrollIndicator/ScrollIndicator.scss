@@ -2,7 +2,7 @@
 @import 'src/styles/mixins/font';
 
 $border-thickness: 1px;
-$starter-top-position: -200px;
+$starter-top-position: -300px;
 
 .indicatory {
   position: sticky;
@@ -12,22 +12,22 @@ $starter-top-position: -200px;
   margin-top: 160px;
   margin-bottom: 100px;
   padding: 25px;
+  transition: all .4s ease-out;
+
+  &__centered {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__path {
+    position: relative;
+    height: 100%;
+  }
 
   &__box {
     position: relative;
     display: flex;
     flex-direction: column;
-
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      border-left: $border-thickness solid var(--text-light-grey);
-      top: $starter-top-position;
-      bottom: -125px;
-      left: 11px;
-      z-index: 10;
-    }
 
     &-item {
       height: 140px;
@@ -35,6 +35,17 @@ $starter-top-position: -200px;
       &-substring {
         @include font-noto-sans();
       }
+
+      &:first-child::after {
+        content: '';
+        display: block;
+        position: absolute;
+        border-left: $border-thickness solid var(--text-light-grey);
+        top: $starter-top-position;
+        bottom: -300px;
+        left: 11px;
+        z-index: 0;
+      }  
     }
   }
 
@@ -60,8 +71,8 @@ $starter-top-position: -200px;
 
     &.active {
       color: var(--text-primary);
-
       &::before {
+        left: -25px;
         background-color: var(--color-primary-500);
         transition: background-color .4s ease-out;
         border: none;
@@ -76,12 +87,12 @@ $starter-top-position: -200px;
       content: '';
       display: block;
       position: absolute;
-      left: -25px;
+      left: -26px;
       top: 7px;
       background-color: var(--white);
       transition: background-color .4s ease-out;
-      width: 12px;
-      height: 12px;
+      width: 13px;
+      height: 13px;
       border: $border-thickness solid var(--text-light-grey);
       border-radius: 50%;
       z-index: 100;

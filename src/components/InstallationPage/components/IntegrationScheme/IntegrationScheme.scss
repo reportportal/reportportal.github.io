@@ -10,24 +10,24 @@
   color: var(--text-grey);
 
   &__mocked {
-    height: 60px;
-    margin-top: -20px;
+    height: 80px;
+    margin-top: 10px;
     margin-bottom: 44px;
     background-image: url('./img/Scheme.svg');
     background-repeat: no-repeat;
     background-size: contain;
 
     @include breakpoint($phone) {
-      height: 35px;
+      height: 60px;
     }
     
     @include breakpoint($phone-lg) {
-      height: 80px;
+      height: 100px;
     }
   }
 
   &__divider {
-    margin: 40px 0 60px;
+    margin: 40px 0 40px;
   }
 
   &__collapse {
@@ -96,7 +96,7 @@
     position: relative;
     height: 1485px;
     position: relative;
-    transition: all 1s ease-out;
+    transition: all 0s ease-out;
     margin-bottom: 30px;
 
     &::before {
@@ -110,8 +110,8 @@
       border-right: 2px dotted var(--color-primary-300);
       z-index: -100;
       opacity: 1;
-      transition: opacity .4s ease-in-out;
-      transition-delay: .4s;
+      transition: opacity 0s ease-in-out;
+      transition-delay: 0s;
     }
   }
 
@@ -152,8 +152,8 @@
       border-left: 2px dotted var(--color-primary-300);
       z-index: -110;
       opacity: 1;
-      transition: opacity .4s ease-in-out;
-      transition-delay: .4s;
+      transition: opacity 0s ease-in-out;
+      transition-delay: 0s;
     }
 
     &-inner {
@@ -208,8 +208,8 @@
     align-items: center;
     border-left: 2px dotted var(--color-primary-300);
     opacity: 1;
-    transition: opacity .4s ease-in-out;
-    transition-delay: .4s;
+    transition: opacity 0s ease-in-out;
+    transition-delay: 0s;
 
     &-inner {
       @include font-noto-sans();
@@ -264,8 +264,8 @@
         border-end-end-radius: 12px;
         background: var(--white);;
         opacity: 1;
-        transition: opacity .4s ease-in-out;
-        transition-delay: .4s;
+        transition: opacity 0s ease-in-out;
+        transition-delay: 0s;
       }
     }
 
@@ -527,8 +527,8 @@
       border-right: 2px dotted var(--color-primary-300);
       z-index: -100;
       opacity: 1;
-      transition: opacity .4s ease-in-out;
-      transition-delay: .4s;
+      transition: opacity 0s ease-in-out;
+      transition-delay: 0s;
     }
   }
 }
