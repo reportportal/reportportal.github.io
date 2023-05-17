@@ -41,12 +41,7 @@ export const ProcessIntegration = () => (
       <button className={cx('btn', 'btn--outline', 'btn--large')}>See all integrations</button>
     </div>
     <div className={getBlocksWith('__carousel')}>
-      <Marquee
-        className={getBlocksWith('__carousel-marquee')}
-        speed={25}
-        pauseOnHover
-        gradientWidth="19.27%"
-      >
+      <Marquee className={getBlocksWith('__carousel-marquee')} speed={25} gradientWidth="19.27%">
         {[icons, icons].flat().map((slide, index) => (
           <div className={getBlocksWith('__carousel-logo')} key={index}>
             {slide.icon}
