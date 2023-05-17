@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-scroll';
-import { useScroll } from 'ahooks';
+import { useScroll, useSize } from 'ahooks';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
@@ -13,11 +13,32 @@ const getBlocksWith = createBemBlockBuilder(['indicatory']);
 const FIRST_POSITION_OFFSET = 200;
 const OFFSET = 20;
 const HERO_HIGHT = 500;
+const DEFAULT_BOTTOM_LINE_POSITION = 400;
 
 export const ScrollIndicator = ({ sections }) => {
   const [offSet, setOffSet] = useState(-FIRST_POSITION_OFFSET);
   const [heroPassed, setHeroPassed] = useState(false);
   const scroll = useScroll(document);
+
+  const [top, setTop] = useState(0);
+  const [bottom, setBottom] = useState(0);
+
+  const indicatoryScrollPosition = useScroll(indicatoryRef);
+  const pathRef = useRef(null);
+  const indicatoryRef = useRef(null);
+  const pathSize = useSize(pathRef);
+  const indicatorySize = useSize(indicatoryRef);
+
+  useEffect(() => {
+    const topPosition = indicatoryScrollPosition?.top + HERO_HIGHT;
+    const bottomPosition = pathSize?.height - indicatorySize?.height - topPosition;
+
+    const adjustedBottom =
+      bottomPosition < HERO_HIGHT ? DEFAULT_BOTTOM_LINE_POSITION : bottomPosition;
+
+    setTop(-topPosition);
+    setBottom(-adjustedBottom);
+  }, [indicatoryScrollPosition?.top]);
 
   useEffect(() => {
     scroll?.top < FIRST_POSITION_OFFSET ? setOffSet(-FIRST_POSITION_OFFSET) : setOffSet(-OFFSET);
@@ -28,11 +49,18 @@ export const ScrollIndicator = ({ sections }) => {
   return (
     <>
       {sections && (
-        <div className={getBlocksWith('__path')}>
-          <div className={cx(getBlocksWith(), { [getBlocksWith('__centered')]: heroPassed })}>
+        <div ref={pathRef} className={getBlocksWith('__path')}>
+          <div
+            ref={indicatoryRef}
+            className={cx(getBlocksWith(), { [getBlocksWith('__centered')]: heroPassed })}
+          >
             <div className={getBlocksWith('__box')}>
               {sections.map((section) => (
                 <div key={section.id} className={getBlocksWith('__box-item')}>
+                  <div
+                    className={getBlocksWith('__box-item-line')}
+                    style={{ top: `${top}px`, bottom: `${bottom}px` }}
+                  />
                   <Link
                     className={getBlocksWith('__link')}
                     activeClass="active"
