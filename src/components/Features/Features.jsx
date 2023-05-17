@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-
-import * as styles from './Features.module.scss';
+import React, { useCallback, useState } from 'react';
+import cx from 'classnames';
 
 import {
   collapsableList,
@@ -18,11 +17,13 @@ import {
 
 import { iconsCommon } from '../../utils/imageSource';
 
+import * as styles from './Features.module.scss';
+
 export const Features = () => {
   const [currentLanguage, setActiveLanguage] = useState('java');
   const [shownItem, setShownItem] = useState();
 
-  function currentFrameworks() {
+  const getCurrentFrameworks = useCallback(() => {
     const frameworks = {
       java: frameworkIconsJava,
       dotnet: frameworkIconsDotNet,
@@ -32,7 +33,7 @@ export const Features = () => {
     };
 
     return frameworks[currentLanguage] || frameworkIconsOther;
-  }
+  }, [currentLanguage]);
 
   return (
     <div>
@@ -50,27 +51,27 @@ export const Features = () => {
           <h1>Explore ReportPortal features</h1>
         </div>
         <div className={styles.features_navigation}>
-          {navigationList.map((nav, index) => (
-            <a className={styles.navigation_item} href={nav.link} key={index}>
-              <span>{nav.id}</span>
-              <span>{nav.name}</span>
+          {navigationList.map(({ id, name, link }) => (
+            <a className={styles.navigation_item} href={link} key={name}>
+              <span>{id}</span>
+              <span>{name}</span>
             </a>
           ))}
         </div>
       </div>
       <div className={styles.feature_list}>
-        {featuresList.map((feature, index) => (
-          <div className={styles.feature_blockitem} id={feature.link} key={index}>
+        {featuresList.map(({ link, title, description, image }) => (
+          <div className={styles.feature_blockitem} id={link} key={title}>
             <div className={styles.features_leading}>
-              <h1>{feature.title}</h1>
-              <p>{feature.description}</p>
+              <h1>{title}</h1>
+              <p>{description}</p>
               <a href="#">
                 Learn more <img src={iconsCommon.arrow} />
               </a>
             </div>
 
             <div className={styles.features_trailing}>
-              <img src={feature.image} />
+              <img src={image} />
             </div>
           </div>
         ))}
@@ -98,20 +99,20 @@ export const Features = () => {
 
         <div className={styles.frameworks_box}>
           <div className={styles.frameworks_box_header}>
-            {languageList.map((lang, index) => (
+            {languageList.map(({ id, lang }) => (
               <div
-                className={lang.id === currentLanguage ? styles.active_lang : ''}
-                key={index}
-                onClick={() => setActiveLanguage(lang.id)}
+                className={id === currentLanguage ? styles.active_lang : ''}
+                key={lang}
+                onClick={() => setActiveLanguage(id)}
               >
-                {lang.lang}
+                {lang}
               </div>
             ))}
           </div>
           <div className={styles.frameworks_box_content}>
-            {currentFrameworks().map((java, index) => (
+            {getCurrentFrameworks().map(({ icon }, index) => (
               <div className={styles.frameworks_box_content_item} key={index}>
-                <img src={java.icon} />
+                <img src={icon} />
               </div>
             ))}
           </div>
@@ -127,7 +128,7 @@ export const Features = () => {
             </h2>
           </div>
           <div className={styles.subscription_leading_button_group}>
-            <button className={'btn'}>Start free trial</button>
+            <button className="btn">Start free trial</button>
             <button className="btn-clear">Get a quote</button>
           </div>
         </div>
@@ -140,22 +141,23 @@ export const Features = () => {
           <h1>Frequently asked questions</h1>
         </div>
         <div className={styles.faq_content}>
-          {collapsableList.map((item, index) => (
-            <div className={styles.faq_content_item} key={index}>
+          {collapsableList.map(({ id, title, description }) => (
+            <div className={styles.faq_content_item} key={title}>
               <div className={styles.faq_content_item_title}>
-                <h1>{item.title} </h1>
+                <h1>{title} </h1>
                 <img
-                  className={`${shownItem !== item.id ? styles.arrowshown : ''}`}
+                  className={cx({ [styles.arrowshown]: shownItem !== id })}
                   src={iconsCommon.arrowalt}
-                  onClick={() => setShownItem(item.id)}
+                  onClick={() => setShownItem(id)}
                 />
               </div>
               <div
-                className={`${styles.faq_content_item_description} ${
-                  shownItem === item.id ? styles.shown : styles.collapsed
-                }`}
+                className={cx(styles.faq_content_item_description, {
+                  [styles.shown]: shownItem === id,
+                  [styles.collapsed]: shownItem !== id,
+                })}
               >
-                <p>{item.description}</p>
+                <p>{description}</p>
               </div>
             </div>
           ))}

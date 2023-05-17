@@ -64,30 +64,77 @@ import webdriver from '../svg/icon_framework_webdriver.svg';
 import xctest from '../svg/icon_framework_vstest.svg';
 
 export const iconsCommon = {
-    subscription,dashboard,arrow,arrowalt
-}
-
+  subscription,
+  dashboard,
+  arrow,
+  arrowalt,
+};
 
 export const features = {
-    feature1: feature1,
-    feature2: feature2,
-    feature3: feature3,
-    feature4: feature4,
-    feature5: feature5,
-    feature6: feature6,
-    feature7: feature7,
-    feature8: feature8,
-}
-
+  feature1: feature1,
+  feature2: feature2,
+  feature3: feature3,
+  feature4: feature4,
+  feature5: feature5,
+  feature6: feature6,
+  feature7: feature7,
+  feature8: feature8,
+};
 
 export const iconsCustomers = {
-    azuresaml,jira,jira2,rally,saml,saucelabs,azuredo,octa,microsoft,ldap
-}
-
+  azuresaml,
+  jira,
+  jira2,
+  rally,
+  saml,
+  saucelabs,
+  azuredo,
+  octa,
+  microsoft,
+  ldap,
+};
 
 export const iconsFrameworks = {
-    android, artos, cucumber, cucumber2, cucumber3, cucumber4, cucumber5, cucumber6, jbehave, junit,
-    junit5,karate, nunit, scalatest, serenity, soapui, specflow, spock, testng, unitnet, vstest,
-    jasmine,mocha,nightwatch,jest,cypress,codecept,postman,testcafe,webdriver,playwright,pytest,
-    robotframework,pythonbehave,nose ,behat,phpunit,codeception,st ,xctest,gwen,gauge
-}
+  android,
+  artos,
+  cucumber,
+  cucumber2,
+  cucumber3,
+  cucumber4,
+  cucumber5,
+  cucumber6,
+  jbehave,
+  junit,
+  junit5,
+  karate,
+  nunit,
+  scalatest,
+  serenity,
+  soapui,
+  specflow,
+  spock,
+  testng,
+  unitnet,
+  vstest,
+  jasmine,
+  mocha,
+  nightwatch,
+  jest,
+  cypress,
+  codecept,
+  postman,
+  testcafe,
+  webdriver,
+  playwright,
+  pytest,
+  robotframework,
+  pythonbehave,
+  nose,
+  behat,
+  phpunit,
+  codeception,
+  st,
+  xctest,
+  gwen,
+  gauge,
+};
