@@ -54,7 +54,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "gatsby-provision-contentful": "0.0.3",
-    "prettier": "^2.8.3"
+    "prettier": "^2.8.3",
+    "sass": "^1.59.2"
   },
   "peerDependencies": {
     "@contentful/rich-text-plain-text-renderer": "*",

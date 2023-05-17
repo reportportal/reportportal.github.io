@@ -3,7 +3,7 @@
 
 .subscription-form__form {
   @include font-poppins();
-  @include font-scale(base);
+  @include font-scale();
 
   display: grid;
   grid-template-columns: 1fr auto;
