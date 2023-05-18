@@ -26,7 +26,7 @@ const VersionsBlogPage = () => (
   <>
     <BlogPageHeader
       tags={['SemanticVersioning', 'CalendarVersioning']}
-      date={'April 28, 2023'}
+      date={'May 18, 2023'}
       background={VersionsBackgroundImage}
     />
     <BlogPageContent title={'The new approach to versions naming'}>
