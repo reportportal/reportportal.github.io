@@ -25,7 +25,7 @@ const releases = ['Semi annual product releases', 'Regular service releases'];
 const VersionsBlogPage = () => (
   <>
     <BlogPageHeader
-      tags={['SemanticVersioning']}
+      tags={['SemanticVersioning', 'CalendarVersioning']}
       date={'April 28, 2023'}
       background={VersionsBackgroundImage}
     />
