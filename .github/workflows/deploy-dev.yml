@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Deploy to AWS S3
+name: Deploy to dev (AWS S3)
 env:
   AWS_S3_BUCKET_NAME : "rpp-landing"
   AWS_REGION_NAME : "eu-central-1"

@@ -19,11 +19,12 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import reactWrapper from 'utils/reactWrapper';
 import BodyLayout from 'react-components/layouts/bodyLayout.jsx';
-import { ELASTIC_BLOG, PERFORMANCE_BLOG, BENEFITS_BLOG, AI_BLOG_PAGE } from './constants';
+import { ELASTIC_BLOG, PERFORMANCE_BLOG, BENEFITS_BLOG, AI_BLOG, VERSIONS_BLOG } from './constants';
 import ElasticBlogPage from './elastic-blog-page/elasticBlogPage';
 import PerformanceBlogPage from './performance-blog-page/performanceBlogPage';
 import BenefitsBlogPage from './benefits-blog-page/benefitsBlogPage';
 import AiBlogPage from './ai-blog-page/aiBlogPage';
+import VersionsBlogPage from './versions-blog-page/versionsBlogPage';
 import styles from './blogPage.scss';
 
 const cx = classNames.bind(styles);
@@ -32,7 +33,8 @@ const blogPages = {
   [ELASTIC_BLOG]: ElasticBlogPage,
   [PERFORMANCE_BLOG]: PerformanceBlogPage,
   [BENEFITS_BLOG]: BenefitsBlogPage,
-  [AI_BLOG_PAGE]: AiBlogPage,
+  [AI_BLOG]: AiBlogPage,
+  [VERSIONS_BLOG]: VersionsBlogPage,
 };
 
 const BlogPage = ({ blogName }) => {

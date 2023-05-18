@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Deploy to GitHub pages
+name: Deploy to prod (GitHub Pages)
 env:
   SALESFORCE_URL: https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
   SALESFORCE_OID: 00D24000000k2Rp
