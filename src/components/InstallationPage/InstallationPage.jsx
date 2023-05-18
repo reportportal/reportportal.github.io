@@ -11,6 +11,7 @@ import { ButtonSwitcher } from '../ButtonSwitcher';
 import { ScrollIndicator } from '../ScrollIndicator';
 import { DockerDeployingStep } from './components/DockerContent/DockerDeployingStep';
 import { DockerInstall } from './components/DockerContent/DockerInstall';
+import { SupportedFrameworks } from '../SupportedFrameworks';
 
 import './InstallationPage.scss';
 
@@ -113,6 +114,8 @@ export const InstallationPage = () => {
                 <IntegrationScheme />
               </div>
             )}
+
+            <SupportedFrameworks />
           </div>
         </div>
       </div>
