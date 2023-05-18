@@ -1,15 +1,39 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import cx from 'classnames';
 
-import { collapsableList, customerIcons, featuresList, navigationList } from './dataSource';
+import {
+  collapsableList,
+  customerIcons,
+  featuresList,
+  frameworkIconsDotNet,
+  frameworkIconsJava,
+  frameworkIconsJavascript,
+  frameworkIconsOther,
+  frameworkIconsPhp,
+  frameworkIconsPython,
+  languageList,
+  navigationList,
+} from './dataSource';
 
 import { iconsCommon } from '../../utils/imageSource';
-import { SupportedFrameworks } from '../SupportedFrameworks';
 
 import * as styles from './Features.module.scss';
 
 export const Features = () => {
+  const [currentLanguage, setActiveLanguage] = useState('java');
   const [shownItem, setShownItem] = useState();
+
+  const getCurrentFrameworks = useCallback(() => {
+    const frameworks = {
+      java: frameworkIconsJava,
+      dotnet: frameworkIconsDotNet,
+      javascript: frameworkIconsJavascript,
+      python: frameworkIconsPython,
+      php: frameworkIconsPhp,
+    };
+
+    return frameworks[currentLanguage] || frameworkIconsOther;
+  }, [currentLanguage]);
 
   return (
     <div>
@@ -69,14 +93,31 @@ export const Features = () => {
           ))}
         </div>
       </div>
-
       <div className={styles.frameworks}>
         <h1>Supported frameworks</h1>
         <h2>Explore supported frameworks by language</h2>
 
-        <SupportedFrameworks />
+        <div className={styles.frameworks_box}>
+          <div className={styles.frameworks_box_header}>
+            {languageList.map(({ id, lang }) => (
+              <div
+                className={id === currentLanguage ? styles.active_lang : ''}
+                key={lang}
+                onClick={() => setActiveLanguage(id)}
+              >
+                {lang}
+              </div>
+            ))}
+          </div>
+          <div className={styles.frameworks_box_content}>
+            {getCurrentFrameworks().map(({ icon }, index) => (
+              <div className={styles.frameworks_box_content_item} key={index}>
+                <img src={icon} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-
       <div className={styles.subscription}>
         <div className={styles.subscription_leading}>
           <div className={styles.subscription_leading_heading}>
