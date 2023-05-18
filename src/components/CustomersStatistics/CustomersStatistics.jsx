@@ -22,12 +22,12 @@ export const CustomersStatistics = () => (
           <li>
             <strong>1200+</strong>
             <strong>Companies</strong>
-            <span>Already trust ReportPortal</span>
+            <span>Are already using ReportPortal</span>
           </li>
           <li>
             <strong>40+</strong>
-            <strong>Our clients</strong>
-            <span>Are included in the Fortune 500 list</span>
+            <strong>Companies from Fortune 500 list</strong>
+            <span>Among our clients</span>
           </li>
           <li>
             <strong>40M+</strong>
