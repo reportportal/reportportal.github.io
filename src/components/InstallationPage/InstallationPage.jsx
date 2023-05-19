@@ -11,6 +11,7 @@ import { ButtonSwitcher } from '../ButtonSwitcher';
 import { ScrollIndicator } from '../ScrollIndicator';
 import { DockerDeployingStep } from './components/DockerContent/DockerDeployingStep';
 import { DockerInstall } from './components/DockerContent/DockerInstall';
+import { SupportedFrameworks } from '../SupportedFrameworks';
 import { Banner } from './components/Banner';
 
 import './InstallationPage.scss';
@@ -111,25 +112,7 @@ export const InstallationPage = () => {
               </div>
 
               <div key="section-4" name="section-4" id="part-4">
-                <IntegrationScheme />
-              </div>
-
-              <div className={getBlocksWith('__final')}>
-                <p className={getBlocksWith('__text-content')}>
-                  If there is not an integration with your test framework, you can make it on your
-                  own.
-                </p>
-                <p className={getBlocksWith('__text-content')}>
-                  Please don’t forget to share your integration. We really appreciate your
-                  contribution to ReportPortal development. Examples of contributions you can find
-                  at{' '}
-                  <a
-                    className={getBlocksWith('__link')}
-                    href="https://github.com/reportportal/reportportal"
-                  >
-                    Github page
-                  </a>
-                </p>
+                <Integrations />
               </div>
             </div>
           </div>
@@ -140,5 +123,35 @@ export const InstallationPage = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const Integrations = () => {
+  return (
+    <>
+      <IntegrationScheme />
+
+      <div>
+        <p className={getBlocksWith('__text-content')}>Choose needed integration by language:</p>
+
+        <SupportedFrameworks />
+      </div>
+
+      <div className={getBlocksWith('__final')}>
+        <p className={getBlocksWith('__text-content')}>
+          If there is not an integration with your test framework, you can make it on your own.
+        </p>
+        <p className={getBlocksWith('__text-content')}>
+          Please don’t forget to share your integration. We really appreciate your contribution to
+          ReportPortal development. Examples of contributions you can find at{' '}
+          <a
+            className={getBlocksWith('__link')}
+            href="https://github.com/reportportal/reportportal"
+          >
+            Github page
+          </a>
+        </p>
+      </div>
+    </>
   );
 };

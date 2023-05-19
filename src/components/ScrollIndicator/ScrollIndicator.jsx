@@ -21,7 +21,7 @@ export const ScrollIndicator = ({ sections }) => {
   const scroll = useScroll(document);
 
   const [top, setTop] = useState(0);
-  const [bottom, setBottom] = useState(0);
+  const [bottom, setBottom] = useState(-DEFAULT_BOTTOM_LINE_POSITION);
 
   const indicatoryScrollPosition = useScroll(indicatoryRef);
   const pathRef = useRef(null);

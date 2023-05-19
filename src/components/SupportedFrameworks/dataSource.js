@@ -1,12 +1,30 @@
 import { iconsFrameworks } from '../../utils/imageSource.js';
 
-export const languageList = [
-  { lang: 'Java', id: 'java' },
-  { lang: '.NET', id: 'dotnet' },
-  { lang: 'JavaScript', id: 'javascript' },
-  { lang: 'Python', id: 'python' },
-  { lang: 'PHP', id: 'php' },
-  { lang: 'Other', id: 'other' },
+export const tabList = [
+  {
+    label: 'Java',
+    key: 'java',
+  },
+  {
+    label: '.NET',
+    key: 'dotnet',
+  },
+  {
+    label: 'JavaScript',
+    key: 'javascript',
+  },
+  {
+    label: 'Python',
+    key: 'python',
+  },
+  {
+    label: 'PHP',
+    key: 'php',
+  },
+  {
+    label: 'Other',
+    key: 'other',
+  },
 ];
 
 export const frameworkIconsJava = [

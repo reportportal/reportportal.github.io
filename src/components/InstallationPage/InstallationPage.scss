@@ -27,7 +27,11 @@
     }
 
     &-content {
-      flex: 7;
+      width: 100%;
+
+      @include breakpoint($tablet-sm) {
+        flex: 7;
+      }
     }
 
     &-inner {
