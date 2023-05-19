@@ -44,7 +44,7 @@
     @include font-scale(medium);
 
     line-height: 32px;
-    color: #2F3C5F;
+    color: var(--text-primary);
   }
 
   &__btn-wrapper {
