@@ -10,18 +10,14 @@
   color: var(--text-grey);
 
   &__mocked {
-    height: 80px;
+    height: 12vw;
     margin-top: 10px;
     margin-bottom: 44px;
     background-image: url('./img/Scheme.svg');
     background-repeat: no-repeat;
     background-size: contain;
-
-    @include breakpoint($phone) {
-      height: 60px;
-    }
     
-    @include breakpoint($phone-lg) {
+    @include breakpoint($tablet-sm) {
       height: 100px;
     }
   }
