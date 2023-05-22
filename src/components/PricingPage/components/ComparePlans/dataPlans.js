@@ -1,12 +1,14 @@
+export const headerColumnTitles = ['Startup', 'Business', 'Enterprise'];
+
 export const dataPlans = [
   {
     feature: 'Instance type',
-    description: `Shared instance is used by more than one tenant/client.\n
-Tenants' access is restricted to the project space owned by them.\n
-Cost-effective option.\n
+    description: `Shared instance is used by more than one tenant/client.
+Tenants' access is restricted to the project space owned by them.
+Cost-effective option.
 
-Dedicated instance is hosted for one tenant/client only.\n
-No shared database and infrastructure — better for data isolation, availability, security and company-based authorization.\n`,
+Dedicated instance is hosted for one tenant/client only.
+No shared database and infrastructure — better for data isolation, availability, security and company-based authorization.`,
     startup: 'Shared',
     business: 'Individual',
     enterprise: 'Individual',
