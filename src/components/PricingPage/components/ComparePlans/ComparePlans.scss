@@ -77,12 +77,13 @@
 
   &__row-title {
     flex: 2;
+    align-self: flex-start;
     color: var(--text-primary);
 
     &-wrapper {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
     }
 
     &-cols {
@@ -90,6 +91,8 @@
 
       flex: 3;
       margin: 0 35px;
+      display: flex;
+      align-items: center;
     }
 
     &-col {
