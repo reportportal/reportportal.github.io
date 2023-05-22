@@ -106,8 +106,6 @@
       border-right: 2px dotted var(--color-primary-300);
       z-index: -100;
       opacity: 1;
-      transition: opacity 0s ease-in-out;
-      transition-delay: 0s;
     }
   }
 
@@ -148,8 +146,6 @@
       border-left: 2px dotted var(--color-primary-300);
       z-index: -110;
       opacity: 1;
-      transition: opacity 0s ease-in-out;
-      transition-delay: 0s;
     }
 
     &-inner {
@@ -204,8 +200,6 @@
     align-items: center;
     border-left: 2px dotted var(--color-primary-300);
     opacity: 1;
-    transition: opacity 0s ease-in-out;
-    transition-delay: 0s;
 
     &-inner {
       @include font-noto-sans();
@@ -260,8 +254,6 @@
         border-end-end-radius: 12px;
         background: var(--white);
         opacity: 1;
-        transition: opacity 0s ease-in-out;
-        transition-delay: 0s;
       }
     }
 
@@ -521,8 +513,6 @@
       border-right: 2px dotted var(--color-primary-300);
       z-index: -100;
       opacity: 1;
-      transition: opacity 0s ease-in-out;
-      transition-delay: 0s;
     }
   }
 }
