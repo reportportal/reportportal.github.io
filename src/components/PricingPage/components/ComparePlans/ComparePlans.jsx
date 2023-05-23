@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import isBoolean from 'lodash/isBoolean';
 import { Collapse } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import cx from 'classnames';
@@ -7,6 +8,9 @@ import cx from 'classnames';
 import { createBemBlockBuilder } from '../../../../utils';
 import { $tabletSm } from '../../../../utils/breakpoint';
 import { dataPlans, headerColumnTitles } from './dataPlans';
+import CrossIcon from '../../icons/cross.inline.svg';
+import MarkIcon from '../../icons/mark.inline.svg';
+
 // import { Arrow } from './icons/Arrow';
 
 import './ComparePlans.scss';
@@ -16,8 +20,6 @@ const getCompareContainer = createBemBlockBuilder(['compare']);
 export const ComparePlans = () => {
   const isDesktop = useMediaQuery({ query: $tabletSm }); // $desktopSm
   const { Panel } = Collapse;
-
-  console.log('==========isDesktop====>', isDesktop);
 
   const handleArrowPosition = (isActive) => {
     // isActive ? (isDesktop ? 90 : -90) : isDesktop ? 0 : 90;
@@ -31,6 +33,9 @@ export const ComparePlans = () => {
   };
 
   const prepareColumnData = ({ startup, business, enterprise }) => [startup, business, enterprise];
+
+  const constructElementKey = (index, feature, section) =>
+    feature ? feature.substring(0, index + 1) : `key${section}` || '';
 
   return (
     <div className={cx(getCompareContainer(), 'container')}>
@@ -58,28 +63,51 @@ export const ComparePlans = () => {
           )}
           // expandIcon={({ isActive }) => <Arrow rotate={isActive ? 90 : 0} />}
         >
-          {dataPlans.map(({ description, feature, ...rowData }) => (
-            <Panel header={<ExpendableRow feature={feature} rowData={rowData} />} key={feature}>
-              <div className={getCompareContainer('__content')}>
-                <div
-                  className={cx(getCompareContainer('__description'), {
-                    [getCompareContainer('__description-full-width')]: isDesktop,
-                  })}
-                >
-                  {description}
-                </div>
+          {dataPlans.map(({ description, feature, section, footer, ...rowData }, index) => (
+            <Panel
+              showArrow={!section}
+              collapsible={section && 'disabled'}
+              header={
+                !section ? <ExpendableRow feature={feature} rowData={rowData} /> : <RowSection />
+              }
+              key={constructElementKey(index, feature, section)}
+            >
+              {!section && (
+                <div className={getCompareContainer('__content')}>
+                  <div
+                    className={cx(getCompareContainer('__description'), {
+                      [getCompareContainer('__description-full-width')]: isDesktop,
+                    })}
+                  >
+                    {description}
+                  </div>
 
-                <div className={getCompareContainer('__tab-data')}>
-                  {!isDesktop && <ColumnsHeader fontSize={16} />}
-                  <div className={getCompareContainer('__tab-data-last-item')}>
-                    <Columns cols={prepareColumnData(rowData)} fontSize={14} />
+                  <div className={getCompareContainer('__tab-data')}>
+                    {!isDesktop && <ColumnsHeader fontSize={16} />}
+                    <div className={getCompareContainer('__tab-data-last-item')}>
+                      <Columns cols={prepareColumnData(rowData)} fontSize={14} />
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </Panel>
           ))}
         </Collapse>
       </div>
+    </div>
+  );
+};
+
+const RowSection = () => {
+  const isDesktop = useMediaQuery({ query: $tabletSm });
+
+  return (
+    <div
+      className={cx(getCompareContainer('__section'), {
+        [getCompareContainer('__section-adjustment')]: !isDesktop,
+      })}
+    >
+      Premium Features
     </div>
   );
 };
@@ -115,21 +143,31 @@ const Columns = ({ title = '', cols, bigFont = false, fontSize = 16 }) => {
     setVisibility(shouldShow);
   }, [isDesktop, title]);
 
+  const constructElementKey = (item, index) => {
+    let str = String(item);
+
+    if (str < 3) {
+      str = str.repeat(3);
+    }
+
+    return str.substring(0, index + 1);
+  };
+
   return (
     <div className={getCompareContainer('__row-title-wrapper')}>
       {title && <div className={getCompareContainer('__row-title')}>{title}</div>}
 
       {visibility && (
         <div className={getCompareContainer('__row-title-cols')}>
-          {cols.map((item) => (
+          {cols.map((item, index) => (
             <div
-              key={item}
+              key={constructElementKey(item, index)}
               className={cx(getCompareContainer('__row-title-col'), {
                 [getCompareContainer('__row-title-col-font')]: bigFont,
               })}
               style={{ fontSize: `${fontSize}px` }}
             >
-              <div>{item}</div>
+              {!isBoolean(item) ? <div>{item}</div> : <Mark value={item} />}
             </div>
           ))}
         </div>
@@ -137,3 +175,5 @@ const Columns = ({ title = '', cols, bigFont = false, fontSize = 16 }) => {
     </div>
   );
 };
+
+const Mark = (value) => (value ? <MarkIcon /> : <CrossIcon />);

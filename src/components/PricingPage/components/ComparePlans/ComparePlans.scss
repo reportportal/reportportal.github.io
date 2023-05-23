@@ -6,7 +6,7 @@
 .compare {
 
   &__box {
-    .ant-collapse-item {
+    .ant-collapse-item:not(:has(.compare__section)) {
       margin-bottom: 20px;
       box-shadow: 0px 8px 16px rgba(0, 45, 55, 0.12);
       border-radius: 8px;
@@ -19,7 +19,24 @@
     }
   }
 
+  .ant-collapse-header:has(.compare__section) {
+    @include font-noto-sans($fw-semi-bold);
+    @include font-scale(base);
 
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    cursor: auto;
+  }
+
+  &__section {
+    margin: 20px 0;
+    cursor: auto;
+
+    &-adjustment {
+      text-align: center;
+    }
+  }
 
   &__title {
     @include font-poppins($fw-semi-bold);

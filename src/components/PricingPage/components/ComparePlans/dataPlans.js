@@ -69,13 +69,21 @@ The data is removed after specified period of retention policy or in case of ove
     business: 'Upon request',
     enterprise: 'Upon request',
   },
-  // {
-  //   feature: 'Unlimited number of users',
-  //   description: 'There are no limits in number of users associated with plans and tiers.',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
+  {
+    section: 'Premium Features',
+  },
+  {
+    feature: 'Quality Gates',
+    description: `Quality Gates is a premium feature helping to automate decisions on top of test automation results and set up a feedback loop into your CI/CD toolchain.
+
+Rule-based engine helps to form an unambiguous decision of passed/failed execution considering extensive information of test reports attributes.`,
+    startup: true,
+    business: true,
+    enterprise: true,
+  },
+  {
+    footer: true,
+  },
   // {
   //   feature: '',
   //   description: '',
