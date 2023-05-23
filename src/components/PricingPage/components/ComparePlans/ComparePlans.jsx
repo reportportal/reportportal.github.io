@@ -7,18 +7,16 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../../utils';
 import { $tabletSm } from '../../../../utils/breakpoint';
-import { dataPlans, headerColumnTitles } from './dataPlans';
+import { dataPlans, headerColumnTitles, buttonsData } from './dataPlans';
 import CrossIcon from '../../icons/cross.inline.svg';
 import MarkIcon from '../../icons/mark.inline.svg';
-
-// import { Arrow } from './icons/Arrow';
 
 import './ComparePlans.scss';
 
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
 export const ComparePlans = () => {
-  const isDesktop = useMediaQuery({ query: $tabletSm }); // $desktopSm
+  const isDesktop = useMediaQuery({ query: $tabletSm });
   const { Panel } = Collapse;
 
   const handleArrowPosition = (isActive) => {
@@ -62,7 +60,6 @@ export const ComparePlans = () => {
               rotate={handleArrowPosition(isActive)}
             />
           )}
-          // expandIcon={({ isActive }) => <Arrow rotate={isActive ? 90 : 0} />}
         >
           {dataPlans.map(({ description, feature, section, footer, ...rowData }, index) => (
             <Panel
@@ -95,8 +92,6 @@ export const ComparePlans = () => {
                   </div>
                 </div>
               )}
-
-              {/* {footer && <div>111111111111</div>} */}
             </Panel>
           ))}
         </Collapse>
@@ -111,10 +106,14 @@ const RowSection = ({ footer }) => {
   return (
     <>
       {footer ? (
-        <div className={cx(getCompareContainer('__section'))}>222222222222</div>
+        <div
+          className={cx(getCompareContainer('__section'), getCompareContainer('__section-btns'))}
+        >
+          <FooterColumns />
+        </div>
       ) : (
         <div
-          className={cx(getCompareContainer('__section'), {
+          className={cx(getCompareContainer('__section'), getCompareContainer('__section-title'), {
             [getCompareContainer('__section-adjustment')]: !isDesktop,
           })}
         >
@@ -189,4 +188,46 @@ const Columns = ({ title = '', cols, bigFont = false, fontSize = 16 }) => {
   );
 };
 
-const Mark = (value) => (value ? <MarkIcon /> : <CrossIcon />);
+const Mark = (value) =>
+  value ? (
+    <div className={getCompareContainer('__mark-icon')}>
+      <MarkIcon />
+    </div>
+  ) : (
+    <CrossIcon />
+  );
+
+const FooterColumns = () => {
+  const isDesktop = useMediaQuery({ query: $tabletSm });
+
+  return (
+    <div className={getCompareContainer('__row-title-wrapper')}>
+      <div
+        className={cx(
+          getCompareContainer('__row-title'),
+          getCompareContainer('__row-title-footer'),
+          { [getCompareContainer('__row-title-footer-centred')]: !isDesktop },
+        )}
+      >
+        <a href="#">Privacy Policy &#x2197;</a>
+      </div>
+
+      {isDesktop && (
+        <div className={getCompareContainer('__row-title-cols')}>
+          {buttonsData.map(({ btn, mode, href }) => (
+            <div key={btn} className={cx(getCompareContainer('__row-title-col'), {})}>
+              <div className={getCompareContainer('__section-btn-wrapper')}>
+                <a
+                  className={cx('btn', `btn--${mode}`, getCompareContainer('__section-btn'))}
+                  href={href}
+                >
+                  {btn}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};

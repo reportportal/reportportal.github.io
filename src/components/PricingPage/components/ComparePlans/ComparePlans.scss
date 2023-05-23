@@ -14,6 +14,7 @@
 
     &-border {
       padding: 20px;
+      padding-bottom: 0;
       box-shadow: 0px 8px 16px rgba(0, 45, 55, 0.12);
       border-radius: 8px;
     }
@@ -23,18 +24,38 @@
     @include font-noto-sans($fw-semi-bold);
     @include font-scale(base);
 
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-primary);
     cursor: auto;
   }
 
   &__section {
     margin: 20px 0;
+
     cursor: auto;
+
+    &-title {
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
 
     &-adjustment {
       text-align: center;
+    }
+
+    &-btn-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-btn {
+      width: 100%;
+      max-width: 148px;
+      padding: 16px 5px;
+    }
+
+    &-btns {
+      padding: 0 0px 0 42px;
     }
   }
 
@@ -97,6 +118,27 @@
     align-self: flex-start;
     color: var(--text-primary);
 
+    &-footer {
+      @include font-poppins($fw-medium);
+      @include font-scale(small);
+
+      align-self: center;
+      color: var(--text-service);
+
+      > a {
+        margin-left: -36px;
+      }
+
+      &-centred {
+        text-align: center;
+
+        > a {
+          margin-left: 0;
+        }
+      }
+
+    }
+
     &-wrapper {
       display: flex;
       justify-content: space-between;
@@ -107,9 +149,9 @@
       @include font-scale(base);
 
       flex: 3;
-      margin: 0 35px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     &-col {
@@ -146,5 +188,9 @@
       font-size: 18px;
       color: var(--text-primary);
     }
+  }
+
+  &__mark-icon {
+    margin-left: 4px;
   }
 }

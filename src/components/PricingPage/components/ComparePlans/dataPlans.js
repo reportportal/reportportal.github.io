@@ -1,5 +1,23 @@
 export const headerColumnTitles = ['Startup', 'Business', 'Enterprise'];
 
+export const buttonsData = [
+  {
+    btn: 'Start free trial',
+    href: '#',
+    mode: 'outline',
+  },
+  {
+    btn: 'Contact us',
+    href: '#',
+    mode: 'primary',
+  },
+  {
+    btn: 'Get a quote',
+    href: '#',
+    mode: 'outline',
+  },
+];
+
 export const dataPlans = [
   {
     feature: 'Instance type',
