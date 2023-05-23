@@ -141,24 +141,24 @@ export const ActionNode = ({ children, direction, infoArrow = true, info }) => (
 
 const GraphicArrow = ({ children, info }) => {
   const [state, { toggle }] = useToggle();
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
+  const popupButtonRef = useRef(null);
+  const popupRef = useRef(null);
 
   useClickAway(() => {
     if (state) {
       toggle();
     }
-  }, [ref1, ref2]);
+  }, [popupButtonRef, popupRef]);
 
   return (
     <div className={getBlocksWith('__popup-container')}>
       <Button>
-        <div ref={ref1} onClick={toggle}>
+        <div ref={popupButtonRef} onClick={toggle}>
           <Arrow state={state}>{children}</Arrow>
         </div>
       </Button>
       {state && (
-        <div ref={ref2} className={getBlocksWith('__popup-dropdown')}>
+        <div ref={popupRef} className={getBlocksWith('__popup-dropdown')}>
           <div className={getBlocksWith('__popup-title')}>{info.type}</div>
           <PopupContent info={info} />
         </div>

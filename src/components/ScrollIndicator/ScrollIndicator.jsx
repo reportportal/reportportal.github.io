@@ -12,16 +12,16 @@ const getBlocksWith = createBemBlockBuilder(['indicatory']);
 
 const FIRST_POSITION_OFFSET = 200;
 const OFFSET = 20;
-const HERO_HIGHT = 500;
+const HERO_HEIGHT = 500;
 const DEFAULT_BOTTOM_LINE_POSITION = 400;
 
 export const ScrollIndicator = ({ sections }) => {
-  const [offSet, setOffSet] = useState(-FIRST_POSITION_OFFSET);
-  const [heroPassed, setHeroPassed] = useState(false);
+  const [offset, setOffset] = useState(-FIRST_POSITION_OFFSET);
+  const [headerSectionPassed, setHeaderSectionPassed] = useState(false);
   const scroll = useScroll(document);
 
-  const [top, setTop] = useState(0);
-  const [bottom, setBottom] = useState(-DEFAULT_BOTTOM_LINE_POSITION);
+  const [topPosition, setTopPosition] = useState(0);
+  const [bottomPosition, setBottomPosition] = useState(-DEFAULT_BOTTOM_LINE_POSITION);
 
   const indicatoryScrollPosition = useScroll(indicatoryRef);
   const pathRef = useRef(null);
@@ -30,20 +30,19 @@ export const ScrollIndicator = ({ sections }) => {
   const indicatorySize = useSize(indicatoryRef);
 
   useEffect(() => {
-    const topPosition = indicatoryScrollPosition?.top + HERO_HIGHT;
-    const bottomPosition = pathSize?.height - indicatorySize?.height - topPosition;
+    const top = indicatoryScrollPosition?.top + HERO_HEIGHT;
+    const bottom = pathSize?.height - indicatorySize?.height - top;
 
-    const adjustedBottom =
-      bottomPosition < HERO_HIGHT ? DEFAULT_BOTTOM_LINE_POSITION : bottomPosition;
+    const adjustedBottom = bottom < HERO_HEIGHT ? DEFAULT_BOTTOM_LINE_POSITION : bottom;
 
-    setTop(-topPosition);
-    setBottom(-adjustedBottom);
+    setTopPosition(-top);
+    setBottomPosition(-adjustedBottom);
   }, [indicatoryScrollPosition?.top]);
 
   useEffect(() => {
-    scroll?.top < FIRST_POSITION_OFFSET ? setOffSet(-FIRST_POSITION_OFFSET) : setOffSet(-OFFSET);
+    scroll?.top < FIRST_POSITION_OFFSET ? setOffset(-FIRST_POSITION_OFFSET) : setOffset(-OFFSET);
 
-    scroll?.top < HERO_HIGHT ? setHeroPassed(false) : setHeroPassed(true);
+    scroll?.top < HERO_HEIGHT ? setHeaderSectionPassed(false) : setHeaderSectionPassed(true);
   }, [scroll]);
 
   return (
@@ -52,22 +51,22 @@ export const ScrollIndicator = ({ sections }) => {
         <div ref={pathRef} className={getBlocksWith('__path')}>
           <div
             ref={indicatoryRef}
-            className={cx(getBlocksWith(), { [getBlocksWith('__centered')]: heroPassed })}
+            className={cx(getBlocksWith(), { [getBlocksWith('__centered')]: headerSectionPassed })}
           >
             <div className={getBlocksWith('__box')}>
               {sections.map((section) => (
                 <div key={section.id} className={getBlocksWith('__box-item')}>
                   <div
                     className={getBlocksWith('__box-item-line')}
-                    style={{ top: `${top}px`, bottom: `${bottom}px` }}
+                    style={{ top: `${topPosition}px`, bottom: `${bottomPosition}px` }}
                   />
                   <Link
                     className={getBlocksWith('__link')}
                     activeClass="active"
                     to={section.id}
-                    spy={true}
-                    smooth={true}
-                    offset={offSet}
+                    spy
+                    smooth
+                    offset={offset}
                   >
                     {section.step && <span>{section.step}</span>}
                     <span className={getBlocksWith('__box-item-substring')}>{section.title}</span>

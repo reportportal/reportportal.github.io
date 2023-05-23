@@ -10,8 +10,12 @@ import {
   frameworkIconsPython,
   tabList,
 } from './dataSource';
+import { createBemBlockBuilder } from '../../utils';
+import { $colorPrimary600, $textService, $colorPrimary500, $poppinsFont } from './styleVariables';
 
-import * as styles from './SupportedFrameworks.module.scss';
+import './SupportedFrameworks.scss';
+
+const getBlocksWith = createBemBlockBuilder(['frameworks']);
 
 export const SupportedFrameworks = () => {
   const [currentLanguage, setActiveLanguage] = useState('java');
@@ -29,16 +33,16 @@ export const SupportedFrameworks = () => {
   }, [currentLanguage]);
 
   return (
-    <div className={styles.frameworks_wrapper}>
-      <div className={styles.frameworks_box}>
-        <div className={styles.frameworks_tabs}>
+    <div className={getBlocksWith()}>
+      <div className={getBlocksWith('__box')}>
+        <div className={getBlocksWith('__box-tabs')}>
           <ConfigProvider
             theme={{
               token: {
-                colorPrimary: '#009DBB',
-                colorText: '#8791AB',
-                colorHover: '#00B4D5',
-                fontFamily: 'Poppins',
+                colorPrimary: $colorPrimary600,
+                colorText: $textService,
+                colorHover: $colorPrimary500,
+                fontFamily: $poppinsFont,
                 fontSize: 16,
               },
             }}
@@ -52,9 +56,9 @@ export const SupportedFrameworks = () => {
           </ConfigProvider>
         </div>
 
-        <div className={styles.frameworks_box_content}>
+        <div className={getBlocksWith('__box-content')}>
           {getCurrentFrameworks().map(({ icon }, index) => (
-            <div className={styles.frameworks_box_content_item} key={index}>
+            <div className={getBlocksWith('__box-content-item')} key={index}>
               <img src={icon} />
             </div>
           ))}

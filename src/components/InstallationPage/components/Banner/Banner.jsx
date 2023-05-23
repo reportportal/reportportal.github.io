@@ -16,8 +16,13 @@ export const Banner = () => (
       </div>
 
       <div className={getBlocksWith('__btn-wrapper')}>
-        <a href="https://slack.epmrpp.reportportal.io/">
-          <button className={cx('btn', 'btn--primary', 'btn--large')}>Go to Slack channel</button>
+        <a
+          className={cx('btn', 'btn--primary', 'btn--large')}
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://slack.epmrpp.reportportal.io/"
+        >
+          Go to Slack channel
         </a>
       </div>
     </div>

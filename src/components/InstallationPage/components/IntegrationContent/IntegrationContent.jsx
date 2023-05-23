@@ -28,6 +28,8 @@ export const IntegrationContent = () => {
           ReportPortal development. Examples of contributions you can find at{' '}
           <a
             className={getBlocksWith('__link')}
+            target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/reportportal/reportportal"
           >
             Github page
