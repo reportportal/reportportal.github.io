@@ -22,7 +22,6 @@ export const ComparePlans = () => {
   const { Panel } = Collapse;
 
   const handleArrowPosition = (isActive) => {
-    // isActive ? (isDesktop ? 90 : -90) : isDesktop ? 0 : 90;
     let angle;
     if (isActive) {
       angle = isDesktop ? 90 : -90;
@@ -36,6 +35,8 @@ export const ComparePlans = () => {
 
   const constructElementKey = (index, feature, section) =>
     feature ? feature.substring(0, index + 1) : `key${section}` || '';
+
+  const isNotRow = (section, footer) => section || footer;
 
   return (
     <div className={cx(getCompareContainer(), 'container')}>
@@ -65,14 +66,18 @@ export const ComparePlans = () => {
         >
           {dataPlans.map(({ description, feature, section, footer, ...rowData }, index) => (
             <Panel
-              showArrow={!section}
-              collapsible={section && 'disabled'}
+              showArrow={!isNotRow(section, footer)}
+              collapsible={isNotRow(section, footer) && 'disabled'}
               header={
-                !section ? <ExpendableRow feature={feature} rowData={rowData} /> : <RowSection />
+                !isNotRow(section, footer) ? (
+                  <ExpendableRow feature={feature} rowData={rowData} />
+                ) : (
+                  <RowSection footer={footer} />
+                )
               }
               key={constructElementKey(index, feature, section)}
             >
-              {!section && (
+              {!isNotRow(section, footer) && (
                 <div className={getCompareContainer('__content')}>
                   <div
                     className={cx(getCompareContainer('__description'), {
@@ -90,6 +95,8 @@ export const ComparePlans = () => {
                   </div>
                 </div>
               )}
+
+              {/* {footer && <div>111111111111</div>} */}
             </Panel>
           ))}
         </Collapse>
@@ -98,17 +105,23 @@ export const ComparePlans = () => {
   );
 };
 
-const RowSection = () => {
+const RowSection = ({ footer }) => {
   const isDesktop = useMediaQuery({ query: $tabletSm });
 
   return (
-    <div
-      className={cx(getCompareContainer('__section'), {
-        [getCompareContainer('__section-adjustment')]: !isDesktop,
-      })}
-    >
-      Premium Features
-    </div>
+    <>
+      {footer ? (
+        <div className={cx(getCompareContainer('__section'))}>222222222222</div>
+      ) : (
+        <div
+          className={cx(getCompareContainer('__section'), {
+            [getCompareContainer('__section-adjustment')]: !isDesktop,
+          })}
+        >
+          Premium Features
+        </div>
+      )}
+    </>
   );
 };
 
