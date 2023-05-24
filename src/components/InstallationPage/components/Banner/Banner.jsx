@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../../utils';
+import { Link } from '../../../Link';
 
 import './Banner.scss';
 
@@ -16,14 +17,12 @@ export const Banner = () => (
       </div>
 
       <div className={getBlocksWith('__btn-wrapper')}>
-        <a
+        <Link
           className={cx('btn', 'btn--primary', 'btn--large')}
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://slack.epmrpp.reportportal.io/"
+          to="https://slack.epmrpp.reportportal.io/"
         >
           Go to Slack channel
-        </a>
+        </Link>
       </div>
     </div>
   </div>

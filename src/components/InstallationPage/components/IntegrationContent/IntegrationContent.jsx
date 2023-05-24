@@ -3,6 +3,7 @@ import React from 'react';
 import { createBemBlockBuilder } from '../../../../utils';
 import { IntegrationScheme } from '../IntegrationScheme';
 import { SupportedFrameworks } from '../../../SupportedFrameworks';
+import { Link } from '../../../Link';
 
 import '../../InstallationPage.scss';
 
@@ -26,14 +27,9 @@ export const IntegrationContent = () => {
         <p className={getBlocksWith('__text-content')}>
           Please don’t forget to share your integration. We really appreciate your contribution to
           ReportPortal development. Examples of contributions you can find at{' '}
-          <a
-            className={getBlocksWith('__link')}
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/reportportal/reportportal"
-          >
+          <Link className={getBlocksWith('__link')} target="_blank">
             Github page
-          </a>
+          </Link>
         </p>
       </div>
     </>
