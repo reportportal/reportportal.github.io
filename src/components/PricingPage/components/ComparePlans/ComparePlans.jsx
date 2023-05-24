@@ -10,6 +10,7 @@ import { $tabletSm } from '../../../../utils/breakpoint';
 import { dataPlans, headerColumnTitles, buttonsData } from './dataPlans';
 import CrossIcon from '../../icons/cross.inline.svg';
 import MarkIcon from '../../icons/mark.inline.svg';
+import { Link } from '../../../Link';
 
 import './ComparePlans.scss';
 
@@ -112,14 +113,14 @@ const Description = ({ text, href }) => {
       return (
         <>
           {beforeText}{' '}
-          <a
+          <Link
             className={getCompareContainer('__description-anchor')}
-            href={anchorHref}
-            target="_blank"
-            rel="noopener noreferrer"
+            to={anchorHref}
+            // target="_blank"
+            // rel="noopener noreferrer"
           >
             {highlightedText}
-          </a>{' '}
+          </Link>{' '}
           {afterText}
         </>
       );
@@ -246,7 +247,7 @@ const FooterColumns = () => {
           { [getCompareContainer('__row-title-footer-centred')]: !isDesktop },
         )}
       >
-        <a href="#">Privacy Policy &#x2197;</a>
+        <Link to="#">Privacy Policy &#x2197;</Link>
       </div>
 
       {isDesktop && (
@@ -254,12 +255,12 @@ const FooterColumns = () => {
           {buttonsData.map(({ btn, mode, href }) => (
             <div key={btn} className={cx(getCompareContainer('__row-title-col'), {})}>
               <div className={getCompareContainer('__section-btn-wrapper')}>
-                <a
+                <Link
                   className={cx('btn', `btn--${mode}`, getCompareContainer('__section-btn'))}
-                  href={href}
+                  to={href}
                 >
                   {btn}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
