@@ -20,6 +20,10 @@
     }
   }
 
+  .ant-collapse-item {
+    padding: 8px 0;
+  }
+
   .ant-collapse-header:has(.compare__section) {
     @include font-noto-sans($fw-semi-bold);
     @include font-scale(base);
@@ -106,6 +110,7 @@
 
   &__content {
     margin-top: -5px;
+    margin-bottom: -20px;
   }
 
   &__row {
@@ -177,6 +182,26 @@
     color: var(--text-service);
     white-space: pre-wrap;
 
+    &-anchor {
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 6px;
+        width: 100%;
+        height: 1px;
+        background-color: var(--text-service);
+        transition: background-color 0.3s ease;
+      }
+
+      &:hover::after {
+        background-color: var(--text-grey);
+      }
+    }
+
     &-full-width {
       width: 40%;
     }
@@ -192,5 +217,9 @@
 
   &__mark-icon {
     margin-left: 4px;
+  }
+
+  &__cross-icon {
+    margin-bottom: -2px;
   }
 }

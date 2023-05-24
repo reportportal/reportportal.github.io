@@ -88,13 +88,126 @@ The data is removed after specified period of retention policy or in case of ove
     enterprise: 'Upon request',
   },
   {
+    feature: 'Unlimited number of users',
+    description: 'There are no limits in number of users associated with plans and tiers.',
+    startup: true,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Free trial',
+    description:
+      'Free Trial is provided on the shared SaaS instance for all the subscription plans. Data transfer from shared to dedicated instance is not available.',
+    startup: true,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Customization',
+    description:
+      'Customization refers to the ability to modify the service to meet specific business requirements (e.g. tailored functionality, views and flows).',
+    startup: false,
+    business: false,
+    enterprise: true,
+  },
+  {
+    feature: 'Available backups to on-premises storage',
+    description:
+      "Available backups to on-premises storage refers to the ability to make a copy of data and transfer it to your infrastructure regularly, in case it's required by the security policy of your organization.",
+    startup: false,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Data migration from on-premises instance',
+    description:
+      'Data migration from on-premises instance means availability of data migration from on-premises instance, which includes data transfer from your in-house deployment to SaaS instance.',
+    startup: false,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Choosing deployment region',
+    description:
+      'Choosing deployment region means that you will be able to pick your deployment region to get the best possible performance and eliminate network delays from your testing infrastructure to SaaS instance.',
+    startup: false,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Site-to-site VPN',
+    description:
+      'A site-to-site VPN is a connection between SaaS infrastructure and your corporate network to leverage an internet connection for private traffic.',
+    startup: false,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'IP whitelisting',
+    description:
+      'IP whitelisting is granting access to the infrastructure only to specific IP addresses, to avoid public exposure.',
+    startup: false,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Real-time analytics',
+    description: `ReportPortal provides real-time reporting capabilities, that save time thanks to the instant reaction of your team.
+There is no need to wait until full execution will be completed, so your team can start result analysis in a matter of seconds.`,
+    startup: true,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Single sign-on (SSO) authentication via OKTA SAML, Azure SAML',
+    description: `Single sign-on means a method of authentication that permits users to securely log in to different systems using just one set of credentials.
+In ReportPortal SSO authentication is available via OKTA SAML and Azure SAML.`,
+    startup: false,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Authentication via LDAP or AD',
+    description:
+      'Available authentication and user authorization via LDAP or Active Directory information.',
+    startup: false,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Auto analysis',
+    description:
+      'Machine Learning based algorithms trained on your historical data of investigated failures, which reduces team efforts to triage failed reports.',
+    startup: true,
+    business: true,
+    enterprise: true,
+  },
+  {
+    feature: 'Open reporting API',
+    description: `ReportPortal API allows to push and pull data into and from ReportPortal for third party tools (PowerBI, Grafana, etc) and generate custom reports.
+Extensive *development guides* allow to build integration even with a home-grown custom solution/framework.`,
+    startup: true,
+    business: true,
+    enterprise: true,
+    href: 'https://reportportal.io/docs/Developers-guide',
+  },
+  {
+    feature: 'Administration at Project Level',
+    description:
+      'Administration at Project Level means full access to the Project settings including the permissions to import, update, delete project data and add/invite/assign/unassign users on/to the project.',
+    startup: true,
+    business: true,
+    enterprise: true,
+  },
+
+  {
     section: 'Premium Features',
   },
   {
     feature: 'Quality Gates',
     description: `Quality Gates is a premium feature helping to automate decisions on top of test automation results and set up a feedback loop into your CI/CD toolchain.
-
-Rule-based engine helps to form an unambiguous decision of passed/failed execution considering extensive information of test reports attributes.`,
+  
+  Rule-based engine helps to form an unambiguous decision of passed/failed execution considering extensive information of test reports attributes.`,
     startup: true,
     business: true,
     enterprise: true,
@@ -102,81 +215,4 @@ Rule-based engine helps to form an unambiguous decision of passed/failed executi
   {
     footer: true,
   },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
-  // {
-  //   feature: '',
-  //   description: '',
-  //   startup: '',
-  //   business: '',
-  //   enterprise: '',
-  // },
 ];

@@ -61,7 +61,7 @@ export const ComparePlans = () => {
             />
           )}
         >
-          {dataPlans.map(({ description, feature, section, footer, ...rowData }, index) => (
+          {dataPlans.map(({ description, feature, section, footer, href, ...rowData }, index) => (
             <Panel
               showArrow={!isNotRow(section, footer)}
               collapsible={isNotRow(section, footer) && 'disabled'}
@@ -81,7 +81,7 @@ export const ComparePlans = () => {
                       [getCompareContainer('__description-full-width')]: isDesktop,
                     })}
                   >
-                    {description}
+                    <Description text={description} href={href} />
                   </div>
 
                   <div className={getCompareContainer('__tab-data')}>
@@ -97,6 +97,41 @@ export const ComparePlans = () => {
         </Collapse>
       </div>
     </div>
+  );
+};
+
+const Description = ({ text, href }) => {
+  const formComponent = (str, anchorHref) => {
+    const match = str.match(/([^*]*)\*([^*]+)\*([^*]*)/);
+
+    if (match) {
+      const beforeText = match[1];
+      const highlightedText = match[2];
+      const afterText = match[3];
+
+      return (
+        <>
+          {beforeText}{' '}
+          <a
+            className={getCompareContainer('__description-anchor')}
+            href={anchorHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {highlightedText}
+          </a>{' '}
+          {afterText}
+        </>
+      );
+    }
+    return text;
+  };
+  return (
+    <>
+      {!href && <span>{text}</span>}
+
+      {href && <span>{formComponent(text, href)}</span>}
+    </>
   );
 };
 
@@ -188,13 +223,15 @@ const Columns = ({ title = '', cols, bigFont = false, fontSize = 16 }) => {
   );
 };
 
-const Mark = (value) =>
+const Mark = ({ value }) =>
   value ? (
     <div className={getCompareContainer('__mark-icon')}>
       <MarkIcon />
     </div>
   ) : (
-    <CrossIcon />
+    <div className={getCompareContainer('__cross-icon')}>
+      <CrossIcon />
+    </div>
   );
 
 const FooterColumns = () => {
