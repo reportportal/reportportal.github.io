@@ -5,20 +5,87 @@
 
 .organizations {
 
-  &-title {
+  &__title {
     @include font-poppins($fw-bold);
-    @include font-scale(large);
+    @include font-scale(medium);
 
+    margin: 0 20px;
     margin-top: 160px;
     margin-bottom: 40px;
     text-align: center;
     color: var(--text-primary);
 
-      @include breakpoint($desktop-sm) {
-        margin-top: 240px;
-      }
+    @include breakpoint($tablet-sm) {
+      @include font-scale(large);
+    }
+
+    @include breakpoint($desktop-sm) {
+      margin-top: 240px;
+    }
   }
 
+  &__icons {
+    display: flex;
+     flex-wrap: wrap;   
+    width: 100%;
+    max-width: 402px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px 200px;
 
+    @include breakpoint ($phone) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin: 0 20px 200px;
+    }
 
+    // @include breakpoint ($phone-lg) {
+    //   // margin: 0 20px 200px;
+    // }
+
+    @include breakpoint($tablet-sm) {
+      display: flex;
+      justify-content: center;
+      max-width: 100%;
+      margin: 0 50px 250px;
+    }
+
+    @include breakpoint($desktop-sm) {
+      margin: 0 30px 250px;
+    }
+
+    &-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__icon {
+    justify-content: left;
+    width: 101px;
+    margin: 20px 20px;
+
+    // @include breakpoint ($phone) {
+    //   // margin: 20px 0;
+    // }
+
+    @include breakpoint ($phone-lg) {
+      margin: 20px 50px;
+    }
+
+    @include breakpoint($tablet-sm) {
+      display: block;
+      width: 101px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    &-right {
+      justify-content: right;
+    }
+
+    &-display {
+      display: flex;
+    }
+  }
 }
