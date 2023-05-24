@@ -6,6 +6,7 @@ import { PricingCards } from './components/PricingCards';
 import { ComparePlans } from './components/ComparePlans';
 import { ServerIcon, CloudIcon } from './icons';
 import { pricingData } from './components/PricingCards/pricingData';
+import { Organizations } from './components/Organizations';
 
 import './PricingPage.scss';
 
@@ -48,6 +49,7 @@ export const PricingPage = () => {
         <>
           <PricingCards discountState={discountState} pricingData={pricingData} />
           <ComparePlans />
+          <Organizations />
         </>
       ) : (
         <p>Another page</p>
