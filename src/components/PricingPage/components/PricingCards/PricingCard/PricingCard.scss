@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 630px;
+  height: 700px;
   width: 100%;
   max-width: 387px;
   padding: 30px;
@@ -16,6 +16,10 @@
   background: var(--white);
   box-shadow: 0px 4px 16px rgba(16, 46, 52, 0.1);
   transition: box-shadow 0.4s ease-out;
+
+  @include breakpoint($phone) {
+    height: 630px;
+  }
 
   &:hover {
     box-shadow: 0px 8px 24px rgba(57, 109, 120, 0.3);
@@ -65,7 +69,7 @@
   &__price {
     @include font-noto-sans(base);
 
-    margin-bottom: 25px;
+    margin-bottom: 18px;
     color: vat(--text-primary);
 
     span {
@@ -83,9 +87,15 @@
 
   ul {
     position: relative;
+    margin: 0;
     margin-bottom: 50px;
     padding: 0 15px;
     list-style: none;
+
+    @include breakpoint ($phone) {
+      margin: 0 18px;
+      margin-bottom: 35px;
+    }
 
     li {
       @include font-poppins($fw-medium);
@@ -95,6 +105,7 @@
       margin-bottom: 10px;
       padding-left: 20px;
       color: var(--text-primary);
+      line-height: 24px;
 
       &:before {
         content: '';

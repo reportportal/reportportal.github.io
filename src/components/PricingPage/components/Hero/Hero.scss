@@ -9,6 +9,15 @@
   padding: var(--header-height) 16px 274px;
   margin-top: calc(-1 * var(--header-height));
   background: url('./assets/bg.svg') no-repeat center bottom;
+  background-size: cover;
+
+  &__discount-switcher {
+    margin: 30px auto 17px;
+
+    @include breakpoint (833px) {
+      margin: 30px auto 37px;
+    }
+  }
 
   &__btn-box {
     display: flex;
@@ -20,8 +29,9 @@
     @include font-poppins($fw-bold);
     @include font-scale(large);
 
-    margin-bottom: 0;
-    color: white;
+    margin: 0 30px;
+    padding-top: 55px;
+    color: var(--white);
     text-align: center;
     
     @include breakpoint($tablet-sm) {
@@ -35,10 +45,10 @@
 
   &__subtitle {
     @include font-poppins();
-    @include font-scale(x2-medium);
+    @include font-scale(medium);
     
     margin-bottom: 30px;
-    color: white;
+    color: var(--white);
     text-align: center;
     
     @include breakpoint($tablet-sm) {
@@ -50,7 +60,8 @@
     display: block; 
     max-width: 800px;
     margin: 0 auto 90px;
-    color: white;
+    padding: 0 30px;
+    color: var(--white);
 
     @include breakpoint($tablet-sm) {
       display: flex;

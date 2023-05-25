@@ -47,7 +47,7 @@ const FooterColumns = () => {
           { [getCompareContainer('__row-title-footer-centred')]: !isDesktop },
         )}
       >
-        <Link to="#">Privacy Policy &#x2197;</Link>
+        <Link to="#">Terms and Conditions &#x2197;</Link>
       </div>
 
       {isDesktop && (

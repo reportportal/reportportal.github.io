@@ -85,7 +85,7 @@
       margin-top: 16px;
 
       &-last-item {
-        margin: 10px 0;
+        margin: 16px 0;
       }
     }
 
@@ -135,6 +135,7 @@
       }
 
       &-centred {
+        margin-top: -54px;
         text-align: center;
 
         > a {

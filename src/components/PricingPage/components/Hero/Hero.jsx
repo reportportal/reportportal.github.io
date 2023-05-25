@@ -29,7 +29,9 @@ export const Hero = ({ buttons, switchActiveBtn, activeButton, switchDiscount, d
         </div>
       </div>
 
-      <DiscountSwitcher switchDiscount={switchDiscount} discountState={discountState} />
+      <div className={getHeroBlocksWith('__discount-switcher')}>
+        <DiscountSwitcher switchDiscount={switchDiscount} discountState={discountState} />
+      </div>
     </div>
   );
 };
