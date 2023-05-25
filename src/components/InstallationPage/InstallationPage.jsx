@@ -96,7 +96,7 @@ export const InstallationPage = () => {
                     <DockerInstall />
                   </div>
 
-                  <div key="section-2" name="section-2" id="part-2">
+                  <div name="section-2" id="part-2">
                     <DockerDeployingStep />
                   </div>
                 </>
@@ -106,11 +106,11 @@ export const InstallationPage = () => {
                 </div>
               )}
 
-              <div key="section-3" name="section-3" id="part-3">
+              <div name="section-3" id="part-3">
                 <LaunchPortal />
               </div>
 
-              <div key="section-4" name="section-4" id="part-4">
+              <div name="section-4" id="part-4">
                 <IntegrationContent />
               </div>
             </div>

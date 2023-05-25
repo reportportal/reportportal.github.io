@@ -63,4 +63,10 @@ $desktop-lg: 1919px;
   --gradient-light-grey: linear-gradient(180deg, var(--bg-grey2) 0%, rgba(244, 245, 250, 0) 100%);
 
   --z-index: 999;
+
+  --footer-z-index: 10; // to hide the scroll indicator line
+  --scroll-indicator-line-z-index: -20;
+  --scroll-indicator-bullet-z-index: 100;
+
+
 }

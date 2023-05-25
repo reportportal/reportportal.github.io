@@ -61,7 +61,7 @@ import testng from '../svg/icon_framework_testng.svg';
 import unitnet from '../svg/icon_framework_unitnet.svg';
 import vstest from '../svg/icon_framework_vstest.svg';
 import webdriver from '../svg/icon_framework_webdriver.svg';
-import xctest from '../svg/icon_framework_vstest.svg';
+import xctest from '../svg/xc-test.svg';
 
 export const iconsCommon = {
   subscription,
@@ -71,14 +71,14 @@ export const iconsCommon = {
 };
 
 export const features = {
-  feature1: feature1,
-  feature2: feature2,
-  feature3: feature3,
-  feature4: feature4,
-  feature5: feature5,
-  feature6: feature6,
-  feature7: feature7,
-  feature8: feature8,
+  feature1,
+  feature2,
+  feature3,
+  feature4,
+  feature5,
+  feature6,
+  feature7,
+  feature8,
 };
 
 export const iconsCustomers = {

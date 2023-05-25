@@ -12,13 +12,16 @@ import {
 } from './dataSource';
 import { createBemBlockBuilder } from '../../utils';
 import { $colorPrimary600, $textService, $colorPrimary500, $poppinsFont } from './styleVariables';
+import { Link } from '../Link';
 
 import './SupportedFrameworks.scss';
 
 const getBlocksWith = createBemBlockBuilder(['frameworks']);
 
+const activeTab = tabList[0].label;
+
 export const SupportedFrameworks = () => {
-  const [currentLanguage, setActiveLanguage] = useState('java');
+  const [currentLanguage, setActiveLanguage] = useState(activeTab);
 
   const getCurrentFrameworks = useCallback(() => {
     const frameworks = {
@@ -27,9 +30,10 @@ export const SupportedFrameworks = () => {
       javascript: frameworkIconsJavascript,
       python: frameworkIconsPython,
       php: frameworkIconsPhp,
+      other: frameworkIconsOther,
     };
 
-    return frameworks[currentLanguage] || frameworkIconsOther;
+    return frameworks[currentLanguage] || frameworkIconsJava;
   }, [currentLanguage]);
 
   return (
@@ -48,18 +52,22 @@ export const SupportedFrameworks = () => {
             }}
           >
             <Tabs
-              defaultActiveKey="java"
+              defaultActiveKey={activeTab}
               tabPosition="top"
               items={tabList}
-              onTabClick={(tabKey) => setActiveLanguage(tabKey)}
+              onTabClick={setActiveLanguage}
             />
           </ConfigProvider>
         </div>
 
         <div className={getBlocksWith('__box-content')}>
-          {getCurrentFrameworks().map(({ icon }, index) => (
+          {getCurrentFrameworks().map(({ icon, badge, href }, index) => (
             <div className={getBlocksWith('__box-content-item')} key={index}>
-              <img src={icon} />
+              {badge && <div className={getBlocksWith('__box-badge')}>from contributor</div>}
+              <div className={getBlocksWith('__box-content-item-arrow')}>&#x2197;</div>
+              <Link to={href}>
+                <img src={icon} />
+              </Link>
             </div>
           ))}
         </div>
