@@ -26,12 +26,16 @@
 
   &__icons {
     display: flex;
-     flex-wrap: wrap;   
+    flex-wrap: wrap;   
     width: 100%;
-    max-width: 402px;
+    max-width: 230px;
     justify-content: center;
     align-items: center;
     margin: 0 5px 200px;
+
+    svg {
+      transform: scale(.8);
+    }
 
     @include breakpoint ($phone) {
       display: grid;
@@ -39,15 +43,15 @@
       margin: 0 20px 200px;
     }
 
-    // @include breakpoint ($phone-lg) {
-    //   // margin: 0 20px 200px;
-    // }
-
     @include breakpoint($tablet-sm) {
       display: flex;
       justify-content: center;
       max-width: 100%;
       margin: 0 50px 250px;
+
+      svg {
+        transform: none;
+      }
     }
 
     @include breakpoint($desktop-sm) {
@@ -62,19 +66,12 @@
 
   &__icon {
     justify-content: left;
-    width: 101px;
+    width: 85px;
     margin: 20px 20px;
-
-    // @include breakpoint ($phone) {
-    //   // margin: 20px 0;
-    // }
-
-    @include breakpoint ($phone-lg) {
-      margin: 20px 50px;
-    }
-
+    
     @include breakpoint($tablet-sm) {
       display: block;
+      margin: 20px 50px;
       width: 101px;
       margin: 20px;
       text-align: center;
