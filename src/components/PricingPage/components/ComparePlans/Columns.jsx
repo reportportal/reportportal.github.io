@@ -12,19 +12,19 @@ import './ComparePlans.scss';
 
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
-export const Columns = ({ title = '', cols, bigFont = false, fontSize = 16 }) => {
+export const Columns = ({ title = '', cols }) => {
   const isDesktop = useMediaQuery({ query: $tabletSm });
-  const [visibility, setVisibility] = useState(true);
+  const [isVisibility, setIsVisibility] = useState(true);
 
   useEffect(() => {
     const shouldShow = (title && isDesktop) || (!title && !isDesktop);
-    setVisibility(shouldShow);
+    setIsVisibility(shouldShow);
   }, [isDesktop, title]);
 
   const constructElementKey = (item, index) => {
     let str = String(item);
 
-    if (str < 3) {
+    if (str.length < 3) {
       str = str.repeat(3);
     }
 
@@ -35,15 +35,12 @@ export const Columns = ({ title = '', cols, bigFont = false, fontSize = 16 }) =>
     <div className={getCompareContainer('__row-title-wrapper')}>
       {title && <div className={getCompareContainer('__row-title')}>{title}</div>}
 
-      {visibility && (
+      {isVisibility && (
         <div className={getCompareContainer('__row-title-cols')}>
           {cols.map((item, index) => (
             <div
               key={constructElementKey(item, index)}
-              className={cx(getCompareContainer('__row-title-col'), {
-                [getCompareContainer('__row-title-col-font')]: bigFont,
-              })}
-              style={{ fontSize: `${fontSize}px` }}
+              className={cx(getCompareContainer('__row-title-col'))}
             >
               {!isBoolean(item) ? <div>{item}</div> : <Mark value={item} />}
             </div>

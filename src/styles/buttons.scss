@@ -2,12 +2,14 @@
 @import 'mixins/font';
 @import 'mixins/font-scale';
 
-a.btn--primary:hover {
-  color: var(--white);
-}
+a.btn--primary {
+  &:hover {
+    color: var(--white);
+  }
 
-a.btn--primary:active {
-  color: var(--white);
+  &:active {
+    color: var(--white);
+  }
 }
 
 .btn {

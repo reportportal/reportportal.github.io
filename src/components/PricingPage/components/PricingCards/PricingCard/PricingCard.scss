@@ -63,7 +63,8 @@
     margin-bottom: 40px;
     text-align: center;
     line-height: 1.5;
-    color: vat(--text-primary);
+    color: var(--text-primary);
+    white-space: pre-wrap;
   }
 
   &__price {

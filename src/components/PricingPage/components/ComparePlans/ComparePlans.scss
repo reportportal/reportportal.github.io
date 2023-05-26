@@ -4,7 +4,6 @@
 @import 'src/styles/mixins/breakpoint';
 
 .compare {
-
   &__box {
     .ant-collapse-item:not(:has(.compare__section)) {
       margin-bottom: 20px;
@@ -64,7 +63,7 @@
   }
 
   &__title {
-    @include font-poppins($fw-semi-bold);
+    @include font-poppins($fw-bold);
     @include font-scale(x3-medium);
 
     position: relative;
@@ -73,14 +72,13 @@
     color: var(--text-primary);
     
     @include breakpoint($tablet-sm) {
-      @include font-scale(large);
+      @include font-scale(x3-large);
 
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
   }
 
   &__tab{
-
     &-data {
       margin-top: 16px;
 
@@ -166,11 +164,6 @@
       display: inline-block;
       width: 30%;
       text-align: center
-    }
-
-    &-col-font {
-      @include font-poppins($fw-semi-bold);
-      @include font-scale(medium);
     }
   }
 

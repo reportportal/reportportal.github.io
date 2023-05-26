@@ -34,7 +34,7 @@ export const ComparePlans = () => {
   const constructElementKey = (index, feature, section) =>
     feature ? feature.substring(0, index + 1) : `key${section}` || '';
 
-  const isNotRow = (section, footer) => section || footer;
+  const isRow = (section, footer) => !(section || footer);
 
   return (
     <div className={cx(getCompareContainer(), 'container')}>
@@ -63,10 +63,10 @@ export const ComparePlans = () => {
         >
           {dataPlans.map(({ description, feature, section, footer, href, ...rowData }, index) => (
             <Panel
-              showArrow={!isNotRow(section, footer)}
-              collapsible={isNotRow(section, footer) && 'disabled'}
+              showArrow={isRow(section, footer)}
+              collapsible={!isRow(section, footer) && 'disabled'}
               header={
-                !isNotRow(section, footer) ? (
+                isRow(section, footer) ? (
                   <ExpendableRow feature={feature} rowData={rowData} />
                 ) : (
                   <RowSection footer={footer} />
@@ -74,7 +74,7 @@ export const ComparePlans = () => {
               }
               key={constructElementKey(index, feature, section)}
             >
-              {!isNotRow(section, footer) && (
+              {isRow(section, footer) && (
                 <div className={getCompareContainer('__content')}>
                   <div
                     className={cx(getCompareContainer('__description'), {
@@ -85,9 +85,9 @@ export const ComparePlans = () => {
                   </div>
 
                   <div className={getCompareContainer('__tab-data')}>
-                    {!isDesktop && <ColumnsHeader fontSize={16} />}
+                    {!isDesktop && <ColumnsHeader />}
                     <div className={getCompareContainer('__tab-data-last-item')}>
-                      <Columns cols={prepareColumnData(rowData)} fontSize={14} />
+                      <Columns cols={prepareColumnData(rowData)} />
                     </div>
                   </div>
                 </div>
@@ -100,13 +100,11 @@ export const ComparePlans = () => {
   );
 };
 
-const ColumnsHeader = ({ title, fontSize = 20 }) => {
-  return (
-    <div className={cx({ [getCompareContainer('__tab-header')]: title })}>
-      <Columns title={title} cols={headerColumnTitles} bigFont fontSize={fontSize} />
-    </div>
-  );
-};
+const ColumnsHeader = ({ title }) => (
+  <div className={cx({ [getCompareContainer('__tab-header')]: title })}>
+    <Columns title={title} cols={headerColumnTitles} />
+  </div>
+);
 
 const ExpendableRow = ({ feature, rowData }) => {
   const [columnsData, setColumnsData] = useState([]);

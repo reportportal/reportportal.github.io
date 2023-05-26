@@ -4,8 +4,8 @@ export const pricingData = [
   {
     id: 1,
     title: 'Startup',
-    description: `Access to a project space in a multi-tenant setup with all the premium
-        features included`,
+    description:
+      'Access to a project space in a multi-tenant setup with all the premium \nfeatures included',
     listItems: [
       'Free trial period of 30 days',
       '100 GB',
@@ -29,8 +29,8 @@ export const pricingData = [
   {
     id: 2,
     title: 'Business',
-    description: `Dedicated instance for you only complemented by security hardening options, extended storage
-    and retention policy`,
+    description:
+      'Dedicated instance for you only complemented by security hardening options, extended storage \n and retention policy',
     listItems: [
       'Individual instance',
       '1 TB',
@@ -53,8 +53,8 @@ export const pricingData = [
   {
     id: 3,
     title: 'Enterprise',
-    description: `Custom offering combined with SaaS business plan and packages
-    of Managed services`,
+    description:
+      'Custom offering combined with SaaS business plan and packages \nof Managed services',
     listItems: [
       'Individual instance + Services',
       'Extended storage',

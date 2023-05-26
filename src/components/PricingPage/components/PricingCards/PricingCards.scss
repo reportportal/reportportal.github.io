@@ -3,7 +3,7 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
-.cards {
+.pricing-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -16,13 +16,11 @@
 
   >div {
     &:first-child {
-      ul {
-        li {
-          &:first-child {
-            @include font-poppins($fw-bold);
+      li {
+        &:first-child {
+          @include font-poppins($fw-bold);
 
-            color: var(--graphics-jade);
-          }
+          color: var(--graphics-jade);
         }
       }
     }

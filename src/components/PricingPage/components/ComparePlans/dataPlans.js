@@ -19,12 +19,8 @@ export const buttonsData = [
 export const dataPlans = [
   {
     feature: 'Instance type',
-    description: `Shared instance is used by more than one tenant/client.
-Tenants' access is restricted to the project space owned by them.
-Cost-effective option.
-
-Dedicated instance is hosted for one tenant/client only.
-No shared database and infrastructure — better for data isolation, availability, security and company-based authorization.`,
+    description:
+      'Shared instance is used by more than one tenant/client.\nTenants access is restricted to the project space owned by them.\nCost-effective option.\n\nDedicated instance is hosted for one tenant/client only.\nNo shared database and infrastructure — better for data isolation, availability, security and company-based authorization.',
     startup: 'Shared',
     business: 'Individual',
     enterprise: 'Individual',
@@ -39,9 +35,8 @@ No shared database and infrastructure — better for data isolation, availabilit
   },
   {
     feature: 'Data retention',
-    description: `Data retention defines how long your test results can be stored in ReportPortal.\n
-
-The data is removed after specified period of retention policy or in case of over usage of data storage (whatever occurs first).`,
+    description:
+      'Data retention defines how long your test results can be stored in ReportPortal.\n\nThe data is removed after specified period of retention policy or in case of over usage of data storage (whatever occurs first).',
     startup: 'up to 12 months',
     business: 'up to 5 years',
     enterprise: 'Extended retention policy',
@@ -150,16 +145,16 @@ The data is removed after specified period of retention policy or in case of ove
   },
   {
     feature: 'Real-time analytics',
-    description: `ReportPortal provides real-time reporting capabilities, that save time thanks to the instant reaction of your team.
-There is no need to wait until full execution will be completed, so your team can start result analysis in a matter of seconds.`,
+    description:
+      'ReportPortal provides real-time reporting capabilities, that save time thanks to the instant reaction of your team.\nThere is no need to wait until full execution will be completed, so your team can start result analysis in a matter of seconds.',
     startup: true,
     business: true,
     enterprise: true,
   },
   {
     feature: 'Single sign-on (SSO) authentication via OKTA SAML, Azure SAML',
-    description: `Single sign-on means a method of authentication that permits users to securely log in to different systems using just one set of credentials.
-In ReportPortal SSO authentication is available via OKTA SAML and Azure SAML.`,
+    description:
+      'Single sign-on means a method of authentication that permits users to securely log in to different systems using just one set of credentials.\nIn ReportPortal SSO authentication is available via OKTA SAML and Azure SAML.',
     startup: false,
     business: true,
     enterprise: true,
@@ -182,8 +177,8 @@ In ReportPortal SSO authentication is available via OKTA SAML and Azure SAML.`,
   },
   {
     feature: 'Open reporting API',
-    description: `ReportPortal API allows to push and pull data into and from ReportPortal for third party tools (PowerBI, Grafana, etc) and generate custom reports.
-Extensive *developers guides* allow to build integration even with a home-grown custom solution/framework.`,
+    description:
+      'ReportPortal API allows to push and pull data into and from ReportPortal for third party tools (PowerBI, Grafana, etc) and generate custom reports.\nExtensive *developers guides* allow to build integration even with a home-grown custom solution/framework.',
     startup: true,
     business: true,
     enterprise: true,
@@ -203,9 +198,8 @@ Extensive *developers guides* allow to build integration even with a home-grown 
   },
   {
     feature: 'Quality Gates',
-    description: `Quality Gates is a premium feature helping to automate decisions on top of test automation results and set up a feedback loop into your CI/CD toolchain.
-  
-  Rule-based engine helps to form an unambiguous decision of passed/failed execution considering extensive information of test reports attributes.`,
+    description:
+      'Quality Gates is a premium feature helping to automate decisions on top of test automation results and set up a feedback loop into your CI/CD toolchain.\n\nRule-based engine helps to form an unambiguous decision of passed/failed execution considering extensive information of test reports attributes.',
     startup: true,
     business: true,
     enterprise: true,

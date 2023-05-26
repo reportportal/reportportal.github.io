@@ -4,9 +4,11 @@ import { useToggle } from 'ahooks';
 import { Hero } from './components/Hero';
 import { PricingCards } from './components/PricingCards';
 import { ComparePlans } from './components/ComparePlans';
-import { ServerIcon, CloudIcon } from './icons';
 import { pricingData } from './components/PricingCards/pricingData';
 import { Organizations } from './components/Organizations';
+
+import CloudIcon from './icons/cloud-icon.inline.svg';
+import ServerIcon from './icons/server-icon.inline.svg';
 
 import './PricingPage.scss';
 
@@ -25,7 +27,7 @@ const ACTIVE_BUTTON = buttons[0].text;
 
 export const PricingPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
-  const [discountState, { toggle }] = useToggle(true);
+  const [discountState, { toggle: toggleDiscountState }] = useToggle(true);
 
   const isFirstBtnActive = () => activeButton === buttons[0].text;
 
@@ -41,7 +43,7 @@ export const PricingPage = () => {
         buttons={buttons}
         switchActiveBtn={switchActiveBtn}
         activeButton={activeButton}
-        switchDiscount={toggle}
+        switchDiscount={toggleDiscountState}
         discountState={discountState}
       />
 
