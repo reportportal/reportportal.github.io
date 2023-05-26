@@ -4,17 +4,17 @@
 @import 'src/styles/variables';
 
 .frameworks {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 500px;
-    margin: 24px auto 40px;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 24px auto 40px;
+  align-items: center;
+  text-align: center;
 
-    @include breakpoint($tablet-sm) {
-      max-width: 900px;
-      padding: 0;
+  @include breakpoint($tablet-sm) {
+    max-width: 900px;
+    padding: 0;
   }
 
   &__box {
@@ -87,9 +87,10 @@
 
         &:hover {
           border: 1px solid var(--color-primary-500);
-        }
-        &:hover .frameworks__box-content-item-arrow {
-          display: block;
+        
+          .frameworks__box-content-item-arrow {
+            display: block;
+          }
         }
       }
 

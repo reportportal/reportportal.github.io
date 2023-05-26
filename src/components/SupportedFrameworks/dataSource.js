@@ -239,7 +239,7 @@ export const frameworkIconsPhp = [
 
 export const frameworkIconsOther = [
   {
-    icon: iconsFrameworks.st,
+    icon: iconsFrameworks.silktest,
     badge: false,
     href: 'https://github.com/reportportal/agent-silktest',
   },

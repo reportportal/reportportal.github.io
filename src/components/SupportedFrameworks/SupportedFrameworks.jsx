@@ -36,6 +36,13 @@ export const SupportedFrameworks = () => {
     return frameworks[currentLanguage] || frameworkIconsJava;
   }, [currentLanguage]);
 
+  const getAlternativeText = (iconLink, index) => {
+    const regex = /\/static\/icon_framework_(.*?)-/;
+    const match = iconLink.match(regex);
+
+    return match ? match[1] : `image-${index}`;
+  };
+
   return (
     <div className={getBlocksWith()}>
       <div className={getBlocksWith('__box')}>
@@ -66,7 +73,7 @@ export const SupportedFrameworks = () => {
               {badge && <div className={getBlocksWith('__box-badge')}>from contributor</div>}
               <div className={getBlocksWith('__box-content-item-arrow')}>&#x2197;</div>
               <Link to={href}>
-                <img src={icon} />
+                <img src={icon} alt={getAlternativeText(icon, index)} />
               </Link>
             </div>
           ))}
