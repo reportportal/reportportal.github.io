@@ -1,3 +1,5 @@
+import { trialHref } from '../../pricing';
+
 export const pricingData = [
   {
     id: 1,
@@ -20,6 +22,7 @@ export const pricingData = [
       message: '',
     },
     actionText: 'Start 30-day free trial',
+    href: trialHref,
     isPopular: false,
     actionVariant: 'primary',
   },

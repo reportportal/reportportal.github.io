@@ -2,13 +2,14 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../../../utils';
+import { Link } from '../../../../Link';
 
 import './PricingCard.scss';
 
 const getPricingCard = createBemBlockBuilder(['card']);
 
 export const PricingCard = ({ card, discountState }) => {
-  const { title, description, listItems, price, actionText, isPopular, actionVariant } = card;
+  const { title, description, listItems, price, actionText, isPopular, actionVariant, href } = card;
   const { currency, value, period, message, discountedValue } = price;
 
   const formatNumberWithCommas = (number) =>
@@ -42,9 +43,15 @@ export const PricingCard = ({ card, discountState }) => {
           )}
         </div>
 
-        <button type="button" className={cx('btn', `btn--${actionVariant}`, 'btn--large')}>
-          {actionText}
-        </button>
+        {href ? (
+          <Link href={href} className={cx('btn', `btn--${actionVariant}`, 'btn--large')}>
+            {actionText}
+          </Link>
+        ) : (
+          <button type="button" className={cx('btn', `btn--${actionVariant}`, 'btn--large')}>
+            {actionText}
+          </button>
+        )}
       </div>
     </div>
   );
