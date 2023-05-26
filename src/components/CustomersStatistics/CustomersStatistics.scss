@@ -9,7 +9,13 @@
   color: var(--white);
 
   @include breakpoint($tablet-sm-exact) {
-    padding: 68px 24px 120px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @include breakpoint($desktop-sm) {
+    padding-top: 148px;
+    padding-bottom: 200px;
   }
 
   &__container {
@@ -45,6 +51,10 @@
 
     @include breakpoint($desktop-sm) {
       @include font-scale(x3-large);
+    }
+
+    @include breakpoint($desktop-sm) {
+      max-width: 800px;
     }
   }
 
@@ -115,7 +125,7 @@
 
       @include breakpoint($desktop-sm) {
         display: inline-block;
-        width: 95%;
+        width: 98%;
       }
     }
   }

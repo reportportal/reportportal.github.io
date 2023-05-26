@@ -1,11 +1,10 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-
-import { Seo } from '../components/Seo';
-import { Layout } from '../components/Layout';
-import { Hero } from '../components/Hero';
 import { ArticlePreview } from '../components/ArticlePreview';
+import { Hero } from '../components/Hero';
+import { Layout } from '../components/Layout';
+import React from 'react';
+import { Seo } from '../components/Seo';
+import get from 'lodash/get';
+import { graphql } from 'gatsby';
 
 class BlogIndex extends React.Component {
   render() {

@@ -1,8 +1,8 @@
-import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
-
 import * as styles from './Hero.module.scss';
+
+import { GatsbyImage } from 'gatsby-plugin-image';
+import React from 'react';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 export const Hero = ({ image, title, content }) => (
   <div className={styles.hero}>
