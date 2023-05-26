@@ -73,3 +73,6 @@ public
 # System files
 .DS_Store
 Thumbs.db
+
+# Editor config
+.vscode
