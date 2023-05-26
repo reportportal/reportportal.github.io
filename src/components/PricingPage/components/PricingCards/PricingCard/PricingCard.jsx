@@ -6,7 +6,7 @@ import { Link } from '../../../../Link';
 
 import './PricingCard.scss';
 
-const getPricingCard = createBemBlockBuilder(['card']);
+const getPricingCard = createBemBlockBuilder(['pricing-card']);
 
 export const PricingCard = ({ card, discountState }) => {
   const { title, description, listItems, price, actionText, isPopular, actionVariant, href } = card;
