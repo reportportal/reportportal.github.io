@@ -2,6 +2,14 @@
 @import 'mixins/font';
 @import 'mixins/font-scale';
 
+a.btn--primary:hover {
+  color: var(--white);
+}
+
+a.btn--primary:active {
+  color: var(--white);
+}
+
 .btn {
   @include font-poppins($fw-semi-bold);
   @include font-scale(base);

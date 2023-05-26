@@ -52,12 +52,6 @@
     align-items: center;
     margin-top: 40px;
 
-    a {
-      &:active {
-        color: var(--white);
-      }
-    }
-
     @include breakpoint($tablet-lg) {
       margin-top: 10px;
     }
