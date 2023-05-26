@@ -3,17 +3,15 @@ export const headerColumnTitles = ['Startup', 'Business', 'Enterprise'];
 export const buttonsData = [
   {
     btn: 'Start free trial',
-    href: '#',
+    href: 'https://saas.reportportal.io/ui/#login?registration=true',
     mode: 'outline',
   },
   {
     btn: 'Contact us',
-    href: '#',
     mode: 'primary',
   },
   {
     btn: 'Get a quote',
-    href: '#',
     mode: 'outline',
   },
 ];
@@ -185,11 +183,11 @@ In ReportPortal SSO authentication is available via OKTA SAML and Azure SAML.`,
   {
     feature: 'Open reporting API',
     description: `ReportPortal API allows to push and pull data into and from ReportPortal for third party tools (PowerBI, Grafana, etc) and generate custom reports.
-Extensive *development guides* allow to build integration even with a home-grown custom solution/framework.`,
+Extensive *developers guides* allow to build integration even with a home-grown custom solution/framework.`,
     startup: true,
     business: true,
     enterprise: true,
-    href: 'https://reportportal.io/docs/Developers-guide',
+    href: 'https://reportportal.io/docs/category/developers-guides/',
   },
   {
     feature: 'Administration at Project Level',

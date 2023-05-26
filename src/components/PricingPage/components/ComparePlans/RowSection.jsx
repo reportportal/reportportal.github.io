@@ -47,7 +47,7 @@ const FooterColumns = () => {
           { [getCompareContainer('__row-title-footer-centred')]: !isDesktop },
         )}
       >
-        <Link to="#">Terms and Conditions &#x2197;</Link>
+        <Link to="https://reportportal.io/legal/terms">Terms and Conditions &#x2197;</Link>
       </div>
 
       {isDesktop && (
@@ -55,12 +55,21 @@ const FooterColumns = () => {
           {buttonsData.map(({ btn, mode, href }) => (
             <div key={btn} className={cx(getCompareContainer('__row-title-col'), {})}>
               <div className={getCompareContainer('__section-btn-wrapper')}>
-                <Link
-                  className={cx('btn', `btn--${mode}`, getCompareContainer('__section-btn'))}
-                  to={href}
-                >
-                  {btn}
-                </Link>
+                {href ? (
+                  <Link
+                    className={cx('btn', `btn--${mode}`, getCompareContainer('__section-btn'))}
+                    to={href}
+                  >
+                    {btn}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    className={cx('btn', `btn--${mode}`, getCompareContainer('__section-btn'))}
+                  >
+                    {btn}
+                  </button>
+                )}
               </div>
             </div>
           ))}
