@@ -16,7 +16,7 @@ const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 
 export const IntegrationScheme = () => {
-  const [collapsed, { toggle }] = useToggle(true);
+  const [collapsedScheme, { toggle: toggleCollapsedSchemeState }] = useToggle(true);
   const isDesktop = useMediaQuery({ query: '(min-width: 800px)' });
 
   const lastRow = () => schemeData.length;
@@ -34,8 +34,10 @@ export const IntegrationScheme = () => {
 
         {isDesktop && (
           <>
-            <SchemeHeader state={collapsed} />
-            <div className={cx(getBlocksWith(), { [getBlocksWith('__collapse')]: collapsed })}>
+            <SchemeHeader state={collapsedScheme} />
+            <div
+              className={cx(getBlocksWith(), { [getBlocksWith('__collapse')]: collapsedScheme })}
+            >
               <div className={getBlocksWith('__container')}>
                 {schemeData.map(({ cells, row }) => (
                   <SchemeRow key={row} portion={cells} row={row} lastRow={lastRow()} />
@@ -49,9 +51,9 @@ export const IntegrationScheme = () => {
 
         <div className="collapse__btn">
           {isDesktop && (
-            <div className="collapse__btn-inner" onClick={toggle}>
-              <Arrow state={!collapsed}>
-                <p>See {collapsed ? 'more' : 'less'}</p>
+            <div className="collapse__btn-inner" onClick={toggleCollapsedSchemeState}>
+              <Arrow state={!collapsedScheme}>
+                <p>See {collapsedScheme ? 'more' : 'less'}</p>
               </Arrow>
             </div>
           )}

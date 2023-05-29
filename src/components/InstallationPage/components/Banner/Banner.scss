@@ -58,12 +58,10 @@
     @include font-poppins($fw-bold);
     @include font-scale(x4-medium);
     
-    line-height: 40px;
     color: var(--text-primary);
 
     @include breakpoint($tablet-lg) {
       @include font-scale(large);
-      line-height: 48px;
     }
   }
 

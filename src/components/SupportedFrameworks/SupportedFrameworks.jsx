@@ -59,7 +59,6 @@ export const SupportedFrameworks = () => {
             }}
           >
             <Tabs
-              // centered
               defaultActiveKey={activeTab}
               tabPosition="top"
               items={tabList}
