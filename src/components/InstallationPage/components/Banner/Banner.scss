@@ -42,6 +42,7 @@
 
     @include breakpoint($tablet-lg) {
       flex-direction: row;
+      padding: 40px;
     }
   }
 
