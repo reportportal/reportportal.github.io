@@ -2,7 +2,6 @@
 @import 'src/styles/mixins/font';
 
 $border-thickness: 1px;
-$starter-top-position: -300px;
 
 .indicatory {
   position: sticky;
@@ -12,11 +11,11 @@ $starter-top-position: -300px;
   margin-top: 160px;
   margin-bottom: 100px;
   padding: 25px;
-  transition: transform .9s ease-out;
+  transition: transform .5 ease-in-out;
 
   &__centered {
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(0);
   }
 
   &__path {
@@ -44,7 +43,6 @@ $starter-top-position: -300px;
         .indicatory__box-item-line {
           position: absolute;
           display: block;
-          top: $starter-top-position;
           left: 11px;
           border-left: $border-thickness solid var(--text-light-grey);
           z-index: var(--scroll-indicator-line-z-index);
