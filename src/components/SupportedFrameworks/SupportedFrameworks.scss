@@ -35,6 +35,16 @@
       .ant-tabs-tab+.ant-tabs-tab {
         margin-left: 0;
       }
+
+      .ant-tabs >.ant-tabs-nav .ant-tabs-nav-list {
+        justify-content: space-around;
+        flex: 1;
+      }
+
+      .ant-tabs-top >.ant-tabs-nav::before {
+        right: -24px;
+        left: -24px;
+      }
     }
 
     &-badge {
