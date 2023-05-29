@@ -15,23 +15,13 @@
   z-index: 20;
 
   &__main {
-    display: flex;
+    display: grid;
+    grid-template-columns: 3fr 7fr;
     margin: 0;
 
     @include breakpoint($tablet-sm) {
+      display: block;
       margin: 0 20px;
-    }
-
-    &-indicator {
-      flex: 3;
-    }
-
-    &-content {
-      width: 100%;
-
-      @include breakpoint($tablet-sm) {
-        flex: 7;
-      }
     }
 
     &-inner {

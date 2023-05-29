@@ -35,7 +35,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding: 40px 50px 50px;
+    padding: 24px;
     background-image: url("./assets/bg-up.svg"), url("./assets/bg-dawn.svg");
     background-position: bottom left, top right;
     background-repeat: no-repeat, no-repeat;
@@ -55,24 +55,37 @@
 
   &__title {
     @include font-poppins($fw-bold);
-    @include font-scale(large);
-
-    line-height: 48px;
+    @include font-scale(x4-medium);
+    
+    line-height: 40px;
     color: var(--text-primary);
+
+    @include breakpoint($tablet-lg) {
+      @include font-scale(large);
+      line-height: 48px;
+    }
   }
 
   &__subtitle {
     @include font-noto-sans();
-    @include font-scale(medium);
+    @include font-scale();
 
     line-height: 32px;
     color: var(--text-primary);
+
+    @include breakpoint($tablet-lg) {
+      @include font-scale(medium);
+    }
   }
 
   &__btn-wrapper {
     display: flex;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 23px;
+
+    @include breakpoint($phone-lg) {
+      margin-top: 35px;
+    }
 
     @include breakpoint($tablet-lg) {
       margin-top: 10px;

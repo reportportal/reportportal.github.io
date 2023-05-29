@@ -88,7 +88,7 @@ export const InstallationPage = () => {
             </div>
           )}
 
-          <div className={cx(getBlocksWith('__main-content'), 'container')}>
+          <div className={getBlocksWith('__main-content')}>
             <div className={cx({ [getBlocksWith('__main-inner')]: isDesktop })}>
               {isFirstBtnActive() ? (
                 <>
