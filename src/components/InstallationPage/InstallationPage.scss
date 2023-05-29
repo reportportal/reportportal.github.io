@@ -15,18 +15,22 @@
   z-index: 20;
 
   &__main {
-    display: grid;
-    grid-template-columns: 3fr 7fr;
+    display: block;
+    grid-template-columns: 0 1fr;
+    column-gap: 30px;
     margin: 0;
 
-    @include breakpoint($tablet-sm) {
-      display: block;
+    @include breakpoint($desktop-sm) {
+      display: grid;
+      grid-template-columns: 3fr 7fr;
       margin: 0 20px;
     }
 
     &-inner {
       width: 100%;
       max-width: 690px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 

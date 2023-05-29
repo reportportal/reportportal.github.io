@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-scroll';
 import { useScroll, useSize } from 'ahooks';
-import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 
@@ -14,11 +13,12 @@ const FIRST_POSITION_OFFSET = 200;
 const OFFSET = 20;
 const HERO_HEIGHT = 500;
 const DEFAULT_BOTTOM_LINE_POSITION = 400;
-const INDICATORY_MOVEMENT_HIGHT_COEFFICIENT = 900;
+
+const HEADER_HIGHT = 76;
 
 export const ScrollIndicator = ({ sections }) => {
   const [offset, setOffset] = useState(-FIRST_POSITION_OFFSET);
-  // const [headerSectionPassed, setHeaderSectionPassed] = useState(false);
+  const [indicatorMarginTop, setIndicatorMarginTop] = useState(HEADER_HIGHT);
   const scroll = useScroll(document);
 
   const [topPosition, setTopPosition] = useState(0);
@@ -29,9 +29,6 @@ export const ScrollIndicator = ({ sections }) => {
   const indicatoryRef = useRef(null);
   const pathSize = useSize(pathRef);
   const indicatorySize = useSize(indicatoryRef);
-
-  // ----------------------
-  const [translateY, setTranslateY] = useState(0);
 
   useEffect(() => {
     const top = indicatoryScrollPosition?.top + HERO_HEIGHT;
@@ -45,19 +42,15 @@ export const ScrollIndicator = ({ sections }) => {
 
   useEffect(() => {
     scroll?.top < FIRST_POSITION_OFFSET ? setOffset(-FIRST_POSITION_OFFSET) : setOffset(-OFFSET);
-
-    // scroll?.top < HERO_HEIGHT ? setHeaderSectionPassed(false) : setHeaderSectionPassed(true);
   }, [scroll]);
 
   useEffect(() => {
-    if (scroll?.top < INDICATORY_MOVEMENT_HIGHT_COEFFICIENT) {
-      const verticalValue = (50 / INDICATORY_MOVEMENT_HIGHT_COEFFICIENT) * scroll?.top;
+    const viewportHeight = window.innerHeight;
 
-      setTranslateY(verticalValue);
-    } else {
-      setTranslateY(50);
-    }
-  }, [scroll]);
+    const marginValue = (viewportHeight - indicatorySize?.height) / 2;
+
+    setIndicatorMarginTop(marginValue);
+  }, [indicatorySize]);
 
   return (
     <>
@@ -65,13 +58,8 @@ export const ScrollIndicator = ({ sections }) => {
         <div ref={pathRef} className={getBlocksWith('__path')}>
           <div
             ref={indicatoryRef}
-            className={cx(
-              getBlocksWith(),
-              //  { [getBlocksWith('__centered')]: headerSectionPassed }
-
-              getBlocksWith('__centered'),
-            )}
-            style={{ transform: `translateY(-${translateY}%)` }}
+            className={getBlocksWith()}
+            style={{ top: `${indicatorMarginTop}px` }}
           >
             <div className={getBlocksWith('__box')}>
               {sections.map((section) => (

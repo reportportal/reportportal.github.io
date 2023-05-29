@@ -47,7 +47,7 @@ const ACTIVE_BUTTON = buttons[0].text;
 
 export const InstallationPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
-  const isDesktop = useMediaQuery({ query: '(min-width: 1100px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1239px)' });
 
   const getSections = () => {
     const activeButtonObject = buttons.find((button) => button.text === activeButton);
@@ -80,7 +80,7 @@ export const InstallationPage = () => {
         </div>
       </div>
 
-      <div className="container">
+      <div className={cx(getBlocksWith('__inner'), 'container')}>
         <div className={getBlocksWith('__main')}>
           {isDesktop && (
             <div className={getBlocksWith('__main-indicator')}>
@@ -89,7 +89,7 @@ export const InstallationPage = () => {
           )}
 
           <div className={getBlocksWith('__main-content')}>
-            <div className={cx({ [getBlocksWith('__main-inner')]: isDesktop })}>
+            <div className={cx({ [getBlocksWith('__main-inner')]: !isDesktop })}>
               {isFirstBtnActive() ? (
                 <>
                   <div name="section-1" id="part-1">

@@ -8,15 +8,9 @@ $border-thickness: 1px;
   top: var(--header-height);
   left: 0;
   right: 0;
-  margin-top: 160px;
-  margin-bottom: 100px;
   padding: 25px;
+  padding-top: var(--header-height);
   transition: transform .5 ease-in-out;
-
-  &__centered {
-    top: 50%;
-    transform: translateY(0);
-  }
 
   &__path {
     position: relative;
