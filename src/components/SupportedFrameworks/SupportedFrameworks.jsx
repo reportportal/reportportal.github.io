@@ -59,6 +59,7 @@ export const SupportedFrameworks = () => {
             }}
           >
             <Tabs
+              centered
               defaultActiveKey={activeTab}
               tabPosition="top"
               items={tabList}
@@ -71,7 +72,7 @@ export const SupportedFrameworks = () => {
           {getCurrentFrameworks().map(({ icon, badge, href }, index) => (
             <div className={getBlocksWith('__box-content-item')} key={index}>
               {badge && <div className={getBlocksWith('__box-badge')}>from contributor</div>}
-              <div className={getBlocksWith('__box-content-item-arrow')}>&#x2197;</div>
+              <div className={getBlocksWith('__box-content-item-arrow')} />
               <Link to={href}>
                 <img src={icon} alt={getAlternativeText(icon, index)} />
               </Link>

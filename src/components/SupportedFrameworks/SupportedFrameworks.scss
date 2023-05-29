@@ -79,9 +79,13 @@
         &-arrow {
           position: absolute;
           display: none;
-          top: 5px;
-          right: 10px;
-          color: var(--color-primary-500);
+          top: 9px;
+          right: 6px;
+          width: 10px;
+          height: 10px;
+          background-image: url('../../svg/link_arrow.svg');
+          background-repeat: no-repeat;
+          background-size: 7px;
           transition: all .3s ease;
         }
 
