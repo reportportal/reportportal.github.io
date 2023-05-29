@@ -116,10 +116,9 @@ export const InstallationPage = () => {
             </div>
           </div>
         </div>
-
-        <div className={getBlocksWith('__banner')}>
-          <Banner />
-        </div>
+      </div>
+      <div className={getBlocksWith('__banner')}>
+        <Banner />
       </div>
     </div>
   );

@@ -242,14 +242,11 @@
 
   &__banner {
     position: relative;
-    margin: 0 16px;
     padding-bottom: 60px;
     line-height: 24px;
     background: var(--white);
-    z-index: 10;
 
     @include breakpoint($tablet-lg) {
-      margin: 0 24px;
       padding-bottom: 100px;
     }
   }
