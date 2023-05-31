@@ -11,14 +11,14 @@
     left: 0;
     right: 0;
     top: 50%;
-    bottom: -80px;
+    bottom: -35px;
     border-top: 1px solid var(--purple-grey);
     color: var(--text-service);
     background: var(--bg-light-grey);
     z-index: var(--z-index-banner-footer-bg);
 
     @include breakpoint($tablet-lg) {
-      bottom: -150px;
+      bottom: -100px;
     }
   }
 
@@ -36,13 +36,20 @@
     align-items: center;
     flex-direction: column;
     padding: 24px;
-    background-image: url("./assets/bg-up.svg"), url("./assets/bg-dawn.svg");
-    background-position: bottom left, top right;
-    background-repeat: no-repeat, no-repeat;
+    background-image: url("./assets/bg-up-mobile.svg");
+    background-position: 0 20px;
+    background-repeat: no-repeat;
+
+    @include breakpoint($tablet-sm) {
+      background-image: url("./assets/bg-up.svg"), url("./assets/bg-dawn.svg");
+      background-position: bottom left, top right;
+      background-repeat: no-repeat, no-repeat;      
+    }
 
     @include breakpoint($tablet-lg) {
       flex-direction: row;
       padding: 40px;
+
     }
   }
 
@@ -80,14 +87,26 @@
   &__btn-wrapper {
     display: flex;
     align-items: center;
+    width: 100%;
     margin-top: 23px;
 
+    .btn {
+      width: 100%;
+    }
+
     @include breakpoint($phone-lg) {
+      width: auto;
       margin-top: 35px;
+      margin-bottom: 16px;
+
+      .btn {
+        width: auto;
+      }
     }
 
     @include breakpoint($tablet-lg) {
       margin-top: 10px;
+      margin-bottom: 10px;
     }
   }
 }

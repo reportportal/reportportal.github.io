@@ -236,12 +236,16 @@
 
   &__banner {
     position: relative;
-    padding-bottom: 60px;
+    padding-bottom: 26px;
     line-height: 24px;
     background: var(--white);
 
+    @include breakpoint($phone-lg) {
+      padding-bottom: 6px;
+    }
+
     @include breakpoint($tablet-lg) {
-      padding-bottom: 100px;
+      padding-bottom: 90px;
     }
   }
 

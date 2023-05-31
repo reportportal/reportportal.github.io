@@ -23,7 +23,8 @@ $content-block-z-index: -100;
     margin-bottom: 44px;
     background-image: url('./img/Scheme.svg');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
     
     @include breakpoint($tablet-sm) {
       height: 100px;

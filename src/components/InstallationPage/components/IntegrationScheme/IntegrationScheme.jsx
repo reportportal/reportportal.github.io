@@ -5,6 +5,7 @@ import { useToggle } from 'ahooks';
 import { Divider } from 'antd';
 
 import { createBemBlockBuilder } from '../../../../utils';
+import { mediaTabletSm } from '../../../../utils/variables';
 import { Arrow, SchemeRow } from './SchemeRow';
 import { SchemeHeader } from './SchemeHeader';
 import { schemeData } from './schemeData';
@@ -17,7 +18,7 @@ const getBlocksWith = createBemBlockBuilder(['scheme']);
 
 export const IntegrationScheme = () => {
   const [collapsedScheme, { toggle: toggleCollapsedSchemeState }] = useToggle(true);
-  const isDesktop = useMediaQuery({ query: '(min-width: 800px)' });
+  const isDesktop = useMediaQuery({ query: mediaTabletSm });
 
   const lastRow = () => schemeData.length;
 

@@ -28,8 +28,11 @@
       padding: 10px 24px;
 
       .ant-tabs-tab {
-        padding-left: 17px;
-        padding-right: 17px;
+        @include font-poppins($fw-semi-bold);
+
+        flex: 1;
+        display: flex;
+        justify-content: center;
       }
 
       .ant-tabs-tab+.ant-tabs-tab {
