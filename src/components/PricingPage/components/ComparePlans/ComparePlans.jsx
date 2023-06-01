@@ -5,7 +5,7 @@ import { RightOutlined } from '@ant-design/icons';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../../utils';
-import { $tabletSm } from '../../../../utils/breakpoint';
+import { $tabletLg } from '../../../../utils/breakpoint';
 import { dataPlans, headerColumnTitles } from './dataPlans';
 import { Columns } from './Columns';
 import { RowSection } from './RowSection';
@@ -16,7 +16,7 @@ import './ComparePlans.scss';
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
 export const ComparePlans = () => {
-  const isDesktop = useMediaQuery({ query: $tabletSm });
+  const isDesktop = useMediaQuery({ query: $tabletLg });
   const { Panel } = Collapse;
 
   const handleArrowPosition = (isActive) => {
@@ -41,16 +41,13 @@ export const ComparePlans = () => {
     <div className={cx(getCompareContainer(), 'container')}>
       <div className={getCompareContainer('__title')}>Compare plans</div>
 
-      {isDesktop && <ColumnsHeader title="Features" />}
+      {isDesktop ? (
+        <ColumnsHeader title="Features" />
+      ) : (
+        <div className={getCompareContainer('__tab-title')}>Main functionality</div>
+      )}
 
-      {!isDesktop && <div className={getCompareContainer('__tab-title')}>Main functionality</div>}
-
-      <div
-        className={cx(
-          { [getCompareContainer('__box')]: !isDesktop },
-          { [getCompareContainer('__box-border')]: isDesktop },
-        )}
-      >
+      <div className={cx(getCompareContainer('__box'), getCompareContainer('__box-border'))}>
         <Collapse
           defaultActiveKey={['1']}
           ghost

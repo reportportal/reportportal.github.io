@@ -4,7 +4,7 @@ import isBoolean from 'lodash/isBoolean';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../../utils';
-import { $tabletSm } from '../../../../utils/breakpoint';
+import { $tabletLg } from '../../../../utils/breakpoint';
 import CrossIcon from '../../icons/cross.inline.svg';
 import MarkIcon from '../../icons/mark.inline.svg';
 
@@ -13,7 +13,7 @@ import './ComparePlans.scss';
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
 export const Columns = ({ title = '', cols }) => {
-  const isDesktop = useMediaQuery({ query: $tabletSm });
+  const isDesktop = useMediaQuery({ query: $tabletLg });
   const [isVisibility, setIsVisibility] = useState(true);
 
   useEffect(() => {

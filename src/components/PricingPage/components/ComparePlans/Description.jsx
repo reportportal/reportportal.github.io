@@ -8,26 +8,37 @@ import './ComparePlans.scss';
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
 export const Description = ({ text, href }) => {
-  const formComponent = (str, anchorHref) => {
-    const match = str.match(/([^*]*)\*([^*]+)\*([^*]*)/);
+  return (
+    <>
+      {href ? (
+        <span>
+          <FormComponent text={text} href={href} />
+        </span>
+      ) : (
+        <span>{text}</span>
+      )}
+    </>
+  );
+};
 
-    if (match) {
-      const beforeText = match[1];
-      const highlightedText = match[2];
-      const afterText = match[3];
+const FormComponent = ({ text, href }) => {
+  const match = text.match(/([^*]*)\*([^*]+)\*([^*]*)/);
 
-      return (
-        <>
-          {beforeText}{' '}
-          <Link className={getCompareContainer('__description-anchor')} to={anchorHref}>
-            {highlightedText}
-          </Link>{' '}
-          {afterText}
-        </>
-      );
-    }
-    return text;
-  };
+  if (match) {
+    const beforeText = match[1];
+    const highlightedText = match[2];
+    const afterText = match[3];
 
-  return <>{href ? <span>{formComponent(text, href)}</span> : <span>{text}</span>}</>;
+    return (
+      <>
+        {beforeText}{' '}
+        <Link className={getCompareContainer('__description-anchor')} to={href}>
+          {highlightedText}
+        </Link>{' '}
+        {afterText}
+      </>
+    );
+  }
+
+  return text;
 };

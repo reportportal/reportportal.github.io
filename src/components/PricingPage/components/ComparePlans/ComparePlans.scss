@@ -9,13 +9,29 @@
       margin-bottom: 20px;
       box-shadow: 0px 8px 16px rgba(0, 45, 55, 0.12);
       border-radius: 8px;
+
+      @include breakpoint($tablet-lg) {
+        box-shadow: none;
+      }
+
+      >.ant-collapse-header {
+        padding-left: 40px;
+
+        @include breakpoint($tablet-lg) {
+          padding-left: 12px;
+        }
+      }
     }
 
     &-border {
-      padding: 20px;
-      padding-bottom: 0;
-      box-shadow: 0px 8px 16px rgba(0, 45, 55, 0.12);
-      border-radius: 8px;
+      box-shadow: none;
+
+      @include breakpoint($tablet-lg) {
+        padding: 20px;
+        padding-bottom: 0;
+        box-shadow: 0px 8px 16px rgba(0, 45, 55, 0.12);
+        border-radius: 8px;
+      }
     }
   }
 
@@ -32,16 +48,17 @@
 
   &__section {
     margin: 20px 0;
+    text-align: center;
     cursor: auto;
+
+    @include breakpoint($tablet-sm) {
+      text-align: left;
+    }
 
     &-title {
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--text-primary);
-    }
-
-    &-adjustment {
-      text-align: center;
     }
 
     &-btn-wrapper {
@@ -126,20 +143,23 @@
 
       align-self: center;
       color: var(--text-service);
+      text-align: center;
+
+      margin-top: -54px;
 
       > a {
-        margin-left: -36px;
+        margin-left: 0;
       }
 
-      &-centred {
-        margin-top: -54px;
-        text-align: center;
+      @include breakpoint($tablet-lg) {
+        margin-top: auto;
+        margin-bottom: auto;
+        text-align: left;
 
         > a {
-          margin-left: 0;
+          margin-left: -36px;
         }
       }
-
     }
 
     &-wrapper {
@@ -155,6 +175,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      @include breakpoint($tablet-lg) {
+        display: flex;
+      }
+
+      &-visible {
+        display: none;
+
+        @include breakpoint($tablet-lg) {
+          display: flex;
+        }
+      }
     }
 
     &-col {

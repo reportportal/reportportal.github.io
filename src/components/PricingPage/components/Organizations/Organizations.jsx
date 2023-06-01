@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 
 import { createBemBlockBuilder } from '../../../../utils';
+import { $tabletSm } from '../../../../utils/breakpoint';
 import { icons } from './icons/iconsData';
 
 import './Organizations.scss';
@@ -10,7 +11,7 @@ import './Organizations.scss';
 const getBlocksWith = createBemBlockBuilder(['organizations']);
 
 export const Organizations = () => {
-  const isTablet = useMediaQuery({ query: '(min-width: 769px)' });
+  const isTablet = useMediaQuery({ query: $tabletSm });
 
   const isRight = (index) => (index + 1) % 2 === 0;
 
