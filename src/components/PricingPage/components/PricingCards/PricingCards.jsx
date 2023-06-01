@@ -5,10 +5,10 @@ import { PricingCard } from './PricingCard';
 
 import './PricingCards.scss';
 
-const getPricingCards = createBemBlockBuilder(['pricing-cards']);
+const getBlocksWith = createBemBlockBuilder(['pricing-cards']);
 
 export const PricingCards = ({ pricingData, discountState }) => (
-  <div className={getPricingCards()}>
+  <div className={getBlocksWith()}>
     {pricingData.map((card) => (
       <PricingCard discountState={discountState} card={card} key={card.id} />
     ))}

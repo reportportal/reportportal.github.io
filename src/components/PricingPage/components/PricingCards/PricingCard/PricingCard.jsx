@@ -6,7 +6,7 @@ import { Link } from '../../../../Link';
 
 import './PricingCard.scss';
 
-const getPricingCard = createBemBlockBuilder(['pricing-card']);
+const getBlocksWith = createBemBlockBuilder(['pricing-card']);
 
 export const PricingCard = ({ card, discountState }) => {
   const { title, description, listItems, price, actionText, isPopular, actionVariant, href } = card;
@@ -16,12 +16,12 @@ export const PricingCard = ({ card, discountState }) => {
     number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   return (
-    <div className={getPricingCard()}>
+    <div className={getBlocksWith()}>
       <div>
-        {isPopular && <div className={getPricingCard('__popular')}>Most popular</div>}
+        {isPopular && <div className={getBlocksWith('__popular')}>Most popular</div>}
 
-        <div className={getPricingCard('__title')}>{title}</div>
-        <div className={getPricingCard('__description')}>{description}</div>
+        <div className={getBlocksWith('__title')}>{title}</div>
+        <div className={getBlocksWith('__description')}>{description}</div>
 
         <ul>
           {listItems.map((item, index) => (
@@ -29,8 +29,8 @@ export const PricingCard = ({ card, discountState }) => {
           ))}
         </ul>
       </div>
-      <div className={getPricingCard('__bottom-panel')}>
-        <div className={getPricingCard('__price')}>
+      <div className={getBlocksWith('__bottom-panel')}>
+        <div className={getBlocksWith('__price')}>
           {message ? (
             <span>{message}</span>
           ) : (
