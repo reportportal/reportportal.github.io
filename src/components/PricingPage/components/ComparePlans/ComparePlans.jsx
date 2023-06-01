@@ -26,6 +26,7 @@ export const ComparePlans = () => {
     } else {
       angle = isDesktop ? 0 : 90;
     }
+
     return angle;
   };
 
