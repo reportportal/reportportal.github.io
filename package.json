@@ -59,7 +59,8 @@
   },
   "peerDependencies": {
     "@contentful/rich-text-plain-text-renderer": "*",
-    "axios": "*"
+    "axios": "*",
+    "@reach/router": "*"
   },
   "engines": {
     "node": ">=18.0.0"

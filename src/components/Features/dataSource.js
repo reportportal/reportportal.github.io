@@ -55,7 +55,7 @@ export const featuresList = [
     link: 'link-visualisation-of-tests',
   },
   {
-    title: 'REST API ',
+    title: 'REST API',
     description:
       'Access and manipulate test results in a programmatic way in order to automate the process of sending test results, integrate with other tools, create custom reports, generate alerts or notifications and trigger certain actions like re-running of test cases, or triggering a build in a CI/CD pipeline.',
     image: features.feature7,
@@ -67,6 +67,7 @@ export const featuresList = [
       'Use as an objective means of evaluating the quality of a software release, as opposed to subjective opinions or guesses. This will help to ensure that the software is of high quality and is free of major defects or issues, which can improve customer satisfaction and reduce the risk of software failures.',
     image: features.feature8,
     link: 'link-quality-gates',
+    isPremium: true,
   },
 ];
 

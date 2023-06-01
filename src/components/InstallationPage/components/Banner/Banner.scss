@@ -17,6 +17,10 @@
     background: var(--bg-light-grey);
     z-index: var(--z-index-banner-footer-bg);
 
+    .banner--white & {
+      background: var(--white);
+    }
+
     @include breakpoint($tablet-lg) {
       bottom: -100px;
     }
@@ -24,10 +28,16 @@
 
   &__wrapper {
     position: relative;
-    background: linear-gradient(85.23deg, #F4F6FA 1.92%, #EEF0F7 53.85%);
+    background: linear-gradient(85.23deg, #f4f6fa 1.92%, #eef0f7 53.85%);
     border-radius: 16px;
     overflow: hidden;
     z-index: var(--z-index-banner);
+
+    .banner--white & {
+      box-shadow: 0 8px 16px rgba(0, 45, 55, 0.12);
+      background: var(--white);
+      overflow: auto;
+    }
   }
 
   &__inner {
@@ -36,12 +46,16 @@
     align-items: center;
     flex-direction: column;
     padding: 24px;
-    background-image: url("./assets/bg-up-mobile.svg");
+    background-image: url('./assets/bg-up-mobile.svg');
     background-position: 0 20px;
     background-repeat: no-repeat;
 
+    .banner--white & {
+      background-image: url('./assets/bg-up-mobile-white.svg');
+    }
+
     @include breakpoint($tablet-sm) {
-      background-image: url("./assets/bg-up.svg"), url("./assets/bg-dawn.svg");
+      background-image: url('./assets/bg-up.svg'), url('./assets/bg-dawn.svg');
       background-position: bottom left, top right;
       background-repeat: no-repeat, no-repeat;      
     }
@@ -49,7 +63,6 @@
     @include breakpoint($tablet-lg) {
       flex-direction: row;
       padding: 40px;
-
     }
   }
 
