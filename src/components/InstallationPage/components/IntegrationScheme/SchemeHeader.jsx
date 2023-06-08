@@ -20,7 +20,7 @@ export const SchemeHeader = ({ state }) => (
           <p>Test Framework</p>
         </div>
 
-        <div className={getBlocksWith('__col-title')}>
+        <div className={cx(getBlocksWith('__col-title'), getBlocksWith('__col-title-event-node'))}>
           {state && <EventNode direction>event</EventNode>}
         </div>
 
