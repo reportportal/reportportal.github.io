@@ -15,24 +15,22 @@
   z-index: 20;
 
   &__main {
-    display: flex;
+    display: block;
+    grid-template-columns: 0 1fr;
+    column-gap: 30px;
     margin: 0;
 
-    @include breakpoint($tablet-sm) {
+    @include breakpoint($desktop-sm) {
+      display: grid;
+      grid-template-columns: 3fr 7fr;
       margin: 0 20px;
-    }
-
-    &-indicator {
-      flex: 3;
-    }
-
-    &-content {
-      flex: 7;
     }
 
     &-inner {
       width: 100%;
       max-width: 690px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -94,15 +92,15 @@
     @include font-noto-sans();
     @include font-scale();
 
-    margin-top: 64px;
+    padding-top: 64px;
     line-height: 24px;
 
     @include breakpoint($tablet-sm) {
-      margin-top: 120px;
+      padding-top: 120px;
     }
 
     @include breakpoint($tablet-lg) {
-      margin-top: 160px;
+      padding-top: 160px;
     }
   }
 
@@ -121,6 +119,8 @@
   &__text-content {
     @include font-noto-sans();
     @include font-scale();
+
+    line-height: 24px;
   }
 
   &__chapter {
@@ -232,5 +232,28 @@
 
   &__sub-text {
     color: var(--text-service);
+  }
+
+  &__banner {
+    position: relative;
+    padding-bottom: 26px;
+    line-height: 24px;
+    background: var(--white);
+
+    @include breakpoint($phone-lg) {
+      padding-bottom: 6px;
+    }
+
+    @include breakpoint($tablet-lg) {
+      padding-bottom: 90px;
+    }
+  }
+
+  &__final {
+    padding-bottom: 144px;
+
+    @include breakpoint($tablet-lg) {
+      padding-bottom: 230px;
+    }
   }
 }

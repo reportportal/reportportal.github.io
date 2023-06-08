@@ -1,9 +1,11 @@
 import React from 'react';
 import cx from 'classnames';
+import { useMediaQuery } from 'react-responsive';
 import { useToggle } from 'ahooks';
 import { Divider } from 'antd';
 
 import { createBemBlockBuilder } from '../../../../utils';
+import { mediaTabletSm } from '../../../../utils/variables';
 import { Arrow, SchemeRow } from './SchemeRow';
 import { SchemeHeader } from './SchemeHeader';
 import { schemeData } from './schemeData';
@@ -15,7 +17,8 @@ const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 
 export const IntegrationScheme = () => {
-  const [state, { toggle }] = useToggle();
+  const [collapsedScheme, { toggle: toggleCollapsedSchemeState }] = useToggle(true);
+  const isDesktop = useMediaQuery({ query: mediaTabletSm });
 
   const lastRow = () => schemeData.length;
 
@@ -30,22 +33,31 @@ export const IntegrationScheme = () => {
 
         <Divider className={getBlocksWith('__divider')} />
 
-        <SchemeHeader state={state} />
+        {isDesktop && (
+          <>
+            <SchemeHeader state={collapsedScheme} />
+            <div
+              className={cx(getBlocksWith(), { [getBlocksWith('__collapse')]: collapsedScheme })}
+            >
+              <div className={getBlocksWith('__container')}>
+                {schemeData.map(({ cells, row }) => (
+                  <SchemeRow key={row} portion={cells} row={row} lastRow={lastRow()} />
+                ))}
+              </div>
+            </div>
+          </>
+        )}
 
-        <div className={cx(getBlocksWith(), { [getBlocksWith('__collapse')]: state })}>
-          <div className={getBlocksWith('__container')}>
-            {schemeData.map(({ cells, row }) => (
-              <SchemeRow key={row} portion={cells} row={row} lastRow={lastRow()} />
-            ))}
-          </div>
-        </div>
+        {!isDesktop && <div className={getBlocksWith('__mocked')} />}
 
         <div className="collapse__btn">
-          <div className="collapse__btn-inner" onClick={toggle}>
-            <Arrow state={!state}>
-              <p>See {state ? 'more' : 'less'}</p>
-            </Arrow>
-          </div>
+          {isDesktop && (
+            <div className="collapse__btn-inner" onClick={toggleCollapsedSchemeState}>
+              <Arrow state={!collapsedScheme}>
+                <p>See {collapsedScheme ? 'more' : 'less'}</p>
+              </Arrow>
+            </div>
+          )}
         </div>
       </div>
     </div>
