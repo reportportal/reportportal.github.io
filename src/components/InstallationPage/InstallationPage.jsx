@@ -82,11 +82,9 @@ export const InstallationPage = () => {
 
       <div className={cx(getBlocksWith('__inner'), 'container')}>
         <div className={getBlocksWith('__main')}>
-          {isDesktop && (
-            <div className={getBlocksWith('__main-indicator')}>
-              <ScrollIndicator sections={getSections()} />
-            </div>
-          )}
+          <div className={getBlocksWith('__main-indicator')}>
+            {isDesktop && <ScrollIndicator sections={getSections()} />}
+          </div>
 
           <div className={getBlocksWith('__main-content')}>
             <div className={cx({ [getBlocksWith('__main-inner')]: !isDesktop })}>
