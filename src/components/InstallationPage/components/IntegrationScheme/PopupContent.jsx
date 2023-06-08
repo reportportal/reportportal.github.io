@@ -10,7 +10,7 @@ import '../../InstallationPage.scss';
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
 
-export const PopupContent = (info) => {
+export const PopupContent = ({ info }) => {
   const { Text } = Typography;
 
   const formatText = () => {

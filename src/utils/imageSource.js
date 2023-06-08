@@ -54,14 +54,14 @@ import serenity from '../svg/icon_framework_serenity.svg';
 import soapui from '../svg/icon_framework_soapui.svg';
 import specflow from '../svg/icon_framework_specflow.svg';
 import spock from '../svg/icon_framework_spock.svg';
-import st from '../svg/icon_framework_st.svg';
+import silktest from '../svg/icon_framework_silktest.svg';
 import subscription from '../svg/subscription.svg';
 import testcafe from '../svg/icon_framework_testcafe.svg';
 import testng from '../svg/icon_framework_testng.svg';
 import unitnet from '../svg/icon_framework_unitnet.svg';
 import vstest from '../svg/icon_framework_vstest.svg';
 import webdriver from '../svg/icon_framework_webdriver.svg';
-import xctest from '../svg/icon_framework_vstest.svg';
+import xctest from '../svg/icon_framework_xctest2.svg';
 
 export const iconsCommon = {
   subscription,
@@ -71,14 +71,14 @@ export const iconsCommon = {
 };
 
 export const features = {
-  feature1: feature1,
-  feature2: feature2,
-  feature3: feature3,
-  feature4: feature4,
-  feature5: feature5,
-  feature6: feature6,
-  feature7: feature7,
-  feature8: feature8,
+  feature1,
+  feature2,
+  feature3,
+  feature4,
+  feature5,
+  feature6,
+  feature7,
+  feature8,
 };
 
 export const iconsCustomers = {
@@ -133,7 +133,7 @@ export const iconsFrameworks = {
   behat,
   phpunit,
   codeception,
-  st,
+  silktest,
   xctest,
   gwen,
   gauge,
