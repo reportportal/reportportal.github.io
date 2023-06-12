@@ -16,7 +16,7 @@ export const DockerDeployingStep = () => {
         <div className={getBlocksWith('__chapter')}>Step 1</div>
         <h3 className={getBlocksWith('__title-content')}>Configure and deploy ReportPortal</h3>
         <p>
-          Following guide describes deployment on Linux/Mac. In case you went with Docker on
+          The following guide describes deployment on Linux/Mac. In case you went with Docker on
           Windows, please proceed with the
           <a
             className={getBlocksWith('__link')}
@@ -35,7 +35,7 @@ export const DockerDeployingStep = () => {
           >
             GitHub
           </a>
-          . You can make it by run the following command:
+          . You can make it by running the following command:
         </p>
 
         <Text className={getBlocksWith('__code')} code copyable>
@@ -61,7 +61,7 @@ export const DockerDeployingStep = () => {
 
         <Text className={getBlocksWith('__code')} code copyable>
           {
-            'mkdir -p ./data/elasticsearch\nchmod 775 ./data/elasticsear\nchchgrp 1000 ./data/elasticsearch'
+            'mkdir -p ./data/elasticsearch\nchmod 775 ./data/elasticsearch\nchgrp 1000 ./data/elasticsearch'
           }
         </Text>
 
@@ -72,7 +72,7 @@ export const DockerDeployingStep = () => {
             href="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html#_notes_for_production_use_and_defaults"
           >
             {' '}
-            guide
+            guide.
           </a>
         </p>
 
@@ -82,10 +82,12 @@ export const DockerDeployingStep = () => {
         </p>
         <p>
           Depends on your hardware configuration and parameters of your system, you can additionally
-          optimize your PostgreSQL performance by adding the following parameters to {'"command"'}
+          optimize your PostgreSQL performance by adding the following parameters to {'"command"'}{' '}
           option in the Docker compose file.
         </p>
-        <p>Please choose set the values of these variables that are right for your system:</p>
+        <p>
+          Please choose the set of the values of these variables that are right for your system:
+        </p>
 
         <Text className={getBlocksWith('__code')} code copyable>
           {
@@ -112,7 +114,10 @@ export const DockerDeployingStep = () => {
         <p>Where:</p>
         <p>
           <span className={getBlocksWith('__code-text')}>-p reportportal</span> — adds project
-          prefix {'reportportal'} to all containers up creates and starts containers
+          prefix {"'reportportal'"} to all containers
+        </p>
+        <p>
+          <span className={getBlocksWith('__code-text')}>up</span> — creates and starts containers
         </p>
         <p>
           <span className={getBlocksWith('__code-text')}>-d</span> — daemon mode
@@ -120,7 +125,7 @@ export const DockerDeployingStep = () => {
         <p>
           {' '}
           <span className={getBlocksWith('__code-text')}>--force-recreate</span> — re-creates
-          containers if there any
+          containers
         </p>
       </div>
 
@@ -130,7 +135,7 @@ export const DockerDeployingStep = () => {
         <span className={getBlocksWith('__code-text')}>docker logs &lt;container_name&gt;</span> —
         shows logs from selected container <br />
         <p className={getBlocksWith('__code-text')}>
-          docker ps -a | grep {'"reportportal_"'} | awk {'{print $1}'} | xargs <br />
+          docker ps -a | grep {'"reportportal_"'} | awk {"'{print $1}'"} | xargs <br />
           docker rm -f
         </p>{' '}
         <br />— deletes all ReportPortal containers

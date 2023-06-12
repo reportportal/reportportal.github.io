@@ -41,7 +41,7 @@ export const frameworkIconsJava = [
   {
     icon: iconsFrameworks.junit5,
     badge: false,
-    href: '-https://github.com/reportportal/agent-java-junit5',
+    href: 'https://github.com/reportportal/agent-java-junit5',
   },
   {
     icon: iconsFrameworks.spock,

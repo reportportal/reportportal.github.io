@@ -20,8 +20,10 @@ export const DockerInstall = () => {
 
       <Notice importance>
         <ul className={getBlocksWith('__list')}>
+          <li>Recommended change resources limits at least 2 CPU 6 GB RAM for Docker</li>
+
           <li>
-            Recommended change resources limits at least 2 CPU 6 GB RAM for Docker Desktop:{' '}
+            Desktop:
             <a
               className={getBlocksWith('__link')}
               href="https://docs.docker.com/desktop/settings/mac/#advanced"
@@ -48,14 +50,28 @@ export const DockerInstall = () => {
       </Notice>
 
       <Notice>
-        For Windows users Docker requires 64-bit Windows 10 Pro (or higher) and Microsoft Hyper-V.
+        For Windows users Docker requires 64-bit Windows 10 Pro (or higher) and Microsoft Hyper-V
       </Notice>
 
       <p className={getBlocksWith('__text-content')}>
-        Instead of using Docker for deployment you can follow the steps described here.
+        Instead of using Docker for deployment you can follow the steps described{' '}
+        <a
+          className={getBlocksWith('__link')}
+          href="https://reportportal.io/docs/installation-steps/DeployWithoutDocker"
+        >
+          here
+        </a>
+        .
       </p>
       <p className={getBlocksWith('__text-content')}>
-        Details about production deployment and system capacity are here.
+        Details about production deployment and system capacity are{' '}
+        <a
+          className={getBlocksWith('__link')}
+          href="https://reportportal.io/docs/installation-steps/OptimalPerformanceHardwareSetup/"
+        >
+          here
+        </a>
+        .
       </p>
     </div>
   );

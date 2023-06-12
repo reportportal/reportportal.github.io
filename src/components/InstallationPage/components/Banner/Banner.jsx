@@ -15,7 +15,7 @@ export const Banner = () => (
       <div className={getBlocksWith('__wrapper')}>
         <div className={getBlocksWith('__inner')}>
           <div className={getBlocksWith('__titles')}>
-            <div className={getBlocksWith('__title')}>Still have questions with installation?</div>
+            <div className={getBlocksWith('__title')}>Still have questions about installation?</div>
             <div className={getBlocksWith('__subtitle')}>Chat with us in Slack channel</div>
           </div>
 
