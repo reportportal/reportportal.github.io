@@ -22,7 +22,7 @@
 
     @include breakpoint($desktop-sm) {
       display: grid;
-      grid-template-columns: 2.4fr 8fr;
+      grid-template-columns: 24fr 80fr;
       margin: 0 20px;
     }
 
