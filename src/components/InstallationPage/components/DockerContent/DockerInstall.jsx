@@ -23,7 +23,7 @@ export const DockerInstall = () => {
           <li>Recommended change resources limits at least 2 CPU 6 GB RAM for Docker</li>
 
           <li>
-            Desktop:
+            Desktop:{' '}
             <a
               className={getBlocksWith('__link')}
               href="https://docs.docker.com/desktop/settings/mac/#advanced"
