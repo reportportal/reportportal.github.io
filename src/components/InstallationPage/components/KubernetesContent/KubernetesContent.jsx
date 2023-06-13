@@ -16,7 +16,7 @@ export const KubernetesContent = () => {
         cluster.
       </p>
       <p>
-        Kubernetes/Helm configs for ReportPortal installation can be find at the following link:{' '}
+        Kubernetes/Helm configs for ReportPortal installation can be find via the following link:{' '}
         <a
           className={getBlocksWith('__link')}
           href="https://github.com/reportportal/kubernetes/tree/develop/reportportal"

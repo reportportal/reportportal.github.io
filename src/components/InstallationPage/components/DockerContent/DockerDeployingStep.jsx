@@ -72,8 +72,9 @@ export const DockerDeployingStep = () => {
             href="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html#_notes_for_production_use_and_defaults"
           >
             {' '}
-            guide.
+            guide
           </a>
+          .
         </p>
 
         <p>
