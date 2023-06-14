@@ -3,8 +3,6 @@
 @import 'src/styles/mixins/breakpoint';
 @import 'src/styles/variables';
 
-$desktop-size-breakpoint: 1224px;
-
 @mixin hide_horizontal_scroll {
   overflow-x: scroll;
   -ms-overflow-style: none;
@@ -17,74 +15,109 @@ $desktop-size-breakpoint: 1224px;
 
 .features-page {
   .process-integration {
-    background: linear-gradient(180deg, #f4f5fa 0%, rgba(244, 245, 250, 0) 60.17%);
+    background: linear-gradient(180deg, var(--bg-grey2) 0%, rgba(244, 245, 250, 0) 60.17%);
+
+    @include breakpoint($desktop-sm) {
+      padding-top: 120px;
+    }
   }
 
   &__banner {
     position: relative;
     margin-top: 120px;
-
-    .banner {
-      padding-bottom: 42px;
-    }
-  }
-}
-
-.features-page__hero {
-  margin-top: calc(-1 * var(--header-height));
-  padding-top: var(--header-height);
-  background-image: url(../../svg/BackgroundHero.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.features-page__hero-heading {
-  padding-top: 64px;
-  text-align: center;
-
-  @include breakpoint($desktop-sm) {
-    padding-top: 80px;
-  }
-
-  h1 {
-    @include font-noto-sans($fw-semi-bold);
-    @include font-scale();
-
-    display: none;
-    color: var(--color-primary-200);
+    padding-bottom: 40px;
 
     @include breakpoint($tablet-sm-exact) {
-      display: initial;
-    }
-  }
-
-  h2 {
-    @include font-poppins($fw-bold);
-    @include font-scale(large);
-
-    margin: 0 auto;
-    color: var(--white);
-
-    @include breakpoint($tablet-sm-exact) {
-      @include font-scale(x3-large);
-
-      width: 720px;
-      margin-top: 16px;
+      padding-bottom: 22px;
     }
 
     @include breakpoint($desktop-sm) {
-      @include font-scale(x4-large);
+      margin-top: 200px;
+      padding-bottom: 76px;
+    }
 
-      width: 900px;
+    .banner__title {
+      max-width: 500px;
+
+      @include breakpoint($desktop-sm) {
+        max-width: initial;
+      }
+    }
+
+    .banner__bg {
+      bottom: -50px;
+
+      @include breakpoint($tablet-sm-exact) {
+        bottom: -92px;
+      }
     }
   }
-}
 
-.features-page__hero-dashboard {
-  padding-top: 32px;
+  &__hero {
+    margin-top: calc(-1 * var(--header-height));
+    padding-top: var(--header-height);
+    background-image: url(../../svg/BackgroundHero.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
 
-  @include breakpoint($tablet-sm-exact) {
+    @include breakpoint($desktop-sm) {
+      background-size: contain;
+    }
+
+    @include breakpoint($desktop-md) {
+      background-size: cover;
+    }
+  }
+
+  &__hero-heading {
     padding-top: 64px;
+    text-align: center;
+
+    @include breakpoint($desktop-sm) {
+      padding-top: 80px;
+    }
+
+    h1 {
+      @include font-noto-sans($fw-semi-bold);
+      @include font-scale();
+
+      display: none;
+      text-transform: uppercase;
+      color: var(--color-primary-200);
+
+      @include breakpoint($tablet-sm-exact) {
+        display: initial;
+      }
+    }
+
+    h2 {
+      @include font-poppins($fw-bold);
+      @include font-scale(large);
+
+      margin: 0 auto;
+      color: var(--white);
+
+      @include breakpoint($tablet-sm-exact) {
+        @include font-scale(x3-large);
+
+        width: 720px;
+        margin-top: 16px;
+      }
+
+      @include breakpoint($desktop-sm) {
+        @include font-scale(x4-large);
+
+        width: 900px;
+      }
+    }
+  }
+
+  &__hero-dashboard {
+    padding-top: 32px;
+
+    @include breakpoint($tablet-sm-exact) {
+      padding-top: 64px;
+    }
   }
 }
 
@@ -97,10 +130,23 @@ $desktop-size-breakpoint: 1224px;
   padding-top: 24px;
   padding-bottom: 24px;
   color: var(--text-primary);
+
+  @include breakpoint($tablet-sm-exact) {
+    font-weight: $fw-bold;
+  }
+
+  @include breakpoint($desktop-sm) {
+    @include font-scale(large);
+
+    margin-top: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
 
 .features-page__features-navigation {
   position: relative;
+  border-bottom: 1px solid var(--purple-grey);
 
   &:before {
     content: '';
@@ -118,9 +164,22 @@ $desktop-size-breakpoint: 1224px;
 
     display: flex;
     align-items: flex-start;
-    padding: 12px 16px 16px;
-    gap: 16px;
-    border-bottom: 1px solid var(--purple-grey);
+    padding: 12px 16px 0;
+    gap: 24px;
+
+    @include breakpoint($tablet-sm-exact) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    @include breakpoint(1200px) {
+      justify-content: center;
+      margin: 0 auto;
+      gap: 74px;
+      max-width: 1200px;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   &-item {
@@ -128,6 +187,11 @@ $desktop-size-breakpoint: 1224px;
     flex-direction: column;
     text-align: center;
     min-width: 116px;
+    max-width: 116px;
+
+    @include breakpoint(1200px) {
+      min-width: auto;
+    }
 
     span {
       @include font-poppins($fw-bold);
@@ -155,20 +219,54 @@ $desktop-size-breakpoint: 1224px;
   margin: 0;
   padding-bottom: 80px;
 
+  @include breakpoint($tablet-sm-exact) {
+    padding-bottom: 200px;
+  }
+
   &-item {
     display: flex;
     justify-content: center;
     flex-direction: column-reverse;
     align-items: center;
     margin-top: 120px;
+    gap: 24px;
 
-    @include breakpoint($desktop-size-breakpoint) {
+    @include breakpoint($tablet-sm-exact) {
       flex-direction: row;
+      align-items: flex-start;
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    @include breakpoint($desktop-sm) {
+      margin-top: 240px;
+
+      &:first-child {
+        margin-top: 200px;
+      }
+
+      &:nth-child(odd) > div:first-child {
+        padding-right: 32px;
+      }
+
+      &:nth-child(even) > div:first-child {
+        padding-left: 32px;
+      }
     }
 
     &-trailing {
       flex: 1;
       margin: 0 30px 0 30px;
+
+      @include breakpoint($tablet-sm-exact) {
+        margin: 0;
+      }
+    }
+
+    &-leading {
+      flex: 1;
     }
 
     &-premium {
@@ -183,17 +281,20 @@ $desktop-size-breakpoint: 1224px;
       border-radius: 16px;
     }
 
-    &-leading {
-      flex: 1;
-      margin-top: 24px;
-    }
-
     h3 {
       @include font-poppins($fw-bold);
       @include font-scale(x4-medium);
 
       margin: 0;
       color: var(--text-primary);
+
+      @include breakpoint($tablet-sm-exact) {
+        @include font-scale(large);
+      }
+
+      @include breakpoint($desktop-sm) {
+        @include font-scale(x3-large);
+      }
     }
 
     p {
@@ -205,6 +306,16 @@ $desktop-size-breakpoint: 1224px;
       margin: 16px 0 0;
       color: var(--text-primary);
       line-height: 24px;
+
+      @include breakpoint($tablet-sm-exact) {
+        margin-top: 24px;
+      }
+
+      @include breakpoint($desktop-sm) {
+        @include font-scale(medium);
+
+        margin-top: 32px;
+      }
     }
 
     a {
@@ -217,6 +328,14 @@ $desktop-size-breakpoint: 1224px;
       padding-top: 10px;
       padding-bottom: 10px;
       color: var(--color-primary-600);
+
+      @include breakpoint($tablet-sm-exact) {
+        margin-top: 24px;
+      }
+
+      @include breakpoint($desktop-sm) {
+        margin-top: 32px;
+      }
 
       img {
         margin-left: 8px;
@@ -234,12 +353,27 @@ $desktop-size-breakpoint: 1224px;
   margin-top: 40px;
   text-align: center;
 
+  @include breakpoint($tablet-sm-exact) {
+    margin-top: 120px;
+  }
+
+  @include breakpoint($desktop-sm) {
+    max-width: calc(var(--size-max-width) + 48px);
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   h2 {
     @include font-poppins($fw-bold);
     @include font-scale(x4-medium);
 
     margin: 0;
     color: var(--text-primary);
+
+    @include breakpoint($desktop-sm) {
+      @include font-scale(x3-large);
+    }
   }
 
   h3 {
@@ -248,29 +382,52 @@ $desktop-size-breakpoint: 1224px;
 
     margin: 16px 0 0;
     color: var(--text-service);
+
+    @include breakpoint($desktop-sm) {
+      margin-top: 24px;
+    }
   }
 
   .frameworks {
     margin-top: 64px;
+
+    @include breakpoint($tablet-sm-exact) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    @include breakpoint($desktop-sm) {
+      margin-top: 60px;
+    }
   }
 }
 
 .features-page__subscription {
   display: flex;
   flex-direction: column-reverse;
+  gap: 24px;
   padding-top: 160px;
   padding-bottom: 80px;
 
-  @include breakpoint($desktop-size-breakpoint) {
+  @include breakpoint($tablet-sm-exact) {
+    width: 520px;
+    padding-top: 200px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  @include breakpoint($desktop-sm) {
     flex-direction: row;
-    width: 100%;
+    align-items: center;
+    width: auto;
+    justify-content: space-between;
   }
 
   &-leading {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 24px;
+    align-items: flex-start;
+    max-width: 465px;
 
     &-heading {
       h2 {
@@ -279,6 +436,14 @@ $desktop-size-breakpoint: 1224px;
 
         margin: 0;
         color: var(--text-primary);
+
+        @include breakpoint($tablet-sm-exact) {
+          @include font-scale(large);
+        }
+
+        @include breakpoint($desktop-sm) {
+          @include font-scale(x3-large);
+        }
       }
 
       h3 {
@@ -291,6 +456,10 @@ $desktop-size-breakpoint: 1224px;
         b {
           font-weight: $fw-bold;
         }
+
+        @include breakpoint($desktop-sm) {
+          @include font-scale(x2-medium);
+        }
       }
     }
 
@@ -302,8 +471,17 @@ $desktop-size-breakpoint: 1224px;
       width: 100%;
       margin-top: 48px;
 
-      @include breakpoint($desktop-size-breakpoint) {
+      @include breakpoint($tablet-sm-exact) {
         flex-direction: row;
+
+        button {
+          flex-grow: 1;
+        }
+      }
+
+      @include breakpoint($desktop-sm) {
+        flex-direction: row;
+        width: auto;
       }
     }
   }
@@ -325,7 +503,14 @@ $desktop-size-breakpoint: 1224px;
   align-items: center;
   justify-content: center;
   padding-top: 80px;
-  border-bottom: 1px solid var(--purple-grey);
+
+  @include breakpoint($tablet-sm-exact) {
+    padding-top: 120px;
+  }
+
+  @include breakpoint($desktop-sm) {
+    padding-top: 140px;
+  }
 
   &-heading {
     text-align: center;
@@ -336,6 +521,14 @@ $desktop-size-breakpoint: 1224px;
 
       margin: 0;
       color: var(--text-primary);
+
+      @include breakpoint($tablet-sm-exact) {
+        @include font-scale(large);
+      }
+
+      @include breakpoint($desktop-sm) {
+        @include font-scale(x3-large);
+      }
     }
   }
 
@@ -345,8 +538,9 @@ $desktop-size-breakpoint: 1224px;
     width: 100%;
     margin-top: 64px;
 
-    @include breakpoint($desktop-size-breakpoint) {
+    @include breakpoint($desktop-sm) {
       width: 792px;
+      margin-top: 80px;
     }
 
     &-item {
@@ -354,7 +548,7 @@ $desktop-size-breakpoint: 1224px;
       padding-bottom: 24px;
       background: none;
       border: none;
-      border-bottom: 3px solid #e4e8f1;
+      border-bottom: 3px solid var(--purple-grey);
       text-align: left;
       cursor: pointer;
 

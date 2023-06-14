@@ -8,8 +8,8 @@ import './Banner.scss';
 
 const getBlocksWith = createBemBlockBuilder(['banner']);
 
-export const Banner = ({ title, subtitle, link, linkTitle, mode }) => (
-  <div className={cx(getBlocksWith(), { [getBlocksWith(`--${mode}`)]: Boolean(mode) })}>
+export const Banner = ({ title, subtitle, link, linkTitle }) => (
+  <div className={getBlocksWith()}>
     <div className={getBlocksWith('__bg')} />
     <div className="container">
       <div className={getBlocksWith('__wrapper')}>

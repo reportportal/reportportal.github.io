@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from '@reach/router';
+import { useLocation } from '@gatsbyjs/reach-router';
 import cx from 'classnames';
 
 import { collapsableList, featuresList, navigationList } from './dataSource';
@@ -24,7 +24,7 @@ export const Features = () => {
       <div className={getBlocksWith('__hero')}>
         <div className="container">
           <div className={getBlocksWith('__hero-heading')}>
-            <h1>FEATURES</h1>
+            <h1>Features</h1>
             <h2>Empower your testing process with ReportPortal</h2>
           </div>
           <div className={getBlocksWith('__hero-dashboard')}>
@@ -139,7 +139,7 @@ export const Features = () => {
         </div>
       </div>
       <div className={getBlocksWith('__banner')}>
-        <Banner mode="white" title="Do you still have questions?" linkTitle="Contact Us" link="#" />
+        <Banner title="Still have questions about our features?" linkTitle="Contact Us" link="#" />
       </div>
     </div>
   );

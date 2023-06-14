@@ -60,7 +60,7 @@
   "peerDependencies": {
     "@contentful/rich-text-plain-text-renderer": "*",
     "axios": "*",
-    "@reach/router": "*"
+    "@gatsbyjs/reach-router": "*"
   },
   "engines": {
     "node": ">=18.0.0"

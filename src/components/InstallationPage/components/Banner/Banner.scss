@@ -17,10 +17,6 @@
     background: var(--bg-light-grey);
     z-index: var(--z-index-banner-footer-bg);
 
-    .banner--white & {
-      background: var(--white);
-    }
-
     @include breakpoint($tablet-lg) {
       bottom: -100px;
     }
@@ -32,12 +28,6 @@
     border-radius: 16px;
     overflow: hidden;
     z-index: var(--z-index-banner);
-
-    .banner--white & {
-      box-shadow: 0 8px 16px rgba(0, 45, 55, 0.12);
-      background: var(--white);
-      overflow: auto;
-    }
   }
 
   &__inner {
@@ -50,14 +40,10 @@
     background-position: 0 20px;
     background-repeat: no-repeat;
 
-    .banner--white & {
-      background-image: url('./assets/bg-up-mobile-white.svg');
-    }
-
-    @include breakpoint($tablet-sm) {
-      background-image: url('./assets/bg-up.svg'), url('./assets/bg-dawn.svg');
+    @include breakpoint($tablet-sm-exact) {
+      background-image: url('./assets/bg-up.svg'), url('./assets/bg-down.svg');
       background-position: bottom left, top right;
-      background-repeat: no-repeat, no-repeat;      
+      background-repeat: no-repeat, no-repeat;
     }
 
     @include breakpoint($tablet-lg) {
@@ -77,7 +63,7 @@
   &__title {
     @include font-poppins($fw-bold);
     @include font-scale(x4-medium);
-    
+
     color: var(--text-primary);
 
     @include breakpoint($tablet-lg) {
