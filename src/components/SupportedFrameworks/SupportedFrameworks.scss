@@ -41,7 +41,8 @@
           right: 0;
           border-bottom: 3px solid var(--color-primary-600);
           opacity: 0;
-          transition: left 0.5s, right 0.5s, opacity 0.2s;
+          transition: left 0.3s, right 0.3s, opacity 0.2s;
+          transition-delay: 0.3s, 0.3s, 0s
         }
       }
       
