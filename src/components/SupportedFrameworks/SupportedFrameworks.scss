@@ -39,7 +39,7 @@
           bottom: -12px;
           left: 0;
           right: 0;
-          border-bottom: 3px solid #009dbb;
+          border-bottom: 3px solid var(--color-primary-600);
           opacity: 0;
           transition: left 0.5s, right 0.5s, opacity 0.2s;
         }
