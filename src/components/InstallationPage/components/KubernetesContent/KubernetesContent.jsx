@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../../utils';
 
@@ -17,13 +18,13 @@ export const KubernetesContent = () => {
       </p>
       <p>
         Kubernetes/Helm configs for ReportPortal installation can be find via the following link:{' '}
-        <a
-          className={getBlocksWith('__link')}
-          href="https://github.com/reportportal/kubernetes/tree/develop/reportportal"
-        >
-          https://github.com/reportportal/kubernetes/tree/develop/reportportal
-        </a>
-      </p>
+      </p>{' '}
+      <a
+        className={cx(getBlocksWith('__link'), getBlocksWith('__link-breakable'))}
+        href="https://github.com/reportportal/kubernetes/tree/develop/reportportal"
+      >
+        https://github.com/reportportal/kubernetes/tree/develop/reportportal
+      </a>
     </div>
   );
 };
