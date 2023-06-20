@@ -54,7 +54,7 @@ export const IntegrationScheme = () => {
           {isDesktop && (
             <div className="collapse__btn-inner" onClick={toggleCollapsedSchemeState}>
               <Arrow state={!collapsedScheme}>
-                <p>See {collapsedScheme ? 'more' : 'less'}</p>
+                <p>{collapsedScheme ? 'Extended scheme' : 'See less'}</p>
               </Arrow>
             </div>
           )}

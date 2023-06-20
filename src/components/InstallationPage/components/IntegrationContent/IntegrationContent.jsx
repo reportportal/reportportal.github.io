@@ -22,7 +22,7 @@ export const IntegrationContent = () => {
 
       <div className={getBlocksWith('__final')}>
         <p className={getBlocksWith('__text-content')}>
-          If there is not an integration with your test framework, you can make it on your own.
+          If there is no integration with your test framework, you can make it on your own.
         </p>
         <p className={getBlocksWith('__text-content')}>
           Please don’t forget to share your integration. We really appreciate your contribution to
@@ -33,6 +33,7 @@ export const IntegrationContent = () => {
           >
             Github page
           </Link>
+          .
         </p>
       </div>
     </>
