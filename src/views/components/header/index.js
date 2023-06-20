@@ -77,7 +77,6 @@ export default Epoxy.View.extend({
     }
   },
   onDestroy() {
-    this.headerSocial && this.headerSocial.destroy();
     this.gitHubStarsCount && this.gitHubStarsCount.destroy();
   },
 });

@@ -4,46 +4,47 @@
   cursor: pointer;
   background-position: center;
   background-repeat: no-repeat;
+
   &.icon-gh {
-    background: url('../../img/social/sprites.png') -10px -48px;
+    background: url('../../img/social/icon-gh.svg') center no-repeat;
     &:hover {
-      background: url('../../img/social/sprites.png') -48px -48px;
+      background: url('../../img/social/icon-gh-hover.svg') center no-repeat;
     }
   }
   &.icon-f {
-    background: url('../../img/social/sprites.png') -48px -10px;
+    background: url('../../img/social/icon-fb.svg') center no-repeat;
     &:hover {
-      background: url('../../img/social/sprites.png') -86px -10px;
+      background: url('../../img/social/icon-fb-hover.svg') center no-repeat;
     }
   }
   &.icon-sl {
-    background: url('../../img/social/sprites.png') -86px -48px;
+    background: url('../../img/social/icon-sl.svg') center no-repeat;
     &:hover {
-      background: url('../../img/social/sprites.png') -10px -10px;
+      background: url('../../img/social/icon-sl-hover.svg') center no-repeat;
     }
   }
   &.icon-t {
-    background: url('../../img/social/sprites.png') -10px -85px;
+    background: url('../../img/social/icon-tw.svg') center no-repeat;
     &:hover {
-      background: url('../../img/social/sprites.png') -50px -85px;
+      background: url('../../img/social/icon-tw-hover.svg') center no-repeat;
     }
   }
-  &.icon-vk {
-    background: url('../../img/social/sprites.png') -50px -119px;
+  &.icon-in {
+    background: url('../../img/social/icon-in.svg') center no-repeat;
     &:hover {
-      background: url('../../img/social/sprites.png') -91px -119px;
+      background: url('../../img/social/icon-in-hover.svg') center no-repeat;
     }
   }
   &.icon-yt {
-    background: url('../../img/social/sprites.png') -124px -79px;
+    background: url('../../img/social/icon-yt.svg') center no-repeat;
     &:hover {
-      background: url('../../img/social/sprites.png') -10px -121px;
+      background: url('../../img/social/icon-yt-hover.svg') center no-repeat;
     }
   }
   &.icon-mail {
-    background: url('../../img/social/sprites.png') -124px -45px;
+    background: url('../../img/social/icon-mail.svg') center no-repeat;
     &:hover {
-      background: url('../../img/social/sprites.png') -124px -10px;
+      background: url('../../img/social/icon-mail-hover.svg') center no-repeat;
     }
   }
 }

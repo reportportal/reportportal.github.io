@@ -199,8 +199,8 @@
             i.twitter {
               background-image: url(../../../../common/img/social/icon-tw-hover.svg);
             }
-            i.vk {
-              background-image: url(../../../../common/img/social/icon-vk-hover.svg);
+            i.in {
+              background-image: url(../../../../common/img/social/icon-in-hover.svg);
             }
             i.youtube {
               background-image: url(../../../../common/img/social/icon-yt-hover.svg);
@@ -231,9 +231,8 @@
             &.twitter {
               @include social-icons(20px, 16px, url(../../../../common/img/social/icon-tw.svg));
             }
-            &.vk {
-              vertical-align: unset;
-              @include social-icons(21px, 12px, url(../../../../common/img/social/icon-vk.svg));
+            &.in {
+              @include social-icons(18px, 18px, url(../../../../common/img/social/icon-in.svg));
             }
             &.youtube {
               @include social-icons(20px, 15px, url(../../../../common/img/social/icon-yt.svg));
