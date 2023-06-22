@@ -23,7 +23,7 @@ const TrendsBlogPage = () => (
   <>
     <BlogPageHeader
       tags={['AutomatedTestingTrends2023']}
-      date={'June 26, 2023'}
+      date={'June 22, 2023'}
       background={TrendsBackgroundImage}
     />
     <BlogPageContent title={'Trends in automated testing in 2023'}>
