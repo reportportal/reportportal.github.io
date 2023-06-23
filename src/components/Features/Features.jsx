@@ -1,132 +1,159 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
+import { useLocation } from '@gatsbyjs/reach-router';
 import cx from 'classnames';
 
-import { collapsableList, customerIcons, featuresList, navigationList } from './dataSource';
+import { collapsableList, featuresList, navigationList } from './dataSource';
 
-import { iconsCommon } from '../../utils/imageSource';
+import { ProcessIntegration } from '../ProcessIntegration';
 import { SupportedFrameworks } from '../SupportedFrameworks';
+import { iconsCommon } from '../../utils/imageSource';
+import { createBemBlockBuilder } from '../../utils';
+import { Link } from '../Link';
+import { Banner } from '../InstallationPage/components/Banner';
 
-import * as styles from './Features.module.scss';
+import './Features.scss';
+
+const getBlocksWith = createBemBlockBuilder(['features-page']);
+
+const faqsInitialState = {
+  1: true,
+  2: false,
+};
 
 export const Features = () => {
-  const [shownItem, setShownItem] = useState();
+  const [faqs, updateFAQs] = useReducer(
+    (prevState, newState) => ({
+      ...faqsInitialState,
+      ...(newState && {
+        [newState]: !prevState[newState],
+      }),
+    }),
+    faqsInitialState,
+  );
+
+  const location = useLocation();
 
   return (
-    <div>
-      <div className={styles.background_hero}>
-        <div className={styles.backgroundhero_heading}>
-          <h2>FEATURES</h2>
-          <h1>Empower your testing process with ReportPortal</h1>
-        </div>
-        <div className={styles.image_dashboard}>
-          <img src={iconsCommon.dashboard} />
-        </div>
-      </div>
-      <div className={styles.features_explorer}>
-        <div className={styles.features_heading}>
-          <h1>Explore ReportPortal features</h1>
-        </div>
-        <div className={styles.features_navigation}>
-          {navigationList.map(({ id, name, link }) => (
-            <a className={styles.navigation_item} href={link} key={name}>
-              <span>{id}</span>
-              <span>{name}</span>
-            </a>
-          ))}
+    <div className={getBlocksWith()}>
+      <div className={getBlocksWith('__hero')}>
+        <div className="container">
+          <div className={getBlocksWith('__hero-heading')}>
+            <h1>Features</h1>
+            <h2>Empower your testing process with ReportPortal</h2>
+          </div>
+          <div className={getBlocksWith('__hero-dashboard')}>
+            <img src={iconsCommon.dashboard} alt="" />
+          </div>
         </div>
       </div>
-      <div className={styles.feature_list}>
-        {featuresList.map(({ link, title, description, image }) => (
-          <div className={styles.feature_blockitem} id={link} key={title}>
-            <div className={styles.features_leading}>
-              <h1>{title}</h1>
+      <div className={getBlocksWith('__features-explorer')}>
+        <h2 className={getBlocksWith('__features-heading')}>Explore ReportPortal features</h2>
+        <div className={getBlocksWith('__features-navigation')}>
+          <div className={getBlocksWith('__features-navigation-container')}>
+            {navigationList.map(({ id, name, link }) => (
+              <Link
+                className={cx(getBlocksWith('__features-navigation-item'), {
+                  [getBlocksWith('__features-navigation-item--active')]: location.hash === link,
+                })}
+                to={link}
+                key={name}
+              >
+                <span>{id}</span>
+                <span>{name}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className={getBlocksWith('__features-list')}>
+        {featuresList.map(({ link, title, description, image, isPremium }) => (
+          <div
+            id={link}
+            className={cx(getBlocksWith('__features-list-item'), 'container')}
+            key={title}
+          >
+            <div className={getBlocksWith('__features-list-item-leading')}>
+              {isPremium && (
+                <span className={getBlocksWith('__features-list-item-premium')}>
+                  Premium feature
+                </span>
+              )}
+              <h3>{title}</h3>
               <p>{description}</p>
               <a href="#">
-                Learn more <img src={iconsCommon.arrow} />
+                Learn more <img src={iconsCommon.arrow} alt="" />
               </a>
             </div>
 
-            <div className={styles.features_trailing}>
-              <img src={image} />
+            <div className={getBlocksWith('__features-list-item-trailing')}>
+              <img src={image} alt="" />
             </div>
           </div>
         ))}
       </div>
-      <div className={styles.integrations}>
-        <div>
-          <h1>Integrate with your existing test automation process</h1>
-          <h2>
-            Integrate ReportPortal with frameworks, bug tracking systems, infrastructure providers
-            you already use and others so as to streamline the development and testing processes
-          </h2>
-          <button>See all integrations</button>
-        </div>
-        <div className={styles.integrations_customers}>
-          {customerIcons.map((icon, index) => (
-            <div className={styles.integrations_customer_icon} key={index}>
-              <img src={icon} />
-            </div>
-          ))}
-        </div>
-      </div>
+      <ProcessIntegration />
 
-      <div className={styles.frameworks}>
-        <h1>Supported frameworks</h1>
-        <h2>Explore supported frameworks by language</h2>
-
+      <div className={getBlocksWith('__frameworks')}>
+        <div className="container">
+          <h2>Supported frameworks</h2>
+          <h3>Explore supported frameworks by language</h3>
+        </div>
         <SupportedFrameworks />
       </div>
 
-      <div className={styles.subscription}>
-        <div className={styles.subscription_leading}>
-          <div className={styles.subscription_leading_heading}>
-            <h1>Start testing with ReportPortal</h1>
-            <h2>
+      <div className={cx(getBlocksWith('__subscription'), 'container')}>
+        <div className={getBlocksWith('__subscription-leading')}>
+          <div className={getBlocksWith('__subscription-leading-heading')}>
+            <h2>Start testing with ReportPortal</h2>
+            <h3>
               Ready to get the most of ReportPortal features? Start your <b>30-day free trial</b> or
               get in touch with us to learn more about our offer.
-            </h2>
+            </h3>
           </div>
-          <div className={styles.subscription_leading_button_group}>
-            <button className="btn">Start free trial</button>
-            <button className="btn-clear">Get a quote</button>
+          <div className={getBlocksWith('__subscription-leading-button-group')}>
+            <button className="btn btn--primary btn--large">Start free trial</button>
+            <button className="btn btn--outline btn--large">Get a quote</button>
           </div>
         </div>
-        <div className={styles.subscription_trailing}>
-          <img src={iconsCommon.subscription} />
+        <div className={getBlocksWith('__subscription-trailing')}>
+          <img src={iconsCommon.subscription} alt="" />
         </div>
       </div>
-      <div className={styles.faq}>
-        <div className={styles.faq_heading}>
-          <h1>Frequently asked questions</h1>
+      <div className={cx(getBlocksWith('__faq'), 'container')}>
+        <div className={getBlocksWith('__faq-heading')}>
+          <h2>Frequently asked questions</h2>
         </div>
-        <div className={styles.faq_content}>
+        <div className={getBlocksWith('__faq-content')}>
           {collapsableList.map(({ id, title, description }) => (
-            <div className={styles.faq_content_item} key={title}>
-              <div className={styles.faq_content_item_title}>
-                <h1>{title} </h1>
+            <button
+              className={getBlocksWith('__faq-content-item')}
+              key={title}
+              type="button"
+              onClick={() => updateFAQs(id)}
+            >
+              <div className={getBlocksWith('__faq-content-item-title')}>
+                <h3>{title} </h3>
                 <img
-                  className={cx({ [styles.arrowshown]: shownItem !== id })}
+                  className={cx({
+                    [getBlocksWith('__faq-content-item-title--arrow-shown')]: faqs[id],
+                  })}
                   src={iconsCommon.arrowalt}
-                  onClick={() => setShownItem(id)}
+                  alt=""
                 />
               </div>
               <div
-                className={cx(styles.faq_content_item_description, {
-                  [styles.shown]: shownItem === id,
-                  [styles.collapsed]: shownItem !== id,
+                className={cx(getBlocksWith('__faq-content-item-description'), {
+                  [getBlocksWith('__faq-content-item-description--shown')]: faqs[id],
                 })}
               >
                 <p>{description}</p>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
-      <div className={styles.contact_us}>
-        <div className={styles.contact_info_block}>
-          <h1>Still have questions about our features?</h1>
-          <button className="btn">Contact Us</button>
-        </div>
+      <div className={getBlocksWith('__banner')}>
+        <Banner title="Still have questions about our features?" linkTitle="Contact Us" link="#" />
       </div>
     </div>
   );

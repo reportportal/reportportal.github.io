@@ -12,7 +12,7 @@
     left: 50%;
     z-index: var(--z-index);
     transform: translate(-50%, 0);
-    border-top: 1px solid #edeff7;
+    border-top: 1px solid var(--purple-grey);
     box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
     overflow: hidden;
   }
@@ -27,7 +27,7 @@
 
   &__body-col--rt {
     padding: 32px 32px 32px 24px;
-    border-left: 1px solid #edeff7;
+    border-left: 1px solid var(--purple-grey);
     background: var(--bg-light-grey);
   }
 
@@ -46,6 +46,7 @@
     @include font-scale(base);
 
     position: relative;
+    display: inline-block;
     margin-top: 12px;
     padding: 8px 32px 8px 8px;
     color: var(--text-primary);
@@ -90,7 +91,7 @@
   }
 
   &__footer {
-    border-top: 1px solid #edeff7;
+    border-top: 1px solid var(--purple-grey);
 
     &-container {
       display: flex;

@@ -24,7 +24,7 @@
 
   &__wrapper {
     position: relative;
-    background: linear-gradient(85.23deg, #F4F6FA 1.92%, #EEF0F7 53.85%);
+    background: linear-gradient(85.23deg, #f4f6fa 1.92%, #eef0f7 53.85%);
     border-radius: 16px;
     overflow: hidden;
     z-index: var(--z-index-banner);
@@ -36,20 +36,19 @@
     align-items: center;
     flex-direction: column;
     padding: 24px;
-    background-image: url("./assets/bg-up-mobile.svg");
+    background-image: url('./assets/bg-up-mobile.svg');
     background-position: 0 20px;
     background-repeat: no-repeat;
 
-    @include breakpoint($tablet-sm) {
-      background-image: url("./assets/bg-up.svg"), url("./assets/bg-dawn.svg");
+    @include breakpoint($tablet-sm-exact) {
+      background-image: url('./assets/bg-up.svg'), url('./assets/bg-down.svg');
       background-position: bottom left, top right;
-      background-repeat: no-repeat, no-repeat;      
+      background-repeat: no-repeat, no-repeat;
     }
 
     @include breakpoint($tablet-lg) {
       flex-direction: row;
       padding: 40px;
-
     }
   }
 
@@ -64,7 +63,7 @@
   &__title {
     @include font-poppins($fw-bold);
     @include font-scale(x4-medium);
-    
+
     color: var(--text-primary);
 
     @include breakpoint($tablet-lg) {

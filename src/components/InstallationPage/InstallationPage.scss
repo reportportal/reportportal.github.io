@@ -176,8 +176,7 @@
       position: relative;
       display: inline-block;
       width: 100%;
-      padding: 20px;
-      padding-right: 40px;
+      padding: 20px 40px 20px 20px;
       background-color: var(--bg-light-grey);
       border: 1px solid var(--purple-grey);
       border-radius: 8px;
@@ -193,6 +192,10 @@
         fill: var(--text-light-grey);
       }
     }
+  }
+
+  &__code-content {
+    white-space: pre-wrap;
   }
 
   &__popup {

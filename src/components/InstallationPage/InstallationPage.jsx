@@ -116,7 +116,12 @@ export const InstallationPage = () => {
         </div>
       </div>
       <div className={getBlocksWith('__banner')}>
-        <Banner />
+        <Banner
+          title="Still have questions about installation?"
+          subtitle="Chat with us in Slack channel"
+          linkTitle="Go to Slack channel"
+          link="https://slack.epmrpp.reportportal.io/"
+        />
       </div>
     </div>
   );

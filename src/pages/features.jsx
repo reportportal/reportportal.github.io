@@ -5,7 +5,7 @@ import { Layout } from '../components/Layout';
 
 const FeaturesIndex = ({ location }) => {
   return (
-    <Layout location={location}>
+    <Layout className="features-page-layout" location={location}>
       <Features />
     </Layout>
   );
