@@ -375,11 +375,16 @@
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  margin-bottom: 40px;
   text-align: center;
 
   @include breakpoint($tablet-sm-exact) {
     max-width: 996px;
     margin: 120px auto 0;
+  }
+
+  @include breakpoint($tablet-sm-exact) {
+    margin-bottom: 80px;
   }
 
   h2 {
@@ -430,101 +435,6 @@
   }
 }
 
-.features-page__subscription {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 24px;
-  padding-top: 160px;
-  padding-bottom: 80px;
-
-  @include breakpoint($tablet-sm-exact) {
-    width: 520px;
-    padding-top: 200px;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  @include breakpoint($desktop-sm) {
-    flex-direction: row;
-    align-items: center;
-    width: auto;
-    justify-content: space-between;
-  }
-
-  &-leading {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 465px;
-
-    &-heading {
-      h2 {
-        @include font-poppins($fw-bold);
-        @include font-scale(x4-medium);
-
-        margin: 0;
-        color: var(--text-primary);
-
-        @include breakpoint($tablet-sm-exact) {
-          @include font-scale(large);
-        }
-
-        @include breakpoint($desktop-sm) {
-          @include font-scale(x3-large);
-        }
-      }
-
-      h3 {
-        @include font-noto-sans();
-        @include font-scale(medium);
-
-        margin: 16px 0 0;
-        color: var(--text-primary);
-
-        b {
-          font-weight: $fw-bold;
-        }
-
-        @include breakpoint($desktop-sm) {
-          @include font-scale(x2-medium);
-        }
-      }
-    }
-
-    &-button-group {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 24px;
-      width: 100%;
-      margin-top: 48px;
-
-      @include breakpoint($tablet-sm-exact) {
-        flex-direction: row;
-
-        button {
-          flex-grow: 1;
-        }
-      }
-
-      @include breakpoint($desktop-sm) {
-        flex-direction: row;
-        width: auto;
-      }
-    }
-  }
-
-  &-trailing {
-    min-width: 50%;
-    align-items: center;
-
-    img {
-      max-width: 690px;
-      margin: auto;
-    }
-  }
-}
-
 .features-page__faq {
   display: flex;
   flex-direction: column;
@@ -533,11 +443,11 @@
   padding-top: 80px;
 
   @include breakpoint($tablet-sm-exact) {
-    padding-top: 120px;
+    padding-top: 80px;
   }
 
   @include breakpoint($desktop-sm) {
-    padding-top: 140px;
+    padding-top: 120px;
   }
 
   &-heading {
