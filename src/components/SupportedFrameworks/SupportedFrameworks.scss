@@ -19,11 +19,16 @@
     width: 100%;
     min-height: 656px;
     background: var(--white);
-    box-shadow: 0px 4px 16px rgba(16, 46, 52, 0.1);
+    box-shadow: 0 4px 16px rgba(16, 46, 52, 0.1);
     border-radius: 16px;
 
     &-tabs {
       padding: 10px 24px;
+
+      @include breakpoint($tablet-sm-exact) {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
 
       .ant-tabs-tab {
         @include font-poppins($fw-semi-bold);
@@ -59,20 +64,29 @@
         }
       }
 
-      .ant-tabs-tab+.ant-tabs-tab {     
+      .ant-tabs-tab + .ant-tabs-tab {
         @include breakpoint($tablet-sm) {
           margin-left: 0;
         }
       }
 
-      .ant-tabs >.ant-tabs-nav .ant-tabs-nav-list {
+      .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
         justify-content: space-around;
         flex: 1;
       }
 
-      .ant-tabs-top >.ant-tabs-nav::before {
+      .ant-tabs-nav {
+        margin-bottom: 0;
+      }
+
+      .ant-tabs-top > .ant-tabs-nav::before {
         right: -24px;
         left: -24px;
+
+        @include breakpoint($tablet-sm-exact) {
+          right: -32px;
+          left: -32px;
+        }
       }
     }
 
@@ -95,14 +109,16 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
-      margin-top: -10px;
-      margin-bottom: -18px;
       padding: 24px;
+
+      @include breakpoint($tablet-sm-exact) {
+        padding: 32px;
+      }
 
       @include breakpoint(550px) {
         grid-template-columns: repeat(3, 1fr);
       }
-      
+
       @include breakpoint($tablet-sm) {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -112,11 +128,11 @@
         display: flex;
         flex: 1 0 50px;
         justify-content: center;
-        height: 80px;          
+        height: 80px;
         padding: 14px 0;
         border: 1px solid var(--purple-grey);
         border-radius: 10px;
-        transition: all .3s ease;
+        transition: all 0.3s ease;
 
         &-arrow {
           position: absolute;
@@ -127,12 +143,12 @@
           height: 10px;
           background-image: url('../../svg/link_arrow.svg');
           background-repeat: no-repeat;
-          transition: all .3s ease;
+          transition: all 0.3s ease;
         }
 
         &:hover {
           border: 1px solid var(--color-primary-500);
-        
+
           .frameworks__box-content-item-arrow {
             display: block;
           }

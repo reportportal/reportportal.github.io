@@ -83,9 +83,9 @@
   margin-left: 8px;
   padding: 8px 16px;
   margin-bottom: 8px;
-  color: #8791ab;
+  color: var(--text-service);
   background: var(--bg-light-grey);
-  border: 1px solid #edeff7;
+  border: 1px solid var(--purple-grey);
   border-radius: 8px;
 
   a {

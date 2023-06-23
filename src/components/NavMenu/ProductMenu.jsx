@@ -4,6 +4,7 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
+import { Link } from '../Link';
 import {
   PlayIcon,
   InstallIcon,
@@ -156,10 +157,10 @@ export const ProductMenu = ({ isDesktop = true }) => {
       <div className={getBlocksWith()}>
         {generalList}
         {featuresList}
-        <button className={cx(getBlocksWith('__body-link'))}>
+        <Link to="/features" className={getBlocksWith('__body-link')}>
           See all features
           <ArrowIcon />
-        </button>
+        </Link>
       </div>
     );
   }
@@ -171,10 +172,10 @@ export const ProductMenu = ({ isDesktop = true }) => {
           {generalList}
           {featuresList}
           <div>
-            <button className={cx(getBlocksWith('__body-link'))}>
+            <Link to="/features" className={getBlocksWith('__body-link')}>
               See all features
               <ArrowIcon />
-            </button>
+            </Link>
           </div>
         </div>
         <div

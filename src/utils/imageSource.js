@@ -2,8 +2,6 @@ import android from '../svg/icon_framework_android.svg';
 import arrow from '../svg/arrow.svg';
 import arrowalt from '../svg/arrowalt.svg';
 import artos from '../svg/icon_framework_artos.svg';
-import azuredo from '../svg/icon_azuredo.svg';
-import azuresaml from '../svg/icon_azuresaml.svg';
 import behat from '../svg/icon_framework_behat.svg';
 import codecept from '../svg/icon_framework_codecept.svg';
 import codeception from '../svg/icon_framework_codeception.svg';
@@ -28,27 +26,19 @@ import gwen from '../svg/icon_framework_gwen.svg';
 import jasmine from '../svg/icon_framework_jasmine.svg';
 import jbehave from '../svg/icon_framework_jbehave.svg';
 import jest from '../svg/icon_framework_jest.svg';
-import jira from '../svg/icon_jira.svg';
-import jira2 from '../svg/icon_jira2.svg';
 import junit from '../svg/icon_framework_junit.svg';
 import junit5 from '../svg/icon_framework_junit5.svg';
 import karate from '../svg/icon_framework_karate.svg';
-import ldap from '../svg/icon_ldap.svg';
-import microsoft from '../svg/icon_microsoft.svg';
 import mocha from '../svg/icon_framework_mocha.svg';
 import nightwatch from '../svg/icon_framework_nightwatch.svg';
 import nose from '../svg/icon_framework_nose.svg';
 import nunit from '../svg/icon_framework_nunit.svg';
-import octa from '../svg/icon_octa.svg';
 import phpunit from '../svg/icon_framework_phpunit.svg';
 import playwright from '../svg/icon_framework_playwright.svg';
 import postman from '../svg/icon_framework_postman.svg';
 import pytest from '../svg/icon_framework_pytest.svg';
 import pythonbehave from '../svg/icon_framework_pythonbehave.svg';
-import rally from '../svg/icon_rally.svg';
 import robotframework from '../svg/icon_framework_robotframework.svg';
-import saml from '../svg/icon_saml.svg';
-import saucelabs from '../svg/icon_saucelabs.svg';
 import scalatest from '../svg/icon_framework_scalatest.svg';
 import serenity from '../svg/icon_framework_serenity.svg';
 import soapui from '../svg/icon_framework_soapui.svg';
@@ -79,19 +69,6 @@ export const features = {
   feature6,
   feature7,
   feature8,
-};
-
-export const iconsCustomers = {
-  azuresaml,
-  jira,
-  jira2,
-  rally,
-  saml,
-  saucelabs,
-  azuredo,
-  octa,
-  microsoft,
-  ldap,
 };
 
 export const iconsFrameworks = {
