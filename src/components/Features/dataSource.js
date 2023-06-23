@@ -1,8 +1,8 @@
-import { features, iconsCustomers, iconsFrameworks } from '../../utils/imageSource.js';
+import { features } from '../../utils/imageSource';
 
 export const navigationList = [
   { id: 1, name: 'Single-entry point for test reporting', link: '#link-single-entry' },
-  { id: 2, name: 'Categorisation of failure', link: '#link-categorisation' },
+  { id: 2, name: 'Categorisation of failures', link: '#link-categorisation' },
   { id: 3, name: 'AI-based failure reason detection', link: '#link-ai-based' },
   { id: 4, name: 'Rich artifacts in test reports', link: '#link-rich-artifacts-in-test-reports' },
   { id: 5, name: 'Real-time reporting', link: '#link-real-time-reporting' },
@@ -36,7 +36,7 @@ export const featuresList = [
   {
     title: 'Rich artifacts in test reports',
     description:
-      'Get additional information beyond the basic test results, such as logs, screenshots, video recordings and network traffic (payloads and requests). This information will help you to speed up results analysis and categorization by providing more details about the test results and will makes it easier to replicate and debug issues.',
+      'Get additional information beyond the basic test results, such as logs, screenshots, video recordings and network traffic (payloads and requests). This information will help you to speed up results analysis and categorization by providing more details about the test results and will make it easier to replicate and debug issues.',
     image: features.feature4,
     link: 'link-rich-artifacts-in-test-reports',
   },
@@ -76,7 +76,7 @@ export const collapsableList = [
     id: 1,
     title: 'What is meant by "Premium feature"?',
     description:
-      'Premium feature is an advanced feature which comes on top of Free Open Source edition. It comes at no cost with SaaS offering and included into the 168+ Managed Services package.See the the List of features and their description.',
+      'Premium feature is an advanced feature which comes on top of Free Open Source edition. It comes at no cost with SaaS offering and included into the 160 Managed Services package.\nSee the the List of features and their description.',
   },
   {
     id: 2,
@@ -85,6 +85,3 @@ export const collapsableList = [
       'REST API enables users to easily integrate any testing framework or third-party tool with ReportPortal so as to report data into ReportPortal, call analyze action, add attributes, merge/update/finish launches. Besides, you can pull the data from ReportPortal in order to update the statuses in the pipeline, generate custom reports and many more.',
   },
 ];
-
-export const customerIcons = [...Object.values(iconsCustomers)];
-export const frameworkIcons = [...Object.values(iconsFrameworks)];

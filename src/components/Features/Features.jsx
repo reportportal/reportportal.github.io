@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
 import cx from 'classnames';
 
@@ -15,8 +15,22 @@ import './Features.scss';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
+const faqsInitialState = {
+  1: true,
+  2: false,
+};
+
 export const Features = () => {
-  const [shownItem, setShownItem] = useState();
+  const [faqs, updateFAQs] = useReducer(
+    (prevState, newState) => ({
+      ...faqsInitialState,
+      ...(newState && {
+        [newState]: !prevState[newState],
+      }),
+    }),
+    faqsInitialState,
+  );
+
   const location = useLocation();
 
   return (
@@ -115,13 +129,13 @@ export const Features = () => {
               className={getBlocksWith('__faq-content-item')}
               key={title}
               type="button"
-              onClick={() => setShownItem(id === shownItem ? null : id)}
+              onClick={() => updateFAQs(id)}
             >
               <div className={getBlocksWith('__faq-content-item-title')}>
                 <h3>{title} </h3>
                 <img
                   className={cx({
-                    [getBlocksWith('__faq-content-item-title--arrow-shown')]: shownItem !== id,
+                    [getBlocksWith('__faq-content-item-title--arrow-shown')]: faqs[id],
                   })}
                   src={iconsCommon.arrowalt}
                   alt=""
@@ -129,7 +143,7 @@ export const Features = () => {
               </div>
               <div
                 className={cx(getBlocksWith('__faq-content-item-description'), {
-                  [getBlocksWith('__faq-content-item-description--shown')]: shownItem === id,
+                  [getBlocksWith('__faq-content-item-description--shown')]: faqs[id],
                 })}
               >
                 <p>{description}</p>
