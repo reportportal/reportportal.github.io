@@ -9,7 +9,7 @@ import { collapsableList, featuresList, navigationList } from './dataSource';
 import { ProcessIntegration } from '../ProcessIntegration';
 import { SupportedFrameworks } from '../SupportedFrameworks';
 import { iconsCommon } from '../../utils/imageSource';
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder, removeClassFromElements } from '../../utils';
 import { Link } from '../Link';
 import { Banner } from '../InstallationPage/components/Banner';
 
@@ -67,9 +67,17 @@ export const Features = () => {
   const handleNavClick = (event, id) => {
     event.preventDefault();
 
+    const element = event.target;
     const anchorTarget = document.getElementById(id.slice(1));
+    const activeClassName = getBlocksWith('__features-navigation-item--active');
+
+    removeClassFromElements(activeClassName);
+    element.parentElement.classList.add(activeClassName);
+
     anchorTarget &&
-      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+
+    window.history.replaceState(null, '', `/features/${id}`);
   };
 
   return (
@@ -123,26 +131,24 @@ export const Features = () => {
       </div>
       <div className={getBlocksWith('__features-list')}>
         {featuresList.map(({ link, title, description, image, isPremium }) => (
-          <div
-            id={link}
-            className={cx(getBlocksWith('__features-list-item'), 'container')}
-            key={title}
-          >
-            <div className={getBlocksWith('__features-list-item-leading')}>
-              {isPremium && (
-                <span className={getBlocksWith('__features-list-item-premium')}>
-                  Premium feature
-                </span>
-              )}
-              <h3>{title}</h3>
-              <p>{description}</p>
-              <a href="#">
-                Learn more <img src={iconsCommon.arrow} alt="" />
-              </a>
-            </div>
+          <div key={link} id={link}>
+            <div className={cx(getBlocksWith('__features-list-item'), 'container')} key={title}>
+              <div className={getBlocksWith('__features-list-item-leading')}>
+                {isPremium && (
+                  <span className={getBlocksWith('__features-list-item-premium')}>
+                    Premium feature
+                  </span>
+                )}
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <a href="#">
+                  Learn more <img src={iconsCommon.arrow} alt="" />
+                </a>
+              </div>
 
-            <div className={getBlocksWith('__features-list-item-trailing')}>
-              <img src={image} alt="" />
+              <div className={getBlocksWith('__features-list-item-trailing')}>
+                <img src={image} alt="" />
+              </div>
             </div>
           </div>
         ))}

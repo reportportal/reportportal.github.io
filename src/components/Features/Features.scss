@@ -309,6 +309,10 @@
       border-radius: 16px;
     }
 
+    &-item {
+
+    }
+
     h3 {
       @include font-poppins($fw-bold);
       @include font-scale(x4-medium);
