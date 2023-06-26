@@ -1,6 +1,6 @@
 import React, { useReducer, useState, useRef, useLayoutEffect } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
-import { useScroll, configResponsive, useResponsive } from 'ahooks';
+import { useScroll, configResponsive } from 'ahooks';
 
 import cx from 'classnames';
 
@@ -14,6 +14,7 @@ import { Link } from '../Link';
 import { Banner } from '../InstallationPage/components/Banner';
 
 import './Features.scss';
+import { useMediaQuery } from 'react-responsive';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
@@ -21,12 +22,6 @@ const faqsInitialState = {
   1: true,
   2: false,
 };
-
-configResponsive({
-  small: 0,
-  middle: 800,
-  large: 1240,
-});
 
 export const Features = () => {
   const [faqs, updateFAQs] = useReducer(
@@ -43,7 +38,7 @@ export const Features = () => {
   const [scrollDirection, setScrollDirection] = useState(null);
   const lastScrollYRef = useRef(0);
   const scroll = useScroll();
-  const responsive = useResponsive();
+  const isDesktop = useMediaQuery({ query: '(min-width: 1239px)' });
   const scrollY = scroll?.top ?? 0;
 
   const featuresBlockHeight = 126;
@@ -96,7 +91,7 @@ export const Features = () => {
       <div
         className={getBlocksWith('__features-explorer')}
         style={{
-          position: responsive.large ? 'sticky' : 'relative',
+          position: isDesktop ? 'sticky' : 'relative',
           top:
             scrollDirection === 'up'
               ? `-${featuresBlockHeightWithHeader}px`
