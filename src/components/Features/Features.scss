@@ -343,28 +343,12 @@
     }
 
     a {
-      @include font-poppins($fw-semi-bold);
-      @include font-scale();
-
-      display: flex;
-      align-items: center;
-      margin-top: 16px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      color: var(--color-primary-600);
-
       @include breakpoint($tablet-sm-exact) {
         margin-top: 24px;
       }
 
       @include breakpoint($desktop-sm) {
         margin-top: 32px;
-      }
-
-      img {
-        margin-left: 8px;
-        width: 15px;
-        height: 12px;
       }
     }
   }

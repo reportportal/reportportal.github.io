@@ -70,16 +70,3 @@ export const featuresList = [
     isPremium: true,
   },
 ];
-
-export const collapsableList = [
-  {
-    title: 'What is meant by "Premium feature"?',
-    description:
-      'Premium feature is an advanced feature which comes on top of Free Open Source edition. It comes at no cost with SaaS offering and included into the 160 Managed Services package.\nSee the the List of features and their description.',
-  },
-  {
-    title: 'What capabilities does Rest API provide?',
-    description:
-      'REST API enables users to easily integrate any testing framework or third-party tool with ReportPortal so as to report data into ReportPortal, call analyze action, add attributes, merge/update/finish launches. Besides, you can pull the data from ReportPortal in order to update the statuses in the pipeline, generate custom reports and many more.',
-  },
-];
