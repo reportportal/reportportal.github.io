@@ -1,5 +1,7 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState, useRef, useLayoutEffect } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
+import { useScroll, configResponsive, useResponsive } from 'ahooks';
+
 import cx from 'classnames';
 
 import { collapsableList, featuresList, navigationList } from './dataSource';
@@ -20,6 +22,12 @@ const faqsInitialState = {
   2: false,
 };
 
+configResponsive({
+  small: 0,
+  middle: 800,
+  large: 1240,
+});
+
 export const Features = () => {
   const [faqs, updateFAQs] = useReducer(
     (prevState, newState) => ({
@@ -32,6 +40,37 @@ export const Features = () => {
   );
 
   const location = useLocation();
+  const [scrollDirection, setScrollDirection] = useState(null);
+  const lastScrollYRef = useRef(0);
+  const scroll = useScroll();
+  const responsive = useResponsive();
+  const scrollY = scroll?.top ?? 0;
+
+  const featuresBlockHeight = 126;
+  const headerHeight = 86;
+  const stickyScrollTopPosition = 1200;
+  const featuresBlockHeightWithHeader = featuresBlockHeight - headerHeight;
+
+  useLayoutEffect(() => {
+    const direction = scrollY > lastScrollYRef.current ? 'down' : 'up';
+
+    if (
+      direction !== scrollDirection &&
+      (scrollY - lastScrollYRef.current > 10 || scrollY - lastScrollYRef.current < -10)
+    ) {
+      setScrollDirection(direction);
+    }
+
+    lastScrollYRef.current = Math.max(scrollY, 0);
+  }, [scrollY]);
+
+  const handleNavClick = (event, id) => {
+    event.preventDefault();
+
+    const anchorTarget = document.getElementById(id.slice(1));
+    anchorTarget &&
+      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+  };
 
   return (
     <div className={getBlocksWith()}>
@@ -46,8 +85,24 @@ export const Features = () => {
           </div>
         </div>
       </div>
-      <div className={getBlocksWith('__features-explorer')}>
-        <h2 className={getBlocksWith('__features-heading')}>Explore ReportPortal features</h2>
+      <div
+        className={getBlocksWith('__features-explorer')}
+        style={{
+          position: responsive.large ? 'sticky' : 'relative',
+          top:
+            scrollDirection === 'up'
+              ? `-${featuresBlockHeightWithHeader}px`
+              : `-${featuresBlockHeight}px`,
+        }}
+      >
+        <h2
+          className={getBlocksWith('__features-heading')}
+          style={{
+            visibility: `${scrollY > stickyScrollTopPosition ? 'hidden' : 'visible'}`,
+          }}
+        >
+          Explore ReportPortal features
+        </h2>
         <div className={getBlocksWith('__features-navigation')}>
           <div className={getBlocksWith('__features-navigation-container')}>
             {navigationList.map(({ id, name, link }) => (
@@ -57,6 +112,7 @@ export const Features = () => {
                 })}
                 to={link}
                 key={name}
+                onClick={(event) => handleNavClick(event, link)}
               >
                 <span>{id}</span>
                 <span>{name}</span>
