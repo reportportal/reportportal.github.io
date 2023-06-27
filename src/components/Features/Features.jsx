@@ -1,9 +1,10 @@
 import React, { useReducer, useState, useRef, useLayoutEffect } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
-import { useScroll, configResponsive } from 'ahooks';
+import { useScroll } from 'ahooks';
 
 import cx from 'classnames';
 
+import { useMediaQuery } from 'react-responsive';
 import { collapsableList, featuresList, navigationList } from './dataSource';
 
 import { ProcessIntegration } from '../ProcessIntegration';
@@ -14,7 +15,6 @@ import { Link } from '../Link';
 import { Banner } from '../InstallationPage/components/Banner';
 
 import './Features.scss';
-import { useMediaQuery } from 'react-responsive';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
@@ -67,10 +67,13 @@ export const Features = () => {
     const activeClassName = getBlocksWith('__features-navigation-item--active');
 
     removeClassFromElements(activeClassName);
-    element.parentElement.classList.add(activeClassName);
+    element
+      .closest(`.${getBlocksWith('__features-navigation-item')}`)
+      .classList.add(activeClassName);
 
-    anchorTarget &&
+    if (anchorTarget) {
       anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    }
 
     window.history.replaceState(null, '', `/features/${id}`);
   };
