@@ -1,12 +1,10 @@
 import React, { useReducer, useState, useRef, useLayoutEffect } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
 import { useScroll } from 'ahooks';
-
 import cx from 'classnames';
-
 import { useMediaQuery } from 'react-responsive';
-import { collapsableList, featuresList, navigationList } from './dataSource';
 
+import { collapsableList, featuresList, navigationList } from './dataSource';
 import { ProcessIntegration } from '../ProcessIntegration';
 import { SupportedFrameworks } from '../SupportedFrameworks';
 import { iconsCommon } from '../../utils/imageSource';
