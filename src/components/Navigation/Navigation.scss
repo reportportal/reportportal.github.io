@@ -6,7 +6,7 @@
 .top-header {
   position: relative;
   top: 0;
-  z-index: var(--z-index);
+  z-index: var(--z-index-header);
   color: var(--white);
   transform: translate3d(0, 0, 0);
   transition: background 0.3s, top 0.3s;

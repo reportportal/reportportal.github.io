@@ -4,8 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useToggle } from 'ahooks';
 import { Divider } from 'antd';
 
-import { createBemBlockBuilder } from '../../../../utils';
-import { mediaTabletSm } from '../../../../utils/variables';
+import { createBemBlockBuilder, mediaTabletSm } from '../../../../utils';
 import { Arrow, SchemeRow } from './SchemeRow';
 import { SchemeHeader } from './SchemeHeader';
 import { schemeData } from './schemeData';

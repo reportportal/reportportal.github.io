@@ -8,7 +8,7 @@ import { collapsableList, featuresList, navigationList } from './dataSource';
 import { ProcessIntegration } from '../ProcessIntegration';
 import { SupportedFrameworks } from '../SupportedFrameworks';
 import { iconsCommon } from '../../utils/imageSource';
-import { createBemBlockBuilder, removeClassFromElements } from '../../utils';
+import { createBemBlockBuilder, removeClassFromElements, mediaDesktopSm } from '../../utils';
 import { Link } from '../Link';
 import { Banner } from '../InstallationPage/components/Banner';
 
@@ -36,13 +36,13 @@ export const Features = () => {
   const [scrollDirection, setScrollDirection] = useState(null);
   const lastScrollYRef = useRef(0);
   const scroll = useScroll();
-  const isDesktop = useMediaQuery({ query: '(min-width: 1239px)' });
+  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
   const scrollY = scroll?.top ?? 0;
 
-  const featuresBlockHeight = 126;
+  const featuresBlockStickyPosition = 126;
   const headerHeight = 86;
   const stickyScrollTopPosition = 1200;
-  const featuresBlockHeightWithHeader = featuresBlockHeight - headerHeight;
+  const featuresBlockStickyPositionWithHeader = featuresBlockStickyPosition - headerHeight;
 
   useLayoutEffect(() => {
     const direction = scrollY > lastScrollYRef.current ? 'down' : 'up';
@@ -57,11 +57,11 @@ export const Features = () => {
     lastScrollYRef.current = Math.max(scrollY, 0);
   }, [scrollY]);
 
-  const handleNavClick = (event, id) => {
+  const handleNavClick = (event, anchor) => {
     event.preventDefault();
 
     const element = event.target;
-    const anchorTarget = document.getElementById(id.slice(1));
+    const anchorTarget = document.getElementById(anchor.slice(1));
     const activeClassName = getBlocksWith('__features-navigation-item--active');
 
     removeClassFromElements(activeClassName);
@@ -73,7 +73,7 @@ export const Features = () => {
       anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
 
-    window.history.replaceState(null, '', `/features/${id}`);
+    window.history.replaceState(null, '', `/features/${anchor}`);
   };
 
   return (
@@ -95,8 +95,8 @@ export const Features = () => {
           position: isDesktop ? 'sticky' : 'relative',
           top:
             scrollDirection === 'up'
-              ? `-${featuresBlockHeightWithHeader}px`
-              : `-${featuresBlockHeight}px`,
+              ? `-${featuresBlockStickyPositionWithHeader}px`
+              : `-${featuresBlockStickyPosition}px`,
         }}
       >
         <h2
