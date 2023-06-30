@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
-import { Link } from '../Link';
+import { ArrowLink } from '../ArrowLink';
 import {
   PlayIcon,
   InstallIcon,
@@ -15,7 +15,6 @@ import {
   QualityGatesIcon,
   PieChartIcon,
   ReportingIcon,
-  ArrowIcon,
 } from './icons';
 import { SectionList } from './SectionList';
 
@@ -157,10 +156,7 @@ export const ProductMenu = ({ isDesktop = true }) => {
       <div className={getBlocksWith()}>
         {generalList}
         {featuresList}
-        <Link to="/features" className={getBlocksWith('__body-link')}>
-          See all features
-          <ArrowIcon />
-        </Link>
+        <ArrowLink to="/features" text="See all features" />
       </div>
     );
   }
@@ -172,10 +168,7 @@ export const ProductMenu = ({ isDesktop = true }) => {
           {generalList}
           {featuresList}
           <div>
-            <Link to="/features" className={getBlocksWith('__body-link')}>
-              See all features
-              <ArrowIcon />
-            </Link>
+            <ArrowLink to="/features" text="See all features" />
           </div>
         </div>
         <div
@@ -183,10 +176,10 @@ export const ProductMenu = ({ isDesktop = true }) => {
         >
           {integrationsList}
           <div>
-            <button className={getBlocksWith('__body-link')}>
-              See all integrations
-              <ArrowIcon />
-            </button>
+            <ArrowLink
+              to="https://reportportal.io/docs/category/plugins/"
+              text="See all integrations"
+            />
           </div>
         </div>
       </div>
