@@ -43,6 +43,41 @@ export const Features = () => {
   const headerHeight = 86;
   const stickyScrollTopPosition = 1200;
   const featuresBlockStickyPositionWithHeader = featuresBlockStickyPosition - headerHeight;
+  const menuItemActiveClassName = getBlocksWith('__features-navigation-item--active');
+  const featureItemClassName = getBlocksWith('__features-navigation-item');
+
+  const setHistoryValue = (val) => window.history.replaceState(null, '', `/features/${val}`);
+
+  const handleScroll = () => {
+    const itemList = document.querySelectorAll(
+      `.${getBlocksWith('__features-list-item-container')}`,
+    );
+
+    let activeIndex = null;
+
+    // eslint-disable-next-line no-plusplus
+    for (let i = itemList.length - 1; i >= 0; i--) {
+      const rect = itemList[i].getBoundingClientRect();
+      const offset = scrollDirection === 'up' ? rect.height * 0.9 : headerHeight;
+
+      if (rect.top <= offset) {
+        activeIndex = i;
+        break;
+      }
+    }
+
+    if (activeIndex !== null) {
+      removeClassFromElements(menuItemActiveClassName);
+
+      const menuElements = document.querySelectorAll(`.${featureItemClassName}`);
+      const activeMenuElement = menuElements[activeIndex];
+      const anchor = navigationList[activeIndex].link;
+
+      activeMenuElement.classList.add(menuItemActiveClassName);
+
+      setHistoryValue(anchor);
+    }
+  };
 
   useLayoutEffect(() => {
     const direction = scrollY > lastScrollYRef.current ? 'down' : 'up';
@@ -55,6 +90,8 @@ export const Features = () => {
     }
 
     lastScrollYRef.current = Math.max(scrollY, 0);
+
+    handleScroll();
   }, [scrollY]);
 
   const handleNavClick = (event, anchor) => {
@@ -62,18 +99,14 @@ export const Features = () => {
 
     const element = event.target;
     const anchorTarget = document.getElementById(anchor.slice(1));
-    const activeClassName = getBlocksWith('__features-navigation-item--active');
 
-    removeClassFromElements(activeClassName);
-    element
-      .closest(`.${getBlocksWith('__features-navigation-item')}`)
-      .classList.add(activeClassName);
+    removeClassFromElements(menuItemActiveClassName);
+    element.closest(`.${featureItemClassName}`).classList.add(menuItemActiveClassName);
 
     if (anchorTarget) {
       anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      setHistoryValue(anchor);
     }
-
-    window.history.replaceState(null, '', `/features/${anchor}`);
   };
 
   return (
@@ -111,8 +144,8 @@ export const Features = () => {
           <div className={getBlocksWith('__features-navigation-container')}>
             {navigationList.map(({ id, name, link }) => (
               <Link
-                className={cx(getBlocksWith('__features-navigation-item'), {
-                  [getBlocksWith('__features-navigation-item--active')]: location.hash === link,
+                className={cx(featureItemClassName, {
+                  [menuItemActiveClassName]: location.hash === link,
                 })}
                 to={link}
                 key={name}
@@ -127,7 +160,7 @@ export const Features = () => {
       </div>
       <div className={getBlocksWith('__features-list')}>
         {featuresList.map(({ link, title, description, image, isPremium }) => (
-          <div key={link} id={link}>
+          <div className={getBlocksWith('__features-list-item-container')} key={link} id={link}>
             <div className={cx(getBlocksWith('__features-list-item'), 'container')} key={title}>
               <div className={getBlocksWith('__features-list-item-leading')}>
                 {isPremium && (
