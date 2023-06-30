@@ -1,5 +1,4 @@
 import android from '../svg/icon_framework_android.svg';
-import arrow from '../svg/arrow.svg';
 import arrowalt from '../svg/arrowalt.svg';
 import artos from '../svg/icon_framework_artos.svg';
 import behat from '../svg/icon_framework_behat.svg';
@@ -56,7 +55,6 @@ import xctest from '../svg/icon_framework_xctest2.svg';
 export const iconsCommon = {
   subscription,
   dashboard,
-  arrow,
   arrowalt,
 };
 

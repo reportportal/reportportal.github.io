@@ -1,5 +1,4 @@
 export * from './AiIcon';
-export * from './ArrowIcon';
 export * from './BlogIcon';
 export * from './Envelope';
 export * from './DefectTypeIcon';

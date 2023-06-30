@@ -37,6 +37,18 @@ a {
   }
 }
 
+.link {
+  color: var(--color-primary-600);
+
+  &:hover {
+    color: var(--color-primary-500);
+  }
+
+  &:active {
+    color: var(--color-primary-700);
+  }
+}
+
 .row {
   display: flex;
   justify-content: space-between;
