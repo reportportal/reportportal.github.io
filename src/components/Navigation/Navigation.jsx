@@ -73,7 +73,7 @@ export const Navigation = () => {
   );
 
   const isMenuOpen = Object.values(menus).some(Boolean);
-  const scrollDirection = useScrollDirection(null, isMenuOpen);
+  const scrollDirection = useScrollDirection({ callbackFn: null, isMenuOpen });
 
   useEffect(() => {
     const fetchGithubStars = () => {
