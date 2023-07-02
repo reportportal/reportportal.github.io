@@ -8,7 +8,7 @@ import { upperFirst } from 'lodash';
 import axios from 'axios';
 import cx from 'classnames';
 
-import { useScrollDirection } from '../../custom-hooks/useScrollDirection';
+import { useScrollDirection } from '../../hooks';
 import githubStats from '../../../static/github.json';
 import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
