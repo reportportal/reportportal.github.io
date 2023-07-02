@@ -1,9 +1,10 @@
-import React, { useReducer, useState, useRef, useLayoutEffect } from 'react';
+import React, { useReducer } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
 import { useScroll } from 'ahooks';
 import cx from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 
+import { useScrollDirection } from '../../custom-hooks/scroll-direction';
 import { iconsCommon } from '../../utils/imageSource';
 import { createBemBlockBuilder, removeClassFromElements, mediaDesktopSm } from '../../utils';
 import { Link } from '../Link';
@@ -29,22 +30,6 @@ export const Features = () => {
     [true, false],
   );
 
-  const location = useLocation();
-  const [scrollDirection, setScrollDirection] = useState(null);
-  const lastScrollYRef = useRef(0);
-  const scroll = useScroll();
-  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
-  const scrollY = scroll?.top ?? 0;
-
-  const featuresBlockStickyPosition = 126;
-  const headerHeight = 86;
-  const stickyScrollTopPosition = 1200;
-  const featuresBlockStickyPositionWithHeader = featuresBlockStickyPosition - headerHeight;
-  const menuItemActiveClassName = getBlocksWith('__features-navigation-item--active');
-  const featureItemClassName = getBlocksWith('__features-navigation-item');
-
-  const setHistoryValue = (val) => window.history.replaceState(null, '', `/features/${val}`);
-
   const handleScroll = () => {
     const itemList = document.querySelectorAll(
       `.${getBlocksWith('__features-list-item-container')}`,
@@ -55,7 +40,9 @@ export const Features = () => {
     // eslint-disable-next-line no-plusplus
     for (let i = itemList.length - 1; i >= 0; i--) {
       const rect = itemList[i].getBoundingClientRect();
-      const offset = scrollDirection === 'up' ? rect.height * 0.9 : headerHeight;
+      const heightOffsetCoefficient = 0.9;
+      const offset =
+        scrollDirection === 'up' ? rect.height * heightOffsetCoefficient : headerHeight;
 
       if (rect.top <= offset) {
         activeIndex = i;
@@ -76,20 +63,20 @@ export const Features = () => {
     }
   };
 
-  useLayoutEffect(() => {
-    const direction = scrollY > lastScrollYRef.current ? 'down' : 'up';
+  const location = useLocation();
+  const scrollDirection = useScrollDirection(handleScroll, null);
+  const scroll = useScroll();
+  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
+  const scrollY = scroll?.top ?? 0;
 
-    if (
-      direction !== scrollDirection &&
-      (scrollY - lastScrollYRef.current > 10 || scrollY - lastScrollYRef.current < -10)
-    ) {
-      setScrollDirection(direction);
-    }
+  const featuresBlockStickyPosition = 126;
+  const headerHeight = 86;
+  const stickyScrollTopPosition = 1200;
+  const featuresBlockStickyPositionWithHeader = featuresBlockStickyPosition - headerHeight;
+  const menuItemActiveClassName = getBlocksWith('__features-navigation-item--active');
+  const featureItemClassName = getBlocksWith('__features-navigation-item');
 
-    lastScrollYRef.current = Math.max(scrollY, 0);
-
-    handleScroll();
-  }, [scrollY]);
+  const setHistoryValue = (val) => window.history.replaceState(null, '', `/features/${val}`);
 
   const handleNavClick = (event, anchor) => {
     event.preventDefault();

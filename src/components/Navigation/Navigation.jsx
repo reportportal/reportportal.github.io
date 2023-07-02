@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useReducer, useRef, useState } from 'react';
+import React, { useEffect, useReducer, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'gatsby';
 import { useAtom } from 'jotai';
@@ -8,6 +8,7 @@ import { upperFirst } from 'lodash';
 import axios from 'axios';
 import cx from 'classnames';
 
+import { useScrollDirection } from '../../custom-hooks/scroll-direction';
 import githubStats from '../../../static/github.json';
 import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
@@ -53,13 +54,11 @@ const menuItems = {
 export const Navigation = () => {
   const menuLinksRef = useRef(null);
   const [watchProductOverviewState] = useAtom(watchProductOverviewAtom);
-  const [scrollDirection, setScrollDirection] = useState(null);
-  const lastScrollYRef = useRef(0);
+
   const scroll = useScroll();
   const [isMobileMenuOpen, { toggle: toggleMobileMenu, setLeft: closeMobileMenu }] = useToggle();
   const [githubCounter, setGithubCounter] = useState(githubStats.repos.reportportal);
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
-
   const scrollY = scroll?.top ?? 0;
   const getBlocksWith = createBemBlockBuilder(['top-header']);
 
@@ -74,23 +73,7 @@ export const Navigation = () => {
   );
 
   const isMenuOpen = Object.values(menus).some(Boolean);
-
-  useLayoutEffect(() => {
-    setScrollDirection(null);
-  }, [isMenuOpen]);
-
-  useLayoutEffect(() => {
-    const direction = scrollY > lastScrollYRef.current ? 'down' : 'up';
-
-    if (
-      direction !== scrollDirection &&
-      (scrollY - lastScrollYRef.current > 10 || scrollY - lastScrollYRef.current < -10)
-    ) {
-      setScrollDirection(direction);
-    }
-
-    lastScrollYRef.current = Math.max(scrollY, 0);
-  }, [scrollY]);
+  const scrollDirection = useScrollDirection(null, isMenuOpen);
 
   useEffect(() => {
     const fetchGithubStars = () => {
