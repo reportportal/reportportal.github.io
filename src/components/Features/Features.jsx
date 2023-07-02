@@ -10,6 +10,7 @@ import { createBemBlockBuilder, removeClassFromElements, mediaDesktopSm } from '
 import { Link } from '../Link';
 import { ProcessIntegration } from '../ProcessIntegration';
 import { SupportedFrameworks } from '../SupportedFrameworks';
+import { ArrowLink } from '../ArrowLink';
 import { Banner } from '../InstallationPage/components/Banner';
 import { StartTestingWithReportPortal } from '../StartTestingWithReportPortal';
 import { featuresList, navigationList } from './dataSource';
@@ -192,9 +193,7 @@ export const Features = () => {
                 )}
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <a href="#">
-                  Learn more <img src={iconsCommon.arrow} alt="" />
-                </a>
+                <ArrowLink mode="primary" to="#" text="Learn more" />
               </div>
 
               <div className={getBlocksWith('__features-list-item-trailing')}>
