@@ -4,32 +4,29 @@ import { useScroll } from 'ahooks';
 import cx from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 
-import { collapsableList, featuresList, navigationList } from './dataSource';
-import { ProcessIntegration } from '../ProcessIntegration';
-import { SupportedFrameworks } from '../SupportedFrameworks';
 import { iconsCommon } from '../../utils/imageSource';
 import { createBemBlockBuilder, removeClassFromElements, mediaDesktopSm } from '../../utils';
 import { Link } from '../Link';
+import { ProcessIntegration } from '../ProcessIntegration';
+import { SupportedFrameworks } from '../SupportedFrameworks';
 import { Banner } from '../InstallationPage/components/Banner';
+import { StartTestingWithReportPortal } from '../StartTestingWithReportPortal';
+import { featuresList, navigationList } from './dataSource';
 
 import './Features.scss';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
-const faqsInitialState = {
-  1: true,
-  2: false,
-};
-
 export const Features = () => {
   const [faqs, updateFAQs] = useReducer(
-    (prevState, newState) => ({
-      ...faqsInitialState,
-      ...(newState && {
-        [newState]: !prevState[newState],
-      }),
-    }),
-    faqsInitialState,
+    (prevState, index) => {
+      const newState = [...prevState];
+
+      newState[index] = !newState[index];
+
+      return newState;
+    },
+    [true, false],
   );
 
   const location = useLocation();
@@ -109,6 +106,44 @@ export const Features = () => {
     }
   };
 
+  const collapsableList = [
+    {
+      title: 'What is meant by "Premium feature"?',
+      description: (
+        <>
+          <p>
+            Premium feature is an advanced feature which comes on top of Free Open Source edition.
+            It comes at no cost with SaaS offering and included into the &quot;160&quot; Managed
+            Services package.
+          </p>
+          <p>
+            See the{' '}
+            <a
+              href="https://reportportal.io/docs/terms-and-conditions/PremiumFeatures"
+              className="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              List of features
+            </a>{' '}
+            and their description.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: 'What capabilities does Rest API provide?',
+      description: (
+        <p>
+          REST API enables users to easily integrate any testing framework or third-party tool with
+          ReportPortal so as to report data into ReportPortal, call analyze action, add attributes,
+          merge/update/finish launches. Besides, you can pull the data from ReportPortal in order to
+          update the statuses in the pipeline, generate custom reports and many more.
+        </p>
+      ),
+    },
+  ];
+
   return (
     <div className={getBlocksWith()}>
       <div className={getBlocksWith('__hero')}>
@@ -183,7 +218,6 @@ export const Features = () => {
         ))}
       </div>
       <ProcessIntegration />
-
       <div className={getBlocksWith('__frameworks')}>
         <div className="container">
           <h2>Supported frameworks</h2>
@@ -191,42 +225,24 @@ export const Features = () => {
         </div>
         <SupportedFrameworks />
       </div>
-
-      <div className={cx(getBlocksWith('__subscription'), 'container')}>
-        <div className={getBlocksWith('__subscription-leading')}>
-          <div className={getBlocksWith('__subscription-leading-heading')}>
-            <h2>Start testing with ReportPortal</h2>
-            <h3>
-              Ready to get the most of ReportPortal features? Start your <b>30-day free trial</b> or
-              get in touch with us to learn more about our offer.
-            </h3>
-          </div>
-          <div className={getBlocksWith('__subscription-leading-button-group')}>
-            <button className="btn btn--primary btn--large">Start free trial</button>
-            <button className="btn btn--outline btn--large">Get a quote</button>
-          </div>
-        </div>
-        <div className={getBlocksWith('__subscription-trailing')}>
-          <img src={iconsCommon.subscription} alt="" />
-        </div>
-      </div>
+      <StartTestingWithReportPortal />
       <div className={cx(getBlocksWith('__faq'), 'container')}>
         <div className={getBlocksWith('__faq-heading')}>
           <h2>Frequently asked questions</h2>
         </div>
         <div className={getBlocksWith('__faq-content')}>
-          {collapsableList.map(({ id, title, description }) => (
+          {collapsableList.map(({ title, description }, i) => (
             <button
               className={getBlocksWith('__faq-content-item')}
               key={title}
               type="button"
-              onClick={() => updateFAQs(id)}
+              onClick={() => updateFAQs(i)}
             >
               <div className={getBlocksWith('__faq-content-item-title')}>
-                <h3>{title} </h3>
+                <h3>{title}</h3>
                 <img
                   className={cx({
-                    [getBlocksWith('__faq-content-item-title--arrow-shown')]: faqs[id],
+                    [getBlocksWith('__faq-content-item-title--arrow-shown')]: faqs[i],
                   })}
                   src={iconsCommon.arrowalt}
                   alt=""
@@ -234,10 +250,10 @@ export const Features = () => {
               </div>
               <div
                 className={cx(getBlocksWith('__faq-content-item-description'), {
-                  [getBlocksWith('__faq-content-item-description--shown')]: faqs[id],
+                  [getBlocksWith('__faq-content-item-description--shown')]: faqs[i],
                 })}
               >
-                <p>{description}</p>
+                {description}
               </div>
             </button>
           ))}

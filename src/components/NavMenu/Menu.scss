@@ -41,55 +41,6 @@
     padding: 32px 32px 40px 32px;
   }
 
-  &__body-link {
-    @include font-poppins($fw-semi-bold);
-    @include font-scale(base);
-
-    position: relative;
-    display: inline-block;
-    margin-top: 12px;
-    padding: 8px 32px 8px 8px;
-    color: var(--text-primary);
-    border: none;
-    background: transparent;
-    cursor: pointer;
-
-    & svg {
-      position: absolute;
-      top: 50%;
-      right: 8px;
-      transform: translate(0, -50%);
-    }
-
-    &:hover {
-      color: var(--color-primary-500);
-    }
-
-    &:active {
-      color: var(--color-primary-700);
-    }
-
-    &:disabled {
-      opacity: 0.3;
-      color: var(--color-primary-600);
-      cursor: auto;
-    }
-
-    &:hover svg > path {
-      fill: var(--color-primary-500);
-    }
-
-    &:active svg > path {
-      fill: var(--color-primary-700);
-    }
-
-    &:disabled svg > path {
-      opacity: 0.3;
-      fill: var(--color-primary-600);
-      cursor: auto;
-    }
-  }
-
   &__footer {
     border-top: 1px solid var(--purple-grey);
 
