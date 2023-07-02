@@ -4,7 +4,7 @@ import { useScroll } from 'ahooks';
 import cx from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 
-import { useScrollDirection } from '../../custom-hooks/scroll-direction';
+import { useScrollDirection } from '../../custom-hooks/useScrollDirection';
 import { iconsCommon } from '../../utils/imageSource';
 import { createBemBlockBuilder, removeClassFromElements, mediaDesktopSm } from '../../utils';
 import { Link } from '../Link';
