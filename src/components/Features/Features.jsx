@@ -1,9 +1,12 @@
 import React, { useReducer } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
+import { useScroll } from 'ahooks';
 import cx from 'classnames';
+import { useMediaQuery } from 'react-responsive';
 
+import { useScrollDirection } from '../../hooks';
 import { iconsCommon } from '../../utils/imageSource';
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder, removeClassFromElements, mediaDesktopSm } from '../../utils';
 import { Link } from '../Link';
 import { ProcessIntegration } from '../ProcessIntegration';
 import { SupportedFrameworks } from '../SupportedFrameworks';
@@ -28,7 +31,68 @@ export const Features = () => {
     [true, false],
   );
 
+  const handleScroll = () => {
+    const itemList = document.querySelectorAll(
+      `.${getBlocksWith('__features-list-item-container')}`,
+    );
+
+    let activeIndex = null;
+
+    // eslint-disable-next-line no-plusplus
+    for (let i = itemList.length - 1; i >= 0; i--) {
+      const rect = itemList[i].getBoundingClientRect();
+      const heightOffsetCoefficient = 0.9;
+      const offset =
+        scrollDirection === 'up' ? rect.height * heightOffsetCoefficient : headerHeight;
+
+      if (rect.top <= offset) {
+        activeIndex = i;
+        break;
+      }
+    }
+
+    if (activeIndex !== null) {
+      removeClassFromElements(menuItemActiveClassName);
+
+      const menuElements = document.querySelectorAll(`.${featureItemClassName}`);
+      const activeMenuElement = menuElements[activeIndex];
+      const anchor = navigationList[activeIndex].link;
+
+      activeMenuElement.classList.add(menuItemActiveClassName);
+
+      setHistoryValue(anchor);
+    }
+  };
+
   const location = useLocation();
+  const scrollDirection = useScrollDirection(handleScroll, null);
+  const scroll = useScroll();
+  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
+  const scrollY = scroll?.top ?? 0;
+
+  const featuresBlockStickyPosition = 126;
+  const headerHeight = 86;
+  const stickyScrollTopPosition = 1200;
+  const featuresBlockStickyPositionWithHeader = featuresBlockStickyPosition - headerHeight;
+  const menuItemActiveClassName = getBlocksWith('__features-navigation-item--active');
+  const featureItemClassName = getBlocksWith('__features-navigation-item');
+
+  const setHistoryValue = (val) => window.history.replaceState(null, '', `/features/${val}`);
+
+  const handleNavClick = (event, anchor) => {
+    event.preventDefault();
+
+    const element = event.target;
+    const anchorTarget = document.getElementById(anchor.slice(1));
+
+    removeClassFromElements(menuItemActiveClassName);
+    element.closest(`.${featureItemClassName}`).classList.add(menuItemActiveClassName);
+
+    if (anchorTarget) {
+      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      setHistoryValue(anchor);
+    }
+  };
 
   const collapsableList = [
     {
@@ -81,17 +145,34 @@ export const Features = () => {
           </div>
         </div>
       </div>
-      <div className={getBlocksWith('__features-explorer')}>
-        <h2 className={getBlocksWith('__features-heading')}>Explore ReportPortal features</h2>
+      <div
+        className={getBlocksWith('__features-explorer')}
+        style={{
+          position: isDesktop ? 'sticky' : 'relative',
+          top:
+            scrollDirection === 'up'
+              ? `-${featuresBlockStickyPositionWithHeader}px`
+              : `-${featuresBlockStickyPosition}px`,
+        }}
+      >
+        <h2
+          className={getBlocksWith('__features-heading')}
+          style={{
+            visibility: `${scrollY > stickyScrollTopPosition ? 'hidden' : 'visible'}`,
+          }}
+        >
+          Explore ReportPortal features
+        </h2>
         <div className={getBlocksWith('__features-navigation')}>
           <div className={getBlocksWith('__features-navigation-container')}>
             {navigationList.map(({ id, name, link }) => (
               <Link
-                className={cx(getBlocksWith('__features-navigation-item'), {
-                  [getBlocksWith('__features-navigation-item--active')]: location.hash === link,
+                className={cx(featureItemClassName, {
+                  [menuItemActiveClassName]: location.hash === link,
                 })}
                 to={link}
                 key={name}
+                onClick={(event) => handleNavClick(event, link)}
               >
                 <span>{id}</span>
                 <span>{name}</span>
@@ -102,24 +183,22 @@ export const Features = () => {
       </div>
       <div className={getBlocksWith('__features-list')}>
         {featuresList.map(({ link, title, description, image, isPremium }) => (
-          <div
-            id={link}
-            className={cx(getBlocksWith('__features-list-item'), 'container')}
-            key={title}
-          >
-            <div className={getBlocksWith('__features-list-item-leading')}>
-              {isPremium && (
-                <span className={getBlocksWith('__features-list-item-premium')}>
-                  Premium feature
-                </span>
-              )}
-              <h3>{title}</h3>
-              <p>{description}</p>
-              <ArrowLink mode="primary" to="#" text="Learn more" />
-            </div>
+          <div className={getBlocksWith('__features-list-item-container')} key={link} id={link}>
+            <div className={cx(getBlocksWith('__features-list-item'), 'container')} key={title}>
+              <div className={getBlocksWith('__features-list-item-leading')}>
+                {isPremium && (
+                  <span className={getBlocksWith('__features-list-item-premium')}>
+                    Premium feature
+                  </span>
+                )}
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <ArrowLink mode="primary" to="#" text="Learn more" />
+              </div>
 
-            <div className={getBlocksWith('__features-list-item-trailing')}>
-              <img src={image} alt="" />
+              <div className={getBlocksWith('__features-list-item-trailing')}>
+                <img src={image} alt="" />
+              </div>
             </div>
           </div>
         ))}

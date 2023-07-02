@@ -158,6 +158,11 @@
   }
 }
 
+.features-page__features-explorer {
+  background-color: var(--white);
+  z-index: var(--z-index-sticky-block);
+}
+
 .features-page__features-navigation {
   position: relative;
   border-bottom: 1px solid var(--purple-grey);

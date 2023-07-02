@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder, mediaDesktopSm } from '../../utils';
 import { KubernetesContent } from './components/KubernetesContent';
 import { LaunchPortal } from './components/LaunchPortal';
 import { DockerIcon, KubernetesIcon } from './icons';
@@ -47,7 +47,7 @@ const ACTIVE_BUTTON = buttons[0].text;
 
 export const InstallationPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
-  const isDesktop = useMediaQuery({ query: '(min-width: 1239px)' });
+  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
 
   const getSections = () => {
     const activeButtonObject = buttons.find((button) => button.text === activeButton);
