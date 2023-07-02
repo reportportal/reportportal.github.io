@@ -65,7 +65,7 @@ export const Features = () => {
   };
 
   const location = useLocation();
-  const scrollDirection = useScrollDirection(handleScroll, null);
+  const scrollDirection = useScrollDirection({ callbackFn: handleScroll, isMenuOpen: null });
   const scroll = useScroll();
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
   const scrollY = scroll?.top ?? 0;
