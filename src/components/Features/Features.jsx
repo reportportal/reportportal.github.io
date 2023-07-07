@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer, useRef, useState } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
 import { useScroll } from 'ahooks';
 import cx from 'classnames';
@@ -65,19 +65,34 @@ export const Features = () => {
   };
 
   const location = useLocation();
+  const [isFeaturesMenuSticky, setIsFeaturesMenuSticky] = useState(false);
+  const processIntegrationRef = useRef(null);
   const scrollDirection = useScrollDirection({ callbackFn: handleScroll, isMenuOpen: null });
   const scroll = useScroll();
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
   const scrollY = scroll?.top ?? 0;
 
   const featuresBlockStickyPosition = 126;
-  const headerHeight = 86;
+  const headerHeight = 76;
   const stickyScrollTopPosition = 1200;
   const featuresBlockStickyPositionWithHeader = featuresBlockStickyPosition - headerHeight;
   const menuItemActiveClassName = getBlocksWith('__features-navigation-item--active');
   const featureItemClassName = getBlocksWith('__features-navigation-item');
 
   const setHistoryValue = (val) => window.history.replaceState(null, '', `/features/${val}`);
+
+  useEffect(() => {
+    const processIntegrationTopPosition = processIntegrationRef.current.getBoundingClientRect().top;
+    const offset = 100;
+    const isStickyPositionReached =
+      (scrollDirection === 'up'
+        ? processIntegrationTopPosition - headerHeight - offset
+        : processIntegrationTopPosition - offset) > 0;
+
+    if (isFeaturesMenuSticky !== isStickyPositionReached) {
+      setIsFeaturesMenuSticky(!isFeaturesMenuSticky);
+    }
+  }, [scroll]);
 
   const handleNavClick = (event, anchor) => {
     event.preventDefault();
@@ -148,7 +163,7 @@ export const Features = () => {
       <div
         className={getBlocksWith('__features-explorer')}
         style={{
-          position: isDesktop ? 'sticky' : 'relative',
+          position: isDesktop && isFeaturesMenuSticky ? 'sticky' : 'relative',
           top:
             scrollDirection === 'up'
               ? `-${featuresBlockStickyPositionWithHeader}px`
@@ -203,7 +218,7 @@ export const Features = () => {
           </div>
         ))}
       </div>
-      <ProcessIntegration />
+      <ProcessIntegration ref={processIntegrationRef} />
       <div className={getBlocksWith('__frameworks')}>
         <div className="container">
           <h2>Supported frameworks</h2>

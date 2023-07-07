@@ -252,6 +252,12 @@
     padding-bottom: 200px;
   }
 
+  @include breakpoint($tablet-sm-exact) {
+    &-item-container:nth-child(even) > .container {
+      flex-direction: row-reverse;
+    }
+  }
+
   &-item {
     display: flex;
     justify-content: center;
@@ -263,10 +269,6 @@
     @include breakpoint($tablet-sm-exact) {
       flex-direction: row;
       align-items: flex-start;
-
-      &:nth-child(even) {
-        flex-direction: row-reverse;
-      }
     }
 
     @include breakpoint($desktop-sm) {
@@ -475,7 +477,7 @@
       padding-bottom: 24px;
       background: none;
       border: none;
-      border-bottom: 3px solid var(--purple-grey);
+      border-bottom: 2px solid var(--purple-grey);
       text-align: left;
       cursor: pointer;
 

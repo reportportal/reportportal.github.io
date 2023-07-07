@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Marquee from 'react-fast-marquee';
 import cx from 'classnames';
 
@@ -30,8 +30,8 @@ export const icons = [
   { icon: <OktaIcon /> },
 ];
 
-export const ProcessIntegration = () => (
-  <section className={cx(getBlocksWith())}>
+export const ProcessIntegration = forwardRef((props, ref) => (
+  <section className={cx(getBlocksWith())} ref={ref}>
     <div className="container">
       <h2>Integrate with your existing test automation process</h2>
       <h3>
@@ -50,4 +50,6 @@ export const ProcessIntegration = () => (
       </Marquee>
     </div>
   </section>
-);
+));
+
+ProcessIntegration.displayName = 'ProcessIntegration';
