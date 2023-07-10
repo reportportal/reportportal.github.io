@@ -59,7 +59,7 @@ const notes = [
 
 const ElasticBlogPage = () => (
   <>
-    <BlogPageHeader tags={['article', 'elasticsearch', 'datastreams']} date={'September 5, 2022'} />
+    <BlogPageHeader tags={['elasticsearch', 'datastreams']} date={'September 5, 2022'} />
     <BlogPageContent title={'ReportPortal moves test logs from PostgreSQL to Elastic-type engines'}>
       <p>
         The ReportPortal’s essence is based on assistance in working with automated testing results, and it all starts with the aggregation of results at a single place. For a long time, the relational database served well as a storage place for us. But the more test cases you run, the more storage you need to keep all related logs.
