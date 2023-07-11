@@ -26,6 +26,7 @@ import {
   AI_BLOG,
   VERSIONS_BLOG,
   TRENDS_BLOG,
+  STORAGE_BLOG,
 } from './constants';
 import ElasticBlogPage from './elastic-blog-page/elasticBlogPage';
 import PerformanceBlogPage from './performance-blog-page/performanceBlogPage';
@@ -33,6 +34,7 @@ import BenefitsBlogPage from './benefits-blog-page/benefitsBlogPage';
 import AiBlogPage from './ai-blog-page/aiBlogPage';
 import VersionsBlogPage from './versions-blog-page/versionsBlogPage';
 import TrendsBlogPage from './trends-blog-page/trendsBlogPage';
+import StorageBlogPage from './storage-blog-page/storageBlogPage';
 import styles from './blogPage.scss';
 
 const cx = classNames.bind(styles);
@@ -44,6 +46,7 @@ const blogPages = {
   [AI_BLOG]: AiBlogPage,
   [VERSIONS_BLOG]: VersionsBlogPage,
   [TRENDS_BLOG]: TrendsBlogPage,
+  [STORAGE_BLOG]: StorageBlogPage,
 };
 
 const BlogPage = ({ blogName }) => {
