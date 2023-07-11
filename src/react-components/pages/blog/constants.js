@@ -20,3 +20,4 @@ export const PERFORMANCE_BLOG = 'performance-improvements-in-5.7.3';
 export const BENEFITS_BLOG = 'Tips-to-get-ReportPortal-benefits';
 export const VERSIONS_BLOG = 'new-approach-to-versions-naming';
 export const TRENDS_BLOG = 'trends-in-automated-testing-in-2023';
+export const STORAGE_BLOG = 'store-more-clean-fast';
