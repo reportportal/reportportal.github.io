@@ -5,10 +5,12 @@
 
 .why-report-portal {
   padding-top: 120px;
-  padding-bottom: 120px;
+  padding-bottom: 80px;
 
   @include breakpoint($tablet-sm-exact) {
     @include font-scale(x3-large);
+
+    padding-bottom: 120px;
   }
 
   &__title {
@@ -34,12 +36,6 @@
     @include breakpoint($tablet-sm) {
       margin-top: 64px;
     }
-  }
-}
-
-.why-report-portal {
-  @include breakpoint($tablet-sm) {
-    padding-top: 200px;
   }
 }
 

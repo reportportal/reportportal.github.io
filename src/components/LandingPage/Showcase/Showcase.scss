@@ -178,12 +178,6 @@
     .slick-dots {
       bottom: -8px;
 
-      @keyframes progressAnimation {
-        100% {
-          background-position: left;
-        }
-      }
-
       li,
       li.slick-active {
         width: 32px;

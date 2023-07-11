@@ -15,11 +15,11 @@ import { Banner } from '../InstallationPage/components/Banner';
 import { StartTestingWithReportPortal } from '../StartTestingWithReportPortal';
 import { featuresList, navigationList } from './dataSource';
 
-import './Features.scss';
+import './FeaturesPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
-export const Features = () => {
+export const FeaturesPage = () => {
   const [faqs, updateFAQs] = useReducer(
     (prevState, index) => {
       const newState = [...prevState];

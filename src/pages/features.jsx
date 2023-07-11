@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Features } from '../components/Features';
 import { Layout } from '../components/Layout';
+import { FeaturesPage } from '../components/FeaturesPage';
 
-const FeaturesIndex = ({ location }) => {
+const Features = ({ location }) => {
   return (
     <Layout className="features-page-layout" location={location}>
-      <Features />
+      <FeaturesPage />
     </Layout>
   );
 };
 
-export default FeaturesIndex;
+export default Features;

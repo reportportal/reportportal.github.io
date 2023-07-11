@@ -4,9 +4,9 @@ import Marquee from 'react-fast-marquee';
 import { useAtom } from 'jotai';
 import cx from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { watchProductOverviewAtom } from '../Layout';
-import { EmbedVideo } from '../EmbedVideo';
+import { createBemBlockBuilder } from '../../../utils';
+import { watchProductOverviewAtom } from '../../Layout';
+import { EmbedVideo } from '../../EmbedVideo';
 import { Carousel } from './Carousel/Carousel';
 import WalmartIcon from './icons/walmart.inline.svg';
 import DowJonesIcon from './icons/dowjones.inline.svg';
