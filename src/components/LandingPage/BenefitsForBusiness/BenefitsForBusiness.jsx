@@ -23,7 +23,7 @@ const benefitsForBusinessList = [
   {
     title: 'Automated decision-making',
     description:
-      'You can easily integrate ReportPortal with all yours test frameworks, aggregate all tests of a project in one place and browse them.',
+      'Check up your product health and make release decisions automatically with Quality Gates',
     image: benefitsIcon1,
   },
   {
@@ -46,7 +46,7 @@ const benefitsForBusinessList = [
   {
     title: 'Tracking of key metrics and KPI',
     description:
-      'You can easily integrate ReportPortal with all yours test frameworks, aggregate all tests of a project in one place and browse them.',
+      "Thanks to widgets and dashboards you'll be able to take a helicopter view on the project or dig deeper into more detail to make decisions faster",
     image: benefitsIcon5,
   },
 ];
