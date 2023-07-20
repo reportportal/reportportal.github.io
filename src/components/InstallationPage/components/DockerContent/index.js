@@ -1,1 +1,2 @@
-export * from './DockerContent';
+export * from './DockerDeployingStep';
+export * from './DockerInstall';

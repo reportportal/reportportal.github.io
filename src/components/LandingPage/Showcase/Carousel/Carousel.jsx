@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, memo } from 'react';
 import { Carousel as AntdCarousel } from 'antd';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '../../../../utils';
 
 import ArrowIcon from '../icons/arrow.inline.svg';
 

@@ -89,3 +89,9 @@ input:-webkit-autofill {
     padding-right: 24px;
   }
 }
+
+@keyframes progressAnimation {
+  100% {
+    background-position: left;
+  }
+}

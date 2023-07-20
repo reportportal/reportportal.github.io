@@ -6,6 +6,7 @@
 .start-testing-with-report-portal {
   display: flex;
   flex-direction: column-reverse;
+  align-items: center;
   gap: 24px;
   padding-top: 80px;
   padding-bottom: 80px;
@@ -17,9 +18,10 @@
 
   @include breakpoint($desktop-sm) {
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
     width: auto;
+    padding-right: 24px;
+    padding-left: 24px;
   }
 
   &__leading {
