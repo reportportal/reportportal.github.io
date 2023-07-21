@@ -29,7 +29,7 @@ const StorageBlogPage = () => (
       date={'July 13, 2023'}
       background={StorageBackgroundImage}
     />
-    <BlogPageContent title={'Store more, clean fast: CleanStorage job is now optimized for S3, offering improved performance'}>
+    <BlogPageContent title={'Store more, clean faster'}>
       <p>
         We are glad to announce the changes in the logic of the cleanStorage starting from the version 5.8.1 of Service Jobs and API Service version 5.9.0.
       </p>
