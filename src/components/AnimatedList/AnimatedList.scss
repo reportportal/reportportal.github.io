@@ -3,7 +3,7 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
-.benefits-for-business {
+.animated-list-container {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -97,7 +97,7 @@
   }
 }
 
-.benefits-for-business-list {
+.animated-list {
   ul {
     list-style: none;
     padding: 0;
@@ -111,6 +111,10 @@
   @include breakpoint($desktop-sm) {
     display: flex;
     gap: 24px;
+
+    &.animated-list--reversed {
+      flex-direction: row-reverse;
+    }
   }
 
   &__item {
@@ -122,12 +126,12 @@
     border-top: 1px solid var(--purple-grey);
     cursor: pointer;
 
-    .benefits-for-business-list__item--active + & {
+    .animated-list__item--active + & {
       border-top: none;
     }
 
     @include breakpoint($desktop-sm) {
-      & + .benefits-for-business-list__item--active {
+      & + .animated-list__item--active {
         border-top: none;
       }
     }
@@ -155,6 +159,10 @@
 
   img {
     margin-top: 8px;
+
+    @include breakpoint($desktop-sm) {
+      margin-top: auto;
+    }
   }
 
   &__card {
