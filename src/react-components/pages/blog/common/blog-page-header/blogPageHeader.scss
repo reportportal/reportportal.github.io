@@ -48,7 +48,7 @@
 
 .tags {
   margin-top: 1px;
-  display: inline-block;
+  display: flex;
 }
 
 .tag {
@@ -67,6 +67,8 @@
 
 @media all and (max-width: $MOBILE_MAX) {
   .background-content {
+    height: fit-content;
+    margin: auto auto -18px;
     max-width: calc(100% - 48px);
 
     h3 {
@@ -78,11 +80,15 @@
     background-position: -1030px center;
   }
 
+  .tags {
+    flex-direction: column;
+  }
+
   .additional-background {
-    height: 268px;
+    height: 288px;
   }
 
   .date {
-    margin-top: 210px;
+    margin-top: 0;
   }
 }
