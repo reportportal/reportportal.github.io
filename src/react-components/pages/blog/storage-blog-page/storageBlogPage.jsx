@@ -26,7 +26,7 @@ const StorageBlogPage = () => (
   <>
     <BlogPageHeader
       tags={['StorageOptimization', 'PerformanceImprovement']}
-      date={'July 13, 2023'}
+      date={'July 26, 2023'}
       background={StorageBackgroundImage}
     />
     <BlogPageContent title={'Store more, clean faster'}>
