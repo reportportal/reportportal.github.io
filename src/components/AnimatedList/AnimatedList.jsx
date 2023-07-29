@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useRafInterval } from 'ahooks';
 import cx from 'classnames';
 
 import { createBemBlockBuilder, mediaDesktopSm } from '../../utils';
+import { useAnimationInterval } from '../../hooks';
 import { ArrowLink } from '../ArrowLink';
 
 import './AnimatedList.scss';
@@ -14,19 +13,12 @@ const getBlocksWithList = createBemBlockBuilder(['animated-list']);
 
 const LIST_ANIMATION_DELAY = 10000;
 
-export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'left' }) => {
-  const [activeListIndex, setActiveListIndex] = useState(0);
-  const [delay, setDelay] = useState(undefined);
-  const [ref, inView] = useInView();
+export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'left', children }) => {
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
-
-  useRafInterval(() => {
-    setActiveListIndex((prevState) => (prevState === data.length - 1 ? 0 : prevState + 1));
-  }, delay);
-
-  useEffect(() => {
-    setDelay(inView ? LIST_ANIMATION_DELAY : undefined);
-  }, [inView]);
+  const { ref, delay, activeListIndex, setIndexAndResetInterval } = useAnimationInterval({
+    totalItemsLength: data.length,
+    interval: LIST_ANIMATION_DELAY,
+  });
 
   const image = data[activeListIndex].image;
 
@@ -48,10 +40,7 @@ export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'lef
                 <li
                   className={getBlocksWithList('__item')}
                   key={itemTitle}
-                  onClick={() => {
-                    setDelay();
-                    setActiveListIndex(index);
-                  }}
+                  onClick={() => setIndexAndResetInterval(index)}
                 >
                   <strong>{itemTitle}</strong>
                 </li>
@@ -74,10 +63,7 @@ export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'lef
           {isDesktop && <img src={image} alt="" />}
         </div>
         <div className={getBlocksWith('__leading')}>
-          <div className={getBlocksWith('__leading-button-group')}>
-            <button className="btn btn--primary btn--large">Start free trial</button>
-            <button className="btn btn--outline btn--large">Get a quote</button>
-          </div>
+          <div className={getBlocksWith('__leading-button-group')}>{children}</div>
         </div>
       </div>
     </section>

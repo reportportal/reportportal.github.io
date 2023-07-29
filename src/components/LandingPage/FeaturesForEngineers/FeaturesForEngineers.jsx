@@ -3,6 +3,7 @@ import React from 'react';
 import { AnimatedList } from '../../AnimatedList';
 
 import { features } from '../../../utils/imageSource';
+import { Link } from '../../Link';
 
 const featuresForEngineersList = [
   {
@@ -42,6 +43,10 @@ export const FeaturesForEngineers = () => {
       subtitle="Reducing team efforts. Bringing more value"
       listDesktopPosition="right"
       data={featuresForEngineersList}
-    />
+    >
+      <Link className="btn btn--primary btn--large" to="/features">
+        Expand All Features
+      </Link>
+    </AnimatedList>
   );
 };
