@@ -12,14 +12,6 @@ import cucumber5 from '../svg/icon_framework_cucumber5.svg';
 import cucumber6 from '../svg/icon_framework_cucumber6.svg';
 import cypress from '../svg/icon_framework_cypress.svg';
 import dashboard from '../svg/dashboard.svg';
-import feature1 from '../svg/featuresListItem1.svg';
-import feature2 from '../svg/featuresListItem2.svg';
-import feature3 from '../svg/featuresListItem3.svg';
-import feature4 from '../svg/featuresListItem4.svg';
-import feature5 from '../svg/featuresListItem5.svg';
-import feature6 from '../svg/featuresListItem6.svg';
-import feature7 from '../svg/featuresListItem7.svg';
-import feature8 from '../svg/featuresListItem8.svg';
 import gauge from '../svg/icon_framework_gauge.svg';
 import gwen from '../svg/icon_framework_gwen.svg';
 import jasmine from '../svg/icon_framework_jasmine.svg';
@@ -51,6 +43,16 @@ import unitnet from '../svg/icon_framework_unitnet.svg';
 import vstest from '../svg/icon_framework_vstest.svg';
 import webdriver from '../svg/icon_framework_webdriver.svg';
 import xctest from '../svg/icon_framework_xctest2.svg';
+import feature1 from '../svg/featuresListItem1.svg';
+import feature2 from '../svg/featuresListItem2.svg';
+import feature3 from '../svg/featuresListItem3.svg';
+import feature4 from '../svg/featuresListItem4.svg';
+import feature5 from '../svg/featuresListItem5.svg';
+import feature6 from '../svg/featuresListItem6.svg';
+import feature7 from '../svg/featuresListItem7.svg';
+import feature8 from '../svg/featuresListItem8.svg';
+import feature9 from '../svg/featuresListItem9.svg';
+import feature10 from '../svg/featuresListItem10.svg';
 
 export const iconsCommon = {
   subscription,
@@ -67,6 +69,8 @@ export const features = {
   feature6,
   feature7,
   feature8,
+  feature9,
+  feature10,
 };
 
 export const iconsFrameworks = {
