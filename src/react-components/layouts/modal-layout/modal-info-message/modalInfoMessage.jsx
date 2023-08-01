@@ -25,12 +25,14 @@ const cx = classNames.bind(styles);
 
 const ModalInfoMessage = ({ onClose }) => (
   <Modal>
-    <div className={cx('contact-form')}>
+    <div id="thankYou" className={cx('contact-form')}>
       <div className={cx('form-title')}>Thank You!</div>
       <div className={cx('form-description')}>
         We have received your message! Our consultant will contact you.
       </div>
-      <Button className={cx('close-button')} onClick={onClose}>Close</Button>
+      <Button className={cx('close-button')} onClick={onClose}>
+        Close
+      </Button>
     </div>
   </Modal>
 );
