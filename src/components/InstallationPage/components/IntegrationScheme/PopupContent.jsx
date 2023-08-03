@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Typography } from 'antd';
 import cx from 'classnames';
 
@@ -10,23 +10,8 @@ import '../../InstallationPage.scss';
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
 
-export const PopupContent = (info) => {
+export const PopupContent = ({ info }) => {
   const { Text } = Typography;
-
-  const formatText = () => {
-    if (info.scheme) {
-      return (
-        <div>
-          {info.scheme.split('\n').map((str, i) => (
-            <Fragment key={info.scheme + i}>
-              {str} <br />
-            </Fragment>
-          ))}
-        </div>
-      );
-    }
-    return '';
-  };
 
   return (
     <div>
@@ -41,7 +26,7 @@ export const PopupContent = (info) => {
               format: 'text/plain',
             }}
           >
-            {formatText()}
+            <div className={getGeneralBlocksWith('__code-content')}>{info.scheme}</div>
           </Text>
         </div>
       ) : (

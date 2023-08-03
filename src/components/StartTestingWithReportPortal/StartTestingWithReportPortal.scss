@@ -1,0 +1,99 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.start-testing-with-report-portal {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 24px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include breakpoint($tablet-sm-exact) {
+    width: 520px;
+    padding: 120px 0;
+  }
+
+  @include breakpoint($desktop-sm) {
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  &__leading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 465px;
+
+    &-heading {
+      h2 {
+        @include font-poppins($fw-bold);
+        @include font-scale(x4-medium);
+
+        margin: 0;
+        color: var(--text-primary);
+
+        @include breakpoint($tablet-sm-exact) {
+          @include font-scale(large);
+        }
+
+        @include breakpoint($desktop-sm) {
+          @include font-scale(x3-large);
+        }
+      }
+
+      h3 {
+        @include font-noto-sans();
+        @include font-scale(medium);
+
+        margin: 16px 0 0;
+        color: var(--text-primary);
+
+        b {
+          font-weight: $fw-bold;
+        }
+
+        @include breakpoint($desktop-sm) {
+          @include font-scale(x2-medium);
+        }
+      }
+    }
+
+    &-button-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+      margin-top: 48px;
+
+      @include breakpoint($tablet-sm-exact) {
+        flex-direction: row;
+
+        button {
+          flex-grow: 1;
+        }
+      }
+
+      @include breakpoint($desktop-sm) {
+        flex-direction: row;
+        width: auto;
+      }
+    }
+  }
+
+  &__trailing {
+    min-width: 50%;
+    align-items: center;
+
+    img {
+      max-width: 690px;
+      margin: auto;
+    }
+  }
+}

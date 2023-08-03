@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Button, Popover } from 'antd';
+import { Button } from 'antd';
 import { useClickAway, useToggle } from 'ahooks';
 import cx from 'classnames';
 
@@ -84,10 +84,6 @@ export const SchemeRow = ({ portion, row, lastRow }) => {
   );
 };
 
-const createTitleComponent = (title) => (
-  <div className={getBlocksWith('__popup-title')}>{title}</div>
-);
-
 const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
   <div
     className={cx(
@@ -144,29 +140,30 @@ export const ActionNode = ({ children, direction, infoArrow = true, info }) => (
 );
 
 const GraphicArrow = ({ children, info }) => {
-  const [state, { toggle }] = useToggle();
-  const ref = useRef(null);
+  const [isPopupOpen, { toggle: togglePopupOpenState }] = useToggle();
+  const popupButtonRef = useRef(null);
+  const popupRef = useRef(null);
 
   useClickAway(() => {
-    if (state) {
-      toggle();
+    if (isPopupOpen) {
+      togglePopupOpenState();
     }
-  }, ref);
+  }, [popupButtonRef, popupRef]);
 
   return (
-    <Popover
-      content={PopupContent(info)}
-      placement="bottom"
-      title={createTitleComponent(info.type)}
-      trigger="click"
-      showArrow={false}
-    >
+    <div className={getBlocksWith('__popup-container')}>
       <Button>
-        <div ref={ref} onClick={toggle}>
-          <Arrow state={state}>{children}</Arrow>
+        <div ref={popupButtonRef} onClick={togglePopupOpenState}>
+          <Arrow state={isPopupOpen}>{children}</Arrow>
         </div>
       </Button>
-    </Popover>
+      {isPopupOpen && (
+        <div ref={popupRef} className={getBlocksWith('__popup-dropdown')}>
+          <div className={getBlocksWith('__popup-title')}>{info.type}</div>
+          <PopupContent info={info} />
+        </div>
+      )}
+    </div>
   );
 };
 

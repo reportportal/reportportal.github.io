@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { IntegrationScheme } from './components/IntegrationScheme';
+import { createBemBlockBuilder, mediaDesktopSm } from '../../utils';
+import { DockerIcon, KubernetesIcon } from './icons';
 import { KubernetesContent } from './components/KubernetesContent';
 import { LaunchPortal } from './components/LaunchPortal';
-import { DockerIcon, KubernetesIcon } from './icons';
+import { DockerDeployingStep, DockerInstall } from './components/DockerContent';
 import { ButtonSwitcher } from '../ButtonSwitcher';
 import { ScrollIndicator } from '../ScrollIndicator';
-import { DockerDeployingStep } from './components/DockerContent/DockerDeployingStep';
-import { DockerInstall } from './components/DockerContent/DockerInstall';
+import { IntegrationContent } from './components/IntegrationContent';
+import { Banner } from './components/Banner';
 
 import './InstallationPage.scss';
 
@@ -46,7 +46,7 @@ const ACTIVE_BUTTON = buttons[0].text;
 
 export const InstallationPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
-  const isDesktop = useMediaQuery({ query: '(min-width: 1100px)' });
+  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
 
   const getSections = () => {
     const activeButtonObject = buttons.find((button) => button.text === activeButton);
@@ -79,42 +79,48 @@ export const InstallationPage = () => {
         </div>
       </div>
 
-      <div className={getBlocksWith('__main')}>
-        {isDesktop && (
+      <div className="container">
+        <div className={getBlocksWith('__main')}>
           <div className={getBlocksWith('__main-indicator')}>
-            <ScrollIndicator sections={getSections()} />
+            {isDesktop && <ScrollIndicator sections={getSections()} />}
           </div>
-        )}
 
-        <div className={cx(getBlocksWith('__main-content'), 'container')}>
-          <div className={cx({ [getBlocksWith('__main-inner')]: isDesktop })}>
-            {isFirstBtnActive() ? (
-              <>
-                <div name="section-1" id="part-1">
-                  <DockerInstall />
-                </div>
+          <div className={getBlocksWith('__main-content')}>
+            <div className={cx({ [getBlocksWith('__main-inner')]: !isDesktop })}>
+              {isFirstBtnActive() ? (
+                <>
+                  <div name="section-1">
+                    <DockerInstall />
+                  </div>
 
-                <div key="section-2" name="section-2" id="part-2">
-                  <DockerDeployingStep />
+                  <div name="section-2">
+                    <DockerDeployingStep />
+                  </div>
+                </>
+              ) : (
+                <div name="section-1">
+                  <KubernetesContent />
                 </div>
-              </>
-            ) : (
-              <div name="section-1" id="part-1">
-                <KubernetesContent />
+              )}
+
+              <div name="section-3">
+                <LaunchPortal />
               </div>
-            )}
 
-            <div key="section-3" name="section-3" id="part-3">
-              <LaunchPortal />
+              <div name="section-4">
+                <IntegrationContent />
+              </div>
             </div>
-
-            {isDesktop && (
-              <div key="section-4" name="section-4" id="part-4">
-                <IntegrationScheme />
-              </div>
-            )}
           </div>
         </div>
+      </div>
+      <div className={getBlocksWith('__banner')}>
+        <Banner
+          title="Still have questions about installation?"
+          subtitle="Chat with us in Slack channel"
+          linkTitle="Go to Slack channel"
+          link="https://slack.epmrpp.reportportal.io/"
+        />
       </div>
     </div>
   );

@@ -5,10 +5,6 @@
 @import 'font/roboto-mono';
 @import 'buttons';
 
-html {
-  scroll-behavior: smooth;
-}
-
 html * {
   box-sizing: border-box;
 }
@@ -34,6 +30,18 @@ a {
 
   &:hover {
     color: var(--text-grey);
+  }
+
+  &:active {
+    color: var(--color-primary-700);
+  }
+}
+
+.link {
+  color: var(--color-primary-600);
+
+  &:hover {
+    color: var(--color-primary-500);
   }
 
   &:active {
@@ -79,5 +87,11 @@ input:-webkit-autofill {
     margin: 0 auto;
     padding-left: 24px;
     padding-right: 24px;
+  }
+}
+
+@keyframes progressAnimation {
+  100% {
+    background-position: left;
   }
 }

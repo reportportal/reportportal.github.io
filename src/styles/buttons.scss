@@ -3,10 +3,7 @@
 @import 'mixins/font-scale';
 
 a.btn--primary {
-  &:hover {
-    color: var(--white);
-  }
-
+  &:hover,
   &:active {
     color: var(--white);
   }

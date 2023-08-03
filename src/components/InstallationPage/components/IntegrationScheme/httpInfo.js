@@ -1,7 +1,7 @@
 export const httpInfo = {
   startLaunchRq: {
     type: 'HTTP request',
-    url: 'POST http://rphost:port/api/v1/{projectName}/launch',
+    url: 'POST http://rphost:port/api/v1/{projectName}/\nlaunch',
     scheme:
       '"description": "Launch description",\n"mode": "DEFAULT",\n"name": "Launch name",\n"start_time": "2018-02-01T13:24:33.954Z",\n"tags": ["tag"]',
   },
@@ -12,7 +12,7 @@ export const httpInfo = {
   },
   startParentRq: {
     type: 'HTTP request',
-    url: 'POST http://rphost:port/api/v1/{projectName}/item',
+    url: 'POST http://rphost:port/api/v1/{projectName}/\nitem',
     scheme:
       '"description": "description",\n"launch_id": "launchId",\n"name": "name",\n"parameters": [\n{\n"key": "parameter key",\n"value": "parameter value"\n}\n],\n"start_time": "2018-02-01T13:24:35.954Z",\n"tags": ["tag"],\n"type": "SUITE",\n"uniqueId": "uniquedId"',
   },
@@ -23,7 +23,7 @@ export const httpInfo = {
   },
   startChildRq: {
     type: 'HTTP request',
-    url: 'POST http://rphost:port/api/v1/{projectName}/item/{parentItem}',
+    url: 'POST http://rphost:port/api/v1/{projectName}/\nitem/{parentItem}',
     scheme:
       '"description": "Test description",\n"launch_id": "launchId",\n"name": "Test name",\n"parameters": [\n{\n"key": "parameter key",\n"value": "parameter value"\n}\n],\n"start_time": "2018-02-01T13:24:35.954Z ",\n"tags": ["tag"],\n"type": "SUITE",\n"uniqueId": "unique id"',
   },
@@ -53,7 +53,7 @@ export const httpInfo = {
   },
   finishChildRq: {
     type: 'HTTP request',
-    url: 'PUT http://rphost:port/api/v1/{projectName}/item/{testItemId}',
+    url: 'PUT http://rphost:port/api/v1/{projectName}/\nitem/{testItemId}',
     scheme:
       '"description": "description",\n"end_time": "2018-02-01T13:24:37.954Z ",\n"issue": {\n"comment": "comment_text",\n"externalSystemIssues": [\n{\n"submitDate": 0,\n"submitter": "string",\n"systemId": "string",\n"ticketId": "string",\n"url": "string"\n}\n],\n"issue_type": "string"\n},\n"status": "PASSED",\n"tags": ["tags"]',
   },
@@ -64,7 +64,7 @@ export const httpInfo = {
   },
   finishParentRq: {
     type: 'HTTP request',
-    url: 'PUT http://rphost:port/api/v1/{projectName}/item/{testItemId}',
+    url: 'PUT http://rphost:port/api/v1/{projectName}/\nitem/{testItemId}',
     scheme:
       '"description": "description",\n' +
       '"end_time": "2018-02-01T13:24:37.954Z ",\n' +
@@ -92,7 +92,7 @@ export const httpInfo = {
   },
   finishLaunchRq: {
     type: 'HTTP request',
-    url: 'PUT http://rphost:port/api/v1/{projectName}/launch/{launchId}/finish',
+    url: 'PUT http://rphost:port/api/v1/{projectName}/\nlaunch/{launchId}/finish',
     scheme:
       '"description": "description on finish",\n' +
       '"end_time": "2018-02-01T13:24:38.954Z ",\n' +

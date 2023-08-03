@@ -7,11 +7,13 @@
   @include font-poppins();
   @include font-scale(small);
 
+  position: relative;
   padding-top: 50px;
   padding-bottom: 48px;
   border-top: 1px solid var(--purple-grey);
   color: var(--text-service);
   background: var(--bg-light-grey);
+  z-index: var(--z-index);
 
   @include breakpoint($tablet-sm-exact) {
     padding-top: 64px;

@@ -1,12 +1,11 @@
+const path = require('node:path');
+const { writeFileSync } = require('node:fs');
 const spaceImport = require('contentful-import');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
+const argv = require('yargs-parser')(process.argv.slice(2));
 
 const exportFile = require('../contentful/export.json');
-const path = require('path');
-const { writeFileSync } = require('fs');
-
-const argv = require('yargs-parser')(process.argv.slice(2));
 
 console.log(`
   To set up this project you need to provide your Space ID

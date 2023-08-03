@@ -1,0 +1,23 @@
+import React from 'react';
+
+import { StartTestingWithReportPortal } from '../StartTestingWithReportPortal';
+import { ProcessIntegration } from '../ProcessIntegration';
+import { Showcase } from './Showcase';
+import { WhyReportPortal } from './WhyReportPortal';
+import { CustomersStatistics } from './CustomersStatistics';
+import { BenefitsForBusiness } from './BenefitsForBusiness';
+import { FeaturesForEngineers } from './FeaturesForEngineers';
+
+export const LandingPage = () => {
+  return (
+    <>
+      <Showcase />
+      <WhyReportPortal />
+      <BenefitsForBusiness />
+      <FeaturesForEngineers />
+      <CustomersStatistics />
+      <ProcessIntegration />
+      <StartTestingWithReportPortal />
+    </>
+  );
+};
