@@ -113,6 +113,14 @@
     @include breakpoint($desktop-sm) {
       flex-shrink: 0;
       width: 486px;
+
+      img {
+        display: none;
+      }
+
+      & + img {
+        display: block;
+      }
     }
   }
 
@@ -163,14 +171,6 @@
     @include font-scale(medium);
 
     color: var(--text-primary);
-  }
-
-  img {
-    margin-top: 8px;
-
-    @include breakpoint($desktop-sm) {
-      margin-top: 0;
-    }
   }
 
   &__card {

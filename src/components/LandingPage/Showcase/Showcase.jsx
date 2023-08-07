@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, memo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Marquee from 'react-fast-marquee';
 import { useAtom } from 'jotai';
