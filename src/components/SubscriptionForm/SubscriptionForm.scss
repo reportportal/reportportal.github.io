@@ -1,4 +1,6 @@
+@import 'src/styles/variables';
 @import 'src/styles/mixins/font';
+@import 'src/styles/mixins/breakpoint';
 @import 'src/styles/mixins/font-scale';
 
 .subscription-form__form {
@@ -6,8 +8,13 @@
   @include font-scale();
 
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-row-gap: 24px;
   grid-column-gap: 16px;
+
+  @include breakpoint($tablet-sm-exact) {
+    grid-row-gap: unset;
+    grid-template-columns: 1fr auto;
+  }
 
   .ant-form-item {
     margin-bottom: 0;
@@ -22,7 +29,12 @@
   }
 
   .btn {
+    width: 100%;
     padding: 11px 16px;
+
+    @include breakpoint($tablet-sm-exact) {
+      width: unset;
+    }
   }
 
   .subscription-form__form-group {

@@ -17,7 +17,7 @@
     background: var(--bg-light-grey);
     z-index: var(--z-index-banner-footer-bg);
 
-    @include breakpoint($tablet-lg) {
+    @include breakpoint($desktop-sm) {
       bottom: -100px;
     }
   }
@@ -41,21 +41,23 @@
     background-repeat: no-repeat;
 
     @include breakpoint($tablet-sm-exact) {
+      padding: 40px;
       background-image: url('./assets/bg-up.svg'), url('./assets/bg-down.svg');
       background-position: bottom left, top right;
       background-repeat: no-repeat, no-repeat;
     }
 
-    @include breakpoint($tablet-lg) {
+    @include breakpoint($desktop-sm) {
       flex-direction: row;
-      padding: 40px;
+      padding: 40px 56px;
     }
   }
 
   &__titles {
+    flex-grow: 1;
     text-align: center;
 
-    @include breakpoint($tablet-lg) {
+    @include breakpoint($desktop-sm) {
       text-align: start;
     }
   }
@@ -66,7 +68,7 @@
 
     color: var(--text-primary);
 
-    @include breakpoint($tablet-lg) {
+    @include breakpoint($tablet-sm-exact) {
       @include font-scale(large);
     }
   }
@@ -75,11 +77,14 @@
     @include font-noto-sans();
     @include font-scale();
 
-    line-height: 32px;
+    margin-top: 8px;
+    line-height: 24px;
     color: var(--text-primary);
 
-    @include breakpoint($tablet-lg) {
+    @include breakpoint($tablet-sm-exact) {
       @include font-scale(medium);
+
+      margin-top: 0;
     }
   }
 
@@ -93,17 +98,16 @@
       width: 100%;
     }
 
-    @include breakpoint($phone-lg) {
+    @include breakpoint($phone) {
       width: auto;
       margin-top: 35px;
-      margin-bottom: 16px;
 
       .btn {
         width: auto;
       }
     }
 
-    @include breakpoint($tablet-lg) {
+    @include breakpoint($desktop-sm) {
       margin-top: 10px;
       margin-bottom: 10px;
     }
