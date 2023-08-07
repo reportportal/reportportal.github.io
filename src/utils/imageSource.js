@@ -53,6 +53,7 @@ import feature7 from '../svg/featuresListItem7.svg';
 import feature8 from '../svg/featuresListItem8.svg';
 import feature9 from '../svg/featuresListItem9.svg';
 import feature10 from '../svg/featuresListItem10.svg';
+import feature11 from '../svg/featuresListItem11.svg';
 
 export const iconsCommon = {
   subscription,
@@ -71,6 +72,7 @@ export const features = {
   feature8,
   feature9,
   feature10,
+  feature11,
 };
 
 export const iconsFrameworks = {
