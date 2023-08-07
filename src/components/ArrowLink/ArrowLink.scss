@@ -1,10 +1,9 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .arrow-link {
-  @include font-poppins($fw-semi-bold);
-  @include font-scale(base);
+  @include m.font-poppins(v.$fw-semi-bold);
+  @include m.font-scale(base);
 
   position: relative;
   display: inline-block;

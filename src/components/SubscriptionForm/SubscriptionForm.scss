@@ -1,17 +1,15 @@
-@import 'src/styles/variables';
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/mixins/font-scale';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .subscription-form__form {
-  @include font-poppins();
-  @include font-scale();
+  @include m.font-poppins();
+  @include m.font-scale();
 
   display: grid;
   grid-row-gap: 24px;
   grid-column-gap: 16px;
 
-  @include breakpoint($tablet-sm-exact) {
+  @include m.breakpoint(v.$tablet-sm-exact) {
     grid-row-gap: unset;
     grid-template-columns: 1fr auto;
   }
@@ -32,7 +30,7 @@
     width: 100%;
     padding: 11px 16px;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       width: unset;
     }
   }
@@ -82,8 +80,8 @@
     }
 
     .ant-input {
-      @include font-poppins($fw-medium);
-      @include font-scale(base);
+      @include m.font-poppins(v.$fw-medium);
+      @include m.font-scale(base);
 
       line-height: 1;
     }
@@ -91,7 +89,7 @@
 
   .subscription-form__form-error,
   .subscription-form__form-info {
-    @include font-scale(small);
+    @include m.font-scale(small);
 
     grid-column-start: 1;
   }
@@ -101,8 +99,8 @@
   }
 
   .subscription-form__form-info {
-    @include font-noto-sans();
-    @include font-scale(x-small);
+    @include m.font-noto-sans();
+    @include m.font-scale(x-small);
 
     margin-top: 8px;
     color: var(--text-service);

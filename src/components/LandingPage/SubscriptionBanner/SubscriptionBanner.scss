@@ -1,13 +1,11 @@
-@use 'src/styles/mixins/font';
-@use 'src/styles/mixins/font-scale';
-@use 'src/styles/variables';
-@use 'src/styles/mixins/breakpoint';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 @import 'src/styles/buttons';
 
 .subscription-banner {
   padding-bottom: 21px;
 
-  @include breakpoint.breakpoint($desktop-sm) {
+  @include m.breakpoint(v.$desktop-sm) {
     padding-bottom: 54px;
   }
 
@@ -18,7 +16,7 @@
   }
 
   .banner__inner {
-    @include breakpoint.breakpoint(variables.$desktop-sm) {
+    @include m.breakpoint(v.$desktop-sm) {
       column-gap: 48px;
     }
   }
@@ -26,7 +24,7 @@
   .subscription-form__form {
     margin-top: 24px;
 
-    @include breakpoint.breakpoint(variables.$tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       grid-column-gap: 24px;
       grid-template-columns: 1fr auto;
     }
@@ -50,7 +48,7 @@
     padding-top: 70px;
     padding-bottom: 70px;
 
-    @include breakpoint.breakpoint(variables.$tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       padding-top: 26px;
       padding-bottom: 26px;
     }
@@ -58,7 +56,7 @@
 
   .subscription-form__form,
   .subscription-form-card {
-    @include breakpoint.breakpoint(variables.$desktop-sm) {
+    @include m.breakpoint(v.$desktop-sm) {
       width: 568px;
       flex-shrink: 0;
       margin-top: 0;
