@@ -20,7 +20,7 @@ const benefitsForBusinessList = [
   {
     title: 'Transparency of test failures reason',
     description: 'Detect the root causes of failures and categorize the failures faster',
-    image: features.feature2,
+    image: features.feature11,
   },
   {
     title: 'Time saving for teams',
@@ -42,6 +42,9 @@ export const BenefitsForBusiness = () => {
       title="Benefits for business"
       subtitle="Features full of benefits from business perspective"
       data={benefitsForBusinessList}
-    />
+    >
+      <button className="btn btn--primary btn--large">Start free trial</button>
+      <button className="btn btn--outline btn--large">Get a quote</button>
+    </AnimatedList>
   );
 };
