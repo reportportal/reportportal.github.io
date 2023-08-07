@@ -52,7 +52,6 @@ npm run dev
 ```
 2. Open `http://localhost:8080/`
 
-
 ## Deployment Instructions for Git Branch
 ## To deploy your Git branch to AWS S3, please follow these steps:
 
