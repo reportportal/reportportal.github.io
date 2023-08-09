@@ -10,6 +10,7 @@
   text-align: center;
   width: 100%;
   min-height: 80px;
+  color: var(--text-primary);
 
   &__title {
     @include m.font-poppins(v.$fw-semi-bold);
