@@ -23,7 +23,7 @@ const CiCdBlogPage = () => (
   <>
     <BlogPageHeader
       tags={['CICD', 'TestAutomationTips']}
-      date={'August 7, 2023'}
+      date={'August 9, 2023'}
       background={CiCdBackgroundImage}
     />
     <BlogPageContent title={'Tips and tricks for successful CI/CD'}>
