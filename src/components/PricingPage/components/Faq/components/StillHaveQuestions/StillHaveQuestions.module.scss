@@ -1,0 +1,79 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/mixins/breakpoint';
+
+$desktop-size-breakpoint: 1224px;
+$mobile-horizontal-padding: 16px;
+
+@mixin horizontal-spacer {
+  padding-left: $mobile-horizontal-padding;
+  padding-right: $mobile-horizontal-padding;
+}
+
+@mixin button-filled {
+  width: 100%;
+  height: 56px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  border: 0px;
+  background: linear-gradient(55deg, #0081a7 19.29%, #009dbb 90.72%);
+  border-radius: 4px;
+
+  @include breakpoint($desktop-size-breakpoint) {
+    width: 221px;
+    height: 56px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: #00b4d5;
+  }
+
+  &:active {
+    background: #0081a7;
+  }
+}
+
+
+.contact_us {
+  @include horizontal-spacer();
+
+  display: flex;
+  justify-content: center;
+
+  .contact_info_block {
+    position: relative;
+    top: -74px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 1200px;
+    min-height: 148px;
+    box-shadow: 0px 4px 16px rgba(16, 46, 52, 0.1);
+    border-radius: 16px;
+    padding: 0 64px 24px 64px;
+    background: var(--white);
+    text-align: center;
+
+    @include breakpoint($desktop-size-breakpoint) {
+      flex-direction: row;
+      padding: 0 64px 0px 64px;
+    }
+
+    h1 {
+      @include font-poppins($fw-bold);
+      @include font-scale(large);
+
+      text-align: center;
+      color: var(--text-primary);
+    }
+
+    button {
+      @include button-filled();
+    }
+  }
+}

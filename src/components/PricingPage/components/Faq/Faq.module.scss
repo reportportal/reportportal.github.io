@@ -1,0 +1,60 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/mixins/breakpoint';
+
+$header-offset: 178px;
+$desktop-size-breakpoint: 1224px;
+$mobile-horizontal-padding: 16px;
+
+@mixin features-title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 40px;
+  color: #2f3c5f;
+
+  @include breakpoint($desktop-size-breakpoint) {
+    font-size: 48px;
+    line-height: 64px;
+  }
+}
+
+@mixin horizontal-spacer {
+  padding-left: $mobile-horizontal-padding;
+  padding-right: $mobile-horizontal-padding;
+}
+
+.faq {
+  @include horizontal-spacer();
+
+  border-bottom: 1px solid #edeff7;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: calc(200px + 74px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .faq_heading {
+    text-align: center;
+
+    h1 {
+      @include features-title();
+
+      max-width: 952px;
+      max-height: 64px;
+    }
+  }
+
+  .faq_content {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include breakpoint($desktop-size-breakpoint) {
+      width: 792px;
+    }
+  }
+}

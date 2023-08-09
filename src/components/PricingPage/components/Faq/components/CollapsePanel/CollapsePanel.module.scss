@@ -1,0 +1,52 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+
+.faq_content_item {
+  border-bottom: 3px solid #e4e8f1;
+  line-height: 16px;
+  padding: 40px 0 22px 0;
+
+  .faq_content_item_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      @include font-poppins($fw-semi-bold);
+      @include font-scale();
+
+      color: #222b45;
+    }
+
+    img {
+      height: 24px;
+      width: 24px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .faq_content_item_description {
+    p {
+      @include font-noto-sans();
+      @include font-scale();
+
+      color: #222b45;
+    }
+  }
+
+  .arrowshown {
+    transform: rotate(-90deg);
+  }
+
+  .collapsed {
+    display: none;
+  }
+
+  .shown {
+    display: block;
+  }
+}

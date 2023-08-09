@@ -12,7 +12,7 @@ export const pricingData = [
       'Up to 12 months of data retention',
       'Unlimited number of users',
       'Shared instance',
-      'Premium features: Quality Gates',
+      'Premium features: \nQuality Gates',
     ],
     price: {
       currency: '$',
@@ -37,7 +37,7 @@ export const pricingData = [
       'Up to 5 years of data retention',
       'Unlimited number of users',
       'Free trial (Startup tier)',
-      'Premium features: Quality Gates',
+      'Premium features: \nQuality Gates',
     ],
     price: {
       currency: '$',
@@ -61,7 +61,7 @@ export const pricingData = [
       'Extended retention policy',
       'Unlimited number of users',
       'Free trial (Startup tier)',
-      'Premium features: Quality Gates',
+      'Premium features: \nQuality Gates',
     ],
     price: {
       currency: '',

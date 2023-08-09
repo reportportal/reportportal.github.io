@@ -6,6 +6,7 @@ import { PricingCards } from './components/PricingCards';
 import { ComparePlans } from './components/ComparePlans';
 import { pricingData } from './components/PricingCards/pricingData';
 import { Organizations } from './components/Organizations';
+import { Faq } from './components/Faq';
 
 import CloudIcon from './icons/cloud-icon.inline.svg';
 import ServerIcon from './icons/server-icon.inline.svg';
@@ -29,7 +30,7 @@ export const PricingPage = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
   const [discountState, { toggle: toggleDiscountState }] = useToggle(true);
 
-  const isFirstBtnActive = () => activeButton === buttons[0].text;
+  const isSassBtnActive = () => activeButton === buttons[0].text;
 
   const switchActiveBtn = (btnName) => {
     if (btnName !== activeButton) {
@@ -47,11 +48,12 @@ export const PricingPage = () => {
         discountState={discountState}
       />
 
-      {isFirstBtnActive() ? (
+      {isSassBtnActive() ? (
         <>
           <PricingCards discountState={discountState} pricingData={pricingData} />
           <ComparePlans />
           <Organizations />
+          <Faq />
         </>
       ) : (
         <p>Another page</p>
