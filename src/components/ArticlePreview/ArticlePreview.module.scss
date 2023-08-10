@@ -3,7 +3,7 @@
 .article-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  grid-gap: var(--space-3xl);
+  grid-gap: calc(3 * var(--base-spacing));
 }
 
 .article-item {
