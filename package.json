@@ -4,8 +4,9 @@
   "description": "Landing for ReportPortal",
   "main": "n/a",
   "scripts": {
+    "predev": "node ./bin/gen-antd-css.js && gatsby develop -p 8080",
     "dev": "gatsby develop -p 8080",
-    "dev:with-graphql": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop -p 8080",
+    "prebuild": "cross-env NODE_ENV=production node ./bin/gen-antd-css.js",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "setup": "node ./bin/setup.js",
@@ -16,7 +17,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/cssinjs": "^1.16.1",
     "@ant-design/icons": "^5.0.1",
+    "@ant-design/static-style-extract": "^1.0.1",
     "@contentful/rich-text-plain-text-renderer": "*",
     "@svgr/webpack": "^7.0.0",
     "ahooks": "^3.7.4",

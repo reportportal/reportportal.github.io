@@ -1,8 +1,7 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 
-import { createBemBlockBuilder, mediaDesktopSm } from '../../utils';
+import { createBemBlockBuilder } from '../../utils';
 import { useAnimationInterval } from '../../hooks';
 import { ArrowLink } from '../ArrowLink';
 
@@ -14,7 +13,6 @@ const getBlocksWithList = createBemBlockBuilder(['animated-list']);
 const LIST_ANIMATION_DELAY = 10000;
 
 export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'left', children }) => {
-  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
   const { ref, delay, activeListIndex, setIndexAndResetInterval } = useAnimationInterval({
     totalItemsLength: data.length,
     interval: LIST_ANIMATION_DELAY,
@@ -31,7 +29,7 @@ export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'lef
       <div className={getBlocksWith('__content')}>
         <div
           className={cx(getBlocksWithList(), {
-            [getBlocksWithList('--reversed')]: isDesktop && listDesktopPosition !== 'left',
+            [getBlocksWithList('--reversed')]: listDesktopPosition !== 'left',
           })}
         >
           <ul>
@@ -49,7 +47,7 @@ export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'lef
                   className={cx(getBlocksWithList('__item'), getBlocksWithList('__item--active'))}
                   key={itemTitle}
                 >
-                  {!isDesktop && <img src={image} alt="" />}
+                  <img src={image} alt="" />
                   <div className={getBlocksWithList('__card')}>
                     <strong>{itemTitle}</strong>
                     <p>{description}</p>
@@ -60,7 +58,7 @@ export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'lef
               ),
             )}
           </ul>
-          {isDesktop && <img src={image} alt="" />}
+          <img src={image} alt="" />
         </div>
         <div className={getBlocksWith('__leading')}>
           <div className={getBlocksWith('__leading-button-group')}>{children}</div>
