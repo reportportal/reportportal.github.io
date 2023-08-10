@@ -5,6 +5,7 @@
   border-bottom: 3px solid #e4e8f1;
   line-height: 16px;
   padding: 40px 0 22px 0;
+  margin-left: 8px;
 
   .faq_content_item_title {
     display: flex;
@@ -16,6 +17,7 @@
       @include font-poppins($fw-semi-bold);
       @include font-scale();
 
+      padding-left: 16px;
       color: #222b45;
     }
 
@@ -34,6 +36,7 @@
       @include font-noto-sans();
       @include font-scale();
 
+      padding-left: 16px;
       color: #222b45;
     }
   }

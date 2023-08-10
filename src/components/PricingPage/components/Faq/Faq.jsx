@@ -3,7 +3,9 @@ import React, { useState, useCallback } from 'react';
 import * as styles from './Faq.module.scss';
 import { collapsableList } from './faqData';
 import { CollapsePanel } from './components/CollapsePanel/CollapsePanel';
-import { StillHaveQuestions } from './components/StillHaveQuestions/StillHaveQuestions';
+import { Banner } from '../../../InstallationPage/components/Banner';
+import { Link } from '../../../Link';
+import { ArrowIcon } from '../../../Footer/icons';
 
 export const Faq = () => {
   const [shownItems, setShownItems] = useState(() => collapsableList.map(() => false));
@@ -34,8 +36,17 @@ export const Faq = () => {
             />
           ))}
         </div>
+        <div className={styles.faq_link}>
+          <p>
+            More information on the link to our
+            <Link className={styles.faq_doc_link} to={''}>
+              {'    Documentation   '}
+              <ArrowIcon />
+            </Link>
+          </p>
+        </div>
       </div>
-      <StillHaveQuestions />
+      <Banner title="Do you still have questions?" linkTitle="Contact Us" link="#" />
     </>
   );
 };
