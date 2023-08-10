@@ -62,3 +62,14 @@ npm run dev
 5. Once the deployment is finished, verify that your changes have been deployed by checking the website at the following URL: http://rpp-landing.s3-website.eu-central-1.amazonaws.com/.
 
 That's it! Your changes should now be live on the website. If you encounter any issues during the deployment process, please consult the documentation or reach out to the project maintainers for assistance.
+
+## Libraries
+
+- [Gatsby](https://www.gatsbyjs.com/). Project is built on top of Gatsby to leverage its Static Site Generation feature. Make sure that you check that app works and looks correctly both in dev mode (`npm run dev`) and in production mode `npm run build && npm run serve`. You should pay attention whether elements are not shifting/jumping on the initial load in the production mode.
+- [And Design](https://ant.design/components/overview/). Project uses components from Ant Design. Use them when you can to avoid creating things from scratch, but make sure to style them according [to our design](https://www.figma.com/file/JDa2JNX88qMJbdWeFpBfNz/%F0%9F%8C%90-RP-Landing-2.0). As an example check out how `Steps` component is used and styled in the [HowItWorks](./src/components/LandingPage/HowItWorks) component
+
+## SCSS/CSS
+
+- To set the font use mixins from [font](./src/styles/mixins/font.scss) folder
+- To set the font size and line height use [font-scale](./src/styles/mixins/font-scale.scss) mixin
+- To work with different screens use [breakpoint](./src/styles/mixins/breakpoint.scss) mixin. Check styles for mobile on 360px width. To write styles for tablet use _breakpoint_ mixin with `$tablet-sm-exact: 768px` variable. To write styles for tablet use _breakpoint_ mixin with `$desktop-sm: 1238px` variable. Don't use other [screen variables](./src/styles/variables/screen.scss) unless it is really needed

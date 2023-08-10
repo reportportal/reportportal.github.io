@@ -8,6 +8,7 @@ import { HowItWorks } from './HowItWorks';
 import { CustomersStatistics } from './CustomersStatistics';
 import { BenefitsForBusiness } from './BenefitsForBusiness';
 import { FeaturesForEngineers } from './FeaturesForEngineers';
+import { SubscriptionBanner } from './SubscriptionBanner';
 
 export const LandingPage = () => {
   return (
@@ -20,6 +21,7 @@ export const LandingPage = () => {
       <CustomersStatistics />
       <ProcessIntegration />
       <StartTestingWithReportPortal />
+      <SubscriptionBanner />
     </>
   );
 };
