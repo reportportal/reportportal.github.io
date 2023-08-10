@@ -38,6 +38,11 @@ export const ArticlePreview = ({ posts }) => {
                   {post.author}
                 </p>
               </div>
+              <p>{post.leadParagraph.leadParagraph}</p>
+              <p className={styles.articleAuthor}>
+                <ArticleAuthor />
+                {post.author}
+              </p>
             </li>
           );
         })}

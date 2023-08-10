@@ -49,6 +49,22 @@
   margin-bottom: 0;
 }
 
+.article-item {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 45, 55, 0.12);
+  color: #2f3c5f;
+  padding: 16px;
+}
+
+.article-author {
+  @include font-poppins($fw-medium);
+
+  color: var(--text-service);
+  display: flex;
+  margin-bottom: 0;
+}
+
 .title {
   @include font-poppins($fw-semi-bold);
   display: inline-block;
