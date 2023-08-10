@@ -6,10 +6,10 @@
 .organizations {
 
   &__title {
-    @include font-poppins($fw-bold);
+    @include font-poppins($fw-semi-bold);
     @include font-scale(medium);
 
-    margin: 160px  auto 40px auto;
+    margin: 120px  auto 40px auto;
     width: 309px;
     text-align: center;
     color: var(--text-primary);
@@ -28,12 +28,12 @@
   &__icons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
     width: 100%;
-    max-width: 130px;
+    max-width: 252px;
     justify-content: center;
     align-items: center;
-    margin: 0 5px 200px;
+    margin: 0 5px 0;
 
     svg {
       transform: scale(.8);
@@ -69,7 +69,7 @@
     justify-content: left;
     width: 100%;
     margin: 20px 0;
-    
+
     @include breakpoint($tablet-sm) {
       display: block;
       margin: 20px 50px;

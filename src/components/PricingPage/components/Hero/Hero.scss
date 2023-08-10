@@ -6,13 +6,14 @@
 .hero {
   position: relative;
   min-height: 500px;
-  padding: var(--header-height) 16px 274px;
+  padding: var(--header-height) 16px 273px;
   margin-top: calc(-1 * var(--header-height));
-  background: url('./assets/bg.svg') no-repeat center bottom;
+  background: url('./assets/bg.svg') no-repeat bottom;
   background-size: cover;
+  background-position: -50px -130px;
 
   &__discount-switcher {
-    margin: 30px auto 17px;
+    margin: 0 auto 17px;
 
     @include breakpoint (833px) {
       margin: 30px auto 37px;
@@ -22,7 +23,7 @@
   &__btn-box {
     display: flex;
     justify-content: center;
-    margin: 50px 0 80px;
+    margin: 54px 0 64px;
   }
 
   &__title {
@@ -30,7 +31,7 @@
     @include font-scale(large);
 
     margin: 0 30px;
-    padding-top: 55px;
+    padding-top: 64px;
     color: var(--white);
     text-align: center;
 
@@ -44,12 +45,13 @@
   }
 
   &__subtitle {
-    @include font-poppins();
+    //@include font-poppins();
     @include font-scale(medium);
 
     margin-bottom: 30px;
     color: var(--white);
     text-align: center;
+    padding: 0 20px;
 
     @include breakpoint($tablet-sm) {
       margin-bottom: 50px;
@@ -59,7 +61,7 @@
   &__wrapper {
     display: block;
     max-width: 660px;
-    margin: 0 auto 90px;
+    margin: 0 auto 80px;
     padding: 0 30px;
     color: var(--white);
 
@@ -71,6 +73,7 @@
       @include font-poppins($fw-semi-bold);
       @include font-scale(medium);
 
+      line-height: 32px;
       margin-bottom: 5px;
       margin-right: 16px;
     }
@@ -79,6 +82,7 @@
       @include font-noto-sans();
       @include font-scale(base);
 
+      line-height: 24px;
       padding-top: 6px;
     }
   }

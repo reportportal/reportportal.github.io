@@ -2,9 +2,11 @@
 @import 'src/styles/mixins/font-scale';
 
 .faq_content_item {
-  border-bottom: 3px solid #e4e8f1;
+  //border-bottom: 3px solid #e4e8f1;
+  border-bottom: 1px solid #e4e8f1;
   line-height: 16px;
-  padding: 40px 0 22px 0;
+  //padding: 40px 0 22px 0;
+  padding: 24px 0 22px 0;
   margin-left: 8px;
 
   .faq_content_item_title {

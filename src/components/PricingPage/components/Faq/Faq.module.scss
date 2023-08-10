@@ -8,10 +8,9 @@ $desktop-size-breakpoint: 1224px;
 $mobile-horizontal-padding: 16px;
 
 @mixin features-title {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
+  @include font-poppins($fw-semi-bold);
+  @include font-scale(x3-medium);
+
   line-height: 40px;
   color: #2f3c5f;
 
@@ -19,6 +18,15 @@ $mobile-horizontal-padding: 16px;
     font-size: 48px;
     line-height: 64px;
   }
+
+  @include breakpoint($tablet-sm) {
+    @include font-poppins($fw-bold);
+    @include font-scale(x4-medium);
+  }
+
+  //@include breakpoint($desktop-sm) {
+  //  @include font-scale(x4-large);
+  //}
 }
 
 @mixin horizontal-spacer {

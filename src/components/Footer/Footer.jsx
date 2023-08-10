@@ -7,7 +7,7 @@ import { Link } from '../Link';
 import './Footer.scss';
 
 import { createBemBlockBuilder, isAbsoluteURL } from '../../utils';
-import { ArrowIcon, GithubIcon, NavLogoIcon, SlackIcon, TwitterIcon, YoutubeIcon } from './icons';
+import { ArrowIcon, GithubIcon, NavLogoIcon, SlackIcon, TwitterIcon, YoutubeIcon, InstagramIcon } from './icons';
 
 const getBlocksWith = createBemBlockBuilder(['footer']);
 
@@ -113,6 +113,10 @@ const socialLinks = [
   {
     link: 'https://twitter.com/ReportPortal_io',
     icon: <TwitterIcon />,
+  },
+  {
+    link: 'https://instagram.com/ReportPortal_io',
+    icon: <InstagramIcon />,
   },
   {
     link: 'https://www.youtube.com/c/ReportPortal',
