@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
-import { useAtom } from 'jotai';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
-import { EnvelopeIcon } from '../NavMenu/icons/Envelope';
-import { subscriptionFormAtom } from '../Layout';
+import { EnvelopeIcon } from '../NavMenu/icons';
 import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';
 
-export const SubscriptionForm = () => {
-  const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
+export const SubscriptionForm = ({ subscriptionFormState, setSubscriptionFormState }) => {
   const [form] = Form.useForm();
   const [isValid, setIsValid] = useState(true);
   const email = Form.useWatch('email', form);

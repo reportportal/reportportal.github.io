@@ -1,0 +1,65 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+@import 'src/styles/buttons';
+
+.subscription-banner {
+  padding-bottom: 21px;
+
+  @include m.breakpoint(v.$desktop-sm) {
+    padding-bottom: 54px;
+  }
+
+  .banner__titles {
+    align-self: flex-start;
+    margin: unset;
+    text-align: left;
+  }
+
+  .banner__inner {
+    @include m.breakpoint(v.$desktop-sm) {
+      column-gap: 48px;
+    }
+  }
+
+  .subscription-form__form {
+    margin-top: 24px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      grid-column-gap: 24px;
+      grid-template-columns: 1fr auto;
+    }
+
+    .subscription-form__form-input .ant-input {
+      line-height: 24px;
+    }
+
+    .subscription-form__form-input {
+      .ant-input-affix-wrapper {
+        padding: 13px 16px;
+      }
+    }
+
+    .btn {
+      @extend .btn--large;
+    }
+  }
+
+  .subscription-form-card {
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      padding-top: 26px;
+      padding-bottom: 26px;
+    }
+  }
+
+  .subscription-form__form,
+  .subscription-form-card {
+    @include m.breakpoint(v.$desktop-sm) {
+      width: 568px;
+      flex-shrink: 0;
+      margin-top: 0;
+    }
+  }
+}

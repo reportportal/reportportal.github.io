@@ -11,7 +11,7 @@ import { Link } from '../Link';
 import { ProcessIntegration } from '../ProcessIntegration';
 import { SupportedFrameworks } from '../SupportedFrameworks';
 import { ArrowLink } from '../ArrowLink';
-import { Banner } from '../InstallationPage/components/Banner';
+import { Banner } from '../Banner';
 import { StartTestingWithReportPortal } from '../StartTestingWithReportPortal';
 import { featuresList, navigationList } from './dataSource';
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { createBemBlockBuilder } from '../../../../utils';
-import { Link } from '../../../Link';
+import { createBemBlockBuilder } from '../../utils';
+import { Link } from '../Link';
 
 import './Banner.scss';
 
 const getBlocksWith = createBemBlockBuilder(['banner']);
 
-export const Banner = ({ title, subtitle, link, linkTitle }) => (
+export const Banner = ({ title, subtitle, link, linkTitle, children }) => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__bg')} />
     <div className="container">
@@ -18,12 +18,14 @@ export const Banner = ({ title, subtitle, link, linkTitle }) => (
             <div className={getBlocksWith('__title')}>{title}</div>
             {subtitle && <div className={getBlocksWith('__subtitle')}>{subtitle}</div>}
           </div>
-
-          <div className={getBlocksWith('__btn-wrapper')}>
-            <Link className={cx('btn', 'btn--primary', 'btn--large')} to={link}>
-              {linkTitle}
-            </Link>
-          </div>
+          {link && (
+            <div className={getBlocksWith('__btn-wrapper')}>
+              <Link className={cx('btn', 'btn--primary', 'btn--large')} to={link}>
+                {linkTitle}
+              </Link>
+            </div>
+          )}
+          {children}
         </div>
       </div>
     </div>
