@@ -3,14 +3,14 @@ import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 
 import { createBemBlockBuilder, mediaDesktopSm } from '../../utils';
+import { ButtonSwitcher } from '../ButtonSwitcher';
+import { ScrollIndicator } from '../ScrollIndicator';
+import { Banner } from '../Banner';
 import { DockerIcon, KubernetesIcon } from './icons';
 import { KubernetesContent } from './components/KubernetesContent';
 import { LaunchPortal } from './components/LaunchPortal';
 import { DockerDeployingStep, DockerInstall } from './components/DockerContent';
-import { ButtonSwitcher } from '../ButtonSwitcher';
-import { ScrollIndicator } from '../ScrollIndicator';
 import { IntegrationContent } from './components/IntegrationContent';
-import { Banner } from './components/Banner';
 
 import './InstallationPage.scss';
 

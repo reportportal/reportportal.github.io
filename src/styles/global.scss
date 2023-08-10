@@ -1,9 +1,8 @@
-@import 'variables';
-@import 'mixins/breakpoint';
-@import 'font/poppins';
-@import 'font/noto-sans';
-@import 'font/roboto-mono';
+@use 'variables' as v;
+@use 'mixins' as m;
+@import 'font/index';
 @import 'buttons';
+@import 'css-variables';
 
 html * {
   box-sizing: border-box;
@@ -86,7 +85,7 @@ input:-webkit-autofill {
   padding-left: 16px;
   padding-right: 16px;
 
-  @include breakpoint($tablet-sm-exact) {
+  @include m.breakpoint(v.$tablet-sm-exact) {
     max-width: calc(var(--size-max-width) + 48px);
     margin: 0 auto;
     padding-left: 24px;
