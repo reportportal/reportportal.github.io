@@ -1,0 +1,4 @@
+{
+  "*.{js,jsx}": ["npm run format:eslint"],
+  "*.{scss}": ["npm run format:prettier"]
+}

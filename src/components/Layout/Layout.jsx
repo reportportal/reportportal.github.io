@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { atom } from 'jotai';
 
-import '../../../static/antd.min.css';
+// eslint-disable-next-line import/no-unresolved
+import '../../../static/antd.min.css'; // Will be generated at build time
 import '../../styles/global.scss';
 
 import { Seo } from '../Seo';
