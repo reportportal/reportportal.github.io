@@ -11,8 +11,10 @@
     "serve": "gatsby serve",
     "setup": "node ./bin/setup.js",
     "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN",
-    "format": "prettier --write \"**/*.{js,jsx,json,scss}\"",
-    "lint": "eslint . --ext .js,.jsx --cache"
+    "lint": "eslint . --ext .js,.jsx --cache",
+    "format:eslint": "npm run lint -- --fix",
+    "format:prettier": "prettier --write \"**/*.{scss}\"",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
@@ -63,8 +65,11 @@
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "gatsby-provision-contentful": "0.0.3",
+    "husky": "^8.0.3",
     "inquirer": "^9.2.7",
+    "lint-staged": "^13.2.3",
     "prettier": "^2.8.3",
     "sass": "^1.59.2",
     "yargs-parser": "^21.1.1"
