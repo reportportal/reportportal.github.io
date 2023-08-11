@@ -11,6 +11,8 @@
   border-radius: 16px;
   box-shadow: 0px 8px 16px 0px rgba(0, 45, 55, 0.12);
   color: #2f3c5f;
+  display: flex;
+  flex-direction: column;
 
   &-featured-image {
     border-top-left-radius: calc(2 * var(--base-spacing));
@@ -19,7 +21,23 @@
   }
 
   &-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     padding: calc(2 * var(--base-spacing));
+
+    &-category {
+      @include font-poppins($fw-semi-bold);
+
+      color: var(--text-service);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    &--excerpt {
+      flex-grow: 1;
+    }
   }
 }
 

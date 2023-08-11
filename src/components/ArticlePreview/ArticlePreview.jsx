@@ -22,7 +22,7 @@ export const ArticlePreview = ({ posts }) => {
                 <GatsbyImage image={image(post.featuredImage)} alt={post.title.title} />
               </div>
               <div className={styles.articleItemContent}>
-                <p>{post.category}</p>
+                <p className={styles.articleItemContentCategory}>{post.category}</p>
                 <Link to={`/blog/${post.id}`} className={styles.link}>
                   <h2 className={styles.title}>{post.title.title}</h2>
                 </Link>
@@ -30,7 +30,9 @@ export const ArticlePreview = ({ posts }) => {
                 <div className={styles.meta}>
                   <small className="meta">{post.publishDate}</small>
                 </div>
-                <p>{post.leadParagraph.leadParagraph}</p>
+                <p className={styles.articleItemContentExcerpt}>
+                  {post.leadParagraph.leadParagraph}
+                </p>
                 <p className={styles.articleAuthor}>
                   <ArticleAuthor />
                   {post.author}
