@@ -25,7 +25,7 @@ $content-block-z-index: -100;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    
+
     @include breakpoint($tablet-sm) {
       height: 100px;
     }
@@ -552,7 +552,7 @@ $content-block-z-index: -100;
     left: 0;
     right: 0;
     border-top: 1px solid var(--purple-grey);
-    transform: translate(0,-50%);
+    transform: translate(0, -50%);
     z-index: $collapse-button-line-z-index;
   }
 
