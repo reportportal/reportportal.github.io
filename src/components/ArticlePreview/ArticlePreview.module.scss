@@ -54,7 +54,16 @@
   border-radius: 16px;
   box-shadow: 0px 8px 16px 0px rgba(0, 45, 55, 0.12);
   color: #2f3c5f;
-  padding: 16px;
+
+  &-featured-image {
+    border-top-left-radius: calc(2 * var(--base-spacing));
+    border-top-right-radius: calc(2 * var(--base-spacing));
+    overflow: hidden;
+  }
+
+  &-content {
+    padding: calc(2 * var(--base-spacing));
+  }
 }
 
 .article-author {
