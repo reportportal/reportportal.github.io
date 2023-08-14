@@ -74,3 +74,6 @@ public
 # System files
 .DS_Store
 Thumbs.db
+
+# Visual Studio Code files
+.vscode/*

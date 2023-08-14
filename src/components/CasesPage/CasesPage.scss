@@ -1,0 +1,225 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.cases-page {
+  position: relative;
+  padding: calc(72px + var(--header-height)) 16px 48px;
+  margin-top: calc(-1 * var(--header-height));
+  color: var(--white);
+  background: var(--color-primary-600);
+  background-image: url('./icons/group-244.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 20;
+
+  &__main {
+    display: block;
+    grid-template-columns: 0 1fr;
+    column-gap: 30px;
+    margin: 0;
+
+    @include breakpoint($desktop-sm) {
+      display: grid;
+      grid-template-columns: 2.4fr 8fr;
+      margin: 0 20px;
+    }
+
+    &-content {
+      width: 100%;
+      max-width: 690px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include breakpoint($desktop-sm) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__title {
+    @include font-poppins($fw-bold);
+    @include font-scale(large);
+
+    margin: 0;
+    text-align: center;
+
+    @include breakpoint($phone) {
+      @include font-scale(x3-large);
+    }
+
+    @include breakpoint($tablet-sm) {
+      @include font-scale(x4-large);
+    }
+  }
+
+  &__subtitle {
+    @include font-noto-sans();
+    @include font-scale(x2-medium);
+
+    margin-top: 16px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+}
+
+.cases-page__cases-list {
+  display: flex;
+  padding: 72px 0px 48px 0px;
+  margin: 0px 120px 0px 120px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+
+  @include breakpoint($tablet-sm-exact) {
+    &-item-box:nth-child(even) > .container {
+      flex-direction: row-reverse;
+    }
+  }
+  .healthcare {
+    background-image: url(../../svg/caseBg1.svg);     
+  } 
+
+  .retail {
+    background-image: url(../../svg/caseBg2.svg);
+  }
+
+  .fintech {
+    background-image: url(../../svg/caseBg4.svg);
+  }
+
+  .news_media {
+    background-image: url(../../svg/caseBg3.svg);
+  }
+
+  &-item-box {
+    // flex: 1 0 calc(25% - 10px);
+    display: flex;
+    width: 282px;
+    height: 328px;
+    padding: 24px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 24px;
+    border-radius: 16px;
+
+    /* Shadow/Card */
+    box-shadow: 0px 8px 16px 0px rgba(0, 45, 55, 0.12);
+
+    @include breakpoint($tablet-sm-exact) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  &-item {
+    &-trailing {
+      p {
+        color: var(--white);
+        @include font-poppins($fw-semi-bold);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 32px; /* 160% */
+      }
+    }
+
+    &-leading {
+      p {
+        color: var(--white);
+        text-align: left;
+        font-feature-settings: 'clig' off, 'liga' off;
+        @include font-poppins($fw-semi-bold);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; 
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    }
+
+    &-icon {
+      width: 96px;
+      height: 96px;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+  }
+}
+
+.cases-page__no-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+
+  > p {
+    color: var(--text-light-grey);
+  }
+}
+
+.cases-page__load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+
+  > div {
+    display: flex;
+    width: 180px;
+    height: 56px;
+    padding: 0px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 2px solid var(--primary-600, #009DBB);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--primary-600, #009DBB);
+      > p {
+        color: var(--white);
+      }
+    }
+
+    > p {
+      color: var(--primary-600, #009DBB);
+    }
+  }
+}
+
+.cases-page__download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+  height: 56px;
+
+  > div {
+    display: flex;
+    width: 258px;
+    height: 56px;
+    padding: 0px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 2px solid var(--white);
+    background-color: var(--white);
+    cursor: pointer;
+
+    > img {
+      fill: var(--primary-600, #009DBB);
+      height: 16px;
+      width: 16px;
+    }
+    > p {
+      color: var(--primary-600, #009DBB);
+    }
+  }
+}
