@@ -44,12 +44,13 @@ $mobile-horizontal-padding: 16px;
   flex-direction: column;
   align-items: center;
 
-  @include breakpoint($desktop-sm) {
-    padding-bottom: 212px;
+  @include breakpoint($tablet-sm-exact) {
+    padding-top: 155px;
+    padding-bottom: 168px;
   }
 
-  @include breakpoint($tablet-sm-exact) {
-    padding-bottom: 168px;
+  @include breakpoint($desktop-sm) {
+    padding-bottom: 212px;
   }
 
   .faq_heading {
@@ -60,6 +61,11 @@ $mobile-horizontal-padding: 16px;
 
       max-width: 952px;
       max-height: 64px;
+
+      @include breakpoint($tablet-sm-exact) {
+        @include font-poppins($fw-bold);
+        @include font-scale(large);
+      }
     }
   }
 

@@ -21,6 +21,12 @@
         @include breakpoint($tablet-lg) {
           padding-left: 12px;
         }
+
+        @include breakpoint($tablet-sm-exact) {
+          align-items:center;
+          padding-top: 6px;
+          padding-bottom: 6px;
+        }
       }
     }
 
@@ -38,6 +44,9 @@
 
   .ant-collapse-item {
     padding: 4px 0;
+    @include breakpoint($tablet-sm-exact) {
+      padding: 10px 0;
+    }
   }
 
   .ant-collapse-header:has(.compare__section) {
@@ -80,19 +89,19 @@
   }
 
   &__title {
-    @include font-poppins($fw-bold);
+    @include font-poppins($fw-semi-bold);
     @include font-scale(x3-medium);
 
-    font-weight: 600;
     position: relative;
     margin-bottom: 64px;
     text-align: center;
     color: var(--text-primary);
 
-    @include breakpoint($tablet-sm) {
-      @include font-scale(x3-large);
+    @include breakpoint($tablet-sm-exact) {
+      @include font-poppins($fw-bold);
+      @include font-scale(large);
 
-      margin-bottom: 50px;
+      margin-bottom: 48px;
     }
   }
 
@@ -100,11 +109,19 @@
     &-data {
       margin-top: 16px;
 
+      @include breakpoint($tablet-sm-exact) {
+        padding: 0 70px 0;
+      }
+
       &-last-item {
         margin: 16px -5px;
 
         .compare__row-title-cols {
           @include font-scale(small);
+        }
+
+        @include breakpoint($tablet-sm-exact) {
+          margin: 10px -5px 16px;
         }
       }
     }
@@ -120,21 +137,35 @@
     }
 
     &-header {
-      @include font-poppins($fw-semi-bold);
-      @include font-scale(medium);
-
-      padding: 0 37px 0 66px;
-      color: var(--text-primary);
-
-      .compare__row-title-col {
+      @include breakpoint($desktop-sm) {
         @include font-poppins($fw-semi-bold);
+        @include font-scale(medium);
+
+        padding: 0 37px 0 66px;
+        color: var(--text-primary);
+
+        .compare__row-title-col {
+          @include font-poppins($fw-semi-bold);
+        }
       }
+
+      @include breakpoint($tablet-sm-exact) {
+        .compare__row-title-col {
+          @include font-poppins($fw-medium);
+          line-height: 24px;
+        }
+      }
+
     }
   }
 
   &__content {
     margin-top: -5px;
     margin-bottom: -20px;
+
+    @include breakpoint($tablet-sm-exact) {
+      margin-top: 0;
+    }
   }
 
   &__row {
@@ -148,6 +179,10 @@
     color: var(--text-primary);
     @include font-poppins($fw-regular);
     @include font-scale(small);
+
+    @include breakpoint($tablet-sm-exact) {
+      line-height: 20px;
+    }
 
 
     &-footer {
@@ -253,7 +288,12 @@
       margin-top: 5px;
       font-size: 18px;
       color: var(--text-primary);
+
+      @include breakpoint($tablet-sm-exact) {
+        font-size: 24px;
+      }
     }
+
   }
 
   &__mark-icon {
@@ -263,4 +303,5 @@
   &__cross-icon {
     margin-bottom: -2px;
   }
+
 }

@@ -11,6 +11,10 @@
   margin: -250px 16px 176px;
   gap: 40px 20px;
 
+  @include breakpoint($tablet-sm-exact) {
+    margin: -250px 16px 160px;
+  }
+
   @include breakpoint($desktop-sm) {
     flex-wrap: nowrap;
   }

@@ -99,7 +99,7 @@ export const ComparePlans = () => {
 };
 
 const ColumnsHeader = ({ title }) => (
-  <div className={cx({ [getCompareContainer('__tab-header')]: title })}>
+  <div className={getCompareContainer('__tab-header')}>
     <Columns title={title} cols={headerColumnTitles} />
   </div>
 );

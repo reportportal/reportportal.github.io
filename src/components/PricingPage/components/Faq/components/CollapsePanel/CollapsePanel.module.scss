@@ -1,5 +1,8 @@
 @import 'src/styles/mixins/font';
 @import 'src/styles/mixins/font-scale';
+@import 'src/styles/mixins/breakpoint';
+@import 'src/styles/variables';
+
 
 .faq_content_item {
   //border-bottom: 3px solid #e4e8f1;
@@ -8,6 +11,11 @@
   //padding: 40px 0 22px 0;
   padding: 24px 0 22px 0;
   margin-left: 8px;
+
+  @include breakpoint($tablet-sm-exact) {
+    padding: 16px 0 1px 0;
+  }
+
 
   .faq_content_item_title {
     display: flex;
@@ -21,6 +29,10 @@
 
       padding-left: 16px;
       color: #222b45;
+
+      @include breakpoint($tablet-sm-exact) {
+        margin: 24px 0 24px;
+      }
     }
 
     img {
@@ -40,6 +52,15 @@
 
       padding-left: 16px;
       color: #222b45;
+
+      @include breakpoint($tablet-sm-exact) {
+        margin-top: 8px;
+        margin-bottom: 28px
+      }
+    }
+
+    @include breakpoint($tablet-sm-exact) {
+      line-height: 24px;
     }
   }
 

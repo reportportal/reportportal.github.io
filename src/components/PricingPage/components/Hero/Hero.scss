@@ -12,6 +12,14 @@
   background-size: cover;
   background-position: -50px -130px;
 
+  @include breakpoint($tablet-sm-exact) {
+    background-position: center;
+  }
+
+  @include breakpoint($desktop-sm) {
+    background-position: center;
+  }
+
   &__discount-switcher {
     margin: 0 auto 17px;
 
@@ -35,8 +43,10 @@
     color: var(--white);
     text-align: center;
 
-    @include breakpoint($tablet-sm) {
+    @include breakpoint($tablet-sm-exact) {
       @include font-scale(x3-large);
+
+      margin: 0 11px;
     }
 
     @include breakpoint($desktop-sm) {
@@ -53,8 +63,9 @@
     text-align: center;
     padding: 0 20px;
 
-    @include breakpoint($tablet-sm) {
-      margin-bottom: 50px;
+    @include breakpoint($tablet-sm-exact) {
+      margin-bottom: 54px;
+      margin-top: 10px;
     }
   }
 
@@ -65,8 +76,9 @@
     padding: 0 30px;
     color: var(--white);
 
-    @include breakpoint($tablet-sm) {
+    @include breakpoint($tablet-sm-exact) {
       display: flex;
+      flex-direction: column;
     }
 
     &-title {
