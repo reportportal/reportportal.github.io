@@ -1,6 +1,6 @@
 import React from 'react';
-import * as styles from './CollapsePanel.module.scss';
 import cx from 'classnames';
+import * as styles from './CollapsePanel.module.scss';
 import { iconsCommon } from '../../../../../../utils/imageSource';
 
 export const CollapsePanel = ({ title, description, index, onClick, isShow }) => {
@@ -10,7 +10,7 @@ export const CollapsePanel = ({ title, description, index, onClick, isShow }) =>
         <h1>{title} </h1>
         <img
           className={cx({ [styles.arrowshown]: !isShow })}
-          src={iconsCommon.arrowalt}
+          src={iconsCommon.arrowLight}
           onClick={onClick(index)}
         />
       </div>

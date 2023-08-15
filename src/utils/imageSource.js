@@ -1,5 +1,5 @@
 import android from '../svg/icon_framework_android.svg';
-import arrowalt from '../svg/arrowalt.svg';
+import arrowLight from '../svg/arrowLight.svg';
 import artos from '../svg/icon_framework_artos.svg';
 import behat from '../svg/icon_framework_behat.svg';
 import codecept from '../svg/icon_framework_codecept.svg';
@@ -57,7 +57,7 @@ import feature10 from '../svg/featuresListItem10.svg';
 export const iconsCommon = {
   subscription,
   dashboard,
-  arrowalt,
+  arrowLight,
 };
 
 export const features = {

@@ -23,8 +23,13 @@
     }
 
     @include breakpoint($desktop-sm) {
-      margin-top: 240px;
+      @include font-poppins($fw-bold);
+      @include font-scale(large);
+
+      margin-top: 268px;
+      margin-bottom: 16px;
     }
+
   }
 
   &__icons {
@@ -58,7 +63,7 @@
     }
 
     @include breakpoint($desktop-sm) {
-      margin: 0 30px 250px;
+      margin: 0 30px 215px;
     }
 
     &-wrapper {

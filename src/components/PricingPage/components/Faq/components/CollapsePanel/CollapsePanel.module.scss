@@ -33,6 +33,11 @@
       @include breakpoint($tablet-sm-exact) {
         margin: 24px 0 24px;
       }
+
+      @include breakpoint($desktop-sm) {
+        margin: 24px 0 24px;
+        line-height: 24px;
+      }
     }
 
     img {
@@ -57,6 +62,10 @@
         margin-top: 8px;
         margin-bottom: 28px
       }
+
+      @include breakpoint($desktop-sm) {
+        margin-top: -8px;
+      }
     }
 
     @include breakpoint($tablet-sm-exact) {
@@ -74,5 +83,6 @@
 
   .shown {
     display: block;
+    color: #8791AB;
   }
 }

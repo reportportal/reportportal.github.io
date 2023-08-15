@@ -28,6 +28,15 @@
           padding-bottom: 6px;
         }
       }
+      @include breakpoint($desktop-sm) {
+        margin-bottom: 0;
+      }
+    }
+
+    .ant-collapse-item:nth-child(even) {
+      @include breakpoint($desktop-sm) {
+        background: #F8FAFD
+      }
     }
 
     &-border {
@@ -39,13 +48,28 @@
         box-shadow: 0px 8px 16px rgba(0, 45, 55, 0.12);
         border-radius: 8px;
       }
+
+      @include breakpoint($desktop-sm) {
+        padding-top: 24px;
+      }
     }
+
+    //.ant-collapse-content-box {
+    //  @include breakpoint($desktop-sm) {
+    //    padding-top: 0;
+    //  }
+    //}
   }
 
   .ant-collapse-item {
     padding: 4px 0;
     @include breakpoint($tablet-sm-exact) {
       padding: 10px 0;
+    }
+
+    @include breakpoint($desktop-sm) {
+      padding: 0;
+      //height: 64px;
     }
   }
 
@@ -103,6 +127,12 @@
 
       margin-bottom: 48px;
     }
+
+    @include breakpoint($desktop-sm) {
+      @include font-scale(x3-large);
+
+      margin-bottom: 54px;
+    }
   }
 
   &__tab{
@@ -141,18 +171,21 @@
         @include font-poppins($fw-semi-bold);
         @include font-scale(medium);
 
-        padding: 0 37px 0 66px;
+        padding: 0 37px 32px 66px;
         color: var(--text-primary);
-
-        .compare__row-title-col {
-          @include font-poppins($fw-semi-bold);
-        }
       }
 
-      @include breakpoint($tablet-sm-exact) {
-        .compare__row-title-col {
+      .compare__row-title-col {
+        @include breakpoint($tablet-sm-exact) {
           @include font-poppins($fw-medium);
           line-height: 24px;
+        }
+
+        @include breakpoint($desktop-sm) {
+          @include font-poppins($fw-semi-bold);
+          @include font-scale(medium);
+
+          line-height: 32px;
         }
       }
 
@@ -171,6 +204,19 @@
   &__row {
     @include font-noto-sans();
     @include font-scale(medium);
+
+    .compare__row-title {
+      @include breakpoint($desktop-sm) {
+        @include font-poppins($fw-regular);
+        @include font-scale(medium);
+
+        line-height: 32px;
+      }
+    }
+
+    @include breakpoint($desktop-sm) {
+      padding: 18px 0;
+    }
   }
 
   &__row-title {
@@ -182,6 +228,13 @@
 
     @include breakpoint($tablet-sm-exact) {
       line-height: 20px;
+    }
+
+    @include breakpoint($desktop-sm) {
+      @include font-poppins($fw-semi-bold);
+      @include font-scale(medium);
+
+      line-height: 32px;
     }
 
 
@@ -216,6 +269,10 @@
       justify-content: space-between;
       align-items: center;
       margin-left: -8px;
+
+      .compare__row-title {
+
+      }
     }
 
     &-cols {
@@ -281,6 +338,11 @@
     &-full-width {
       width: 40%;
     }
+
+    @include breakpoint($desktop-sm) {
+      line-height: 20px;
+      margin-left: 38px;
+    }
   }
 
   .ant-collapse-expand-icon {
@@ -291,6 +353,17 @@
 
       @include breakpoint($tablet-sm-exact) {
         font-size: 24px;
+      }
+
+      @include breakpoint($desktop-sm) {
+        padding-right: 16px;
+      }
+
+      svg {
+        @include breakpoint($desktop-sm) {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
 

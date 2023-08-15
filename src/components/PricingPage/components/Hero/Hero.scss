@@ -26,12 +26,20 @@
     @include breakpoint (833px) {
       margin: 30px auto 37px;
     }
+
+    @include breakpoint($desktop-sm) {
+      margin: 30px auto 26px;
+    }
   }
 
   &__btn-box {
     display: flex;
     justify-content: center;
     margin: 54px 0 64px;
+
+    @include breakpoint($desktop-sm) {
+      margin: 54px 0 80px;
+    }
   }
 
   &__title {
@@ -51,6 +59,8 @@
 
     @include breakpoint($desktop-sm) {
       @include font-scale(x4-large);
+
+      padding-top: 80px;
     }
   }
 
@@ -67,6 +77,12 @@
       margin-bottom: 54px;
       margin-top: 10px;
     }
+
+    @include breakpoint($desktop-sm) {
+      @include font-scale(x2-medium);
+
+      margin-top: 8px;
+    }
   }
 
   &__wrapper {
@@ -81,6 +97,11 @@
       flex-direction: column;
     }
 
+    @include breakpoint($desktop-sm) {
+      display: flex;
+      flex-direction: row;
+    }
+
     &-title {
       @include font-poppins($fw-semi-bold);
       @include font-scale(medium);
@@ -88,6 +109,10 @@
       line-height: 32px;
       margin-bottom: 5px;
       margin-right: 16px;
+
+      @include breakpoint($desktop-sm) {
+        margin-right: 10px;
+      }
     }
 
     &-subtitle {

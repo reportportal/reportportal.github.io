@@ -23,10 +23,6 @@ $mobile-horizontal-padding: 16px;
     @include font-poppins($fw-bold);
     @include font-scale(x4-medium);
   }
-
-  //@include breakpoint($desktop-sm) {
-  //  @include font-scale(x4-large);
-  //}
 }
 
 @mixin horizontal-spacer {
@@ -51,6 +47,7 @@ $mobile-horizontal-padding: 16px;
 
   @include breakpoint($desktop-sm) {
     padding-bottom: 212px;
+    padding-top: 0;
   }
 
   .faq_heading {
@@ -66,6 +63,14 @@ $mobile-horizontal-padding: 16px;
         @include font-poppins($fw-bold);
         @include font-scale(large);
       }
+
+      @include breakpoint($desktop-sm) {
+        @include font-poppins($fw-bold);
+        @include font-scale(x3-large);
+
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -77,6 +82,10 @@ $mobile-horizontal-padding: 16px;
 
     @include breakpoint($desktop-size-breakpoint) {
       width: 792px;
+    }
+
+    @include breakpoint($desktop-sm) {
+      margin-top: 80px;
     }
   }
 

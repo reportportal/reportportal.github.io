@@ -17,6 +17,7 @@
 
   @include breakpoint($desktop-sm) {
     flex-wrap: nowrap;
+    margin: -250px 16px 240px;
   }
 
   >div {
