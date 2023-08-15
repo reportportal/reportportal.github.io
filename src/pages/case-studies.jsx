@@ -16,9 +16,9 @@ const Cases = ({ data }) => {
   }, [displayCount, data.allContentfulCaseStudy.nodes]);
 
   return (
-    <Layout className="cases-page-layout" location={location}>
-      <CasesPage 
-        cases={nodes} 
+    <Layout className="cases-page-layout">
+      <CasesPage
+        cases={nodes}
         handleLoadMore={handleLoadMore}
         showLoadMore={displayCount < data.allContentfulCaseStudy.nodes.length}
       />
@@ -32,7 +32,12 @@ export const pageQuery = graphql`
       nodes {
         id
         industry
-        icon { 
+        icon {
+          file {
+            url
+          }
+        }
+        cardBackgroundImage {
           file {
             url
           }

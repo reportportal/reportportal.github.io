@@ -8,7 +8,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   actions.setWebpackConfig({
     devtool: 'eval-source-map',
-  })
+  });
 
   await axios
     .get('https://status.reportportal.io/github/stars')

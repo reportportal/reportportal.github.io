@@ -66,38 +66,27 @@
 }
 
 .cases-page__cases-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(1, 348px);
+  grid-gap: 20px;
+  justify-content: center;
+
   padding: 72px 0px 48px 0px;
-  margin: 0px 120px 0px 120px;
+  margin: 0px 24px 0px 24px;
   flex-wrap: wrap;
   align-items: center;
-  gap: 24px;
 
   @include breakpoint($tablet-sm-exact) {
-    &-item-box:nth-child(even) > .container {
-      flex-direction: row-reverse;
-    }
-  }
-  .healthcare {
-    background-image: url(../../svg/caseBg1.svg);     
-  } 
-
-  .retail {
-    background-image: url(../../svg/caseBg2.svg);
+    grid-template-columns: repeat(2, 348px);
   }
 
-  .fintech {
-    background-image: url(../../svg/caseBg4.svg);
-  }
-
-  .news_media {
-    background-image: url(../../svg/caseBg3.svg);
+  @include breakpoint($desktop-sm) {
+    grid-template-columns: repeat(4, 282px);
+    margin: 0px 120px 0px 120px;
   }
 
   &-item-box {
-    // flex: 1 0 calc(25% - 10px);
     display: flex;
-    width: 282px;
     height: 328px;
     padding: 24px;
     flex-direction: column;
@@ -109,14 +98,24 @@
     /* Shadow/Card */
     box-shadow: 0px 8px 16px 0px rgba(0, 45, 55, 0.12);
 
-    @include breakpoint($tablet-sm-exact) {
-      flex-direction: row;
-      align-items: flex-start;
+    @include breakpoint($desktop-sm) {
+      width: 100%;
     }
   }
 
   &-item {
+    position: relative;
+    display: flex;
+    height: 280px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    flex-shrink: 0;
+    align-self: stretch;
+
     &-trailing {
+      position: absolute;
+      top: 160px;
       p {
         color: var(--white);
         @include font-poppins($fw-semi-bold);
@@ -129,6 +128,7 @@
 
     &-leading {
       p {
+        margin-top: 0px;
         color: var(--white);
         text-align: left;
         font-feature-settings: 'clig' off, 'liga' off;
@@ -155,10 +155,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 48px;
-
+  margin-bottom: 120px;
   > p {
     color: var(--text-light-grey);
+  }
+  @include breakpoint($tablet-sm-exact) {
+    margin-bottom: 200px;
   }
 }
 
@@ -166,8 +168,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 48px;
-
+  margin-bottom: 120px;
   > div {
     display: flex;
     width: 180px;
@@ -184,12 +185,18 @@
       background-color: var(--primary-600, #009DBB);
       > p {
         color: var(--white);
+        @include font-poppins($fw-semi-bold);
       }
     }
 
     > p {
       color: var(--primary-600, #009DBB);
+      @include font-poppins($fw-semi-bold);
     }
+  }
+
+  @include breakpoint($tablet-sm-exact) {
+    margin-bottom: 200px;
   }
 }
 
@@ -220,6 +227,13 @@
     }
     > p {
       color: var(--primary-600, #009DBB);
+      font-feature-settings: 'clig' off, 'liga' off;
+      /* Desktop/Buttons/Button M */
+      @include font-poppins($fw-semi-bold);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 125% */
     }
   }
 }
