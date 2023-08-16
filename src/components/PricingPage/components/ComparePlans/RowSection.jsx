@@ -6,16 +6,27 @@ import { buttonsData } from './dataPlans';
 import { Link } from '../../../Link';
 
 import './ComparePlans.scss';
+import { useMediaQuery } from 'react-responsive';
+import { $tabletLg } from '../../../../utils/breakpoint';
 
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
 export const RowSection = ({ footer }) => <>{footer ? <FooterColumns /> : <TitleRow />}</>;
 
-const TitleRow = () => (
-  <div className={cx(getCompareContainer('__section'), getCompareContainer('__section-title'))}>
-    Premium Features
-  </div>
-);
+const TitleRow = () => {
+  const isDesktop = useMediaQuery({ query: $tabletLg });
+
+  return (
+    <div
+      className={cx(
+        isDesktop ? getCompareContainer('__section_features') : getCompareContainer('__section'),
+        getCompareContainer('__section-title'),
+      )}
+    >
+      Premium Features
+    </div>
+  );
+};
 
 const FooterColumns = () => (
   <div className={cx(getCompareContainer('__section'), getCompareContainer('__section-btns'))}>

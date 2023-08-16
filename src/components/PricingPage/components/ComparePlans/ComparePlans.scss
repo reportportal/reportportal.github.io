@@ -15,7 +15,7 @@
       }
 
       >.ant-collapse-header {
-        padding-left: 33px;
+        padding-left: 24px;
         padding-right: 24px;
 
         @include breakpoint($tablet-lg) {
@@ -36,6 +36,12 @@
     .ant-collapse-item:nth-child(even) {
       @include breakpoint($desktop-sm) {
         background: #F8FAFD
+      }
+    }
+
+    .ant-collapse-item:nth-last-child(2) {
+      @include breakpoint($desktop-sm) {
+        background: white;
       }
     }
 
@@ -76,6 +82,7 @@
   .ant-collapse-header:has(.compare__section) {
     @include font-noto-sans($fw-semi-bold);
     @include font-scale(base);
+    align-items: center;
 
     cursor: auto;
   }
@@ -110,6 +117,16 @@
     &-btns {
       padding: 0 0px 0 42px;
     }
+
+    &_features {
+      @include breakpoint($desktop-sm) {
+        @include font-scale();
+
+        font-weight: 600;
+        line-height: 24px;
+        padding: 18px 0;
+      }
+    }
   }
 
   &__title {
@@ -120,6 +137,9 @@
     margin-bottom: 64px;
     text-align: center;
     color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @include breakpoint($tablet-sm-exact) {
       @include font-poppins($fw-bold);
@@ -132,6 +152,20 @@
       @include font-scale(x3-large);
 
       margin-bottom: 54px;
+    }
+
+    &__arrow {
+      height: 24px;
+      width: 24px;
+      margin-left: 24px;
+
+      @include breakpoint($tablet-sm-exact) {
+        display: none;
+      }
+
+      @include breakpoint($desktop-sm) {
+        display: none;
+      }
     }
   }
 
@@ -225,10 +259,8 @@
     color: var(--text-primary);
     @include font-poppins($fw-regular);
     @include font-scale(small);
+    line-height: 20px;
 
-    @include breakpoint($tablet-sm-exact) {
-      line-height: 20px;
-    }
 
     @include breakpoint($desktop-sm) {
       @include font-poppins($fw-semi-bold);
@@ -246,8 +278,7 @@
       color: var(--text-service);
       text-align: center;
 
-      margin-top: -54px;
-      padding-top: 32px;
+      margin-top: -28px;
 
       > a {
         margin-left: 0;
@@ -347,8 +378,8 @@
 
   .ant-collapse-expand-icon {
     .compare__collapse-icon.anticon {
-      margin-top: 5px;
-      font-size: 18px;
+      //margin-top: 5px;
+      font-size: 24px;
       color: var(--text-primary);
 
       @include breakpoint($tablet-sm-exact) {
@@ -376,5 +407,4 @@
   &__cross-icon {
     margin-bottom: -2px;
   }
-
 }

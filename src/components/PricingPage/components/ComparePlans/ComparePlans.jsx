@@ -12,6 +12,7 @@ import { RowSection } from './RowSection';
 import { Description } from './Description';
 
 import './ComparePlans.scss';
+import { iconsCommon } from '../../../../utils/imageSource';
 
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
@@ -39,7 +40,10 @@ export const ComparePlans = () => {
 
   return (
     <div className={cx(getCompareContainer(), 'container')}>
-      <div className={getCompareContainer('__title')}>Compare plans</div>
+      <div className={getCompareContainer('__title')}>
+        Compare plans
+        <img className={getCompareContainer('__title__arrow')} src={iconsCommon.arrowDark} />
+      </div>
 
       {isDesktop ? (
         <ColumnsHeader title="Features" />
