@@ -12,6 +12,7 @@ import CloudIcon from './icons/cloud-icon.inline.svg';
 import ServerIcon from './icons/server-icon.inline.svg';
 
 import './PricingPage.scss';
+import { Banner } from "../InstallationPage/components/Banner";
 
 const buttons = [
   {
@@ -53,7 +54,10 @@ export const PricingPage = () => {
           <PricingCards discountState={discountState} pricingData={pricingData} />
           <ComparePlans />
           <Organizations />
-          <Faq />
+          <div className={'faq_contianer'}>
+            <Faq />
+          </div>
+          <Banner title="Do you still have questions?" linkTitle="Contact Us" link="#" />
         </>
       ) : (
         <p>Another page</p>

@@ -34,21 +34,9 @@ $mobile-horizontal-padding: 16px;
   @include horizontal-spacer();
 
   justify-content: center;
-  padding-top: 120px;
-  padding-bottom: 76px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @include breakpoint($tablet-sm-exact) {
-    padding-top: 155px;
-    padding-bottom: 168px;
-  }
-
-  @include breakpoint($desktop-sm) {
-    padding-bottom: 212px;
-    padding-top: 0;
-  }
 
   .faq_heading {
     text-align: center;
@@ -58,6 +46,8 @@ $mobile-horizontal-padding: 16px;
 
       max-width: 952px;
       max-height: 64px;
+      margin-top: 80px;
+      margin-bottom: 48px;
 
       @include breakpoint($tablet-sm-exact) {
         @include font-poppins($fw-bold);
@@ -68,14 +58,13 @@ $mobile-horizontal-padding: 16px;
         @include font-poppins($fw-bold);
         @include font-scale(x3-large);
 
-        margin-top: 0;
-        margin-bottom: 0;
+        margin-top: 120px;
+        margin-bottom: 64px;
       }
     }
   }
 
   .faq_content {
-    margin-top: 60px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -85,7 +74,7 @@ $mobile-horizontal-padding: 16px;
     }
 
     @include breakpoint($desktop-sm) {
-      margin-top: 80px;
+      //margin-top: 80px;
     }
   }
 

@@ -3,7 +3,6 @@ import React, { useState, useCallback } from 'react';
 import * as styles from './Faq.module.scss';
 import { collapsableList } from './faqData';
 import { CollapsePanel } from './components/CollapsePanel/CollapsePanel';
-import { Banner } from '../../../InstallationPage/components/Banner';
 import { Link } from '../../../Link';
 import { ArrowIcon } from '../../../Footer/icons';
 
@@ -46,7 +45,6 @@ export const Faq = () => {
           </p>
         </div>
       </div>
-      <Banner title="Do you still have questions?" linkTitle="Contact Us" link="#" />
     </>
   );
 };

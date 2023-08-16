@@ -9,7 +9,7 @@
   border-bottom: 1px solid #e4e8f1;
   line-height: 16px;
   //padding: 40px 0 22px 0;
-  padding: 24px 0 22px 0;
+  padding: 16px 0 1px 0;
   margin-left: 8px;
 
   @include breakpoint($tablet-sm-exact) {
@@ -21,7 +21,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    padding: 24px 0 22px;
+
+    @include breakpoint($tablet-sm-exact) {
+      align-items: center;
+    }
 
     h1 {
       @include font-poppins($fw-semi-bold);
@@ -29,15 +33,8 @@
 
       padding-left: 16px;
       color: #222b45;
-
-      @include breakpoint($tablet-sm-exact) {
-        margin: 24px 0 24px;
-      }
-
-      @include breakpoint($desktop-sm) {
-        margin: 24px 0 24px;
-        line-height: 24px;
-      }
+      line-height: 24px;
+      margin: 0;
     }
 
     img {
@@ -59,17 +56,14 @@
       color: #222b45;
 
       @include breakpoint($tablet-sm-exact) {
-        margin-top: 8px;
-        margin-bottom: 28px
+        margin-top: -8px;
+        margin-bottom: 28px;
+        line-height: 24px;
       }
 
       @include breakpoint($desktop-sm) {
         margin-top: -8px;
       }
-    }
-
-    @include breakpoint($tablet-sm-exact) {
-      line-height: 24px;
     }
   }
 
