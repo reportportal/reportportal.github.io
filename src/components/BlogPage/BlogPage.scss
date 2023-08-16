@@ -8,10 +8,9 @@
   padding: calc(72px + var(--header-height)) 16px 48px;
   margin-top: calc(-1 * var(--header-height));
   color: var(--white);
-  background: var(--color-primary-600);
-  background-image: url('../../components/InstallationPage/icons/group-244.svg');
+  background-image: url('./icons/background_blog-page.svg');
+  background-position: center 0;
   background-repeat: no-repeat;
-  background-size: cover;
   z-index: 20;
 
   &__main {
@@ -60,7 +59,7 @@
     @include font-scale(x2-medium);
 
     margin-top: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 100px;
     text-align: center;
   }
 
