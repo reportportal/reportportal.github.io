@@ -1,0 +1,355 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/mixins/breakpoint';
+@import 'src/styles/variables';
+
+.approach {
+  padding: 120px 0;
+  margin-bottom: -120px;
+  color: var(--white);
+  background: url("../../../svg/testing/DarkBackgound.svg");
+  background-size: cover;
+
+  @include breakpoint($tablet-sm-exact) {
+    padding: 120px 0 105px;
+  }
+
+  @include breakpoint($desktop-sm) {
+    padding: 120px 0 0;
+    margin-bottom: -85px;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__description {
+    @include font-noto-sans();
+    @include font-scale(x2-medium);
+
+    max-width: 992px;
+    text-align: center;
+    margin-bottom: 58px;
+
+    @include breakpoint($tablet-sm-exact) {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__phases {
+    position: relative;
+    height: 1430px;
+    margin-bottom: 120px;
+    background:
+      url("../../../svg/testing/HorizontalLine.svg") no-repeat,
+      url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 26%,
+      url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 51%,
+      url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 75%,
+      url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 98%;
+
+    @include breakpoint($tablet-sm-exact) {
+      height: 1345px;
+      background:
+        url("../../../svg/testing/HorizontalLine.svg") no-repeat,
+        url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 20%,
+        url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 40%,
+        url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 60%,
+        url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 80%;
+      background-size: 100%;
+    }
+
+    @include breakpoint($desktop-sm) {
+      height: auto;
+      background:
+        url("../../../svg/testing/VerticalLine.svg") no-repeat,
+        url("../../../svg/testing/VerticalLine.svg") no-repeat 20%,
+        url("../../../svg/testing/VerticalLine.svg") no-repeat 40%,
+        url("../../../svg/testing/VerticalLine.svg") no-repeat 60%,
+        url("../../../svg/testing/VerticalLine.svg") no-repeat 80%;
+    }
+  }
+
+  &__months {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 70px;
+    height: 1414px;
+    position: absolute;
+    top: -26px;
+    right: 40%;
+
+    @include breakpoint($tablet-sm-exact) {
+      justify-content: space-around;
+      align-items: flex-end;
+      top: 0;
+      right: 0;
+      height: 1345px;
+    }
+
+    @include breakpoint($desktop-sm) {
+      position: static;
+      flex-direction: row;
+      margin-bottom: 70px;
+      height: auto;
+    }
+  }
+
+  .phase {
+    display: flex;
+    padding-bottom: 8px;
+    margin-bottom: 32px;
+
+    &--short {
+      min-width: 100%;
+
+      @include breakpoint($tablet-sm-exact) {
+        width: 290px;
+        min-width: 240px;
+      }
+
+      @include breakpoint($desktop-sm) {
+        width: 240px;
+      }
+    }
+
+    &__dropdown, &__info, &-forth__new-apps {
+      position: relative;
+
+      &::before {
+        content: "";
+        background-color: var(--color-primary-300);
+        font-weight: bold;
+        position: absolute;
+        left: -20px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        top: 0;
+      }
+      &::after {
+        content: "";
+        background-color: var(--color-primary-300);
+        font-weight: bold;
+        position: absolute;
+        left: -16px;
+        width: 2px;
+        height: 100%;
+        top: 4px;
+      }
+
+      @include breakpoint($tablet-sm-exact) {
+        &::before {
+          left: -54px;
+          top: 0;
+        }
+        &::after {
+          left: -50px;
+          top: 4px;
+        }
+      }
+
+      @include breakpoint($desktop-sm) {
+        &::before {
+          left: 0;
+          top: 24px;
+        }
+
+        &::after {
+          left: 0;
+          width: 100%;
+          height: 2px;
+          top: 28px;
+        }
+      }
+    }
+
+    &-first {
+      position: relative;
+      height: 380px;
+      margin-left: 16px;
+      margin-bottom: 0;
+
+      @include breakpoint($tablet-sm-exact) {
+        margin-left: 90px;
+        height: 242px;
+        margin-bottom: 30px;
+      }
+
+      @include breakpoint($desktop-sm) {
+        margin-left: 0;
+        height: auto;
+      }
+
+      .phase__info {
+        position: absolute;
+        display: flex;
+        top: 350px;
+        height: 1077px;
+
+        @include breakpoint($tablet-sm-exact) {
+          align-items: center;
+          top: 238px;
+        }
+
+        @include breakpoint($desktop-sm) {
+          position: static;
+          display: inline-block;
+          width: 100%;
+          height: auto;
+          text-align: center;
+        }
+      }
+    }
+
+    &-second {
+      height: 350px;
+      margin-left: 32px;
+      margin-bottom: 0;
+
+      @include breakpoint($tablet-sm-exact) {
+        margin-left: 195px;
+        height: 270px;
+
+        .phase--short {
+          width: 440px;
+        }
+      }
+
+      @include breakpoint($desktop-sm) {
+        margin-left: 241px;
+        height: auto;
+        margin-bottom: 32px;
+      }
+
+      .phase__dropdown {
+        &::before, &::after {
+          background-color: var(--color-primary-500);
+        }
+      }
+    }
+
+    &-third {
+      height: 350px;
+      margin-left: 56px;
+      margin-bottom: 0;
+
+      @include breakpoint($tablet-sm-exact) {
+        margin-left: 300px;
+        height: 238px;
+        width: 717px;
+        margin-bottom: 32px;
+      }
+
+      @include breakpoint($desktop-sm) {
+        justify-content: center;
+        margin-left: 482px;
+        height: auto;
+      }
+
+      .phase__dropdown {
+        &::after {
+          height: 699px;
+        }
+
+        @include breakpoint($tablet-sm-exact) {
+          width: 340px;
+
+          &::after {
+            height: 767px;
+          }
+        }
+
+        @include breakpoint($desktop-sm) {
+          width: 100%;
+
+          &::after {
+            height: 2px;
+          }
+        }
+
+        &::before, &::after {
+          background-color: var(--color-primary-700);
+        }
+      }
+    }
+
+    &-forth {
+      padding-bottom: 145px;
+      margin-left: 76px;
+
+      @include breakpoint($tablet-sm-exact) {
+        margin-left: 400px;
+      }
+
+      @include breakpoint($desktop-sm) {
+        margin-left: 721px;
+      }
+
+      &__new-apps {
+        @include font-poppins($fw-semi-bold);
+        @include font-scale();
+
+        width: 100%;
+
+        &::after {
+          height: 348px;
+        }
+
+
+        @include breakpoint($tablet-sm-exact) {
+          &::after {
+            height: 495px;
+          }
+        }
+
+        @include breakpoint($desktop-sm) {
+          text-align: center;
+
+          &::after {
+            height: 2px;
+          }
+        }
+
+        &::before, &::after {
+          background-color: var(--graphics-amber);
+        }
+      }
+    }
+  }
+
+  .apply-our-service {
+    display: flex;
+    padding-top: 64px;
+    padding-bottom: 32px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+
+    @include breakpoint($tablet-sm-exact) {
+      padding-top: 184px;
+    }
+
+    &__heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+  }
+
+  &__footer-bg {
+    height: 114px;
+    background: url('../../../svg/testing/FooterTriangles.svg') no-repeat center;
+    background-size: cover;
+
+    @include breakpoint($tablet-sm-exact) {
+      height: 230px;
+    }
+  }
+}

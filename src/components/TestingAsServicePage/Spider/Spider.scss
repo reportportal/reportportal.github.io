@@ -1,0 +1,119 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.spider {
+  @include breakpoint($tablet-sm-exact) {
+    padding: 120px 0;
+  }
+
+  .spider-container {
+    display: none;
+
+    @include breakpoint($tablet-sm-exact) {
+      padding: 0 45px;
+      display: flex;
+      justify-content: center;
+    }
+
+    @include breakpoint($desktop-sm) {
+      padding: 68px 62px;
+    }
+
+    &__image {
+      padding: 5px;
+      width: 270px;
+      height: 345px;
+
+      @include breakpoint($desktop-sm) {
+        width: 451px;
+        height: 587px;
+      }
+    }
+
+    &__aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 184px;
+
+      @include breakpoint($desktop-sm) {
+        width: 310px;
+      }
+    }
+
+    &__text {
+      @include font-poppins($fw-semi-bold);
+      @include font-scale(small);
+
+      padding: 14px;
+      border-radius: 16px;
+      color: var(--text-primary);
+      background: var(--white);
+      box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
+
+      @include breakpoint($desktop-sm) {
+        @include font-poppins($fw-bold);
+        @include font-scale(x3-medium);
+
+        padding: 24px;
+      }
+    }
+  }
+
+  .line-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 120px 0;
+
+    &__heading {
+      @include font-poppins($fw-semi-bold);
+      @include font-scale(medium);
+
+      width: 328px;
+      padding: 24px;
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
+      color: var(--text-primary);
+      text-align: center;
+    }
+
+    &__line-block {
+      @include font-noto-sans();
+      @include font-scale();
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 328px;
+      height: 400px;
+      background: url('../../../svg/testing/Line.svg') no-repeat 15% 0;
+      background-size: 140px 385px;;
+
+      &-item {
+        display: flex;
+        width: 240px;
+        padding: 8px;
+        margin-left: 80px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        color: var(--text-primary);
+
+        &:first-child {
+          margin-top: 43px;
+        }
+      }
+    }
+
+    @include breakpoint($tablet-sm-exact) {
+      display: none;
+    }
+  }
+}
+
+

@@ -1,0 +1,48 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/mixins/breakpoint';
+@import 'src/styles/variables';
+
+.challenges {
+  background-image: url(../../../svg/testing/GrayVector.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &__wrapper {
+    max-width: 1175px;
+    padding: 120px 16px;
+
+    @include breakpoint($tablet-sm-exact) {
+      padding: 120px 24px;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+
+    @include breakpoint($tablet-sm-exact) {
+      justify-content: space-between;
+    }
+
+    &-item {
+      @include font-poppins($fw-semi-bold);
+      @include font-scale(medium);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 352px;
+      height: 160px;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px 0 rgba(0, 45, 55, 0.12);
+      color: var(--text-primary);
+      text-align: center;
+      background: var(--white) url('../../../svg/testing/CheckedCorner.svg') no-repeat;
+    }
+  }
+}

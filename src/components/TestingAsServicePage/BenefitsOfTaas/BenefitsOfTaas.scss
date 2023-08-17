@@ -1,0 +1,65 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.benefits-of-taas {
+  padding: 120px 0;
+
+  @include breakpoint($tablet-sm-exact) {
+    @include font-scale(x3-large);
+    padding-bottom: 120px;
+  }
+
+  @include breakpoint($desktop-sm) {
+    padding: 80px 120px;
+  }
+
+  &__content {
+    margin-top: 64px;
+
+    @include breakpoint($tablet-sm-exact) {
+      padding-left: 90px;
+      padding-right: 90px;
+    }
+  }
+}
+
+.benefits-of-taas-list {
+  gap: 52px;
+  display: grid;
+  grid-template-columns: repeat(1, 280px);
+  justify-content: center;
+
+  @include breakpoint($tablet-sm-exact) {
+    gap: 24px;
+    justify-content: space-around;
+    grid-template-columns: repeat(2, 280px);
+  }
+
+  @include breakpoint($desktop-sm) {
+    justify-content: center;
+    grid-template-columns: repeat(4, 280px);
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 1;
+    width: 282px;
+
+    svg {
+      margin-bottom: 40px;
+    }
+
+    span {
+      @include font-noto-sans();
+      @include font-scale(medium);
+
+      display: inline-block;
+      color: var(--text-primary);
+      text-align: center;
+    }
+  }
+}

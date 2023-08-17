@@ -1,0 +1,75 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/mixins/breakpoint';
+@import 'src/styles/variables';
+
+.unordered-list {
+  position: relative;
+  padding: 24px 0;
+
+  &__title {
+    @include font-poppins($fw-semi-bold);
+    @include font-scale();
+
+    color: var(--text-primary);
+    padding-left: 28px;
+    margin-bottom: 8px;
+  }
+
+  &__list {
+    @include font-noto-sans();
+    @include font-scale();
+
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text-primary);
+
+    &-item {
+      position: relative;
+      padding-left: 28px;
+
+      &::before {
+        content: "\2022";
+        color: var(--color-primary-400);
+        font-weight: bold;
+        display: inline-block;
+        position: absolute;
+        left: 8px;
+        width: 8px;
+      }
+    }
+
+    &-description {
+      @include font-poppins($fw-semi-bold);
+      @include font-scale();
+
+      color: var(--white);
+      padding-left: 24px;
+    }
+  }
+
+  &.separator {
+    &::after {
+      content: "";
+      color: var(--color-primary-400);
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 264px;
+      height: 2px;
+      background-color: var(--purple-grey);
+
+      @include breakpoint($desktop-sm) {
+        left: auto;
+        bottom: auto;
+        right: -10px;
+        top: 0;
+        width: 2px;
+        height: 212px;
+      }
+    }
+  }
+}
