@@ -19,9 +19,9 @@ export const ServiceHours = () => (
     </div>
     <div className="service-hours__equals">
       <div className="service-hours__equals-images">
-        <IconBlock type="pentagon" />
+        <IconBlock type="pentagon" number={1} text="Professional" benefit="service hour" />
         <div className="service-hours__equals-images--equal" />
-        <IconBlock type="circle" />
+        <IconBlock type="circle" number={1} text="Hour of" benefit="testing" />
       </div>
       <UnorderedList list={SERVICE_HOURS_LIST} />
     </div>
