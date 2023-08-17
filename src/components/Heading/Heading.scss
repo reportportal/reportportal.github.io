@@ -1,32 +1,30 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .heading {
-  @include font-poppins($fw-bold);
+  @include m.font-poppins(v.$fw-bold);
 
   margin: 0;
   text-align: center;
 }
 
 .secondary-heading {
-  @include font-scale(x4-medium);
+  @include m.font-scale(x4-medium);
 
-  @include breakpoint($phone-lg) {
-    @include font-scale(large);
+  @include m.breakpoint(v.$phone-lg) {
+    @include m.font-scale(large);
   }
 
-  @include breakpoint($tablet-sm-exact) {
-    @include font-scale(x3-large);
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    @include m.font-scale(x3-large);
   }
 }
 
 .third-heading {
-  @include font-scale(x3-medium);
+  @include m.font-scale(x3-medium);
 
-  @include breakpoint($phone-lg) {
-    @include font-scale(large);
+  @include m.breakpoint(v.$phone-lg) {
+    @include m.font-scale(large);
   }
 }
 

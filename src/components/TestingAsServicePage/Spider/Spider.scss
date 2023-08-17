@@ -1,23 +1,21 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/variables';
-@import 'src/styles/mixins/breakpoint';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .spider {
-  @include breakpoint($tablet-sm-exact) {
+  @include m.breakpoint(v.$tablet-sm-exact) {
     padding: 120px 0;
   }
 
   .spider-container {
     display: none;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       padding: 0 45px;
       display: flex;
       justify-content: center;
     }
 
-    @include breakpoint($desktop-sm) {
+    @include m.breakpoint(v.$desktop-sm) {
       padding: 68px 62px;
     }
 
@@ -26,7 +24,7 @@
       width: 270px;
       height: 345px;
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         width: 451px;
         height: 587px;
       }
@@ -38,14 +36,14 @@
       justify-content: space-between;
       width: 184px;
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         width: 310px;
       }
     }
 
     &__text {
-      @include font-poppins($fw-semi-bold);
-      @include font-scale(small);
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(small);
 
       padding: 14px;
       border-radius: 16px;
@@ -53,9 +51,9 @@
       background: var(--white);
       box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
 
-      @include breakpoint($desktop-sm) {
-        @include font-poppins($fw-bold);
-        @include font-scale(x3-medium);
+      @include m.breakpoint(v.$desktop-sm) {
+        @include m.font-poppins(v.$fw-bold);
+        @include m.font-scale(x3-medium);
 
         padding: 24px;
       }
@@ -69,8 +67,8 @@
     padding: 120px 0;
 
     &__heading {
-      @include font-poppins($fw-semi-bold);
-      @include font-scale(medium);
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(medium);
 
       width: 328px;
       padding: 24px;
@@ -82,8 +80,8 @@
     }
 
     &__line-block {
-      @include font-noto-sans();
-      @include font-scale();
+      @include m.font-noto-sans();
+      @include m.font-scale();
 
       display: flex;
       flex-direction: column;
@@ -92,7 +90,7 @@
       width: 328px;
       height: 400px;
       background: url('../../../svg/testing/Line.svg') no-repeat 15% 0;
-      background-size: 140px 385px;;
+      background-size: 140px 385px;
 
       &-item {
         display: flex;
@@ -110,10 +108,8 @@
       }
     }
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       display: none;
     }
   }
 }
-
-

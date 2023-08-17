@@ -1,11 +1,9 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .list-dropdown {
-  @include font-poppins($fw-semi-bold);
-  @include font-scale();
+  @include m.font-poppins(v.$fw-semi-bold);
+  @include m.font-scale();
 
   width: 100%;
 
@@ -18,11 +16,10 @@
     cursor: pointer;
     margin-bottom: 5px;
 
-    @include breakpoint($tablet-sm-exact) {
-
+    @include m.breakpoint(v.$tablet-sm-exact) {
     }
 
-    @include breakpoint($desktop-sm) {
+    @include m.breakpoint(v.$desktop-sm) {
       justify-content: center;
     }
   }
@@ -39,7 +36,7 @@
 
   .unordered-list {
     padding: 24px 8px;
-    background: linear-gradient(180deg, rgba(0, 180, 213, 0.24) 0%, rgba(102, 210, 230, 0.00) 100%);
+    background: linear-gradient(180deg, rgba(0, 180, 213, 0.24) 0%, rgba(102, 210, 230, 0) 100%);
 
     &__list-item {
       color: var(--white);

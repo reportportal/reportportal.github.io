@@ -1,16 +1,14 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .service-hours {
   padding: 120px 16px;
 
-  @include breakpoint($tablet-sm-exact) {
+  @include m.breakpoint(v.$tablet-sm-exact) {
     padding: 120px 24px;
   }
 
-  @include breakpoint($desktop-sm) {
+  @include m.breakpoint(v.$desktop-sm) {
     padding: 120px 0;
   }
 
@@ -21,14 +19,14 @@
     gap: 16px;
     margin-bottom: 59px;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       margin-bottom: 0;
     }
   }
 
   &__description {
-    @include font-noto-sans();
-    @include font-scale(x2-medium);
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
 
     max-width: 992px;
     text-align: center;
@@ -42,7 +40,7 @@
     align-items: center;
     max-width: 928px;
     margin: 0 auto;
-    background: url("../../../svg/testing/Illustrayion.svg") no-repeat;
+    background: url('../../../svg/testing/Illustrayion.svg') no-repeat;
 
     &-images {
       display: flex;
@@ -50,7 +48,7 @@
       align-items: center;
       gap: 49px;
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         flex-direction: row;
       }
 
@@ -63,17 +61,17 @@
     }
 
     .unordered-list {
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         align-self: flex-end;
       }
 
       &__list {
-        @include font-scale(medium);
+        @include m.font-scale(medium);
 
         gap: 16px;
         padding-left: 4px;
 
-        @include breakpoint($tablet-sm-exact) {
+        @include m.breakpoint(v.$tablet-sm-exact) {
           padding-left: 0;
         }
       }

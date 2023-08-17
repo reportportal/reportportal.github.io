@@ -1,7 +1,5 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .icon-block {
   display: flex;
@@ -12,25 +10,26 @@
   text-align: center;
 
   &__number {
-    @include font-poppins($fw-bold);
-    @include font-scale(x4-large);
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-large);
   }
 
   &__text {
-    @include font-noto-sans();
-    @include font-scale();
+    @include m.font-noto-sans();
+    @include m.font-scale();
   }
 
   &__benefit {
-    @include font-poppins($fw-semi-bold);
-    @include font-scale(medium);
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(medium);
   }
 }
 
 .pentagon {
   width: 266px;
   height: 291px;
-  background: url('icons/PentagonVector.svg') no-repeat 14px 7px, url('icons/PentagonSubtract.svg') no-repeat -10px -10px;
+  background: url('icons/PentagonVector.svg') no-repeat 14px 7px,
+    url('icons/PentagonSubtract.svg') no-repeat -10px -10px;
   background-size: 242px 235px, 288px 313px;
 }
 

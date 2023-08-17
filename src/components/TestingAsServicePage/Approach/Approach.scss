@@ -1,20 +1,18 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .approach {
   padding: 120px 0;
   margin-bottom: -120px;
   color: var(--white);
-  background: url("../../../svg/testing/DarkBackgound.svg");
+  background: url('../../../svg/testing/DarkBackgound.svg');
   background-size: cover;
 
-  @include breakpoint($tablet-sm-exact) {
+  @include m.breakpoint(v.$tablet-sm-exact) {
     padding: 120px 0 105px;
   }
 
-  @include breakpoint($desktop-sm) {
+  @include m.breakpoint(v.$desktop-sm) {
     padding: 120px 0 0;
     margin-bottom: -85px;
   }
@@ -27,14 +25,14 @@
   }
 
   &__description {
-    @include font-noto-sans();
-    @include font-scale(x2-medium);
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
 
     max-width: 992px;
     text-align: center;
     margin-bottom: 58px;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       margin-bottom: 80px;
     }
   }
@@ -43,32 +41,29 @@
     position: relative;
     height: 1430px;
     margin-bottom: 120px;
-    background:
-      url("../../../svg/testing/HorizontalLine.svg") no-repeat,
-      url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 26%,
-      url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 51%,
-      url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 75%,
-      url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 98%;
+    background: url('../../../svg/testing/HorizontalLine.svg') no-repeat,
+      url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 26%,
+      url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 51%,
+      url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 75%,
+      url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 98%;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       height: 1345px;
-      background:
-        url("../../../svg/testing/HorizontalLine.svg") no-repeat,
-        url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 20%,
-        url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 40%,
-        url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 60%,
-        url("../../../svg/testing/HorizontalLine.svg") no-repeat 0 80%;
+      background: url('../../../svg/testing/HorizontalLine.svg') no-repeat,
+        url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 20%,
+        url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 40%,
+        url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 60%,
+        url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 80%;
       background-size: 100%;
     }
 
-    @include breakpoint($desktop-sm) {
+    @include m.breakpoint(v.$desktop-sm) {
       height: auto;
-      background:
-        url("../../../svg/testing/VerticalLine.svg") no-repeat,
-        url("../../../svg/testing/VerticalLine.svg") no-repeat 20%,
-        url("../../../svg/testing/VerticalLine.svg") no-repeat 40%,
-        url("../../../svg/testing/VerticalLine.svg") no-repeat 60%,
-        url("../../../svg/testing/VerticalLine.svg") no-repeat 80%;
+      background: url('../../../svg/testing/VerticalLine.svg') no-repeat,
+        url('../../../svg/testing/VerticalLine.svg') no-repeat 20%,
+        url('../../../svg/testing/VerticalLine.svg') no-repeat 40%,
+        url('../../../svg/testing/VerticalLine.svg') no-repeat 60%,
+        url('../../../svg/testing/VerticalLine.svg') no-repeat 80%;
     }
   }
 
@@ -82,7 +77,7 @@
     top: -26px;
     right: 40%;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       justify-content: space-around;
       align-items: flex-end;
       top: 0;
@@ -90,7 +85,7 @@
       height: 1345px;
     }
 
-    @include breakpoint($desktop-sm) {
+    @include m.breakpoint(v.$desktop-sm) {
       position: static;
       flex-direction: row;
       margin-bottom: 70px;
@@ -106,21 +101,23 @@
     &--short {
       min-width: 100%;
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         width: 290px;
         min-width: 240px;
       }
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         width: 240px;
       }
     }
 
-    &__dropdown, &__info, &-forth__new-apps {
+    &__dropdown,
+    &__info,
+    &-forth__new-apps {
       position: relative;
 
       &::before {
-        content: "";
+        content: '';
         background-color: var(--color-primary-300);
         font-weight: bold;
         position: absolute;
@@ -131,7 +128,7 @@
         top: 0;
       }
       &::after {
-        content: "";
+        content: '';
         background-color: var(--color-primary-300);
         font-weight: bold;
         position: absolute;
@@ -141,7 +138,7 @@
         top: 4px;
       }
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         &::before {
           left: -54px;
           top: 0;
@@ -152,7 +149,7 @@
         }
       }
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         &::before {
           left: 0;
           top: 24px;
@@ -173,13 +170,13 @@
       margin-left: 16px;
       margin-bottom: 0;
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         margin-left: 90px;
         height: 242px;
         margin-bottom: 30px;
       }
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         margin-left: 0;
         height: auto;
       }
@@ -190,12 +187,12 @@
         top: 350px;
         height: 1077px;
 
-        @include breakpoint($tablet-sm-exact) {
+        @include m.breakpoint(v.$tablet-sm-exact) {
           align-items: center;
           top: 238px;
         }
 
-        @include breakpoint($desktop-sm) {
+        @include m.breakpoint(v.$desktop-sm) {
           position: static;
           display: inline-block;
           width: 100%;
@@ -210,7 +207,7 @@
       margin-left: 32px;
       margin-bottom: 0;
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         margin-left: 195px;
         height: 270px;
 
@@ -219,14 +216,15 @@
         }
       }
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         margin-left: 241px;
         height: auto;
         margin-bottom: 32px;
       }
 
       .phase__dropdown {
-        &::before, &::after {
+        &::before,
+        &::after {
           background-color: var(--color-primary-500);
         }
       }
@@ -237,14 +235,14 @@
       margin-left: 56px;
       margin-bottom: 0;
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         margin-left: 300px;
         height: 238px;
         width: 717px;
         margin-bottom: 32px;
       }
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         justify-content: center;
         margin-left: 482px;
         height: auto;
@@ -255,7 +253,7 @@
           height: 699px;
         }
 
-        @include breakpoint($tablet-sm-exact) {
+        @include m.breakpoint(v.$tablet-sm-exact) {
           width: 340px;
 
           &::after {
@@ -263,7 +261,7 @@
           }
         }
 
-        @include breakpoint($desktop-sm) {
+        @include m.breakpoint(v.$desktop-sm) {
           width: 100%;
 
           &::after {
@@ -271,7 +269,8 @@
           }
         }
 
-        &::before, &::after {
+        &::before,
+        &::after {
           background-color: var(--color-primary-700);
         }
       }
@@ -281,17 +280,17 @@
       padding-bottom: 145px;
       margin-left: 76px;
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         margin-left: 400px;
       }
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         margin-left: 721px;
       }
 
       &__new-apps {
-        @include font-poppins($fw-semi-bold);
-        @include font-scale();
+        @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale();
 
         width: 100%;
 
@@ -299,14 +298,13 @@
           height: 348px;
         }
 
-
-        @include breakpoint($tablet-sm-exact) {
+        @include m.breakpoint(v.$tablet-sm-exact) {
           &::after {
             height: 495px;
           }
         }
 
-        @include breakpoint($desktop-sm) {
+        @include m.breakpoint(v.$desktop-sm) {
           text-align: center;
 
           &::after {
@@ -314,7 +312,8 @@
           }
         }
 
-        &::before, &::after {
+        &::before,
+        &::after {
           background-color: var(--graphics-amber);
         }
       }
@@ -331,7 +330,7 @@
     gap: 32px;
     align-self: stretch;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       padding-top: 184px;
     }
 
@@ -348,7 +347,7 @@
     background: url('../../../svg/testing/FooterTriangles.svg') no-repeat center;
     background-size: cover;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       height: 230px;
     }
   }

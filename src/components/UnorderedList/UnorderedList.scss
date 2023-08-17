@@ -1,15 +1,13 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .unordered-list {
   position: relative;
   padding: 24px 0;
 
   &__title {
-    @include font-poppins($fw-semi-bold);
-    @include font-scale();
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale();
 
     color: var(--text-primary);
     padding-left: 28px;
@@ -17,8 +15,8 @@
   }
 
   &__list {
-    @include font-noto-sans();
-    @include font-scale();
+    @include m.font-noto-sans();
+    @include m.font-scale();
 
     display: inline-flex;
     flex-direction: column;
@@ -31,7 +29,7 @@
       padding-left: 28px;
 
       &::before {
-        content: "\2022";
+        content: '\2022';
         color: var(--color-primary-400);
         font-weight: bold;
         display: inline-block;
@@ -42,8 +40,8 @@
     }
 
     &-description {
-      @include font-poppins($fw-semi-bold);
-      @include font-scale();
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale();
 
       color: var(--white);
       padding-left: 24px;
@@ -52,7 +50,7 @@
 
   &.separator {
     &::after {
-      content: "";
+      content: '';
       color: var(--color-primary-400);
       display: inline-block;
       position: absolute;
@@ -62,7 +60,7 @@
       height: 2px;
       background-color: var(--purple-grey);
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         left: auto;
         bottom: auto;
         right: -10px;

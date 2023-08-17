@@ -1,7 +1,5 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .challenges {
   background-image: url(../../../svg/testing/GrayVector.svg);
@@ -12,7 +10,7 @@
     max-width: 1175px;
     padding: 120px 16px;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       padding: 120px 24px;
     }
   }
@@ -24,13 +22,13 @@
     gap: 16px;
     margin-top: 32px;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       justify-content: space-between;
     }
 
     &-item {
-      @include font-poppins($fw-semi-bold);
-      @include font-scale(medium);
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(medium);
 
       display: flex;
       justify-content: center;

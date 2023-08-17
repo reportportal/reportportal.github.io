@@ -1,7 +1,5 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .testing-as-service {
   &__header {
@@ -17,28 +15,28 @@
     text-align: center;
 
     h1 {
-      @include font-noto-sans($fw-semi-bold);
-      @include font-scale();
+      @include m.font-noto-sans(v.$fw-semi-bold);
+      @include m.font-scale();
 
       text-transform: uppercase;
       color: var(--color-primary-200);
     }
 
     h2 {
-      @include font-poppins($fw-bold);
-      @include font-scale(large);
+      @include m.font-poppins(v.$fw-bold);
+      @include m.font-scale(large);
 
       margin: 0 auto;
       color: var(--white);
 
-      @include breakpoint($tablet-sm-exact) {
-        @include font-scale(x4-large);
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        @include m.font-scale(x4-large);
 
         width: 720px;
         margin-top: 16px;
       }
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         width: 900px;
       }
     }
@@ -51,13 +49,13 @@
     flex-shrink: 0;
     padding-top: 80px;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       padding-bottom: 33px;
     }
 
     &-text {
-      @include font-noto-sans();
-      @include font-scale(medium);
+      @include m.font-noto-sans();
+      @include m.font-scale(medium);
 
       display: flex;
       flex-direction: column;
