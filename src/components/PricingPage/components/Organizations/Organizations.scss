@@ -79,9 +79,8 @@
 
     @include breakpoint($tablet-sm-exact) {
       display: block;
-      margin: 20px 15px;
-      width: 80px;
-      //margin: 20px;
+      margin: 0 15px 32px;
+      max-width: 100px;
       text-align: center;
     }
 

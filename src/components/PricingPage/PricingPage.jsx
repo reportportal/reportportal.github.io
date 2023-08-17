@@ -57,7 +57,9 @@ export const PricingPage = () => {
           <div className={'faq_contianer'}>
             <Faq />
           </div>
-          <Banner title="Do you still have questions?" linkTitle="Contact Us" link="#" />
+          <div className={'still_have_question'}>
+            <Banner title="Do you still have questions?" linkTitle="Contact Us" link="#" />
+          </div>
         </>
       ) : (
         <p>Another page</p>
