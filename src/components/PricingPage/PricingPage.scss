@@ -2,14 +2,14 @@
 @import 'src/styles/variables';
 
 .faq_contianer{
-  margin-top: 80px;
+  margin-top: 120px;
 
   @include breakpoint($tablet-sm-exact) {
-    margin-top: 100px;
+    margin-top: 144px;
   }
 
   @include breakpoint($desktop-sm) {
-    margin-top: 99px;
+    margin-top: 171px;
   }
 }
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
 import * as styles from './CollapsePanel.module.scss';
-import { iconsCommon } from '../../../../../../utils/imageSource';
+import { iconsCommon } from '../../../../utils/imageSource';
 
 export const CollapsePanel = ({ title, description, index, onClick, isShow }) => {
+  console.log(typeof description);
   return (
     <div className={styles.faq_content_item} key={title}>
       <div className={styles.faq_content_item_title}>
@@ -20,9 +21,9 @@ export const CollapsePanel = ({ title, description, index, onClick, isShow }) =>
           [styles.collapsed]: !isShow,
         })}
       >
-        {description.split('\n').map((str, idx) => (
-          <p key={idx + str.slice(5)}>{str}</p>
-        ))}
+        {typeof description === 'object'
+          ? description
+          : description.split('\n')?.map((str, idx) => <p key={idx + str.slice(5)}>{str}</p>)}
       </div>
     </div>
   );

@@ -1,12 +1,11 @@
 import React, { useState, useCallback } from 'react';
 
 import * as styles from './Faq.module.scss';
-import { collapsableList } from './faqData';
 import { CollapsePanel } from './components/CollapsePanel/CollapsePanel';
-import { Link } from '../../../Link';
-import { ArrowIcon } from '../../../Footer/icons';
+import { Link } from '../Link';
+import { ArrowIcon } from '../Footer/icons';
 
-export const Faq = () => {
+export const Faq = ({ collapsableList, showMoreInfoLink = true }) => {
   const [shownItems, setShownItems] = useState(() => collapsableList.map(() => false));
 
   const updateArrowStatus = useCallback(
@@ -35,15 +34,17 @@ export const Faq = () => {
             />
           ))}
         </div>
-        <div className={styles.faq_link}>
-          <p>
-            More information on the link to our
-            <Link className={styles.faq_doc_link} to={''}>
-              {'    Documentation   '}
-              <ArrowIcon />
-            </Link>
-          </p>
-        </div>
+        {showMoreInfoLink && (
+          <div className={styles.faq_link}>
+            <p>
+              More information on the link to our
+              <Link className={styles.faq_doc_link} to={''}>
+                {'    Documentation   '}
+                <ArrowIcon />
+              </Link>
+            </p>
+          </div>
+        )}
       </div>
     </>
   );

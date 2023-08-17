@@ -6,13 +6,14 @@ import { PricingCards } from './components/PricingCards';
 import { ComparePlans } from './components/ComparePlans';
 import { pricingData } from './components/PricingCards/pricingData';
 import { Organizations } from './components/Organizations';
-import { Faq } from './components/Faq';
+import { Faq } from '../Faq';
 
 import CloudIcon from './icons/cloud-icon.inline.svg';
 import ServerIcon from './icons/server-icon.inline.svg';
 
 import './PricingPage.scss';
 import { Banner } from '../InstallationPage/components/Banner';
+import { collapsableList } from './faqData';
 
 const buttons = [
   {
@@ -55,7 +56,7 @@ export const PricingPage = () => {
           <ComparePlans />
           <Organizations />
           <div className={'faq_contianer'}>
-            <Faq />
+            <Faq collapsableList={collapsableList} />
           </div>
           <div className={'still_have_question'}>
             <Banner title="Do you still have questions?" linkTitle="Contact Us" link="#" />
