@@ -12,7 +12,7 @@ import CloudIcon from './icons/cloud-icon.inline.svg';
 import ServerIcon from './icons/server-icon.inline.svg';
 
 import './PricingPage.scss';
-import { Banner } from "../InstallationPage/components/Banner";
+import { Banner } from '../InstallationPage/components/Banner';
 
 const buttons = [
   {

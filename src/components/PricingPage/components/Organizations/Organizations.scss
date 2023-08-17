@@ -3,13 +3,25 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
+.organizations_container {
+  margin: 117px  auto 40px auto;
+
+  @include breakpoint($tablet-sm-exact) {
+    margin: 111px auto 40px auto;
+  }
+
+  @include breakpoint($desktop-sm) {
+    margin-top: 268px;
+    margin-bottom: 16px;
+  }
+}
+
 .organizations {
 
   &__title {
     @include font-poppins($fw-semi-bold);
     @include font-scale(medium);
 
-    margin: 120px  auto 40px auto;
     width: 309px;
     text-align: center;
     color: var(--text-primary);
@@ -18,16 +30,12 @@
       @include font-poppins($fw-bold);
       @include font-scale(x3-medium);
 
-      margin: 105px auto 40px auto;
       width: auto;
     }
 
     @include breakpoint($desktop-sm) {
       @include font-poppins($fw-bold);
       @include font-scale(large);
-
-      margin-top: 268px;
-      margin-bottom: 16px;
     }
 
   }

@@ -3,6 +3,18 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins/breakpoint';
 
+.compare_container {
+  margin-top: 176px;
+
+  @include breakpoint($tablet-sm-exact) {
+    margin-top: 160px;
+  }
+
+  @include breakpoint($desktop-sm) {
+    margin-top: 240px;
+  }
+}
+
 .compare {
   &__box {
     .ant-collapse-item:not(:has(.compare__section)) {

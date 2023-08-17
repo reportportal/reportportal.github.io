@@ -39,7 +39,7 @@ export const ComparePlans = () => {
   const isRow = (section, footer) => !(section || footer);
 
   return (
-    <div className={cx(getCompareContainer(), 'container')}>
+    <div className={cx(getCompareContainer(), 'container', 'compare_container')}>
       <div className={getCompareContainer('__title')}>
         Compare plans
         <img className={getCompareContainer('__title__arrow')} src={iconsCommon.arrowDark} />

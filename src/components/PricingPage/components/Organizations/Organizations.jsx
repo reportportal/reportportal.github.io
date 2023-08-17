@@ -16,7 +16,7 @@ export const Organizations = () => {
   const isRight = (index) => (index + 1) % 2 === 0;
 
   return (
-    <div className={cx(getBlocksWith(), 'container')}>
+    <div className={cx(getBlocksWith(), 'container', 'organizations_container')}>
       <div className={getBlocksWith('__title')}>
         Trusted by the world&apos;s leading organizations
       </div>

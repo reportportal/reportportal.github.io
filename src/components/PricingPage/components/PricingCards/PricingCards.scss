@@ -8,16 +8,16 @@
   flex-wrap: wrap;
   justify-content: center;
   //margin: -250px 16px 200px;
-  margin: -250px 16px 176px;
+  margin: -250px 16px 0;
   gap: 40px 20px;
 
   @include breakpoint($tablet-sm-exact) {
-    margin: -250px 16px 160px;
+    margin: -250px 16px 0;
   }
 
   @include breakpoint($desktop-sm) {
     flex-wrap: nowrap;
-    margin: -250px 16px 240px;
+    margin: -250px 16px 0;
   }
 
   >div {

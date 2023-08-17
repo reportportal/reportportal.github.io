@@ -1,12 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
 
+import { useMediaQuery } from 'react-responsive';
 import { createBemBlockBuilder } from '../../../../utils';
 import { buttonsData } from './dataPlans';
 import { Link } from '../../../Link';
 
 import './ComparePlans.scss';
-import { useMediaQuery } from 'react-responsive';
 import { $tabletLg } from '../../../../utils/breakpoint';
 
 const getCompareContainer = createBemBlockBuilder(['compare']);
