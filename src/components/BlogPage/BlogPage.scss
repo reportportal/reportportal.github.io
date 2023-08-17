@@ -291,4 +291,10 @@
       padding-bottom: 230px;
     }
   }
+
+  &__footer {
+    justify-content: center;
+    display: flex;
+    padding: calc(6 * var(--base-spacing)) 0;
+  }
 }
