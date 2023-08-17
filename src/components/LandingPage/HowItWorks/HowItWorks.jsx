@@ -3,6 +3,7 @@ import Lottie from 'lottie-react';
 import { Steps } from 'antd';
 import cx from 'classnames';
 
+import { useAnimationInterval } from '../../../hooks';
 import { createBemBlockBuilder } from '../../../utils';
 
 import animation1 from './animations/RP_Anim_1.json';
@@ -12,7 +13,6 @@ import animation4 from './animations/RP_Anim_4.json';
 import animation5 from './animations/RP_Anim_5.json';
 
 import './HowItWorks.scss';
-import { useAnimationInterval } from '../../../hooks';
 
 const getBlocksWith = createBemBlockBuilder(['how-it-works']);
 

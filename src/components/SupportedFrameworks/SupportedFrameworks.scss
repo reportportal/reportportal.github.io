@@ -47,16 +47,18 @@
           border-bottom: 3px solid var(--color-primary-600);
           opacity: 0;
           transition: left 0.3s, right 0.3s, opacity 0.2s;
-          transition-delay: 0.3s, 0.3s, 0s
+          transition-delay: 0.3s, 0.3s, 0s;
         }
       }
-      
-      :where(.css-dev-only-do-not-override-e4vwb2).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+
+      :where(.css-dev-only-do-not-override-e4vwb2).ant-tabs
+        .ant-tabs-tab.ant-tabs-tab-active
+        .ant-tabs-tab-btn {
         &::after {
           left: 0;
           right: 0;
           opacity: 1;
-          
+
           @include breakpoint($tablet-sm) {
             left: -25px;
             right: -25px;

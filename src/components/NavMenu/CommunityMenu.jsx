@@ -1,7 +1,9 @@
 import React from 'react';
+import { useAtom } from 'jotai';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { subscriptionFormAtom } from '../Layout';
 import { SubscriptionForm } from '../SubscriptionForm';
 import { GithubCover } from './covers/GithubCover';
 import { SectionList } from './SectionList';
@@ -11,6 +13,7 @@ import { HeartIcon, ForkIcon } from './icons';
 import './Menu.scss';
 
 export const CommunityMenu = ({ isDesktop = true }) => {
+  const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
 
   const contributionCard = (
@@ -67,7 +70,10 @@ export const CommunityMenu = ({ isDesktop = true }) => {
   const footer = (
     <div className={getBlocksWith('__footer')}>
       <div className={getBlocksWith('__footer-container')}>
-        <SubscriptionForm />
+        <SubscriptionForm
+          subscriptionFormState={subscriptionFormState}
+          setSubscriptionFormState={setSubscriptionFormState}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,9 @@
 import React from 'react';
+import { StyleProvider } from '@ant-design/cssinjs';
 import { atom } from 'jotai';
 
+// eslint-disable-next-line import/no-unresolved
+import '../../../static/antd.min.css'; // Will be generated at build time
 import '../../styles/global.scss';
 
 import { Seo } from '../Seo';
@@ -12,11 +15,13 @@ export const watchProductOverviewAtom = atom({ isOpen: false });
 
 export const Layout = ({ children, className }) => {
   return (
-    <div className={className}>
-      <Seo />
-      <Navigation />
-      <main>{children}</main>
-      <Footer />
-    </div>
+    <StyleProvider hashPriority="prependQueue">
+      <div className={className}>
+        <Seo />
+        <Navigation />
+        <main>{children}</main>
+        <Footer />
+      </div>
+    </StyleProvider>
   );
 };

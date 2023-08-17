@@ -9,8 +9,12 @@
   margin-top: calc(-1 * var(--header-height));
   color: var(--white);
 
-  @include breakpoint($tablet-sm) {
+  @include breakpoint($tablet-sm-exact) {
     padding-top: calc(120px + var(--header-height));
+  }
+
+  @include breakpoint($desktop-sm) {
+    min-height: 970px;
   }
 
   &__container {

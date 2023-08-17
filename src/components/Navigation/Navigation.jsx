@@ -9,7 +9,8 @@ import axios from 'axios';
 import cx from 'classnames';
 
 import { useScrollDirection } from '../../hooks';
-import githubStats from '../../../static/github.json';
+// eslint-disable-next-line import/no-unresolved
+import githubStats from '../../../static/github.json'; // Will be generated at build time
 import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
 import {
