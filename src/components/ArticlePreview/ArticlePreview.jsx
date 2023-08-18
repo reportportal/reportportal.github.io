@@ -3,14 +3,13 @@ import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import * as styles from './ArticlePreview.scss';
 import { ArticleAuthor } from '../ArticleAuthor/ArticleAuthor';
+
+import * as styles from './ArticlePreview.scss';
 
 export const ArticlePreview = ({ posts }) => {
   if (!posts) return null;
   if (!Array.isArray(posts)) return null;
-
-  const image = (img) => getImage(img);
 
   return (
     <div className="container">
@@ -19,7 +18,7 @@ export const ArticlePreview = ({ posts }) => {
           return (
             <li className={styles.articleItem} key={post.id}>
               <div className={styles.articleItemFeaturedImage}>
-                <GatsbyImage image={image(post.featuredImage)} alt={post.title.title} />
+                <GatsbyImage image={getImage(post.featuredImage)} alt={post.title.title} />
               </div>
               <div className={styles.articleItemContent}>
                 <p className={styles.articleItemContentCategory}>{post.category}</p>
