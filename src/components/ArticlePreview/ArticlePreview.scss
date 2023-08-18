@@ -1,7 +1,5 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/variables';
-@import 'src/styles/mixins/breakpoint';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .article-list {
   display: grid;
@@ -30,10 +28,10 @@
     padding: calc(2 * var(--base-spacing));
 
     &-category {
-      @include font-poppins($fw-semi-bold);
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(small);
 
       color: var(--text-service);
-      font-size: 14px;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
@@ -45,7 +43,7 @@
 }
 
 .article-author {
-  @include font-poppins($fw-medium);
+  @include m.font-poppins(v.$fw-medium);
 
   color: var(--text-service);
   display: flex;
@@ -70,7 +68,7 @@
 }
 
 .article-author {
-  @include font-poppins($fw-medium);
+  @include m.font-poppins(v.$fw-medium);
 
   color: var(--text-service);
   display: flex;
@@ -78,9 +76,10 @@
 }
 
 .title {
-  @include font-poppins($fw-semi-bold);
+  @include m.font-poppins(v.$fw-semi-bold);
+  @include m.font-scale(medium);
+
   display: inline-block;
-  font-size: 20px;
   margin-bottom: var(--space-xs);
   margin-top: var(--space-lg);
   border-bottom: 1.5px solid transparent;
