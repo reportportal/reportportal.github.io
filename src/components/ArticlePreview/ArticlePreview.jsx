@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import * as styles from './ArticlePreview.module.scss';
+import * as styles from './ArticlePreview.scss';
 import { ArticleAuthor } from '../ArticleAuthor/ArticleAuthor';
 
 export const ArticlePreview = ({ posts }) => {

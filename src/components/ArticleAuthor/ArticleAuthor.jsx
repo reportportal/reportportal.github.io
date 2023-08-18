@@ -1,5 +1,5 @@
 import React from 'react';
-import * as styles from './ArticleAuthor.module.scss';
+import * as styles from './ArticleAuthor.scss';
 
 export const ArticleAuthor = () => {
   return (
