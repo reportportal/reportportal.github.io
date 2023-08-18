@@ -15,85 +15,55 @@
   display: flex;
   flex-direction: column;
 
-  &-featured-image {
+  &__featured-image {
     border-top-left-radius: calc(2 * var(--base-spacing));
     border-top-right-radius: calc(2 * var(--base-spacing));
     overflow: hidden;
   }
 
-  &-content {
+  &__content {
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: calc(2 * var(--base-spacing));
+    padding: calc(3 * var(--base-spacing));
 
-    &-category {
+    &__category {
       @include m.font-poppins(v.$fw-semi-bold);
       @include m.font-scale(small);
 
       color: var(--text-service);
       letter-spacing: 1px;
+      margin: 0;
       text-transform: uppercase;
     }
 
-    &--excerpt {
+    &__link {
+      text-decoration: none;
+    }
+
+    &__link:hover {
+      h2 {
+        border-bottom-color: var(--color-primary-500);
+      }
+    }
+
+    &__title {
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(medium);
+
+      display: inline-block;
+      margin: calc(2 * var(--base-spacing)) 0;
+      border-bottom: 1.5px solid transparent;
+    }
+
+    &__meta {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__excerpt {
       flex-grow: 1;
+      margin: 0;
     }
   }
-}
-
-.article-author {
-  @include m.font-poppins(v.$fw-medium);
-
-  color: var(--text-service);
-  display: flex;
-  margin-bottom: 0;
-}
-
-.article-item {
-  background-color: var(--white);
-  border-radius: 16px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 45, 55, 0.12);
-  color: var(--text-primary);
-
-  &-featured-image {
-    border-top-left-radius: calc(2 * var(--base-spacing));
-    border-top-right-radius: calc(2 * var(--base-spacing));
-    overflow: hidden;
-  }
-
-  &-content {
-    padding: calc(2 * var(--base-spacing));
-  }
-}
-
-.article-author {
-  @include m.font-poppins(v.$fw-medium);
-
-  color: var(--text-service);
-  display: flex;
-  margin-bottom: 0;
-}
-
-.title {
-  @include m.font-poppins(v.$fw-semi-bold);
-  @include m.font-scale(medium);
-
-  display: inline-block;
-  margin-bottom: var(--space-xs);
-  margin-top: var(--space-lg);
-  border-bottom: 1.5px solid transparent;
-}
-
-.link {
-  text-decoration: none;
-}
-
-.link:hover .title {
-  border-bottom-color: var(--color-primary-500);
-}
-
-.meta {
-  display: flex;
-  justify-content: space-between;
 }
