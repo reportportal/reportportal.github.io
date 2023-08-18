@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import * as styles from './ArticlePreview.scss';
 
 import { ArticleAuthor } from '../ArticleAuthor/ArticleAuthor';
+
+import * as styles from './ArticlePreview.scss';
 
 export const ArticlePreview = ({ posts }) => {
   if (!posts) return null;
