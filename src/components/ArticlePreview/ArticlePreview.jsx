@@ -25,9 +25,9 @@ export const ArticlePreview = ({ posts }) => {
                 <Link to={`/blog/${post.id}`} className={styles.link}>
                   <h2 className={styles.title}>{post.title.title}</h2>
                 </Link>
-                <div>{post.description?.raw && renderRichText(post.description)}</div>
+                {post.description?.raw && <div>{renderRichText(post.description)}</div>}
                 <div className={styles.meta}>
-                  <small className="meta">{post.publishDate}</small>
+                  <span className="meta">{post.publishDate}</span>
                 </div>
                 <p className={styles.articleItemContentExcerpt}>
                   {post.leadParagraph.leadParagraph}
