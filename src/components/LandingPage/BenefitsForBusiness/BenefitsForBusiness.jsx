@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { AnimatedList } from '../../AnimatedList';
 import { features } from '../../../utils/imageSource';
+import { AnimatedList } from '../../AnimatedList';
+import { Link } from '../../Link';
 
 const benefitsForBusinessList = [
   {
@@ -42,8 +43,12 @@ export const BenefitsForBusiness = () => {
       subtitle="Features full of benefits from business perspective"
       data={benefitsForBusinessList}
     >
-      <button className="btn btn--primary btn--large">Start free trial</button>
-      <button className="btn btn--outline btn--large">Get a quote</button>
+      <Link className="btn btn--primary btn--large" to="/contact-us/general">
+        Start free trial
+      </Link>
+      <Link className="btn btn--outline btn--large" to="/contact-us/general">
+        Get a quote
+      </Link>
     </AnimatedList>
   );
 };

@@ -231,8 +231,13 @@ export const FeaturesPage = () => {
       <div className={cx(getBlocksWith('__faq'), 'container')}>
         <Faq items={collapsableList} showMoreInfoLink={false} />
       </div>
+
       <div className={getBlocksWith('__banner')}>
-        <Banner title="Still have questions about our features?" linkTitle="Contact Us" link="#" />
+        <Banner
+          title="Still have questions about our features?"
+          linkTitle="Contact Us"
+          link="/contact-us/general"
+        />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { Link } from '../Link';
 import { SectionList } from './SectionList';
 import { OnPremiseIcon, SaaSIcon, TaaSIcon, TAaaSIcon, QualityAssessmentIcon } from './icons';
 
@@ -99,9 +100,9 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
     <div className={getBlocksWith('__footer')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
-          <button type="button" className={cx('btn', 'btn--outline')}>
+          <Link className="btn btn--outline" to="/contact-us/general">
             Get a quote
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@ const path = require('node:path');
 
 const axios = require('axios');
 
+const { config: contactUsConfigs } = require('./src/templates/contact-us/config.js');
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
@@ -39,20 +41,30 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // But only if there's at least one blog post found in Contentful
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostSlug = index === 0 ? null : posts[index - 1].slug;
-      const nextPostSlug = index === posts.length - 1 ? null : posts[index + 1].slug;
+  posts.forEach((post, index) => {
+    const previousPostSlug = index === 0 ? null : posts[index - 1].slug;
+    const nextPostSlug = index === posts.length - 1 ? null : posts[index + 1].slug;
 
-      createPage({
-        path: `/blog/${post.slug}/`,
-        component: blogPost,
-        context: {
-          slug: post.slug,
-          previousPostSlug,
-          nextPostSlug,
-        },
-      });
+    createPage({
+      path: `/blog/${post.slug}/`,
+      component: blogPost,
+      context: {
+        slug: post.slug,
+        previousPostSlug,
+        nextPostSlug,
+      },
     });
-  }
+  });
+
+  const ContactUsPage = path.resolve('./src/templates/contact-us/contact-us.js');
+
+  contactUsConfigs.forEach(contactUsConfig => {
+    createPage({
+      path: contactUsConfig.url,
+      component: ContactUsPage,
+      context: {
+        config: contactUsConfig,
+      },
+    });
+  });
 };

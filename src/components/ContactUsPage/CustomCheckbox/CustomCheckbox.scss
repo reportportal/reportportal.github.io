@@ -1,0 +1,99 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.custom-checkbox {
+  @include m.font-poppins();
+  @include m.font-scale(small);
+
+  position: relative;
+  padding-left: 32px;
+  margin-top: 2px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-primary);
+  line-height: 20px;
+
+  a {
+    color: var(--text-service);
+    font-weight: v.$fw-medium;
+  }
+
+  &__checkmark {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    border-radius: 3px;
+    border: 1px solid var(--text-light-grey);
+
+    &:after {
+      position: absolute;
+      content: '';
+      top: -2px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      width: 5px;
+      height: 11px;
+      margin: auto;
+      border: solid var(--white);
+      border-width: 0 2px 2px 0;
+      transform: rotate(40deg);
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked {
+      & ~ .custom-checkbox__checkmark {
+        background-color: var(--color-primary-600);
+        border-color: var(--color-primary-600);
+
+        &:after {
+          display: block;
+        }
+      }
+
+      &:focus ~ .custom-checkbox__checkmark {
+        background-color: var(--color-primary-500);
+      }
+    }
+
+    &:focus {
+      & ~ .custom-checkbox__checkmark {
+        border-width: 2px;
+        border-color: var(--color-primary-500);
+      }
+    }
+  }
+
+  &:hover {
+    color: var(--primary-colors-almost-black);
+
+    input {
+      & ~ .custom-checkbox__checkmark {
+        border-color: var(--text-service);
+      }
+
+      &:checked ~ .custom-checkbox__checkmark {
+        background-color: var(--color-primary-500);
+        border-color: var(--color-primary-500);
+      }
+
+      &:focus ~ .custom-checkbox__checkmark {
+        border-color: var(--color-primary-500);
+      }
+
+      &:checked:focus ~ .custom-checkbox__checkmark {
+        background-color: var(--color-primary-500);
+      }
+    }
+  }
+}

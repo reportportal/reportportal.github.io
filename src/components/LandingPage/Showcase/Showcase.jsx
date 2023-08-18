@@ -6,6 +6,7 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../utils';
 import { watchProductOverviewAtom } from '../../Layout';
+import { Link } from '../../Link';
 import { EmbedVideo } from '../../EmbedVideo';
 import { Carousel } from './Carousel/Carousel';
 import WalmartIcon from './icons/walmart.inline.svg';
@@ -93,8 +94,12 @@ export const Showcase = () => {
         </p>
         <div className={getBlocksWith('__btn-row')}>
           <div className={getBlocksWith('__btn-group')}>
-            <button className={cx('btn', 'btn--secondary', 'btn--large')}>Start free trial</button>
-            <button className={cx('btn', 'btn--outline-2', 'btn--large')}>Get a quote</button>
+            <Link className={cx('btn', 'btn--secondary', 'btn--large')} to="/contact-us/general">
+              Start free trial
+            </Link>
+            <Link className={cx('btn', 'btn--outline-2', 'btn--large')} to="/contact-us/general">
+              Get a quote
+            </Link>
           </div>
         </div>
         <div className={getBlocksWith('__watch-video-container')}>

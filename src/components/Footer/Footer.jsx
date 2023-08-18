@@ -5,7 +5,6 @@ import cx from 'classnames';
 import { Link } from '../Link';
 import { createBemBlockBuilder, isAbsoluteURL } from '../../utils';
 import {
-  ArrowIcon,
   GithubIcon,
   NavLogoIcon,
   SlackIcon,
@@ -13,6 +12,7 @@ import {
   YoutubeIcon,
   InstagramIcon,
 } from './icons';
+import ArrowIcon from '../../svg/arrow.inline.svg';
 
 import './Footer.scss';
 

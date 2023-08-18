@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Heading } from '../Heading';
-import { ApplyOurService } from './ApplyOurService';
 
 import './TestingBottomBlock.scss';
 
@@ -14,7 +13,6 @@ export const TestingBottomBlock = ({ children, title, description }) => (
         <div className="testing-bottom-block__description">{description}</div>
       </div>
       {children}
-      <ApplyOurService />
     </div>
   </div>
 );

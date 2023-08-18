@@ -19,6 +19,7 @@ import {
 import { SectionList } from './SectionList';
 
 import './Menu.scss';
+import { Link } from '../Link';
 
 export const ProductMenu = ({ isDesktop = true }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-product']);
@@ -132,12 +133,12 @@ export const ProductMenu = ({ isDesktop = true }) => {
     <div className={getBlocksWith('__footer')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
-          <button type="button" className={cx('btn', 'btn--primary')}>
-            Try free trial
-          </button>
-          <button type="button" className={cx('btn', 'btn--outline')}>
+          <Link className="btn btn--primary" to="/contact-us/general">
+            Start free trial
+          </Link>
+          <Link className="btn btn--outline" to="/contact-us/general">
             Get a quote
-          </button>
+          </Link>
         </div>
         <button
           type="button"

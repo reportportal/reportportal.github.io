@@ -1,4 +1,3 @@
-export * from './ArrowIcon';
 export * from './NavLogoIcon';
 export * from './TwitterIcon';
 export * from './InstagramIcon';
