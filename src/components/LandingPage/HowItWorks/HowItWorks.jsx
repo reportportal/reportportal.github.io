@@ -5,7 +5,6 @@ import cx from 'classnames';
 
 import { useAnimationInterval } from '../../../hooks';
 import { createBemBlockBuilder } from '../../../utils';
-
 import animation1 from './animations/RP_Anim_1.json';
 import animation2 from './animations/RP_Anim_2.json';
 import animation3 from './animations/RP_Anim_3.json';
@@ -47,7 +46,7 @@ const sections = [
       'Visualizing test results in an easy-to-understand way, allowing to monitor test trends, detect patterns, generate insights and make informed business decisions',
     animation: animation5,
   },
-].map((section) => ({
+].map(section => ({
   ...section,
   status: 'wait',
   description: (

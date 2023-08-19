@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+
 const axios = require('axios');
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -7,8 +8,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   await axios
     .get('https://status.reportportal.io/github/stars')
-    .then((response) => response.data)
-    .then((data) => {
+    .then(response => response.data)
+    .then(data => {
       fs.writeFileSync('static/github.json', JSON.stringify(data));
     });
 

@@ -3,7 +3,6 @@ import Marquee from 'react-fast-marquee';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
-
 import SauceLabsIcon from './icons/saucelabs.inline.svg';
 import MicrosoftIcon from './icons/microsoft.inline.svg';
 import SAMLIconIcon from './icons/saml.inline.svg';

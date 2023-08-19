@@ -11,7 +11,7 @@ export const ListDropdown = ({ title, list }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisible = () => {
-    setIsVisible((prevState) => !prevState);
+    setIsVisible(prevState => !prevState);
   };
 
   return (

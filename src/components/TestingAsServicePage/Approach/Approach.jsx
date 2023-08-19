@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { Heading } from '../../Heading';
 import { ListDropdown } from './ListDropdown';
 import { EXECUTION_LIST, RAMP_UP_LIST, DISCOVERY_LIST } from './constants';
+import { ApplyOurService } from './ApplyOurService';
 
 import './Approach.scss';
 
@@ -47,13 +49,7 @@ export const Approach = () => (
           </div>
         </div>
       </div>
-      <div className="apply-our-service">
-        <div className="apply-our-service__heading">
-          <Heading color="white-heading" title="Apply for our service?" />
-          <button className="btn btn--primary btn--large">Get a quote</button>
-        </div>
-      </div>
+      <ApplyOurService />
     </div>
-    <div className="approach__footer-bg" />
   </div>
 );

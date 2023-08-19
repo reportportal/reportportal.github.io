@@ -1,7 +1,5 @@
 import React from 'react';
 
-import SpiderImg from '../../../svg/testing/Spider.svg';
-
 import './Spider.scss';
 
 export const Spider = () => (
@@ -13,7 +11,7 @@ export const Spider = () => (
         <div className="spider-container__text">Exploratory Testing</div>
       </div>
       <div className="spider-container__image">
-        <img src={SpiderImg} alt="spider" />
+        <div className="spider-container__image-title">Supported testing types</div>
       </div>
       <div className="spider-container__aside">
         <div className="spider-container__text">Test Automation</div>

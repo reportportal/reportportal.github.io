@@ -28,35 +28,44 @@
     @include m.font-noto-sans();
     @include m.font-scale(x2-medium);
 
+    margin-bottom: 59px;
     max-width: 992px;
     text-align: center;
     color: var(--text-service);
-    margin-bottom: 59px;
   }
 
   &__equals {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 928px;
     margin: 0 auto;
-    background: url('../../../svg/testing/Illustrayion.svg') no-repeat;
+    max-width: 928px;
+    background: 14% 0 url('../../../svg/testing/Illustrayion.svg') no-repeat;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      background-position: -57% 0%;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      background-position: 0 0;
+    }
 
     &-images {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 49px;
+      gap: 32px;
 
       @include m.breakpoint(v.$desktop-sm) {
         flex-direction: row;
+        gap: 45px;
       }
 
       &--equal {
-        width: 55px;
-        height: 33px;
         background: url('../../../svg/testing/equal.svg') no-repeat;
         background-size: contain;
+        width: 55px;
+        height: 33px;
       }
     }
 

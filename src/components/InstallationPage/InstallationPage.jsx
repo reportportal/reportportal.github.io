@@ -49,14 +49,14 @@ export const InstallationPage = () => {
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
 
   const getSections = () => {
-    const activeButtonObject = buttons.find((button) => button.text === activeButton);
+    const activeButtonObject = buttons.find(button => button.text === activeButton);
 
     return activeButtonObject ? activeButtonObject.scrollPoints : null;
   };
 
   const isFirstBtnActive = () => activeButton === buttons[0].text;
 
-  const switchActiveBtn = (btnName) => {
+  const switchActiveBtn = btnName => {
     if (btnName !== activeButton) {
       setActiveButton(btnName);
     }

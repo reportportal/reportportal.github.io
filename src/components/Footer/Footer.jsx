@@ -3,11 +3,10 @@ import { Divider } from 'antd';
 import cx from 'classnames';
 
 import { Link } from '../Link';
-
-import './Footer.scss';
-
 import { createBemBlockBuilder, isAbsoluteURL } from '../../utils';
 import { ArrowIcon, GithubIcon, NavLogoIcon, SlackIcon, TwitterIcon, YoutubeIcon } from './icons';
+
+import './Footer.scss';
 
 const getBlocksWith = createBemBlockBuilder(['footer']);
 
@@ -16,7 +15,7 @@ const FooterList = ({ title, items }) => {
     <div className="footer__list">
       <h4>{title}</h4>
       <ul>
-        {items.map((item) => (
+        {items.map(item => (
           <li key={item.title}>
             <Link to={item.link}>
               {item.title}

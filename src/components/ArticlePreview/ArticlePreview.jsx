@@ -11,7 +11,7 @@ export const ArticlePreview = ({ posts }) => {
   return (
     <div className="container">
       <ul className={styles.articleList}>
-        {posts.map((post) => {
+        {posts.map(post => {
           return (
             <li key={post.id}>
               <Link to={`/blog/${post.id}`} className={styles.link}>

@@ -8,11 +8,6 @@ const headingSize = {
   h3: 'third-heading',
 };
 
-export const Heading = ({ title, color, tag: Tag }) => (
+export const Heading = ({ title, color = 'black-heading', tag: Tag = 'h2' }) => (
   <Tag className={classNames('heading', headingSize[Tag], color)}>{title}</Tag>
 );
-
-Heading.defaultProps = {
-  tag: 'h2',
-  color: 'black-heading',
-};

@@ -4,10 +4,10 @@
 .icon-block {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: var(--text-primary);
+  justify-content: center;
   text-align: center;
+  color: var(--text-primary);
 
   &__number {
     @include m.font-poppins(v.$fw-bold);
@@ -28,14 +28,13 @@
 .pentagon {
   width: 266px;
   height: 291px;
-  background: url('icons/PentagonVector.svg') no-repeat 14px 7px,
-    url('icons/PentagonSubtract.svg') no-repeat -10px -10px;
-  background-size: 242px 235px, 288px 313px;
+  background: url('icons/PentagonSubtract.svg') no-repeat -8px -2px;
+  background-size: 105%;
 }
 
 .circle {
   width: 279px;
   height: 279px;
-  background: url('icons/CircleSubtract.svg') no-repeat -5px 0;
-  background-size: 290px 290px;
+  background: url('icons/CircleSubtract.svg') no-repeat -8px -2px;
+  background-size: 105%;
 }

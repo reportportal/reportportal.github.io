@@ -7,13 +7,13 @@ export const useAnimationInterval = ({ interval = 10000, totalItemsLength }) => 
   const [delay, setDelay] = useState(undefined);
   const [activeListIndex, setActiveListIndex] = useState(0);
 
-  const setIndexAndResetInterval = useCallback((index) => {
+  const setIndexAndResetInterval = useCallback(index => {
     setDelay();
     setActiveListIndex(index);
   }, []);
 
   useRafInterval(() => {
-    setActiveListIndex((prevState) => (prevState === totalItemsLength - 1 ? 0 : prevState + 1));
+    setActiveListIndex(prevState => (prevState === totalItemsLength - 1 ? 0 : prevState + 1));
   }, delay);
 
   useEffect(() => {

@@ -44,7 +44,7 @@ export const SectionList = ({
   const getBlocksWith = createBemBlockBuilder(['section-list', className]);
   const columns = chunk(items, itemsPerRow).map((column, columnIndex) => (
     <div key={columnIndex} className={getBlocksWith('__col')}>
-      {column.map((data) =>
+      {column.map(data =>
         data.type === 'info' ? (
           <InfoItem key="info" {...data} />
         ) : (

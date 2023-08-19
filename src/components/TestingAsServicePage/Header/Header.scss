@@ -4,10 +4,10 @@
 .testing-as-service {
   &__header {
     margin-top: calc(-1 * var(--header-height));
-    padding-top: var(--header-height);
     background-image: url(../../../svg/testing/headerBackground.svg);
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: 100% 113%;
+    padding-top: var(--header-height);
   }
 
   &__header-heading {
@@ -32,8 +32,8 @@
       @include m.breakpoint(v.$tablet-sm-exact) {
         @include m.font-scale(x4-large);
 
-        width: 720px;
         margin-top: 16px;
+        width: 720px;
       }
 
       @include m.breakpoint(v.$desktop-sm) {
@@ -44,9 +44,9 @@
 
   &__header-dashboard {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
     padding-top: 80px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
@@ -59,15 +59,15 @@
 
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding: 40px;
-      width: 880px;
+      justify-content: center;
+      box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
       border-radius: 16px;
       background: var(--white);
-      color: var(--text-primary);
-      box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
+      padding: 40px;
+      width: 880px;
       text-align: center;
+      color: var(--text-primary);
     }
   }
 }
