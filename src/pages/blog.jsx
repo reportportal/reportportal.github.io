@@ -25,22 +25,20 @@ const BlogIndex = (props) => {
 
   return (
     <Layout location={location}>
-      <div>
-        <div className={getBlocksWith()}>
-          <div className="container">
-            <h1 className={getBlocksWith('__title')}>Blog</h1>
-            <p className={getBlocksWith('__subtitle')}>
-              Product updates, news and technology articles
-            </p>
-            <ArticlePreview posts={posts} />
-            {posts.length < nodes.length && (
-              <div className={getBlocksWith('__footer')}>
-                <button className={cx('btn', 'btn--outline', 'btn--large')} onClick={handleClick}>
-                  Load more
-                </button>
-              </div>
-            )}
-          </div>
+      <div className={getBlocksWith()}>
+        <div className="container">
+          <h1 className={getBlocksWith('__title')}>Blog</h1>
+          <p className={getBlocksWith('__subtitle')}>
+            Product updates, news and technology articles
+          </p>
+          <ArticlePreview posts={posts} />
+          {posts.length < nodes.length && (
+            <div className={getBlocksWith('__footer')}>
+              <button className={cx('btn', 'btn--outline', 'btn--large')} onClick={handleClick}>
+                Load more
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
