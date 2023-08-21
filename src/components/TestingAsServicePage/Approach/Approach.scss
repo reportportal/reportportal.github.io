@@ -4,16 +4,17 @@
 .approach {
   background: bottom url('../../../svg/testing/FooterTriangles.svg') no-repeat,
     url('../../../svg/testing/DarkBackgound.svg');
-  background-size: 180% 114px, cover;
+  background-size: 1440px 218px, cover;
+  background-position: bottom -104px center, center;
   padding-top: 120px;
   color: var(--white);
 
   @include m.breakpoint(v.$tablet-sm-exact) {
-    background-size: 180% 218px, cover;
+    background-position: bottom center, center;
   }
 
   @include m.breakpoint(v.$desktop-sm) {
-    background-size: 100% 218px, cover;
+    background-position: bottom center, center;
   }
 
   &__heading {
