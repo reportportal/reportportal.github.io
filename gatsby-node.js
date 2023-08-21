@@ -6,10 +6,6 @@ const axios = require('axios');
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
-  actions.setWebpackConfig({
-    devtool: 'eval-source-map',
-  });
-
   await axios
     .get('https://status.reportportal.io/github/stars')
     .then(response => response.data)

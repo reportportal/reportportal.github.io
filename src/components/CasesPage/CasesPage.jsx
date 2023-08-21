@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import { createBemBlockBuilder } from '../../utils';
-import { SubscriptionBanner } from '../LandingPage/SubscriptionBanner/SubscriptionBanner';
+import { SubscriptionBanner } from '../SubscriptionBanner/SubscriptionBanner';
 import './CasesPage.scss';
 import downloadIcon from './icons/download.svg';
 
@@ -28,10 +28,7 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
       <div className={getBlocksWith('__cases-list')}>
         {cases.map(({ id, industry, title, icon, cardBackgroundImage }) => (
           <div
-            style={{
-              backgroundImage: `url(${cardBackgroundImage?.file?.url})`,
-              backgroundSize: 'cover',
-            }}
+            style={{ backgroundImage: `url(${cardBackgroundImage?.file?.url})` }}
             className={cx(getBlocksWith('__cases-list-item-box'), industry.toLowerCase())}
             key={id}
             id={id}
@@ -59,11 +56,9 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
           </div>
         </div>
       ) : (
-        <div className={getBlocksWith('__no-more')}>
-          <p> No more cases</p>
-        </div>
+        <div className={getBlocksWith('__no-more')}></div>
       )}
-      <SubscriptionBanner title="Stay in Know" />
+      <SubscriptionBanner />
     </div>
   );
 };
