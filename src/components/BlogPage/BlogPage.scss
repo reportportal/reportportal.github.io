@@ -5,7 +5,7 @@
 
 .blog {
   position: relative;
-  padding: calc(72px + var(--header-height)) 16px 48px;
+  padding: calc(72px + var(--header-height)) 16px 290px;
   margin-top: calc(-1 * var(--header-height));
   color: var(--white);
   background-image: url('./icons/background_blog-page.svg');
@@ -59,7 +59,7 @@
     @include font-scale(x2-medium);
 
     margin-top: 16px;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
     text-align: center;
   }
 
@@ -295,6 +295,6 @@
   &__footer {
     justify-content: center;
     display: flex;
-    padding: calc(6 * var(--base-spacing)) 0;
+    padding: calc(6 * var(--base-spacing)) 0 0;
   }
 }
