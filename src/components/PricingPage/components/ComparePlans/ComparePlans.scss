@@ -236,6 +236,18 @@
       }
 
     }
+
+    &__arrow_bottom {
+      height: 24px;
+      width: 24px;
+      transform: rotate(180deg);
+    }
+
+    &__arrow_right {
+      height: 24px;
+      width: 24px;
+      transform: rotate(90deg);
+    }
   }
 
   &__content {

@@ -57,9 +57,13 @@ export const ComparePlans = () => {
           ghost
           expandIconPosition={isDesktop ? 'start' : 'end'}
           expandIcon={({ isActive }) => (
-            <RightOutlined
-              className={getCompareContainer('__collapse-icon')}
-              rotate={handleArrowPosition(isActive)}
+            <img
+              className={
+                isActive
+                  ? getCompareContainer('__tab__arrow_bottom')
+                  : getCompareContainer('__tab__arrow_right')
+              }
+              src={iconsCommon.arrowDark}
             />
           )}
         >
