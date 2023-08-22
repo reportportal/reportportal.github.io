@@ -8,7 +8,6 @@ import readingTime from 'reading-time';
 
 import { Layout } from '../components/Layout';
 import { Hero } from '../components/Hero';
-
 import * as styles from './blog-post.module.css';
 
 class BlogPostTemplate extends React.Component {
@@ -21,7 +20,7 @@ class BlogPostTemplate extends React.Component {
 
     const options = {
       renderNode: {
-        'embedded-asset-block': (node) => {
+        'embedded-asset-block': node => {
           const { gatsbyImageData } = node.data.target;
 
           console.log(node.data.target);

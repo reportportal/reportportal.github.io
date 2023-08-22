@@ -13,7 +13,7 @@
     "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN",
     "lint": "eslint . --ext .js,.jsx --cache",
     "format:eslint": "npm run lint -- --fix",
-    "format:prettier": "prettier --write \"**/*.{scss}\"",
+    "format:prettier": "prettier --write \"**/*.scss\"",
     "prepare": "husky install"
   },
   "author": "",

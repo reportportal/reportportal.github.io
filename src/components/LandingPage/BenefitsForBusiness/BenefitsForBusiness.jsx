@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { AnimatedList } from '../../AnimatedList';
-
 import { features } from '../../../utils/imageSource';
 
 const benefitsForBusinessList = [

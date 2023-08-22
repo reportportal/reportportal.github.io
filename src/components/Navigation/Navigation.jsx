@@ -80,8 +80,8 @@ export const Navigation = () => {
     const fetchGithubStars = () => {
       axios
         .get('https://status.reportportal.io/github/stars')
-        .then((response) => response.data)
-        .then((data) => setGithubCounter(data.repos.reportportal))
+        .then(response => response.data)
+        .then(data => setGithubCounter(data.repos.reportportal))
         .catch(console.error);
     };
 
@@ -123,7 +123,7 @@ export const Navigation = () => {
             className={cx(getBlocksWith('-navigation__list'), 'is-desktop')}
             role="list"
           >
-            {menuOrder.map((menuItem) => {
+            {menuOrder.map(menuItem => {
               const { Component } = menuItems[menuItem];
 
               return (
@@ -211,7 +211,7 @@ export const Navigation = () => {
         onClose={toggleMobileMenu}
       >
         <Collapse expandIconPosition="end" ghost accordion>
-          {menuOrder.map((menuItem) => {
+          {menuOrder.map(menuItem => {
             const { Component } = menuItems[menuItem];
 
             return (
