@@ -1,5 +1,6 @@
-const { extractStyle } = require('@ant-design/static-style-extract');
 const fs = require('fs');
+
+const { extractStyle } = require('@ant-design/static-style-extract');
 
 const outputPath = './static/antd.min.css';
 

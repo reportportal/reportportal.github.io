@@ -1,0 +1,43 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.list-dropdown {
+  @include m.font-poppins(v.$fw-semi-bold);
+  @include m.font-scale();
+
+  width: 100%;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    text-align: center;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+
+    &.open {
+      transform: rotate(90deg);
+    }
+  }
+
+  .unordered-list {
+    background: linear-gradient(180deg, rgba(0, 180, 213, 0.24) 0%, rgba(102, 210, 230, 0) 100%);
+    padding: 24px 8px;
+
+    &__list-item {
+      color: var(--white);
+    }
+  }
+}

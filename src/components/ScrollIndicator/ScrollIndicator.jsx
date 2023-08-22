@@ -64,7 +64,7 @@ export const ScrollIndicator = ({ sections }) => {
             className={getBlocksWith('__box-item-line')}
             style={{ top: `${topPosition}px`, bottom: `${bottomPosition}px` }}
           />
-          {sections.map((section) => (
+          {sections.map(section => (
             <div key={section.id} className={getBlocksWith('__box-item')}>
               <Link
                 className={getBlocksWith('__link')}

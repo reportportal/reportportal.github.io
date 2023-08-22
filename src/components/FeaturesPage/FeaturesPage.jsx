@@ -79,7 +79,7 @@ export const FeaturesPage = () => {
   const menuItemActiveClassName = getBlocksWith('__features-navigation-item--active');
   const featureItemClassName = getBlocksWith('__features-navigation-item');
 
-  const setHistoryValue = (val) => window.history.replaceState(null, '', `/features/${val}`);
+  const setHistoryValue = val => window.history.replaceState(null, '', `/features/${val}`);
 
   useEffect(() => {
     const processIntegrationTopPosition = processIntegrationRef.current.getBoundingClientRect().top;
@@ -187,7 +187,7 @@ export const FeaturesPage = () => {
                 })}
                 to={link}
                 key={name}
-                onClick={(event) => handleNavClick(event, link)}
+                onClick={event => handleNavClick(event, link)}
               >
                 <span>{id}</span>
                 <span>{name}</span>

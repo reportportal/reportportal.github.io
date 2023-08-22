@@ -25,28 +25,28 @@ const FIRST_ROW_NODE = 0;
 export const SchemeRow = ({ portion, row, lastRow }) => {
   const isEvenRow = () => !(row % 2 === 0);
 
-  const isBoundaryNode = (index) =>
+  const isBoundaryNode = index =>
     isLastRow() ? isLastNode(index) : row === 1 && index === FIRST_ROW_NODE;
 
-  const isLastNode = (index) =>
+  const isLastNode = index =>
     !!((!isEvenRow() && index === FIRST_ROW_NODE) || (isEvenRow() && index === LAST_ROW_NODE));
 
-  const isDownArrow = (index) =>
+  const isDownArrow = index =>
     isLastRow()
       ? false
       : (isEvenRow() && index === LAST_ROW_NODE) || (!isEvenRow() && index === FIRST_ROW_NODE);
 
-  const calculateNumber = (index) =>
+  const calculateNumber = index =>
     isEvenRow()
       ? (row - 1) * ROW_NODE_NUMBER + nodePosition[index]
       : (row - 1) * ROW_NODE_NUMBER + ADJUSTING_COEFFICIENT - nodePosition[index];
 
   const isLastRow = () => row === lastRow;
 
-  const constructElementKey = (index) =>
+  const constructElementKey = index =>
     portion
       .slice(0, index + 1)
-      .map((item) => item.text)
+      .map(item => item.text)
       .join('');
 
   const renderEntity = (item, index) => {

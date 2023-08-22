@@ -28,7 +28,6 @@ import MilwaukeeIcon from './icons/milwaukee.inline.svg';
 import PearsonIcon from './icons/pearson.inline.svg';
 import RingIcon from './icons/ring.inline.svg';
 import DellIcon from './icons/dell.inline.svg';
-
 import videoSrcMp4 from './RP_promo_video.mp4';
 import videoSrcWebm from './RP_promo_video.webm';
 

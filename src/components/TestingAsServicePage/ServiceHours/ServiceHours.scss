@@ -1,0 +1,89 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.service-hours {
+  padding: 120px 16px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    padding: 120px 24px;
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    padding: 120px 0;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 59px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__description {
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
+
+    margin-bottom: 59px;
+    max-width: 992px;
+    text-align: center;
+    color: var(--text-service);
+  }
+
+  &__equals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 928px;
+    background: 14% 0 url('../../../svg/testing/Illustrayion.svg') no-repeat;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      background-position: -57% 0%;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      background-position: 0 0;
+    }
+
+    &-images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        flex-direction: row;
+        gap: 45px;
+      }
+
+      &--equal {
+        background: url('../../../svg/testing/equal.svg') no-repeat;
+        background-size: contain;
+        width: 55px;
+        height: 33px;
+      }
+    }
+
+    .unordered-list {
+      @include m.breakpoint(v.$desktop-sm) {
+        align-self: flex-end;
+      }
+
+      &__list {
+        @include m.font-scale(medium);
+
+        gap: 16px;
+        padding-left: 4px;
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

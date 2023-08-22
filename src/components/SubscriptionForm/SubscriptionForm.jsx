@@ -22,7 +22,7 @@ export const SubscriptionForm = ({ subscriptionFormState, setSubscriptionFormSta
       return;
     }
 
-    setSubscriptionFormState((prevState) => ({ ...prevState, isSubmitted: true }));
+    setSubscriptionFormState(prevState => ({ ...prevState, isSubmitted: true }));
   };
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export const SubscriptionForm = ({ subscriptionFormState, setSubscriptionFormSta
         >
           <Input
             placeholder="Email address"
-            prefix={<Icon component={(props) => <Icon component={EnvelopeIcon} {...props} />} />}
+            prefix={<Icon component={props => <Icon component={EnvelopeIcon} {...props} />} />}
           />
         </Form.Item>
       </div>

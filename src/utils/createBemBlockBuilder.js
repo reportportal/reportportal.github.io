@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-export const createBemBlockBuilder = (blocks) => {
+export const createBemBlockBuilder = blocks => {
   const cleanedBlocks = blocks.reduce(
     (reviewedBlocks, block) =>
       block ? reviewedBlocks.concat(block.trim().split(' ')) : reviewedBlocks,
