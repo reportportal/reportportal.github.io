@@ -1,9 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
+
 import { createBemBlockBuilder } from '../../utils';
-import { SubscriptionBanner } from '../SubscriptionBanner/SubscriptionBanner';
-import './CasesPage.scss';
+import { SubscriptionBanner } from '../SubscriptionBanner';
+
 import downloadIcon from './icons/download.svg';
+
+import './CasesPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['cases-page']);
 

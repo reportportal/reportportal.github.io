@@ -91,17 +91,19 @@
 
       p {
         @include m.font-poppins(v.$fw-semi-bold);
+
         color: var(--white);
         font-size: 20px;
         font-style: normal;
         font-weight: 600;
-        line-height: 32px; /* 160% */
+        line-height: 32px;
       }
     }
 
     &-leading {
       p {
         @include m.font-poppins(v.$fw-semi-bold);
+
         margin-top: 0px;
         color: var(--white);
         text-align: left;
@@ -164,12 +166,14 @@
 
       > p {
         @include m.font-poppins(v.$fw-semi-bold);
+
         color: var(--white);
       }
     }
 
     > p {
       @include m.font-poppins(v.$fw-semi-bold);
+
       color: var(--color-primary-600);
     }
   }
@@ -206,6 +210,7 @@
 
     > p {
       @include m.font-poppins(v.$fw-semi-bold);
+      
       color: var(--color-primary-600);
       font-feature-settings: 'clig' off, 'liga' off;
       font-size: 16px;

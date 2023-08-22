@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
+
 import { Layout } from '../components/Layout';
 import { CasesPage } from '../components/CasesPage';
 
