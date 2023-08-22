@@ -14,6 +14,7 @@
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
+  transition: var(--basic-transition);
 
   &__featured-image {
     border-top-left-radius: calc(2 * var(--base-spacing));
@@ -51,6 +52,7 @@
       display: inline-block;
       margin: calc(2 * var(--base-spacing)) 0;
       border-bottom: 1.5px solid transparent;
+      transition: var(--basic-transition);
     }
 
     &__meta {

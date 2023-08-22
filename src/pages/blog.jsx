@@ -67,7 +67,9 @@ export const pageQuery = graphql`
         }
         category
         featuredImage {
-          gatsbyImageData(width: 384, placeholder: BLURRED, formats: [PNG], layout: FULL_WIDTH)
+          file {
+            url
+          }
         }
       }
     }

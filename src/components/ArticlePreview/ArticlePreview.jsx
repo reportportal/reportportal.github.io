@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { ArticleAuthor } from '../ArticleAuthor/ArticleAuthor';
@@ -23,7 +22,7 @@ export const ArticlePreview = ({ posts }) => {
             <li className={getBlocksWithArticleItem()} key={post.id}>
               <Link to={`/blog/${post.id}`} className={getBlocksWithArticleItem('__content__link')}>
                 <div className={getBlocksWithArticleItem('__featured-image')}>
-                  <GatsbyImage image={getImage(post.featuredImage)} alt={post.title.title} />
+                  <img alt={post.title.title} src={post.featuredImage.file.url} />
                 </div>
                 <div className={getBlocksWithArticleItem('__content')}>
                   <p className={getBlocksWithArticleItem('__content__category')}>{post.category}</p>
