@@ -5,7 +5,7 @@
 
 .blog {
   position: relative;
-  padding: calc(72px + var(--header-height)) 16px 290px;
+  padding: calc(72px + var(--header-height)) 16px 180px;
   margin-top: calc(-1 * var(--header-height));
   color: var(--white);
   background-image: url('./icons/background_blog-page.svg');
@@ -296,5 +296,9 @@
     justify-content: center;
     display: flex;
     padding: calc(6 * var(--base-spacing)) 0 0;
+  }
+
+  .subscription-banner {
+    margin-top: 180px;
   }
 }
