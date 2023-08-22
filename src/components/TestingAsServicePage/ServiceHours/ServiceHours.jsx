@@ -15,7 +15,7 @@ export const ServiceHours = () => (
         The TaaS model allows you to use Professional Service Hours for the exact testing services
         you need, at the time you need them. It reduces fixed costs and allows you to scale the
         testing team up or down based on need. The exact cost of a Service Point can depend on the
-        location and the type of service it’s used for.
+        location and the type of service it’s used for
       </div>
     </div>
     <div className="service-hours__equals">
