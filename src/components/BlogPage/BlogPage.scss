@@ -1,7 +1,5 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/variables';
-@import 'src/styles/mixins/breakpoint';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .blog {
   position: relative;
@@ -19,7 +17,7 @@
     column-gap: 30px;
     margin: 0;
 
-    @include breakpoint($desktop-sm) {
+    @include m.breakpoint(v.$desktop-sm) {
       display: grid;
       grid-template-columns: 2.4fr 8fr;
       margin: 0 20px;
@@ -31,7 +29,7 @@
       margin-left: auto;
       margin-right: auto;
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         margin-left: 0;
         margin-right: 0;
       }
@@ -39,24 +37,24 @@
   }
 
   &__title {
-    @include font-poppins($fw-bold);
-    @include font-scale(large);
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(large);
 
     margin: 0;
     text-align: center;
 
-    @include breakpoint($phone) {
-      @include font-scale(x3-large);
+    @include m.breakpoint(v.$phone) {
+      @include m.font-scale(x3-large);
     }
 
-    @include breakpoint($tablet-sm) {
-      @include font-scale(x4-large);
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-scale(x4-large);
     }
   }
 
   &__subtitle {
-    @include font-noto-sans();
-    @include font-scale(x2-medium);
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
 
     margin-top: 16px;
     margin-bottom: 120px;
@@ -110,47 +108,47 @@
   h3,
   h5,
   h6 {
-    @include font-poppins($fw-bold);
+    @include m.font-poppins(v.$fw-bold);
   }
 
   &__wrapper {
-    @include font-noto-sans();
-    @include font-scale();
+    @include m.font-noto-sans();
+    @include m.font-scale();
 
     padding-top: 64px;
     line-height: 24px;
 
-    @include breakpoint($tablet-sm) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       padding-top: 120px;
     }
 
-    @include breakpoint($tablet-lg) {
+    @include m.breakpoint(v.$tablet-lg) {
       padding-top: 160px;
     }
   }
 
   &__title-content {
-    @include font-poppins($fw-bold);
-    @include font-scale(x4-medium);
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-medium);
 
     margin-top: 0;
     margin-bottom: 24px;
 
-    @include breakpoint($tablet-sm) {
-      @include font-scale(large);
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-scale(large);
     }
   }
 
   &__text-content {
-    @include font-noto-sans();
-    @include font-scale();
+    @include m.font-noto-sans();
+    @include m.font-scale();
 
     line-height: 24px;
   }
 
   &__chapter {
-    @include font-noto-sans($fw-bold);
-    @include font-scale();
+    @include m.font-noto-sans(v.$fw-bold);
+    @include m.font-scale();
 
     text-transform: uppercase;
     color: var(--text-service);
@@ -169,8 +167,8 @@
     }
 
     code {
-      @include roboto-mono();
-      @include font-scale();
+      @include m.roboto-mono();
+      @include m.font-scale();
 
       position: relative;
       display: inline-block;
@@ -199,13 +197,13 @@
 
   &__popup {
     code {
-      @include font-scale(s-small);
+      @include m.font-scale(s-small);
 
       padding-right: 40px;
     }
 
     svg {
-      @include font-scale();
+      @include m.font-scale();
     }
   }
 
@@ -230,13 +228,13 @@
 
   &__access {
     h5 {
-      @include font-scale(medium);
+      @include m.font-scale(medium);
 
       margin: 32px 0 16px;
     }
 
     h6 {
-      @include font-scale(base);
+      @include m.font-scale(base);
 
       margin: 16px 0 8px;
     }
@@ -244,7 +242,7 @@
     &-container {
       display: block;
 
-      @include breakpoint($tablet-sm) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         display: flex;
         justify-content: space-between;
       }
@@ -275,11 +273,11 @@
     line-height: 24px;
     background: var(--white);
 
-    @include breakpoint($phone-lg) {
+    @include m.breakpoint(v.$phone-lg) {
       padding-bottom: 6px;
     }
 
-    @include breakpoint($tablet-lg) {
+    @include m.breakpoint(v.$tablet-lg) {
       padding-bottom: 90px;
     }
   }
@@ -287,7 +285,7 @@
   &__final {
     padding-bottom: 144px;
 
-    @include breakpoint($tablet-lg) {
+    @include m.breakpoint(v.$tablet-lg) {
       padding-bottom: 230px;
     }
   }
