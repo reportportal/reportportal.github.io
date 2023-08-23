@@ -3,7 +3,6 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { SubscriptionBanner } from '../SubscriptionBanner';
-
 import downloadIcon from './icons/download.svg';
 
 import './CasesPage.scss';
@@ -21,10 +20,10 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
           </p>
 
           <div className={getBlocksWith('__download')}>
-            <div className={getBlocksWith('__download-button')} onClick={() => {}}>
+            <button className={cx('btn', 'btn--secondary-2', 'btn--large')} onClick={() => {}}>
               <img src={downloadIcon} alt="" />
-              <p>Download all Studies</p>
-            </div>
+              Download all Studies
+            </button>
           </div>
         </div>
       </div>
@@ -53,10 +52,13 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
         ))}
       </div>
       {showLoadMore ? (
-        <div className={getBlocksWith('__load')}>
-          <div className={getBlocksWith('__load-more')} onClick={handleLoadMore}>
-            <p>Load More</p>
-          </div>
+        <div className={getBlocksWith('__load-more')}>
+          <button
+            className={cx('btn', 'btn--outline', 'btn--large', 'btn--white')}
+            onClick={handleLoadMore}
+          >
+            Load More
+          </button>
         </div>
       ) : (
         <div className={getBlocksWith('__no-more')}></div>
