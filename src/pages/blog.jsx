@@ -9,7 +9,7 @@ import { createBemBlockBuilder } from '../utils';
 
 import '../components/BlogPage/BlogPage.scss';
 
-const PAGE_SZIE = 9;
+const PAGE_SIZE = 9;
 const getBlocksWith = createBemBlockBuilder(['blog']);
 
 const BlogIndex = ({
@@ -18,9 +18,9 @@ const BlogIndex = ({
   },
   location,
 }) => {
-  const [posts, setPosts] = useState(nodes.slice(0, PAGE_SZIE));
+  const [posts, setPosts] = useState(nodes.slice(0, PAGE_SIZE));
 
-  const loadMorePost = () => setPosts(nodes.slice(0, posts.length + PAGE_SZIE));
+  const loadMorePost = () => setPosts(nodes.slice(0, posts.length + PAGE_SIZE));
 
   return (
     <Layout location={location}>
