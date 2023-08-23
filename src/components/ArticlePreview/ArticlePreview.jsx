@@ -7,8 +7,7 @@ import { createBemBlockBuilder } from '../../utils';
 
 import './ArticlePreview.scss';
 
-const getBlocksWithArticleList = createBemBlockBuilder(['article-preview-list']);
-const getBlocksWithArticleItem = createBemBlockBuilder(['article-preview-item']);
+const getBlocksWith = createBemBlockBuilder(['article-preview-list']);
 
 export const ArticlePreview = ({ posts }) => {
   if (!posts) return null;
@@ -16,30 +15,23 @@ export const ArticlePreview = ({ posts }) => {
 
   return (
     <div className="container">
-      <ul className={getBlocksWithArticleList()}>
+      <ul className={getBlocksWith()}>
         {posts.map(post => {
           return (
-            <li className={getBlocksWithArticleItem()} key={post.id}>
-              <Link
-                to={`/blog/${post.slug}`}
-                className={getBlocksWithArticleItem('__content__link')}
-              >
-                <div className={getBlocksWithArticleItem('__featured-image')}>
+            <li className={getBlocksWith('__item')} key={post.id}>
+              <Link to={`/blog/${post.slug}`} className={getBlocksWith('__link')}>
+                <div className={getBlocksWith('__featured-image')}>
                   <img alt={post.title.title} src={post.featuredImage.file.url} />
                 </div>
-                <div className={getBlocksWithArticleItem('__content')}>
-                  <p className={getBlocksWithArticleItem('__content__category')}>{post.category}</p>
+                <div className={getBlocksWith('__content')}>
+                  <p className={getBlocksWith('__category')}>{post.category}</p>
 
-                  <h2 className={getBlocksWithArticleItem('__content__title')}>
-                    {post.title.title}
-                  </h2>
+                  <h2 className={getBlocksWith('__title')}>{post.title.title}</h2>
                   {post.description?.raw && <div>{renderRichText(post.description)}</div>}
-                  <div className={getBlocksWithArticleItem('__content__meta')}>
+                  <div className={getBlocksWith('__meta')}>
                     <span className="meta">{post.publishDate}</span>
                   </div>
-                  <p className={getBlocksWithArticleItem('__content__excerpt')}>
-                    {post.leadParagraph.leadParagraph}
-                  </p>
+                  <p className={getBlocksWith('__excerpt')}>{post.leadParagraph.leadParagraph}</p>
                   <ArticleAuthor authorName={post.author} />
                 </div>
               </Link>
