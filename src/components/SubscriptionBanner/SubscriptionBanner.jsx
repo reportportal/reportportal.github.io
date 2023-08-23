@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { SubscriptionForm } from '../../SubscriptionForm';
-import { Banner } from '../../Banner';
+import { createBemBlockBuilder } from '../../utils';
+import { SubscriptionForm } from '../SubscriptionForm';
+import { Banner } from '../Banner';
 
 import './SubscriptionBanner.scss';
 

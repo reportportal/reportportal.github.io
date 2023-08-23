@@ -4,15 +4,15 @@ import cx from 'classnames';
 
 import { ArticlePreview } from '../components/ArticlePreview';
 import { Layout } from '../components/Layout';
+import { SubscriptionBanner } from '../components/SubscriptionBanner';
 import { createBemBlockBuilder } from '../utils';
 
 import '../components/BlogPage/BlogPage.scss';
-import { SubscriptionBanner } from '../components/LandingPage/SubscriptionBanner/SubscriptionBanner';
 
 const PAGE_SZIE = 9;
 const getBlocksWith = createBemBlockBuilder(['blog']);
 
-const BlogIndex = (props) => {
+const BlogIndex = props => {
   const {
     data: {
       allContentfulBlogPost: { nodes },
