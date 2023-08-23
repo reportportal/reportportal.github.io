@@ -43,11 +43,11 @@
     margin: 0;
     text-align: center;
 
-    @include m.breakpoint(v.$phone) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-scale(x3-large);
     }
 
-    @include m.breakpoint(v.$tablet-sm-exact) {
+    @include m.breakpoint(v.$desktop-sm) {
       @include m.font-scale(x4-large);
     }
   }
