@@ -52,6 +52,7 @@ export const pageQuery = graphql`
     allContentfulBlogPost(sort: { date: DESC }) {
       nodes {
         id
+        slug
         date(formatString: "MMMM Do, YYYY")
         author
         articleBody {

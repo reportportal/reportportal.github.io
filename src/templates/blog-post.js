@@ -32,7 +32,11 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Hero image={post.heroImage?.gatsbyImage} title={post.title} content={post.description} />
+        <Hero
+          image={post.heroImage?.gatsbyImage}
+          title={post.title.title}
+          content={post.description}
+        />
         <div className={styles.container}>
           <span className={styles.meta}>
             {post.author?.name} &middot; <time dateTime={post.rawDate}>{post.publishDate}</time> –{' '}
@@ -73,9 +77,13 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($id: String!) {
-    contentfulBlogPost(id: { eq: $id }) {
+  query BlogPostBySlug($slug: String!) {
+    contentfulBlogPost(slug: { eq: $slug }) {
       id
+      slug
+      title {
+        title
+      }
       author
       articleBody {
         raw

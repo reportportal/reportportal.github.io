@@ -20,7 +20,10 @@ export const ArticlePreview = ({ posts }) => {
         {posts.map(post => {
           return (
             <li className={getBlocksWithArticleItem()} key={post.id}>
-              <Link to={`/blog/${post.id}`} className={getBlocksWithArticleItem('__content__link')}>
+              <Link
+                to={`/blog/${post.slug}`}
+                className={getBlocksWithArticleItem('__content__link')}
+              >
                 <div className={getBlocksWithArticleItem('__featured-image')}>
                   <img alt={post.title.title} src={post.featuredImage.file.url} />
                 </div>
