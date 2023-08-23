@@ -20,7 +20,7 @@ const BlogIndex = ({
 }) => {
   const [posts, setPosts] = useState(nodes.slice(0, PAGE_SZIE));
 
-  const handleClick = () => setPosts(nodes.slice(0, posts.length + PAGE_SZIE));
+  const loadMorePost = () => setPosts(nodes.slice(0, posts.length + PAGE_SZIE));
 
   return (
     <Layout location={location}>
@@ -33,7 +33,7 @@ const BlogIndex = ({
           <ArticlePreview posts={posts} />
           {posts.length < nodes.length && (
             <div className={getBlocksWith('__footer')}>
-              <button className={cx('btn', 'btn--outline', 'btn--large')} onClick={handleClick}>
+              <button className={cx('btn', 'btn--outline', 'btn--large')} onClick={loadMorePost}>
                 Load more
               </button>
             </div>
