@@ -12,14 +12,12 @@ import '../components/BlogPage/BlogPage.scss';
 const PAGE_SZIE = 9;
 const getBlocksWith = createBemBlockBuilder(['blog']);
 
-const BlogIndex = props => {
-  const {
-    data: {
-      allContentfulBlogPost: { nodes },
-    },
-    location,
-  } = props;
-
+const BlogIndex = ({
+  data: {
+    allContentfulBlogPost: { nodes },
+  },
+  location,
+}) => {
   const [posts, setPosts] = useState(nodes.slice(0, PAGE_SZIE));
 
   const handleClick = () => setPosts(nodes.slice(0, posts.length + PAGE_SZIE));
