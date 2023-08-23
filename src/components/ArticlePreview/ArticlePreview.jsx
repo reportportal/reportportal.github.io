@@ -7,8 +7,8 @@ import { createBemBlockBuilder } from '../../utils';
 
 import './ArticlePreview.scss';
 
-const getBlocksWithArticleList = createBemBlockBuilder(['article-list']);
-const getBlocksWithArticleItem = createBemBlockBuilder(['article-item']);
+const getBlocksWithArticleList = createBemBlockBuilder(['article-preview-list']);
+const getBlocksWithArticleItem = createBemBlockBuilder(['article-preview-item']);
 
 export const ArticlePreview = ({ posts }) => {
   if (!posts) return null;
