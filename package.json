@@ -6,6 +6,7 @@
   "scripts": {
     "predev": "node ./bin/gen-antd-css.js && gatsby develop -p 8080",
     "dev": "gatsby develop -p 8080",
+    "graphql:win": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "prebuild": "cross-env NODE_ENV=production node ./bin/gen-antd-css.js",
     "build": "gatsby build",
     "serve": "gatsby serve",

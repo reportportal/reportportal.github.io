@@ -20,10 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       {
         allContentfulBlogPost {
           nodes {
-            id
-            title {
-              title
-            }
+            slug
           }
         }
       }
@@ -44,14 +41,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
-      const previousPostSlug = index === 0 ? null : posts[index - 1].id;
-      const nextPostSlug = index === posts.length - 1 ? null : posts[index + 1].id;
+      const previousPostSlug = index === 0 ? null : posts[index - 1].slug;
+      const nextPostSlug = index === posts.length - 1 ? null : posts[index + 1].slug;
 
       createPage({
-        path: `/blog/${post.id}/`,
+        path: `/blog/${post.slug}/`,
         component: blogPost,
         context: {
-          id: post.id,
+          slug: post.slug,
           previousPostSlug,
           nextPostSlug,
         },
