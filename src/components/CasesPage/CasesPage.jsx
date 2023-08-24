@@ -11,7 +11,7 @@ const getBlocksWith = createBemBlockBuilder(['cases-page']);
 
 export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
   return (
-    <div>
+    <React.Fragment>
       <div className={getBlocksWith()}>
         <div className="container">
           <h1 className={getBlocksWith('__title')}>Case Studies</h1>
@@ -64,6 +64,6 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
         <div className={getBlocksWith('__no-more')}></div>
       )}
       <SubscriptionBanner />
-    </div>
+    </React.Fragment>
   );
 };
