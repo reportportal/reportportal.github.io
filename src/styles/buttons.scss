@@ -68,6 +68,19 @@ a.btn--primary {
     }
   }
 
+  &--secondary-2 {
+    background: var(--white);
+    color: var(--color-primary-600);
+
+    &:hover {
+      background: var(--color-primary-100);
+    }
+
+    &:active {
+      color: var(--color-primary-700);
+    }
+  }
+
   &--outline,
   &--outline-2 {
     border: 2px solid var(--color-primary-600);
