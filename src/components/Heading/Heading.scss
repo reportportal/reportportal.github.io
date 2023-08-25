@@ -11,10 +11,6 @@
 .secondary-heading {
   @include m.font-scale(x4-medium);
 
-  @include m.breakpoint(v.$phone-lg) {
-    @include m.font-scale(large);
-  }
-
   @include m.breakpoint(v.$tablet-sm-exact) {
     @include m.font-scale(x3-large);
   }
@@ -23,7 +19,7 @@
 .third-heading {
   @include m.font-scale(x3-medium);
 
-  @include m.breakpoint(v.$phone-lg) {
+  @include m.breakpoint(v.$tablet-sm-exact) {
     @include m.font-scale(large);
   }
 }
