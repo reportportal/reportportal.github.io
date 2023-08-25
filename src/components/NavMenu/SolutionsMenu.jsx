@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { Link } from '../Link';
 import { CaseStudiesCover } from './covers/CaseStudiesCover';
 import { SectionList } from './SectionList';
 import { SectionCard } from './SectionCard';
@@ -52,9 +53,9 @@ export const SolutionsMenu = ({ isDesktop = true }) => {
       text="Over 1200 companies around the globe use ReportPortal."
     >
       <div className={cx(getBlocksWith('__btn-group'), 'full-width')}>
-        <button type="button" className={cx('btn', 'btn--outline', 'full-width')}>
+        <Link className={cx('btn', 'btn--outline', 'full-width')} to="/case-studies">
           Explore Case Studies
-        </button>
+        </Link>
       </div>
     </SectionCard>
   );
