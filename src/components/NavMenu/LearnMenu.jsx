@@ -28,6 +28,7 @@ export const LearnMenu = ({ isDesktop = true }) => {
       icon: <SuccessStoriesIcon />,
       title: 'Success stories',
       text: 'Our Case Studies',
+      link: '/case-studies',
     },
   ];
 

@@ -81,7 +81,7 @@ export const SubscriptionForm = ({ subscriptionFormState, setSubscriptionFormSta
         )}
       </Form.Item>
       <span className={getBlocksWith('__form-info')}>
-        By subscribing, you agree to receive marketing emails from Report Portal team and associated
+        By subscribing, you agree to receive marketing emails from ReportPortal team and associated
         partners and accept our{' '}
         <a href="https://privacy.epam.com/core/interaction/showpolicy?type=CommonPrivacyPolicy">
           Privacy Policy
