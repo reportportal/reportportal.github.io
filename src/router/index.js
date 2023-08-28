@@ -30,6 +30,7 @@ const Router = Backbone.Router.extend({
   routes: {
     '': 'openIndex',
     pricing: 'openPricing',
+    services: 'openServices',
     'legal/terms': 'openTerms',
     'blog/:blogName': 'openBlog',
     community: 'openCommunity',
@@ -48,6 +49,10 @@ const Router = Backbone.Router.extend({
   },
   openPricing() {
     this.context.renderPricing();
+    this.header.$el.addClass('without-shadow');
+  },
+  openServices() {
+    this.context.renderServices();
     this.header.$el.addClass('without-shadow');
   },
   openTerms() {

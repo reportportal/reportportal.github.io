@@ -134,6 +134,20 @@ const compareTableTitles = {
 
 export const planTypes = [
   {
+    id: ON_PREMISES_ID,
+    name: 'On-Premises',
+    iconType: 'home',
+    footerDescription: '*payment is made quarterly',
+    description:
+      'ReportPortal instance deployed on-premise behind your firewall or in the Cloud. All your test data is located on your own instance and it is 100% secured.',
+    planNames: [OPEN_SOURCE, PACKAGE_25, PACKAGE_60, PACKAGE_168],
+    planCompareTableTitles: [
+      compareTableTitles.professionalSupport,
+      compareTableTitles.minimumCommitment,
+      compareTableTitles.features,
+    ],
+  },
+  {
     id: SAAS_ID,
     name: 'SaaS',
     iconType: 'cloud',
@@ -148,20 +162,6 @@ export const planTypes = [
       compareTableTitles.retention,
       compareTableTitles.support,
       compareTableTitles.additionalSupport,
-      compareTableTitles.features,
-    ],
-  },
-  {
-    id: ON_PREMISES_ID,
-    name: 'On-Premises',
-    iconType: 'home',
-    footerDescription: '*payment is made quarterly',
-    description:
-      'ReportPortal instance deployed on-premise behind your firewall or in the Cloud. All your test data is located on your own instance and it is 100% secured.',
-    planNames: [OPEN_SOURCE, PACKAGE_25, PACKAGE_60, PACKAGE_168],
-    planCompareTableTitles: [
-      compareTableTitles.professionalSupport,
-      compareTableTitles.minimumCommitment,
       compareTableTitles.features,
     ],
   },
