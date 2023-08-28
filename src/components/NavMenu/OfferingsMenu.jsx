@@ -51,16 +51,19 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
           icon: <TaaSIcon />,
           title: 'Testing as a Service',
           text: 'On-demand testing resources to optimize your testing costs',
+          link: '/testing-as-a-service',
         },
         {
           icon: <TAaaSIcon />,
           title: 'Test Automation as a Service',
           text: 'On-demand end-to-end Test Automation services',
+          link: '/test-automation-as-a-service',
         },
         {
           icon: <QualityAssessmentIcon />,
           title: 'Quality Assessment',
           text: 'Consulting to bring up Quality Engineering Transformation',
+          link: '/quality-assessment',
         },
       ]}
     />

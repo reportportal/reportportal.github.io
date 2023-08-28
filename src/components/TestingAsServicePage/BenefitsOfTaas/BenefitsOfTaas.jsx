@@ -13,7 +13,7 @@ import './BenefitsOfTaas.scss';
 const getBlocksWith = createBemBlockBuilder(['benefits-of-taas']);
 const getBlocksWithList = createBemBlockBuilder(['benefits-of-taas-list']);
 
-const benefits = [
+const BENEFITS = [
   {
     icon: <EasyToBuy />,
     text: 'Easy to buy through professional service hours model',
@@ -37,7 +37,7 @@ export const BenefitsOfTaas = () => (
     <Heading title="Benefits of TaaS" />
     <div className={getBlocksWith('__content')}>
       <ul className={getBlocksWithList()}>
-        {benefits.map(({ icon, text }) => (
+        {BENEFITS.map(({ icon, text }) => (
           <li key={text}>
             {icon}
             <span>{text}</span>
