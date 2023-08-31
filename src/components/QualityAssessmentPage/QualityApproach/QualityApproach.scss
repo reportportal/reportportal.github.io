@@ -133,6 +133,9 @@
       }
 
       &__item {
+        @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale();
+
         display: flex;
         align-items: center;
         justify-content: center;
