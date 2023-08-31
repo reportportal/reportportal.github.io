@@ -32,6 +32,10 @@ export default Epoxy.View.extend({
     this.header.activatePage('pricing');
     this.renderPage(PricingPage);
   },
+  renderServices() {
+    this.header.activatePage('services');
+    this.renderPage(PricingPage);
+  },
   renderTerms() {
     this.header.activatePage('');
     this.renderPage(TermsPage);
