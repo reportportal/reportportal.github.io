@@ -1,15 +1,15 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .section-card {
-  @include font-scale(small);
+  @include m.font-scale(small);
 
   display: flex;
   flex-direction: column;
   width: min-content;
 
   &__title {
-    @include font-poppins($fw-semi-bold);
+    @include m.font-poppins(v.$fw-semi-bold);
 
     padding-left: 8px;
     margin: 0 0 18px;
@@ -18,8 +18,8 @@
   }
 
   &__text {
-    @include font-poppins();
-    @include font-scale(small);
+    @include m.font-poppins();
+    @include m.font-scale(small);
 
     color: var(--text-primary);
     margin-top: 16px;

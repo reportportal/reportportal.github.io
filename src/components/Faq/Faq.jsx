@@ -1,45 +1,48 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
+import { Collapse } from 'antd';
+import cx from 'classnames';
 
-import * as styles from './Faq.module.scss';
-import { CollapsePanel } from './components/CollapsePanel/CollapsePanel';
 import { Link } from '../Link';
 import { ArrowIcon } from '../Footer/icons';
+import { iconsCommon } from '../../utils/imageSource';
+import { createBemBlockBuilder } from '../../utils';
 
-export const Faq = ({ collapsableList, showMoreInfoLink = true }) => {
-  const [shownItems, setShownItems] = useState(() => collapsableList.map(() => false));
+import './Faq.scss';
 
-  const updateArrowStatus = useCallback(
-    (index) => () => {
-      const status = [...shownItems];
-      status[index] = !status[index];
-      setShownItems(status);
-    },
-    [shownItems],
-  );
+const getBlocksWith = createBemBlockBuilder(['faq']);
+export const Faq = ({ items, showMoreInfoLink = true }) => {
   return (
     <>
-      <div className={styles.faq}>
-        <div className={styles.faq_heading}>
+      <div className={cx('container', getBlocksWith())}>
+        <div className={getBlocksWith('__heading')}>
           <h1>Frequently asked questions</h1>
         </div>
-        <div className={styles.faq_content}>
-          {collapsableList.map(({ title, description }, index) => (
-            <CollapsePanel
-              key={index}
-              title={title}
-              description={description}
-              index={index}
-              onClick={updateArrowStatus}
-              isShow={shownItems[index]}
-            />
-          ))}
+        <div className={getBlocksWith('__content')}>
+          <Collapse
+            items={items}
+            defaultActiveKey={['1']}
+            size="large"
+            expandIconPosition="end"
+            expandIcon={({ isActive }) => (
+              <img
+                className={cx(getBlocksWith('__expandIcon'), {
+                  [getBlocksWith('__expandIcon-active')]: isActive,
+                })}
+                src={iconsCommon.arrowLight}
+              />
+            )}
+          />
         </div>
         {showMoreInfoLink && (
-          <div className={styles.faq_link}>
+          <div className={getBlocksWith('__link')}>
             <p>
               More information on the link to our
-              <Link className={styles.faq_doc_link} to={''}>
-                {'    Documentation   '}
+              <Link
+                className={getBlocksWith('__link-documentation')}
+                to="/docs/FAQ/"
+                shouldOpenInNewWindow
+              >
+                Documentation
                 <ArrowIcon />
               </Link>
             </p>

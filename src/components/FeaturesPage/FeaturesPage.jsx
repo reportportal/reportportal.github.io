@@ -11,12 +11,12 @@ import { Link } from '../Link';
 import { ProcessIntegration } from '../ProcessIntegration';
 import { SupportedFrameworks } from '../SupportedFrameworks';
 import { ArrowLink } from '../ArrowLink';
-import { Banner } from '../InstallationPage/components/Banner';
+import { Banner } from '../Banner';
 import { StartTestingWithReportPortal } from '../StartTestingWithReportPortal';
 import { featuresList, navigationList } from './dataSource';
+import { Faq } from '../Faq';
 
 import './FeaturesPage.scss';
-import { Faq } from '../Faq';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
@@ -80,7 +80,7 @@ export const FeaturesPage = () => {
   const menuItemActiveClassName = getBlocksWith('__features-navigation-item--active');
   const featureItemClassName = getBlocksWith('__features-navigation-item');
 
-  const setHistoryValue = (val) => window.history.replaceState(null, '', `/features/${val}`);
+  const setHistoryValue = val => window.history.replaceState(null, '', `/features/${val}`);
 
   useEffect(() => {
     const processIntegrationTopPosition = processIntegrationRef.current.getBoundingClientRect().top;
@@ -112,8 +112,8 @@ export const FeaturesPage = () => {
 
   const collapsableList = [
     {
-      title: 'What is meant by "Premium feature"?',
-      description: (
+      label: 'What is meant by "Premium feature"?',
+      children: (
         <>
           <p>
             Premium feature is an advanced feature which comes on top of Free Open Source edition.
@@ -136,8 +136,8 @@ export const FeaturesPage = () => {
       ),
     },
     {
-      title: 'What capabilities does Rest API provide?',
-      description: (
+      label: 'What capabilities does Rest API provide?',
+      children: (
         <p>
           REST API enables users to easily integrate any testing framework or third-party tool with
           ReportPortal so as to report data into ReportPortal, call analyze action, add attributes,
@@ -188,7 +188,7 @@ export const FeaturesPage = () => {
                 })}
                 to={link}
                 key={name}
-                onClick={(event) => handleNavClick(event, link)}
+                onClick={event => handleNavClick(event, link)}
               >
                 <span>{id}</span>
                 <span>{name}</span>
@@ -229,7 +229,7 @@ export const FeaturesPage = () => {
       </div>
       <StartTestingWithReportPortal />
       <div className={cx(getBlocksWith('__faq'), 'container')}>
-        <Faq collapsableList={collapsableList} showMoreInfoLink={false} />
+        <Faq items={collapsableList} showMoreInfoLink={false} />
       </div>
       <div className={getBlocksWith('__banner')}>
         <Banner title="Still have questions about our features?" linkTitle="Contact Us" link="#" />

@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+
 const axios = require('axios');
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -7,8 +8,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   await axios
     .get('https://status.reportportal.io/github/stars')
-    .then((response) => response.data)
-    .then((data) => {
+    .then(response => response.data)
+    .then(data => {
       fs.writeFileSync('static/github.json', JSON.stringify(data));
     });
 
@@ -19,10 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       {
         allContentfulBlogPost {
           nodes {
-            id
-            title {
-              title
-            }
+            slug
           }
         }
       }
@@ -43,14 +41,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
-      const previousPostSlug = index === 0 ? null : posts[index - 1].id;
-      const nextPostSlug = index === posts.length - 1 ? null : posts[index + 1].id;
+      const previousPostSlug = index === 0 ? null : posts[index - 1].slug;
+      const nextPostSlug = index === posts.length - 1 ? null : posts[index + 1].slug;
 
       createPage({
-        path: `/blog/${post.id}/`,
+        path: `/blog/${post.slug}/`,
         component: blogPost,
         context: {
-          id: post.id,
+          slug: post.slug,
           previousPostSlug,
           nextPostSlug,
         },

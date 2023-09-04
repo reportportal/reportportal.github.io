@@ -8,6 +8,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 static/github.json
+static/antd.min.css
 
 # Runtime data
 pids
@@ -74,5 +75,5 @@ public
 .DS_Store
 Thumbs.db
 
-# Editor config
-.vscode
+# Visual Studio Code files
+.vscode/*

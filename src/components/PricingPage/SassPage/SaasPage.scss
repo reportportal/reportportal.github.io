@@ -1,0 +1,36 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.pricingPage {
+  .footer {
+    border: none;
+  }
+
+  &__faqContainer {
+    margin-top: 120px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-top: 144px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: 171px;
+    }
+  }
+
+  &__stillHaveQuestion {
+    margin-top: 73px;
+    margin-bottom: 35px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-top: 151px;
+      margin-bottom: 35px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: 212px;
+      margin-bottom: 100px;
+    }
+  }
+}
+

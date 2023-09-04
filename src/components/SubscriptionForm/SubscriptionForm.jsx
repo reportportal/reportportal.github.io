@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
-import { useAtom } from 'jotai';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
-import { EnvelopeIcon } from '../NavMenu/icons/Envelope';
-import { subscriptionFormAtom } from '../Layout';
+import { EnvelopeIcon } from '../NavMenu/icons';
 import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';
 
-export const SubscriptionForm = () => {
-  const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
+export const SubscriptionForm = ({ subscriptionFormState, setSubscriptionFormState }) => {
   const [form] = Form.useForm();
   const [isValid, setIsValid] = useState(true);
   const email = Form.useWatch('email', form);
@@ -25,7 +22,7 @@ export const SubscriptionForm = () => {
       return;
     }
 
-    setSubscriptionFormState((prevState) => ({ ...prevState, isSubmitted: true }));
+    setSubscriptionFormState(prevState => ({ ...prevState, isSubmitted: true }));
   };
 
   useEffect(() => {
@@ -68,7 +65,7 @@ export const SubscriptionForm = () => {
         >
           <Input
             placeholder="Email address"
-            prefix={<Icon component={(props) => <Icon component={EnvelopeIcon} {...props} />} />}
+            prefix={<Icon component={props => <Icon component={EnvelopeIcon} {...props} />} />}
           />
         </Form.Item>
       </div>
@@ -84,7 +81,7 @@ export const SubscriptionForm = () => {
         )}
       </Form.Item>
       <span className={getBlocksWith('__form-info')}>
-        By subscribing, you agree to receive marketing emails from Report Portal team and associated
+        By subscribing, you agree to receive marketing emails from ReportPortal team and associated
         partners and accept our{' '}
         <a href="https://privacy.epam.com/core/interaction/showpolicy?type=CommonPrivacyPolicy">
           Privacy Policy

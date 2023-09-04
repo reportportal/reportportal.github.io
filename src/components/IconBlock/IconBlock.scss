@@ -1,0 +1,40 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.icon-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-primary);
+
+  &__number {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-large);
+  }
+
+  &__text {
+    @include m.font-noto-sans();
+    @include m.font-scale();
+  }
+
+  &__benefit {
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(medium);
+  }
+}
+
+.pentagon {
+  width: 266px;
+  height: 291px;
+  background: url('icons/PentagonSubtract.svg') no-repeat -8px -2px;
+  background-size: 105%;
+}
+
+.circle {
+  width: 279px;
+  height: 279px;
+  background: url('icons/CircleSubtract.svg') no-repeat -8px -2px;
+  background-size: 105%;
+}

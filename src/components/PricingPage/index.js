@@ -1,1 +1,1 @@
-export * from './PricingPage';
+export * from './components';

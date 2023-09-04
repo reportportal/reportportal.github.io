@@ -1,5 +1,6 @@
 const path = require('node:path');
 const { writeFileSync } = require('node:fs');
+
 const spaceImport = require('contentful-import');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
@@ -34,7 +35,7 @@ const questions = [
     name: 'spaceId',
     message: 'Your Space ID',
     when: !argv.spaceId && !process.env.CONTENTFUL_SPACE_ID,
-    validate: (input) => /^[a-z0-9]{12}$/.test(input) || 'Space ID must be 12 lowercase characters',
+    validate: input => /^[a-z0-9]{12}$/.test(input) || 'Space ID must be 12 lowercase characters',
   },
   {
     name: 'managementToken',
@@ -61,11 +62,11 @@ inquirer
     managementToken = argv.managementToken || managementToken;
 
     console.log('Writing config file...');
-    const configFiles = ['.env.development', '.env.production'].map((file) =>
+    const configFiles = ['.env.development', '.env.production'].map(file =>
       path.join(__dirname, '..', file),
     );
 
-    configFiles.forEach((file) => {
+    configFiles.forEach(file => {
       const message = `
         # All environment variables will be sourced'
         # and made available to gatsby-config.js, gatsby-node.js, etc.
@@ -92,4 +93,4 @@ inquirer
   .then(() => {
     console.log(`All set! You can now run ${chalk.yellow('npm run dev')} to see it in action.`);
   })
-  .catch((error) => console.error(error));
+  .catch(error => console.error(error));

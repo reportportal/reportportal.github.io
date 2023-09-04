@@ -14,11 +14,11 @@ const OFFSET = 20;
 const HERO_HEIGHT = 500;
 const DEFAULT_BOTTOM_LINE_POSITION = 400;
 
-const HEADER_HIGHT = 76;
+const HEADER_HEIGHT = 76;
 
 export const ScrollIndicator = ({ sections }) => {
   const [offset, setOffset] = useState(-FIRST_POSITION_OFFSET);
-  const [indicatorMarginTop, setIndicatorMarginTop] = useState(HEADER_HIGHT);
+  const [indicatorMarginTop, setIndicatorMarginTop] = useState(HEADER_HEIGHT);
   const scroll = useScroll(document);
 
   const [topPosition, setTopPosition] = useState(0);
@@ -53,38 +53,34 @@ export const ScrollIndicator = ({ sections }) => {
   }, [indicatorySize]);
 
   return (
-    <>
-      {sections && (
-        <div ref={pathRef} className={getBlocksWith('__path')}>
+    <div ref={pathRef} className={getBlocksWith()}>
+      <div
+        ref={indicatoryRef}
+        className={getBlocksWith('__path')}
+        style={{ top: `${indicatorMarginTop}px` }}
+      >
+        <div className={getBlocksWith('__box')}>
           <div
-            ref={indicatoryRef}
-            className={getBlocksWith()}
-            style={{ top: `${indicatorMarginTop}px` }}
-          >
-            <div className={getBlocksWith('__box')}>
-              {sections.map((section) => (
-                <div key={section.id} className={getBlocksWith('__box-item')}>
-                  <div
-                    className={getBlocksWith('__box-item-line')}
-                    style={{ top: `${topPosition}px`, bottom: `${bottomPosition}px` }}
-                  />
-                  <Link
-                    className={getBlocksWith('__link')}
-                    activeClass="active"
-                    to={section.id}
-                    spy
-                    smooth
-                    offset={offset}
-                  >
-                    {section.step && <span>{section.step}</span>}
-                    <span className={getBlocksWith('__box-item-substring')}>{section.title}</span>
-                  </Link>
-                </div>
-              ))}
+            className={getBlocksWith('__box-item-line')}
+            style={{ top: `${topPosition}px`, bottom: `${bottomPosition}px` }}
+          />
+          {sections.map(section => (
+            <div key={section.id} className={getBlocksWith('__box-item')}>
+              <Link
+                className={getBlocksWith('__link')}
+                activeClass="active"
+                to={section.id}
+                spy
+                smooth
+                offset={offset}
+              >
+                {section.step && <span>{section.step}</span>}
+                <span className={getBlocksWith('__box-item-substring')}>{section.title}</span>
+              </Link>
             </div>
-          </div>
+          ))}
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 };

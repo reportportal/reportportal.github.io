@@ -21,11 +21,13 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
       icon: <SaaSIcon />,
       title: 'SaaS',
       text: 'Our team hosts application instance for your organization',
+      link: '/pricing/saas',
     },
     {
       icon: <OnPremiseIcon />,
       title: 'On-premises',
       text: "ReportPortal instance resides within your organisation's premises",
+      link: '/pricing/on-premises',
     },
   ];
 
@@ -51,16 +53,19 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
           icon: <TaaSIcon />,
           title: 'Testing as a Service',
           text: 'On-demand testing resources to optimize your testing costs',
+          link: '/testing-as-a-service',
         },
         {
           icon: <TAaaSIcon />,
           title: 'Test Automation as a Service',
           text: 'On-demand end-to-end Test Automation services',
+          link: '/test-automation-as-a-service',
         },
         {
           icon: <QualityAssessmentIcon />,
           title: 'Quality Assessment',
           text: 'Consulting to bring up Quality Engineering Transformation',
+          link: '/quality-assessment',
         },
       ]}
     />

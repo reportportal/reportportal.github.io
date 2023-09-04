@@ -29,6 +29,10 @@
     text-align: center;
 
     @include breakpoint($tablet-sm-exact) {
+      @include font-scale(large);
+    }
+
+    @include breakpoint($desktop-sm) {
       @include font-scale(x3-large);
     }
   }
@@ -98,6 +102,10 @@
 }
 
 .animated-list {
+  @include breakpoint($desktop-sm) {
+    height: 518px;
+  }
+
   ul {
     list-style: none;
     padding: 0;
@@ -105,6 +113,14 @@
     @include breakpoint($desktop-sm) {
       flex-shrink: 0;
       width: 486px;
+
+      img {
+        display: none;
+      }
+
+      & + img {
+        display: block;
+      }
     }
   }
 
@@ -155,14 +171,6 @@
     @include font-scale(medium);
 
     color: var(--text-primary);
-  }
-
-  img {
-    margin-top: 8px;
-
-    @include breakpoint($desktop-sm) {
-      margin-top: auto;
-    }
   }
 
   &__card {

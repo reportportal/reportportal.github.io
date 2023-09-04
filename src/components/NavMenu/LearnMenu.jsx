@@ -22,11 +22,13 @@ export const LearnMenu = ({ isDesktop = true }) => {
       icon: <BlogIcon />,
       title: 'Blog',
       text: 'News, updates and more',
+      link: '/blog',
     },
     {
       icon: <SuccessStoriesIcon />,
       title: 'Success stories',
       text: 'Our Case Studies',
+      link: '/case-studies',
     },
   ];
 
