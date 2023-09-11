@@ -23,6 +23,7 @@ export const useLatestFromOurBlog = () => {
               url
             }
           }
+          slug
         }
       }
     }
