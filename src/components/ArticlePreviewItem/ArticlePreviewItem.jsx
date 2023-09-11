@@ -11,7 +11,7 @@ const getBlocksWith = createBemBlockBuilder(['article-preview-item']);
 
 export const ArticlePreviewItem = ({ post }) => {
   return (
-    <li className={getBlocksWith()} key={post.id}>
+    <li className={getBlocksWith()}>
       <Link to={`/blog/${post.slug}`} className={getBlocksWith('__link')}>
         <div className={getBlocksWith('__featured-image')}>
           <img alt={post.title.title} src={post.featuredImage.file.url} />
