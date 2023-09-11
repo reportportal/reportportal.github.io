@@ -1,0 +1,65 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.latest-from-our-blog {
+  margin-bottom: 247px;
+
+  &__latest-post {
+    margin-left: calc(-1 * (2 * var(--base-spacing)));
+    margin-right: calc(-1 * (2 * var(--base-spacing)));
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-left: calc(-1 * (3 * var(--base-spacing)));
+      margin-right: calc(-1 * (3 * var(--base-spacing)));
+    }
+  }
+
+  &__title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-medium);
+
+    color: var(--text-primary);
+    margin: 0 0 calc(3 * var(--base-spacing));
+    text-align: center;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-scale(large);
+
+      margin-bottom: calc(4 * var(--base-spacing));
+      text-align: left;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      @include m.font-scale(x3-large);
+
+      margin-bottom: calc(6 * var(--base-spacing));
+      text-align: center;
+    }
+  }
+
+  .container {
+    @include m.hideScroll();
+
+    overflow: auto;
+    padding: calc(2 * var(--base-spacing));
+    scrollbar-width: none;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      padding: calc(3 * var(--base-spacing));
+    }
+  }
+
+  .article-preview-list {
+    display: flex;
+    gap: calc(3 * var(--base-spacing));
+    min-width: 858px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      min-width: calc(150 * var(--base-spacing));
+    }
+
+    &__item {
+      flex: 1;
+    }
+  }
+}

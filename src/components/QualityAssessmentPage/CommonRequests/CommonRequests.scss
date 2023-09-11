@@ -33,19 +33,15 @@
     }
 
     &__wrapper {
+      @include m.hideScroll();
+
       display: flex;
       overflow: auto;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         display: block;
         margin: 0 auto;
         max-width: 1520px;
-      }
-
-      &::-webkit-scrollbar {
-        display: none;
       }
     }
 
