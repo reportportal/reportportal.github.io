@@ -9,6 +9,7 @@ import { CustomersStatistics } from './CustomersStatistics';
 import { BenefitsForBusiness } from './BenefitsForBusiness';
 import { FeaturesForEngineers } from './FeaturesForEngineers';
 import { SubscriptionBanner } from '../SubscriptionBanner';
+import { LatestFromOurBlog } from './LatestFromOurBlog/LatestFromOurBlog';
 
 export const LandingPage = () => {
   return (
@@ -21,6 +22,7 @@ export const LandingPage = () => {
       <CustomersStatistics />
       <ProcessIntegration />
       <StartTestingWithReportPortal />
+      <LatestFromOurBlog />
       <SubscriptionBanner />
     </>
   );
