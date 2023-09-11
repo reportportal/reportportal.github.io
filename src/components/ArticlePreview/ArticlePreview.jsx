@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ArticlePreviewItem } from '../ArticlePreviewItem/ArticlePreviewItem';
+import { ArticlePreviewItem } from '../ArticlePreviewItem';
 import { createBemBlockBuilder } from '../../utils';
 
 import './ArticlePreview.scss';
