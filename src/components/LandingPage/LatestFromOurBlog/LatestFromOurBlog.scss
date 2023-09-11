@@ -38,17 +38,14 @@
   }
 
   .container {
-    -ms-overflow-style: none;
+    @include m.hideScroll();
+
     overflow: auto;
     padding: calc(2 * var(--base-spacing));
     scrollbar-width: none;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       padding: calc(3 * var(--base-spacing));
-    }
-
-    &::-webkit-scrollbar {
-      display: none;
     }
   }
 
