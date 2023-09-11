@@ -14,9 +14,9 @@ export const ArticlePreview = ({ posts }) => {
   return (
     <div className="container">
       <ul className={getBlocksWith()}>
-        {posts.map(post => {
-          return <ArticlePreviewItem key={post.id} post={post} />;
-        })}
+        {posts.map(post => (
+          <ArticlePreviewItem key={post.id} post={post} />
+        ))}
       </ul>
     </div>
   );
