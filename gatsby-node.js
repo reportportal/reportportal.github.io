@@ -15,7 +15,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       fs.writeFileSync('static/github.json', JSON.stringify(data));
     });
 
-  const blogPost = path.resolve('./src/templates/blog-post.js');
+  const blogPost = path.resolve('./src/templates/BlogPost/blog-post.js');
 
   const result = await graphql(
     `
@@ -41,17 +41,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // But only if there's at least one blog post found in Contentful
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  posts.forEach((post, index) => {
-    const previousPostSlug = index === 0 ? null : posts[index - 1].slug;
-    const nextPostSlug = index === posts.length - 1 ? null : posts[index + 1].slug;
-
+  posts.forEach(post => {
     createPage({
       path: `/blog/${post.slug}/`,
       component: blogPost,
       context: {
         slug: post.slug,
-        previousPostSlug,
-        nextPostSlug,
       },
     });
   });
