@@ -5,6 +5,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
 import { Layout } from '../../components/Layout';
+import { SubscriptionBanner } from '../../components/SubscriptionBanner';
 import User from './icons/user.svg';
 import Calendar from './icons/calendar.svg';
 import ArrowLeft from './icons/arrow-left.svg';
@@ -82,6 +83,7 @@ const BlogPostTemplate = ({ data }) => {
       <div className="blog-post-page__container container">
         {articleBody?.raw && renderRichText(articleBody, options)}
       </div>
+      <SubscriptionBanner />
     </Layout>
   );
 };
