@@ -5,8 +5,7 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../utils';
 import { iconsCommon } from '../../../utils/imageSource';
-import { $tabletLg } from '../../../utils/breakpoint';
-import { dataPlans } from '../SassPage/dataPlans';
+import { $desktopSm } from '../../../utils/breakpoint';
 import { Columns } from './Columns';
 import { RowSection } from './RowSection';
 import { Description } from './Description';
@@ -16,25 +15,37 @@ import { ColumnsHeader } from './ColumnsHeader';
 import './ComparePlans.scss';
 
 const getBlocksWith = createBemBlockBuilder(['compare']);
-export const ComparePlans = () => {
-  const isDesktop = useMediaQuery({ query: $tabletLg });
-  const { Panel } = Collapse;
 
-  const prepareColumnData = ({ startup, business, enterprise }) => [startup, business, enterprise];
+export const ComparePlans = ({
+  dataPlans,
+  columns,
+  footerButtons,
+  isCollapsibleOnMobile = true,
+  mobileColumns,
+}) => {
+  const isDesktop = useMediaQuery({ query: $desktopSm });
+  const { Panel } = Collapse;
+  const columnsNames = Object.values(columns);
+
+  const prepareColumnData = row => Object.values(row);
 
   const constructElementKey = (index, feature, section) =>
     feature ? feature.substring(0, index + 1) : `key${section}` || '';
 
   const isRow = (section, footer) => !(section || footer);
 
+  const getColumnsHeader = () => <ColumnsHeader title="Features" columns={columnsNames} />;
+
   const getComparePlans = () => (
     <>
-      {isDesktop ? (
-        <ColumnsHeader title="Features" />
-      ) : (
-        <div className={getBlocksWith('__tab-title')}>Main functionality</div>
-      )}
-      <div className={cx(getBlocksWith('__container'))}>
+      {!isCollapsibleOnMobile && isDesktop && getColumnsHeader()}
+      {isCollapsibleOnMobile &&
+        (isDesktop ? (
+          getColumnsHeader()
+        ) : (
+          <div className={getBlocksWith('__tab-title')}>Main functionality</div>
+        ))}
+      <div className={getBlocksWith('__container')}>
         <Collapse
           defaultActiveKey={[constructElementKey(0, dataPlans[0].feature, dataPlans[0].section)]}
           ghost
@@ -47,6 +58,7 @@ export const ComparePlans = () => {
                   : getBlocksWith('__tab__arrow_right')
               }
               src={iconsCommon.arrowDark}
+              alt={isActive ? 'Collapse' : 'Expand'}
             />
           )}
         >
@@ -56,9 +68,9 @@ export const ComparePlans = () => {
               collapsible={!isRow(section, footer) && 'disabled'}
               header={
                 isRow(section, footer) ? (
-                  <ExpandableRow feature={feature} rowData={rowData} />
+                  <ExpandableRow feature={feature} columnsData={prepareColumnData(rowData)} />
                 ) : (
-                  <RowSection footer={footer} />
+                  <RowSection footer={footer} footerButtons={footerButtons} />
                 )
               }
               key={constructElementKey(index, feature, section)}
@@ -73,7 +85,9 @@ export const ComparePlans = () => {
                     <Description text={description} href={href} />
                   </div>
                   <div className={getBlocksWith('__tab-data')}>
-                    {!isDesktop && <ColumnsHeader />}
+                    {!isDesktop && (
+                      <ColumnsHeader columns={columnsNames} mobileColumns={mobileColumns} />
+                    )}
                     <div className={getBlocksWith('__tab-data-last-item')}>
                       <Columns cols={prepareColumnData(rowData)} />
                     </div>
@@ -88,8 +102,12 @@ export const ComparePlans = () => {
   );
 
   return (
-    <div className={cx(getBlocksWith(), 'container')}>
-      {isDesktop ? (
+    <div
+      className={cx(getBlocksWith(), 'container', {
+        [getBlocksWith('-narrow')]: columnsNames.length === 4,
+      })}
+    >
+      {isDesktop || !isCollapsibleOnMobile ? (
         <>
           <div className={getBlocksWith('__title')}>Compare plans</div>
           {getComparePlans()}
@@ -106,6 +124,7 @@ export const ComparePlans = () => {
                 [cx(getBlocksWith('__titleArrow-active'))]: isActive,
               })}
               src={iconsCommon.arrowDark}
+              alt={isActive ? 'Collapse' : 'Expand'}
             />
           )}
           items={[

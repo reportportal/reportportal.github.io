@@ -3,14 +3,14 @@
 
 .trusted-organizations {
   &__container {
-    margin-top: 117px;
+    margin-top: 130px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      margin-top: 111px;
+      margin-top: 160px;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      margin-top: 308px;
+      margin-top: 240px;
     }
   }
 
@@ -93,6 +93,10 @@
 
     &-display {
       display: flex;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        display: block;
+      }
     }
   }
 }

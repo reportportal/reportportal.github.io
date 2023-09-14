@@ -18,7 +18,7 @@
     @include m.font-scale(large);
   }
 
-  @include m.breakpoint(v.$tablet-lg) {
+  @include m.breakpoint(v.$desktop-sm) {
     @include m.font-scale(x3-large);
 
     margin-bottom: 54px;
@@ -64,7 +64,7 @@
   &__container {
     box-shadow: none;
 
-    @include m.breakpoint(v.$tablet-lg) {
+    @include m.breakpoint(v.$desktop-sm) {
       padding-top: 24px;
       box-shadow: 0 8px 16px rgba(0, 45, 55, 0.12);
       border-radius: 16px;
@@ -83,7 +83,7 @@
       box-shadow: 0 8px 16px rgba(0, 45, 55, 0.12);
       border-radius: 8px;
 
-      @include m.breakpoint(v.$tablet-lg) {
+      @include m.breakpoint(v.$desktop-sm) {
         box-shadow: none;
       }
 
@@ -97,20 +97,20 @@
           padding-bottom: 6px;
         }
 
-        @include m.breakpoint(v.$tablet-lg) {
+        @include m.breakpoint(v.$desktop-sm) {
           padding-left: 0;
           padding-right: 0;
           padding-top: 6px;
         }
 
         .compare__row-title-col {
-          @include m.breakpoint(v.$tablet-lg) {
+          @include m.breakpoint(v.$desktop-sm) {
             @include m.font-noto-sans();
           }
         }
       }
 
-      @include m.breakpoint(v.$tablet-lg) {
+      @include m.breakpoint(v.$desktop-sm) {
         margin-bottom: 0;
 
         .compare__row-title-col {
@@ -123,13 +123,19 @@
     }
 
     .ant-collapse-item:nth-child(even) {
-      @include m.breakpoint(v.$tablet-lg) {
+      @include m.breakpoint(v.$desktop-sm) {
         background: #F8FAFD
       }
     }
 
+    .ant-collapse-item:last-child {
+      @include m.breakpoint(v.$desktop-sm) {
+        background: var(--white);
+      }
+    }
+
     .ant-collapse-item-active {
-      @include m.breakpoint(v.$tablet-lg) {
+      @include m.breakpoint(v.$desktop-sm) {
         .compare__row,
         .ant-collapse-header {
           padding-bottom: 0 !important;
@@ -149,7 +155,7 @@
       padding: 11px 0;
     }
 
-    @include m.breakpoint(v.$tablet-lg) {
+    @include m.breakpoint(v.$desktop-sm) {
       padding: 0 54px;
     }
   }
@@ -160,6 +166,23 @@
 
     align-items: center;
     cursor: auto;
+  }
+
+  .ant-collapse-header:has(.rowSection__row-title-footer) {
+    padding: 0;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      padding-top: 24px;
+      padding-bottom: 12px;
+    }
+  }
+
+  .ant-collapse-no-arrow:has(.rowSection__row-title-footer) {
+    padding: 0;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      padding: 0 54px;
+    }
   }
 
   &__title {
@@ -214,7 +237,28 @@
     }
 
     &-header {
-      @include m.breakpoint(v.$tablet-lg) {
+      .compare__row-title-col {
+        &:before {
+          content: attr(data-short);
+          white-space: pre-line;
+        }
+
+        div {
+          display: none;
+        }
+
+        @include m.breakpoint(v.$desktop-sm) {
+          &:before {
+            content: none;
+          }
+
+          div {
+            display: block;
+          }
+        }
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
         padding: 0 54px 32px 86px;
         color: var(--text-primary);
 
@@ -235,13 +279,13 @@
     &__arrow_right {
       transform: rotate(180deg);
 
-      @include m.breakpoint(v.$tablet-lg) {
+      @include m.breakpoint(v.$desktop-sm) {
         transform: rotate(90deg);
       }
     }
 
     &__arrow_bottom {
-      @include m.breakpoint(v.$tablet-lg) {
+      @include m.breakpoint(v.$desktop-sm) {
         margin-top: 16px;
         transform: rotate(180deg);
       }
@@ -269,7 +313,7 @@
       align-self: flex-start;
       color: var(--text-primary);
 
-      @include m.breakpoint(v.$tablet-lg) {
+      @include m.breakpoint(v.$desktop-sm) {
         @include m.font-noto-sans();
         @include m.font-scale(medium);
 
@@ -292,7 +336,7 @@
           margin-left: 0;
         }
 
-        @include m.breakpoint(v.$tablet-lg) {
+        @include m.breakpoint(v.$desktop-sm) {
           margin-top: auto;
           margin-bottom: auto;
           text-align: left;
@@ -317,7 +361,7 @@
         align-items: center;
         justify-content: space-between;
 
-        @include m.breakpoint(v.$tablet-lg) {
+        @include m.breakpoint(v.$desktop-sm) {
           display: flex;
           width: 65%;
           flex-grow: 0;
@@ -328,7 +372,7 @@
         &-visible {
           display: none;
 
-          @include m.breakpoint(v.$tablet-lg) {
+          @include m.breakpoint(v.$desktop-sm) {
             display: flex;
           }
         }
@@ -346,14 +390,14 @@
           white-space: nowrap;
         }
 
-        @include m.breakpoint(v.$tablet-lg) {
+        @include m.breakpoint(v.$desktop-sm) {
           @include m.font-poppins(v.$fw-semi-bold);
           @include m.font-scale(medium);
         }
       }
     }
 
-    @include m.breakpoint(v.$tablet-lg) {
+    @include m.breakpoint(v.$desktop-sm) {
       padding: 19px 0;
     }
   }
@@ -391,7 +435,7 @@
       width: 33%;
     }
 
-    @include m.breakpoint(v.$tablet-lg) {
+    @include m.breakpoint(v.$desktop-sm) {
       margin-left: 15px;
     }
   }
@@ -403,12 +447,12 @@
       font-size: 24px;
       color: var(--text-primary);
 
-      @include m.breakpoint(v.$tablet-lg) {
+      @include m.breakpoint(v.$desktop-sm) {
         padding-right: 16px;
       }
 
       svg {
-        @include m.breakpoint(v.$tablet-lg) {
+        @include m.breakpoint(v.$desktop-sm) {
           width: 24px;
           height: 24px;
         }
@@ -422,5 +466,25 @@
 
   &__cross-icon {
     margin-bottom: -2px;
+  }
+
+  &-narrow {
+    .compare__description-full-width {
+      width: 28%;
+    }
+
+    .compare__row-title {
+      width: 30%;
+    }
+
+    .compare__row-title-cols {
+      width: 69%;
+    }
+
+    .rowSection__row-title-footer {
+      @include m.breakpoint(v.$desktop-sm) {
+        width: 34%;
+      }
+    }
   }
 }

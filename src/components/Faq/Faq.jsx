@@ -10,12 +10,13 @@ import { createBemBlockBuilder } from '../../utils';
 import './Faq.scss';
 
 const getBlocksWith = createBemBlockBuilder(['faq']);
-export const Faq = ({ items, showMoreInfoLink = true }) => {
+
+export const Faq = ({ items, titleId, showMoreInfoLink = true }) => {
   return (
     <>
       <div className={cx('container', getBlocksWith())}>
         <div className={getBlocksWith('__heading')}>
-          <h1>Frequently asked questions</h1>
+          <h1 id={titleId}>Frequently asked questions</h1>
         </div>
         <div className={getBlocksWith('__content')}>
           <Collapse
@@ -29,6 +30,7 @@ export const Faq = ({ items, showMoreInfoLink = true }) => {
                   [getBlocksWith('__expandIcon-active')]: isActive,
                 })}
                 src={iconsCommon.arrowLight}
+                alt={isActive ? 'Collapse' : 'Expand'}
               />
             )}
           />

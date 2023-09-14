@@ -4,7 +4,7 @@ import isBoolean from 'lodash/isBoolean';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../utils';
-import { $tabletLg } from '../../../utils/breakpoint';
+import { $desktopSm } from '../../../utils/breakpoint';
 import MarkIcon from '../icons/mark.inline.svg';
 import CrossIcon from '../icons/cross.inline.svg';
 
@@ -12,8 +12,8 @@ import './ComparePlans.scss';
 
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
-export const Columns = ({ title = '', cols }) => {
-  const isDesktop = useMediaQuery({ query: $tabletLg });
+export const Columns = ({ title = '', cols, mobileColumns = {} }) => {
+  const isDesktop = useMediaQuery({ query: $desktopSm });
   const [isVisibility, setIsVisibility] = useState(true);
 
   useEffect(() => {
@@ -48,12 +48,13 @@ export const Columns = ({ title = '', cols }) => {
       {title && <div className={getCompareContainer('__row-title')}>{title}</div>}
       {isVisibility && (
         <div className={getCompareContainer('__row-title-cols')}>
-          {cols.map((item, index) => (
+          {cols.map((columnValue, index) => (
             <div
-              key={constructElementKey(item, index)}
+              key={constructElementKey(columnValue, index)}
               className={cx(getCompareContainer('__row-title-col'))}
+              data-short={mobileColumns[columnValue] ?? columnValue}
             >
-              {!isBoolean(item) ? <div>{item}</div> : getMark(item)}
+              {!isBoolean(columnValue) ? <div>{columnValue}</div> : getMark(columnValue)}
             </div>
           ))}
         </div>

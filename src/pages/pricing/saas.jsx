@@ -5,7 +5,7 @@ import { SaasPage } from '../../components/PricingPage/SassPage';
 
 const Saas = ({ location }) => {
   return (
-    <Layout location={location} className="pricingPage">
+    <Layout location={location} className="pricing-page">
       <SaasPage />
     </Layout>
   );
