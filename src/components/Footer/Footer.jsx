@@ -4,7 +4,15 @@ import cx from 'classnames';
 
 import { Link } from '../Link';
 import { createBemBlockBuilder, isAbsoluteURL } from '../../utils';
-import { ArrowIcon, GithubIcon, NavLogoIcon, SlackIcon, TwitterIcon, YoutubeIcon } from './icons';
+import {
+  ArrowIcon,
+  GithubIcon,
+  NavLogoIcon,
+  SlackIcon,
+  TwitterIcon,
+  YoutubeIcon,
+  InstagramIcon,
+} from './icons';
 
 import './Footer.scss';
 
@@ -47,7 +55,7 @@ const productLinks = [
   },
   {
     title: 'Pricing',
-    link: '/pricing',
+    link: '/pricing/on-premises',
   },
 ];
 
@@ -112,6 +120,10 @@ const socialLinks = [
   {
     link: 'https://twitter.com/ReportPortal_io',
     icon: <TwitterIcon />,
+  },
+  {
+    link: 'https://instagram.com/ReportPortal_io',
+    icon: <InstagramIcon />,
   },
   {
     link: 'https://www.youtube.com/c/ReportPortal',

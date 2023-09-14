@@ -1,0 +1,102 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.pricing-hero {
+  position: relative;
+  min-height: 500px;
+  padding: var(--header-height) 16px 273px;
+  margin-top: calc(-1 * var(--header-height));
+  background-size: cover;
+  background: url('./assets/bg.svg') no-repeat -50px -130px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    background-position: center;
+  }
+
+  &__btn-box {
+    display: flex;
+    justify-content: center;
+    margin: 54px 0 0;
+  }
+
+  &__title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(large);
+
+    margin: 0 30px;
+    padding-top: 64px;
+    color: var(--white);
+    text-align: center;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-scale(x3-large);
+
+      margin: 0 11px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      @include m.font-scale(x4-large);
+
+      padding-top: 80px;
+    }
+  }
+
+  &__subtitle {
+    @include m.font-scale(medium);
+
+    margin-bottom: 0;
+    color: var(--white);
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 8px;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      @include m.font-scale(x2-medium);
+    }
+  }
+
+  &__wrapper {
+    display: block;
+    max-width: 660px;
+    margin: 64px auto 0;
+    padding: 0 30px;
+    color: var(--white);
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      display: flex;
+      flex-direction: column;
+      margin-top: 80px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      flex-direction: row;
+    }
+
+    &-title {
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(medium);
+
+      margin-right: 16px;
+    }
+
+    &-subtitle {
+      @include m.font-noto-sans();
+      @include m.font-scale(base);
+
+      padding-top: 8px;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        padding-top: 4px;
+      }
+    }
+  }
+
+  &__discount-switcher {
+    margin: 80px auto 12px;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin: 80px auto 26px;
+    }
+  }
+}
+
