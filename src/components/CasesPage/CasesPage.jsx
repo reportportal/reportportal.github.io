@@ -20,7 +20,7 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
           </p>
 
           <div className={getBlocksWith('__download')}>
-            <button className={cx('btn', 'btn--secondary-2', 'btn--large')} onClick={() => {}}>
+            <button className="btn btn--secondary-2 btn--large temporary-hide" onClick={() => {}}>
               <img src={downloadIcon} alt="" />
               Download all Studies
             </button>

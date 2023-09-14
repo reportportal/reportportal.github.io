@@ -4,6 +4,7 @@ import { Input, Form } from 'antd';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { Link } from '../Link';
 import { EnvelopeIcon } from '../NavMenu/icons';
 import { SubscriptionFormCard } from './SubscriptionFormCard';
 
@@ -83,9 +84,9 @@ export const SubscriptionForm = ({ subscriptionFormState, setSubscriptionFormSta
       <span className={getBlocksWith('__form-info')}>
         By subscribing, you agree to receive marketing emails from ReportPortal team and associated
         partners and accept our{' '}
-        <a href="https://privacy.epam.com/core/interaction/showpolicy?type=CommonPrivacyPolicy">
+        <Link to="https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy">
           Privacy Policy
-        </a>
+        </Link>
       </span>
     </Form>
   );

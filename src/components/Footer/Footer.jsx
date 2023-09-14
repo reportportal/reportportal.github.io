@@ -4,19 +4,16 @@ import cx from 'classnames';
 
 import { Link } from '../Link';
 import { createBemBlockBuilder, isAbsoluteURL } from '../../utils';
-import {
-  GithubIcon,
-  NavLogoIcon,
-  SlackIcon,
-  TwitterIcon,
-  YoutubeIcon,
-  InstagramIcon,
-} from './icons';
 import ArrowIcon from '../../svg/arrow.inline.svg';
+import TwitterIcon from './icons/twitter.inline.svg';
+import LinkedinIcon from './icons/linkedin.inline.svg';
+import LambdaIcon from './icons/lambda.inline.svg';
+import { GithubIcon, NavLogoIcon, SlackIcon, YoutubeIcon } from './icons';
 
 import './Footer.scss';
 
 const getBlocksWith = createBemBlockBuilder(['footer']);
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 
 const FooterList = ({ title, items }) => {
   return (
@@ -47,11 +44,11 @@ const productLinks = [
   },
   {
     title: 'Release notes',
-    link: '//release-notes',
+    link: `${DOCUMENTATION_URL}/category/releases/`,
   },
   {
     title: 'Integrations',
-    link: '//integrations',
+    link: `${DOCUMENTATION_URL}/category/plugins/`,
   },
   {
     title: 'Pricing',
@@ -96,7 +93,7 @@ const solutionsLinks = [
 const learnLinks = [
   {
     title: 'Documentation',
-    link: 'https://slack.epmrpp.reportportal.io/',
+    link: DOCUMENTATION_URL,
   },
   {
     title: 'Blog',
@@ -108,7 +105,7 @@ const learnLinks = [
   },
   {
     title: 'FAQ',
-    link: '/faq',
+    link: `${DOCUMENTATION_URL}/FAQ/`,
   },
 ];
 
@@ -118,12 +115,12 @@ const socialLinks = [
     icon: <SlackIcon />,
   },
   {
-    link: 'https://twitter.com/ReportPortal_io',
+    link: 'https://twitter.com/reportportal_io',
     icon: <TwitterIcon />,
   },
   {
-    link: 'https://instagram.com/ReportPortal_io',
-    icon: <InstagramIcon />,
+    link: 'https://www.linkedin.com/company/reportportal/',
+    icon: <LinkedinIcon />,
   },
   {
     link: 'https://www.youtube.com/c/ReportPortal',
@@ -146,7 +143,7 @@ export const Footer = () => {
             </Link>
             <span>
               ReportPortal is a service, that provides increased capabilities to speed up results
-              analysis and reporting through the use of built-in analytic features.
+              analysis and reporting through the use of built-in analytics features.
             </span>
             <span>© {new Date().getFullYear()} EPAM</span>
           </div>
@@ -163,38 +160,29 @@ export const Footer = () => {
             <span className={getBlocksWith('__license')}>
               <span>
                 Sponsored by&nbsp;
-                <a href="https://www.epam.com/" target="_blank" rel="noopener noreferrer">
-                  EPAM
-                </a>
+                <Link to="https://www.epam.com/">EPAM</Link>
               </span>
               <span>Licensed under Apache v2.0</span>
             </span>
             <div className={getBlocksWith('__terms')}>
-              <a
-                href="https://reportportal.io/legal/terms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Terms & Conditions
-              </a>
-              <a
-                href="https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to="/legal/terms">Terms & Conditions</Link>
+              <Link to="https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy">
                 Privacy Policy
-              </a>
+              </Link>
             </div>
           </div>
-          <ul className={getBlocksWith('__social-links')}>
-            {socialLinks.map((socialLink, index) => (
-              <li key={index}>
-                <a href={socialLink.link} target="_blank" rel="noopener noreferrer">
-                  {socialLink.icon}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className={getBlocksWith('__other-links')}>
+            <ul className={getBlocksWith('__social-links')}>
+              {socialLinks.map((socialLink, index) => (
+                <li key={index}>
+                  <Link to={socialLink.link}>{socialLink.icon}</Link>
+                </li>
+              ))}
+            </ul>
+            <Link to="https://www.lambdatest.com/">
+              <LambdaIcon />
+            </Link>
+          </div>
         </section>
       </div>
     </footer>

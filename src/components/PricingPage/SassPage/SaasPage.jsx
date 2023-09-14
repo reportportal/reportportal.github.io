@@ -1,5 +1,6 @@
 import React from 'react';
 import { noop } from 'lodash';
+import cx from 'classnames';
 
 import { usePricingHeroProps } from '../usePricingHeroProps';
 import { createBemBlockBuilder } from '../../../utils';
@@ -35,7 +36,9 @@ export const SaasPage = () => {
       />
       <PricingCards discountState={discountState} offersData={offersData} />
       <ComparePlans dataPlans={dataPlans} columns={columns} footerButtons={buttonsData} />
-      <TrustedOrganizations />
+      <div className={cx(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
+        <TrustedOrganizations />
+      </div>
       <div className={getBlocksWith('__faqContainer')}>
         <Faq items={faqItems} />
       </div>

@@ -2,18 +2,6 @@
 @use 'src/styles/variables' as v;
 
 .trusted-organizations {
-  &__container {
-    margin-top: 130px;
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      margin-top: 160px;
-    }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      margin-top: 240px;
-    }
-  }
-
   &__title {
     @include m.font-poppins(v.$fw-semi-bold);
     @include m.font-scale(medium);
@@ -49,7 +37,7 @@
       transform: scale(.8);
     }
 
-    @include m.breakpoint (v.$phone) {
+    @include m.breakpoint(v.$phone) {
       max-width: 230px;
       margin: 0 20px 0;
 

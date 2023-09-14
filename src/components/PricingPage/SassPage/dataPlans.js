@@ -1,17 +1,17 @@
 export const buttonsData = [
   {
     btn: 'Start free trial',
-    href: '/contact-us/compare/saas/startup-plan/',
+    href: '/contact-us/saas/compare/startup-plan/',
     mode: 'outline',
   },
   {
     btn: 'Contact us',
-    href: '/contact-us/compare/saas/business-plan/',
+    href: '/contact-us/saas/compare/business-plan/',
     mode: 'primary',
   },
   {
     btn: 'Get a quote',
-    href: '/contact-us/compare/saas/enterprise-plan/',
+    href: '/contact-us/saas/compare/enterprise-plan/',
     mode: 'outline',
   },
 ];

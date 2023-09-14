@@ -2,10 +2,13 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { Link } from '../Link';
 import { YoutubeCover } from './covers/YoutubeCover';
 import { SectionList } from './SectionList';
 import { SectionCard } from './SectionCard';
-import { DocumentationIcon, BlogIcon, SuccessStoriesIcon } from './icons';
+import DocumentationIcon from './icons/documentation.inline.svg';
+import BlogIcon from './icons/blog.inline.svg';
+import SuccessStoriesIcon from './icons/success-stories.inline.svg';
 
 import './Menu.scss';
 
@@ -17,6 +20,7 @@ export const LearnMenu = ({ isDesktop = true }) => {
       icon: <DocumentationIcon />,
       title: 'Documentation',
       text: 'All the technical docs',
+      link: '/docs',
     },
     {
       icon: <BlogIcon />,
@@ -57,12 +61,13 @@ export const LearnMenu = ({ isDesktop = true }) => {
       text="Watch our video guides to get more acquainted with ReportPortal"
     >
       <div className={getBlocksWith('__btn-group')}>
-        <a
-          href="https://www.youtube.com/@ReportPortal"
-          className={cx('btn', 'btn--outline', 'full-width')}
+        <Link
+          to="https://www.youtube.com/@ReportPortal"
+          className="btn btn--outline full-width"
+          data-gtm="youtube"
         >
           Follow us on YouTube
-        </a>
+        </Link>
       </div>
     </SectionCard>
   );

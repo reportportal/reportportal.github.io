@@ -47,13 +47,13 @@ export const HowDidYouHearAboutUs = ({ title }) => {
   };
 
   return (
-    <div className={cx(getBlocksWith('-container'), 'container')}>
+    <div className={getBlocksWith('-container')}>
       <div className={cx(getBlocksWith(), { 'is-submitted': isSubmitted })}>
         <strong className={getBlocksWith('__title')}>Thank you</strong>
         <div className={getBlocksWith('__subtitle')}>
           {!isSubmitted
-            ? 'We got your message and at soon time our expert contact with you'
-            : 'Your feedback has been accepted'}
+            ? "Your message is received. We'll be in touch shortly"
+            : 'Your feedback has been received'}
         </div>
         {!isSubmitted && (
           <div className={getBlocksWith('__tags')}>

@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { TrustedOrganizations } from '../TrustedOrganizations';
 import { ContactUsForm } from './ContactUsForm';
 
 import './ContactUsPage.scss';
@@ -20,12 +21,16 @@ export const ContactUsPage = ({ config }) => {
           />
         </div>
       </div>
-      <ContactUsForm
-        title={config.title}
-        isDiscussFieldShown={config.isDiscussFieldShown}
-        options={config.options}
-      />
-      <div className={cx(getBlocksWith('__companies'), 'container')}></div>
+      <div className={cx(getBlocksWith('__content-container'), 'container')}>
+        <ContactUsForm
+          title={config.title}
+          isDiscussFieldShown={config.isDiscussFieldShown}
+          options={config.options}
+        />
+        <div className={cx(getBlocksWith('__trustedOrganizationsContainer'))}>
+          <TrustedOrganizations />
+        </div>
+      </div>
     </div>
   );
 };

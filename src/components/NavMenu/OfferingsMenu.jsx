@@ -4,20 +4,18 @@ import cx from 'classnames';
 import { createBemBlockBuilder } from '../../utils';
 import { Link } from '../Link';
 import { SectionList } from './SectionList';
-import { OnPremiseIcon, SaaSIcon, TaaSIcon, TAaaSIcon, QualityAssessmentIcon } from './icons';
+import OnPremiseIcon from './icons/on-premise.inline.svg';
+import SaaSIcon from './icons/saas.inline.svg';
+import TaaSIcon from './icons/taas.inline.svg';
+import TAaaSIcon from './icons/taaas.inline.svg';
+import QualityAssessmentIcon from './icons/quality-assessment.inline.svg';
+import FreeVersionIcon from './icons/free-version.inline.svg';
 
 import './Menu.scss';
 
 export const OfferingsMenu = ({ isDesktop = true }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-offerings']);
-  const pricingListInfo = (
-    <span>
-      <a href="#">Install</a> and use ReportPortal absolutely for free. If you need support or
-      additional service, explore our paid offerings.
-    </span>
-  );
-
-  let pricingConfig = [
+  const pricingConfig = [
     {
       icon: <SaaSIcon />,
       title: 'SaaS',
@@ -26,20 +24,17 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
     },
     {
       icon: <OnPremiseIcon />,
-      title: 'On-premises',
+      title: 'On-Premises',
       text: "ReportPortal instance resides within your organisation's premises",
       link: '/pricing/on-premises',
     },
+    {
+      icon: <FreeVersionIcon />,
+      title: 'Free version',
+      text: 'Install and use ReportPortal for free via self-hosted deployment',
+      link: '/install',
+    },
   ];
-
-  if (isDesktop) {
-    pricingConfig = [
-      {
-        type: 'info',
-        text: pricingListInfo,
-      },
-    ].concat(pricingConfig);
-  }
 
   const pricingList = (
     <SectionList className="pricing-list" title="Pricing" items={pricingConfig} />
@@ -100,7 +95,11 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
     <div className={getBlocksWith('__footer')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
-          <Link className="btn btn--outline" to="/contact-us/general">
+          <Link
+            className="btn btn--outline"
+            to="/contact-us/general"
+            data-gtm="get_a_quote_offerings"
+          >
             Get a quote
           </Link>
         </div>

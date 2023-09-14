@@ -4,6 +4,7 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
+import { Link } from '../Link';
 import { ArrowLink } from '../ArrowLink';
 import {
   PlayIcon,
@@ -19,7 +20,8 @@ import {
 import { SectionList } from './SectionList';
 
 import './Menu.scss';
-import { Link } from '../Link';
+
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 
 export const ProductMenu = ({ isDesktop = true }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-product']);
@@ -39,7 +41,7 @@ export const ProductMenu = ({ isDesktop = true }) => {
         {
           icon: <ReleaseIcon />,
           title: 'Releases',
-          link: '/releases',
+          link: `${DOCUMENTATION_URL}/category/releases`,
         },
       ]}
     />
@@ -55,31 +57,37 @@ export const ProductMenu = ({ isDesktop = true }) => {
           icon: <ReportingIcon />,
           title: 'Unified test reporting',
           text: 'Get persistent test reporting in a single entry point',
+          link: '/features/#single-entry',
         },
         {
           icon: <DefectTypeIcon />,
           title: 'Categorisation of failures',
           text: 'Triage test failures by categorisation of root cause',
+          link: '/features/#categorisation',
         },
         {
           icon: <AiIcon />,
           title: 'AI failure reason detection',
           text: 'Reduce your manual efforts for failure triaging with Auto-Analyzer',
+          link: '/features/#ai-based',
         },
         {
           icon: <RtAnalyticsIcon />,
           title: 'Real-time analytics',
           text: 'Save time on early reaction by immediate results availability',
+          link: '/features/#real-time-reporting',
         },
         {
           icon: <PieChartIcon />,
-          title: 'Widgets and dashboards',
+          title: 'Widgets and Dashboards',
           text: 'Get visibility in QA results and a birds-eye view on the project',
+          link: '/features/#visualisation-of-tests',
         },
         {
           icon: <QualityGatesIcon />,
           title: 'Quality gates',
           text: 'Automate release decisions with Quality Gates rules',
+          link: '/features/#quality-gates',
         },
       ]}
     />
@@ -93,37 +101,37 @@ export const ProductMenu = ({ isDesktop = true }) => {
         {
           iconClass: 'jira-cloud',
           title: 'Jira Server',
-          link: 'https://reportportal.io/docs/plugins/JiraServer',
+          link: `${DOCUMENTATION_URL}/plugins/JiraServer`,
         },
         {
           iconClass: 'jira-server',
           title: 'Jira Cloud',
-          link: 'https://reportportal.io/docs/plugins/JiraCloud',
+          link: `${DOCUMENTATION_URL}/plugins/JiraCloud`,
         },
         {
           iconClass: 'azure-do',
           title: 'Azure DevOps',
-          link: 'https://reportportal.io/docs/plugins/AzureDevOpsBTS/',
+          link: `${DOCUMENTATION_URL}/plugins/AzureDevOpsBTS/`,
         },
         {
           iconClass: 'rally',
           title: 'Rally',
-          link: 'https://reportportal.io/docs/plugins/Rally/',
+          link: `${DOCUMENTATION_URL}/plugins/Rally/`,
         },
         {
           iconClass: 'sauce-labs',
           title: 'Sauce Labs',
-          link: 'https://reportportal.io/docs/plugins/SauceLabs/',
+          link: `${DOCUMENTATION_URL}/plugins/SauceLabs/`,
         },
         {
           iconClass: 'ldap',
           title: 'LDAP',
-          link: 'https://reportportal.io/docs/reportportal-configuration/authorization/LDAP/',
+          link: `${DOCUMENTATION_URL}/reportportal-configuration/authorization/LDAP/`,
         },
         {
           iconClass: 'saml',
           title: 'SAML',
-          link: 'https://reportportal.io/docs/reportportal-configuration/authorization/SAMLProvider/',
+          link: `${DOCUMENTATION_URL}/reportportal-configuration/authorization/SAMLProvider/`,
         },
       ]}
     />
@@ -133,10 +141,18 @@ export const ProductMenu = ({ isDesktop = true }) => {
     <div className={getBlocksWith('__footer')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
-          <Link className="btn btn--primary" to="/contact-us/general">
+          <Link
+            className="btn btn--primary temporary-hide"
+            to="/contact-us/general"
+            data-gtm="start_free_trial"
+          >
             Start free trial
           </Link>
-          <Link className="btn btn--outline" to="/contact-us/general">
+          <Link
+            className="btn btn--outline"
+            to="/contact-us/general"
+            data-gtm="get_a_quote_product"
+          >
             Get a quote
           </Link>
         </div>
@@ -177,10 +193,7 @@ export const ProductMenu = ({ isDesktop = true }) => {
         >
           {integrationsList}
           <div>
-            <ArrowLink
-              to="https://reportportal.io/docs/category/plugins/"
-              text="See all integrations"
-            />
+            <ArrowLink to={`${DOCUMENTATION_URL}/category/plugins/`} text="See all integrations" />
           </div>
         </div>
       </div>

@@ -2,12 +2,10 @@ import React, { useCallback } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Marquee from 'react-fast-marquee';
 import { useAtom } from 'jotai';
-import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../utils';
 import { watchProductOverviewAtom } from '../../Layout';
 import { Link } from '../../Link';
-import { EmbedVideo } from '../../EmbedVideo';
 import { Carousel } from './Carousel/Carousel';
 import WalmartIcon from './icons/walmart.inline.svg';
 import DowJonesIcon from './icons/dowjones.inline.svg';
@@ -66,13 +64,12 @@ const slides = [
 ];
 
 export const Showcase = () => {
-  const [watchProductOverviewState, setWatchProductOverviewState] =
-    useAtom(watchProductOverviewAtom);
+  const [, setWatchProductOverviewState] = useAtom(watchProductOverviewAtom);
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
 
   const toggleEmbedVideoOpen = useCallback(
     () => setWatchProductOverviewState(({ isOpen }) => ({ isOpen: !isOpen })),
-    [],
+    [setWatchProductOverviewState],
   );
 
   return (
@@ -94,10 +91,18 @@ export const Showcase = () => {
         </p>
         <div className={getBlocksWith('__btn-row')}>
           <div className={getBlocksWith('__btn-group')}>
-            <Link className={cx('btn', 'btn--secondary', 'btn--large')} to="/contact-us/general">
+            <Link
+              className="btn btn--secondary btn--large temporary-hide"
+              to="/contact-us/general"
+              data-gtm="start_free_trial"
+            >
               Start free trial
             </Link>
-            <Link className={cx('btn', 'btn--outline-2', 'btn--large')} to="/contact-us/general">
+            <Link
+              className="btn btn--outline-2 btn--large"
+              to="/contact-us/general"
+              data-gtm="get_a_quote"
+            >
               Get a quote
             </Link>
           </div>
@@ -124,11 +129,6 @@ export const Showcase = () => {
           </Marquee>
         )}
       </div>
-      <EmbedVideo
-        isOpen={watchProductOverviewState.isOpen}
-        embedId="Xci19TAiO50"
-        onClick={toggleEmbedVideoOpen}
-      />
     </>
   );
 };

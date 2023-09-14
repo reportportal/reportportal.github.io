@@ -3,8 +3,8 @@ import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 
 import { icons } from './icons/iconsData';
-import { createBemBlockBuilder } from '../../../utils';
-import { $tabletSm } from '../../../utils/breakpoint';
+import { createBemBlockBuilder } from '../../utils';
+import { $tabletSm } from '../../utils/breakpoint';
 
 import './TrustedOrganizations.scss';
 
@@ -16,7 +16,7 @@ export const TrustedOrganizations = () => {
   const isRight = index => (index + 1) % 2 === 0;
 
   return (
-    <div className={cx(getBlocksWith(), getBlocksWith('__container'), 'container')}>
+    <div className={cx(getBlocksWith())}>
       <div className={getBlocksWith('__title')}>
         Trusted by the world&apos;s leading organizations
       </div>

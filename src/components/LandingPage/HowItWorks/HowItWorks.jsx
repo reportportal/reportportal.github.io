@@ -26,7 +26,7 @@ const sections = [
   {
     title: 'Predictive AI root cause analysis',
     content:
-      'Leveraging ML algorithms to identify patterns in the test results, detect the root cause of failures, and predict future test results (Predictive AI root cause analysis /root cause detection)',
+      'Leveraging ML algorithms to identify patterns in the test results, detect the root cause of failures, and predict future test results',
     animation: animation2,
   },
   {

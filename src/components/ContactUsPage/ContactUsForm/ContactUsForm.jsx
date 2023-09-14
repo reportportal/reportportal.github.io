@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FormikProvider, useFormik } from 'formik';
-import cx from 'classnames';
 
 import ArrowIcon from '../../../svg/arrow.inline.svg';
 import { createBemBlockBuilder } from '../../../utils';
@@ -71,7 +70,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
 
   return (
     <FormikProvider value={formik}>
-      <div className={cx(getBlocksWith('-container'), 'container')}>
+      <div className={getBlocksWith('-container')}>
         <form
           className={getBlocksWith()}
           action={process.env.SALESFORCE_URL}
@@ -129,8 +128,9 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             />
           </FormFieldWrapper>
           <button
-            className={cx('btn', 'btn--primary', 'btn--large')}
+            className="btn btn--primary btn--large"
             type="submit"
+            data-gtm="send_request"
             disabled={!(isValid && dirty && getFieldProps('termsAgree').value)}
             onClick={handleSubmit}
           >

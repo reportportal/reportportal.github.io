@@ -7,7 +7,7 @@ import './ServiceAria.scss';
 
 export const ServiceAria = () => (
   <div className="service-aria container">
-    <Heading title="Areas that the service is applicable" />
+    <Heading title="Areas where the service is applicable" />
     <div className="service-aria__blocks">
       {SERVICE_ARIA_INFO.map(info => (
         <div key={info} className="service-aria__blocks-item">

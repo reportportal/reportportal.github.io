@@ -3,6 +3,17 @@
 
 .article-preview-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: fit-content(328px);
   grid-gap: calc(4 * var(--base-spacing)) calc(3 * var(--base-spacing));
+  padding: 25px;
+  margin: -25px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    grid-template-columns: repeat(2, 348px);
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

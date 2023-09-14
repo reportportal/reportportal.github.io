@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
 import { useScroll } from 'ahooks';
 import cx from 'classnames';
@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import { useScrollDirection } from '../../hooks';
 import { iconsCommon } from '../../utils/imageSource';
-import { createBemBlockBuilder, removeClassFromElements, mediaDesktopSm } from '../../utils';
+import { createBemBlockBuilder, mediaDesktopSm } from '../../utils';
 import { Link } from '../Link';
 import { ProcessIntegration } from '../ProcessIntegration';
 import { SupportedFrameworks } from '../SupportedFrameworks';
@@ -18,20 +18,10 @@ import { Faq } from '../Faq';
 
 import './FeaturesPage.scss';
 
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
 export const FeaturesPage = () => {
-  const [faqs, updateFAQs] = useReducer(
-    (prevState, index) => {
-      const newState = [...prevState];
-
-      newState[index] = !newState[index];
-
-      return newState;
-    },
-    [true, false],
-  );
-
   const handleScroll = () => {
     const itemList = document.querySelectorAll(
       `.${getBlocksWith('__features-list-item-container')}`,
@@ -42,31 +32,29 @@ export const FeaturesPage = () => {
     // eslint-disable-next-line no-plusplus
     for (let i = itemList.length - 1; i >= 0; i--) {
       const rect = itemList[i].getBoundingClientRect();
-      const heightOffsetCoefficient = 0.9;
-      const offset =
-        scrollDirection === 'up' ? rect.height * heightOffsetCoefficient : headerHeight;
 
-      if (rect.top <= offset) {
+      const value = Math.abs(Math.round(rect.top));
+      const scrollThreshold = 50;
+
+      if (value <= scrollThreshold) {
         activeIndex = i;
         break;
       }
     }
 
     if (activeIndex !== null) {
-      removeClassFromElements(menuItemActiveClassName);
-
-      const menuElements = document.querySelectorAll(`.${featureItemClassName}`);
-      const activeMenuElement = menuElements[activeIndex];
       const anchor = navigationList[activeIndex].link;
 
-      activeMenuElement.classList.add(menuItemActiveClassName);
-
-      setHistoryValue(anchor);
+      if (anchor !== activeElement) {
+        setActiveElement(anchor);
+        setHistoryValue(anchor);
+      }
     }
   };
 
   const location = useLocation();
   const [isFeaturesMenuSticky, setIsFeaturesMenuSticky] = useState(false);
+  const [activeElement, setActiveElement] = useState(location.hash);
   const processIntegrationRef = useRef(null);
   const scrollDirection = useScrollDirection({ callbackFn: handleScroll, isMenuOpen: null });
   const scroll = useScroll();
@@ -93,20 +81,15 @@ export const FeaturesPage = () => {
     if (isFeaturesMenuSticky !== isStickyPositionReached) {
       setIsFeaturesMenuSticky(!isFeaturesMenuSticky);
     }
-  }, [scroll]);
+  }, [scroll, scrollDirection, isFeaturesMenuSticky]);
 
   const handleNavClick = (event, anchor) => {
     event.preventDefault();
 
-    const element = event.target;
     const anchorTarget = document.getElementById(anchor.slice(1));
-
-    removeClassFromElements(menuItemActiveClassName);
-    element.closest(`.${featureItemClassName}`).classList.add(menuItemActiveClassName);
 
     if (anchorTarget) {
       anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-      setHistoryValue(anchor);
     }
   };
 
@@ -122,14 +105,9 @@ export const FeaturesPage = () => {
           </p>
           <p>
             See the{' '}
-            <a
-              href="https://reportportal.io/docs/terms-and-conditions/PremiumFeatures"
-              className="link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link to={`${DOCUMENTATION_URL}/terms-and-conditions/PremiumFeatures`} className="link">
               List of features
-            </a>{' '}
+            </Link>{' '}
             and their description.
           </p>
         </>
@@ -184,7 +162,7 @@ export const FeaturesPage = () => {
             {navigationList.map(({ id, name, link }) => (
               <Link
                 className={cx(featureItemClassName, {
-                  [menuItemActiveClassName]: location.hash === link,
+                  [menuItemActiveClassName]: link === activeElement,
                 })}
                 to={link}
                 key={name}
@@ -198,8 +176,8 @@ export const FeaturesPage = () => {
         </div>
       </div>
       <div className={getBlocksWith('__features-list')}>
-        {featuresList.map(({ link, title, description, image, isPremium }) => (
-          <div className={getBlocksWith('__features-list-item-container')} key={link} id={link}>
+        {featuresList.map(({ id, link, title, description, image, isPremium }) => (
+          <div className={getBlocksWith('__features-list-item-container')} key={id} id={id}>
             <div className={cx(getBlocksWith('__features-list-item'), 'container')} key={title}>
               <div className={getBlocksWith('__features-list-item-leading')}>
                 {isPremium && (
@@ -209,7 +187,7 @@ export const FeaturesPage = () => {
                 )}
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <ArrowLink mode="primary" to="#" text="Learn more" />
+                <ArrowLink mode="primary" to={link} text="Learn more" />
               </div>
 
               <div className={getBlocksWith('__features-list-item-trailing')}>

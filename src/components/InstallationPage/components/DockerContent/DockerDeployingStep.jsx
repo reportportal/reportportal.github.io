@@ -1,10 +1,13 @@
 import React from 'react';
 import { Typography } from 'antd';
 
-import { Notice } from '../Notice';
 import { createBemBlockBuilder } from '../../../../utils';
+import { Link } from '../../../Link';
+import { Notice } from '../Notice';
 
 import '../../InstallationPage.scss';
+
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 
 export const DockerDeployingStep = () => {
   const { Text } = Typography;
@@ -18,23 +21,23 @@ export const DockerDeployingStep = () => {
         <p>
           The following guide describes deployment on Linux/Mac. In case you went with Docker on
           Windows, please proceed with the
-          <a
+          <Link
             className={getBlocksWith('__link')}
-            href="https://reportportal.io/docs/installation-steps/DeployWithDockerOnWindows/"
+            to={`${DOCUMENTATION_URL}/installation-steps/DeployWithDockerOnWindows/`}
           >
             {' '}
             instruction
-          </a>
+          </Link>
           .
         </p>
         <p>
           1. Download the latest ReportPortal Docker compose file from{' '}
-          <a
+          <Link
             className={getBlocksWith('__link')}
-            href="https://github.com/reportportal/reportportal/blob/master/docker-compose.yml"
+            to="https://github.com/reportportal/reportportal/blob/master/docker-compose.yml"
           >
             GitHub
-          </a>
+          </Link>
           . You can make it by running the following command:
         </p>
 
@@ -48,12 +51,12 @@ export const DockerDeployingStep = () => {
           <li>
             Set <span className={getBlocksWith('__code-text')}>vm.max_map_count</span> kernel
             setting before ReportPortal deploying with the following{' '}
-            <a
+            <Link
               className={getBlocksWith('__link')}
-              href="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html#docker-cli-run-prod-mode"
+              to="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html#docker-cli-run-prod-mode"
             >
               Commands
-            </a>{' '}
+            </Link>{' '}
             <span className={getBlocksWith('__sub-text')}>(optional)</span>
           </li>
           <li>Give right permissions to ElasticSearch data folder using the following commands:</li>
@@ -67,13 +70,13 @@ export const DockerDeployingStep = () => {
 
         <p>
           For more details about ElasticSearch installation with Docker visit
-          <a
+          <Link
             className={getBlocksWith('__link')}
-            href="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html#_notes_for_production_use_and_defaults"
+            to="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html#_notes_for_production_use_and_defaults"
           >
             {' '}
             guide
-          </a>
+          </Link>
           .
         </p>
 
@@ -98,12 +101,12 @@ export const DockerDeployingStep = () => {
 
         <p>
           You can change PostgreSQL password by editing environment variables in{' '}
-          <a
+          <Link
             className={getBlocksWith('__link')}
-            href="https://github.com/reportportal/reportportal/blob/master/docker-compose.yml"
+            to="https://github.com/reportportal/reportportal/blob/master/docker-compose.yml"
           >
             docker-compose.yml
-          </a>
+          </Link>
           .
         </p>
         <p>4. Start the application using the following command:</p>

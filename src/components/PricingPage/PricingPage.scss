@@ -6,6 +6,18 @@
     border: none;
   }
 
+  &__trustedOrganizationsContainer {
+    margin-top: 117px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-top: 111px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: 308px;
+    }
+  }
+
   &__faqContainer {
     margin-top: 120px;
 
@@ -33,4 +45,3 @@
     }
   }
 }
-

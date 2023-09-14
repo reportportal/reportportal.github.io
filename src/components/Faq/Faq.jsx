@@ -3,12 +3,13 @@ import { Collapse } from 'antd';
 import cx from 'classnames';
 
 import { Link } from '../Link';
-import { ArrowIcon } from '../Footer/icons';
+import ArrowIcon from '../../svg/arrow.inline.svg';
 import { iconsCommon } from '../../utils/imageSource';
 import { createBemBlockBuilder } from '../../utils';
 
 import './Faq.scss';
 
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 const getBlocksWith = createBemBlockBuilder(['faq']);
 
 export const Faq = ({ items, titleId, showMoreInfoLink = true }) => {
@@ -41,8 +42,7 @@ export const Faq = ({ items, titleId, showMoreInfoLink = true }) => {
               More information on the link to our
               <Link
                 className={getBlocksWith('__link-documentation')}
-                to="/docs/FAQ/"
-                shouldOpenInNewWindow
+                to={`${DOCUMENTATION_URL}/FAQ/`}
               >
                 Documentation
                 <ArrowIcon />
