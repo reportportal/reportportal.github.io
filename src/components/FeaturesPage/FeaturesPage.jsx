@@ -14,6 +14,7 @@ import { ArrowLink } from '../ArrowLink';
 import { Banner } from '../Banner';
 import { StartTestingWithReportPortal } from '../StartTestingWithReportPortal';
 import { featuresList, navigationList } from './dataSource';
+import { Faq } from '../Faq';
 
 import './FeaturesPage.scss';
 
@@ -111,8 +112,8 @@ export const FeaturesPage = () => {
 
   const collapsableList = [
     {
-      title: 'What is meant by "Premium feature"?',
-      description: (
+      label: 'What is meant by "Premium feature"?',
+      children: (
         <>
           <p>
             Premium feature is an advanced feature which comes on top of Free Open Source edition.
@@ -135,8 +136,8 @@ export const FeaturesPage = () => {
       ),
     },
     {
-      title: 'What capabilities does Rest API provide?',
-      description: (
+      label: 'What capabilities does Rest API provide?',
+      children: (
         <p>
           REST API enables users to easily integrate any testing framework or third-party tool with
           ReportPortal so as to report data into ReportPortal, call analyze action, add attributes,
@@ -228,37 +229,7 @@ export const FeaturesPage = () => {
       </div>
       <StartTestingWithReportPortal />
       <div className={cx(getBlocksWith('__faq'), 'container')}>
-        <div className={getBlocksWith('__faq-heading')}>
-          <h2>Frequently asked questions</h2>
-        </div>
-        <div className={getBlocksWith('__faq-content')}>
-          {collapsableList.map(({ title, description }, i) => (
-            <button
-              className={getBlocksWith('__faq-content-item')}
-              key={title}
-              type="button"
-              onClick={() => updateFAQs(i)}
-            >
-              <div className={getBlocksWith('__faq-content-item-title')}>
-                <h3>{title}</h3>
-                <img
-                  className={cx({
-                    [getBlocksWith('__faq-content-item-title--arrow-shown')]: faqs[i],
-                  })}
-                  src={iconsCommon.arrowalt}
-                  alt=""
-                />
-              </div>
-              <div
-                className={cx(getBlocksWith('__faq-content-item-description'), {
-                  [getBlocksWith('__faq-content-item-description--shown')]: faqs[i],
-                })}
-              >
-                {description}
-              </div>
-            </button>
-          ))}
-        </div>
+        <Faq items={collapsableList} showMoreInfoLink={false} />
       </div>
       <div className={getBlocksWith('__banner')}>
         <Banner title="Still have questions about our features?" linkTitle="Contact Us" link="#" />

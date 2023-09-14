@@ -1,0 +1,45 @@
+@use 'src/styles/mixins' as m;
+
+.switcher {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 8px;
+  align-items: center;
+
+  &__option {
+    @include m.font-noto-sans();
+    @include m.font-scale(base);
+
+    color: var(--white);
+  }
+
+  &__switcher {
+    position: relative;
+    width: 46px;
+    height: 30px;
+    background: var(--white);
+    border-radius: 30px;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      background: var(--color-primary-500);
+      transition: left 0.4s ease-out;
+    }
+
+    &-active {
+      &:before {
+        right: 5px;
+        left: 21px;
+      }
+    }
+  }
+}

@@ -21,11 +21,13 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
       icon: <SaaSIcon />,
       title: 'SaaS',
       text: 'Our team hosts application instance for your organization',
+      link: '/pricing/saas',
     },
     {
       icon: <OnPremiseIcon />,
       title: 'On-premises',
       text: "ReportPortal instance resides within your organisation's premises",
+      link: '/pricing/on-premises',
     },
   ];
 

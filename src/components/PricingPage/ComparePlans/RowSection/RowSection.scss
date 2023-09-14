@@ -1,0 +1,67 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.rowSection {
+  margin: 3px 0 4px 0;
+  text-align: center;
+  cursor: auto;
+
+  @include m.breakpoint(v.$tablet-lg) {
+    text-align: left;
+  }
+
+  &__container {
+    @include m.font-poppins();
+    @include m.font-scale(small);
+
+    display: flex;
+    justify-content: center;
+    color: var(--text-service);
+
+    @include m.breakpoint(v.$tablet-lg) {
+      display: block;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  &__title {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+
+  &__buttonsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__button {
+    width: 100%;
+    max-width: 148px;
+    padding: 16px 5px;
+  }
+
+  &__features {
+    @include m.breakpoint(v.$tablet-lg) {
+      @include m.font-scale();
+
+      font-weight: 600;
+      padding: 20px 0;
+    }
+  }
+
+  &__row-title-footer {
+    @include m.breakpoint(v.$tablet-lg) {
+      width: 39%;
+    }
+  }
+}
