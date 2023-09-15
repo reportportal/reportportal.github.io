@@ -21,22 +21,21 @@ import styles from './notes.scss';
 
 const cx = classNames.bind(styles);
 
-const Notes = ({ notes }) => (
-    notes.map((note, i) => (
-        <div key={`note${i}`} className={cx('note')}>
-            <div className={cx('content')}>
-                <div className={cx('name')}>{`Note ${i+1}`}</div>
-                <div className={cx('text')}>{note}</div>
-            </div>
-        </div>
-    ))
-);
+const Notes = ({ notes }) =>
+  notes.map((note, i) => (
+    <div key={`note${i}`} className={cx('note')}>
+      <div className={cx('content')}>
+        <div className={cx('name')}>{notes.length > 1 ? `Note ${i + 1}` : 'Note'}</div>
+        <div className={cx('text')}>{note}</div>
+      </div>
+    </div>
+  ));
 Notes.propTypes = {
-    notes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  notes: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 Notes.defaultProps = {
-    title: '',
-    isSimple: false,
+  title: '',
+  isSimple: false,
 };
 
 export default Notes;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 EPAM Systems
+ * Copyright 2023 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,33 +14,11 @@
  * limitations under the License.
  */
 
-.note {
-  margin-top: 32px;
-  margin-bottom: 48px;
-
-  + .note {
-    margin-top: -16px;
-  }
+.logs {
+  line-height: 22px;
+  font-size: 11px;
+  font-family: $FONT-LIGHT;
+  text-align: left;
+  margin: 0;
+  word-break: break-word;
 }
-
-.content {
-  display: inline-block;
-  width: calc(100% - 26px);
-  position: relative;
-  margin-left: 26px;
-
-  &::before {
-    content: "";
-    background: $COLOR--note;
-    width: 6px;
-    height: 100%;
-    position: absolute;
-    left: -26px;
-  }
-}
-
-.name {
-  font-family: $FONT-HEADER;
-  margin-bottom: 8px;
-}
-
