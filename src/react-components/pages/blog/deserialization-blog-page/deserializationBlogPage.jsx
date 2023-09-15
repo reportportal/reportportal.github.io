@@ -38,7 +38,7 @@ const DeserializationBlogPage = () => (
         We would like to highlight that in version 5.7.5 of API Service and Authorization Service we have updated the dependencies.
       </p>
       <p>
-        Unfortunately, the same dependency found its way into different versions, causing a Java error that looks like this: <b>"AuthUtils$SerialUidReplacingInputStream: Potentially Fatal Deserialization Operation"</b> when serializing/deserializing a user class or token.
+        Unfortunately, the same dependency found its way into different versions, causing a Java error that looks like this: <b><i>"AuthUtils$SerialUidReplacingInputStream: Potentially Fatal Deserialization Operation"</i></b> when serializing/deserializing a user class or token.
       </p>
       <br />
       <br />
