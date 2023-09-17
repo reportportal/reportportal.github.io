@@ -10,12 +10,11 @@ const startupPlanBaseConfig = {
       value: 'RP SaaS',
     },
   ],
-  info: `<p>Access to a project space in multi-tenant setup with all the premium features included</p>
-        <p>
+  info: `<p>
           <div><strong>Price:</strong> $599/month</div>
           <div><strong>Billing period:</strong> Yearly</div>
         </p>
-        <p>Contact us to get Startup Plan Details and its Free Trial</p>`,
+        <p>Contact us to get Startup Plan Details and its Free Trial.</p>`,
 };
 
 const businessPlanBaseConfig = {
@@ -26,12 +25,11 @@ const businessPlanBaseConfig = {
       value: 'RP SaaS',
     },
   ],
-  info: `<p>Dedicated instance for you only complemented by security hardening options, extended storage and retention policy</p>
-        <p>
+  info: `<p>
           <div><strong>Price:</strong> $2,799/month</div>
           <div><strong>Billing period:</strong> Yearly</div>
         </p>
-        <p>Contact us to get Business Plan Details and ReportPortal Free Trial</p>`,
+        <p>Contact us to get Business Plan Details and ReportPortal Free Trial.</p>`,
 };
 
 const enterprisePlanBaseConfig = {
@@ -42,7 +40,7 @@ const enterprisePlanBaseConfig = {
       value: 'RP SaaS',
     },
   ],
-  info: `<p>Custom offering combined with SaaS Business plan and packages of Managed Services</p>
+  info: `<p>Tailored offering integrated with SaaS Business plan and packages of Managed Services.</p>
         <p>Contact us to get Enterprise Plan Details and ReportPortal Free Trial.</p>`,
 };
 
@@ -54,7 +52,7 @@ const package25BaseConfig = {
       value: 'RP Service',
     },
   ],
-  info: `<p>Looking for more details about our Package 25?<br />Please fill out the form</p>
+  info: `<p>Looking for more details about our Package 25?<br />Please fill out the form.</p>
         <p>
           <div><strong>Price:</strong> $2,850/month</div>
           <div><strong>Billing period:</strong> Yearly</div>
@@ -69,9 +67,9 @@ const package60BaseConfig = {
       value: 'RP Service',
     },
   ],
-  info: `<p>Looking for more details about our Package 60?<br />Please fill out the form</p>
+  info: `<p>Looking for more details about our Package 60?<br />Please fill out the form.</p>
         <p>
-          <div><strong>Price:</strong> $2,850/month</div>
+          <div><strong>Price:</strong> $5,700/month</div>
           <div><strong>Billing period:</strong> Yearly</div>
         </p>`,
 };
@@ -84,7 +82,7 @@ const package160BaseConfig = {
       value: 'RP Service',
     },
   ],
-  info: `<p>Looking for more details about our Package 160?<br />Please fill out the form</p>
+  info: `<p>Looking for more details about our Package 160?<br />Please fill out the form.</p>
         <p>
           <div><strong>Price:</strong> $12,825/month</div>
           <div><strong>Billing period:</strong> Yearly</div>
@@ -99,7 +97,7 @@ const QaSpaceBaseConfig = {
       value: 'RP QASP',
     },
   ],
-  info: '<p>Looking for more details on our offerings? Simply fill out the form.</p>',
+  info: '<p>Looking for more details on our offerings?<br />Simply fill out the form</p>',
   isDiscussFieldShown: true,
 };
 
@@ -111,7 +109,7 @@ const Drill4JBaseConfig = {
       value: 'RP D4J',
     },
   ],
-  info: '<p>Looking for more details on our offerings? Simply fill out the form.</p>',
+  info: '<p>Looking for more details on our offerings?<br />Simply fill out the form.</p>',
   isDiscussFieldShown: true,
 };
 
@@ -123,7 +121,7 @@ const HealeniumBaseConfig = {
       value: 'RP HLM',
     },
   ],
-  info: '<p>Looking for more details on our offerings? Simply fill out the form.</p>',
+  info: '<p>Looking for more details on our offerings?<br />Simply fill out the form.</p>',
   isDiscussFieldShown: true,
 };
 
@@ -223,7 +221,7 @@ module.exports.config = [
   }),
   ...packageNumbers.map(packageNumber =>
     createConfig({
-      baseConfig: QaSpaceBaseConfig,
+      baseConfig: Drill4JBaseConfig,
       url: `/contact-us/d4j/package-${packageNumber}/`,
       source: `Landing page / D4J / Request Support "Package ${packageNumber}"`,
     }),
@@ -236,7 +234,7 @@ module.exports.config = [
     }),
   ),
   createConfig({
-    baseConfig: Drill4JBaseConfig,
+    baseConfig: HealeniumBaseConfig,
     url: '/contact-us/hlm',
     source: 'Landing page / HLM',
   }),
@@ -267,7 +265,7 @@ module.exports.config = [
         value: 'RP TaaS',
       },
     ],
-    info: '<p>Looking for quotes on Testing as a Service? Simply fill out the form</p>',
+    info: '<p>Looking for quotes on Testing as a Service?<br />Simply fill out the form</p>',
     isDiscussFieldShown: true,
   },
   {
@@ -283,7 +281,7 @@ module.exports.config = [
         value: 'RP TAaaS',
       },
     ],
-    info: '<p>Looking for quotes on Test Automation as a Service? Simply fill out the form</p>',
+    info: '<p>Looking for quotes on Test Automation as a Service?<br />Simply fill out the form.</p>',
     isDiscussFieldShown: true,
   },
   {
@@ -299,21 +297,21 @@ module.exports.config = [
         value: 'RP QAaaS',
       },
     ],
-    info: '<p>Looking for quotes on Quality Assessment Services? Simply fill out the form</p>',
+    info: '<p>Looking for quotes on Quality Assessment Services?<br />Simply fill out the form.</p>',
     isDiscussFieldShown: true,
   },
   {
     url: '/contact-us/general/',
     title: 'Contact us',
     options: [
-      { name: 'ReportPortalSource__c', value: 'Landing page/ Ask service' },
+      { name: 'ReportPortalSource__c', value: 'Landing page / General' },
       { name: 'lead_source', value: 'RP General' },
     ],
     info: `<p>Got questions or need information about ReportPortal?</p>
         <ul>
-          <li><strong>Inquiries:</strong> Get answers to your questions</li>
-          <li><strong>Quotes:</strong> Request pricing details</li>
-          <li><strong>Free Trial:</strong> Try ReportPortal for free</li>
+          <li><strong>Inquiries:</strong> Feel free to ask.</li>
+          <li><strong>Quotes:</strong> Request pricing details.</li>
+          <li><strong>Free Trial:</strong> Get ReportPortal trial.</li>
         </ul>`,
     isDiscussFieldShown: true,
   },

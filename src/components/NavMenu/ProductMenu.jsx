@@ -142,7 +142,7 @@ export const ProductMenu = ({ isDesktop = true }) => {
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
           <Link
-            className="btn btn--primary temporary-hide"
+            className={cx('btn btn--primary', 'temporary-hide')}
             to="/contact-us/general"
             data-gtm="start_free_trial"
           >

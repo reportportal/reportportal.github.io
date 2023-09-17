@@ -37,7 +37,7 @@ const benefitsForBusinessList = [
     description:
       "Thanks to widgets and dashboards you'll be able to take a helicopter view on the project or dig deeper into more detail to make decisions faster",
     image: features.feature6,
-    link: '/features/#rich-artifacts-in-test-reports',
+    link: '/features/#visualisation-of-tests',
   },
 ];
 

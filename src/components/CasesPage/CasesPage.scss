@@ -7,7 +7,7 @@
   margin-top: calc(-1 * var(--header-height));
   color: var(--white);
   background: var(--color-primary-600);
-  background-image: url('./icons/group-244.svg');
+  background-image: url('../../svg/headBg.svg');
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 20;
@@ -40,13 +40,13 @@
 
 .cases-page__cases-list {
   display: grid;
-  grid-template-columns: repeat(1, 348px);
+  flex-direction: column;
   grid-gap: 24px;
   justify-content: center;
-  padding: 72px 0 48px;
-  margin: 0 24px;
-  flex-wrap: wrap;
+  grid-template-columns: minmax(min-content, 348px);
   align-items: center;
+  padding-top: 72px;
+  padding-bottom: 48px;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
     grid-template-columns: repeat(2, 348px);
@@ -59,12 +59,11 @@
 
   &-item-box {
     display: flex;
-    height: 328px;
-    padding: 24px;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
     gap: 24px;
+    padding: 24px;
     border-radius: 16px;
     box-shadow: 0 8px 16px 0 rgba(0, 45, 55, 0.12);
     background-size: cover;
@@ -81,12 +80,12 @@
   &-item {
     position: relative;
     display: flex;
-    height: 280px;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
     flex-shrink: 0;
     align-self: stretch;
+    height: 280px;
 
     &-trailing {
       position: absolute;
@@ -94,26 +93,20 @@
 
       p {
         @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale(medium);
 
         color: var(--white);
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 32px;
       }
     }
 
     &-leading {
       p {
         @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale(small);
 
         margin-top: 0;
         color: var(--white);
         text-align: left;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 24px;
         letter-spacing: 1px;
         text-transform: uppercase;
       }
@@ -123,8 +116,8 @@
       position: absolute;
       top: 58px;
       width: 96px;
-      height: 96px;
       flex-shrink: 0;
+      height: 96px;
       opacity: 0.7;
     }
   }
@@ -160,12 +153,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 48px;
   height: 56px;
+  margin-top: 48px;
 
   > button > img {
-    height: 16px;
     width: 16px;
+    height: 16px;
     margin-right: 8px;
   }
 }

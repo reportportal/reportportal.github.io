@@ -11,7 +11,7 @@
     margin-top: calc(-1 * var(--header-height));
     color: var(--white);
     background: var(--color-primary-600);
-    background-image: url('./icons/group-244.svg');
+    background-image: url('../../svg/headBg.svg');
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -130,11 +130,18 @@
       gap: 16px;
       margin-top: 24px;
 
-      .ant-tag {
-        @include m.font-scale(x-small);
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        margin-left: -32px;
+        margin-right: -32px;
+      }
 
+      .ant-tag {
+        @include m.font-poppins();
+        @include m.font-scale(small);
+
+        margin: 0;
         padding: 8px 16px;
-        border-radius: 18px;
+        border-radius: 26px;
         border: 1px solid var(--color-primary-200);
 
         &,
@@ -171,14 +178,10 @@
     @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-scale(x3-large);
     }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      @include m.font-scale(large);
-    }
   }
 
   &__details {
-    @include m.font-poppins();
+    @include m.font-noto-sans();
     @include m.font-scale();
 
     display: flex;
@@ -188,8 +191,8 @@
 
     @include m.breakpoint(v.$desktop-sm) {
       width: 568px;
-      margin-top: 16px;
-      row-gap: 16px;
+      margin-top: 20px;
+      row-gap: 20px;
     }
 
     p {
@@ -208,6 +211,10 @@
       text-align: left;
       list-style: disc inside;
 
+      li + li {
+        margin-top: 4px;
+      }
+
       @include m.breakpoint(v.$desktop-sm) {
         align-self: start;
       }
@@ -225,6 +232,16 @@
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin-top: 160px;
       padding-bottom: 80px;
+
+      .trusted-organizations {
+        &__icons {
+          gap: 38px 73px;
+        }
+
+        &__icon {
+          width: unset;
+        }
+      }
     }
 
     @include m.breakpoint(v.$desktop-sm) {
@@ -236,16 +253,7 @@
         }
 
         &__icons {
-          gap: 38px 73px;
           justify-content: left;
-          margin-left: 0;
-          margin-right: 0;
-        }
-
-        &__icon {
-          width: unset;
-          text-align: left;
-          margin: 0;
         }
       }
     }

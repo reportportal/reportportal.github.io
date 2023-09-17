@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Tag } from 'antd';
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
+import xor from 'lodash/xor';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../../utils';
@@ -10,24 +11,20 @@ import '../ContactUsPage.scss';
 const getBlocksWith = createBemBlockBuilder(['contact-us-form', 'how-did-you-hear']);
 
 const tagsData = [
-  'Friends/Colleague',
-  'Podcast',
+  'Friends/Colleagues',
+  'Email newsletter',
   'Social Media',
-  'Youtube',
   'Google etc.',
-  'Streaming',
-  'Other',
+  'Course',
+  'Conference',
+  'Article',
 ];
 
-export const HowDidYouHearAboutUs = ({ title }) => {
+export const FeedbackForm = ({ title }) => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (tag, isChecked) => {
-    setSelectedTags(
-      isChecked ? [...selectedTags, tag] : selectedTags.filter(selectedTag => selectedTag !== tag),
-    );
-  };
+  const handleChange = tag => setSelectedTags(xor(selectedTags, [tag]));
 
   const handleSubmit = () => {
     setIsSubmitted(true);
@@ -63,7 +60,7 @@ export const HowDidYouHearAboutUs = ({ title }) => {
                 <Tag.CheckableTag
                   key={tag}
                   checked={selectedTags.includes(tag)}
-                  onChange={checked => handleChange(tag, checked)}
+                  onChange={() => handleChange(tag)}
                 >
                   {tag}
                 </Tag.CheckableTag>

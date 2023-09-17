@@ -27,6 +27,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     flex-wrap: wrap;
+    row-gap: 40px;
     width: 100%;
     max-width: 252px;
     justify-content: center;
@@ -34,27 +35,22 @@
     margin: 0 5px 0;
 
     svg {
-      transform: scale(.8);
-    }
+      transform: scale(0.8);
 
-    @include m.breakpoint(v.$phone) {
-      max-width: 230px;
-      margin: 0 20px 0;
-
-      svg {
+      @include m.breakpoint(v.$phone) {
         transform: none;
       }
     }
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       display: flex;
+      gap: 32px 30px;
       justify-content: center;
       max-width: 100%;
-      margin: 0 50px;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      margin: 0 30px 0;
+      column-gap: 56px;
     }
 
     &-wrapper {
@@ -64,27 +60,7 @@
   }
 
   &__icon {
-    justify-content: left;
-    width: 100%;
-    margin: 20px 0;
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      display: block;
-      margin: 0 15px 32px;
-      max-width: 160px;
-      text-align: center;
-    }
-
-    &-right {
-      justify-content: right;
-    }
-
-    &-display {
-      display: flex;
-
-      @include m.breakpoint(v.$tablet-sm-exact) {
-        display: block;
-      }
-    }
+    display: flex;
+    justify-content: center;
   }
 }

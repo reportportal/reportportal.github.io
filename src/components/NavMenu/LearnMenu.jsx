@@ -12,15 +12,16 @@ import SuccessStoriesIcon from './icons/success-stories.inline.svg';
 
 import './Menu.scss';
 
-export const LearnMenu = ({ isDesktop = true }) => {
-  const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
+const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
 
+export const LearnMenu = ({ isDesktop = true }) => {
   let resourcesItems = [
     {
       icon: <DocumentationIcon />,
       title: 'Documentation',
       text: 'All the technical docs',
-      link: '/docs',
+      link: `${DOCUMENTATION_URL}/docs`,
     },
     {
       icon: <BlogIcon />,

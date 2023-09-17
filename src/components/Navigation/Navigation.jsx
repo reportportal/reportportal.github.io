@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useToggle, useScroll } from 'ahooks';
 import { Drawer, Collapse } from 'antd';
-import { upperFirst } from 'lodash';
+import upperFirst from 'lodash/upperFirst';
 import axios from 'axios';
 import cx from 'classnames';
 

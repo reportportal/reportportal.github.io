@@ -95,6 +95,7 @@ export const FeaturesPage = () => {
 
   const collapsableList = [
     {
+      key: 1,
       label: 'What is meant by "Premium feature"?',
       children: (
         <>
@@ -114,6 +115,7 @@ export const FeaturesPage = () => {
       ),
     },
     {
+      key: 2,
       label: 'What capabilities does Rest API provide?',
       children: (
         <p>
@@ -213,7 +215,7 @@ export const FeaturesPage = () => {
       <div className={getBlocksWith('__banner')}>
         <Banner
           title="Still have questions about our features?"
-          linkTitle="Contact Us"
+          linkTitle="Contact us"
           link="/contact-us/general"
         />
       </div>

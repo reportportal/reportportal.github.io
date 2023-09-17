@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FormikProvider, useFormik } from 'formik';
+import { useBoolean } from 'ahooks';
 
 import ArrowIcon from '../../../svg/arrow.inline.svg';
 import { createBemBlockBuilder } from '../../../utils';
@@ -8,7 +9,7 @@ import { FormInput } from '../FormInput';
 import { FormFieldWrapper } from '../FormFieldWrapper';
 import { CustomCheckbox } from '../CustomCheckbox';
 import { SalesForceFormBase } from '../SalesForceFormBase';
-import { HowDidYouHearAboutUs } from '../HowDidYouHearAboutUs';
+import { FeedbackForm } from '../FeedbackForm';
 import { validate } from '../util';
 
 import '../ContactUsPage.scss';
@@ -17,19 +18,17 @@ const getBlocksWith = createBemBlockBuilder(['contact-us-form']);
 const MAX_LENGTH = 256;
 
 export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
-  const [isThankYouFormVisible, setIsThankYouFormVisible] = useState(false);
+  const [isFeedbackFormVisible, { setTrue: showFeedbackForm }] = useBoolean(false);
   const [iframe, setIframe] = useState(null);
   const formik = useFormik({
-    initialValues: Object.assign(
-      {
-        first_name: '',
-        last_name: '',
-        email: '',
-        company: '',
-        termsAgree: false,
-      },
-      isDiscussFieldShown ? { discuss: '' } : '',
-    ),
+    initialValues: {
+      first_name: '',
+      last_name: '',
+      email: '',
+      company: '',
+      termsAgree: false,
+      ...(isDiscussFieldShown && { discuss: '' }),
+    },
     validate,
   });
 
@@ -51,21 +50,12 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   }, []);
 
   const handleSubmit = () => {
-    const showThankYou = () => {
-      setIsThankYouFormVisible(true);
-    };
-
-    iframe.onload = () => {
-      showThankYou();
-    };
-
-    iframe.onerror = () => {
-      showThankYou();
-    };
+    iframe.onload = () => showFeedbackForm();
+    iframe.onerror = () => showFeedbackForm();
   };
 
-  if (isThankYouFormVisible) {
-    return <HowDidYouHearAboutUs title={title} />;
+  if (isFeedbackFormVisible) {
+    return <FeedbackForm title={title} />;
   }
 
   return (
@@ -105,7 +95,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
           {isDiscussFieldShown && (
             <FormInput
               name="discuss"
-              label="What would you tike to discuss?"
+              label="What would you like to discuss?"
               placeholder="Please, share more details"
               InputElement="textarea"
               maxLength={MAX_LENGTH}
@@ -134,7 +124,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             disabled={!(isValid && dirty && getFieldProps('termsAgree').value)}
             onClick={handleSubmit}
           >
-            Send Request
+            Send request
           </button>
         </form>
       </div>

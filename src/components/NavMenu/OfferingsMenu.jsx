@@ -19,13 +19,13 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
     {
       icon: <SaaSIcon />,
       title: 'SaaS',
-      text: 'Our team hosts application instance for your organization',
+      text: 'We host and support an instance for your organization',
       link: '/pricing/saas',
     },
     {
       icon: <OnPremiseIcon />,
       title: 'On-Premises',
-      text: "ReportPortal instance resides within your organisation's premises",
+      text: 'Self-hosted instance with support from our team',
       link: '/pricing/on-premises',
     },
     {
@@ -37,7 +37,7 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
   ];
 
   const pricingList = (
-    <SectionList className="pricing-list" title="Pricing" items={pricingConfig} />
+    <SectionList className="pricing-list" title="ReportPortal Pricing" items={pricingConfig} />
   );
 
   const servicesList = (
@@ -92,7 +92,7 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
   );
 
   const footer = (
-    <div className={getBlocksWith('__footer')}>
+    <div className={cx(getBlocksWith('__footer'), 'temporary-hide')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
           <Link

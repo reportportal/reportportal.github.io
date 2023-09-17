@@ -10,12 +10,20 @@
   margin-top: 2px;
   cursor: pointer;
   user-select: none;
-  color: var(--text-primary);
+  color: var(--primary-colors-almost-black);
   line-height: 20px;
 
   a {
     color: var(--text-service);
     font-weight: v.$fw-medium;
+
+    &:hover {
+      color: var(--text-grey);
+    }
+
+    &:active {
+      color: var(--color-primary-700);
+    }
   }
 
   &__checkmark {
@@ -51,32 +59,22 @@
     height: 0;
     width: 0;
 
-    &:checked {
+    &:checked ~ .custom-checkbox__checkmark:after {
+      display: block;
+    }
+  }
+
+  &:not(:hover):not(:active) {
+    input:checked {
       & ~ .custom-checkbox__checkmark {
         background-color: var(--color-primary-600);
         border-color: var(--color-primary-600);
-
-        &:after {
-          display: block;
-        }
-      }
-
-      &:focus ~ .custom-checkbox__checkmark {
-        background-color: var(--color-primary-500);
-      }
-    }
-
-    &:focus {
-      & ~ .custom-checkbox__checkmark {
-        border-width: 2px;
-        border-color: var(--color-primary-500);
       }
     }
   }
 
+  &:active,
   &:hover {
-    color: var(--primary-colors-almost-black);
-
     input {
       & ~ .custom-checkbox__checkmark {
         border-color: var(--text-service);
@@ -85,14 +83,6 @@
       &:checked ~ .custom-checkbox__checkmark {
         background-color: var(--color-primary-500);
         border-color: var(--color-primary-500);
-      }
-
-      &:focus ~ .custom-checkbox__checkmark {
-        border-color: var(--color-primary-500);
-      }
-
-      &:checked:focus ~ .custom-checkbox__checkmark {
-        background-color: var(--color-primary-500);
       }
     }
   }
