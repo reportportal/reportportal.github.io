@@ -9,12 +9,13 @@ import { ComparePlans } from '../ComparePlans';
 import { TrustedOrganizations } from '../TrustedOrganizations';
 import { Faq } from '../../Faq';
 import { faqItems } from './faqData';
-import { pricingData } from './pricingData';
+import { offersData } from './offersData';
 import { Banner } from '../../Banner';
+import { dataPlans, columns, buttonsData } from './dataPlans';
 
-import './SaasPage.scss';
+import '../PricingPage.scss';
 
-const getBlocksWith = createBemBlockBuilder(['pricingPage']);
+const getBlocksWith = createBemBlockBuilder(['pricing-page']);
 
 export const SaasPage = () => {
   const { buttons, discountState, toggleDiscountState } = usePricingHeroProps();
@@ -24,12 +25,16 @@ export const SaasPage = () => {
       <PricingHero
         buttons={buttons}
         activeButton="SaaS"
+        offerType="SaaS"
+        description="An instance of ReportPortal application is hosted for you. ReportPortal team takes care
+          about infrastructure, availability, backups, monitoring and version updates and provides
+          support by request."
         switchActiveBtn={noop}
         switchDiscount={toggleDiscountState}
         discountState={discountState}
       />
-      <PricingCards discountState={discountState} pricingData={pricingData} />
-      <ComparePlans />
+      <PricingCards discountState={discountState} offersData={offersData} />
+      <ComparePlans dataPlans={dataPlans} columns={columns} footerButtons={buttonsData} />
       <TrustedOrganizations />
       <div className={getBlocksWith('__faqContainer')}>
         <Faq items={faqItems} />
@@ -37,7 +42,7 @@ export const SaasPage = () => {
       <div className={getBlocksWith('__stillHaveQuestion')}>
         <Banner
           title="Do you still have questions?"
-          linkTitle="Contact Us"
+          linkTitle="Contact us"
           link="/contact-us/general"
         />
       </div>

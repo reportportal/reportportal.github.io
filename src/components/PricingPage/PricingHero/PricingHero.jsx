@@ -14,6 +14,8 @@ export const PricingHero = ({
   activeButton,
   switchDiscount,
   discountState,
+  offerType,
+  description,
 }) => {
   return (
     <div className={getBlocksWith()}>
@@ -25,12 +27,8 @@ export const PricingHero = ({
         <ButtonSwitcher buttons={buttons} onSwitch={switchActiveBtn} activeBtnName={activeButton} />
       </div>
       <div className={getBlocksWith('__wrapper')}>
-        <div className={getBlocksWith('__wrapper-title')}>SaaS</div>
-        <div className={getBlocksWith('__wrapper-subtitle')}>
-          An instance of ReportPortal application is hosted for you. ReportPortal team takes care
-          about infrastructure, availability, backups, monitoring and version updates and provides
-          support by request.
-        </div>
+        <div className={getBlocksWith('__wrapper-title')}>{offerType}</div>
+        <div className={getBlocksWith('__wrapper-subtitle')}>{description}</div>
       </div>
       <div className={getBlocksWith('__discount-switcher')}>
         <DiscountSwitcher switchDiscount={switchDiscount} discountState={discountState} />

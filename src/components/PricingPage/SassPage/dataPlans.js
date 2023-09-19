@@ -1,5 +1,3 @@
-export const headerColumnTitles = ['Startup', 'Business', 'Enterprise'];
-
 export const buttonsData = [
   {
     btn: 'Start free trial',
@@ -17,6 +15,12 @@ export const buttonsData = [
     mode: 'outline',
   },
 ];
+
+export const columns = {
+  startup: 'Startup',
+  business: 'Business',
+  enterprise: 'Enterprise',
+};
 
 export const dataPlans = [
   {

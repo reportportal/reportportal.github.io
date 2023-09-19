@@ -5,7 +5,7 @@ import { OnPremisesPage } from '../../components/PricingPage/OnPremisesPage';
 
 const OnPremises = ({ location }) => {
   return (
-    <Layout location={location} className="pricingPage">
+    <Layout location={location} className="pricing-page">
       <OnPremisesPage />
     </Layout>
   );
