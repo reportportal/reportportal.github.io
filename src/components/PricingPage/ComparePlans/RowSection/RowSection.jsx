@@ -2,7 +2,7 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 
-import { $tabletLg } from '../../../../utils/breakpoint';
+import { $desktopSm } from '../../../../utils/breakpoint';
 import { createBemBlockBuilder } from '../../../../utils';
 import { FooterColumns } from './FooterColums';
 
@@ -10,8 +10,8 @@ import './RowSection.scss';
 
 const getBlocksWith = createBemBlockBuilder(['rowSection']);
 
-export const RowSection = ({ footer }) => {
-  const isDesktop = useMediaQuery({ query: $tabletLg });
+export const RowSection = ({ footer, footerButtons }) => {
+  const isDesktop = useMediaQuery({ query: $desktopSm });
 
   const getTitleRow = () => (
     <div
@@ -24,5 +24,5 @@ export const RowSection = ({ footer }) => {
     </div>
   );
 
-  return <>{footer ? <FooterColumns /> : getTitleRow()}</>;
+  return <>{footer ? <FooterColumns footerButtons={footerButtons} /> : getTitleRow()}</>;
 };

@@ -1,0 +1,132 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.time-scale {
+  &__wrapper {
+    margin-top: 32px;
+    margin-left: 16px;
+    margin-bottom: 32px;
+    background-repeat: no-repeat;
+    background-image: url('./svg/mobile.svg');
+    display: flex;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      display: block;
+      margin: 24px auto 32px;
+      padding-left: 25px;
+      width: 787px;
+      background-image: url('./svg/desktop.svg');
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      width: 838px;
+      background-size: cover;
+    }
+  }
+
+  &__periodsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+
+    div:nth-child(2) {
+      margin-top: 151px;
+      margin-bottom: 172px;
+    }
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      flex-direction: row;
+      margin-left: -15px;
+
+      div:nth-child(2) {
+        margin: 0 155px 0 171px;
+      }
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      div:nth-child(2) {
+        margin: 0 195px 0 215px;
+      }
+    }
+  }
+
+  &__period {
+    @include m.font-poppins();
+    @include m.font-scale(small);
+
+    margin-bottom: 22px;
+    color: var(--text-primary);
+    white-space: nowrap;
+
+    span {
+      @include m.font-scale(medium);
+
+      font-weight: v.$fw-semi-bold;
+    }
+  }
+
+  &__itemsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: -90px;
+
+    ul:nth-child(2) {
+      margin-top: 142px;
+      margin-bottom: 39px;
+    }
+
+    ul:nth-child(3) {
+      margin-bottom: 45px;
+    }
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      flex-direction: row;
+      margin-top: 5px;
+      margin-left: -16px;
+
+      ul:nth-child(2) {
+        margin: 0 18px 0 68px;
+      }
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      ul:nth-child(2) {
+        margin: 0 58px 0 115px;
+      }
+    }
+  }
+
+  &__list {
+    @include m.font-poppins();
+    @include m.font-scale(small);
+
+    width: 190px;
+    margin-left: 35px;
+    color: var(--text-service);
+
+    li {
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -22px;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--text-service);
+      }
+    }
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-noto-sans();
+      @include m.font-scale(base);
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+  }
+}

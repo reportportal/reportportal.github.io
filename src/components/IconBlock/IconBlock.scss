@@ -14,6 +14,13 @@
     @include m.font-scale(x4-large);
   }
 
+  &__numberOnly {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(large);
+
+    width: 115px;
+  }
+
   &__text {
     @include m.font-noto-sans();
     @include m.font-scale();
@@ -28,8 +35,14 @@
 .pentagon {
   width: 266px;
   height: 291px;
-  background: url('icons/PentagonSubtract.svg') no-repeat -8px -2px;
+  background: no-repeat -8px 0;
   background-size: 105%;
+
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      background-image: url('icons/Pentagon#{$i}.svg');
+    }
+  }
 }
 
 .circle {

@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { createBemBlockBuilder } from '../../../../utils';
+import { createBemBlockBuilder, formatNumberWithCommas } from '../../../../utils';
 import { Link } from '../../../Link';
 
 import './PricingCard.scss';
@@ -11,8 +11,6 @@ const getBlocksWith = createBemBlockBuilder(['pricing-card']);
 export const PricingCard = ({ card, discountState }) => {
   const { title, description, listItems, price, actionText, isPopular, actionVariant, href } = card;
   const { currency, value, period, message, discountedValue } = price;
-
-  const formatNumberWithCommas = number => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   return (
     <div className={getBlocksWith()}>

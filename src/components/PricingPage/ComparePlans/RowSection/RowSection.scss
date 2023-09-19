@@ -6,7 +6,7 @@
   text-align: center;
   cursor: auto;
 
-  @include m.breakpoint(v.$tablet-lg) {
+  @include m.breakpoint(v.$desktop-sm) {
     text-align: left;
   }
 
@@ -18,7 +18,7 @@
     justify-content: center;
     color: var(--text-service);
 
-    @include m.breakpoint(v.$tablet-lg) {
+    @include m.breakpoint(v.$desktop-sm) {
       display: block;
     }
 
@@ -51,7 +51,7 @@
   }
 
   &__features {
-    @include m.breakpoint(v.$tablet-lg) {
+    @include m.breakpoint(v.$desktop-sm) {
       @include m.font-scale();
 
       font-weight: 600;
@@ -60,8 +60,14 @@
   }
 
   &__row-title-footer {
-    @include m.breakpoint(v.$tablet-lg) {
+    @include m.breakpoint(v.$desktop-sm) {
       width: 39%;
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        margin-right: 16px;
+      }
     }
   }
 }

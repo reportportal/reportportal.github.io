@@ -57,7 +57,6 @@
 
   &__wrapper {
     display: block;
-    max-width: 660px;
     margin: 64px auto 0;
     padding: 0 30px;
     color: var(--white);
@@ -65,6 +64,8 @@
     @include m.breakpoint(v.$tablet-sm-exact) {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: baseline;
       margin-top: 80px;
     }
 
@@ -84,8 +85,14 @@
       @include m.font-scale(base);
 
       padding-top: 8px;
+      max-width: 534px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        max-width: unset;
+      }
 
       @include m.breakpoint(v.$desktop-sm) {
+        max-width: 534px;
         padding-top: 4px;
       }
     }

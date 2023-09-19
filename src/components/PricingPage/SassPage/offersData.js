@@ -1,4 +1,4 @@
-export const pricingData = [
+export const offersData = [
   {
     title: 'Startup',
     description:
