@@ -1,3 +1,5 @@
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
+
 export const buttonsData = [
   {
     btn: 'Start now',
@@ -7,16 +9,19 @@ export const buttonsData = [
   {
     btn: 'Contact us',
     href: '/contact-us/on-premises/package-25/',
+    compareLink: '/contact-us/on-premises/compare/package-25/',
     mode: 'outline',
   },
   {
     btn: 'Contact us',
     href: '/contact-us/on-premises/package-60/',
+    compareLink: '/contact-us/on-premises/compare/package-60/',
     mode: 'outline',
   },
   {
     btn: 'Contact us',
     href: '/contact-us/on-premises/package-160/',
+    compareLink: '/contact-us/on-premises/compare/package-160/',
     mode: 'outline',
   },
 ];
@@ -63,7 +68,7 @@ export const dataPlans = [
     package25: false,
     package60: true,
     package160: true,
-    href: 'https://reportportal.io/docs/terms-and-conditions/PremiumFeatures/',
+    href: `${DOCUMENTATION_URL}/terms-and-conditions/PremiumFeatures/`,
   },
   {
     footer: true,

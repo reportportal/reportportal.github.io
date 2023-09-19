@@ -1,17 +1,22 @@
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
+
 export const buttonsData = [
   {
     btn: 'Start free trial',
-    href: '/contact-us/saas/compare/startup-plan/',
+    href: '/contact-us/saas/startup-plan/',
+    compareHref: '/contact-us/saas/compare/startup-plan/',
     mode: 'outline',
   },
   {
     btn: 'Contact us',
-    href: '/contact-us/saas/compare/business-plan/',
+    href: '/contact-us/saas/business-plan/',
+    compareHref: '/contact-us/saas/compare/business-plan/',
     mode: 'primary',
   },
   {
     btn: 'Get a quote',
-    href: '/contact-us/saas/compare/enterprise-plan/',
+    href: '/contact-us/saas/enterprise-plan/',
+    compareHref: '/contact-us/saas/compare/enterprise-plan/',
     mode: 'outline',
   },
 ];
@@ -188,7 +193,7 @@ export const dataPlans = [
     startup: true,
     business: true,
     enterprise: true,
-    href: 'https://reportportal.io/docs/category/developers-guides/',
+    href: `${DOCUMENTATION_URL}/category/developers-guides/`,
   },
   {
     feature: 'Administration at Project Level',
