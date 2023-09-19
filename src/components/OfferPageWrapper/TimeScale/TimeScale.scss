@@ -12,15 +12,23 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       display: block;
-      margin: 24px auto 32px;
+      margin: 24px auto 54px;
       padding-left: 25px;
-      width: 787px;
+      width: v.$tablet-sm-exact;
       background-image: url('./svg/desktop.svg');
+      background-position-x: center;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      width: 838px;
+      width: 890px;
       background-size: cover;
+      padding-left: 0;
+
+      &-shifted {
+        background-image: url('./svg/desktop-shifted.svg');
+        background-position-y: 8px;
+        background-size: auto;
+      }
     }
   }
 
@@ -36,16 +44,26 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       flex-direction: row;
-      margin-left: -15px;
+      margin-left: 5px;
 
       div:nth-child(2) {
-        margin: 0 155px 0 171px;
+        margin: 0 154px 0 154px;
       }
     }
 
     @include m.breakpoint(v.$desktop-sm) {
       div:nth-child(2) {
         margin: 0 195px 0 215px;
+      }
+
+      &-shifted {
+        div:nth-child(1) {
+          margin-left: 76px;
+        }
+
+        div:nth-child(2) {
+          margin: 0 163px 0 170px;
+        }
       }
     }
   }
@@ -57,6 +75,7 @@
     margin-bottom: 22px;
     color: var(--text-primary);
     white-space: nowrap;
+    min-width: 90px;
 
     span {
       @include m.font-scale(medium);
@@ -72,8 +91,8 @@
     margin-left: -90px;
 
     ul:nth-child(2) {
-      margin-top: 142px;
-      margin-bottom: 39px;
+      margin-top: 54px;
+      margin-bottom: 54px;
     }
 
     ul:nth-child(3) {
@@ -82,8 +101,8 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       flex-direction: row;
-      margin-top: 5px;
-      margin-left: -16px;
+      margin-top: 8px;
+      margin-left: 8px;
 
       ul:nth-child(2) {
         margin: 0 18px 0 68px;
@@ -92,7 +111,17 @@
 
     @include m.breakpoint(v.$desktop-sm) {
       ul:nth-child(2) {
-        margin: 0 58px 0 115px;
+        margin: 0 75px 0 136px;
+      }
+
+      &-shifted {
+        ul:nth-child(1) {
+          margin-left: 118px;
+        }
+
+        ul:nth-child(2) {
+          margin: 0 32px 0 74px;
+        }
       }
     }
   }
@@ -104,6 +133,7 @@
     width: 190px;
     margin-left: 35px;
     color: var(--text-service);
+    height: 150px;
 
     li {
       position: relative;
@@ -122,11 +152,16 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-noto-sans();
-      @include m.font-scale(base);
+
+      height: auto;
     }
 
     li {
       margin-bottom: 6px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      @include m.font-scale(base);
     }
   }
 }

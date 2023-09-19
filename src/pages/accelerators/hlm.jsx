@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { Layout } from '../../components/Layout';
-import { OnPremisesPage } from '../../components/PricingPage/OnPremisesPage';
+import { HealeniumPage } from '../../components/AcceleratorsPage';
 
-const OnPremises = () => {
+const Hlm = () => {
   return (
     <Layout className="offer-page-wrapper">
-      <OnPremisesPage />
+      <HealeniumPage />
     </Layout>
   );
 };
 
-export default OnPremises;
+export default Hlm;
