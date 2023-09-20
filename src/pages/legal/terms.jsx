@@ -28,7 +28,7 @@ const Terms = () => (
           Download Terms and Conditions
         </a>
         <section>
-          <h2>1. Definitions.</h2>
+          <h2>1. Definitions</h2>
           <div>
             <p>
               Capitalized terms in this Agreement have the following meanings when used in this
@@ -87,7 +87,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>2. Licenses and Restrictions.</h2>
+          <h2>2. Licenses and Restrictions</h2>
           <div>
             <p>
               <strong>2.1. Platform License.</strong> Subject to the terms and conditions of this
@@ -97,7 +97,7 @@ const Terms = () => (
               purposes of software testing.
             </p>
             <p>
-              <strong>2.2.</strong> Customer grants Test IO a world-wide, perpetual, irrevocable,
+              <strong>2.2. Customer grants Test IO</strong> a world-wide, perpetual, irrevocable,
               royalty-free, license to use, display, reproduce and distribute the Content on the
               Site solely (a) for archival purposes and to carry out Test IO’s obligations under
               this Agreement, and (b) for Test IO’s internal use in improving the Site and Services
@@ -122,14 +122,14 @@ const Terms = () => (
               connection with its use of the Platform.
             </p>
             <p>
-              <strong>2.4.</strong> Use of Open Source Software within the Services will be governed
+              <strong>2.4. Use of Open Source Software</strong> within the Services will be governed
               by the respective Open Source Software license. Customer acknowledges and agrees that
               any use of Open Source Software, shall be made at Customer’s own risk.
             </p>
           </div>
         </section>
         <section>
-          <h2>3. Reservation of Rights.</h2>
+          <h2>3. Reservation of Rights</h2>
           <div>
             <p>
               Access and use of the Platform is licensed by Test IO to Customer, not sold, and
@@ -151,7 +151,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>4. Customer Obligations.</h2>
+          <h2>4. Customer Obligations</h2>
           <div>
             <p>
               Customer acknowledges that certain services provided by Test IO are dependent on
@@ -160,7 +160,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>5. Services and Technical Support.</h2>
+          <h2>5. Services and Technical Support</h2>
           <div>
             <p>
               As of the Effective Date, Test IO will make available to Customer the Platform and any
@@ -174,7 +174,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>6. Feedback.</h2>
+          <h2>6. Feedback</h2>
           <div>
             <p>
               Customer may, during the term, provide Test IO with verbal feedback and/or written
@@ -191,7 +191,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>7. Payments.</h2>
+          <h2>7. Payments</h2>
           <div>
             <p>
               <strong>7.1. Fees.</strong> The Customer agrees to pay the fees set forth in any
@@ -229,7 +229,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>8. Confidentiality.</h2>
+          <h2>8. Confidentiality</h2>
           <div>
             <p>
               <strong>8.1. Generally.</strong> “Confidential Information” will mean confidential or
@@ -297,7 +297,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>9. Warranties and Disclaimers.</h2>
+          <h2>9. Warranties and Disclaimers</h2>
           <div>
             <p>
               <strong>9.1. Warranty of Conformity.</strong> Test IO warrants that except for
@@ -341,7 +341,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>10. Term and Termination.</h2>
+          <h2>10. Term and Termination</h2>
           <div>
             <p>
               <strong>10.1. Term.</strong> The term of this Agreement will commence upon the
@@ -384,7 +384,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>11. Limitations of Liability.</h2>
+          <h2>11. Limitations of Liability</h2>
           <div>
             <p>
               <strong>11.1. Exclusion of Consequential Damages.</strong> TO THE MAXIMUM EXTENT
@@ -417,7 +417,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>12. Indemnity.</h2>
+          <h2>12. Indemnity</h2>
           <div>
             <p>
               <strong>12.1. Intellectual Property Indemnity.</strong> Test IO will defend, indemnify
@@ -473,7 +473,7 @@ const Terms = () => (
           </div>
         </section>
         <section>
-          <h2>13. Export Control.</h2>
+          <h2>13. Export Control</h2>
           <div>
             <p>
               Customer represents and warrants that it will at all times during the term of this
@@ -484,9 +484,8 @@ const Terms = () => (
             </p>
           </div>
         </section>
-
         <section>
-          <h2>14. General.</h2>
+          <h2>14. General</h2>
           <div>
             <p>
               <strong>14.1. Governing Law; Attorneys’ Fees.</strong> This Agreement will be governed
