@@ -6,6 +6,7 @@ import { Link } from '../Link';
 import { CaseStudiesCover } from './covers/CaseStudiesCover';
 import { SectionList } from './SectionList';
 import { SectionCard } from './SectionCard';
+import ReportPortalIcon from './icons/reportportal.inline.svg';
 
 import './Menu.scss';
 
@@ -18,6 +19,12 @@ export const SolutionsMenu = ({ isDesktop = true }) => {
       showTitle={isDesktop}
       title="Our Solutions"
       items={[
+        {
+          icon: <ReportPortalIcon />,
+          title: 'ReportPortal',
+          text: 'Platform for test automation reporting with real-time analytics',
+          link: '/',
+        },
         {
           iconClass: 'tdspora',
           title: 'TDspora',
@@ -50,7 +57,7 @@ export const SolutionsMenu = ({ isDesktop = true }) => {
     <SectionCard
       title="Case Studies"
       cover={<CaseStudiesCover />}
-      text="Over 1200 companies around the globe use ReportPortal."
+      text="Featured customers' stories where ReportPortal shines the best."
     >
       <div className={cx(getBlocksWith('__btn-group'), 'full-width')}>
         <Link className={cx('btn', 'btn--outline', 'full-width')} to="/case-studies">

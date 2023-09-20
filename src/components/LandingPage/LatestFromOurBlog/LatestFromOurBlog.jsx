@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import { ArticlePreview } from '../../ArticlePreview';
 import { createBemBlockBuilder } from '../../../utils';
-import { useLatestFromOurBlog } from '../../../hooks/useLatestFromOurBlog';
+import { useLatestFromOurBlog } from '../../../hooks';
 
 import './LatestFromOurBlog.scss';
 

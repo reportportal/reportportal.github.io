@@ -5,7 +5,7 @@ export const DASHBOARD_HEADER_INFO = {
 };
 
 export const TESTING_BOTTOM_BLOCK_INFO = {
-  title: 'Benefits you get from TaaS',
+  title: 'Benefits you get from TAaaS',
   description:
     'TAaaS includes all available Automation Services and could be extended to other testing service-related directions',
 };

@@ -199,14 +199,13 @@
   }
 }
 
-.solutions-list__item__title::after {
+.solutions-list__item:first-child .solutions-list__item__title::after {
+  @include font-noto-sans();
+
+  content: '(home)';
   display: inline-block;
-  content: '';
-  width: 9px;
-  height: 9px;
-  padding-bottom: 1px;
   margin-left: 7px;
-  background: url('icons/external-link.svg') no-repeat;
+  color: var(--text-service);
 }
 
 .resources-list__item-icon {
@@ -265,6 +264,10 @@
       &--youtube {
         background-image: url('icons/youtube-2.svg');
       }
+
+      &--linkedin {
+        background-image: url('icons/linkedin-2.svg');
+      }
     }
   }
 
@@ -280,6 +283,10 @@
 
       &--youtube {
         background-image: url('icons/youtube-1.svg');
+      }
+
+      &--linkedin {
+        background-image: url('icons/linkedin-1.svg');
       }
     }
   }

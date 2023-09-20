@@ -23,8 +23,6 @@ class BlogPostTemplate extends React.Component {
         'embedded-asset-block': node => {
           const { gatsbyImageData } = node.data.target;
 
-          console.log(node.data.target);
-
           return <GatsbyImage image={gatsbyImageData} />;
         },
       },

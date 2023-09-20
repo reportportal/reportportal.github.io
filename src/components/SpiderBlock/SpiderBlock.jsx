@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import './SpiderBlock.scss';
 
-const LEFT_ASIDE_TEXT = ['Performance testing', 'Accessibility Testing', 'Exploratory Testing'];
+const LEFT_ASIDE_TEXT = ['Performance Testing', 'Accessibility Testing', 'Exploratory Testing'];
 const RIGHT_ASIDE_TEXT = [
   'Test Automation',
   'Test Case Authoring & Execution',

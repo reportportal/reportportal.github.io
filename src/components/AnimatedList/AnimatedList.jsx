@@ -33,7 +33,7 @@ export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'lef
           })}
         >
           <ul>
-            {data.map(({ title: itemTitle, description }, index) =>
+            {data.map(({ title: itemTitle, description, link }, index) =>
               index !== activeListIndex ? (
                 <li
                   className={getBlocksWithList('__item')}
@@ -51,7 +51,7 @@ export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'lef
                   <div className={getBlocksWithList('__card')}>
                     <strong>{itemTitle}</strong>
                     <p>{description}</p>
-                    <ArrowLink mode="primary" to="#" text="Learn more" />
+                    <ArrowLink mode="primary" to={link} text="Learn more" />
                     {delay && <div className={getBlocksWithList('__card-progress')} />}
                   </div>
                 </li>

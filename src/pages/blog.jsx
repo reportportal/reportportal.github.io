@@ -16,14 +16,13 @@ const BlogIndex = ({
   data: {
     allContentfulBlogPost: { nodes },
   },
-  location,
 }) => {
   const [posts, setPosts] = useState(nodes.slice(0, PAGE_SIZE));
 
   const loadMorePost = () => setPosts(nodes.slice(0, posts.length + PAGE_SIZE));
 
   return (
-    <Layout location={location}>
+    <Layout>
       <div className={getBlocksWith()}>
         <div className="container">
           <h1 className={getBlocksWith('__title')}>Blog</h1>

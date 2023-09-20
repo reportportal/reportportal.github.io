@@ -8,7 +8,6 @@
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
-  max-width: 270px;
   transition: var(--basic-transition);
 
   @include m.breakpoint(v.$tablet-sm-exact) {
@@ -40,7 +39,7 @@
 
   &__link {
     display: flex;
-    flex: 212px 1 0%;
+    flex: 212px 1 0;
     flex-direction: column;
     text-decoration: none;
   }
@@ -103,8 +102,10 @@
   }
 
   &__excerpt {
-    flex-grow: 1;
-    line-height: calc(3 * var(--base-spacing));
-    margin: 0;
+    @include m.font-noto-sans();
+    @include m.font-scale();
+
+    margin-bottom: 16px !important;
+    color: var(--text-primary);
   }
 }

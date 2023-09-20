@@ -19,15 +19,15 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
             These are some of the companies that ship confidently with ReportPortal
           </p>
 
-          <div className={getBlocksWith('__download')}>
-            <button className={cx('btn', 'btn--secondary-2', 'btn--large')} onClick={() => {}}>
+          <div className={cx(getBlocksWith('__download'), 'temporary-hide')}>
+            <button className="btn btn--secondary-2 btn--large" onClick={() => {}}>
               <img src={downloadIcon} alt="" />
               Download all Studies
             </button>
           </div>
         </div>
       </div>
-      <div className={getBlocksWith('__cases-list')}>
+      <div className={cx(getBlocksWith('__cases-list'), 'container')}>
         {cases.map(({ id, industry, title, icon, cardBackgroundImage }) => (
           <div
             style={{ backgroundImage: `url(${cardBackgroundImage?.file?.url})` }}
@@ -53,10 +53,7 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
       </div>
       {showLoadMore ? (
         <div className={getBlocksWith('__load-more')}>
-          <button
-            className={cx('btn', 'btn--outline', 'btn--large', 'btn--white')}
-            onClick={handleLoadMore}
-          >
+          <button className="btn btn--outline btn--large btn--white" onClick={handleLoadMore}>
             Load More
           </button>
         </div>

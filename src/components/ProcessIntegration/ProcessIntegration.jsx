@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import Marquee from 'react-fast-marquee';
-import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { Link } from '../Link';
 import SauceLabsIcon from './icons/saucelabs.inline.svg';
 import MicrosoftIcon from './icons/microsoft.inline.svg';
 import SAMLIconIcon from './icons/saml.inline.svg';
@@ -15,6 +15,7 @@ import OktaIcon from './icons/okta.inline.svg';
 
 import './ProcessIntegration.scss';
 
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 const getBlocksWith = createBemBlockBuilder(['process-integration']);
 
 export const icons = [
@@ -30,14 +31,18 @@ export const icons = [
 ];
 
 export const ProcessIntegration = forwardRef((props, ref) => (
-  <section className={cx(getBlocksWith())} ref={ref}>
+  <section className={getBlocksWith()} ref={ref}>
     <div className="container">
       <h2>Integrate with your existing test automation process</h2>
       <h3>
         Integrate ReportPortal with frameworks, bug tracking systems, infrastructure providers you
         already use and others so as to streamline the development and testing processes
       </h3>
-      <button className={cx('btn', 'btn--outline', 'btn--large')}>See all integrations</button>
+      <div className={getBlocksWith('__link-container')}>
+        <Link className="btn btn--outline btn--large" to={`${DOCUMENTATION_URL}/category/plugins/`}>
+          See all integrations
+        </Link>
+      </div>
     </div>
     <div className={getBlocksWith('__carousel')}>
       <Marquee className={getBlocksWith('__carousel-marquee')} speed={25} gradientWidth="19.27%">

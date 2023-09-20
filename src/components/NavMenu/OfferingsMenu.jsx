@@ -2,46 +2,42 @@ import React from 'react';
 import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
+import { Link } from '../Link';
 import { SectionList } from './SectionList';
-import { OnPremiseIcon, SaaSIcon, TaaSIcon, TAaaSIcon, QualityAssessmentIcon } from './icons';
+import OnPremiseIcon from './icons/on-premise.inline.svg';
+import SaaSIcon from './icons/saas.inline.svg';
+import TaaSIcon from './icons/taas.inline.svg';
+import TAaaSIcon from './icons/taaas.inline.svg';
+import QualityAssessmentIcon from './icons/quality-assessment.inline.svg';
+import FreeVersionIcon from './icons/free-version.inline.svg';
 
 import './Menu.scss';
 
 export const OfferingsMenu = ({ isDesktop = true }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-offerings']);
-  const pricingListInfo = (
-    <span>
-      <a href="#">Install</a> and use ReportPortal absolutely for free. If you need support or
-      additional service, explore our paid offerings.
-    </span>
-  );
-
-  let pricingConfig = [
+  const pricingConfig = [
     {
       icon: <SaaSIcon />,
       title: 'SaaS',
-      text: 'Our team hosts application instance for your organization',
+      text: 'We host and support an instance for your organization',
       link: '/pricing/saas',
     },
     {
       icon: <OnPremiseIcon />,
-      title: 'On-premises',
-      text: "ReportPortal instance resides within your organisation's premises",
+      title: 'On-Premises',
+      text: 'Self-hosted instance with support from our team',
       link: '/pricing/on-premises',
+    },
+    {
+      icon: <FreeVersionIcon />,
+      title: 'Free version',
+      text: 'Install and use ReportPortal for free via self-hosted deployment',
+      link: '/install',
     },
   ];
 
-  if (isDesktop) {
-    pricingConfig = [
-      {
-        type: 'info',
-        text: pricingListInfo,
-      },
-    ].concat(pricingConfig);
-  }
-
   const pricingList = (
-    <SectionList className="pricing-list" title="Pricing" items={pricingConfig} />
+    <SectionList className="pricing-list" title="ReportPortal Pricing" items={pricingConfig} />
   );
 
   const servicesList = (
@@ -96,12 +92,16 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
   );
 
   const footer = (
-    <div className={getBlocksWith('__footer')}>
+    <div className={cx(getBlocksWith('__footer'), 'temporary-hide')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
-          <button type="button" className={cx('btn', 'btn--outline')}>
+          <Link
+            className="btn btn--outline"
+            to="/contact-us/general"
+            data-gtm="get_a_quote_offerings"
+          >
             Get a quote
-          </button>
+          </Link>
         </div>
       </div>
     </div>

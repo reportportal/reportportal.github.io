@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { ApplyOurService } from '../ApplyOurService';
 import { DashboardHeader } from '../DashboardHeader';
 import { SpiderBlock } from '../SpiderBlock';
 import { TestingBottomBlock } from '../TestingBottomBlock';
@@ -22,6 +23,7 @@ export const TestAutomationAsServicePage = () => (
       description={TESTING_BOTTOM_BLOCK_INFO.description}
     >
       <Benefits />
+      <ApplyOurService url="/contact-us/taaas" />
     </TestingBottomBlock>
   </div>
 );

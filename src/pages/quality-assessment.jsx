@@ -3,9 +3,9 @@ import React from 'react';
 import { Layout } from '../components/Layout';
 import { QualityAssessmentPage } from '../components/QualityAssessmentPage';
 
-const TestAutomationAsService = ({ location }) => {
+const TestAutomationAsService = () => {
   return (
-    <Layout location={location}>
+    <Layout>
       <QualityAssessmentPage />
     </Layout>
   );

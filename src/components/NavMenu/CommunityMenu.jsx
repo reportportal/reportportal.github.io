@@ -4,6 +4,7 @@ import cx from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { subscriptionFormAtom } from '../Layout';
+import { Link } from '../Link';
 import { SubscriptionForm } from '../SubscriptionForm';
 import { GithubCover } from './covers/GithubCover';
 import { SectionList } from './SectionList';
@@ -24,20 +25,17 @@ export const CommunityMenu = ({ isDesktop = true }) => {
       text="Our team makes ReportPortal, but it’s our community that shapes and improves it."
     >
       <div className={cx(getBlocksWith('__btn-group'), 'full-width')}>
-        <a
-          className={cx('btn', 'btn--outline', 'full-width')}
-          href="https://github.com/reportportal/reportportal"
+        <Link
+          className="btn btn--outline full-width"
+          to="https://github.com/reportportal/reportportal"
         >
           <ForkIcon />
           Fork
-        </a>
-        <a
-          className={cx('btn', 'btn--outline', 'full-width')}
-          href="https://github.com/sponsors/reportportal"
-        >
+        </Link>
+        <Link className="btn btn--outline full-width" to="https://github.com/sponsors/reportportal">
           <HeartIcon />
           Sponsor
-        </a>
+        </Link>
       </div>
     </SectionCard>
   );
@@ -63,12 +61,17 @@ export const CommunityMenu = ({ isDesktop = true }) => {
           title: 'Youtube',
           link: 'https://www.youtube.com/@ReportPortal',
         },
+        {
+          iconClass: 'linkedin',
+          title: 'LinkedIn',
+          link: 'https://www.linkedin.com/company/reportportal/',
+        },
       ]}
     />
   );
 
   const footer = (
-    <div className={getBlocksWith('__footer')}>
+    <div className={cx(getBlocksWith('__footer'), 'temporary-hide')}>
       <div className={getBlocksWith('__footer-container')}>
         <SubscriptionForm
           subscriptionFormState={subscriptionFormState}

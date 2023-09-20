@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { Typography } from 'antd';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { ArticleAuthor } from '../ArticleAuthor/ArticleAuthor';
@@ -24,7 +25,9 @@ export const ArticlePreviewItem = ({ post }) => {
           <div className={getBlocksWith('__meta')}>
             <span className="meta">{post.publishDate}</span>
           </div>
-          <p className={getBlocksWith('__excerpt')}>{post.leadParagraph.leadParagraph}</p>
+          <Typography.Paragraph ellipsis={{ rows: 5 }} className={getBlocksWith('__excerpt')}>
+            {post.leadParagraph.leadParagraph}
+          </Typography.Paragraph>
           <ArticleAuthor authorName={post.author} />
         </div>
       </Link>

@@ -3,9 +3,9 @@ import React from 'react';
 import { Layout } from '../components/Layout';
 import { LandingPage } from '../components/LandingPage';
 
-const Root = ({ location }) => {
+const Root = () => {
   return (
-    <Layout location={location}>
+    <Layout>
       <LandingPage />
     </Layout>
   );

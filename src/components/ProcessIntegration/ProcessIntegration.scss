@@ -41,8 +41,12 @@
     color: var(--text-service);
   }
 
-  button {
-    margin: 64px auto 0;
+  &__link-container {
+    display: flex;
+
+    a {
+      margin: 64px auto 0;
+    }
   }
 
   &__carousel {
