@@ -26,21 +26,15 @@ export const FooterColumns = ({ footerButtons }) => (
           getBlocksWithCompare('__row-title-cols-visible'),
         )}
       >
-        {footerButtons.map(({ btn, mode, href }) => (
+        {footerButtons.map(({ btn, mode, href, compareHref }) => (
           <div key={href} className={getBlocksWithCompare('__row-title-col')}>
             <div className={getBlocksWith('__buttonsWrapper')}>
-              {href ? (
-                <Link className={cx('btn', `btn--${mode}`, getBlocksWith('__button'))} to={href}>
-                  {btn}
-                </Link>
-              ) : (
-                <button
-                  type="button"
-                  className={cx('btn', `btn--${mode}`, getBlocksWith('__button'))}
-                >
-                  {btn}
-                </button>
-              )}
+              <Link
+                className={cx('btn', `btn--${mode}`, getBlocksWith('__button'))}
+                to={compareHref ?? href}
+              >
+                {btn}
+              </Link>
             </div>
           </div>
         ))}

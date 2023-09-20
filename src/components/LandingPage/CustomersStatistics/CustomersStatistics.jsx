@@ -20,7 +20,7 @@ export const CustomersStatistics = () => (
         </h3>
         <ul className={getBlocksWithList()}>
           <li>
-            <strong>1200+</strong>
+            <strong>1600+</strong>
             <strong>Companies</strong>
             <span>Are already using ReportPortal</span>
           </li>
@@ -35,7 +35,7 @@ export const CustomersStatistics = () => (
             <span>Testing activity of our users</span>
           </li>
           <li>
-            <strong>1.7M</strong>
+            <strong>1.9M</strong>
             <strong>Downloads</strong>
             <span>Interest in getting benefit from our product</span>
           </li>

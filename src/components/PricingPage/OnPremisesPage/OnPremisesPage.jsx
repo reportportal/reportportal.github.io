@@ -1,20 +1,21 @@
 import React from 'react';
-import { noop } from 'lodash';
+import noop from 'lodash/noop';
+import cx from 'classnames';
 
-import { usePricingHeroProps } from '../usePricingHeroProps';
 import { createBemBlockBuilder } from '../../../utils';
+import { TrustedOrganizations } from '../../TrustedOrganizations';
+import { usePricingHeroProps } from '../usePricingHeroProps';
 import { PricingHero } from '../PricingHero';
 import { PentagonCard } from '../PentagonCard';
 import { offerPrices } from './offerPrices';
-import { TrustedOrganizations } from '../TrustedOrganizations';
 import { Faq } from '../../Faq';
 import { Banner } from '../../Banner';
 import { TimeScale } from '../TimeScale';
-import InfoIcon from './infoIcon.inline.svg';
 import { Link } from '../../Link';
 import { faqData } from './faqData';
 import { ComparePlans } from '../ComparePlans';
 import { buttonsData, columns, dataPlans, mobileColumns } from './dataPlans';
+import InfoIcon from './infoIcon.inline.svg';
 
 import './OnPremises.scss';
 import '../PricingPage.scss';
@@ -70,7 +71,9 @@ export const OnPremisesPage = () => {
         isCollapsibleOnMobile={false}
         mobileColumns={mobileColumns}
       />
-      <TrustedOrganizations />
+      <div className={cx(getBlocksWithPricing('__trustedOrganizationsContainer'), 'container')}>
+        <TrustedOrganizations />
+      </div>
       <div className={getBlocksWith('__faqContainer')}>
         <Faq items={faqData} titleId="faq" />
       </div>

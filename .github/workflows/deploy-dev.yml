@@ -20,7 +20,7 @@ env:
   SALESFORCE_OID: 00D7a0000005481
   SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N7T000000i00E
   DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
-  
+
 on:
   push:
     branches:
@@ -66,7 +66,7 @@ jobs:
           echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env.production
           echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env.production
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production
-          
+
       - name: Build the source code
         run: npm run build
 

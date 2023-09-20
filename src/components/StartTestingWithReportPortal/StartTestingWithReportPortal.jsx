@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
+import { Link } from '../Link';
 import { createBemBlockBuilder } from '../../utils';
 import { iconsCommon } from '../../utils/imageSource';
 
@@ -19,8 +20,20 @@ export const StartTestingWithReportPortal = () => (
         </h3>
       </div>
       <div className={getBlocksWith('__leading-button-group')}>
-        <button className="btn btn--primary btn--large">Start free trial</button>
-        <button className="btn btn--outline btn--large">Get a quote</button>
+        <Link
+          className="btn btn--primary btn--large"
+          to="/contact-us/general"
+          data-gtm="start_free_trial"
+        >
+          Start free trial
+        </Link>
+        <Link
+          className="btn btn--outline btn--large temporary-hide"
+          to="/contact-us/general"
+          data-gtm="get_a_quote"
+        >
+          Get a quote
+        </Link>
       </div>
     </div>
     <div className={getBlocksWith('__trailing')}>

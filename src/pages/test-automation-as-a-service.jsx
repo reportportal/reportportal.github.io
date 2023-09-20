@@ -3,9 +3,9 @@ import React from 'react';
 import { Layout } from '../components/Layout';
 import { TestAutomationAsServicePage } from '../components/TestAutomationAsServicePage';
 
-const TestAutomationAsService = ({ location }) => {
+const TestAutomationAsService = () => {
   return (
-    <Layout location={location}>
+    <Layout>
       <TestAutomationAsServicePage />
     </Layout>
   );

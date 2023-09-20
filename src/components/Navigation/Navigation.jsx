@@ -1,10 +1,8 @@
 import React, { useEffect, useReducer, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Link } from 'gatsby';
-import { useAtom } from 'jotai';
 import { useToggle, useScroll } from 'ahooks';
 import { Drawer, Collapse } from 'antd';
-import { upperFirst } from 'lodash';
+import upperFirst from 'lodash/upperFirst';
 import axios from 'axios';
 import cx from 'classnames';
 
@@ -12,7 +10,7 @@ import { useScrollDirection } from '../../hooks';
 // eslint-disable-next-line import/no-unresolved
 import githubStats from '../../../static/github.json'; // Will be generated at build time
 import { createBemBlockBuilder } from '../../utils';
-import { watchProductOverviewAtom } from '../Layout';
+import { Link } from '../Link';
 import {
   SolutionsMenu,
   ProductMenu,
@@ -54,7 +52,6 @@ const menuItems = {
 
 export const Navigation = () => {
   const menuLinksRef = useRef(null);
-  const [watchProductOverviewState] = useAtom(watchProductOverviewAtom);
 
   const scroll = useScroll();
   const [isMobileMenuOpen, { toggle: toggleMobileMenu, setLeft: closeMobileMenu }] = useToggle();
@@ -87,12 +84,6 @@ export const Navigation = () => {
 
     fetchGithubStars();
   }, []);
-
-  useEffect(() => {
-    if (watchProductOverviewState.isOpen) {
-      updateMenus();
-    }
-  }, [watchProductOverviewState.isOpen]);
 
   const logo = (
     <Link to="/" onClick={closeMobileMenu} className={getBlocksWith('-navigation__logoLink')}>
@@ -156,28 +147,33 @@ export const Navigation = () => {
           </ul>
           <div className={getBlocksWith('-navigation__actions')} hidden={!githubCounter}>
             <div className={getBlocksWith('-navigation__actionsAuth')}>
-              <a
-                href="https://github.com/reportportal/reportportal"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                to="https://github.com/reportportal/reportportal"
                 className={getBlocksWith('-navigation__github')}
               >
                 <GithubIcon text={githubCounter} />
-              </a>
+              </Link>
               <div className="navigation__auth">
                 <div className="navigation__auth-button-group">
-                  <a
-                    className={getBlocksWith('-navigation__loginButton')}
-                    href="https://saas.reportportal.io/ui/#login"
+                  <Link
+                    className={cx(getBlocksWith('-navigation__loginButton'), 'temporary-hide')}
+                    to="https://saas.reportportal.io/ui/#login"
                   >
                     Log in
-                  </a>
-                  <a
-                    className={getBlocksWith('-navigation__signupButton')}
-                    href="https://saas.reportportal.io/ui/#login?registration=true"
+                  </Link>
+                  <Link
+                    className={cx(getBlocksWith('-navigation__signupButton'), 'temporary-hide')}
+                    to="https://saas.reportportal.io/ui/#login?registration=true"
                   >
                     Sign up
-                  </a>
+                  </Link>
+                  <Link
+                    data-gtm="get_a_quote_header"
+                    className={getBlocksWith('-navigation__signupButton')}
+                    to="/contact-us/general"
+                  >
+                    Get a quote
+                  </Link>
                 </div>
               </div>
             </div>
@@ -233,20 +229,27 @@ export const Navigation = () => {
           })}
         </Collapse>
         <div className="mobile-menu__auth-buttons">
-          <a
+          <Link
+            className="btn btn--outline full-width"
+            to="/contact-us/general"
+            data-gtm="get_a_quote_header"
+          >
+            Get a quote
+          </Link>
+          <Link
             key="signup"
-            className={cx('btn', 'btn--outline', 'full-width')}
-            href="https://saas.reportportal.io/ui/#login?registration=true"
+            className="btn btn--outline full-width temporary-hide"
+            to="https://saas.reportportal.io/ui/#login?registration=true"
           >
             Sign up
-          </a>
-          <a
+          </Link>
+          <Link
             key="login"
-            className={cx('btn', 'full-width')}
-            href="https://saas.reportportal.io/ui/#login"
+            className="btn full-width temporary-hide"
+            to="https://saas.reportportal.io/ui/#login"
           >
             Log in
-          </a>
+          </Link>
         </div>
       </Drawer>
     </header>

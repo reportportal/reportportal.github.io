@@ -1,9 +1,12 @@
 import React from 'react';
 
-import { Notice } from '../Notice';
 import { createBemBlockBuilder } from '../../../../utils';
+import { Link } from '../../../Link';
+import { Notice } from '../Notice';
 
 import '../../InstallationPage.scss';
+
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 
 export const DockerInstall = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
@@ -12,9 +15,9 @@ export const DockerInstall = () => {
     <div className={getBlocksWith('__wrapper')}>
       <h3 className={getBlocksWith('__title-content')}>Install Docker</h3>
       <p className={getBlocksWith('__text-content')}>
-        <a className={getBlocksWith('__link')} href="https://docs.docker.com/get-docker/">
+        <Link className={getBlocksWith('__link')} to="https://docs.docker.com/get-docker/">
           Download{' '}
-        </a>{' '}
+        </Link>{' '}
         and install Docker. It’s supported by all major Linux distributions, MacOS and Windows.
       </p>
 
@@ -24,26 +27,26 @@ export const DockerInstall = () => {
 
           <li>
             Desktop:{' '}
-            <a
+            <Link
               className={getBlocksWith('__link')}
-              href="https://docs.docker.com/desktop/settings/mac/#advanced"
+              to="https://docs.docker.com/desktop/settings/mac"
             >
               MAC
-            </a>{' '}
+            </Link>{' '}
             |
-            <a
+            <Link
               className={getBlocksWith('__link')}
-              href="https://docs.docker.com/desktop/settings/windows/"
+              to="https://docs.docker.com/desktop/settings/windows/"
             >
               Windows
-            </a>{' '}
+            </Link>{' '}
             |
-            <a
+            <Link
               className={getBlocksWith('__link')}
-              href="https://docs.docker.com/desktop/settings/linux/#advanced"
+              to="https://docs.docker.com/desktop/settings/linux"
             >
               Linux
-            </a>
+            </Link>
           </li>
           <li>We strongly recommend to deploy in Linux based environment</li>
         </ul>
@@ -55,22 +58,22 @@ export const DockerInstall = () => {
 
       <p className={getBlocksWith('__text-content')}>
         Instead of using Docker for deployment you can follow the steps described{' '}
-        <a
+        <Link
           className={getBlocksWith('__link')}
-          href="https://reportportal.io/docs/installation-steps/DeployWithoutDocker"
+          to={`${DOCUMENTATION_URL}/installation-steps/DeployWithoutDocker`}
         >
           here
-        </a>
+        </Link>
         .
       </p>
       <p className={getBlocksWith('__text-content')}>
         Details about production deployment and system capacity are{' '}
-        <a
+        <Link
           className={getBlocksWith('__link')}
-          href="https://reportportal.io/docs/installation-steps/OptimalPerformanceHardwareSetup/"
+          to={`${DOCUMENTATION_URL}/installation-steps/OptimalPerformanceHardwareSetup/`}
         >
           here
-        </a>
+        </Link>
         .
       </p>
     </div>

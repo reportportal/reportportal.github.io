@@ -8,6 +8,7 @@ import { Approach } from './Approach';
 import { DashboardHeader } from '../DashboardHeader';
 import { SpiderBlock } from '../SpiderBlock';
 import { TestingBottomBlock } from '../TestingBottomBlock';
+import { ApplyOurService } from '../ApplyOurService';
 import { DASHBOARD_HEADER_INFO, TESTING_BOTTOM_BLOCK_INFO } from './constants';
 
 export const TestingAsServicePage = () => (
@@ -26,6 +27,7 @@ export const TestingAsServicePage = () => (
       description={TESTING_BOTTOM_BLOCK_INFO.description}
     >
       <Approach />
+      <ApplyOurService url="/contact-us/taas" />
     </TestingBottomBlock>
   </>
 );

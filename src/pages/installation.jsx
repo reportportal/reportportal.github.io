@@ -3,9 +3,9 @@ import React from 'react';
 import { Layout } from '../components/Layout';
 import { InstallationPage } from '../components/InstallationPage';
 
-const Installation = ({ location }) => {
+const Installation = () => {
   return (
-    <Layout location={location}>
+    <Layout>
       <InstallationPage />
     </Layout>
   );

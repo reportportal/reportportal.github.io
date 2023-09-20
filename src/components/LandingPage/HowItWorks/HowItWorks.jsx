@@ -5,6 +5,7 @@ import cx from 'classnames';
 
 import { useAnimationInterval } from '../../../hooks';
 import { createBemBlockBuilder } from '../../../utils';
+import { Link } from '../../Link';
 import animation1 from './animations/RP_Anim_1.json';
 import animation2 from './animations/RP_Anim_2.json';
 import animation3 from './animations/RP_Anim_3.json';
@@ -25,7 +26,7 @@ const sections = [
   {
     title: 'Predictive AI root cause analysis',
     content:
-      'Leveraging ML algorithms to identify patterns in the test results, detect the root cause of failures, and predict future test results (Predictive AI root cause analysis /root cause detection)',
+      'Leveraging ML algorithms to identify patterns in the test results, detect the root cause of failures, and predict future test results',
     animation: animation2,
   },
   {
@@ -93,7 +94,9 @@ export const HowItWorks = () => {
         )}
       </div>
       <div className={getBlocksWith('__button-group')}>
-        <button className="btn btn--primary btn--large">Learn how to install</button>
+        <Link className="btn btn--primary btn--large" to="/installation">
+          Learn how to install
+        </Link>
       </div>
     </section>
   );

@@ -3,24 +3,28 @@ import { Link as GatsbyLink } from 'gatsby';
 
 import { isAbsoluteURL } from '../../utils';
 
+const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
+
+// These links are considered SEO trusted, they should be opened in the new tab without "rel" attribute set
+const TRUSTED_DOMAINS = [
+  'https://tdspora.ai',
+  'https://drill4j.github.io/',
+  'https://healenium.io',
+  DOCUMENTATION_URL,
+];
+
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
 // pass it only to GatsbyLink
-export const Link = ({
-  children,
-  to,
-  activeClassName,
-  partiallyActive,
-  shouldOpenInNewWindow,
-  ...other
-}) => {
+export const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
   // Tailor the following test to your environment.
   // This example assumes that any internal link (intended for Gatsby)
   // will start with exactly one slash, and that anything else is external.
-  const isInternal = !isAbsoluteURL(to);
+  const isTrustedLink = TRUSTED_DOMAINS.some(domain => to.startsWith(domain));
+  const isInternal = !isTrustedLink && !isAbsoluteURL(to);
 
   // Use Gatsby Link for internal links, and <a> for others
-  if (isInternal && !shouldOpenInNewWindow) {
+  if (isInternal) {
     return (
       <GatsbyLink
         to={to}
@@ -34,7 +38,15 @@ export const Link = ({
   }
 
   return (
-    <a href={to} target="_blank" rel="noopener noreferrer" {...other}>
+    // eslint-disable-next-line react/jsx-no-target-blank
+    <a
+      href={to}
+      target="_blank"
+      {...(!isTrustedLink && {
+        rel: 'noopener noreferrer',
+      })}
+      {...other}
+    >
       {children}
     </a>
   );

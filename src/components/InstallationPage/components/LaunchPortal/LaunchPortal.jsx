@@ -1,8 +1,9 @@
 import React from 'react';
 import { Typography } from 'antd';
 
-import { Notice } from '../Notice';
+import { Link } from '../../../Link';
 import { createBemBlockBuilder } from '../../../../utils';
+import { Notice } from '../Notice';
 
 import '../../InstallationPage.scss';
 
@@ -22,14 +23,9 @@ export const LaunchPortal = () => {
 
       <p>
         Otherwise, open{' '}
-        <a
-          className={getBlocksWith('__link')}
-          href="http://localhost:8080/ui/"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <Link className={getBlocksWith('__link')} to="http://localhost:8080/ui/">
           ReportPortal
-        </a>{' '}
+        </Link>{' '}
         and login.
       </p>
 

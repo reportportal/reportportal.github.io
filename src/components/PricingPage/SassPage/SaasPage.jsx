@@ -1,16 +1,17 @@
 import React from 'react';
-import { noop } from 'lodash';
+import noop from 'lodash/noop';
+import cx from 'classnames';
 
-import { usePricingHeroProps } from '../usePricingHeroProps';
+import { TrustedOrganizations } from '../../TrustedOrganizations';
 import { createBemBlockBuilder } from '../../../utils';
 import { PricingHero } from '../PricingHero';
 import { PricingCards } from '../PricingCards';
 import { ComparePlans } from '../ComparePlans';
-import { TrustedOrganizations } from '../TrustedOrganizations';
 import { Faq } from '../../Faq';
 import { faqItems } from './faqData';
 import { offersData } from './offersData';
 import { Banner } from '../../Banner';
+import { usePricingHeroProps } from '../usePricingHeroProps';
 import { dataPlans, columns, buttonsData } from './dataPlans';
 
 import '../PricingPage.scss';
@@ -35,7 +36,9 @@ export const SaasPage = () => {
       />
       <PricingCards discountState={discountState} offersData={offersData} />
       <ComparePlans dataPlans={dataPlans} columns={columns} footerButtons={buttonsData} />
-      <TrustedOrganizations />
+      <div className={cx(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
+        <TrustedOrganizations />
+      </div>
       <div className={getBlocksWith('__faqContainer')}>
         <Faq items={faqItems} />
       </div>

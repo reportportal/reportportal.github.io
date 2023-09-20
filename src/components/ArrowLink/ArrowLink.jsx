@@ -9,8 +9,8 @@ const getBlocksWith = createBemBlockBuilder(['arrow-link']);
 
 import './ArrowLink.scss';
 
-export const ArrowLink = ({ text, to, mode }) => (
-  <Link to={to} className={cx(getBlocksWith(), getBlocksWith(`--${mode}`))}>
+export const ArrowLink = ({ text, mode, ...rest }) => (
+  <Link {...rest} className={cx(getBlocksWith(), getBlocksWith(`--${mode}`))}>
     {text}
     <ArrowIcon />
   </Link>
