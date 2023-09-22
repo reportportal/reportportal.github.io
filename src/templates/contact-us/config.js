@@ -98,7 +98,7 @@ const QaSpaceBaseConfig = {
     },
   ],
   info: '<p>Looking for more details on our offerings?<br />Simply fill out the form</p>',
-  isDiscussFieldShown: true,
+  isDiscussFieldShown: false,
 };
 
 const Drill4JBaseConfig = {
@@ -110,7 +110,7 @@ const Drill4JBaseConfig = {
     },
   ],
   info: '<p>Looking for more details on our offerings?<br />Simply fill out the form.</p>',
-  isDiscussFieldShown: true,
+  isDiscussFieldShown: false,
 };
 
 const HealeniumBaseConfig = {
@@ -122,7 +122,7 @@ const HealeniumBaseConfig = {
     },
   ],
   info: '<p>Looking for more details on our offerings?<br />Simply fill out the form.</p>',
-  isDiscussFieldShown: true,
+  isDiscussFieldShown: false,
 };
 
 const createConfig = ({ baseConfig, source, ...rest }) => ({
@@ -266,7 +266,7 @@ module.exports.config = [
       },
     ],
     info: '<p>Looking for quotes on Testing as a Service?<br />Simply fill out the form</p>',
-    isDiscussFieldShown: true,
+    isDiscussFieldShown: false,
   },
   {
     url: '/contact-us/taaas/',
@@ -282,7 +282,7 @@ module.exports.config = [
       },
     ],
     info: '<p>Looking for quotes on Test Automation as a Service?<br />Simply fill out the form.</p>',
-    isDiscussFieldShown: true,
+    isDiscussFieldShown: false,
   },
   {
     url: '/contact-us/qaaas/',
@@ -298,7 +298,7 @@ module.exports.config = [
       },
     ],
     info: '<p>Looking for quotes on Quality Assessment Services?<br />Simply fill out the form.</p>',
-    isDiscussFieldShown: true,
+    isDiscussFieldShown: false,
   },
   {
     url: '/contact-us/general/',
@@ -313,6 +313,6 @@ module.exports.config = [
           <li><strong>Quotes:</strong> Request pricing details.</li>
           <li><strong>Free Trial:</strong> Get ReportPortal trial.</li>
         </ul>`,
-    isDiscussFieldShown: true,
+    isDiscussFieldShown: false,
   },
 ];

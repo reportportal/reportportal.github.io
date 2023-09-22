@@ -15,7 +15,7 @@ import { validate } from '../util';
 import '../ContactUsPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['contact-us-form']);
-const MAX_LENGTH = 256;
+const MAX_LENGTH = 255;
 
 export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   const [isFeedbackFormVisible, { setTrue: showFeedbackForm }] = useBoolean(false);
@@ -72,24 +72,14 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
               <input key={option.name} type="hidden" {...option} />
             ))}
           />
-          <FormInput
-            name="first_name"
-            label="First name"
-            placeholder="John"
-            maxLength={MAX_LENGTH}
-          />
-          <FormInput
-            name="last_name"
-            label="Last name"
-            placeholder="Smith"
-            maxLength={MAX_LENGTH}
-          />
+          <FormInput name="first_name" label="First name" placeholder="John" maxLength={40} />
+          <FormInput name="last_name" label="Last name" placeholder="Smith" maxLength={80} />
           <FormInput
             name="email"
             label="Email"
             placeholder="name@company.com"
             type="email"
-            maxLength={MAX_LENGTH}
+            maxLength={80}
           />
           <FormInput name="company" label="Company name" placeholder="ABC" maxLength={MAX_LENGTH} />
           {isDiscussFieldShown && (

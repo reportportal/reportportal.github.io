@@ -73,7 +73,7 @@
   },
   "overrides": [
     {
-      "files": ["src/pages/*.jsx"],
+      "files": ["src/pages/**/*.jsx"],
       "rules": {
         "import/no-default-export": 0
       }
