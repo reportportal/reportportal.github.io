@@ -23,7 +23,7 @@ import './Menu.scss';
 
 const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 
-export const ProductMenu = ({ isDesktop = true }) => {
+export const ProductMenu = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-product']);
   const [, setWatchProductOverviewState] = useAtom(watchProductOverviewAtom);
 
@@ -179,7 +179,7 @@ export const ProductMenu = ({ isDesktop = true }) => {
   }
 
   return (
-    <div className={getBlocksWith()}>
+    <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
       <div className={getBlocksWith('__body-row')}>
         <div className={getBlocksWith('__body-col--lf')}>
           {generalList}
