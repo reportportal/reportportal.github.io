@@ -1,9 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
 
+import DownloadIcon from '../../svg/download.inline.svg';
 import { createBemBlockBuilder } from '../../utils';
 import { SubscriptionBanner } from '../SubscriptionBanner';
-import downloadIcon from './icons/download.svg';
 
 import './CasesPage.scss';
 
@@ -21,7 +21,7 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
 
           <div className={cx(getBlocksWith('__download'), 'temporary-hide')}>
             <button className="btn btn--secondary-2 btn--large" onClick={() => {}}>
-              <img src={downloadIcon} alt="" />
+              <DownloadIcon />
               Download all Studies
             </button>
           </div>

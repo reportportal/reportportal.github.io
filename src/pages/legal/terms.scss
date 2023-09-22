@@ -1,0 +1,93 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.terms-page {
+  &__hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 468px;
+    margin-top: calc(-1 * var(--header-height));
+    padding: calc(146px + var(--header-height)) 16px 0 16px;
+    background: var(--color-primary-600);
+    background-image: url('../../svg/headBg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--white);
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      padding-top: calc(162px + var(--header-height));
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      padding-top: calc(158px + var(--header-height));
+    }
+  }
+
+  &__container {
+    margin-bottom: 120px;
+    padding-top: 64px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-bottom: 200px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-bottom: 124px;
+    }
+  }
+
+  h1,
+  h2,
+  p {
+    color: var(--text-primary);
+  }
+
+  h1 {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(large);
+
+    margin: 0;
+    text-align: center;
+    color: var(--white);
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-scale(x3-large);
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      @include m.font-scale(x4-large);
+    }
+  }
+
+  section {
+    > div {
+      margin-top: 24px;
+    }
+
+    h2 {
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(x3-medium);
+
+      margin: 64px 0 0;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        @include m.font-scale(large);
+      }
+    }
+  }
+
+  .terms-page__download-link {
+    max-width: 348px;
+    margin-top: 48px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  p {
+    @include m.font-noto-sans();
+    @include m.font-scale(medium);
+
+    margin: 0;
+  }
+}
