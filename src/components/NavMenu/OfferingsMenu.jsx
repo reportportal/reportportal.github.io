@@ -13,7 +13,7 @@ import FreeVersionIcon from './icons/free-version.inline.svg';
 
 import './Menu.scss';
 
-export const OfferingsMenu = ({ isDesktop = true }) => {
+export const OfferingsMenu = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-offerings']);
   const pricingConfig = [
     {
@@ -118,7 +118,7 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
   }
 
   return (
-    <div className={getBlocksWith()}>
+    <div hidden={!isOpen} className={getBlocksWith()} ref={menuContainerRef}>
       <div>
         <div className={getBlocksWith('__body')}>
           <div className={getBlocksWith('__body-row')}>
