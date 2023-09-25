@@ -1,12 +1,12 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
+
 import { Link } from '../Link';
+import { INCREASED_BUTTON_NUMBER } from './constants';
 
 import './ButtonSwitcher.scss';
-
-const INCREASED_BUTTON_NUMBER = 3;
 
 const getBlocksWith = createBemBlockBuilder(['switcher']);
 
@@ -35,7 +35,7 @@ export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
     ) : (
       <div
         key={btn.text}
-        className={cx(getBlocksWith('__btn'), {
+        className={classNames(getBlocksWith('__btn'), {
           [getBlocksWith('__active')]: isActive(btn.text),
         })}
         onClick={() => onSwitch(btn.text)}
@@ -48,7 +48,7 @@ export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
   return (
     <div className={getBlocksWith()}>
       <div
-        className={cx(getBlocksWith('__inner'), {
+        className={classNames(getBlocksWith('__inner'), {
           [getBlocksWith('__inner-increased')]: hasAdditionalButton(),
         })}
       >

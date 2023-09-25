@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { Layout } from '../components/Layout';
-import { QualityAssessmentPage } from '../components/QualityAssessmentPage';
+import { Layout } from '@components/Layout';
+import { QualityAssessmentPage } from '@containers/QualityAssessmentPage';
 
-const TestAutomationAsService = () => {
-  return (
-    <Layout>
-      <QualityAssessmentPage />
-    </Layout>
-  );
-};
+const TestAutomationAsService = () => (
+  <Layout>
+    <QualityAssessmentPage />
+  </Layout>
+);
 
 export default TestAutomationAsService;

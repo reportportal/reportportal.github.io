@@ -1,9 +1,10 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { $desktopSm } from '../../../../utils/breakpoint';
-import { createBemBlockBuilder } from '../../../../utils';
+import { $desktopSm } from '@utils/breakpoint';
+import { createBemBlockBuilder } from '@utils';
+
 import { FooterColumns } from './FooterColums';
 
 import './RowSection.scss';
@@ -15,7 +16,7 @@ export const RowSection = ({ footer, footerButtons }) => {
 
   const getTitleRow = () => (
     <div
-      className={cx(
+      className={classNames(
         isDesktop ? getBlocksWith('__features') : getBlocksWith(),
         getBlocksWith('__title'),
       )}

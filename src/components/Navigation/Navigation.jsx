@@ -4,12 +4,13 @@ import { useToggle, useScroll } from 'ahooks';
 import { Drawer, Collapse } from 'antd';
 import upperFirst from 'lodash/upperFirst';
 import axios from 'axios';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { useScrollDirection } from '../../hooks';
+import { createBemBlockBuilder } from '@utils';
+import { useScrollDirection } from '@hooks';
+
 // eslint-disable-next-line import/no-unresolved
 import githubStats from '../../../static/github.json'; // Will be generated at build time
-import { createBemBlockBuilder } from '../../utils';
 import { Link } from '../Link';
 import {
   SolutionsMenu,
@@ -27,20 +28,11 @@ import {
   CrossIcon,
   ArrowIconMobile,
 } from './icons';
+import { MENU_INITIAL_STATE, MENU_ORDER } from './constants';
 
 import './Navigation.scss';
 
 const { Panel } = Collapse;
-
-const menusInitialState = {
-  product: false,
-  solutions: false,
-  offerings: false,
-  learn: false,
-  community: false,
-};
-
-const menuOrder = ['product', 'solutions', 'offerings', 'learn', 'community'];
 
 const menuItems = {
   product: { Component: ProductMenu },
@@ -62,12 +54,12 @@ export const Navigation = () => {
 
   const [menus, updateMenus] = useReducer(
     (prevState, newState) => ({
-      ...menusInitialState,
+      ...MENU_INITIAL_STATE,
       ...(newState && {
         [newState]: !prevState[newState],
       }),
     }),
-    menusInitialState,
+    MENU_INITIAL_STATE,
   );
 
   const isMenuOpen = Object.values(menus).some(Boolean);
@@ -97,7 +89,7 @@ export const Navigation = () => {
 
   return (
     <header
-      className={cx(getBlocksWith(), {
+      className={classNames(getBlocksWith(), {
         [getBlocksWith('--active')]: isActive,
       })}
       style={{
@@ -111,16 +103,16 @@ export const Navigation = () => {
           <ul
             id="navigation"
             ref={menuLinksRef}
-            className={cx(getBlocksWith('-navigation__list'), 'is-desktop')}
+            className={classNames(getBlocksWith('-navigation__list'), 'is-desktop')}
             role="list"
           >
-            {menuOrder.map(menuItem => {
+            {MENU_ORDER.map(menuItem => {
               const { Component } = menuItems[menuItem];
 
               return (
                 <li key={menuItem}>
                   <button
-                    className={cx(getBlocksWith('-navigation__link'), {
+                    className={classNames(getBlocksWith('-navigation__link'), {
                       [getBlocksWith('-navigation__link--active')]: menus[menuItem],
                     })}
                     type="button"
@@ -156,13 +148,19 @@ export const Navigation = () => {
               <div className="navigation__auth">
                 <div className="navigation__auth-button-group">
                   <Link
-                    className={cx(getBlocksWith('-navigation__loginButton'), 'temporary-hide')}
+                    className={classNames(
+                      getBlocksWith('-navigation__loginButton'),
+                      'temporary-hide',
+                    )}
                     to="https://saas.reportportal.io/ui/#login"
                   >
                     Log in
                   </Link>
                   <Link
-                    className={cx(getBlocksWith('-navigation__signupButton'), 'temporary-hide')}
+                    className={classNames(
+                      getBlocksWith('-navigation__signupButton'),
+                      'temporary-hide',
+                    )}
                     to="https://saas.reportportal.io/ui/#login?registration=true"
                   >
                     Sign up
@@ -207,7 +205,7 @@ export const Navigation = () => {
         onClose={toggleMobileMenu}
       >
         <Collapse expandIconPosition="end" ghost accordion>
-          {menuOrder.map(menuItem => {
+          {MENU_ORDER.map(menuItem => {
             const { Component } = menuItems[menuItem];
 
             return (

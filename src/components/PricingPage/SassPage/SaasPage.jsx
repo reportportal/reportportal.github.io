@@ -1,9 +1,10 @@
 import React from 'react';
 import noop from 'lodash/noop';
-import cx from 'classnames';
+import classNames from 'classnames';
+
+import { createBemBlockBuilder } from '@utils';
 
 import { TrustedOrganizations } from '../../TrustedOrganizations';
-import { createBemBlockBuilder } from '../../../utils';
 import { PricingHero } from '../PricingHero';
 import { PricingCards } from '../PricingCards';
 import { ComparePlans } from '../ComparePlans';
@@ -36,7 +37,7 @@ export const SaasPage = () => {
       />
       <PricingCards discountState={discountState} offersData={offersData} />
       <ComparePlans dataPlans={dataPlans} columns={columns} footerButtons={buttonsData} />
-      <div className={cx(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
+      <div className={classNames(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
         <TrustedOrganizations />
       </div>
       <div className={getBlocksWith('__faqContainer')}>

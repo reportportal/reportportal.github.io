@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { Layout } from '../components/Layout';
-import { InstallationPage } from '../components/InstallationPage';
+import { Layout } from '@components/Layout';
+import { InstallationPage } from '@containers/InstallationPage';
 
-const Installation = () => {
-  return (
-    <Layout>
-      <InstallationPage />
-    </Layout>
-  );
-};
+const Installation = () => (
+  <Layout>
+    <InstallationPage />
+  </Layout>
+);
 
 export default Installation;

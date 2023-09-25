@@ -23,7 +23,14 @@
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
+      },
+      "alias": [
+        ["@components", "./src/components"],
+        ["@containers", "./src/containers"],
+        ["@utils", "./src/utils"],
+        ["@svg", "./src/svg"],
+        ["@hooks", "./src/hooks"]
+      ]
     }
   },
   "rules": {

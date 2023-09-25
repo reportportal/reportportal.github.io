@@ -1,39 +1,43 @@
 import React, { useCallback, useState } from 'react';
 import { Tabs, ConfigProvider } from 'antd';
 
+import { createBemBlockBuilder } from '@utils';
+
 import {
-  frameworkIconsDotNet,
-  frameworkIconsJava,
-  frameworkIconsJavascript,
-  frameworkIconsOther,
-  frameworkIconsPhp,
-  frameworkIconsPython,
-  tabList,
-} from './dataSource';
-import { createBemBlockBuilder } from '../../utils';
-import { $colorPrimary600, $textService, $colorPrimary500, $poppinsFont } from './styleVariables';
+  FRAMEWORK_ICONS_DOT_NET,
+  FRAMEWORK_ICONS_JAVA,
+  FRAMEWORK_ICONS_JAVASCRIPT,
+  FRAMEWORK_ICONS_OTHER,
+  FRAMEWORK_ICONS_PHP,
+  FRAMEWORK_ICONS_PYTHON,
+  TAB_LIST,
+  $colorPrimary600,
+  $textService,
+  $colorPrimary500,
+  $poppinsFont,
+} from './constants';
 import { Link } from '../Link';
 
 import './SupportedFrameworks.scss';
 
 const getBlocksWith = createBemBlockBuilder(['frameworks']);
 
-const activeTab = tabList[0].label;
+const activeTab = TAB_LIST[0].label;
 
 export const SupportedFrameworks = () => {
   const [currentLanguage, setActiveLanguage] = useState(activeTab);
 
   const getCurrentFrameworks = useCallback(() => {
     const frameworks = {
-      java: frameworkIconsJava,
-      dotnet: frameworkIconsDotNet,
-      javascript: frameworkIconsJavascript,
-      python: frameworkIconsPython,
-      php: frameworkIconsPhp,
-      other: frameworkIconsOther,
+      java: FRAMEWORK_ICONS_JAVA,
+      dotnet: FRAMEWORK_ICONS_DOT_NET,
+      javascript: FRAMEWORK_ICONS_JAVASCRIPT,
+      python: FRAMEWORK_ICONS_PYTHON,
+      php: FRAMEWORK_ICONS_PHP,
+      other: FRAMEWORK_ICONS_OTHER,
     };
 
-    return frameworks[currentLanguage] || frameworkIconsJava;
+    return frameworks[currentLanguage] || FRAMEWORK_ICONS_JAVA;
   }, [currentLanguage]);
 
   const getAlternativeText = (iconLink, index) => {
@@ -61,7 +65,7 @@ export const SupportedFrameworks = () => {
             <Tabs
               defaultActiveKey={activeTab}
               tabPosition="top"
-              items={tabList}
+              items={TAB_LIST}
               onTabClick={setActiveLanguage}
             />
           </ConfigProvider>

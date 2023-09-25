@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAtom } from 'jotai';
-import cx from 'classnames';
+import classNames from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { watchProductOverviewAtom } from '../Layout';
@@ -95,7 +95,7 @@ export const ProductMenu = ({ isDesktop = true }) => {
 
   const integrationsList = (
     <SectionList
-      className={cx('section-list--secondary', 'integrations-list')}
+      className={classNames('section-list--secondary', 'integrations-list')}
       title="Integrations"
       items={[
         {
@@ -142,7 +142,7 @@ export const ProductMenu = ({ isDesktop = true }) => {
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
           <Link
-            className={cx('btn btn--primary', 'temporary-hide')}
+            className={classNames('btn btn--primary', 'temporary-hide')}
             to="/contact-us/general"
             data-gtm="start_free_trial"
           >
@@ -189,7 +189,10 @@ export const ProductMenu = ({ isDesktop = true }) => {
           </div>
         </div>
         <div
-          className={cx(getBlocksWith('__body-col--rt'), getBlocksWith('__body-col--flex-column'))}
+          className={classNames(
+            getBlocksWith('__body-col--rt'),
+            getBlocksWith('__body-col--flex-column'),
+          )}
         >
           {integrationsList}
           <div>

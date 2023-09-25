@@ -1,0 +1,1 @@
+export const INCREASED_BUTTON_NUMBER = 3;

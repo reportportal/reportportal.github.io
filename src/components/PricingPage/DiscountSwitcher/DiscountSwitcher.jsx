@@ -1,7 +1,7 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@utils';
 
 import './DiscountSwitcher.scss';
 
@@ -11,7 +11,7 @@ export const DiscountSwitcher = ({ switchDiscount, discountState }) => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__option')}>Quarterly</div>
     <div
-      className={cx(getBlocksWith('__switcher'), {
+      className={classNames(getBlocksWith('__switcher'), {
         [getBlocksWith('__switcher-active')]: Boolean(discountState),
       })}
       onClick={switchDiscount}

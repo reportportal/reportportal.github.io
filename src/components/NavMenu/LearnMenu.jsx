@@ -1,5 +1,5 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { Link } from '../Link';
@@ -82,8 +82,13 @@ export const LearnMenu = ({ isDesktop = true }) => {
       <div>
         <div className={getBlocksWith('__body')}>
           <div className={getBlocksWith('__body-row')}>
-            <div className={cx(getBlocksWith('__body-col--lf'))}>{resourcesList}</div>
-            <div className={cx(getBlocksWith('__body-col--rt'), getBlocksWith('__body-col--card'))}>
+            <div className={classNames(getBlocksWith('__body-col--lf'))}>{resourcesList}</div>
+            <div
+              className={classNames(
+                getBlocksWith('__body-col--rt'),
+                getBlocksWith('__body-col--card'),
+              )}
+            >
               {videoGuidesCard}
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import chunk from 'lodash/chunk';
-import cx from 'classnames';
+import classNames from 'classnames';
 
 import { createBemBlockBuilder } from '../../../utils';
 import { Link } from '../../Link';
@@ -14,11 +14,13 @@ const SectionItem = ({ title, link = '#', icon, iconClass, text, className = '' 
     <Link
       key={title}
       to={link}
-      className={cx(getBlocksWith(), { [getBlocksWith('--no-text')]: !text })}
+      className={classNames(getBlocksWith(), { [getBlocksWith('--no-text')]: !text })}
     >
       {icon}
       {iconClass && (
-        <span className={cx(getBlocksWith('-icon'), getBlocksWith(`-icon--${iconClass}`))} />
+        <span
+          className={classNames(getBlocksWith('-icon'), getBlocksWith(`-icon--${iconClass}`))}
+        />
       )}
       <div>
         <p className={getBlocksWith('__title')}>{title}</p>

@@ -1,7 +1,8 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder, formatNumberWithCommas } from '../../../../utils';
+import { createBemBlockBuilder, formatNumberWithCommas } from '@utils';
+
 import { Link } from '../../../Link';
 
 import './PricingCard.scss';
@@ -38,11 +39,14 @@ export const PricingCard = ({ card, discountState }) => {
           )}
         </div>
         {href ? (
-          <Link className={cx('btn', `btn--${actionVariant}`, 'btn--large')} to={href}>
+          <Link className={classNames('btn', `btn--${actionVariant}`, 'btn--large')} to={href}>
             {actionText}
           </Link>
         ) : (
-          <button type="button" className={cx('btn', `btn--${actionVariant}`, 'btn--large')}>
+          <button
+            type="button"
+            className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}
+          >
             {actionText}
           </button>
         )}

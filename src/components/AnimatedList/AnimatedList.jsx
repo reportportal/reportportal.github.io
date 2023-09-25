@@ -1,16 +1,16 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { useAnimationInterval } from '../../hooks';
+import { createBemBlockBuilder } from '@utils';
+import { LIST_ANIMATION_DELAY } from '@utils/constants';
+import { useAnimationInterval } from '@hooks';
+
 import { ArrowLink } from '../ArrowLink';
 
 import './AnimatedList.scss';
 
 const getBlocksWith = createBemBlockBuilder(['animated-list-container']);
 const getBlocksWithList = createBemBlockBuilder(['animated-list']);
-
-const LIST_ANIMATION_DELAY = 10000;
 
 export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'left', children }) => {
   const { ref, delay, activeListIndex, setIndexAndResetInterval } = useAnimationInterval({
@@ -21,14 +21,14 @@ export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'lef
   const image = data[activeListIndex].image;
 
   return (
-    <section ref={ref} className={cx(getBlocksWith(), 'container')}>
+    <section ref={ref} className={classNames(getBlocksWith(), 'container')}>
       <div>
         <h2>{title}</h2>
         <h3>{subtitle}</h3>
       </div>
       <div className={getBlocksWith('__content')}>
         <div
-          className={cx(getBlocksWithList(), {
+          className={classNames(getBlocksWithList(), {
             [getBlocksWithList('--reversed')]: listDesktopPosition !== 'left',
           })}
         >
@@ -44,7 +44,10 @@ export const AnimatedList = ({ data, title, subtitle, listDesktopPosition = 'lef
                 </li>
               ) : (
                 <li
-                  className={cx(getBlocksWithList('__item'), getBlocksWithList('__item--active'))}
+                  className={classNames(
+                    getBlocksWithList('__item'),
+                    getBlocksWithList('__item--active'),
+                  )}
                   key={itemTitle}
                 >
                   <img src={image} alt="" />

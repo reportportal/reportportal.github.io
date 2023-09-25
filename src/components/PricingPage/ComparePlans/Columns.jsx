@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import isBoolean from 'lodash/isBoolean';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { $desktopSm } from '../../../utils/breakpoint';
+import { createBemBlockBuilder } from '@utils';
+import { $desktopSm } from '@utils/breakpoint';
+
 import MarkIcon from '../icons/mark.inline.svg';
 import CrossIcon from '../icons/cross.inline.svg';
 
@@ -51,7 +52,7 @@ export const Columns = ({ title = '', cols, mobileColumns = {} }) => {
           {cols.map((columnValue, index) => (
             <div
               key={constructElementKey(columnValue, index)}
-              className={cx(getCompareContainer('__row-title-col'))}
+              className={classNames(getCompareContainer('__row-title-col'))}
               data-short={mobileColumns[columnValue] ?? columnValue}
             >
               {!isBoolean(columnValue) ? <div>{columnValue}</div> : getMark(columnValue)}

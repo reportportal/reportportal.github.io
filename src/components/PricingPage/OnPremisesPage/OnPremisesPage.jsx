@@ -1,8 +1,9 @@
 import React from 'react';
 import noop from 'lodash/noop';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@utils';
+
 import { TrustedOrganizations } from '../../TrustedOrganizations';
 import { usePricingHeroProps } from '../usePricingHeroProps';
 import { PricingHero } from '../PricingHero';
@@ -71,7 +72,9 @@ export const OnPremisesPage = () => {
         isCollapsibleOnMobile={false}
         mobileColumns={mobileColumns}
       />
-      <div className={cx(getBlocksWithPricing('__trustedOrganizationsContainer'), 'container')}>
+      <div
+        className={classNames(getBlocksWithPricing('__trustedOrganizationsContainer'), 'container')}
+      >
         <TrustedOrganizations />
       </div>
       <div className={getBlocksWith('__faqContainer')}>

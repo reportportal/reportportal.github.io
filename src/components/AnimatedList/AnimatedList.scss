@@ -1,7 +1,5 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/variables';
-@import 'src/styles/mixins/breakpoint';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .animated-list-container {
   display: flex;
@@ -10,36 +8,36 @@
   padding-top: 80px;
   padding-bottom: 80px;
 
-  @include breakpoint($tablet-sm-exact) {
+  @include m.breakpoint(v.$tablet-sm-exact) {
     gap: 48px;
     padding-top: 120px;
     padding-bottom: 120px;
   }
 
-  @include breakpoint($desktop-sm) {
+  @include m.breakpoint(v.$desktop-sm) {
     gap: 64px;
   }
 
   h2 {
-    @include font-poppins($fw-bold);
-    @include font-scale(x4-medium);
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-medium);
 
     margin: 0;
     color: var(--text-primary);
     text-align: center;
 
-    @include breakpoint($tablet-sm-exact) {
-      @include font-scale(large);
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-scale(large);
     }
 
-    @include breakpoint($desktop-sm) {
-      @include font-scale(x3-large);
+    @include m.breakpoint(v.$desktop-sm) {
+      @include m.font-scale(x3-large);
     }
   }
 
   h3 {
-    @include font-noto-sans();
-    @include font-scale(x2-medium);
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
 
     max-width: 792px;
     margin: 16px auto 0;
@@ -52,7 +50,7 @@
     flex-direction: column;
     gap: 40px;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       gap: 48px;
     }
   }
@@ -62,7 +60,7 @@
     flex-direction: column;
     align-items: flex-start;
 
-    @include breakpoint($tablet-sm-exact) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       margin: 0 auto;
     }
 
@@ -74,7 +72,7 @@
       width: 100%;
       margin-top: 24px;
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         flex-direction: row;
         margin-top: 0;
 
@@ -83,7 +81,7 @@
         }
       }
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         flex-direction: row;
         width: auto;
       }
@@ -102,7 +100,7 @@
 }
 
 .animated-list {
-  @include breakpoint($desktop-sm) {
+  @include m.breakpoint(v.$desktop-sm) {
     height: 518px;
   }
 
@@ -110,7 +108,7 @@
     list-style: none;
     padding: 0;
 
-    @include breakpoint($desktop-sm) {
+    @include m.breakpoint(v.$desktop-sm) {
       flex-shrink: 0;
       width: 486px;
 
@@ -124,7 +122,7 @@
     }
   }
 
-  @include breakpoint($desktop-sm) {
+  @include m.breakpoint(v.$desktop-sm) {
     display: flex;
     gap: 24px;
 
@@ -146,7 +144,7 @@
       border-top: none;
     }
 
-    @include breakpoint($desktop-sm) {
+    @include m.breakpoint(v.$desktop-sm) {
       & + .animated-list__item--active {
         border-top: none;
       }
@@ -167,8 +165,8 @@
   }
 
   strong {
-    @include font-poppins($fw-semi-bold);
-    @include font-scale(medium);
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(medium);
 
     color: var(--text-primary);
   }
@@ -186,8 +184,8 @@
     overflow: hidden;
 
     p {
-      @include font-noto-sans();
-      @include font-scale();
+      @include m.font-noto-sans();
+      @include m.font-scale();
 
       margin: 0;
       line-height: 24px;

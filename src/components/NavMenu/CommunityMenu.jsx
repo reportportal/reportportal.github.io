@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAtom } from 'jotai';
-import cx from 'classnames';
+import classNames from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { subscriptionFormAtom } from '../Layout';
@@ -24,7 +24,7 @@ export const CommunityMenu = ({ isDesktop = true }) => {
       cover={<GithubCover />}
       text="Our team makes ReportPortal, but it’s our community that shapes and improves it."
     >
-      <div className={cx(getBlocksWith('__btn-group'), 'full-width')}>
+      <div className={classNames(getBlocksWith('__btn-group'), 'full-width')}>
         <Link
           className="btn btn--outline full-width"
           to="https://github.com/reportportal/reportportal"
@@ -42,7 +42,7 @@ export const CommunityMenu = ({ isDesktop = true }) => {
 
   const communityList = (
     <SectionList
-      className={cx('community-list', { 'section-list--secondary': isDesktop })}
+      className={classNames('community-list', { 'section-list--secondary': isDesktop })}
       showTitle={isDesktop}
       title="Join the Community"
       items={[
@@ -71,7 +71,7 @@ export const CommunityMenu = ({ isDesktop = true }) => {
   );
 
   const footer = (
-    <div className={cx(getBlocksWith('__footer'), 'temporary-hide')}>
+    <div className={classNames(getBlocksWith('__footer'), 'temporary-hide')}>
       <div className={getBlocksWith('__footer-container')}>
         <SubscriptionForm
           subscriptionFormState={subscriptionFormState}
@@ -92,7 +92,7 @@ export const CommunityMenu = ({ isDesktop = true }) => {
           <div className={getBlocksWith('__body-row')}>
             <div className={getBlocksWith('__body-col--lf')}>{contributionCard}</div>
             <div
-              className={cx(
+              className={classNames(
                 getBlocksWith('__body-col--rt'),
                 getBlocksWith('__body-col--flex-column'),
               )}

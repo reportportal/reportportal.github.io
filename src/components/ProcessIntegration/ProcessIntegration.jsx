@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
 import Marquee from 'react-fast-marquee';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
+import { DOCUMENTATION_URL } from '@utils/constants';
+
 import { Link } from '../Link';
 import SauceLabsIcon from './icons/saucelabs.inline.svg';
 import MicrosoftIcon from './icons/microsoft.inline.svg';
@@ -15,7 +17,6 @@ import OktaIcon from './icons/okta.inline.svg';
 
 import './ProcessIntegration.scss';
 
-const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 const getBlocksWith = createBemBlockBuilder(['process-integration']);
 
 export const icons = [

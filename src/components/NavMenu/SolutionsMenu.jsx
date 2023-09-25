@@ -1,5 +1,5 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { Link } from '../Link';
@@ -59,8 +59,8 @@ export const SolutionsMenu = ({ isDesktop = true }) => {
       cover={<CaseStudiesCover />}
       text="Featured customers' stories where ReportPortal shines the best."
     >
-      <div className={cx(getBlocksWith('__btn-group'), 'full-width')}>
-        <Link className={cx('btn', 'btn--outline', 'full-width')} to="/case-studies">
+      <div className={classNames(getBlocksWith('__btn-group'), 'full-width')}>
+        <Link className={classNames('btn', 'btn--outline', 'full-width')} to="/case-studies">
           Explore Case Studies
         </Link>
       </div>
@@ -75,8 +75,13 @@ export const SolutionsMenu = ({ isDesktop = true }) => {
     <div className={getBlocksWith()}>
       <div>
         <div className={getBlocksWith('__body-row')}>
-          <div className={cx(getBlocksWith('__body-col--lf'))}>{solutionsList}</div>
-          <div className={cx(getBlocksWith('__body-col--rt'), getBlocksWith('__body-col--card'))}>
+          <div className={classNames(getBlocksWith('__body-col--lf'))}>{solutionsList}</div>
+          <div
+            className={classNames(
+              getBlocksWith('__body-col--rt'),
+              getBlocksWith('__body-col--card'),
+            )}
+          >
             {caseStudiesCard}
           </div>
         </div>

@@ -1,11 +1,12 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Collapse } from 'antd';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { iconsCommon } from '../../../utils/imageSource';
-import { $desktopSm } from '../../../utils/breakpoint';
+import { createBemBlockBuilder } from '@utils';
+import { iconsCommon } from '@utils/imageSource';
+import { $desktopSm } from '@utils/breakpoint';
+
 import { Columns } from './Columns';
 import { RowSection } from './RowSection';
 import { Description } from './Description';
@@ -78,7 +79,7 @@ export const ComparePlans = ({
               {isRow(section, footer) && (
                 <div className={getBlocksWith('__content')}>
                   <div
-                    className={cx(getBlocksWith('__description'), {
+                    className={classNames(getBlocksWith('__description'), {
                       [getBlocksWith('__description-full-width')]: isDesktop,
                     })}
                   >
@@ -103,7 +104,7 @@ export const ComparePlans = ({
 
   return (
     <div
-      className={cx(getBlocksWith(), 'container', {
+      className={classNames(getBlocksWith(), 'container', {
         [getBlocksWith('-narrow')]: columnsNames.length === 4,
       })}
     >
@@ -120,8 +121,8 @@ export const ComparePlans = ({
           defaultActiveKey={['1']}
           expandIcon={({ isActive }) => (
             <img
-              className={cx(getBlocksWith('__titleArrow'), {
-                [cx(getBlocksWith('__titleArrow-active'))]: isActive,
+              className={classNames(getBlocksWith('__titleArrow'), {
+                [classNames(getBlocksWith('__titleArrow-active'))]: isActive,
               })}
               src={iconsCommon.arrowDark}
               alt={isActive ? 'Collapse' : 'Expand'}

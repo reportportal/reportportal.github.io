@@ -1,5 +1,5 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { Link } from '../Link';
@@ -69,7 +69,7 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
 
   const pricingForSolutionsList = (
     <SectionList
-      className={cx('pricing-solutions-list', { 'section-list--secondary': isDesktop })}
+      className={classNames('pricing-solutions-list', { 'section-list--secondary': isDesktop })}
       title="Pricing for Solutions"
       items={[
         {
@@ -92,7 +92,7 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
   );
 
   const footer = (
-    <div className={cx(getBlocksWith('__footer'), 'temporary-hide')}>
+    <div className={classNames(getBlocksWith('__footer'), 'temporary-hide')}>
       <div className={getBlocksWith('__footer-container')}>
         <div className={getBlocksWith('__btn-group')}>
           <Link
@@ -122,12 +122,12 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
       <div>
         <div className={getBlocksWith('__body')}>
           <div className={getBlocksWith('__body-row')}>
-            <div className={cx(getBlocksWith('__body-col--lf'), 'row')}>
+            <div className={classNames(getBlocksWith('__body-col--lf'), 'row')}>
               {pricingList}
               {servicesList}
             </div>
             <div
-              className={cx(
+              className={classNames(
                 getBlocksWith('__body-col--rt'),
                 getBlocksWith('__body-col--flex-column'),
               )}
