@@ -1,7 +1,11 @@
 @use 'src/styles/mixins' as m;
 @use 'src/styles/variables' as v;
 
-.on-premises {
+.offer-page-wrapper {
+  .footer {
+    border: none;
+  }
+
   &__pentagons {
     display: flex;
     flex-direction: column;
@@ -56,7 +60,7 @@
 
     &-subtitle {
       @include m.font-noto-sans();
-      @include m.font-scale(base);
+      @include m.font-scale(small);
 
       color: var(--text-service);
       margin: auto;
@@ -121,6 +125,33 @@
     @include m.breakpoint(v.$desktop-sm) {
       margin-top: 240px;
       margin-bottom: 212px;
+    }
+  }
+
+  &__stillHaveQuestion {
+    margin-top: 73px;
+    margin-bottom: 35px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-top: 151px;
+      margin-bottom: 35px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: 212px;
+      margin-bottom: 100px;
+    }
+  }
+
+  &__trustedOrganizationsContainer {
+    margin-top: 130px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-top: 160px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: 240px;
     }
   }
 }

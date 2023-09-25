@@ -18,7 +18,7 @@
   }
 
   &__inner-increased {
-    max-width: 720px;
+    max-width: 722px;
   }
 
   &__btn {
@@ -41,6 +41,16 @@
 
   &__text {
     margin-left: 10px;
+
+    &-increased {
+      display: none;
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      &-increased {
+        display: inline-block;
+      }
+    }
   }
 
   &__active {
@@ -57,8 +67,16 @@
     display: none;
     margin-bottom: -4px;
 
+    &-increased {
+      display: inline-block;
+    }
+
     @include m.breakpoint(v.$phone) {
       display: none;
+
+      &-increased {
+        display: inline-block;
+      }
     }
 
     @include m.breakpoint(v.$tablet-sm) {

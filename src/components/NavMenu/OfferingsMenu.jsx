@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
+
 import { Link } from '../Link';
 import { SectionList } from './SectionList';
 import OnPremiseIcon from './icons/on-premise.inline.svg';
@@ -75,17 +76,17 @@ export const OfferingsMenu = ({ isDesktop = true }) => {
         {
           iconClass: 'drill4j',
           title: 'Drill4J',
-          link: 'https://drill4j.github.io/',
+          link: '/accelerators/d4j',
         },
         {
           iconClass: 'healenium',
           title: 'Healenium',
-          link: 'https://healenium.io/',
+          link: '/accelerators/hlm',
         },
         {
           iconClass: 'qa-space',
           title: 'QaSpace',
-          link: 'https://marketplace.atlassian.com/apps/1214038/qaspace-test-management?tab=overview&hosting=server',
+          link: '/accelerators/qasp',
         },
       ]}
     />

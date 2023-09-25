@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { Layout } from '../../components/Layout';
-import { SaasPage } from '../../components/PricingPage/SassPage';
+import { QaspPage } from '../../components/AcceleratorsPage';
 
-const Saas = () => (
+const Qasp = () => (
   <Layout className="offer-page-wrapper">
-    <SaasPage />
+    <QaspPage />
   </Layout>
 );
 
-export default Saas;
+export default Qasp;

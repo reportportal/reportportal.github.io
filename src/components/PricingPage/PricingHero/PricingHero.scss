@@ -7,11 +7,7 @@
   padding: var(--header-height) 16px 273px;
   margin-top: calc(-1 * var(--header-height));
   background-size: cover;
-  background: url('./assets/bg.svg') no-repeat -50px -130px;
-
-  @include m.breakpoint(v.$tablet-sm-exact) {
-    background-position: center;
-  }
+  background: url('./assets/bg.svg') no-repeat -50px -40px;
 
   &__btn-box {
     display: flex;
@@ -38,6 +34,9 @@
       @include m.font-scale(x4-large);
 
       padding-top: 80px;
+      max-width: var(--size-max-width);
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 
@@ -106,4 +105,3 @@
     }
   }
 }
-

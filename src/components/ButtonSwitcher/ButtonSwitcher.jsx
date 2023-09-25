@@ -11,15 +11,27 @@ import './ButtonSwitcher.scss';
 const getBlocksWith = createBemBlockBuilder(['switcher']);
 
 export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
-  const hasAdditionalButton = () => buttons.length === INCREASED_BUTTON_NUMBER;
+  const hasAdditionalButton = buttons.length === INCREASED_BUTTON_NUMBER;
 
   const isActive = btnName => btnName === activeBtnName;
 
   const getWrappedButton = btn => {
     const buttonText = (
       <>
-        <div className={getBlocksWith('__icon')}>{btn.iconComponent(btn)}</div>
-        <span className={getBlocksWith('__text')}>{btn.text}</span>
+        <div
+          className={classNames(getBlocksWith('__icon'), {
+            [getBlocksWith('__icon-increased')]: hasAdditionalButton,
+          })}
+        >
+          {btn.iconComponent(btn)}
+        </div>
+        <span
+          className={classNames(getBlocksWith('__text'), {
+            [getBlocksWith('__text-increased')]: hasAdditionalButton,
+          })}
+        >
+          {btn.text}
+        </span>
       </>
     );
 
@@ -49,7 +61,7 @@ export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
     <div className={getBlocksWith()}>
       <div
         className={classNames(getBlocksWith('__inner'), {
-          [getBlocksWith('__inner-increased')]: hasAdditionalButton(),
+          [getBlocksWith('__inner-increased')]: hasAdditionalButton,
         })}
       >
         {buttons.map(getWrappedButton)}

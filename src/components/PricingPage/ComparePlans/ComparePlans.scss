@@ -3,7 +3,7 @@
 
 @mixin title {
   @include m.font-poppins(v.$fw-semi-bold);
-  @include m.font-scale(x3-medium);
+  @include m.font-scale(x4-medium);
 
   position: relative;
   margin-bottom: 48px;
@@ -58,7 +58,6 @@
         flex-basis: auto !important;
       }
     }
-
   }
 
   &__container {
@@ -87,12 +86,12 @@
         box-shadow: none;
       }
 
-      >.ant-collapse-header {
+      > .ant-collapse-header {
         padding-left: 24px;
         padding-right: 24px;
 
         @include m.breakpoint(v.$tablet-sm-exact) {
-          align-items:center;
+          align-items: center;
           padding-top: 6px;
           padding-bottom: 6px;
         }
@@ -124,7 +123,7 @@
 
     .ant-collapse-item:nth-child(even) {
       @include m.breakpoint(v.$desktop-sm) {
-        background: #F8FAFD
+        background: #f8fafd;
       }
     }
 

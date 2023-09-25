@@ -13,7 +13,12 @@ import './Faq.scss';
 
 const getBlocksWith = createBemBlockBuilder(['faq']);
 
-export const Faq = ({ items, titleId, showMoreInfoLink = true }) => {
+export const Faq = ({
+  items,
+  titleId,
+  documentationLink = `${DOCUMENTATION_URL}/FAQ/`,
+  showMoreInfoLink = true,
+}) => {
   return (
     <>
       <div className={classNames('container', getBlocksWith())}>
@@ -41,10 +46,7 @@ export const Faq = ({ items, titleId, showMoreInfoLink = true }) => {
           <div className={getBlocksWith('__link')}>
             <p>
               More information on the link to our
-              <Link
-                className={getBlocksWith('__link-documentation')}
-                to={`${DOCUMENTATION_URL}/FAQ/`}
-              >
+              <Link className={getBlocksWith('__link-documentation')} to={documentationLink}>
                 Documentation
                 <ArrowIcon />
               </Link>
