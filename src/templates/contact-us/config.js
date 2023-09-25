@@ -198,7 +198,7 @@ module.exports.config = [
   createConfig({
     baseConfig: QaSpaceBaseConfig,
     url: '/contact-us/qasp',
-    source: 'Landing page / QASP',
+    source: 'Landing page / RP QASP',
   }),
   ...packageNumbers.map(packageNumber =>
     createConfig({
@@ -217,7 +217,7 @@ module.exports.config = [
   createConfig({
     baseConfig: Drill4JBaseConfig,
     url: '/contact-us/d4j',
-    source: 'Landing page / D4J',
+    source: 'Landing page / RP D4J',
   }),
   ...packageNumbers.map(packageNumber =>
     createConfig({
@@ -236,7 +236,7 @@ module.exports.config = [
   createConfig({
     baseConfig: HealeniumBaseConfig,
     url: '/contact-us/hlm',
-    source: 'Landing page / HLM',
+    source: 'Landing page / RP HLM',
   }),
   ...packageNumbers.map(packageNumber =>
     createConfig({
