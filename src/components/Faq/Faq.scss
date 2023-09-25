@@ -125,12 +125,11 @@ $mobile-horizontal-padding: 16px;
   }
 
   .ant-collapse-expand-icon {
-    margin-right: 6px;
+    margin-right: 0;
 
-    svg {
-      width: 18px;
-      height: 18px;
-      color: var(--text-service);
+    img {
+      width: 24px;
+      height: 24px;
     }
   }
 

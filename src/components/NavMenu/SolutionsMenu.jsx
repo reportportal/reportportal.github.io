@@ -45,7 +45,7 @@ export const SolutionsMenu = ({ isDesktop = true }) => {
         },
         {
           iconClass: 'qa-space',
-          title: 'QAspace Jira plugin',
+          title: 'QaSpace Jira plugin',
           text: 'Neat test case management plugin on top of Jira software',
           link: 'https://marketplace.atlassian.com/apps/1214038/qaspace-test-management?tab=overview&hosting=server',
         },

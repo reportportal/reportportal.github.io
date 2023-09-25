@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { Layout } from '../../components/Layout';
-import { OnPremisesPage } from '../../components/PricingPage/OnPremisesPage';
+import { QaspPage } from '../../components/AcceleratorsPage';
 
-const OnPremises = () => {
+const Qasp = () => {
   return (
     <Layout className="offer-page-wrapper">
-      <OnPremisesPage />
+      <QaspPage />
     </Layout>
   );
 };
 
-export default OnPremises;
+export default Qasp;
