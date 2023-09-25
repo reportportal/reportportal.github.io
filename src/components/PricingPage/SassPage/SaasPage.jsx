@@ -14,16 +14,18 @@ import { Banner } from '../../Banner';
 import { usePricingHeroProps } from '../usePricingHeroProps';
 import { dataPlans, columns, buttonsData } from './dataPlans';
 
-import '../PricingPage.scss';
+import '../../OfferPageWrapper/OfferPageWrapper.scss';
 
-const getBlocksWith = createBemBlockBuilder(['pricing-page']);
+const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
 export const SaasPage = () => {
-  const { buttons, discountState, toggleDiscountState } = usePricingHeroProps();
+  const { buttons, discountState, toggleDiscountState } = usePricingHeroProps('pricing');
 
   return (
     <div>
       <PricingHero
+        title="ReportPortal services pricing"
+        subtitle="Flexible options for small teams to global enterprises"
         buttons={buttons}
         activeButton="SaaS"
         offerType="SaaS"

@@ -18,8 +18,20 @@ export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
   const getWrappedButton = btn => {
     const buttonText = (
       <>
-        <div className={getBlocksWith('__icon')}>{btn.iconComponent(btn)}</div>
-        <span className={getBlocksWith('__text')}>{btn.text}</span>
+        <div
+          className={cx(getBlocksWith('__icon'), {
+            [getBlocksWith('__icon-increased')]: hasAdditionalButton(),
+          })}
+        >
+          {btn.iconComponent(btn)}
+        </div>
+        <span
+          className={cx(getBlocksWith('__text'), {
+            [getBlocksWith('__text-increased')]: hasAdditionalButton(),
+          })}
+        >
+          {btn.text}
+        </span>
       </>
     );
 

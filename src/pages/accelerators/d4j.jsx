@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { Layout } from '../../components/Layout';
-import { OnPremisesPage } from '../../components/PricingPage/OnPremisesPage';
+import { D4jPage } from '../../components/AcceleratorsPage';
 
-const OnPremises = () => {
+const D4j = () => {
   return (
     <Layout className="offer-page-wrapper">
-      <OnPremisesPage />
+      <D4jPage />
     </Layout>
   );
 };
 
-export default OnPremises;
+export default D4j;

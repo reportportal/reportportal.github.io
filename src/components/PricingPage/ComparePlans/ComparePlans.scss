@@ -3,7 +3,7 @@
 
 @mixin title {
   @include m.font-poppins(v.$fw-semi-bold);
-  @include m.font-scale(x3-medium);
+  @include m.font-scale(x4-medium);
 
   position: relative;
   margin-bottom: 48px;

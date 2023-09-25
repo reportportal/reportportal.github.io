@@ -16,6 +16,6 @@ export const DiscountSwitcher = ({ switchDiscount, discountState }) => (
       })}
       onClick={switchDiscount}
     />
-    <div className={getBlocksWith('__option')}>Annually (Save 5%)</div>
+    <div className={getBlocksWith('__option')}>Yearly (Save 5%)</div>
   </div>
 );

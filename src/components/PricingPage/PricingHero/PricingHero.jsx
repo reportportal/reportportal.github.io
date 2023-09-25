@@ -9,6 +9,8 @@ import './PricingHero.scss';
 const getBlocksWith = createBemBlockBuilder(['pricing-hero']);
 
 export const PricingHero = ({
+  title,
+  subtitle,
   buttons,
   switchActiveBtn,
   activeButton,
@@ -19,10 +21,8 @@ export const PricingHero = ({
 }) => {
   return (
     <div className={getBlocksWith()}>
-      <h1 className={getBlocksWith('__title')}>ReportPortal services pricing</h1>
-      <p className={getBlocksWith('__subtitle')}>
-        Flexible options for small teams to global enterprises
-      </p>
+      <h1 className={getBlocksWith('__title')}>{title}</h1>
+      {subtitle && <p className={getBlocksWith('__subtitle')}>{subtitle}</p>}
       <div className={getBlocksWith('__btn-box')}>
         <ButtonSwitcher buttons={buttons} onSwitch={switchActiveBtn} activeBtnName={activeButton} />
       </div>
