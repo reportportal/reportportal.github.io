@@ -165,8 +165,13 @@
     align-items: center;
     gap: 32px;
 
-    > a {
+    a {
       display: flex;
+      color: var(--text-light-grey);
+
+      &:hover {
+        color: var(--text-service);
+      }
     }
 
     @include m.breakpoint(v.$desktop-sm) {
@@ -180,10 +185,6 @@
     margin-top: 32px;
     justify-content: center;
     column-gap: 26px;
-
-    a {
-      display: flex;
-    }
 
     @include m.breakpoint(v.$desktop-sm) {
       margin-top: 0;

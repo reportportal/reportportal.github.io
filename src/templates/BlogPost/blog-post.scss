@@ -202,6 +202,7 @@
     @include m.font-scale(medium);
 
     margin: 24px 0;
+    word-wrap: break-word;
     color: var(--text-primary);
   }
 
