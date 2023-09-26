@@ -59,17 +59,17 @@ jobs:
 
       - name: create env file
         run: |
-          touch .env.production.staging
-          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN_DEV }} >> .env.production.staging
-          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID_DEV }} >> .env.production.staging
-          echo GTM_ID=${{ env.GTM_ID }} >> .env.production.staging
-          echo SALESFORCE_URL=${{ env.SALESFORCE_URL }} >> .env.production.staging
-          echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env.production.staging
-          echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env.production.staging
-          echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production.staging
+          touch .env.production
+          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN_DEV }} >> .env.production
+          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID_DEV }} >> .env.production
+          echo GTM_ID=${{ env.GTM_ID }} >> .env.production
+          echo SALESFORCE_URL=${{ env.SALESFORCE_URL }} >> .env.production
+          echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env.production
+          echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env.production
+          echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production
 
       - name: Build the source code
-        run: npm run build:dev
+        run: npm run build
 
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
