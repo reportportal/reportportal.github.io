@@ -1,13 +1,21 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+if (process.env.STAGING) {
+  require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}.staging`,
+  });
+} else {
+  require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+  });
+}
 
 module.exports = {
   siteMetadata: {
     title:
       'ReportPortal test automation analytics platform and real-time reporting, powered by Machine Learning',
     description:
-      'Provides real-time analytics in reporting, automated test results visualization and an integration with your existing test automation process. Powered by Machine Learning to categorize test automation fails, leveraging historical data. Free and Open Sourced. Fork Us on GitHub.',
+      'Centralized test automation dashboard. Provides AI-based defects triage and real time test report dashboard.',
+    keywords:
+      'test automation dashboard, test automation reporting, qa automation dashboard, test automation results dashboard, test report dashboard, qa metrics dashboard, test execution report, end to end testing reporting tools, ReportPortal installation, ReportPortal integration, ReportPortal dashboard',
   },
   plugins: [
     'gatsby-plugin-svgr-svgo',
