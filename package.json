@@ -8,7 +8,6 @@
     "dev": "gatsby develop -p 8080",
     "graphql:win": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "prebuild": "cross-env NODE_ENV=production node ./bin/gen-antd-css.js",
-    "prebuild:dev": "cross-env NODE_ENV=production node ./bin/gen-antd-css.js",
     "build": "gatsby build",
     "build:dev": "STAGING=true gatsby build",
     "serve": "gatsby serve",
