@@ -11,7 +11,7 @@ import ReportPortalIcon from './icons/reportportal.inline.svg';
 
 import './Menu.scss';
 
-export const SolutionsMenu = ({ isDesktop = true }) => {
+export const SolutionsMenu = ({ isDesktop = true, isOpen }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
 
   const solutionsList = (
@@ -73,7 +73,7 @@ export const SolutionsMenu = ({ isDesktop = true }) => {
   }
 
   return (
-    <div className={getBlocksWith()}>
+    <div hidden={!isOpen} className={getBlocksWith()}>
       <div>
         <div className={getBlocksWith('__body-row')}>
           <div className={classNames(getBlocksWith('__body-col--lf'))}>{solutionsList}</div>

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import DownloadIcon from '@svg/download.inline.svg';
 import { createBemBlockBuilder } from '@utils';
+import { Link } from '@components/Link';
 import { SubscriptionBanner } from '@components/SubscriptionBanner';
 
 import './CasesPage.scss';
@@ -28,14 +29,18 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
         </div>
       </div>
       <div className={classNames(getBlocksWith('__cases-list'), 'container')}>
-        {cases.map(({ id, industry, title, icon, cardBackgroundImage }) => (
+        {cases.map(({ id, industry, title, icon, cardBackgroundImage, slug }) => (
           <div
             style={{ backgroundImage: `url(${cardBackgroundImage?.file?.url})` }}
             className={classNames(getBlocksWith('__cases-list-item-box'), industry.toLowerCase())}
             key={id}
             id={id}
           >
-            <div className={getBlocksWith('__cases-list-item')} key={industry}>
+            <Link
+              className={getBlocksWith('__cases-list-item')}
+              key={industry}
+              to={`/case-studies/${slug}`}
+            >
               <div className={getBlocksWith('__cases-list-item-leading')}>
                 <p>{industry}</p>
               </div>
@@ -47,7 +52,7 @@ export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => {
               <div className={getBlocksWith('__cases-list-item-trailing')}>
                 <p>{title}</p>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
       </div>

@@ -62,6 +62,40 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     });
   });
+
+  const caseStudyTemplate = path.resolve('./src/templates/case-study.jsx');
+  const caseStudiesResponse = await graphql(
+    `
+      {
+        allContentfulCaseStudy {
+          nodes {
+            slug
+          }
+        }
+      }
+    `,
+  );
+
+  if (caseStudiesResponse.errors) {
+    reporter.panicOnBuild(
+      'There was an error loading your Contentful case studies',
+      caseStudiesResponse.errors,
+    );
+
+    return;
+  }
+
+  const caseStudies = caseStudiesResponse.data.allContentfulCaseStudy.nodes;
+
+  caseStudies.forEach(caseStudy => {
+    createPage({
+      path: `/case-studies/${caseStudy.slug}/`,
+      component: caseStudyTemplate,
+      context: {
+        slug: caseStudy.slug,
+      },
+    });
+  });
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
