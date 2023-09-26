@@ -6,9 +6,12 @@ import { Link } from '../Link';
 import { createBemBlockBuilder, isAbsoluteURL } from '../../utils';
 import ArrowIcon from '../../svg/arrow.inline.svg';
 import TwitterIcon from './icons/twitter.inline.svg';
+import YoutubeIcon from './icons/youtube.inline.svg';
+import GithubIcon from './icons/github.inline.svg';
+import SlackIcon from './icons/slack.inline.svg';
 import LinkedinIcon from './icons/linkedin.inline.svg';
 import LambdaIcon from './icons/lambda.inline.svg';
-import { GithubIcon, NavLogoIcon, SlackIcon, YoutubeIcon } from './icons';
+import { NavLogoIcon } from './icons';
 
 import './Footer.scss';
 

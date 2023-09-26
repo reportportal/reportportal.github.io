@@ -15,13 +15,13 @@ import './Menu.scss';
 const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
 
-export const LearnMenu = ({ isDesktop = true, isOpen }) => {
+export const LearnMenu = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   let resourcesItems = [
     {
       icon: <DocumentationIcon />,
       title: 'Documentation',
       text: 'All the technical docs',
-      link: `${DOCUMENTATION_URL}/docs`,
+      link: DOCUMENTATION_URL,
     },
     {
       icon: <BlogIcon />,
@@ -78,7 +78,7 @@ export const LearnMenu = ({ isDesktop = true, isOpen }) => {
   }
 
   return (
-    <div hidden={!isOpen} className={getBlocksWith()}>
+    <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
       <div>
         <div className={getBlocksWith('__body')}>
           <div className={getBlocksWith('__body-row')}>
