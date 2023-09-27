@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   });
 
-  const caseStudyTemplate = path.resolve('./src/templates/case-study.jsx');
+  const caseStudyTemplate = path.resolve('./src/templates/case-study/case-study.jsx');
   const caseStudiesResponse = await graphql(
     `
       {

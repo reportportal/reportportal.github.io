@@ -13,7 +13,7 @@
     padding-bottom: 16px;
     color: var(--white);
     background: var(--color-primary-600);
-    background-image: url('../svg/headBg.svg');
+    background-image: url('../../svg/headBg.svg');
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -466,7 +466,7 @@
             left: 8px;
             width: 24px;
             height: 24px;
-            background-image: url('../svg/check.svg');
+            background-image: url('../../svg/check.svg');
             background-size: cover;
 
             @include m.breakpoint(v.$tablet-sm-exact) {

@@ -1,24 +1,21 @@
 import React, { useEffect } from 'react';
-import { graphql } from 'gatsby';
+import classNames from 'classnames';
 import noop from 'lodash/noop';
 import compact from 'lodash/compact';
-import cx from 'classnames';
-import get from 'lodash/get';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS } from '@contentful/rich-text-types';
 
-import DownloadIcon from '../svg/download.inline.svg';
-import { Layout } from '../components/Layout';
-import { Link } from '../components/Link';
-import { createBemBlockBuilder } from '../utils';
-import { SubscriptionBanner } from '../components/SubscriptionBanner';
-import { ArrowLeft } from '../svg/arrowLeft';
+import { ArrowLeft } from '@svg/arrowLeft.jsx';
+import { createBemBlockBuilder } from '@utils';
+import DownloadIcon from '@svg/download.inline.svg';
+import { Link } from '@components/Link';
+import { SubscriptionBanner } from '@components/SubscriptionBanner';
 
-import './case-study.scss';
+import './CaseStudyPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['case-page']);
 
-const CaseStudyTemplate = props => {
+export const CaseStudyPage = ({ title, industry, challenges, highlights, benefitsResults }) => {
   useEffect(() => {
     function setupTable() {
       const tables = Array.from(document.querySelectorAll('table')).reverse();
@@ -47,9 +44,6 @@ const CaseStudyTemplate = props => {
     window.addEventListener('resize', setupTable);
     return () => window.removeEventListener('resize', setupTable);
   });
-
-  const caseStudy = get(props, 'data.contentfulCaseStudy');
-  const { title, industry, challenges, highlights, benefitsResults } = caseStudy;
 
   const options = {
     renderNode: {
@@ -88,24 +82,24 @@ const CaseStudyTemplate = props => {
   };
 
   return (
-    <Layout>
+    <>
       <div className={getBlocksWith()}>
         <div className={getBlocksWith('__hero')}>
-          <div className={cx(getBlocksWith('__head'), 'container')}>
+          <div className={classNames(getBlocksWith('__head'), 'container')}>
             <div className={getBlocksWith('__titles')}>
               <p className={getBlocksWith('__industry')}>{industry}</p>
               <h1 className={getBlocksWith('__title')}>{title}</h1>
             </div>
             <div className={getBlocksWith('__button-group')}>
               <Link
-                className={cx('btn btn--white btn--large', getBlocksWith('__back-to-list'))}
+                className={classNames('btn btn--white btn--large', getBlocksWith('__back-to-list'))}
                 to="/case-studies"
               >
                 <ArrowLeft />
                 Back to Case Studies
               </Link>
               <a
-                className={cx(
+                className={classNames(
                   'btn btn--white btn--large temporary-hide',
                   getBlocksWith('__download-pdf'),
                 )}
@@ -118,7 +112,7 @@ const CaseStudyTemplate = props => {
             </div>
           </div>
         </div>
-        <div className={cx(getBlocksWith('__case-body'), 'container')}>
+        <div className={classNames(getBlocksWith('__case-body'), 'container')}>
           <div className={getBlocksWith('__case-columns')}>
             <div className={getBlocksWith('__challenges')}>
               <div className={getBlocksWith('__challenges--body')}>
@@ -141,34 +135,6 @@ const CaseStudyTemplate = props => {
         </div>
       </div>
       <SubscriptionBanner />
-    </Layout>
+    </>
   );
 };
-
-// eslint-disable-next-line import/no-default-export
-export default CaseStudyTemplate;
-
-export const pageQuery = graphql`
-  query CaseStudyBySlug($slug: String!) {
-    contentfulCaseStudy(slug: { eq: $slug }) {
-      title
-      industry
-      challenges {
-        raw
-        references {
-          ... on ContentfulAsset {
-            contentful_id
-            __typename
-            url
-          }
-        }
-      }
-      highlights {
-        raw
-      }
-      benefitsResults {
-        raw
-      }
-    }
-  }
-`;
