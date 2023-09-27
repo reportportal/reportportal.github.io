@@ -99,11 +99,12 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             <CustomCheckbox
               label={
                 <>
-                  By clicking &quot;Send&quot;, I agree to ReportPortal&apos;s{' '}
+                  I consent to EPAM Systems, Inc. (&quot;EPAM&quot;) processing my personal
+                  information as set out in the{' '}
                   <Link to="https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy">
                     Privacy Policy <ArrowIcon />
                   </Link>{' '}
-                  and outside of my home jurisdiction.
+                  and outside of my home jurisdiction
                 </>
               }
             />

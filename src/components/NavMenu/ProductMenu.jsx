@@ -101,12 +101,12 @@ export const ProductMenu = ({ isDesktop = true, isOpen, menuContainerRef }) => {
         {
           iconClass: 'jira-cloud',
           title: 'Jira Server',
-          link: `${DOCUMENTATION_URL}/plugins/JiraServer`,
+          link: `${DOCUMENTATION_URL}/plugins/AtlassianJiraServer`,
         },
         {
           iconClass: 'jira-server',
           title: 'Jira Cloud',
-          link: `${DOCUMENTATION_URL}/plugins/JiraCloud`,
+          link: `${DOCUMENTATION_URL}/plugins/AtlassianJiraCloud/`,
         },
         {
           iconClass: 'azure-do',

@@ -10,6 +10,7 @@ export const Seo = ({ description = '', lang = 'en', meta = [], title, image }) 
           siteMetadata {
             title
             description
+            keywords
           }
         }
       }
@@ -18,6 +19,7 @@ export const Seo = ({ description = '', lang = 'en', meta = [], title, image }) 
 
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
+  const keywords = site.siteMetadata?.keywords;
 
   return (
     <Helmet
@@ -67,6 +69,10 @@ export const Seo = ({ description = '', lang = 'en', meta = [], title, image }) 
         {
           name: 'twitter:description',
           content: metaDescription,
+        },
+        {
+          name: 'keywords',
+          content: keywords,
         },
       ].concat(meta)}
     />

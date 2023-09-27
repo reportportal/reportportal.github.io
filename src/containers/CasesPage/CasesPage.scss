@@ -54,7 +54,6 @@
 
   @include m.breakpoint(v.$desktop-sm) {
     grid-template-columns: repeat(4, 282px);
-    margin: 0 120px;
   }
 
   &-item-box {

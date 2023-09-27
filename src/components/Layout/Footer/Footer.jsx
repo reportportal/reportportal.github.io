@@ -8,9 +8,12 @@ import { Link } from '../../Link';
 import { FooterList } from './FooterList';
 import { PRODUCT_LINKS, SERVICES_LINKS, SOLUTIONS_LINKS, LEARN_LINKS } from './constants';
 import TwitterIcon from './icons/twitter.inline.svg';
+import YoutubeIcon from './icons/youtube.inline.svg';
+import GithubIcon from './icons/github.inline.svg';
+import SlackIcon from './icons/slack.inline.svg';
 import LinkedinIcon from './icons/linkedin.inline.svg';
 import LambdaIcon from './icons/lambda.inline.svg';
-import { GithubIcon, NavLogoIcon, SlackIcon, YoutubeIcon } from './icons';
+import { NavLogoIcon } from './icons';
 
 import './Footer.scss';
 

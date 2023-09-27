@@ -13,7 +13,7 @@ import { HeartIcon, ForkIcon } from './icons';
 
 import './Menu.scss';
 
-export const CommunityMenu = ({ isDesktop = true, isOpen }) => {
+export const CommunityMenu = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
 
@@ -86,7 +86,7 @@ export const CommunityMenu = ({ isDesktop = true, isOpen }) => {
   }
 
   return (
-    <div hidden={!isOpen} className={getBlocksWith()}>
+    <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
       <div>
         <div className={getBlocksWith('__body')}>
           <div className={getBlocksWith('__body-row')}>

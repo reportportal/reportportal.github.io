@@ -33,7 +33,7 @@ export const OfferingsMenu = ({ isDesktop = true, isOpen, menuContainerRef }) =>
       icon: <FreeVersionIcon />,
       title: 'Free version',
       text: 'Install and use ReportPortal for free via self-hosted deployment',
-      link: '/install',
+      link: '/installation',
     },
   ];
 
@@ -119,7 +119,7 @@ export const OfferingsMenu = ({ isDesktop = true, isOpen, menuContainerRef }) =>
   }
 
   return (
-    <div hidden={!isOpen} className={getBlocksWith()} ref={menuContainerRef}>
+    <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
       <div>
         <div className={getBlocksWith('__body')}>
           <div className={getBlocksWith('__body-row')}>

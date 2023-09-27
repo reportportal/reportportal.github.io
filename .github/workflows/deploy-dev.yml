@@ -20,11 +20,12 @@ env:
   SALESFORCE_OID: 00D7a0000005481
   SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N7T000000i00E
   DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
+  GTM_ID: GTM-MK7ZHTL
 
 on:
   push:
     branches:
-      - new-landing
+      - develop
   workflow_dispatch:
 
 jobs:
@@ -59,9 +60,9 @@ jobs:
       - name: create env file
         run: |
           touch .env.production
-          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} >> .env.production
-          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} >> .env.production
-          echo GTM_ID=${{ secrets.GTM_ID }} >> .env.production
+          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN_DEV }} >> .env.production
+          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID_DEV }} >> .env.production
+          echo GTM_ID=${{ env.GTM_ID }} >> .env.production
           echo SALESFORCE_URL=${{ env.SALESFORCE_URL }} >> .env.production
           echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env.production
           echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env.production
