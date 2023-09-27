@@ -1,6 +1,6 @@
 ### PR Checklist
 
-* [ ] Have you followed the guidelines in our [Dev Guide](/README.md)
+* [ ] Have you followed the guidelines in our [Dev Guide](../#readme)
 * [ ] Have you lint your code locally prior to submission (`npm run lint`)?
 * [ ] Have you run prettier (`npm run format`)?
 * [ ] Have you checked that app can be built (`npm run build`)?
