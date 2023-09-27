@@ -13,21 +13,6 @@ export const MenuContainer = ({ isOpen, menuLinksRef, children, onClose }) => {
   }, [menuContainerRef, menuLinksRef]);
 
   useEffect(() => {
-    const handleClick = event => {
-      const shouldCloseMenu = ['a', 'button'].some(tagName => event.target.closest(tagName));
-
-      if (shouldCloseMenu) {
-        onClose();
-      }
-    };
-
-    menuContainerRef.current?.querySelector('div')?.addEventListener('click', handleClick);
-
-    return () =>
-      menuContainerRef.current?.querySelector('div')?.removeEventListener('click', handleClick);
-  }, [menuContainerRef, onClose]);
-
-  useEffect(() => {
     if (!isOpen) {
       return;
     }

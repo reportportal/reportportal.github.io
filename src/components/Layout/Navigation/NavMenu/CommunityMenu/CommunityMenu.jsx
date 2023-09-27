@@ -2,16 +2,19 @@ import React from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { subscriptionFormAtom } from '../Layout';
-import { Link } from '../Link';
-import { SubscriptionForm } from '../SubscriptionForm';
-import { GithubCover } from './covers/GithubCover';
-import { SectionList } from './SectionList';
-import { SectionCard } from './SectionCard';
-import { HeartIcon, ForkIcon } from './icons';
+import { createBemBlockBuilder } from '@utils';
 
-import './Menu.scss';
+import { subscriptionFormAtom } from '../../../Layout';
+import { Link } from '../../../../Link';
+import { SubscriptionForm } from '../../../../SubscriptionForm';
+import { GithubCover } from '../covers/GithubCover';
+import { SectionList } from '../SectionList';
+import { SectionCard } from '../SectionCard';
+import { HeartIcon, ForkIcon } from './icons';
+import { COMMUNITY_LIST } from './constants';
+
+import '../Menu.scss';
+import './CommunityMenu.scss';
 
 export const CommunityMenu = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
@@ -45,28 +48,7 @@ export const CommunityMenu = ({ isDesktop = true, isOpen, menuContainerRef }) =>
       className={classNames('community-list', { 'section-list--secondary': isDesktop })}
       showTitle={isDesktop}
       title="Join the Community"
-      items={[
-        {
-          iconClass: 'slack',
-          title: 'Slack',
-          link: 'https://slack.epmrpp.reportportal.io/',
-        },
-        {
-          iconClass: 'twitter',
-          title: 'Twitter',
-          link: 'https://twitter.com/ReportPortal_io',
-        },
-        {
-          iconClass: 'youtube',
-          title: 'Youtube',
-          link: 'https://www.youtube.com/@ReportPortal',
-        },
-        {
-          iconClass: 'linkedin',
-          title: 'LinkedIn',
-          link: 'https://www.linkedin.com/company/reportportal/',
-        },
-      ]}
+      items={COMMUNITY_LIST}
     />
   );
 
@@ -87,7 +69,7 @@ export const CommunityMenu = ({ isDesktop = true, isOpen, menuContainerRef }) =>
 
   return (
     <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
-      <div>
+      <>
         <div className={getBlocksWith('__body')}>
           <div className={getBlocksWith('__body-row')}>
             <div className={getBlocksWith('__body-col--lf')}>{contributionCard}</div>
@@ -102,7 +84,7 @@ export const CommunityMenu = ({ isDesktop = true, isOpen, menuContainerRef }) =>
           </div>
         </div>
         {footer}
-      </div>
+      </>
     </div>
   );
 };

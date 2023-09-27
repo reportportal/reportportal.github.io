@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { ApplyOurService } from '@components/ApplyOurService';
 import { DashboardHeader } from '@components/DashboardHeader';
 import { TestingBottomBlock } from '@components/TestingBottomBlock';
 
@@ -22,9 +21,9 @@ export const QualityAssessmentPage = () => (
     <TestingBottomBlock
       title={TESTING_BOTTOM_BLOCK_INFO.title}
       description={TESTING_BOTTOM_BLOCK_INFO.description}
+      url="/contact-us/qaaas"
     >
       <QualityApproach />
-      <ApplyOurService url="/contact-us/qaaas" />
     </TestingBottomBlock>
   </div>
 );

@@ -2,8 +2,9 @@ import React from 'react';
 import chunk from 'lodash/chunk';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { Link } from '../../Link';
+import { createBemBlockBuilder } from '@utils';
+
+import { Link } from '../../../../Link';
 
 import './SectionList.scss';
 

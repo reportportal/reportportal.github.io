@@ -1,0 +1,33 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.solutions-list__item {
+  &-icon {
+    &--tdspora {
+      background-image: url('icons/tdspora-2.svg');
+    }
+
+    &--drill4j {
+      background-image: url('../icons/drill4j-2.svg');
+    }
+
+    &--healenium {
+      background-image: url('../icons/healenium-2.svg');
+    }
+
+    &--qa-space {
+      background-image: url('../icons/qa-space-2.svg');
+    }
+  }
+
+  &:first-child .solutions-list__item__title::after {
+    @include font-noto-sans();
+
+    content: '(home)';
+    display: inline-block;
+    margin-left: 7px;
+    color: var(--text-service);
+  }
+}

@@ -3,7 +3,6 @@ import React from 'react';
 import { DashboardHeader } from '@components/DashboardHeader';
 import { SpiderBlock } from '@components/SpiderBlock';
 import { TestingBottomBlock } from '@components/TestingBottomBlock';
-import { ApplyOurService } from '@components/ApplyOurService';
 
 import { BenefitsOfTaas } from './BenefitsOfTaas';
 import { Challenges } from './Challenges';
@@ -26,9 +25,9 @@ export const TestingAsServicePage = () => (
     <TestingBottomBlock
       title={TESTING_BOTTOM_BLOCK_INFO.title}
       description={TESTING_BOTTOM_BLOCK_INFO.description}
+      url="/contact-us/taas"
     >
       <Approach />
-      <ApplyOurService url="/contact-us/taas" />
     </TestingBottomBlock>
   </>
 );

@@ -10,16 +10,16 @@ import { createBemBlockBuilder } from '@utils';
 import { useScrollDirection } from '@hooks';
 
 // eslint-disable-next-line import/no-unresolved
-import githubStats from '../../../static/github.json'; // Will be generated at build time
-import { Link } from '../Link';
+import githubStats from '../../../../static/github.json'; // Will be generated at build time
+import { Link } from '../../Link';
 import {
   SolutionsMenu,
   ProductMenu,
   OfferingsMenu,
   LearnMenu,
-  CommunityMenu,
   MenuContainer,
-} from '../NavMenu';
+  CommunityMenu,
+} from './NavMenu';
 import {
   GithubIcon,
   NavLogoIcon,

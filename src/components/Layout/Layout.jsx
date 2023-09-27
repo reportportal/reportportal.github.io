@@ -7,7 +7,7 @@ import '../../../static/antd.min.css'; // Will be generated at build time
 import '../../styles/global.scss';
 
 import { Seo } from './Seo';
-import { Navigation } from '../Navigation';
+import { Navigation } from './Navigation';
 import { Footer } from './Footer';
 import { EmbedVideo } from './EmbedVideo';
 

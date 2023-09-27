@@ -1,7 +1,5 @@
-@import 'src/styles/variables';
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .top-header {
   position: relative;
@@ -59,14 +57,14 @@
   &__list {
     display: none;
 
-    @include breakpoint(1124px) {
+    @include m.breakpoint(1124px) {
       display: flex;
     }
   }
 
   &__link {
-    @include font-poppins($fw-semi-bold);
-    @include font-scale(base);
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(base);
 
     display: flex;
     align-items: center;
@@ -120,7 +118,7 @@
     display: none;
     align-items: center;
 
-    @include breakpoint($tablet-sm) {
+    @include m.breakpoint(v.$tablet-sm) {
       display: flex;
     }
   }
@@ -132,13 +130,13 @@
     color: var(--purple-grey);
     transition: color 0.3s;
 
-    @include breakpoint(1224px) {
+    @include m.breakpoint(1224px) {
       display: flex;
     }
 
     & text {
-      @include font-noto-sans($fw-medium);
-      @include font-scale(x-small);
+      @include m.font-noto-sans(v.$fw-medium);
+      @include m.font-scale(x-small);
     }
 
     .top-header--active &,
@@ -152,8 +150,8 @@
   }
 
   &__loginButton {
-    @include font-poppins($fw-semi-bold);
-    @include font-scale(base);
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(base);
 
     display: inline-block;
     background-color: transparent;
@@ -202,7 +200,7 @@
   background: none;
   cursor: pointer;
 
-  @include breakpoint(1124px) {
+  @include m.breakpoint(1124px) {
     display: none;
   }
 
@@ -254,7 +252,7 @@
     }
 
     .ant-collapse-header-text {
-      @include font-poppins($fw-semi-bold);
+      @include m.font-poppins(v.$fw-semi-bold);
 
       font-size: 18px;
       line-height: 24px;

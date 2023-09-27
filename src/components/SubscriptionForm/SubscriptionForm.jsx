@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { createBemBlockBuilder } from '@utils';
 
 import { Link } from '../Link';
-import { EnvelopeIcon } from '../NavMenu/icons';
+import { EnvelopeIcon } from './icons';
 import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';

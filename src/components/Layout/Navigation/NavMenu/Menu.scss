@@ -1,0 +1,119 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.menu-dialog {
+  border-radius: 0 0 16px 16px;
+
+  .is-desktop & {
+    background: var(--white);
+    position: absolute;
+    left: 50%;
+    z-index: var(--z-index);
+    transform: translate(-50%, 0);
+    border-top: 1px solid var(--purple-grey);
+    box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
+    overflow: hidden;
+  }
+
+  &__body-row {
+    display: flex;
+  }
+
+  &__body-col--lf {
+    padding: 32px;
+  }
+
+  &__body-col--rt {
+    padding: 32px 32px 32px 24px;
+    border-left: 1px solid var(--purple-grey);
+    background: var(--bg-light-grey);
+  }
+
+  &__body-col--flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__body-col--card {
+    padding: 32px 32px 40px 32px;
+  }
+
+  &__footer {
+    border-top: 1px solid var(--purple-grey);
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 576px;
+      padding: 32px;
+
+      .menu-dialog-community & {
+        width: min-content;
+      }
+    }
+  }
+
+  &__btn-group {
+    display: inline-flex;
+    gap: 16px;
+  }
+
+  .btn {
+    padding: 10px 21px;
+
+    &--outline {
+      padding: 8px 14px;
+    }
+  }
+
+  &__btn-text {
+    @include font-poppins($fw-semi-bold);
+    @include font-scale(base);
+
+    border: none;
+    padding: 10px 8px 10px 40px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    color: var(--text-primary);
+
+    & svg {
+      position: absolute;
+      left: 8px;
+      top: 8px;
+    }
+
+    &:hover {
+      color: var(--color-primary-500);
+    }
+
+    &:active {
+      color: var(--color-primary-700);
+    }
+
+    &:disabled {
+      color: var(--color-primary-600);
+      cursor: auto;
+      opacity: 0.3;
+    }
+  }
+}
+
+.features-list__title {
+  margin-bottom: 16px;
+}
+
+.is-desktop .services-list {
+  margin-top: 0;
+}
+
+.is-desktop {
+  .resources-list__col,
+  .contribution-card {
+    width: 256px;
+  }
+}
