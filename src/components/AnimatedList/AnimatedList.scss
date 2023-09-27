@@ -1,0 +1,218 @@
+@import 'src/styles/mixins/font';
+@import 'src/styles/mixins/font-scale';
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoint';
+
+.animated-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include breakpoint($tablet-sm-exact) {
+    gap: 48px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  @include breakpoint($desktop-sm) {
+    gap: 64px;
+  }
+
+  h2 {
+    @include font-poppins($fw-bold);
+    @include font-scale(x4-medium);
+
+    margin: 0;
+    color: var(--text-primary);
+    text-align: center;
+
+    @include breakpoint($tablet-sm-exact) {
+      @include font-scale(large);
+    }
+
+    @include breakpoint($desktop-sm) {
+      @include font-scale(x3-large);
+    }
+  }
+
+  h3 {
+    @include font-noto-sans();
+    @include font-scale(x2-medium);
+
+    max-width: 792px;
+    margin: 16px auto 0;
+    text-align: center;
+    color: var(--text-service);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include breakpoint($tablet-sm-exact) {
+      gap: 48px;
+    }
+  }
+
+  &__leading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include breakpoint($tablet-sm-exact) {
+      margin: 0 auto;
+    }
+
+    &-button-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+      margin-top: 24px;
+
+      @include breakpoint($tablet-sm-exact) {
+        flex-direction: row;
+        margin-top: 0;
+
+        button {
+          flex-grow: 1;
+        }
+      }
+
+      @include breakpoint($desktop-sm) {
+        flex-direction: row;
+        width: auto;
+      }
+    }
+  }
+
+  &__trailing {
+    min-width: 50%;
+    align-items: center;
+
+    img {
+      max-width: 690px;
+      margin: auto;
+    }
+  }
+}
+
+.animated-list {
+  @include breakpoint($desktop-sm) {
+    height: 518px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    @include breakpoint($desktop-sm) {
+      flex-shrink: 0;
+      width: 486px;
+
+      img {
+        display: none;
+      }
+
+      & + img {
+        display: block;
+      }
+    }
+  }
+
+  @include breakpoint($desktop-sm) {
+    display: flex;
+    gap: 24px;
+
+    &.animated-list--reversed {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__item {
+    &:last-child {
+      border-bottom: 1px solid var(--purple-grey);
+    }
+
+    padding: 24px;
+    border-top: 1px solid var(--purple-grey);
+    cursor: pointer;
+
+    .animated-list__item--active + & {
+      border-top: none;
+    }
+
+    @include breakpoint($desktop-sm) {
+      & + .animated-list__item--active {
+        border-top: none;
+      }
+    }
+  }
+
+  &__item--active {
+    padding: 0;
+    cursor: initial;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  strong {
+    @include font-poppins($fw-semi-bold);
+    @include font-scale(medium);
+
+    color: var(--text-primary);
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    margin-top: 8px;
+    padding: 24px 24px 16px;
+    background: var(--white);
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.07);
+    border-radius: 16px;
+    overflow: hidden;
+
+    p {
+      @include font-noto-sans();
+      @include font-scale();
+
+      margin: 0;
+      line-height: 24px;
+      color: var(--text-primary);
+    }
+
+    a {
+      align-self: flex-start;
+      margin-top: 0;
+    }
+
+    &-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(
+        to right,
+        var(--color-primary-500) 50%,
+        rgba(255, 255, 255, 0.3) 0
+      );
+      background-size: 200% 100%;
+      background-position: right;
+      animation: progressAnimation linear 10s forwards;
+    }
+  }
+}

@@ -1,0 +1,193 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.footer {
+  @include m.font-poppins();
+  @include m.font-scale(small);
+
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 48px;
+  border-top: 1px solid var(--purple-grey);
+  color: var(--text-service);
+  background: var(--bg-light-grey);
+  z-index: var(--z-index);
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    padding-top: 72px;
+    padding-bottom: 76px;
+  }
+
+  &__logo {
+    display: flex;
+  }
+
+  &__legal,
+  &__secondary {
+    @include m.breakpoint(v.$desktop-sm) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__navigation {
+    @include m.breakpoint(v.$desktop-sm) {
+      display: flex;
+      row-gap: 24px;
+    }
+  }
+
+  &__purpose {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      width: 384px;
+      padding-right: 84px;
+      row-gap: 32px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__purpose,
+  &__list {
+    line-height: 24px;
+  }
+
+  &__list {
+    margin-top: 48px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-top: 80px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: 0;
+    }
+
+    h4 {
+      margin: 0;
+      color: var(--text-light-grey);
+      font-weight: v.$fw-semi-bold;
+    }
+
+    svg {
+      margin-left: 7px;
+    }
+
+    ul {
+      margin-top: 24px;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        margin-top: 48px;
+      }
+    }
+
+    li {
+      margin-top: 16px;
+      font-weight: v.$fw-medium;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        margin-top: 32px;
+      }
+    }
+  }
+
+  &__navigation-links {
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(2, 1fr);
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 24px;
+    }
+  }
+
+  .ant-divider {
+    border-color: var(--purple-grey);
+    margin: 50px 0;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin: 64px 0;
+    }
+  }
+
+  &__license {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+      font-weight: v.$fw-medium;
+    }
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      flex-direction: row;
+      gap: 4px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      width: 384px;
+      justify-content: start;
+    }
+  }
+
+  &__terms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 16px;
+    margin-top: 32px;
+    font-weight: v.$fw-medium;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      flex-direction: row;
+      column-gap: 32px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      column-gap: 36px;
+      margin-top: 0;
+    }
+  }
+
+  &__other-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    a {
+      display: flex;
+      color: var(--text-light-grey);
+
+      &:hover {
+        color: var(--text-service);
+      }
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    margin-top: 32px;
+    justify-content: center;
+    column-gap: 26px;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: 0;
+    }
+  }
+}

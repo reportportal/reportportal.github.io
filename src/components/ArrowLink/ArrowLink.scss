@@ -1,0 +1,42 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.arrow-link {
+  @include m.font-poppins(v.$fw-semi-bold);
+  @include m.font-scale(base);
+
+  position: relative;
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 32px 8px 8px;
+  color: var(--text-primary);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  &--primary {
+    padding-left: 0;
+    color: var(--color-primary-600);
+  }
+
+  & svg {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translate(0, -50%);
+  }
+
+  &:hover {
+    color: var(--color-primary-500);
+  }
+
+  &:active {
+    color: var(--color-primary-700);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    color: var(--color-primary-600);
+    cursor: auto;
+  }
+}

@@ -1,0 +1,29 @@
+@use '../variables/typography';
+
+@mixin font-info($weight: typography.$fw-regular, $font-style: false) {
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $font-style {
+    font-style: $font-style;
+  }
+}
+
+@mixin font-poppins($weight: typography.$fw-regular, $font-style: false) {
+  font-family: 'Poppins', Arial, sans-serif;
+
+  @include font-info($weight, $font-style);
+}
+
+@mixin font-noto-sans($weight: typography.$fw-regular, $font-style: false) {
+  font-family: 'Noto Sans', Arial, sans-serif;
+
+  @include font-info($weight, $font-style);
+}
+
+@mixin roboto-mono($weight: typography.$fw-regular, $font-style: false) {
+  font-family: 'Roboto Mono', 'Monaco', 'Courier New', monospace;
+
+  @include font-info($weight, $font-style);
+}

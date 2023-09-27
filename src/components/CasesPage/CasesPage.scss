@@ -1,0 +1,157 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.cases-page {
+  position: relative;
+  padding: calc(72px + var(--header-height)) 16px 88px;
+  margin-top: calc(-1 * var(--header-height));
+  color: var(--white);
+  background: var(--color-primary-600);
+  background-image: url('../../svg/headBg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 20;
+
+  &__title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(large);
+
+    margin: 0;
+    text-align: center;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-scale(x3-large);
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      @include m.font-scale(x4-large);
+    }
+  }
+
+  &__subtitle {
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
+
+    margin-top: 16px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+}
+
+.cases-page__cases-list {
+  display: grid;
+  flex-direction: column;
+  grid-gap: 24px;
+  justify-content: center;
+  grid-template-columns: minmax(min-content, 348px);
+  align-items: center;
+  padding-top: 72px;
+  padding-bottom: 48px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    grid-template-columns: repeat(2, 348px);
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    grid-template-columns: repeat(4, 282px);
+  }
+
+  &-item-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0, 45, 55, 0.12);
+    background-size: cover;
+
+    &:hover {
+      box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      width: 100%;
+    }
+  }
+
+  &-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    flex-shrink: 0;
+    align-self: stretch;
+    height: 280px;
+
+    &-trailing {
+      position: absolute;
+      top: 166px;
+
+      p {
+        @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale(medium);
+
+        color: var(--white);
+      }
+    }
+
+    &-leading {
+      p {
+        @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale(small);
+
+        margin-top: 0;
+        color: var(--white);
+        text-align: left;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      top: 58px;
+      width: 96px;
+      flex-shrink: 0;
+      height: 96px;
+      opacity: 0.7;
+    }
+  }
+}
+
+.cases-page__no-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 120px;
+
+  > p {
+    color: var(--text-light-grey);
+  }
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    margin-bottom: 200px;
+  }
+}
+
+.cases-page__load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 120px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    margin-bottom: 200px;
+  }
+}
+
+.cases-page__download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  margin-top: 48px;
+}

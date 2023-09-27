@@ -1,0 +1,33 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.heading {
+  @include m.font-poppins(v.$fw-bold);
+
+  margin: 0;
+  text-align: center;
+}
+
+.secondary-heading {
+  @include m.font-scale(x4-medium);
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    @include m.font-scale(x3-large);
+  }
+}
+
+.third-heading {
+  @include m.font-scale(x3-medium);
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    @include m.font-scale(large);
+  }
+}
+
+.black-heading {
+  color: var(--text-primary);
+}
+
+.white-heading {
+  color: var(--white);
+}

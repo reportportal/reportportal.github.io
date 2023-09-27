@@ -1,0 +1,64 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.benefits-of-taas {
+  padding: 120px 0;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    @include m.font-scale(x3-large);
+    padding-bottom: 120px;
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    padding: 50px 120px 80px;
+  }
+
+  &__content {
+    margin-top: 64px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      padding-left: 90px;
+      padding-right: 90px;
+    }
+  }
+}
+
+.benefits-of-taas-list {
+  display: grid;
+  grid-template-columns: repeat(1, 280px);
+  justify-content: center;
+  gap: 52px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    grid-template-columns: repeat(2, 280px);
+    justify-content: space-around;
+    gap: 24px;
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    grid-template-columns: repeat(4, 280px);
+    justify-content: center;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    align-items: center;
+    width: 282px;
+
+    svg {
+      margin-bottom: 40px;
+    }
+
+    span {
+      @include m.font-noto-sans();
+      @include m.font-scale(medium);
+
+      display: inline-block;
+      text-align: center;
+      white-space: pre-line;
+      color: var(--text-primary);
+    }
+  }
+}

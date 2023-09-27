@@ -1,0 +1,293 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.approach {
+  position: relative;
+  margin-bottom: 120px;
+  background: url('../../../svg/testing/HorizontalLine.svg') no-repeat,
+    url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 26%,
+    url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 51%,
+    url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 75%,
+    url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 98%;
+  height: 1430px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    background: url('../../../svg/testing/HorizontalLine.svg') no-repeat,
+      url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 20%,
+      url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 40%,
+      url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 60%,
+      url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 80%;
+    background-size: 100%;
+    height: 1345px;
+    overflow: hidden;
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    background: url('../../../svg/testing/VerticalLine.svg') no-repeat 20%,
+      url('../../../svg/testing/VerticalLine.svg') no-repeat 40%,
+      url('../../../svg/testing/VerticalLine.svg') no-repeat 60%,
+      url('../../../svg/testing/VerticalLine.svg') no-repeat 80%;
+    height: auto;
+  }
+
+  &__months {
+    display: flex;
+    position: absolute;
+    top: -26px;
+    right: 40%;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 70px;
+    height: 1414px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      top: 0;
+      right: 0;
+      align-items: flex-end;
+      justify-content: space-around;
+      height: 1345px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      position: static;
+      flex-direction: row;
+      margin-bottom: 70px;
+      height: auto;
+    }
+  }
+
+  .phase {
+    display: flex;
+    margin-bottom: 32px;
+    padding-bottom: 8px;
+
+    &--short {
+      min-width: 100%;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        width: 290px;
+        min-width: 240px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        width: 240px;
+      }
+    }
+
+    &__dropdown,
+    &__info,
+    &-forth__new-apps {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -20px;
+        border-radius: 50%;
+        background-color: var(--color-primary-300);
+        width: 10px;
+        height: 10px;
+        font-weight: bold;
+        content: '';
+      }
+
+      &::after {
+        position: absolute;
+        top: 4px;
+        left: -16px;
+        background-color: var(--color-primary-300);
+        width: 2px;
+        height: 100%;
+        font-weight: bold;
+        content: '';
+      }
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        &::before {
+          top: 0;
+          left: -54px;
+        }
+
+        &::after {
+          top: 4px;
+          left: -50px;
+        }
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        &::before {
+          top: 31px;
+          left: 0;
+        }
+
+        &::after {
+          top: 35px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+        }
+      }
+    }
+
+    &-first {
+      position: relative;
+      margin-left: 16px;
+      margin-bottom: 0;
+      height: 380px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        margin-bottom: 30px;
+        margin-left: 90px;
+        height: 242px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        margin-left: 0;
+        height: auto;
+      }
+
+      .phase__info {
+        display: flex;
+        position: absolute;
+        top: 350px;
+        height: 1077px;
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          top: 238px;
+          align-items: center;
+          height: 1103px;
+        }
+
+        @include m.breakpoint(v.$desktop-sm) {
+          display: inline-block;
+          position: relative;
+          top: 0;
+          width: 100%;
+          height: auto;
+          text-align: center;
+        }
+      }
+    }
+
+    &-second {
+      margin-bottom: 0;
+      margin-left: 32px;
+      height: 350px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        margin-left: 195px;
+        height: 268px;
+
+        .phase--short {
+          width: 440px;
+        }
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        margin-bottom: 32px;
+        margin-left: 241px;
+        height: auto;
+
+        .phase--short {
+          width: 240px;
+        }
+      }
+
+      .phase__dropdown {
+        &::before,
+        &::after {
+          background-color: var(--color-primary-500);
+        }
+      }
+    }
+
+    &-third {
+      margin-bottom: 0;
+      margin-left: 56px;
+      height: 350px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        margin-bottom: 32px;
+        margin-left: 300px;
+        width: 717px;
+        height: 237px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        justify-content: center;
+        margin-left: 482px;
+        height: auto;
+      }
+
+      .phase__dropdown {
+        &::after {
+          height: 697px;
+        }
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          width: 340px;
+
+          &::after {
+            height: 801px;
+          }
+        }
+
+        @include m.breakpoint(v.$desktop-sm) {
+          width: 100%;
+
+          &::after {
+            height: 2px;
+          }
+        }
+
+        &::before,
+        &::after {
+          background-color: var(--color-primary-700);
+        }
+      }
+    }
+
+    &-forth {
+      margin-left: 76px;
+      padding-bottom: 145px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        margin-left: 400px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        margin-left: 721px;
+      }
+
+      &__new-apps {
+        @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale();
+
+        width: 100%;
+
+        &::after {
+          height: 347px;
+        }
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          &::after {
+            height: 535px;
+          }
+        }
+
+        @include m.breakpoint(v.$desktop-sm) {
+          text-align: center;
+
+          &::after {
+            height: 2px;
+          }
+        }
+
+        &::before,
+        &::after {
+          background-color: var(--graphics-amber);
+        }
+      }
+    }
+  }
+}

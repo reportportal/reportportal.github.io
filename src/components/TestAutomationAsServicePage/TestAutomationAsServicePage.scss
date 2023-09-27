@@ -1,0 +1,35 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.test-automation {
+  .dashboard-header {
+    .container {
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        padding: 0 64px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        padding: 0 24px;
+      }
+    }
+
+    &__heading h2 {
+      max-width: 280px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        max-width: 575px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        max-width: none;
+      }
+    }
+  }
+
+  .testing-bottom-block__description {
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-bottom: 40px;
+      max-width: 980px;
+    }
+  }
+}
