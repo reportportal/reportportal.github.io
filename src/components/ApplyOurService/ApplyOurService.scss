@@ -1,0 +1,29 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.apply-our-service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  justify-content: flex-end;
+  gap: 32px;
+  padding-top: 64px;
+  padding-bottom: 146px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    padding-top: 184px;
+    padding-bottom: 250px;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    .btn--large {
+      width: 196px;
+    }
+  }
+}

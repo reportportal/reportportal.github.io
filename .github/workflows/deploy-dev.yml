@@ -11,15 +11,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Deploy to dev (AWS S3)
+name: Deploy to AWS S3
 env:
   AWS_S3_BUCKET_NAME : "rpp-landing"
   AWS_REGION_NAME : "eu-central-1"
-  BUILD_DIR : "dist/"
+  BUILD_DIR : "public/"
   SALESFORCE_URL: https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
   SALESFORCE_OID: 00D7a0000005481
   SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N7T000000i00E
-  DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com/
+  DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
+  GTM_ID: GTM-MK7ZHTL
 
 on:
   push:
@@ -51,18 +52,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 12.13.0
+          node-version: 18
 
       - name: Install of node dependencies
         run: npm install
 
       - name: create env file
         run: |
-          touch .env
-          echo SALESFORCE_URL=${{ env.SALESFORCE_URL }} >> .env
-          echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env
-          echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env
-          echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env
+          touch .env.production
+          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN_DEV }} >> .env.production
+          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID_DEV }} >> .env.production
+          echo GTM_ID=${{ env.GTM_ID }} >> .env.production
+          echo SALESFORCE_URL=${{ env.SALESFORCE_URL }} >> .env.production
+          echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env.production
+          echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env.production
+          echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production
 
       - name: Build the source code
         run: npm run build

@@ -1,0 +1,15 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.article-author {
+  @include m.font-poppins(v.$fw-medium);
+
+  display: flex;
+  margin-top: auto;
+  margin-bottom: 0;
+  color: var(--text-service);
+
+  &__icon {
+    margin-right: 8px;
+  }
+}

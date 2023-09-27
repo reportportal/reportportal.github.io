@@ -1,0 +1,86 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.switcher {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__inner {
+    @include m.font-poppins(v.$fw-semi-bold);
+
+    display: flex;
+    width: 100%;
+    max-width: 490px;
+    border-radius: 80px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+  }
+
+  &__inner-increased {
+    max-width: 722px;
+  }
+
+  &__btn {
+    display: flex;
+    width: 50%;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    border-radius: 80px;
+    background-color: transparent;
+    transition: all 0.4s ease-out;
+    transform: scale(0.95);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--white);
+    }
+  }
+
+  &__text {
+    margin-left: 10px;
+
+    &-increased {
+      display: none;
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      &-increased {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__active {
+    background-color: var(--white);
+    color: var(--color-primary-700);
+    transform: scale(1);
+
+    &:hover {
+      color: var(--color-primary-700);
+    }
+  }
+
+  &__icon {
+    display: none;
+    margin-bottom: -4px;
+
+    &-increased {
+      display: inline-block;
+    }
+
+    @include m.breakpoint(v.$phone) {
+      display: none;
+
+      &-increased {
+        display: inline-block;
+      }
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      display: inline-block;
+    }
+  }
+}

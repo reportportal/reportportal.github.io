@@ -1,0 +1,24 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.subscription-form-card {
+  @include m.font-scale(base);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  min-height: 80px;
+  color: var(--text-primary);
+
+  &__title {
+    @include m.font-poppins(v.$fw-semi-bold);
+  }
+
+  &__subtitle {
+    @include m.font-noto-sans();
+
+    margin-top: 8px;
+  }
+}

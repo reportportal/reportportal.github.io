@@ -1,0 +1,110 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@import 'font/index';
+@import 'buttons';
+@import 'css-variables';
+
+html * {
+  box-sizing: border-box;
+}
+
+body {
+  @include font-noto-sans();
+  @include font-scale();
+
+  background: var(--white);
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--text-grey);
+  }
+
+  &:active {
+    color: var(--color-primary-700);
+  }
+}
+
+.link {
+  color: var(--color-primary-600);
+
+  &:hover {
+    color: var(--color-primary-500);
+  }
+
+  &:active {
+    color: var(--color-primary-700);
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+}
+
+.ant-drawer-mask {
+  backdrop-filter: blur(8px);
+  background: rgba(47, 60, 95, 0.5) !important;
+}
+
+.ant-modal-mask,
+.ant-modal-wrap,
+.ant-drawer {
+  z-index: var(--z-index-drawer) !important;
+}
+
+.ant-drawer-content-wrapper {
+  box-shadow: unset !important;
+}
+
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    max-width: calc(var(--size-max-width) + 48px);
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    width: calc(var(--size-max-width) + 48px);
+  }
+}
+
+.temporary-hide {
+  display: none !important;
+}
+
+@keyframes progressAnimation {
+  100% {
+    background-position: left;
+  }
+}
