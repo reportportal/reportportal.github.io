@@ -16,7 +16,7 @@ env:
   SALESFORCE_URL: https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
   SALESFORCE_OID: 00D24000000k2Rp
   SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N7T000000i00E
-  DOCUMENTATION_URL: //reportportal.io/documentation/
+  DOCUMENTATION_URL: //reportportal.io/docs/
   DOCUMENTATION_BRANCH: https://github.com/reportportal/documentation/edit/master/
   GTM_ID: GTM-MK7ZHTL
   BUILD_DIR : "public/"
