@@ -58,8 +58,8 @@ export const DATA_PLANS = [
     feature: 'Technical support hours',
     description:
       'A technical support hour (pre-paid) is a blended hour, included in your subscription plan, that consists of Application Support Specialist time.It can be used for integration, operation and features-related queries.',
-    startup: '10',
-    business: '5',
+    startup: '5',
+    business: '10',
     enterprise: 'Dedicated specialist',
   },
   {
@@ -357,8 +357,8 @@ export const OFFERS_DATA = [
     ],
     price: {
       currency: '$',
-      value: 629,
-      discountedValue: 599,
+      value: 599,
+      discountedValue: 569,
       period: 'month',
       message: '',
     },
@@ -381,8 +381,8 @@ export const OFFERS_DATA = [
     ],
     price: {
       currency: '$',
-      value: 2939,
-      discountedValue: 2799,
+      value: 2799,
+      discountedValue: 2659,
       period: 'month',
       message: '',
     },

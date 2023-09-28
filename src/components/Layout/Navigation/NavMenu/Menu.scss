@@ -1,7 +1,5 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/variables';
-@import 'src/styles/mixins/breakpoint';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .menu-dialog {
   border-radius: 0 0 16px 16px;
@@ -71,8 +69,8 @@
   }
 
   &__btn-text {
-    @include font-poppins($fw-semi-bold);
-    @include font-scale(base);
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(base);
 
     border: none;
     padding: 10px 8px 10px 40px;

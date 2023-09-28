@@ -10,7 +10,7 @@ export const STATISTIC_INFO = [
     action: 'Among our clients',
   },
   {
-    quantity: '40M+',
+    quantity: '46M+',
     doer: 'Launches/year',
     action: 'Testing activity of our users',
   },

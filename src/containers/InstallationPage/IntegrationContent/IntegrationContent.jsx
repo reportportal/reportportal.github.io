@@ -5,6 +5,7 @@ import { SupportedFrameworks } from '@components/SupportedFrameworks';
 import { Link } from '@components/Link';
 
 import { IntegrationScheme } from './IntegrationScheme';
+
 import '../InstallationPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['installation']);

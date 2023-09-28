@@ -1,7 +1,4 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/variables';
-@import 'src/styles/mixins/breakpoint';
+@use 'src/styles/mixins' as m;
 
 .solutions-list__item {
   &-icon {
@@ -23,7 +20,7 @@
   }
 
   &:first-child .solutions-list__item__title::after {
-    @include font-noto-sans();
+    @include m.font-noto-sans();
 
     content: '(home)';
     display: inline-block;

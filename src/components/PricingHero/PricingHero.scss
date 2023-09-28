@@ -6,8 +6,12 @@
   min-height: 500px;
   padding: var(--header-height) 16px 273px;
   margin-top: calc(-1 * var(--header-height));
-  background-size: cover;
   background: url('./assets/bg.svg') no-repeat -50px -40px;
+
+  @include m.breakpoint(v.$desktop-md) {
+    background-size: cover;
+    background-position: center;
+  }
 
   &__btn-box {
     display: flex;

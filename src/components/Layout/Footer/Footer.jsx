@@ -55,7 +55,7 @@ export const Footer = () => {
               ReportPortal is a service, that provides increased capabilities to speed up results
               analysis and reporting through the use of built-in analytics features.
             </span>
-            <span>© {new Date().getFullYear()} EPAM</span>
+            <span>© {new Date().getFullYear()} ReportPortal</span>
           </div>
           <div className={getBlocksWith('__navigation-links')}>
             <FooterList title="PRODUCT" items={PRODUCT_LINKS} />

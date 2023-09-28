@@ -46,7 +46,7 @@ export const Navigation = () => {
   const menuLinksRef = useRef(null);
 
   const scroll = useScroll();
-  const [isMobileMenuOpen, { toggle: toggleMobileMenu, setLeft: closeMobileMenu }] = useToggle();
+  const [isMobileMenuOpen, { setRight: openMobileMenu, setLeft: closeMobileMenu }] = useToggle();
   const [githubCounter, setGithubCounter] = useState(githubStats.repos.reportportal);
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
   const scrollY = scroll?.top ?? 0;
@@ -77,8 +77,24 @@ export const Navigation = () => {
     fetchGithubStars();
   }, []);
 
+  useEffect(() => {
+    const handleClick = event => {
+      const shouldCloseMenu = ['a', 'button'].some(tagName => event.target.closest(tagName));
+
+      if (shouldCloseMenu) {
+        closeMobileMenu();
+      }
+    };
+
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    mobileMenu?.addEventListener('click', handleClick);
+
+    return () => mobileMenu?.removeEventListener('click', handleClick);
+  }, [isMobileMenuOpen, closeMobileMenu]);
+
   const logo = (
-    <Link to="/" onClick={closeMobileMenu} className={getBlocksWith('-navigation__logoLink')}>
+    <Link to="/" className={getBlocksWith('-navigation__logoLink')}>
       <NavLogoIcon />
     </Link>
   );
@@ -178,7 +194,7 @@ export const Navigation = () => {
             <button
               className={getBlocksWith('-navigation__burgerButton')}
               type="button"
-              onClick={toggleMobileMenu}
+              onClick={openMobileMenu}
             >
               <BurgerIcon />
             </button>
@@ -191,10 +207,7 @@ export const Navigation = () => {
         title={
           <>
             {logo}
-            <button
-              className={getBlocksWith('-navigation__closeButton')}
-              onClick={toggleMobileMenu}
-            >
+            <button type="button" className={getBlocksWith('-navigation__closeButton')}>
               <CrossIcon />
             </button>
           </>
@@ -202,7 +215,7 @@ export const Navigation = () => {
         placement="right"
         closable={false}
         open={!isDesktop && isMobileMenuOpen}
-        onClose={toggleMobileMenu}
+        onClose={openMobileMenu}
       >
         <Collapse expandIconPosition="end" ghost accordion>
           {MENU_ORDER.map(menuItem => {

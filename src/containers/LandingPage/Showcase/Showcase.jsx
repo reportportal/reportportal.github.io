@@ -28,8 +28,6 @@ import MilwaukeeIcon from './icons/milwaukee.inline.svg';
 import PearsonIcon from './icons/pearson.inline.svg';
 import RingIcon from './icons/ring.inline.svg';
 import DellIcon from './icons/dell.inline.svg';
-import videoSrcMp4 from './RP_promo_video.mp4';
-import videoSrcWebm from './RP_promo_video.webm';
 
 import './Showcase.scss';
 
@@ -78,8 +76,8 @@ export const Showcase = () => {
       <div className={getBlocksWith()}>
         <div className={getBlocksWith('__bg-video-container')}>
           <video className={getBlocksWith('__bg-video')} autoPlay loop muted>
-            <source src={videoSrcWebm} type="video/webm" />
-            <source src={videoSrcMp4} type="video/mp4" />
+            <source src="/RP_promo_video.webm" type="video/webm" />
+            <source src="/RP_promo_video.mp4" type="video/mp4" />
             Your browser does not support the video tag
           </video>
         </div>
@@ -93,11 +91,11 @@ export const Showcase = () => {
         <div className={getBlocksWith('__btn-row')}>
           <div className={getBlocksWith('__btn-group')}>
             <Link
-              className="btn btn--secondary btn--large temporary-hide"
-              to="/contact-us/general"
+              className="btn btn--secondary btn--large"
+              to="https://demo.reportportal.io/"
               data-gtm="start_free_trial"
             >
-              Start free trial
+              Try Demo
             </Link>
             <Link
               className="btn btn--outline-2 btn--large"
