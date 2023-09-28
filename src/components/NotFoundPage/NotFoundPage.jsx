@@ -3,7 +3,6 @@ import classNames from 'classnames';
 
 import { createBemBlockBuilder } from '../../utils';
 import { Link } from '../Link';
-import ArrowIcon from '../../svg/arrow.inline.svg';
 import NotFoundIcon from './svg/not-found.inline.svg';
 
 import './NotFoundPage.scss';
@@ -20,19 +19,19 @@ export const NotFoundPage = () => (
           <h1>Page not found</h1>
           <p className={getBlocksWith('__sub-title')}>
             Sorry, this page doesn&apos;t exist or may have been moved
+            <br />
+            Here are some helpful options:
           </p>
         </div>
         <div>
           <div>
-            <p>Here are some helpful options:</p>
             <div className={getBlocksWith('__options')}>
-              <p>Check our:</p>
-              <Link to={DOCUMENTATION_URL}>
-                Documentation
-                <ArrowIcon />
-              </Link>
-              <p>Contact Support:</p>
-              <Link to="mailto:support@reportportal.io">support@reportportal.io</Link>
+              <p>
+                Check our <Link to={DOCUMENTATION_URL}>Documentation</Link>
+              </p>
+              <p>
+                Contact <Link to="mailto:support@reportportal.io">Support</Link>
+              </p>
             </div>
           </div>
         </div>

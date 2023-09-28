@@ -65,23 +65,10 @@
     a,
     p {
       @include m.font-poppins(v.$fw-semi-bold);
-
-      svg {
-        margin-left: 11px;
-      }
     }
 
     a {
-      @include m.font-scale();
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 10px;
-
-      &:last-of-type {
-        text-decoration: underline;
-      }
+      text-decoration: underline;
 
       &:hover {
         color: var(--white);
