@@ -12,6 +12,9 @@
 # limitations under the License.
 
 name: CI Build
+env:
+  GTM_ID: GTM-MK7ZHTL
+  DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
 
 on:
   pull_request:
@@ -28,10 +31,18 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 12.13.0
+          node-version: 18
 
       - name: Install of node dependencies
         run: npm install
+
+      - name: create env file
+        run: |
+          touch .env.production
+          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN_DEV }} >> .env.production
+          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID_DEV }} >> .env.production
+          echo GTM_ID=${{ env.GTM_ID }} >> .env.production
+          echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production
 
       - name: Build the source code
         run: npm run build

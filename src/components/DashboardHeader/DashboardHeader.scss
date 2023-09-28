@@ -8,6 +8,11 @@
   background-position: center 0;
   padding-top: var(--header-height);
 
+  @include m.breakpoint(v.$desktop-md) {
+    background-size: cover;
+    background-position: center 0;
+  }
+
   &__heading {
     padding-top: 80px;
     text-align: center;
