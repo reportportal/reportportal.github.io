@@ -1,13 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { Link } from '../Link';
+import { createBemBlockBuilder } from '@utils';
+import { DOCUMENTATION_URL } from '@utils/constants';
+import { Link } from '@components/Link';
+
 import NotFoundIcon from './svg/not-found.inline.svg';
 
 import './NotFoundPage.scss';
 
-const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 const getBlocksWith = createBemBlockBuilder(['not-found-page']);
 
 export const NotFoundPage = () => (
