@@ -1,4 +1,4 @@
-import cn from 'classnames';
+import classNames from 'classnames';
 
 export const createBemBlockBuilder = blocks => {
   const cleanedBlocks = blocks.reduce(
@@ -8,5 +8,8 @@ export const createBemBlockBuilder = blocks => {
   );
 
   return (elementOrModifier = '') =>
-    cleanedBlocks.reduce((classList, block) => cn(classList, `${block}${elementOrModifier}`), '');
+    cleanedBlocks.reduce(
+      (classList, block) => classNames(classList, `${block}${elementOrModifier}`),
+      '',
+    );
 };

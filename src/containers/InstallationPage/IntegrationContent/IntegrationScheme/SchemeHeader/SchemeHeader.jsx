@@ -3,7 +3,8 @@ import classNames from 'classnames';
 
 import { createBemBlockBuilder } from '@utils';
 
-import { EventNode, ActionNode } from '../SchemeRow';
+import { ActionNode } from '../ActionNode';
+import { EventNode } from '../EventNode';
 
 import '../IntegrationScheme.scss';
 

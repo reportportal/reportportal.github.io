@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import noop from 'lodash/noop';
-import compact from 'lodash/compact';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { BLOCKS } from '@contentful/rich-text-types';
 
 import { ArrowLeft } from '@svg/arrowLeft.jsx';
 import { createBemBlockBuilder } from '@utils';
 import DownloadIcon from '@svg/download.inline.svg';
 import { Link } from '@components/Link';
 import { SubscriptionBanner } from '@components/SubscriptionBanner';
+
+import { OPTIONS } from './constants';
 
 import './CaseStudyPage.scss';
 
@@ -44,42 +44,6 @@ export const CaseStudyPage = ({ title, industry, challenges, highlights, benefit
     window.addEventListener('resize', setupTable);
     return () => window.removeEventListener('resize', setupTable);
   });
-
-  const options = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => {
-        const childrenArray = React.Children.toArray(children);
-
-        if (!compact(childrenArray).length) {
-          return null;
-        }
-
-        return <p className={getBlocksWith('__column--description')}>{children}</p>;
-      },
-      [BLOCKS.LIST_ITEM]: (node, children) => {
-        return children.map((item, index) => (
-          <li className={getBlocksWith('__column--list--item')} key={index}>
-            {item}
-          </li>
-        ));
-      },
-      [BLOCKS.EMBEDDED_ASSET]: node => {
-        const { url, description } = node.data.target;
-        return <img className={getBlocksWith('__column--image')} src={url} alt={description} />;
-      },
-      [BLOCKS.HEADING_4]: (node, children) => {
-        return <h4 className={getBlocksWith('__column--title')}>{children}</h4>;
-      },
-      [BLOCKS.HEADING_6]: (node, children) => {
-        return <h6 className={getBlocksWith('__column--intro')}>{children}</h6>;
-      },
-      [BLOCKS.TABLE]: (node, children) => (
-        <table className={getBlocksWith('__column--table')}>
-          <tbody>{children}</tbody>
-        </table>
-      ),
-    },
-  };
 
   return (
     <>
@@ -116,17 +80,17 @@ export const CaseStudyPage = ({ title, industry, challenges, highlights, benefit
           <div className={getBlocksWith('__case-columns')}>
             <div className={getBlocksWith('__challenges')}>
               <div className={getBlocksWith('__challenges--body')}>
-                {challenges?.raw && renderRichText(challenges, options)}
+                {challenges?.raw && renderRichText(challenges, OPTIONS)}
               </div>
             </div>
             <div className={getBlocksWith('__highlights')}>
               <div className={getBlocksWith('__highlights--body')}>
-                {highlights?.raw && renderRichText(highlights, options)}
+                {highlights?.raw && renderRichText(highlights, OPTIONS)}
               </div>
               {benefitsResults?.raw && (
                 <div className={getBlocksWith('__benefitsResults')}>
                   <div className={getBlocksWith('__benefitsResults--body')}>
-                    {renderRichText(benefitsResults, options)}
+                    {renderRichText(benefitsResults, OPTIONS)}
                   </div>
                 </div>
               )}

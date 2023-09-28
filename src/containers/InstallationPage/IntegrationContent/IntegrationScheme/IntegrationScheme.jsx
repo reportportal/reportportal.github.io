@@ -6,8 +6,9 @@ import { Divider } from 'antd';
 
 import { createBemBlockBuilder, mediaTabletSm } from '@utils';
 
-import { Arrow, SchemeRow } from './SchemeRow';
+import { SchemeRow } from './SchemeRow';
 import { SchemeHeader } from './SchemeHeader';
+import { Arrow } from './Arrow';
 import { SCHEME_DATA } from './constants';
 
 import '../../InstallationPage.scss';

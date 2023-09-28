@@ -76,7 +76,8 @@
         "arrowParens": "avoid"
       }
     ],
-    "react-hooks/exhaustive-deps": 1
+    "react-hooks/exhaustive-deps": 1,
+    "react/no-multi-comp":  [2, { "ignoreStateless": false }]
   },
   "overrides": [
     {

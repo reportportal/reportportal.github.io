@@ -1,6 +1,6 @@
 import React from 'react';
 import noop from 'lodash/noop';
-import cx from 'classnames';
+import classNames from 'classnames';
 
 import { createBemBlockBuilder } from '@utils';
 import { usePricingHeroProps } from '@hooks/usePricingHeroProps';
@@ -79,7 +79,7 @@ export const OfferPageWrapper = ({
         mobileColumns={MOBILE_COLUMNS}
       />
       {page === 'pricing' && (
-        <div className={cx(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
+        <div className={classNames(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
           <TrustedOrganizations />
         </div>
       )}
