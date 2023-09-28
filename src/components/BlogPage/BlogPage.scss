@@ -11,6 +11,10 @@
   background-repeat: no-repeat;
   z-index: 20;
 
+  @include m.breakpoint(v.$desktop-md) {
+    background-size: cover;
+  }
+
   &__main {
     display: block;
     grid-template-columns: 0 1fr;

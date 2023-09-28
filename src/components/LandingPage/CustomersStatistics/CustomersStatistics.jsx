@@ -30,7 +30,7 @@ export const CustomersStatistics = () => (
             <span>Among our clients</span>
           </li>
           <li>
-            <strong>40M+</strong>
+            <strong>46M+</strong>
             <strong>Launches/year</strong>
             <span>Testing activity of our users</span>
           </li>

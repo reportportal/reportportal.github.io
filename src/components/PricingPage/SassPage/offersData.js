@@ -13,8 +13,8 @@ export const offersData = [
     ],
     price: {
       currency: '$',
-      value: 629,
-      discountedValue: 599,
+      value: 599,
+      discountedValue: 569,
       period: 'month',
       message: '',
     },
@@ -37,8 +37,8 @@ export const offersData = [
     ],
     price: {
       currency: '$',
-      value: 2939,
-      discountedValue: 2799,
+      value: 2799,
+      discountedValue: 2659,
       period: 'month',
       message: '',
     },
