@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import { ArticlePreview } from '@components/ArticlePreview';
 import { SubscriptionBanner } from '@components/SubscriptionBanner';
@@ -18,10 +17,7 @@ export const BlogPage = ({ posts, nodes, loadMorePost }) => (
         <ArticlePreview posts={posts} />
         {posts.length < nodes.length && (
           <div className={getBlocksWith('__footer')}>
-            <button
-              className={classNames('btn', 'btn--outline', 'btn--large')}
-              onClick={loadMorePost}
-            >
+            <button className="btn btn--outline btn--large" onClick={loadMorePost}>
               Load more
             </button>
           </div>

@@ -18,7 +18,7 @@ export const BlogPostPage = ({ industry, title, author, date, articleBody }) => 
         <p className="blog-post-page__industry">{industry}</p>
         <h1 className="blog-post-page__title">{title?.title}</h1>
         <div className="blog-post-page__info">
-          <Link className="btn btn--white btn--large back-to-blog" to={'/blog/'}>
+          <Link className="btn btn--white btn--large back-to-blog" to="/blog/">
             <img src={ArrowLeft} alt="arrow left" />
             Back to blog
           </Link>
