@@ -85,7 +85,7 @@ export const Seo = ({ description = '', lang = 'en', meta = [], title, image }) 
         src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"
         data-domain-script="77055ecd-ec2c-461a-bf1c-3e84d715e668"
       />
-      <script type="text/javascript">{`function OptanonWrapper() { }`}</script>
+      <script type="text/javascript">{'function OptanonWrapper() { }'}</script>
     </Helmet>
   );
 };
