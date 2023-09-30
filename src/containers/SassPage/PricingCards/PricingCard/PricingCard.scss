@@ -1,0 +1,134 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 387px;
+  padding: 32px 32px 32px;
+  border-radius: 15px;
+  background: var(--white);
+  box-shadow: 0 4px 16px rgba(16, 46, 52, 0.1);
+  transition: box-shadow 0.4s ease-out;
+
+  @include m.breakpoint(v.$phone) {
+    height: 630px;
+  }
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(57, 109, 120, 0.3);
+  }
+
+  &__popular {
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(small);
+
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    border-radius: 15px;
+    padding: 4px 30px;
+    transform: translateX(-50%);
+    background: var(--graphics-amber);
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--white);
+    z-index: 2;
+    width: 198px; //phone
+  }
+
+  &__title {
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(x3-medium);
+
+    text-align: center;
+    color: var(--dark);
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-poppins(v.$fw-bold);
+      @include m.font-scale(large);
+    }
+  }
+
+  &__description {
+    @include m.font-noto-sans(base);
+
+    height: 80px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+  }
+
+  &__price {
+    @include m.font-noto-sans(base);
+
+    margin-bottom: 18px;
+    color: var(--text-primary);
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-bottom: 24px;
+    }
+
+    span {
+      @include m.font-scale(large);
+      @include m.font-poppins(v.$fw-bold);
+
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  &__bottom-panel {
+    text-align: center;
+  }
+
+  ul {
+    position: relative;
+    margin: 0 0 44px 10px;
+    list-style: none;
+    white-space: pre-wrap;
+
+    @include m.breakpoint(v.$phone) {
+      margin: 0 18px 35px;
+    }
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      padding-left: 12px;
+      margin: 0 0 49px 16px;
+    }
+
+    li {
+      @include m.font-poppins(v.$fw-medium);
+      @include m.font-scale(base);
+
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 26px;
+      color: var(--text-primary);
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+      }
+    }
+  }
+
+  .btn {
+    width: 100%;
+    margin: 0 auto;
+
+    &--outline {
+      padding: 14px 32px;
+    }
+  }
+}

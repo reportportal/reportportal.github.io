@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { Layout } from '../../components/Layout';
-import { QaspPage } from '../../components/AcceleratorsPage';
+import { Layout } from '@components/Layout';
+import { QaspPage } from '@containers/AcceleratorsPage';
 
-const Qasp = () => {
-  return (
-    <Layout className="offer-page-wrapper">
-      <QaspPage />
-    </Layout>
-  );
-};
+const Qasp = () => (
+  <Layout className="offer-page-wrapper">
+    <QaspPage />
+  </Layout>
+);
 
 export default Qasp;

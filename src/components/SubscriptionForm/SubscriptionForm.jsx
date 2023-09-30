@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
+
 import { Link } from '../Link';
-import { EnvelopeIcon } from '../NavMenu/icons';
+import { EnvelopeIcon } from './icons';
 import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';
@@ -52,7 +53,7 @@ export const SubscriptionForm = ({ subscriptionFormState, setSubscriptionFormSta
     <Form
       form={form}
       onFinish={handleFinish}
-      className={cx(getBlocksWith('__form'), getBlocksWith('__form--error'))}
+      className={classNames(getBlocksWith('__form'), getBlocksWith('__form--error'))}
     >
       <div className={getBlocksWith('__form-group')}>
         <Form.Item
@@ -74,7 +75,7 @@ export const SubscriptionForm = ({ subscriptionFormState, setSubscriptionFormSta
         {() => (
           <button
             type="submit"
-            className={cx('btn', 'btn--primary')}
+            className={classNames('btn', 'btn--primary')}
             disabled={form.isFieldsTouched(true) && !isValid}
           >
             Subscribe

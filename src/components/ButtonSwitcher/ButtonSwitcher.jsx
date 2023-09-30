@@ -1,17 +1,17 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
+
 import { Link } from '../Link';
+import { INCREASED_BUTTON_NUMBER } from './constants';
 
 import './ButtonSwitcher.scss';
-
-const INCREASED_BUTTON_NUMBER = 3;
 
 const getBlocksWith = createBemBlockBuilder(['switcher']);
 
 export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
-  const hasAdditionalButton = () => buttons.length === INCREASED_BUTTON_NUMBER;
+  const hasAdditionalButton = buttons.length === INCREASED_BUTTON_NUMBER;
 
   const isActive = btnName => btnName === activeBtnName;
 
@@ -19,15 +19,15 @@ export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
     const buttonText = (
       <>
         <div
-          className={cx(getBlocksWith('__icon'), {
-            [getBlocksWith('__icon-increased')]: hasAdditionalButton(),
+          className={classNames(getBlocksWith('__icon'), {
+            [getBlocksWith('__icon-increased')]: hasAdditionalButton,
           })}
         >
           {btn.iconComponent(btn)}
         </div>
         <span
-          className={cx(getBlocksWith('__text'), {
-            [getBlocksWith('__text-increased')]: hasAdditionalButton(),
+          className={classNames(getBlocksWith('__text'), {
+            [getBlocksWith('__text-increased')]: hasAdditionalButton,
           })}
         >
           {btn.text}
@@ -47,7 +47,7 @@ export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
     ) : (
       <div
         key={btn.text}
-        className={cx(getBlocksWith('__btn'), {
+        className={classNames(getBlocksWith('__btn'), {
           [getBlocksWith('__active')]: isActive(btn.text),
         })}
         onClick={() => onSwitch(btn.text)}
@@ -60,8 +60,8 @@ export const ButtonSwitcher = ({ buttons, onSwitch, activeBtnName }) => {
   return (
     <div className={getBlocksWith()}>
       <div
-        className={cx(getBlocksWith('__inner'), {
-          [getBlocksWith('__inner-increased')]: hasAdditionalButton(),
+        className={classNames(getBlocksWith('__inner'), {
+          [getBlocksWith('__inner-increased')]: hasAdditionalButton,
         })}
       >
         {buttons.map(getWrappedButton)}

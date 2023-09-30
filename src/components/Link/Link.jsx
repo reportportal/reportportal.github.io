@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 
-import { isAbsoluteURL } from '../../utils';
-
-const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
+import { isAbsoluteURL } from '@utils';
+import { DOCUMENTATION_URL } from '@utils/constants';
 
 // These links are considered SEO trusted, they should be opened in the new tab without "rel" attribute set
 const TRUSTED_DOMAINS = [

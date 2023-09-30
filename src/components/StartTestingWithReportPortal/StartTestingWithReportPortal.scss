@@ -1,7 +1,5 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/variables';
-@import 'src/styles/mixins/breakpoint';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .start-testing-with-report-portal {
   display: flex;
@@ -11,12 +9,12 @@
   padding-top: 80px;
   padding-bottom: 80px;
 
-  @include breakpoint($tablet-sm-exact) {
+  @include m.breakpoint(v.$tablet-sm-exact) {
     width: 520px;
     padding: 120px 0;
   }
 
-  @include breakpoint($desktop-sm) {
+  @include m.breakpoint(v.$desktop-sm) {
     flex-direction: row;
     justify-content: space-between;
     width: auto;
@@ -32,34 +30,34 @@
 
     &-heading {
       h2 {
-        @include font-poppins($fw-bold);
-        @include font-scale(x4-medium);
+        @include m.font-poppins(v.$fw-bold);
+        @include m.font-scale(x4-medium);
 
         margin: 0;
         color: var(--text-primary);
 
-        @include breakpoint($tablet-sm-exact) {
-          @include font-scale(large);
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          @include m.font-scale(large);
         }
 
-        @include breakpoint($desktop-sm) {
-          @include font-scale(x3-large);
+        @include m.breakpoint(v.$desktop-sm) {
+          @include m.font-scale(x3-large);
         }
       }
 
       h3 {
-        @include font-noto-sans();
-        @include font-scale(medium);
+        @include m.font-noto-sans();
+        @include m.font-scale(medium);
 
         margin: 16px 0 0;
         color: var(--text-primary);
 
         b {
-          font-weight: $fw-bold;
+          font-weight: v.$fw-bold;
         }
 
-        @include breakpoint($desktop-sm) {
-          @include font-scale(x2-medium);
+        @include m.breakpoint(v.$desktop-sm) {
+          @include m.font-scale(x2-medium);
         }
       }
     }
@@ -72,7 +70,7 @@
       width: 100%;
       margin-top: 48px;
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         flex-direction: row;
 
         button {
@@ -80,7 +78,7 @@
         }
       }
 
-      @include breakpoint($desktop-sm) {
+      @include m.breakpoint(v.$desktop-sm) {
         flex-direction: row;
         width: auto;
       }

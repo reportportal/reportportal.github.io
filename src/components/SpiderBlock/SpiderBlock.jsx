@@ -2,14 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './SpiderBlock.scss';
+import { LEFT_ASIDE_TEXT, RIGHT_ASIDE_TEXT } from './constants';
 
-const LEFT_ASIDE_TEXT = ['Performance Testing', 'Accessibility Testing', 'Exploratory Testing'];
-const RIGHT_ASIDE_TEXT = [
-  'Test Automation',
-  'Test Case Authoring & Execution',
-  'Localization Testing',
-];
+import './SpiderBlock.scss';
 
 export const SpiderBlock = ({ blockType = 'original' }) => (
   <div className="spider container">

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
+
 import { SubscriptionForm } from '../SubscriptionForm';
 import { Banner } from '../Banner';
 
@@ -16,7 +17,7 @@ export const SubscriptionBanner = () => {
   });
 
   return (
-    <div className={cx(getBlocksWith(), 'temporary-hide')}>
+    <div className={classNames(getBlocksWith(), 'temporary-hide')}>
       <Banner
         title="Stay in the know"
         subtitle="Get the latest ReportPortal news, product updates and articles via email"

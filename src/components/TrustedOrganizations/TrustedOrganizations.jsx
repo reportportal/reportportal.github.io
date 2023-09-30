@@ -1,15 +1,16 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
+
+import { createBemBlockBuilder } from '@utils';
 
 import { icons } from './icons/iconsData';
-import { createBemBlockBuilder } from '../../utils';
 
 import './TrustedOrganizations.scss';
 
 const getBlocksWith = createBemBlockBuilder(['trusted-organizations']);
 
 export const TrustedOrganizations = () => (
-  <div className={cx(getBlocksWith())}>
+  <div className={classNames(getBlocksWith())}>
     <div className={getBlocksWith('__title')}>
       Trusted by the world&apos;s leading organizations
     </div>

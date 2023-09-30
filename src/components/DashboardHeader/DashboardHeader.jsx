@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
 
 import './DashboardHeader.scss';
 

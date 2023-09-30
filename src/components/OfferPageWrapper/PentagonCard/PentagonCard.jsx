@@ -1,7 +1,8 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder, formatNumberWithCommas } from '../../../utils';
+import { createBemBlockBuilder, formatNumberWithCommas } from '@utils';
+
 import { IconBlock } from '../../IconBlock';
 import { Link } from '../../Link';
 
@@ -31,7 +32,7 @@ export const PentagonCard = ({ stepNumber, hours, price, contactLink }) => {
       <Link to={contactLink}>
         <button
           type="button"
-          className={cx(
+          className={classNames(
             getBlocksWith('__contactButton'),
             'btn',
             `btn--${isFirstStep ? 'outline' : 'primary'}`,
