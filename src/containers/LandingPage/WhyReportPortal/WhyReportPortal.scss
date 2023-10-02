@@ -1,0 +1,88 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.why-report-portal {
+  padding-top: 120px;
+  padding-bottom: 80px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    @include m.font-scale(x3-large);
+
+    padding-bottom: 120px;
+  }
+
+  &__title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-medium);
+
+    margin: 0;
+    color: var(--text-primary);
+    text-align: center;
+
+    @include m.breakpoint(v.$phone-lg) {
+      @include m.font-scale(large);
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      @include m.font-scale(x3-large);
+    }
+  }
+
+  &__content {
+    margin-top: 64px;
+
+    @include m.breakpoint(v.$tablet-sm) {
+      margin-top: 64px;
+    }
+  }
+}
+
+.why-report-portal-list {
+  padding: 32px 0;
+  gap: 64px;
+  display: grid;
+  grid-template-columns: repeat(1, 280px);
+  justify-content: center;
+
+  @include m.breakpoint(v.$tablet-sm) {
+    justify-content: space-around;
+    grid-template-columns: repeat(2, 280px);
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    gap: 24px;
+    justify-content: center;
+    grid-template-columns: repeat(4, 280px);
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 1;
+    width: 282px;
+
+    h3 {
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(medium);
+
+      @include m.breakpoint(v.$tablet-sm) {
+        @include m.font-scale(x2-medium);
+      }
+
+      text-align: center;
+      margin: 40px 0 0;
+      color: var(--text-primary);
+    }
+
+    span {
+      @include m.font-noto-sans();
+      @include m.font-scale(medium);
+
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--text-primary);
+      text-align: center;
+    }
+  }
+}

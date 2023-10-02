@@ -23,7 +23,14 @@
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
+      },
+      "alias": [
+        ["@components", "./src/components"],
+        ["@containers", "./src/containers"],
+        ["@utils", "./src/utils"],
+        ["@svg", "./src/svg"],
+        ["@hooks", "./src/hooks"]
+      ]
     }
   },
   "rules": {
@@ -69,7 +76,8 @@
         "arrowParens": "avoid"
       }
     ],
-    "react-hooks/exhaustive-deps": 1
+    "react-hooks/exhaustive-deps": 1,
+    "react/no-multi-comp":  [2, { "ignoreStateless": false }]
   },
   "overrides": [
     {

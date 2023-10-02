@@ -1,7 +1,8 @@
 import React from 'react';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
+
 import { Link } from '../Link';
 
 import './Banner.scss';
@@ -20,7 +21,7 @@ export const Banner = ({ title, subtitle, link, linkTitle, children }) => (
           </div>
           {link && (
             <div className={getBlocksWith('__btn-wrapper')}>
-              <Link className={cx('btn', 'btn--primary', 'btn--large')} to={link}>
+              <Link className={classNames('btn', 'btn--primary', 'btn--large')} to={link}>
                 {linkTitle}
               </Link>
             </div>

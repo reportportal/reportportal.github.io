@@ -1,7 +1,5 @@
-@import 'src/styles/mixins/font';
-@import 'src/styles/mixins/font-scale';
-@import 'src/styles/mixins/breakpoint';
-@import 'src/styles/variables';
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
 
 .frameworks {
   display: flex;
@@ -11,7 +9,7 @@
   align-items: center;
   text-align: center;
 
-  @include breakpoint($tablet-sm) {
+  @include m.breakpoint(v.$tablet-sm) {
     padding: 0;
   }
 
@@ -25,13 +23,13 @@
     &-tabs {
       padding: 10px 24px;
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         padding-left: 32px;
         padding-right: 32px;
       }
 
       .ant-tabs-tab {
-        @include font-poppins($fw-semi-bold);
+        @include m.font-poppins(v.$fw-semi-bold);
       }
 
       :where(.css-dev-only-do-not-override-e4vwb2).ant-tabs .ant-tabs-tab-btn {
@@ -59,7 +57,7 @@
           right: 0;
           opacity: 1;
 
-          @include breakpoint($tablet-sm) {
+          @include m.breakpoint(v.$tablet-sm) {
             left: -25px;
             right: -25px;
           }
@@ -67,7 +65,7 @@
       }
 
       .ant-tabs-tab + .ant-tabs-tab {
-        @include breakpoint($tablet-sm) {
+        @include m.breakpoint(v.$tablet-sm) {
           margin-left: 0;
         }
       }
@@ -85,7 +83,7 @@
         right: -24px;
         left: -24px;
 
-        @include breakpoint($tablet-sm-exact) {
+        @include m.breakpoint(v.$tablet-sm-exact) {
           right: -32px;
           left: -32px;
         }
@@ -93,8 +91,8 @@
     }
 
     &-badge {
-      @include font-poppins($fw-semi-bold);
-      @include font-scale(x-small);
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(x-small);
 
       position: absolute;
       top: -10px;
@@ -113,15 +111,15 @@
       gap: 24px;
       padding: 24px;
 
-      @include breakpoint($tablet-sm-exact) {
+      @include m.breakpoint(v.$tablet-sm-exact) {
         padding: 32px;
       }
 
-      @include breakpoint(550px) {
+      @include m.breakpoint(550px) {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      @include breakpoint($tablet-sm) {
+      @include m.breakpoint(v.$tablet-sm) {
         grid-template-columns: repeat(4, 1fr);
       }
 

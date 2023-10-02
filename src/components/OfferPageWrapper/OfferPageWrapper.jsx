@@ -1,18 +1,21 @@
 import React from 'react';
 import noop from 'lodash/noop';
-import cx from 'classnames';
+import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
+import { usePricingHeroProps } from '@hooks/usePricingHeroProps';
+
 import { TrustedOrganizations } from '../TrustedOrganizations';
-import { usePricingHeroProps, PricingHero, ComparePlans } from '../PricingPage';
 import { Faq } from '../Faq';
+import { PricingHero } from '../PricingHero';
+import { ComparePlans } from '../ComparePlans';
 import { Banner } from '../Banner';
 import { Link } from '../Link';
 import { TimeScale } from './TimeScale';
 import { PentagonCard } from './PentagonCard';
-import { columns, getDataPlans, getFooterButtons, mobileColumns } from './dataPlans';
-import InfoIcon from './infoIcon.inline.svg';
-import { getOfferPrices } from './offerPrices';
+import { COLUMNS, MOBILE_COLUMNS } from './constants';
+import InfoIcon from './icons/infoIcon.inline.svg';
+import { getOfferPrices, getDataPlans, getFooterButtons } from './utils';
 
 import './OfferPageWrapper.scss';
 
@@ -70,13 +73,13 @@ export const OfferPageWrapper = ({
       </div>
       <ComparePlans
         dataPlans={getDataPlans(pagePath)}
-        columns={columns}
+        columns={COLUMNS}
         footerButtons={getFooterButtons(pagePath)}
         isCollapsibleOnMobile={false}
-        mobileColumns={mobileColumns}
+        mobileColumns={MOBILE_COLUMNS}
       />
       {page === 'pricing' && (
-        <div className={cx(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
+        <div className={classNames(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
           <TrustedOrganizations />
         </div>
       )}

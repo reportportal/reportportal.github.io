@@ -1,8 +1,9 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
-import { ArticlePreviewItem } from '../ArticlePreviewItem';
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@utils';
+
+import { ArticlePreviewItem } from './ArticlePreviewItem';
 
 import './ArticlePreview.scss';
 

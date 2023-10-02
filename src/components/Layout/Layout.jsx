@@ -6,10 +6,10 @@ import { atom, useAtom } from 'jotai';
 import '../../../static/antd.min.css'; // Will be generated at build time
 import '../../styles/global.scss';
 
-import { Seo } from '../Seo';
-import { Navigation } from '../Navigation';
-import { Footer } from '../Footer';
-import { EmbedVideo } from '../EmbedVideo';
+import { Seo } from './Seo';
+import { Navigation } from './Navigation';
+import { Footer } from './Footer';
+import { EmbedVideo } from './EmbedVideo';
 
 export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscribed: false });
 export const watchProductOverviewAtom = atom({ isOpen: false });

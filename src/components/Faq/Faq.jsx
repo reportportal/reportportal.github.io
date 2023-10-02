@@ -1,15 +1,16 @@
 import React from 'react';
 import { Collapse } from 'antd';
-import cx from 'classnames';
+import classNames from 'classnames';
+
+import ArrowIcon from '@svg/arrow.inline.svg';
+import { iconsCommon } from '@utils/imageSource';
+import { DOCUMENTATION_URL } from '@utils/constants';
+import { createBemBlockBuilder } from '@utils';
 
 import { Link } from '../Link';
-import ArrowIcon from '../../svg/arrow.inline.svg';
-import { iconsCommon } from '../../utils/imageSource';
-import { createBemBlockBuilder } from '../../utils';
 
 import './Faq.scss';
 
-const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 const getBlocksWith = createBemBlockBuilder(['faq']);
 
 export const Faq = ({
@@ -20,7 +21,7 @@ export const Faq = ({
 }) => {
   return (
     <>
-      <div className={cx('container', getBlocksWith())}>
+      <div className={classNames('container', getBlocksWith())}>
         <div className={getBlocksWith('__heading')}>
           <h1 id={titleId}>Frequently asked questions</h1>
         </div>
@@ -32,7 +33,7 @@ export const Faq = ({
             expandIconPosition="end"
             expandIcon={({ isActive }) => (
               <img
-                className={cx(getBlocksWith('__expandIcon'), {
+                className={classNames(getBlocksWith('__expandIcon'), {
                   [getBlocksWith('__expandIcon-active')]: isActive,
                 })}
                 src={iconsCommon.arrowLight}
