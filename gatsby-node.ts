@@ -5,7 +5,19 @@ const axios = require('axios');
 
 const { config: contactUsConfigs } = require('./src/templates/contact-us/config.js');
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+import { GatsbyNode } from "gatsby"
+
+type TypePost = {
+  slug: string
+}
+
+type TypeData = {
+  allContentfulBlogPost: {
+    nodes: TypePost[]
+  }
+}
+
+export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   await axios
@@ -17,7 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const blogPost = path.resolve('./src/templates/BlogPost/blog-post.js');
 
-  const result = await graphql(
+  const result = await graphql<TypeData>(
     `
       {
         allContentfulBlogPost {
@@ -61,54 +73,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         config: contactUsConfig,
       },
     });
-  });
-
-  const caseStudyTemplate = path.resolve('./src/templates/case-study/case-study.jsx');
-  const caseStudiesResponse = await graphql(
-    `
-      {
-        allContentfulCaseStudy {
-          nodes {
-            slug
-          }
-        }
-      }
-    `,
-  );
-
-  if (caseStudiesResponse.errors) {
-    reporter.panicOnBuild(
-      'There was an error loading your Contentful case studies',
-      caseStudiesResponse.errors,
-    );
-
-    return;
-  }
-
-  const caseStudies = caseStudiesResponse.data.allContentfulCaseStudy.nodes;
-
-  caseStudies.forEach(caseStudy => {
-    createPage({
-      path: `/case-studies/${caseStudy.slug}/`,
-      component: caseStudyTemplate,
-      context: {
-        slug: caseStudy.slug,
-      },
-    });
-  });
-};
-
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        '@components': path.resolve(__dirname, 'src/components'),
-        '@containers': path.resolve(__dirname, 'src/containers'),
-        '@utils': path.resolve(__dirname, 'src/utils'),
-        '@svg': path.resolve(__dirname, 'src/svg'),
-        '@hooks': path.resolve(__dirname, 'src/hooks'),
-      },
-    },
   });
 };
 

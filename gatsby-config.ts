@@ -60,7 +60,7 @@ module.exports = {
             }
           }
         }`,
-        serialize: ({ path }) => {
+        serialize: ({ path }: { path: string }) => {
           return {
             url: path,
           };

@@ -2,7 +2,6 @@
   "name": "reportportal.github.io",
   "version": "2.0.0",
   "description": "Landing for ReportPortal",
-  "main": "n/a",
   "scripts": {
     "predev": "node ./bin/gen-antd-css.js && gatsby develop -p 8080",
     "dev": "gatsby develop -p 8080",
@@ -56,6 +55,9 @@
     "reading-time": "^2.0.0-1"
   },
   "devDependencies": {
+    "@types/node": "^20.8.2",
+    "@types/react": "^18.2.24",
+    "@types/react-dom": "^18.2.10",
     "axios": "^1.4.0",
     "chalk": "^5.3.0",
     "contentful-import": "^8.0.0",
@@ -79,6 +81,7 @@
     "stylelint": "^15.10.3",
     "stylelint-config-standard-scss": "^11.0.0",
     "stylelint-order": "^6.0.3",
+    "typescript": "^5.2.2",
     "yargs-parser": "^21.1.1"
   },
   "peerDependencies": {
