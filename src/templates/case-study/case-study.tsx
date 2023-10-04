@@ -1,13 +1,12 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
+import { graphql, PageProps } from 'gatsby';
 
-import { Layout } from '@components/Layout';
-import { CaseStudyPage } from '@containers/CaseStudyPage';
+import { Layout } from '@/components/Layout';
+import { CaseStudyPage } from '@/containers/CaseStudyPage';
+import { DataProps } from './types';
 
-const CaseStudyTemplate = props => {
-  const caseStudy = get(props, 'data.contentfulCaseStudy');
-  const { title, industry, challenges, highlights, benefitsResults } = caseStudy;
+export const CaseStudyTemplate = ({ data }: PageProps<DataProps>) => {
+  const { title, industry, challenges, highlights, benefitsResults } = data.contentfulCaseStudy
 
   return (
     <Layout>
@@ -15,9 +14,6 @@ const CaseStudyTemplate = props => {
     </Layout>
   );
 };
-
-// eslint-disable-next-line import/no-default-export
-export default CaseStudyTemplate;
 
 export const pageQuery = graphql`
   query CaseStudyBySlug($slug: String!) {
