@@ -14,7 +14,11 @@ import { EmbedVideo } from './EmbedVideo';
 export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscribed: false });
 export const watchProductOverviewAtom = atom({ isOpen: false });
 
-export const Layout = ({ children, className }) => {
+interface Props {
+  children: JSX.Element,
+  className?: string
+}
+export const Layout = ({ children, className }: Props) => {
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
 

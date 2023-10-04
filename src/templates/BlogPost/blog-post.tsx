@@ -1,10 +1,11 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 
-import { BlogPostPage } from '@containers/BlogPostPage';
-import { Layout } from '@components/Layout';
+import { BlogPostPage } from '@/containers/BlogPostPage';
+import { Layout } from '@/components/Layout';
+import { DataProps } from './types';
 
-const BlogPostTemplate = ({ data }) => {
+const BlogPostTemplate = ({ data }: PageProps<DataProps>) => {
   const { industry, title, author, date, articleBody } = data?.contentfulBlogPost;
 
   return (
