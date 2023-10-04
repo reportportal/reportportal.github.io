@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
-import { graphql } from 'gatsby';
+import { PageProps, graphql } from 'gatsby';
 
-import { Layout } from '@components/Layout';
-import { BlogPage } from '@containers/BlogPage';
+import { Layout } from '@/components/Layout';
+import { BlogPage } from '@/containers/BlogPage';
 
 const PAGE_SIZE = 9;
 
-const BlogIndex = ({
-  data: {
-    allContentfulBlogPost: { nodes },
-  },
-}) => {
+interface DataProps {
+  allContentfulBlogPost: {
+    nodes: {
+      [key: string]: any
+    }
+  }
+}
+
+export const BlogIndex: React.FC<PageProps<DataProps>> = ({ data }) => {
+  const { nodes } = data.allContentfulBlogPost
+
   const [posts, setPosts] = useState(nodes.slice(0, PAGE_SIZE));
 
   const loadMorePost = () => setPosts(nodes.slice(0, posts.length + PAGE_SIZE));
@@ -21,8 +27,6 @@ const BlogIndex = ({
     </Layout>
   );
 };
-
-export default BlogIndex;
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
