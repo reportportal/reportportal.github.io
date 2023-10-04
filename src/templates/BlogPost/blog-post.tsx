@@ -6,7 +6,7 @@ import { Layout } from '@/components/Layout';
 import { DataProps } from './types';
 
 const BlogPostTemplate = ({ data }: PageProps<DataProps>) => {
-  const { industry, title, author, date, articleBody } = data?.contentfulBlogPost;
+  const { industry, title, author, date, articleBody } = data.contentfulBlogPost;
 
   return (
     <Layout>
