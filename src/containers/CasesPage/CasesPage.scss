@@ -3,14 +3,14 @@
 
 .cases-page {
   position: relative;
-  padding: calc(72px + var(--header-height)) 16px 88px;
+  z-index: 20;
   margin-top: calc(-1 * var(--header-height));
-  color: var(--white);
   background: var(--color-primary-600);
   background-image: url('../../svg/headBg.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 20;
+  padding: calc(72px + var(--header-height)) 16px 88px;
+  color: var(--white);
 
   &__title {
     @include m.font-poppins(v.$fw-bold);
@@ -41,10 +41,10 @@
 .cases-page__cases-list {
   display: grid;
   flex-direction: column;
-  grid-gap: 24px;
+  align-items: center;
   justify-content: center;
   grid-template-columns: minmax(min-content, 348px);
-  align-items: center;
+  grid-gap: 24px;
   padding-top: 72px;
   padding-bottom: 48px;
 
@@ -59,13 +59,13 @@
   &-item-box {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: flex-start;
+    justify-content: flex-end;
     gap: 24px;
-    padding: 24px;
     border-radius: 16px;
     box-shadow: 0 8px 16px 0 rgb(0 45 55 / 0.12);
     background-size: cover;
+    padding: 24px;
 
     &:hover {
       box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
@@ -77,13 +77,13 @@
   }
 
   &-item {
-    position: relative;
     display: flex;
+    position: relative;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
     flex-shrink: 0;
+    align-items: flex-start;
     align-self: stretch;
+    gap: 20px;
     height: 280px;
 
     &-trailing {
@@ -104,18 +104,18 @@
         @include m.font-scale(small);
 
         margin-top: 0;
-        color: var(--white);
         text-align: left;
-        letter-spacing: 1px;
         text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--white);
       }
     }
 
     &-icon {
       position: absolute;
       top: 58px;
-      width: 96px;
       flex-shrink: 0;
+      width: 96px;
       height: 96px;
       opacity: 0.7;
     }
@@ -124,8 +124,8 @@
 
 .cases-page__no-more {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin-bottom: 120px;
 
   > p {
@@ -139,8 +139,8 @@
 
 .cases-page__load-more {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin-bottom: 120px;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
@@ -150,8 +150,8 @@
 
 .cases-page__download {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 56px;
+  justify-content: center;
   margin-top: 48px;
+  height: 56px;
 }

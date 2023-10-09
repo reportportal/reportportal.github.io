@@ -12,8 +12,8 @@ body {
   @include font-noto-sans();
   @include font-scale();
 
-  background: var(--white);
   margin: 0;
+  background: var(--white);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -24,8 +24,8 @@ img {
 }
 
 a {
-  color: currentColor;
   text-decoration: none;
+  color: currentColor;
 
   &:hover {
     color: var(--text-grey);
@@ -69,8 +69,8 @@ input:-webkit-autofill {
 }
 
 .ant-drawer-mask {
-  backdrop-filter: blur(8px);
   background: rgb(47 60 95 / 0.5) !important;
+  backdrop-filter: blur(8px);
 }
 
 .ant-modal-mask,
@@ -84,14 +84,14 @@ input:-webkit-autofill {
 }
 
 .container {
-  padding-left: 16px;
   padding-right: 16px;
+  padding-left: 16px;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
-    max-width: calc(var(--size-max-width) + 48px);
     margin: 0 auto;
-    padding-left: 24px;
     padding-right: 24px;
+    padding-left: 24px;
+    max-width: calc(var(--size-max-width) + 48px);
   }
 
   @include m.breakpoint(v.$desktop-sm) {

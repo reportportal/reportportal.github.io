@@ -1,5 +1,8 @@
 {
   "extends": "stylelint-config-standard-scss",
+  "plugins": [
+    "stylelint-order"
+  ],
   "rules": {
     "selector-class-pattern": [
       "^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
@@ -19,6 +22,324 @@
     }],
     "keyframes-name-pattern": "[a-z]+([A-Z])?",
     "scss/at-extend-no-missing-placeholder": null,
-    "selector-not-notation": "simple"
+    "selector-not-notation": "simple",
+    "order/order": [
+      "custom-properties",
+      "dollar-variables",
+      "declarations",
+      "rules"
+    ],
+    "order/properties-order": [
+      ["all",
+        {
+          "groupName": "BoxModel",
+          "properties": [
+            "box-sizing",
+            "display"
+          ]
+        },
+        {
+          "groupName": "Position",
+          "properties": [
+            "position",
+            "inset",
+            "top",
+            "right",
+            "bottom",
+            "left",
+            "z-index"
+          ]
+        },
+        {
+          "groupName": "Layout",
+          "properties": ["float", "clear"]
+        },
+        {
+          "groupName": "Flex box",
+          "properties": [
+            "flex",
+            "flex-basis",
+            "flex-direction",
+            "flex-flow",
+            "flex-grow",
+            "flex-shrink",
+            "flex-wrap",
+            "align-content",
+            "align-items",
+            "align-self",
+            "justify-content",
+            "justify-items",
+            "justify-self",
+            "order"
+          ]
+        },
+        {
+          "groupName": "Grid",
+          "properties": [
+            "grid",
+            "grid-area",
+            "grid-template",
+            "grid-template-areas",
+            "grid-template-rows",
+            "grid-template-columns",
+            "grid-row",
+            "grid-row-start",
+            "grid-row-end",
+            "grid-column",
+            "grid-column-start",
+            "grid-column-end",
+            "grid-auto-rows",
+            "grid-auto-columns",
+            "grid-auto-flow",
+            "grid-gap",
+            "grid-row-gap",
+            "grid-column-gap",
+            "row-gap",
+            "gap"
+          ]
+        },
+        {
+          "groupName": "Columns",
+          "properties": [
+            "columns",
+            "column-gap",
+            "column-fill",
+            "column-rule",
+            "column-rule-width",
+            "column-rule-style",
+            "column-rule-color",
+            "column-span",
+            "column-count",
+            "column-width"
+          ]
+        },
+        {
+          "groupName": "TransformTransition",
+          "properties": [
+            "transform",
+            "transform-origin",
+            "transform-style",
+            "transition",
+            "transition-delay",
+            "transition-duration",
+            "transition-property",
+            "transition-timing-function"
+          ]
+        },
+        {
+          "groupName": "Margin",
+          "properties": [
+            "margin",
+            "margin-top",
+            "margin-right",
+            "margin-bottom",
+            "margin-left",
+            "margin-inline-end"
+          ]
+        },
+        {
+          "groupName": "Outline",
+          "properties": [
+            "outline",
+            "outline-offset",
+            "outline-width",
+            "outline-style",
+            "outline-color"
+          ]
+        },
+        {
+          "groupName": "Border",
+          "properties": [
+            "border",
+            "border-top",
+            "border-right",
+            "border-bottom",
+            "border-left",
+            "border-width",
+            "border-top-width",
+            "border-right-width",
+            "border-bottom-width",
+            "border-left-width",
+            "border-style",
+            "border-top-style",
+            "border-right-style",
+            "border-bottom-style",
+            "border-left-style",
+            "border-radius",
+            "border-top-left-radius",
+            "border-top-right-radius",
+            "border-bottom-left-radius",
+            "border-bottom-right-radius",
+            "border-end-start-radius",
+            "border-end-end-radius",
+            "border-color",
+            "border-top-color",
+            "border-right-color",
+            "border-bottom-color",
+            "border-left-color",
+            "border-image",
+            "border-image-source",
+            "border-image-width",
+            "border-image-outset",
+            "border-image-repeat",
+            "border-image-slice"
+          ]
+        },
+        {
+          "groupName": "Background",
+          "properties": [
+            "box-shadow",
+            "background",
+            "background-attachment",
+            "background-clip",
+            "background-color",
+            "background-image",
+            "background-origin",
+            "background-position",
+            "background-position-x",
+            "background-position-y",
+            "background-repeat",
+            "background-size",
+            "background-attachment",
+            "background-blend-mode"
+          ]
+        },
+        {
+          "groupName": "Padding",
+          "properties": [
+            "padding",
+            "padding-top",
+            "padding-right",
+            "padding-bottom",
+            "padding-left"
+          ]
+        },
+        {
+          "groupName": "Dimensions",
+          "properties": [
+            "min-inline-size",
+            "writing-mode",
+            "width",
+            "min-width",
+            "max-width",
+            "height",
+            "min-height",
+            "max-height"
+          ]
+        },
+        {
+          "groupName": "Visibility",
+          "properties": [
+            "visibility",
+            "opacity",
+            "overflow",
+            "overflow-x",
+            "overflow-y",
+            "resize",
+            "clip",
+            "backdrop-filter"
+          ]
+        },
+        {
+          "groupName": "ListStyle",
+          "properties": [
+            "list-style",
+            "list-style-type",
+            "list-style-position",
+            "list-style-image"
+          ]
+        },
+        {
+          "groupName": "Table",
+          "properties": [
+            "caption-side",
+            "table-layout",
+            "border-collapse",
+            "border-spacing",
+            "empty-cells"
+          ]
+        },
+        {
+          "groupName": "Animation",
+          "properties": [
+            "animation",
+            "animation-name",
+            "animation-duration",
+            "animation-timing-function",
+            "animation-delay",
+            "animation-iteration-count",
+            "animation-direction",
+            "animation-fill-mode",
+            "animation-play-state"
+          ]
+        },
+        {
+          "groupName": "Text align",
+          "properties": [
+            "vertical-align",
+            "direction",
+            "tab-size",
+            "text-align",
+            "text-align-last",
+            "text-justify",
+            "text-indent",
+            "text-transform",
+            "text-decoration",
+            "text-decoration-color",
+            "text-decoration-line",
+            "text-decoration-style",
+            "text-rendering",
+            "text-shadow",
+            "text-overflow",
+            "line-height",
+            "word-spacing",
+            "letter-spacing",
+            "white-space",
+            "word-break",
+            "word-wrap"
+          ]
+        },
+        {
+          "groupName": "Color",
+          "properties": ["color"]
+        },
+        {
+          "groupName": "Typographic",
+          "properties": [
+            "font",
+            "font-family",
+            "font-size",
+            "font-size-adjust",
+            "font-stretch",
+            "font-weight",
+            "osx-font-smoothing",
+            "font-variant",
+            "font-style",
+            "font-effect",
+            "font-emphasize",
+            "font-emphasize-position",
+            "font-emphasize-style",
+            "font-smoothing"
+          ]
+        },
+        {
+          "groupName": "Others",
+          "properties": [
+            "backface-visibility",
+            "perspective",
+            "perspective-origin",
+            "content",
+            "cursor",
+            "quotes",
+            "counter-reset",
+            "counter-increment",
+            "page-break-before",
+            "page-break-after",
+            "page-break-inside"
+          ]
+        }
+      ],
+      { "unspecified": "bottom" }
+    ]
   }
 }

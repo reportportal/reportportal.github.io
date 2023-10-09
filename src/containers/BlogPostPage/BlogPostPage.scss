@@ -2,12 +2,12 @@
 @use 'src/styles/variables' as v;
 
 .blog-post-page {
-  position: relative;
   display: flex;
+  position: relative;
+  z-index: 20;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  z-index: 20;
   margin-top: calc(-1 * var(--header-height));
   background: var(--color-primary-600);
   background-image: url('../../svg/headBg.svg');
@@ -76,8 +76,8 @@
       position: absolute;
       top: calc(4px + var(--header-height));
       left: 16px;
-      padding-left: 0;
       padding-right: 0;
+      padding-left: 0;
       color: var(--white);
 
       @include m.breakpoint(v.$tablet-sm-exact) {
@@ -231,8 +231,8 @@
 
       display: block;
       margin-bottom: 20px;
-      font-style: normal;
       color: var(--color-primary-600);
+      font-style: normal;
     }
   }
 
@@ -299,9 +299,9 @@
   }
 
   &__hyperlink {
-    cursor: pointer;
     text-decoration: none;
     color: var(--color-primary-500);
+    cursor: pointer;
 
     &:hover {
       text-decoration: underline;

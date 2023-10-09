@@ -6,12 +6,12 @@
   @include m.font-scale(small);
 
   position: relative;
+  z-index: var(--z-index);
+  border-top: 1px solid var(--purple-grey);
+  background: var(--bg-light-grey);
   padding-top: 50px;
   padding-bottom: 48px;
-  border-top: 1px solid var(--purple-grey);
   color: var(--text-service);
-  background: var(--bg-light-grey);
-  z-index: var(--z-index);
 
   @include m.breakpoint(v.$tablet-sm-exact) {
     padding-top: 64px;
@@ -48,10 +48,10 @@
     row-gap: 24px;
 
     @include m.breakpoint(v.$desktop-sm) {
-      width: 384px;
-      padding-right: 84px;
-      row-gap: 32px;
       flex-shrink: 0;
+      row-gap: 32px;
+      padding-right: 84px;
+      width: 384px;
     }
   }
 
@@ -110,8 +110,8 @@
   }
 
   .ant-divider {
-    border-color: var(--purple-grey);
     margin: 50px 0;
+    border-color: var(--purple-grey);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin: 64px 0;
@@ -120,9 +120,9 @@
 
   &__license {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     a {
       font-weight: v.$fw-medium;
@@ -134,16 +134,16 @@
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      width: 384px;
       justify-content: start;
+      width: 384px;
     }
   }
 
   &__terms {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     row-gap: 16px;
     margin-top: 32px;
     font-weight: v.$fw-medium;
@@ -182,9 +182,9 @@
 
   &__social-links {
     display: flex;
-    margin-top: 32px;
     justify-content: center;
     column-gap: 26px;
+    margin-top: 32px;
 
     @include m.breakpoint(v.$desktop-sm) {
       margin-top: 0;

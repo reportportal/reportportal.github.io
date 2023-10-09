@@ -6,12 +6,12 @@
   @include m.font-scale(small);
 
   position: relative;
-  padding-left: 32px;
   margin-top: 2px;
+  padding-left: 32px;
+  line-height: 20px;
+  color: var(--primary-colors-almost-black);
   cursor: pointer;
   user-select: none;
-  color: var(--primary-colors-almost-black);
-  line-height: 20px;
 
   a {
     color: var(--text-service);
@@ -30,31 +30,31 @@
     position: absolute;
     top: -2px;
     left: 0;
-    height: 24px;
-    width: 24px;
-    border-radius: 3px;
     border: 1px solid var(--text-light-grey);
+    border-radius: 3px;
+    width: 24px;
+    height: 24px;
 
     &::after {
-      position: absolute;
-      content: '';
-      inset: -2px 0 0;
       display: none;
-      width: 5px;
-      height: 11px;
+      position: absolute;
+      inset: -2px 0 0;
+      transform: rotate(40deg);
       margin: auto;
       border: solid var(--white);
       border-width: 0 2px 2px 0;
-      transform: rotate(40deg);
+      width: 5px;
+      height: 11px;
+      content: '';
     }
   }
 
   input {
     position: absolute;
+    width: 0;
+    height: 0;
     opacity: 0;
     cursor: pointer;
-    height: 0;
-    width: 0;
 
     &:checked ~ .custom-checkbox__checkmark::after {
       display: block;
@@ -64,8 +64,8 @@
   &:not(:hover):not(:active) {
     input:checked {
       & ~ .custom-checkbox__checkmark {
-        background-color: var(--color-primary-600);
         border-color: var(--color-primary-600);
+        background-color: var(--color-primary-600);
       }
     }
   }
@@ -78,8 +78,8 @@
       }
 
       &:checked ~ .custom-checkbox__checkmark {
-        background-color: var(--color-primary-500);
         border-color: var(--color-primary-500);
+        background-color: var(--color-primary-500);
       }
     }
   }

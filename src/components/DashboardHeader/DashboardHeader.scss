@@ -4,13 +4,13 @@
 .dashboard-header {
   margin-top: calc(-1 * var(--header-height));
   background-image: url('../../svg/testing/headerBackground.svg');
-  background-repeat: no-repeat;
   background-position: center 0;
+  background-repeat: no-repeat;
   padding-top: var(--header-height);
 
   @include m.breakpoint(v.$desktop-md) {
-    background-size: cover;
     background-position: center 0;
+    background-size: cover;
   }
 
   &__heading {

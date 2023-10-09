@@ -12,8 +12,8 @@
     @include m.font-scale(x4-medium);
 
     margin: 0;
-    color: var(--text-primary);
     text-align: center;
+    color: var(--text-primary);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-scale(large);
@@ -25,8 +25,8 @@
   }
 
   &__content {
-    position: relative;
     display: flex;
+    position: relative;
     flex-direction: column;
     padding-top: 64px;
     padding-bottom: 64px;
@@ -38,8 +38,8 @@
     }
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      justify-content: space-between;
       flex-direction: row;
+      justify-content: space-between;
       margin-top: 32px;
       margin-bottom: 64px;
       padding-bottom: 0;
@@ -60,18 +60,15 @@
       }
 
       > div:first-child {
-        width: 294px;
         flex-shrink: 0;
+        width: 294px;
       }
     }
 
     &::after {
       position: absolute;
-      content: '';
       top: 0;
       left: 19.5px;
-      width: 1px;
-      height: 100%;
       z-index: -1;
       background: linear-gradient(
         180deg,
@@ -80,11 +77,14 @@
         var(--text-light-grey) 86.62%,
         rgb(195 200 213 / 0) 100%
       );
+      width: 1px;
+      height: 100%;
+      content: '';
     }
 
     .ant-steps-item {
-      min-height: 80px;
       transition: height 0.3s;
+      min-height: 80px;
 
       &:not(.ant-steps-item-active) {
         .ant-steps-item-description {
@@ -110,14 +110,14 @@
         }
 
         .ant-steps-item-icon {
-          width: 12px;
-          height: 12px;
           margin-top: 5px;
           margin-inline-end: 32px;
+          width: 12px;
+          height: 12px;
 
           .ant-steps-icon-dot {
-            background-color: var(--white);
             border: 1px solid var(--text-light-grey);
+            background-color: var(--white);
           }
         }
 
@@ -139,8 +139,8 @@
 
       &.ant-steps-item-active {
         .ant-steps-item-container .ant-steps-item-icon .ant-steps-icon-dot {
-          background-color: var(--color-primary-500);
           border-color: var(--color-primary-500);
+          background-color: var(--color-primary-500);
         }
 
         .ant-steps-item-title {
@@ -183,18 +183,18 @@
           }
 
           &::before {
-            position: absolute;
             display: none;
-            width: 3px;
+            position: absolute;
             left: 18.5px;
-            height: 100%;
-            border-radius: 1px;
             transition: background 0.3s;
-            content: '';
+            border-radius: 1px;
             background: linear-gradient(to bottom, var(--color-primary-500) 50%, transparent 0);
-            background-size: 100% 200%;
             background-position: bottom;
+            background-size: 100% 200%;
+            width: 3px;
+            height: 100%;
             animation: progressAnimationBottom linear 10s forwards;
+            content: '';
           }
         }
       }
@@ -234,8 +234,8 @@
       }
 
       > div:first-child {
-        width: 400px;
         flex-shrink: 0;
+        width: 400px;
       }
     }
   }
@@ -252,8 +252,8 @@
       }
 
       @include m.breakpoint(v.$desktop-sm) {
-        max-width: initial;
         flex-grow: 0;
+        max-width: initial;
       }
     }
   }

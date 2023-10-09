@@ -5,21 +5,21 @@ $video-desktop-width: 960px;
 
 .video-responsive.ant-modal {
   @include breakpoint($video-desktop-width) {
-    width: $video-desktop-width !important;
     transform-origin: unset !important;
+    width: $video-desktop-width !important;
   }
 
   .ant-modal-content {
-    padding: 0;
-    box-shadow: none;
     border-radius: 0;
+    box-shadow: none;
     background: transparent;
+    padding: 0;
   }
 
   .ant-modal-body {
+    margin: 0 auto;
     width: 100%;
     height: auto;
-    margin: 0 auto;
     aspect-ratio: 16 / 9;
 
     @include breakpoint($video-desktop-width) {
@@ -30,8 +30,8 @@ $video-desktop-width: 960px;
   }
 
   iframe {
+    border: none;
     width: 100%;
     height: 100%;
-    border: none;
   }
 }

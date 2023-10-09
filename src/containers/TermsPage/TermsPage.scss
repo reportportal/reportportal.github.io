@@ -6,13 +6,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 468px;
     margin-top: calc(-1 * var(--header-height));
-    padding: calc(146px + var(--header-height)) 16px 0 16px;
     background: var(--color-primary-600);
     background-image: url('../../svg/headBg.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    padding: calc(146px + var(--header-height)) 16px 0 16px;
+    height: 468px;
     color: var(--white);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
@@ -78,10 +78,10 @@
   }
 
   .terms-page__download-link {
-    max-width: 348px;
     margin-top: 48px;
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
+    max-width: 348px;
   }
 
   p {

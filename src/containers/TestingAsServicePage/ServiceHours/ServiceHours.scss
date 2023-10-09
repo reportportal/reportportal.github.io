@@ -39,8 +39,8 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    max-width: 928px;
     background: 14% 0 url('../../../svg/testing/Illustrayion.svg') no-repeat;
+    max-width: 928px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       background-position: -57% 0%;

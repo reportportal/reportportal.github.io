@@ -6,29 +6,29 @@ $border-thickness: 1px;
 .indicatory {
   position: sticky;
   top: var(--header-height);
-  left: 0;
   right: 0;
+  left: 0;
+  transition: transform 0.5 ease-in-out;
   margin-top: 120px;
   margin-bottom: 120px;
   padding: 25px;
   padding-top: var(--header-height);
-  transition: transform 0.5 ease-in-out;
 
   &__path {
     position: sticky;
     top: var(--header-height);
-    left: 0;
     right: 0;
+    left: 0;
+    transition: transform 0.5 ease-in-out;
     margin-top: 120px;
     margin-bottom: 120px;
     padding: 25px;
     padding-top: var(--header-height);
-    transition: transform 0.5 ease-in-out;
   }
 
   &__box {
-    position: relative;
     display: flex;
+    position: relative;
     flex-direction: column;
 
     &-item {
@@ -39,11 +39,11 @@ $border-thickness: 1px;
       }
 
       &-line {
-        position: absolute;
         display: block;
+        position: absolute;
         left: 11px;
-        border-left: $border-thickness solid var(--text-light-grey);
         z-index: var(--scroll-indicator-line-z-index);
+        border-left: $border-thickness solid var(--text-light-grey);
       }
     }
   }
@@ -51,13 +51,13 @@ $border-thickness: 1px;
   &__link {
     @include m.font-noto-sans(v.$fw-semi-bold);
 
-    position: relative;
     display: flex;
+    position: relative;
     flex-direction: column;
     margin-left: 30px;
-    color: var(--text-light-grey);
     line-height: 1.7;
     white-space: pre-wrap;
+    color: var(--text-light-grey);
     cursor: pointer;
 
     &:hover {
@@ -73,9 +73,9 @@ $border-thickness: 1px;
 
       &::before {
         left: -25px;
-        background-color: var(--color-primary-500);
         transition: background-color 0.4s ease-out;
         border: none;
+        background-color: var(--color-primary-500);
       }
 
       .indicatory__box-item-substring {
@@ -84,18 +84,18 @@ $border-thickness: 1px;
     }
 
     &::before {
-      content: '';
       display: block;
       position: absolute;
-      left: -26px;
       top: 7px;
-      width: 13px;
-      height: 13px;
-      background-color: var(--white);
+      left: -26px;
+      z-index: var(--scroll-indicator-bullet-z-index);
       transition: background-color 0.4s ease-out;
       border: $border-thickness solid var(--text-light-grey);
       border-radius: 50%;
-      z-index: var(--scroll-indicator-bullet-z-index);
+      background-color: var(--white);
+      width: 13px;
+      height: 13px;
+      content: '';
     }
   }
 }

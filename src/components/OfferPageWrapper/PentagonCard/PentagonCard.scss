@@ -7,16 +7,16 @@ $pentagon-width: 314px;
 .pentagon-card {
   &__wrapper {
     display: flex;
+    z-index: 10;
     flex-direction: column;
     align-items: center;
     min-width: $pentagon-width;
     color: var(--text-primary);
-    z-index: 10;
   }
 
   &__contact-button {
-    width: 235px;
     margin: auto auto 64px;
+    width: 235px;
 
     @include m.breakpoint(v.$desktop-sm) {
       margin: auto;

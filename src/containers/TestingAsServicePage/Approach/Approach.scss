@@ -131,8 +131,8 @@
 
     &-first {
       position: relative;
-      margin-left: 16px;
       margin-bottom: 0;
+      margin-left: 16px;
       height: 380px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {

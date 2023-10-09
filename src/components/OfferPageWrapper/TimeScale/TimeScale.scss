@@ -3,26 +3,26 @@
 
 .time-scale {
   &__wrapper {
-    margin-top: 32px;
-    margin-left: 16px;
-    margin-bottom: 32px;
-    background-repeat: no-repeat;
-    background-image: url('./svg/mobile.svg');
     display: flex;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-left: 16px;
+    background-image: url('./svg/mobile.svg');
+    background-repeat: no-repeat;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       display: block;
       margin: 24px auto 54px;
-      padding-left: 25px;
-      width: v.$tablet-sm-exact;
       background-image: url('./svg/desktop.svg');
       background-position-x: center;
+      padding-left: 25px;
+      width: v.$tablet-sm-exact;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      width: 890px;
       background-size: cover;
       padding-left: 0;
+      width: 890px;
 
       &-shifted {
         background-image: url('./svg/desktop-shifted.svg');
@@ -73,9 +73,9 @@
     @include m.font-scale(small);
 
     margin-bottom: 22px;
-    color: var(--text-primary);
-    white-space: nowrap;
     min-width: 90px;
+    white-space: nowrap;
+    color: var(--text-primary);
 
     span {
       @include m.font-scale(medium);
@@ -130,24 +130,24 @@
     @include m.font-poppins();
     @include m.font-scale(small);
 
-    width: 190px;
     margin-left: 35px;
-    color: var(--text-service);
+    width: 190px;
     height: 150px;
+    color: var(--text-service);
 
     li {
       position: relative;
       margin-bottom: 6px;
 
       &::before {
-        content: '';
         position: absolute;
-        left: -22px;
         top: 8px;
-        width: 8px;
-        height: 8px;
+        left: -22px;
         border-radius: 50%;
         background: var(--text-service);
+        width: 8px;
+        height: 8px;
+        content: '';
       }
     }
 

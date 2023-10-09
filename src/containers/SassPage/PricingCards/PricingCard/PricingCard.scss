@@ -2,16 +2,16 @@
 @use 'src/styles/variables' as v;
 
 .pricing-card {
-  position: relative;
   display: flex;
+  position: relative;
   flex-direction: column;
+  transition: box-shadow 0.4s ease-out;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgb(16 46 52 / 0.1);
+  background: var(--white);
+  padding: 32px;
   width: 100%;
   max-width: 387px;
-  padding: 32px;
-  border-radius: 15px;
-  background: var(--white);
-  box-shadow: 0 4px 16px rgb(16 46 52 / 0.1);
-  transition: box-shadow 0.4s ease-out;
 
   @include m.breakpoint(v.$phone) {
     height: 630px;
@@ -28,15 +28,15 @@
     position: absolute;
     top: -15px;
     left: 50%;
-    border-radius: 15px;
-    padding: 4px 30px;
-    transform: translateX(-50%);
-    background: var(--graphics-amber);
-    text-transform: uppercase;
-    text-align: center;
-    color: var(--white);
     z-index: 2;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    background: var(--graphics-amber);
+    padding: 4px 30px;
     width: 198px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--white);
   }
 
   &__title {
@@ -55,12 +55,12 @@
   &__description {
     @include m.font-noto-sans(base);
 
-    height: 80px;
     margin-top: 8px;
     margin-bottom: 40px;
+    height: 80px;
     text-align: center;
-    color: var(--text-primary);
     white-space: pre-wrap;
+    color: var(--text-primary);
   }
 
   &__price {
@@ -97,8 +97,8 @@
     }
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      padding-left: 12px;
       margin: 0 0 49px 16px;
+      padding-left: 12px;
     }
 
     li {
@@ -111,21 +111,21 @@
       color: var(--text-primary);
 
       &::before {
-        content: '';
         position: absolute;
-        left: 0;
         top: 8px;
-        width: 8px;
-        height: 8px;
+        left: 0;
         border-radius: 50%;
         background: var(--gradient-primary);
+        width: 8px;
+        height: 8px;
+        content: '';
       }
     }
   }
 
   .btn {
-    width: 100%;
     margin: 0 auto;
+    width: 100%;
 
     &--outline {
       padding: 14px 32px;

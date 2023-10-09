@@ -30,8 +30,8 @@
   }
 
   &:hover {
-    background: var(--bg-grey2);
     border-radius: 8px;
+    background: var(--bg-grey2);
     color: var(--text-primary);
 
     .integrations-list__item-icon {

@@ -55,6 +55,6 @@
     $size
   );
 
-  font-size: map.get($scale, 'font-size');
   line-height: map.get($scale, 'line-height');
+  font-size: map.get($scale, 'font-size');
 }

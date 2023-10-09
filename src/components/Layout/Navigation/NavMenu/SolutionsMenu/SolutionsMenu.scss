@@ -22,9 +22,9 @@
   &:first-child .solutions-list__item-title::after {
     @include m.font-noto-sans();
 
-    content: '(home)';
     display: inline-block;
     margin-left: 7px;
     color: var(--text-service);
+    content: '(home)';
   }
 }

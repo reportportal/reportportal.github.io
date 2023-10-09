@@ -17,10 +17,10 @@
     @include m.font-poppins(v.$fw-bold);
     @include m.font-scale(x4-medium);
 
-    max-width: 792px;
     margin: 0 auto;
-    color: var(--text-primary);
+    max-width: 792px;
     text-align: center;
+    color: var(--text-primary);
 
     @include m.breakpoint(v.$phone-lg) {
       @include m.font-scale(large);
@@ -35,8 +35,8 @@
     @include m.font-noto-sans();
     @include m.font-scale(x2-medium);
 
-    max-width: 792px;
     margin: 16px auto 0;
+    max-width: 792px;
     text-align: center;
     color: var(--text-service);
   }
@@ -50,8 +50,8 @@
   }
 
   &__carousel {
-    height: 176px;
     margin: 60px auto 0;
+    height: 176px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin-top: 80px;
@@ -66,19 +66,19 @@
     gap: 96px;
 
     .marquee {
+      gap: 96px;
       margin-top: 20px;
       margin-bottom: 20px;
-      gap: 96px;
     }
   }
 
   &__carousel-logo {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 12px;
-    box-shadow: 0 8px 16px rgb(0 45 55 / 0.12);
+    justify-content: center;
     border-radius: 10px;
+    box-shadow: 0 8px 16px rgb(0 45 55 / 0.12);
+    padding: 12px;
 
     &:nth-child(even) {
       margin-top: 48px;

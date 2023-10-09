@@ -8,9 +8,9 @@
     @include m.font-poppins(v.$fw-bold);
     @include m.font-scale(x4-medium);
 
-    color: var(--text-primary);
     margin: 0 0 calc(3 * var(--base-spacing));
     text-align: center;
+    color: var(--text-primary);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-scale(large);
@@ -28,8 +28,8 @@
   }
 
   .container {
-    overflow: auto;
     padding: calc(2 * var(--base-spacing));
+    overflow: auto;
     scrollbar-width: none;
 
     @include m.breakpoint(v.$tablet-sm-exact) {

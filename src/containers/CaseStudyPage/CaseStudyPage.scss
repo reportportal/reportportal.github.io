@@ -5,17 +5,17 @@
   &__hero {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    height: 468px;
+    justify-content: space-between;
     margin-top: calc(-1 * var(--header-height));
-    padding-top: calc(var(--header-height));
-    padding-bottom: 16px;
-    color: var(--white);
     background: var(--color-primary-600);
     background-image: url('../../svg/headBg.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: calc(var(--header-height));
+    padding-bottom: 16px;
+    height: 468px;
+    color: var(--white);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       padding-bottom: 8px;
@@ -31,8 +31,8 @@
   &__titles {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     flex-grow: 1;
+    justify-content: center;
     padding-top: 46px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
@@ -62,16 +62,16 @@
 
     margin: 0;
     text-align: center;
-    letter-spacing: 1px;
     text-transform: uppercase;
+    letter-spacing: 1px;
     color: var(--text-light-topaz);
   }
 
   &__button-group {
     display: flex;
-    width: 100%;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       justify-content: space-between;
@@ -88,19 +88,19 @@
       }
 
       &:hover {
+        color: var(--color-primary-200);
+
         > svg path {
           fill: var(--color-primary-200);
         }
-
-        color: var(--color-primary-200);
       }
 
       &:active {
+        color: var(--color-primary-700);
+
         > svg path {
           fill: var(--color-primary-700);
         }
-
-        color: var(--color-primary-700);
       }
     }
 
@@ -148,8 +148,8 @@
       align-items: flex-start;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        padding-left: 0;
         padding-right: 0;
+        padding-left: 0;
       }
 
       @include m.breakpoint(v.$desktop-sm) {
@@ -181,13 +181,13 @@
 
       @include m.breakpoint(v.$desktop-sm) {
         position: static;
-        margin-top: 64px;
         transform: none;
+        margin-top: 64px;
       }
 
       > a {
-        width: 348px;
         padding: 16px;
+        width: 348px;
 
         @include m.breakpoint(v.$desktop-sm) {
           width: 268px;
@@ -206,12 +206,12 @@
     flex-direction: column;
     align-items: flex-start;
     margin-top: 64px;
-    padding: 40px;
     margin-right: -16px;
     margin-left: -16px;
     border-radius: 16px;
     box-shadow: 0 8px 16px 0 rgb(0 45 55 / 0.12);
     background: var(--bg-white);
+    padding: 40px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin-right: 0;
@@ -220,8 +220,8 @@
 
     @include m.breakpoint(v.$desktop-sm) {
       flex-shrink: 0;
-      width: 588px;
       margin-top: 0;
+      width: 588px;
     }
 
     .case-page__column--intro {
@@ -239,18 +239,18 @@
 
   &__highlights--body ul,
   &__challenges--body ul {
-    padding-left: 16px;
     gap: 4px;
+    padding-left: 16px;
     list-style-type: none;
 
     li {
       @include m.font-noto-sans(v.$fw-regular);
       @include m.font-scale(base);
 
-      color: var(--text-primary);
       position: relative;
-      padding-left: 20px;
       margin-bottom: -4px;
+      padding-left: 20px;
+      color: var(--text-primary);
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         @include m.font-scale(medium);
@@ -265,14 +265,14 @@
       }
 
       &::before {
-        content: '';
         position: absolute;
         top: 8px;
         left: 0;
-        width: 8px;
-        height: 8px;
         border-radius: 50%;
         background-color: var(--text-light-grey);
+        width: 8px;
+        height: 8px;
+        content: '';
 
         @include m.breakpoint(v.$tablet-sm-exact) {
           top: 12px;
@@ -283,8 +283,8 @@
 
   &__benefits-results {
     position: relative;
-    width: 100%;
     margin-top: 40px;
+    width: 100%;
 
     &--body {
       display: flex;
@@ -318,23 +318,23 @@
 
           th {
             display: flex;
-            justify-content: center;
             align-items: flex-start;
-            gap: 8px;
             align-self: stretch;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid var(--purple-grey);
+            border-radius: 8px 8px 0 0;
+            background: var(--purple-grey);
             width: 134px;
             height: 26px;
-            border-radius: 8px 8px 0 0;
-            border: 1px solid var(--purple-grey);
-            background: var(--purple-grey);
 
             @include m.breakpoint(v.$tablet-sm-exact) {
               display: none;
             }
 
             &:last-child {
-              background: var(--graphics-jade);
               border-color: var(--graphics-jade);
+              background: var(--graphics-jade);
 
               > p {
                 color: var(--white);
@@ -346,9 +346,9 @@
               @include m.font-scale(small);
 
               margin: 0;
-              color: var(--text-grey);
-              letter-spacing: 1px;
               text-transform: uppercase;
+              letter-spacing: 1px;
+              color: var(--text-grey);
             }
           }
 
@@ -361,19 +361,19 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 134px;
-            height: 48px;
             border-radius: 0 0 8px 8px;
             background: var(--bg-light-grey);
+            width: 134px;
+            height: 48px;
             color: var(--text-primary);
 
             @include m.breakpoint(v.$tablet-sm-exact) {
               @include m.font-scale(medium);
 
+              justify-content: flex-start;
+              padding-top: 8px;
               width: 124px;
               height: 100%;
-              padding-top: 8px;
-              justify-content: flex-start;
             }
 
             &:first-child {
@@ -413,8 +413,8 @@
             }
 
             &:not(:last-child) td {
-              border-radius: 0;
               border-bottom: none;
+              border-radius: 0;
             }
           }
         }
@@ -444,15 +444,15 @@
       }
 
       ul {
-        padding-left: 0;
         gap: 8px;
+        padding-left: 0;
 
         li {
           @include m.font-noto-sans(v.$fw-regular);
           @include m.font-scale(base);
 
-          position: relative;
           display: flex;
+          position: relative;
           flex-direction: row;
           padding-left: 40px;
           color: var(--text-primary);
@@ -462,14 +462,14 @@
           }
 
           &::before {
-            position: absolute;
-            content: '';
             display: inline-block;
+            position: absolute;
             left: 8px;
-            width: 24px;
-            height: 24px;
             background-image: url('../../svg/check.svg');
             background-size: cover;
+            width: 24px;
+            height: 24px;
+            content: '';
 
             @include m.breakpoint(v.$tablet-sm-exact) {
               top: 4px;

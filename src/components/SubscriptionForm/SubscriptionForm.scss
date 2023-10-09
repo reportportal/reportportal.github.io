@@ -9,8 +9,8 @@
   grid-gap: 24px 16px;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
-    grid-row-gap: unset;
     grid-template-columns: 1fr auto;
+    grid-row-gap: unset;
   }
 
   .ant-form-item {
@@ -26,8 +26,8 @@
   }
 
   .btn {
-    width: 100%;
     padding: 11px 16px;
+    width: 100%;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       width: unset;
@@ -41,9 +41,9 @@
 
   .subscription-form__form-input {
     .ant-input-affix-wrapper {
-      padding: 8px 14px;
       border-radius: 4px;
       border-color: var(--text-light-grey);
+      padding: 8px 14px;
 
       svg {
         color: var(--text-light-grey);

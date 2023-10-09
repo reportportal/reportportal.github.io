@@ -33,37 +33,37 @@
   }
 
   &__title {
-    letter-spacing: 1px;
     text-transform: uppercase;
+    letter-spacing: 1px;
     color: var(--text-primary);
   }
 
   &__buttons-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 
   &__button {
+    padding: 16px 5px;
     width: 100%;
     max-width: 148px;
-    padding: 16px 5px;
   }
 
   &__features {
     @include m.breakpoint(v.$desktop-sm) {
       @include m.font-scale();
 
-      font-weight: 600;
       padding: 20px 0;
+      font-weight: 600;
     }
   }
 
   &__row-title-footer {
     @include m.breakpoint(v.$desktop-sm) {
-      width: 39%;
       display: flex;
       justify-content: space-between;
+      width: 39%;
 
       div {
         margin-right: 16px;

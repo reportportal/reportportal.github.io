@@ -11,10 +11,10 @@
   &__title {
     @include m.font-poppins(v.$fw-semi-bold);
 
-    padding-left: 8px;
     margin: 0 0 18px;
-    color: var(--text-service);
+    padding-left: 8px;
     text-transform: uppercase;
+    color: var(--text-service);
   }
 
   &__col {
@@ -27,8 +27,8 @@
 .section-item {
   @include m.font-scale(base);
 
-  position: relative;
   display: flex;
+  position: relative;
   padding: 8px 8px 8px 52px;
   line-height: 24px;
 
@@ -48,8 +48,8 @@
   }
 
   &:hover {
-    background: var(--bg-grey2);
     border-radius: 8px;
+    background: var(--bg-grey2);
   }
 
   &-title {
@@ -63,8 +63,8 @@
 
   &-title,
   &-text {
-    color: var(--text-primary);
     margin: 0;
+    color: var(--text-primary);
   }
 
   & svg,
