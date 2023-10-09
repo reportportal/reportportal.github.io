@@ -61,10 +61,7 @@
       content: '';
 
       @include m.breakpoint(v.$desktop-sm) {
-        top: 0;
-        right: -10px;
-        bottom: auto;
-        left: auto;
+        inset: 0 -10px auto auto;
         width: 2px;
         height: 212px;
       }

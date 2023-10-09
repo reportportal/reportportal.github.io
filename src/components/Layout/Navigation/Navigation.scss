@@ -13,7 +13,7 @@
   &:hover {
     background: var(--white);
     color: var(--text-primary);
-    box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
+    box-shadow: 0 8px 24px rgb(34 61 69 / 0.08);
   }
 
   &__wrapper {
@@ -33,7 +33,7 @@
   justify-content: space-between;
   position: relative;
 
-  &__logoLink {
+  &__logo-link {
     padding: 18px 0;
     line-height: 0;
 
@@ -114,7 +114,7 @@
     flex: 0 0 auto;
   }
 
-  &__actionsAuth {
+  &__actions-auth {
     display: none;
     align-items: center;
 
@@ -149,7 +149,7 @@
     }
   }
 
-  &__loginButton {
+  &__login-button {
     @include m.font-poppins(v.$fw-semi-bold);
     @include m.font-scale(base);
 
@@ -172,8 +172,8 @@
     }
   }
 
-  &__signupButton {
-    @extend .top-header-navigation__loginButton;
+  &__signup-button {
+    @extend .top-header-navigation__login-button;
 
     display: inline-block;
     border: 2px solid var(--white);
@@ -192,8 +192,8 @@
   }
 }
 
-.top-header-navigation__closeButton,
-.top-header-navigation__burgerButton {
+.top-header-navigation__close-button,
+.top-header-navigation__burger-button {
   padding: 8px;
   border: none;
   margin-left: 24px;
@@ -209,7 +209,7 @@
   }
 }
 
-.top-header-navigation__burgerButton {
+.top-header-navigation__burger-button {
   color: var(--white);
 
   .top-header--active &,
@@ -218,7 +218,7 @@
   }
 }
 
-.top-header-navigation__closeButton {
+.top-header-navigation__close-button {
   align-self: center;
   color: var(--dark);
 }
@@ -230,7 +230,7 @@
 
   .ant-drawer-header {
     padding: 0 8px 0 16px;
-    box-shadow: 0 1px 4px rgba(34, 43, 69, 0.15);
+    box-shadow: 0 1px 4px rgb(34 43 69 / 0.15);
   }
 
   .ant-drawer-body {

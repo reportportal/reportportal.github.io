@@ -129,19 +129,12 @@
     height: 100%;
     z-index: -1;
 
-    &:before {
+    &::before {
       content: '';
       position: absolute;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 129, 167, 0.85) 0%,
-        rgba(98, 115, 197, 0.85) 100%
-      );
+      inset: 0;
+      background: linear-gradient(180deg, rgb(0 129 167 / 0.85) 0%, rgb(98 115 197 / 0.85) 100%);
       backdrop-filter: blur(6px);
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
     }
   }
 
@@ -186,7 +179,7 @@
         margin-inline: 8px;
 
         button {
-          background-color: rgba(255, 255, 255, 0.3);
+          background-color: rgb(255 255 255 / 0.3);
           border-radius: 0;
           transition: none;
 
@@ -198,7 +191,7 @@
       }
 
       li.slick-active button {
-        background: linear-gradient(to right, var(--white) 50%, rgba(255, 255, 255, 0.3) 0);
+        background: linear-gradient(to right, var(--white) 50%, rgb(255 255 255 / 0.3) 0);
         background-size: 200% 100%;
         background-position: right;
         animation: progressAnimation 5s forwards;

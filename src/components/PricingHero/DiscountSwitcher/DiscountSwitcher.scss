@@ -23,7 +23,7 @@
     border-radius: 30px;
     cursor: pointer;
 
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       left: 5px;
@@ -36,7 +36,7 @@
     }
 
     &-active {
-      &:before {
+      &::before {
         right: 5px;
         left: 21px;
       }

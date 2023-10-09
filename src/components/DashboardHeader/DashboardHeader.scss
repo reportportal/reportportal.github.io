@@ -3,7 +3,7 @@
 
 .dashboard-header {
   margin-top: calc(-1 * var(--header-height));
-  background-image: url(../../svg/testing/headerBackground.svg);
+  background-image: url('../../svg/testing/headerBackground.svg');
   background-repeat: no-repeat;
   background-position: center 0;
   padding-top: var(--header-height);
@@ -64,7 +64,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 16px;
-      box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
+      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
       background: var(--white);
       padding: 40px;
       width: 880px;

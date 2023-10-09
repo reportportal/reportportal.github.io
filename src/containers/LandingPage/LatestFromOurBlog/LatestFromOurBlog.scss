@@ -38,7 +38,7 @@
   }
 
   .article-preview-list {
-    @include m.hideScroll();
+    @include m.hide-scroll();
 
     display: flex;
     overflow: scroll;

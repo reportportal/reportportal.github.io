@@ -70,6 +70,7 @@ $border-thickness: 1px;
 
     &.active {
       color: var(--text-primary);
+
       &::before {
         left: -25px;
         background-color: var(--color-primary-500);

@@ -94,7 +94,7 @@ export const Navigation = () => {
   }, [isMobileMenuOpen, closeMobileMenu]);
 
   const logo = (
-    <Link to="/" className={getBlocksWith('-navigation__logoLink')}>
+    <Link to="/" className={getBlocksWith('-navigation__logo-link')}>
       <NavLogoIcon />
     </Link>
   );
@@ -154,7 +154,7 @@ export const Navigation = () => {
             })}
           </ul>
           <div className={getBlocksWith('-navigation__actions')} hidden={!githubCounter}>
-            <div className={getBlocksWith('-navigation__actionsAuth')}>
+            <div className={getBlocksWith('-navigation__actions-auth')}>
               <Link
                 to="https://github.com/reportportal/reportportal"
                 className={getBlocksWith('-navigation__github')}
@@ -165,7 +165,7 @@ export const Navigation = () => {
                 <div className="navigation__auth-button-group">
                   <Link
                     className={classNames(
-                      getBlocksWith('-navigation__loginButton'),
+                      getBlocksWith('-navigation__login-button'),
                       'temporary-hide',
                     )}
                     to="https://saas.reportportal.io/ui/#login"
@@ -174,7 +174,7 @@ export const Navigation = () => {
                   </Link>
                   <Link
                     className={classNames(
-                      getBlocksWith('-navigation__signupButton'),
+                      getBlocksWith('-navigation__signup-button'),
                       'temporary-hide',
                     )}
                     to="https://saas.reportportal.io/ui/#login?registration=true"
@@ -183,7 +183,7 @@ export const Navigation = () => {
                   </Link>
                   <Link
                     data-gtm="get_a_quote_header"
-                    className={getBlocksWith('-navigation__signupButton')}
+                    className={getBlocksWith('-navigation__signup-button')}
                     to="/contact-us/general"
                   >
                     Get a quote
@@ -192,7 +192,7 @@ export const Navigation = () => {
               </div>
             </div>
             <button
-              className={getBlocksWith('-navigation__burgerButton')}
+              className={getBlocksWith('-navigation__burger-button')}
               type="button"
               onClick={openMobileMenu}
             >
@@ -207,7 +207,7 @@ export const Navigation = () => {
         title={
           <>
             {logo}
-            <button type="button" className={getBlocksWith('-navigation__closeButton')}>
+            <button type="button" className={getBlocksWith('-navigation__close-button')}>
               <CrossIcon />
             </button>
           </>

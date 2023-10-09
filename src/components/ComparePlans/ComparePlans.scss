@@ -52,10 +52,8 @@
       @include title();
 
       .ant-tablet-header-text {
+        flex: 0 1 auto !important;
         margin: 0 !important;
-        flex-grow: 0 !important;
-        flex-shrink: 1 !important;
-        flex-basis: auto !important;
       }
     }
   }
@@ -65,7 +63,7 @@
 
     @include m.breakpoint(v.$desktop-sm) {
       padding-top: 24px;
-      box-shadow: 0 8px 16px rgba(0, 45, 55, 0.12);
+      box-shadow: 0 8px 16px rgb(0 45 55 / 0.12);
       border-radius: 16px;
     }
 
@@ -77,9 +75,9 @@
       }
     }
 
-    .ant-collapse-item:not(:has(.rowSection)) {
+    .ant-collapse-item:not(:has(.row-section)) {
       margin-bottom: 20px;
-      box-shadow: 0 8px 16px rgba(0, 45, 55, 0.12);
+      box-shadow: 0 8px 16px rgb(0 45 55 / 0.12);
       border-radius: 8px;
 
       @include m.breakpoint(v.$desktop-sm) {
@@ -159,7 +157,7 @@
     }
   }
 
-  .ant-collapse-header:has(.rowSection) {
+  .ant-collapse-header:has(.row-section) {
     @include m.font-noto-sans(v.$fw-semi-bold);
     @include m.font-scale(base);
 
@@ -167,7 +165,7 @@
     cursor: auto;
   }
 
-  .ant-collapse-header:has(.rowSection__row-title-footer) {
+  .ant-collapse-header:has(.row-section__row-title-footer) {
     padding: 0;
 
     @include m.breakpoint(v.$desktop-sm) {
@@ -176,7 +174,7 @@
     }
   }
 
-  .ant-collapse-no-arrow:has(.rowSection__row-title-footer) {
+  .ant-collapse-no-arrow:has(.row-section__row-title-footer) {
     padding: 0;
 
     @include m.breakpoint(v.$desktop-sm) {
@@ -188,13 +186,13 @@
     @include title();
   }
 
-  &__titleArrow {
+  &__title-arrow {
     height: 24px;
     width: 24px;
     margin-left: 24px;
     transition: transform 0.3s;
 
-    &-active {
+    &--active {
       transform: rotate(180deg);
     }
   }
@@ -204,7 +202,7 @@
       margin-top: 19px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        padding: 0 70px 0;
+        padding: 0 70px;
       }
 
       &-last-item {
@@ -237,7 +235,7 @@
 
     &-header {
       .compare__row-title-col {
-        &:before {
+        &::before {
           content: attr(data-short);
           white-space: pre-line;
         }
@@ -247,7 +245,7 @@
         }
 
         @include m.breakpoint(v.$desktop-sm) {
-          &:before {
+          &::before {
             content: none;
           }
 
@@ -268,14 +266,14 @@
       }
     }
 
-    &__arrow_bottom,
-    &__arrow_right {
+    &--arrow-bottom,
+    &--arrow-right {
       transition: transform 0.3s;
       height: 24px;
       width: 24px;
     }
 
-    &__arrow_right {
+    &--arrow-right {
       transform: rotate(180deg);
 
       @include m.breakpoint(v.$desktop-sm) {
@@ -283,7 +281,7 @@
       }
     }
 
-    &__arrow_bottom {
+    &--arrow-bottom {
       @include m.breakpoint(v.$desktop-sm) {
         margin-top: 16px;
         transform: rotate(180deg);
@@ -316,10 +314,8 @@
         @include m.font-noto-sans();
         @include m.font-scale(medium);
 
+        flex: 0 1 auto;
         width: 36%;
-        flex-grow: 0;
-        flex-shrink: 1;
-        flex-basis: auto;
       }
 
       &-footer {
@@ -362,10 +358,8 @@
 
         @include m.breakpoint(v.$desktop-sm) {
           display: flex;
+          flex: 0 1 auto;
           width: 65%;
-          flex-grow: 0;
-          flex-shrink: 1;
-          flex-basis: auto;
         }
 
         &-visible {
@@ -480,7 +474,7 @@
       width: 69%;
     }
 
-    .rowSection__row-title-footer {
+    .row-section__row-title-footer {
       @include m.breakpoint(v.$desktop-sm) {
         width: 34%;
       }

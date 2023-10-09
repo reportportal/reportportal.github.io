@@ -12,7 +12,7 @@ $content-block-z-index: -100;
 .scheme {
   width: 100%;
   max-width: 800px;
-  margin: 0 auto 0;
+  margin: 0 auto;
   color: var(--text-grey);
 
   &__mocked {
@@ -30,7 +30,7 @@ $content-block-z-index: -100;
   }
 
   &__divider {
-    margin: 40px 0 40px;
+    margin: 40px 0;
   }
 
   &__collapse {
@@ -46,6 +46,7 @@ $content-block-z-index: -100;
     .scheme__col-title::before {
       opacity: 0;
     }
+
     .scheme__header-container-header::before {
       opacity: 0;
     }
@@ -105,10 +106,7 @@ $content-block-z-index: -100;
       content: '';
       display: block;
       position: absolute;
-      top: 0;
-      left: 0;
-      right: -1px;
-      bottom: 15px;
+      inset: 0 -1px 15px 0;
       border-right: 2px dotted var(--color-primary-300);
       opacity: 1;
     }
@@ -129,15 +127,14 @@ $content-block-z-index: -100;
   }
 
   &__col-title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(small);
+
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
 
     &-event-node {
       .scheme__arrow-right {
@@ -158,10 +155,7 @@ $content-block-z-index: -100;
       content: '';
       display: block;
       position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 50% 0 0;
       border-left: 2px dotted var(--color-primary-300);
       z-index: $header-dotted-middle-border-z-index;
       opacity: 1;
@@ -489,7 +483,7 @@ $content-block-z-index: -100;
     width: 280px;
     padding: 16px;
     background: white;
-    box-shadow: 0 1px 4px rgba(34, 43, 69, 0.15);
+    box-shadow: 0 1px 4px rgb(34 43 69 / 0.15);
     border-radius: 8px;
     z-index: $dropdown-z-index;
   }
@@ -510,7 +504,7 @@ $content-block-z-index: -100;
 }
 
 .scheme__header {
-  margin: 0 auto 0;
+  margin: 0 auto;
 
   &-container-header {
     position: relative;
@@ -519,10 +513,7 @@ $content-block-z-index: -100;
       content: '';
       display: block;
       position: absolute;
-      top: 50px;
-      left: 0;
-      right: -1px;
-      bottom: 0;
+      inset: 50px -1px 0 0;
       border-right: 2px dotted var(--color-primary-300);
       z-index: $header-dotted-border-z-index;
       opacity: 1;

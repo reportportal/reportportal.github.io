@@ -64,7 +64,7 @@
       width: 568px;
       padding: 64px;
       border-radius: 16px;
-      box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
+      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
 
       &,
       &.how-did-you-hear {
@@ -225,7 +225,7 @@
     }
   }
 
-  &__trustedOrganizationsContainer {
+  &__trusted-organizations-container {
     margin-top: 104px;
     padding-bottom: 40px;
 

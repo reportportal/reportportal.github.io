@@ -73,7 +73,7 @@
       @include m.font-scale(small);
 
       border-radius: 16px;
-      box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
+      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
       background: var(--white);
       padding: 14px;
       color: var(--text-primary);
@@ -106,7 +106,7 @@
       @include m.font-scale(medium);
 
       border-radius: 16px;
-      box-shadow: 0 8px 32px 0 rgba(0, 45, 55, 0.12);
+      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
       background: var(--white);
       padding: 24px;
       width: 328px;

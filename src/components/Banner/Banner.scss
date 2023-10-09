@@ -6,10 +6,7 @@
 
   &__bg {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    bottom: -35px;
+    inset: 50% 0 -35px;
     border-top: 1px solid var(--purple-grey);
     color: var(--text-service);
     background: var(--bg-light-grey);

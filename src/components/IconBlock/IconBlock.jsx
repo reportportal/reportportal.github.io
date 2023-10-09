@@ -7,7 +7,7 @@ export const IconBlock = ({ type, number, text, benefit, progressNumber }) => (
   <div className={classNames('icon-block', type, `${type}-${progressNumber}`)}>
     <span
       className={classNames('icon-block__number', {
-        'icon-block__numberOnly': !(text && benefit),
+        'icon-block__number--only': !(text && benefit),
       })}
     >
       {number}

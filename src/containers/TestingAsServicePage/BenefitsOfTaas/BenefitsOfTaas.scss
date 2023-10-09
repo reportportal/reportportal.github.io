@@ -6,6 +6,7 @@
 
   @include m.breakpoint(v.$tablet-sm-exact) {
     @include m.font-scale(x3-large);
+
     padding-bottom: 120px;
   }
 

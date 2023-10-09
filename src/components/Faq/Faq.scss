@@ -157,11 +157,11 @@ $mobile-horizontal-padding: 16px;
     }
   }
 
-  &__expandIcon {
+  &__expand-icon {
     transform: rotate(-90deg);
     transition: transform 0.3s;
 
-    &-active {
+    &--active {
       transform: rotate(0deg);
     }
   }

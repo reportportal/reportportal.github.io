@@ -33,7 +33,7 @@
   }
 
   .unordered-list {
-    background: linear-gradient(180deg, rgba(0, 180, 213, 0.24) 0%, rgba(102, 210, 230, 0) 100%);
+    background: linear-gradient(180deg, rgb(0 180 213 / 0.24) 0%, rgb(102 210 230 / 0) 100%);
     padding: 24px 8px;
 
     &__list-item {

@@ -19,7 +19,7 @@
     }
   }
 
-  &:first-child .solutions-list__item__title::after {
+  &:first-child .solutions-list__item-title::after {
     @include m.font-noto-sans();
 
     content: '(home)';

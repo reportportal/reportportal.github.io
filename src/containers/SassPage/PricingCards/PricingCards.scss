@@ -3,16 +3,14 @@
 
 .pricing-cards {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   justify-content: center;
   margin: -244px 16px 0;
   gap: 40px 20px;
-  flex-direction: column;
   align-content: center;
 
   @include m.breakpoint(v.$desktop-sm) {
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-flow: row nowrap;
   }
 
   > div {

@@ -2,7 +2,7 @@
 @use 'src/styles/variables' as v;
 
 .challenges {
-  background-image: url(../../../svg/testing/GrayVector.svg);
+  background-image: url('../../../svg/testing/GrayVector.svg');
   background-repeat: no-repeat;
   background-size: 100% 90%;
 
@@ -31,7 +31,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 16px;
-      box-shadow: 0 8px 16px 0 rgba(0, 45, 55, 0.12);
+      box-shadow: 0 8px 16px 0 rgb(0 45 55 / 0.12);
       background: var(--white) url('../../../svg/testing/CheckedCorner.svg') no-repeat;
       padding: 32px;
       height: 160px;

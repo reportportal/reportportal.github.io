@@ -1,0 +1,24 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "selector-class-pattern": [
+      "^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
+      {
+        "resolveNestedSelectors": true,
+        "message": "Expected class selector \"%s\" to match BEM CSS pattern https://en.bem.info/methodology/css. Selector validation tool: https://regexr.com/3apms"
+      }
+    ],
+    "scss/at-mixin-argumentless-call-parentheses": "always",
+    "no-descending-specificity": null,
+    "alpha-value-notation": "number",
+    "value-keyword-case": ["lower", {
+      "camelCaseSvgKeywords": true
+    }],
+    "property-no-vendor-prefix": [true, {
+      "ignoreProperties": ["background-clip"]
+    }],
+    "keyframes-name-pattern": "[a-z]+([A-Z])?",
+    "scss/at-extend-no-missing-placeholder": null,
+    "selector-not-notation": "simple"
+  }
+}

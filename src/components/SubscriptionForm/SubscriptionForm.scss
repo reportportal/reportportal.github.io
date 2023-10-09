@@ -6,8 +6,7 @@
   @include m.font-scale();
 
   display: grid;
-  grid-row-gap: 24px;
-  grid-column-gap: 16px;
+  grid-gap: 24px 16px;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
     grid-row-gap: unset;

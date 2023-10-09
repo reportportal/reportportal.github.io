@@ -7,10 +7,10 @@
   flex-direction: column;
   width: 100%;
   max-width: 387px;
-  padding: 32px 32px 32px;
+  padding: 32px;
   border-radius: 15px;
   background: var(--white);
-  box-shadow: 0 4px 16px rgba(16, 46, 52, 0.1);
+  box-shadow: 0 4px 16px rgb(16 46 52 / 0.1);
   transition: box-shadow 0.4s ease-out;
 
   @include m.breakpoint(v.$phone) {
@@ -18,7 +18,7 @@
   }
 
   &:hover {
-    box-shadow: 0 8px 24px rgba(57, 109, 120, 0.3);
+    box-shadow: 0 8px 24px rgb(57 109 120 / 0.3);
   }
 
   &__popular {
@@ -36,7 +36,7 @@
     text-align: center;
     color: var(--white);
     z-index: 2;
-    width: 198px; //phone
+    width: 198px;
   }
 
   &__title {
@@ -110,7 +110,7 @@
       padding-left: 26px;
       color: var(--text-primary);
 
-      &:before {
+      &::before {
         content: '';
         position: absolute;
         left: 0;

@@ -2,7 +2,7 @@
 @use 'src/styles/variables' as v;
 
 .common-requests {
-  background-image: url(../../../svg/testing/GrayVector.svg);
+  background-image: url('../../../svg/testing/GrayVector.svg');
   background-repeat: no-repeat;
   background-size: 100% 90%;
   padding: 120px 0;
@@ -33,7 +33,7 @@
     }
 
     &__wrapper {
-      @include m.hideScroll();
+      @include m.hide-scroll();
 
       display: flex;
       overflow: auto;
@@ -55,7 +55,7 @@
       justify-content: center;
       gap: 16px;
       border-radius: 16px;
-      box-shadow: 0 19px 34px 0 rgba(91, 112, 115, 0.08);
+      box-shadow: 0 19px 34px 0 rgb(91 112 115 / 0.08);
       background: var(--white);
       padding: 40px;
       width: 239px;

@@ -52,17 +52,17 @@
     border-radius: 8px;
   }
 
-  &__title {
+  &-title {
     @include m.font-poppins(v.$fw-semi-bold);
   }
 
-  &__text {
+  &-text {
     @include m.font-poppins();
     @include m.font-scale(small);
   }
 
-  &__title,
-  &__text {
+  &-title,
+  &-text {
     color: var(--text-primary);
     margin: 0;
   }
@@ -77,7 +77,7 @@
   }
 }
 
-.section-list--secondary {
+.section-list-secondary {
   &__col {
     width: 200px;
   }

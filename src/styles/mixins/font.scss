@@ -11,7 +11,7 @@
 }
 
 @mixin font-poppins($weight: typography.$fw-regular, $font-style: false) {
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: Poppins, Arial, sans-serif;
 
   @include font-info($weight, $font-style);
 }
@@ -23,7 +23,7 @@
 }
 
 @mixin roboto-mono($weight: typography.$fw-regular, $font-style: false) {
-  font-family: 'Roboto Mono', 'Monaco', 'Courier New', monospace;
+  font-family: 'Roboto Mono', Monaco, 'Courier New', monospace;
 
   @include font-info($weight, $font-style);
 }

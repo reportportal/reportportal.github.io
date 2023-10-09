@@ -55,8 +55,8 @@ export const ComparePlans = ({
             <img
               className={
                 isActive
-                  ? getBlocksWith('__tab__arrow_bottom')
-                  : getBlocksWith('__tab__arrow_right')
+                  ? getBlocksWith('__tab--arrow-bottom')
+                  : getBlocksWith('__tab--arrow-right')
               }
               src={iconsCommon.arrowDark}
               alt={isActive ? 'Collapse' : 'Expand'}
@@ -121,8 +121,8 @@ export const ComparePlans = ({
           defaultActiveKey={['1']}
           expandIcon={({ isActive }) => (
             <img
-              className={classNames(getBlocksWith('__titleArrow'), {
-                [classNames(getBlocksWith('__titleArrow-active'))]: isActive,
+              className={classNames(getBlocksWith('__title-arrow'), {
+                [classNames(getBlocksWith('__title-arrow--active'))]: isActive,
               })}
               src={iconsCommon.arrowDark}
               alt={isActive ? 'Collapse' : 'Expand'}

@@ -91,6 +91,7 @@
         > svg path {
           fill: var(--color-primary-200);
         }
+
         color: var(--color-primary-200);
       }
 
@@ -98,6 +99,7 @@
         > svg path {
           fill: var(--color-primary-700);
         }
+
         color: var(--color-primary-700);
       }
     }
@@ -208,7 +210,7 @@
     margin-right: -16px;
     margin-left: -16px;
     border-radius: 16px;
-    box-shadow: 0 8px 16px 0 rgba(0, 45, 55, 0.12);
+    box-shadow: 0 8px 16px 0 rgb(0 45 55 / 0.12);
     background: var(--bg-white);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
@@ -279,7 +281,7 @@
     }
   }
 
-  &__benefitsResults {
+  &__benefits-results {
     position: relative;
     width: 100%;
     margin-top: 40px;
@@ -382,7 +384,7 @@
             }
 
             &:last-child {
-              background-color: rgba(0, 184, 132, 0.1);
+              background-color: rgb(0 184 132 / 0.1);
             }
 
             p {

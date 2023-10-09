@@ -33,7 +33,7 @@ export const PentagonCard = ({ stepNumber, hours, price, contactLink }) => {
         <button
           type="button"
           className={classNames(
-            getBlocksWith('__contactButton'),
+            getBlocksWith('__contact-button'),
             'btn',
             `btn--${isFirstStep ? 'outline' : 'primary'}`,
             'btn--large',

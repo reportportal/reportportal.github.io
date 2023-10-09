@@ -1,7 +1,7 @@
 @use 'src/styles/mixins' as m;
 @use 'src/styles/variables' as v;
 
-@mixin hide_horizontal_scroll {
+@mixin hide-horizontal-scroll {
   overflow-x: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -14,7 +14,7 @@
 
 .features-page {
   .process-integration {
-    background: linear-gradient(180deg, var(--bg-grey2) 0%, rgba(244, 245, 250, 0) 60.17%);
+    background: linear-gradient(180deg, var(--bg-grey2) 0%, rgb(244 245 250 / 0) 60.17%);
 
     @include m.breakpoint(v.$desktop-sm) {
       padding-top: 120px;
@@ -70,7 +70,7 @@
   &__hero {
     margin-top: calc(-1 * var(--header-height));
     padding-top: var(--header-height);
-    background-image: url(../../svg/BackgroundHero.svg);
+    background-image: url('../../svg/BackgroundHero.svg');
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -167,23 +167,23 @@
   position: relative;
   border-bottom: 1px solid var(--purple-grey);
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     width: 120px;
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(270deg, #fbfcfd 0%, rgba(251, 252, 253, 0) 100%);
+    background: linear-gradient(270deg, #fbfcfd 0%, rgb(251 252 253 / 0) 100%);
     pointer-events: none;
   }
 
   &-container {
-    @include hide_horizontal_scroll();
+    @include hide-horizontal-scroll();
 
     display: flex;
     align-items: flex-start;
-    padding: 0 16px 0;
+    padding: 0 16px;
     gap: 24px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
@@ -289,7 +289,7 @@
 
     &-trailing {
       flex: 1;
-      margin: 0 30px 0 30px;
+      margin: 0 30px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         margin: 0;
@@ -497,7 +497,6 @@
           @include m.font-scale();
 
           margin: 0;
-
           color: var(--dark);
         }
 
