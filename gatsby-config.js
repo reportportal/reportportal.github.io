@@ -10,7 +10,7 @@ module.exports = {
       'Centralized test automation dashboard. Provides AI-based defects triage and real time test report dashboard.',
     keywords:
       'test automation dashboard, test automation reporting, qa automation dashboard, test automation results dashboard, test report dashboard, qa metrics dashboard, test execution report, end to end testing reporting tools, ReportPortal installation, ReportPortal integration, ReportPortal dashboard',
-    url: 'https://reportportal.io/',
+    siteUrl: 'https://reportportal.io/',
   },
   plugins: [
     'gatsby-plugin-svgr-svgo',
@@ -36,10 +36,23 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         output: '/sitemap-landing',
+        excludes: [
+          '/contact-us/taas',
+          '/contact-us/taaas',
+          '/contact-us/qaaas',
+          '/contact-us/saas/**',
+          '/contact-us/on-premises/**',
+          '/contact-us/qasp',
+          '/contact-us/d4j',
+          '/contact-us/hlm',
+          '/contact-us/qasp/**',
+          '/contact-us/d4j/**',
+          '/contact-us/hlm/**',
+        ],
         query: `{
           site {
             siteMetadata {
-              url
+              siteUrl
             }
           }
           allSitePage {
@@ -48,23 +61,6 @@ module.exports = {
             }
           }
         }`,
-        resolveSiteUrl: ({ site }) => {
-          return site.siteMetadata.url;
-        },
-        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
-          return allPages.filter(page =>
-            [
-              '/contact-us/saas/',
-              '/contact-us/on-premises/',
-              '/contact-us/taas',
-              '/contact-us/taaas',
-              '/contact-us/qaaas',
-              '/contact-us/qasp',
-              '/contact-us/d4j',
-              '/contact-us/hlm',
-            ].every(path => !page.path.includes(path)),
-          );
-        },
         serialize: ({ path }) => {
           return {
             url: path,
