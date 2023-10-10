@@ -220,6 +220,11 @@
       }
 
       .phase__dropdown {
+        &::before,
+        &::after {
+          background-color: var(--color-primary-700);
+        }
+
         &::after {
           height: 697px;
         }
@@ -238,11 +243,6 @@
           &::after {
             height: 2px;
           }
-        }
-
-        &::before,
-        &::after {
-          background-color: var(--color-primary-700);
         }
       }
     }
@@ -265,6 +265,11 @@
 
         width: 100%;
 
+        &::before,
+        &::after {
+          background-color: var(--graphics-amber);
+        }
+
         &::after {
           height: 347px;
         }
@@ -281,11 +286,6 @@
           &::after {
             height: 2px;
           }
-        }
-
-        &::before,
-        &::after {
-          background-color: var(--graphics-amber);
         }
       }
     }

@@ -214,6 +214,15 @@
       min-width: auto;
     }
 
+    &--active,
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover span {
+      color: var(--color-primary-500);
+    }
+
     span {
       @include m.font-poppins(v.$fw-bold);
       @include m.font-scale(x-small);
@@ -223,15 +232,6 @@
 
     &--active {
       border-bottom: 2px solid var(--color-primary-700);
-    }
-
-    &--active,
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:hover span {
-      color: var(--color-primary-500);
     }
 
     &--active span {

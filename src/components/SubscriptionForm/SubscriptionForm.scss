@@ -45,16 +45,16 @@
       border-color: var(--text-light-grey);
       padding: 8px 14px;
 
-      svg {
-        color: var(--text-light-grey);
-      }
-
       &:hover {
         border-color: var(--text-service);
 
         svg {
           color: var(--text-service);
         }
+      }
+
+      svg {
+        color: var(--text-light-grey);
       }
 
       &-status-error {

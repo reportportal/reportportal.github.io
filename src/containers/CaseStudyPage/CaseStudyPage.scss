@@ -256,14 +256,6 @@
         @include m.font-scale(medium);
       }
 
-      + li {
-        margin-top: 8px;
-      }
-
-      p {
-        margin: 0;
-      }
-
       &::before {
         position: absolute;
         top: 8px;
@@ -277,6 +269,14 @@
         @include m.breakpoint(v.$tablet-sm-exact) {
           top: 12px;
         }
+      }
+
+      + li {
+        margin-top: 8px;
+      }
+
+      p {
+        margin: 0;
       }
     }
   }

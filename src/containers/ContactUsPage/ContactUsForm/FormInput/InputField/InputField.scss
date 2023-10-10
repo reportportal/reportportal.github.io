@@ -31,16 +31,16 @@
     height: 56px;
     color: var(--text-dark);
 
-    &::placeholder {
-      color: var(--text-light-grey);
-    }
-
     &:hover {
       border-color: var(--text-service);
     }
 
     &:focus {
       border-color: var(--color-primary-600);
+    }
+
+    &::placeholder {
+      color: var(--text-light-grey);
     }
   }
 

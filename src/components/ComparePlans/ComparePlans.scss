@@ -408,6 +408,10 @@
       display: inline-block;
       position: relative;
 
+      &:hover::after {
+        background-color: var(--text-grey);
+      }
+
       &::after {
         position: absolute;
         bottom: 6px;
@@ -417,10 +421,6 @@
         width: 100%;
         height: 1px;
         content: '';
-      }
-
-      &:hover::after {
-        background-color: var(--text-grey);
       }
     }
 

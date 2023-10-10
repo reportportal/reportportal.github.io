@@ -79,12 +79,6 @@
     color: var(--text-primary);
     cursor: pointer;
 
-    & svg {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-    }
-
     &:hover {
       color: var(--color-primary-500);
     }
@@ -97,6 +91,12 @@
       opacity: 0.3;
       color: var(--color-primary-600);
       cursor: auto;
+    }
+
+    & svg {
+      position: absolute;
+      top: 8px;
+      left: 8px;
     }
   }
 }

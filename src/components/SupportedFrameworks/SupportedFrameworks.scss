@@ -134,6 +134,14 @@
         padding: 14px 0;
         height: 80px;
 
+        &:hover {
+          border: 1px solid var(--color-primary-500);
+
+          .frameworks__box-content-item-arrow {
+            display: block;
+          }
+        }
+
         &-arrow {
           display: none;
           position: absolute;
@@ -144,14 +152,6 @@
           background-repeat: no-repeat;
           width: 10px;
           height: 10px;
-        }
-
-        &:hover {
-          border: 1px solid var(--color-primary-500);
-
-          .frameworks__box-content-item-arrow {
-            display: block;
-          }
         }
       }
 

@@ -68,21 +68,6 @@ $border-thickness: 1px;
       border: 1px solid var(--color-primary-500);
     }
 
-    &.active {
-      color: var(--text-primary);
-
-      &::before {
-        left: -25px;
-        transition: background-color 0.4s ease-out;
-        border: none;
-        background-color: var(--color-primary-500);
-      }
-
-      .indicatory__box-item-substring {
-        color: var(--text-grey);
-      }
-    }
-
     &::before {
       display: block;
       position: absolute;
@@ -96,6 +81,21 @@ $border-thickness: 1px;
       width: 13px;
       height: 13px;
       content: '';
+    }
+
+    &.active {
+      color: var(--text-primary);
+
+      &::before {
+        left: -25px;
+        transition: background-color 0.4s ease-out;
+        border: none;
+        background-color: var(--color-primary-500);
+      }
+
+      .indicatory__box-item-substring {
+        color: var(--text-grey);
+      }
     }
   }
 }

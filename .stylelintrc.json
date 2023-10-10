@@ -27,6 +27,18 @@
       "custom-properties",
       "dollar-variables",
       "declarations",
+      { "type": "rule", "selector": "&:hover" },
+      { "type": "rule", "selector": "&:focus" },
+      { "type": "rule", "selector": "&:active" },
+      { "type": "rule", "selector": "&:disabled" },
+      { "type": "rule", "selector": "&:first-child" },
+      { "type": "rule", "selector": "&:first-of-type" },
+      { "type": "rule", "selector": "&:nth-child" },
+      { "type": "rule", "selector": "&:last-child" },
+      { "type": "rule", "selector": "&:not" },
+      { "type": "rule", "selector": "&::before" },
+      { "type": "rule", "selector": "&::after" },
+      { "type": "rule", "selector": "&::placeholder" },
       "rules"
     ],
     "order/properties-order": [

@@ -32,6 +32,11 @@
   padding: 8px 8px 8px 52px;
   line-height: 24px;
 
+  &:hover {
+    border-radius: 8px;
+    background: var(--bg-grey2);
+  }
+
   &:not(:last-child) {
     margin-bottom: 8px;
   }
@@ -45,11 +50,6 @@
     .section-item-icon {
       top: 6px;
     }
-  }
-
-  &:hover {
-    border-radius: 8px;
-    background: var(--bg-grey2);
   }
 
   &-title {
