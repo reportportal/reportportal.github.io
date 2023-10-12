@@ -42,14 +42,14 @@
   &__text {
     margin-left: 10px;
 
-    &-increased {
-      display: none;
-    }
-
     @include m.breakpoint(v.$tablet-sm) {
       &-increased {
         display: inline-block;
       }
+    }
+
+    &-increased {
+      display: none;
     }
   }
 
@@ -67,10 +67,6 @@
     display: none;
     margin-bottom: -4px;
 
-    &-increased {
-      display: inline-block;
-    }
-
     @include m.breakpoint(v.$phone) {
       display: none;
 
@@ -80,6 +76,10 @@
     }
 
     @include m.breakpoint(v.$tablet-sm) {
+      display: inline-block;
+    }
+
+    &-increased {
       display: inline-block;
     }
   }

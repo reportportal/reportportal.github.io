@@ -87,10 +87,6 @@
     margin-top: 23px;
     width: 100%;
 
-    .btn {
-      width: 100%;
-    }
-
     @include m.breakpoint(v.$phone) {
       margin-top: 35px;
       width: auto;
@@ -103,6 +99,10 @@
     @include m.breakpoint(v.$desktop-sm) {
       margin-top: 10px;
       margin-bottom: 10px;
+    }
+
+    .btn {
+      width: 100%;
     }
   }
 }

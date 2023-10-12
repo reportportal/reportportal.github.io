@@ -67,12 +67,12 @@
     background-size: cover;
     padding: 24px;
 
-    &:hover {
-      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
-    }
-
     @include m.breakpoint(v.$desktop-sm) {
       width: 100%;
+    }
+
+    &:hover {
+      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
     }
   }
 
@@ -128,12 +128,12 @@
   justify-content: center;
   margin-bottom: 120px;
 
-  > p {
-    color: var(--text-light-grey);
-  }
-
   @include m.breakpoint(v.$tablet-sm-exact) {
     margin-bottom: 200px;
+  }
+
+  > p {
+    color: var(--text-light-grey);
   }
 }
 

@@ -54,12 +54,6 @@
     background: var(--white);
     color: var(--text-primary);
 
-    &.how-did-you-hear {
-      row-gap: unset;
-      margin-top: 64px;
-      margin-bottom: 64px;
-    }
-
     @include m.breakpoint(v.$tablet-sm-exact) {
       border-radius: 16px;
       box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
@@ -85,6 +79,12 @@
           margin-top: -110px;
         }
       }
+    }
+
+    &.how-did-you-hear {
+      row-gap: unset;
+      margin-top: 64px;
+      margin-bottom: 64px;
     }
 
     &-container {
@@ -211,12 +211,12 @@
       list-style: disc inside;
       text-align: left;
 
-      li + li {
-        margin-top: 4px;
-      }
-
       @include m.breakpoint(v.$desktop-sm) {
         align-self: start;
+      }
+
+      li + li {
+        margin-top: 4px;
       }
     }
 

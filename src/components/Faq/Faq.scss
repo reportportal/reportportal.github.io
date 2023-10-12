@@ -146,14 +146,14 @@ $mobile-horizontal-padding: 16px;
     padding-left: 15px !important;
     color: var(--dark);
 
-    div {
-      margin-bottom: 24px;
-    }
-
     @include m.breakpoint(v.$tablet-sm-exact) {
       &:last-child {
         margin-bottom: 22px;
       }
+    }
+
+    div {
+      margin-bottom: 24px;
     }
   }
 

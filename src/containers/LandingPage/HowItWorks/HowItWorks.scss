@@ -31,29 +31,6 @@
     padding-top: 64px;
     padding-bottom: 64px;
 
-    &::after {
-      position: absolute;
-      top: 0;
-      left: 19.5px;
-      z-index: -1;
-      background: linear-gradient(
-        180deg,
-        rgb(195 200 213 / 0) 0%,
-        var(--text-light-grey) 13.95%,
-        var(--text-light-grey) 86.62%,
-        rgb(195 200 213 / 0) 100%
-      );
-      width: 1px;
-      height: 100%;
-      content: '';
-    }
-
-    &.has-interval {
-      .ant-steps-item-tail::before {
-        display: block !important;
-      }
-    }
-
     @include m.breakpoint(v.$tablet-sm-exact) {
       flex-direction: row;
       justify-content: space-between;
@@ -79,6 +56,29 @@
       > div:first-child {
         flex-shrink: 0;
         width: 294px;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 19.5px;
+      z-index: -1;
+      background: linear-gradient(
+        180deg,
+        rgb(195 200 213 / 0) 0%,
+        var(--text-light-grey) 13.95%,
+        var(--text-light-grey) 86.62%,
+        rgb(195 200 213 / 0) 100%
+      );
+      width: 1px;
+      height: 100%;
+      content: '';
+    }
+
+    &.has-interval {
+      .ant-steps-item-tail::before {
+        display: block !important;
       }
     }
 
@@ -208,10 +208,6 @@
       display: flex;
     }
 
-    &-text {
-      display: none;
-    }
-
     @include m.breakpoint(v.$desktop-sm) {
       align-items: center;
       gap: 40px;
@@ -237,6 +233,10 @@
         flex-shrink: 0;
         width: 400px;
       }
+    }
+
+    &-text {
+      display: none;
     }
   }
 

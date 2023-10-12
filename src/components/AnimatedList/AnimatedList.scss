@@ -101,7 +101,13 @@
 
 .animated-list {
   @include m.breakpoint(v.$desktop-sm) {
+    display: flex;
+    gap: 24px;
     height: 518px;
+
+    &.animated-list--reversed {
+      flex-direction: row-reverse;
+    }
   }
 
   ul {
@@ -122,19 +128,16 @@
     }
   }
 
-  @include m.breakpoint(v.$desktop-sm) {
-    display: flex;
-    gap: 24px;
-
-    &.animated-list--reversed {
-      flex-direction: row-reverse;
-    }
-  }
-
   &__item {
     border-top: 1px solid var(--purple-grey);
     padding: 24px;
     cursor: pointer;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      & + .animated-list__item--active {
+        border-top: none;
+      }
+    }
 
     &:last-child {
       border-bottom: 1px solid var(--purple-grey);
@@ -142,12 +145,6 @@
 
     .animated-list__item--active + & {
       border-top: none;
-    }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      & + .animated-list__item--active {
-        border-top: none;
-      }
     }
   }
 

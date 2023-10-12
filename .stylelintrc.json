@@ -24,9 +24,19 @@
     "scss/at-extend-no-missing-placeholder": null,
     "selector-not-notation": "simple",
     "order/order": [
+      {
+        "type": "at-rule",
+        "name": "include",
+        "hasBlock": false
+      },
       "custom-properties",
       "dollar-variables",
       "declarations",
+      {
+        "type": "at-rule",
+        "name": "include",
+        "hasBlock": true
+      },
       { "type": "rule", "selector": "&:hover" },
       { "type": "rule", "selector": "&:focus" },
       { "type": "rule", "selector": "&:active" },

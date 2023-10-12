@@ -124,10 +124,6 @@
     align-items: center;
     justify-content: center;
 
-    a {
-      font-weight: v.$fw-medium;
-    }
-
     @include m.breakpoint(v.$tablet-sm-exact) {
       flex-direction: row;
       gap: 4px;
@@ -136,6 +132,10 @@
     @include m.breakpoint(v.$desktop-sm) {
       justify-content: start;
       width: 384px;
+    }
+
+    a {
+      font-weight: v.$fw-medium;
     }
   }
 
@@ -165,6 +165,11 @@
     align-items: center;
     gap: 32px;
 
+    @include m.breakpoint(v.$desktop-sm) {
+      flex-direction: row;
+      gap: 48px;
+    }
+
     a {
       display: flex;
       color: var(--text-light-grey);
@@ -172,11 +177,6 @@
       &:hover {
         color: var(--text-service);
       }
-    }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      flex-direction: row;
-      gap: 48px;
     }
   }
 

@@ -52,12 +52,12 @@
         margin: 16px 0 0;
         color: var(--text-primary);
 
-        b {
-          font-weight: v.$fw-bold;
-        }
-
         @include m.breakpoint(v.$desktop-sm) {
           @include m.font-scale(x2-medium);
+        }
+
+        b {
+          font-weight: v.$fw-bold;
         }
       }
     }

@@ -79,29 +79,6 @@
     &-forth__new-apps {
       position: relative;
 
-      &::before {
-        position: absolute;
-        top: 0;
-        left: -20px;
-        border-radius: 50%;
-        background-color: var(--color-primary-300);
-        width: 10px;
-        height: 10px;
-        font-weight: bold;
-        content: '';
-      }
-
-      &::after {
-        position: absolute;
-        top: 4px;
-        left: -16px;
-        background-color: var(--color-primary-300);
-        width: 2px;
-        height: 100%;
-        font-weight: bold;
-        content: '';
-      }
-
       @include m.breakpoint(v.$tablet-sm-exact) {
         &::before {
           top: 0;
@@ -126,6 +103,29 @@
           width: 100%;
           height: 2px;
         }
+      }
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -20px;
+        border-radius: 50%;
+        background-color: var(--color-primary-300);
+        width: 10px;
+        height: 10px;
+        font-weight: bold;
+        content: '';
+      }
+
+      &::after {
+        position: absolute;
+        top: 4px;
+        left: -16px;
+        background-color: var(--color-primary-300);
+        width: 2px;
+        height: 100%;
+        font-weight: bold;
+        content: '';
       }
     }
 
@@ -220,15 +220,6 @@
       }
 
       .phase__dropdown {
-        &::before,
-        &::after {
-          background-color: var(--color-primary-700);
-        }
-
-        &::after {
-          height: 697px;
-        }
-
         @include m.breakpoint(v.$tablet-sm-exact) {
           width: 340px;
 
@@ -243,6 +234,15 @@
           &::after {
             height: 2px;
           }
+        }
+
+        &::before,
+        &::after {
+          background-color: var(--color-primary-700);
+        }
+
+        &::after {
+          height: 697px;
         }
       }
     }
@@ -265,15 +265,6 @@
 
         width: 100%;
 
-        &::before,
-        &::after {
-          background-color: var(--graphics-amber);
-        }
-
-        &::after {
-          height: 347px;
-        }
-
         @include m.breakpoint(v.$tablet-sm-exact) {
           &::after {
             height: 535px;
@@ -286,6 +277,15 @@
           &::after {
             height: 2px;
           }
+        }
+
+        &::before,
+        &::after {
+          background-color: var(--graphics-amber);
+        }
+
+        &::after {
+          height: 347px;
         }
       }
     }

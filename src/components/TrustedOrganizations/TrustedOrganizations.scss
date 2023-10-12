@@ -34,14 +34,6 @@
     width: 100%;
     max-width: 252px;
 
-    svg {
-      transform: scale(0.8);
-
-      @include m.breakpoint(v.$phone) {
-        transform: none;
-      }
-    }
-
     @include m.breakpoint(v.$tablet-sm-exact) {
       display: flex;
       justify-content: center;
@@ -51,6 +43,14 @@
 
     @include m.breakpoint(v.$desktop-sm) {
       column-gap: 56px;
+    }
+
+    svg {
+      transform: scale(0.8);
+
+      @include m.breakpoint(v.$phone) {
+        transform: none;
+      }
     }
 
     &-wrapper {

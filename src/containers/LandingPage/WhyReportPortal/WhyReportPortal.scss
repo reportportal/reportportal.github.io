@@ -66,13 +66,13 @@
       @include m.font-poppins(v.$fw-semi-bold);
       @include m.font-scale(medium);
 
-      @include m.breakpoint(v.$tablet-sm) {
-        @include m.font-scale(x2-medium);
-      }
-
       margin: 40px 0 0;
       text-align: center;
       color: var(--text-primary);
+
+      @include m.breakpoint(v.$tablet-sm) {
+        @include m.font-scale(x2-medium);
+      }
     }
 
     span {

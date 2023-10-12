@@ -81,7 +81,15 @@
       box-shadow: 0 8px 16px rgb(0 45 55 / 0.12);
 
       @include m.breakpoint(v.$desktop-sm) {
+        margin-bottom: 0;
         box-shadow: none;
+
+        .compare__row-title-col {
+          @include m.font-scale(base);
+
+          white-space: normal;
+          font-weight: v.$fw-regular;
+        }
       }
 
       > .ant-collapse-header {
@@ -104,17 +112,6 @@
           @include m.breakpoint(v.$desktop-sm) {
             @include m.font-noto-sans();
           }
-        }
-      }
-
-      @include m.breakpoint(v.$desktop-sm) {
-        margin-bottom: 0;
-
-        .compare__row-title-col {
-          @include m.font-scale(base);
-
-          white-space: normal;
-          font-weight: v.$fw-regular;
         }
       }
     }
@@ -208,16 +205,16 @@
       &-last-item {
         margin: 16px 0;
 
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          margin: 7px 0 12px;
+        }
+
         .compare__row-title-cols {
           @include m.font-scale(small);
         }
 
         .compare__row-title-col {
           font-weight: v.$fw-regular;
-        }
-
-        @include m.breakpoint(v.$tablet-sm-exact) {
-          margin: 7px 0 12px;
         }
       }
     }
@@ -234,16 +231,17 @@
     }
 
     &-header {
+      @include m.breakpoint(v.$desktop-sm) {
+        padding: 0 54px 32px 86px;
+        color: var(--text-primary);
+
+        .compare__row-title {
+          @include m.font-poppins(v.$fw-semi-bold);
+          @include m.font-scale(medium);
+        }
+      }
+
       .compare__row-title-col {
-        &::before {
-          white-space: pre-line;
-          content: attr(data-short);
-        }
-
-        div {
-          display: none;
-        }
-
         @include m.breakpoint(v.$desktop-sm) {
           &::before {
             content: none;
@@ -253,15 +251,14 @@
             display: block;
           }
         }
-      }
 
-      @include m.breakpoint(v.$desktop-sm) {
-        padding: 0 54px 32px 86px;
-        color: var(--text-primary);
+        &::before {
+          white-space: pre-line;
+          content: attr(data-short);
+        }
 
-        .compare__row-title {
-          @include m.font-poppins(v.$fw-semi-bold);
-          @include m.font-scale(medium);
+        div {
+          display: none;
         }
       }
     }
@@ -302,6 +299,10 @@
     @include m.font-noto-sans();
     @include m.font-scale(medium);
 
+    @include m.breakpoint(v.$desktop-sm) {
+      padding: 19px 0;
+    }
+
     &-title {
       @include m.font-poppins(v.$fw-regular);
       @include m.font-scale(small);
@@ -327,10 +328,6 @@
         text-align: center;
         color: var(--text-service);
 
-        > a {
-          margin-left: 0;
-        }
-
         @include m.breakpoint(v.$desktop-sm) {
           margin-top: auto;
           margin-bottom: auto;
@@ -339,6 +336,10 @@
           > a {
             margin-left: -36px;
           }
+        }
+
+        > a {
+          margin-left: 0;
         }
       }
 
@@ -389,10 +390,6 @@
         }
       }
     }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      padding: 19px 0;
-    }
   }
 
   &__description {
@@ -403,6 +400,10 @@
     margin-left: 8px;
     white-space: pre-wrap;
     color: var(--text-service);
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-left: 15px;
+    }
 
     &-anchor {
       display: inline-block;
@@ -426,10 +427,6 @@
 
     &-full-width {
       width: 33%;
-    }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      margin-left: 15px;
     }
   }
 

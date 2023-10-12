@@ -101,6 +101,10 @@
     align-items: center;
     padding: 120px 0;
 
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      display: none;
+    }
+
     &__heading {
       @include m.font-poppins(v.$fw-semi-bold);
       @include m.font-scale(medium);
@@ -149,10 +153,6 @@
           margin-top: 43px;
         }
       }
-    }
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      display: none;
     }
   }
 }
