@@ -8,9 +8,9 @@
   position: relative;
   z-index: var(--z-index);
   border-top: 1px solid var(--purple-grey);
-  background: var(--bg-light-grey);
   padding-top: 50px;
   padding-bottom: 48px;
+  background: var(--bg-light-grey);
   color: var(--text-service);
 
   @include m.breakpoint(v.$tablet-sm-exact) {
@@ -50,8 +50,8 @@
     @include m.breakpoint(v.$desktop-sm) {
       flex-shrink: 0;
       row-gap: 32px;
-      padding-right: 84px;
       width: 384px;
+      padding-right: 84px;
     }
   }
 

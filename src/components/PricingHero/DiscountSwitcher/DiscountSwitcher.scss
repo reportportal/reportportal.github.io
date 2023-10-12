@@ -17,21 +17,21 @@
 
   &__switcher {
     position: relative;
-    border-radius: 30px;
-    background: var(--white);
     width: 46px;
     height: 30px;
+    border-radius: 30px;
+    background: var(--white);
     cursor: pointer;
 
     &::before {
       position: absolute;
       top: 5px;
       left: 5px;
-      transition: left 0.4s ease-out;
-      border-radius: 100%;
-      background: var(--color-primary-500);
       width: 20px;
       height: 20px;
+      border-radius: 100%;
+      background: var(--color-primary-500);
+      transition: left 0.4s ease-out;
       content: '';
     }
 

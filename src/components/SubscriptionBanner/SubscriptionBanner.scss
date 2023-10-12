@@ -58,8 +58,8 @@
   .subscription-form-card {
     @include m.breakpoint(v.$desktop-sm) {
       flex-shrink: 0;
-      margin-top: 0;
       width: 568px;
+      margin-top: 0;
     }
   }
 }

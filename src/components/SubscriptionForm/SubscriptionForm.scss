@@ -26,8 +26,8 @@
   }
 
   .btn {
-    padding: 11px 16px;
     width: 100%;
+    padding: 11px 16px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       width: unset;

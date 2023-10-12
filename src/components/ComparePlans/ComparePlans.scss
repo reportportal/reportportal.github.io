@@ -5,8 +5,8 @@
   @include m.font-poppins(v.$fw-semi-bold);
   @include m.font-scale(x4-medium);
 
-  display: flex;
   position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 48px;
@@ -63,8 +63,8 @@
 
     @include m.breakpoint(v.$desktop-sm) {
       border-radius: 16px;
-      box-shadow: 0 8px 16px rgb(0 45 55 / 0.12);
       padding-top: 24px;
+      box-shadow: 0 8px 16px rgb(0 45 55 / 0.12);
     }
 
     .ant-collapse-no-arrow {
@@ -184,10 +184,10 @@
   }
 
   &__title-arrow {
-    transition: transform 0.3s;
-    margin-left: 24px;
     width: 24px;
     height: 24px;
+    margin-left: 24px;
+    transition: transform 0.3s;
 
     &--active {
       transform: rotate(180deg);
@@ -265,9 +265,9 @@
 
     &--arrow-bottom,
     &--arrow-right {
-      transition: transform 0.3s;
       width: 24px;
       height: 24px;
+      transition: transform 0.3s;
     }
 
     &--arrow-right {
@@ -280,8 +280,8 @@
 
     &--arrow-bottom {
       @include m.breakpoint(v.$desktop-sm) {
-        transform: rotate(180deg);
         margin-top: 16px;
+        transform: rotate(180deg);
       }
     }
   }
@@ -406,8 +406,8 @@
     }
 
     &-anchor {
-      display: inline-block;
       position: relative;
+      display: inline-block;
 
       &:hover::after {
         background-color: var(--text-grey);
@@ -417,10 +417,10 @@
         position: absolute;
         bottom: 6px;
         left: 0;
-        transition: background-color 0.3s ease;
-        background-color: var(--text-service);
         width: 100%;
         height: 1px;
+        background-color: var(--text-service);
+        transition: background-color 0.3s ease;
         content: '';
       }
     }

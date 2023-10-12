@@ -29,9 +29,9 @@
       padding-left: 28px;
 
       &::before {
-        display: inline-block;
         position: absolute;
         left: 8px;
+        display: inline-block;
         width: 8px;
         color: var(--color-primary-400);
         font-weight: bold;
@@ -50,13 +50,13 @@
 
   &.separator {
     &::after {
-      display: inline-block;
       position: absolute;
       bottom: -6px;
       left: 0;
-      background-color: var(--purple-grey);
+      display: inline-block;
       width: 264px;
       height: 2px;
+      background-color: var(--purple-grey);
       color: var(--color-primary-400);
       content: '';
 

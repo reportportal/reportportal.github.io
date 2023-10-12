@@ -18,17 +18,17 @@
 
   &__wrapper {
     display: flex;
-    margin: 0 auto;
-    padding: 0 24px;
     width: 100%;
     max-width: calc(var(--size-max-width) + 48px);
+    margin: 0 auto;
+    padding: 0 24px;
     color: inherit;
   }
 }
 
 .top-header-navigation {
-  display: flex;
   position: relative;
+  display: flex;
   align-content: flex-end;
   justify-content: space-between;
   width: 100%;
@@ -68,11 +68,11 @@
 
     display: flex;
     align-items: center;
-    transition: color 0.3s;
-    border: unset;
-    background: unset;
-    padding: 28px 16px;
     min-inline-size: max-content;
+    border: unset;
+    padding: 28px 16px;
+    background: unset;
+    transition: color 0.3s;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
@@ -126,8 +126,8 @@
   &__github {
     display: none;
     align-items: center;
-    transition: color 0.3s;
     margin-right: 8px;
+    transition: color 0.3s;
     color: var(--purple-grey);
 
     @include m.breakpoint(1224px) {
@@ -154,11 +154,11 @@
     @include m.font-scale(base);
 
     display: inline-block;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     outline: none;
+    padding: 9px 21.5px;
     box-shadow: none;
     background-color: transparent;
-    padding: 9px 21.5px;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     text-align: center;
     color: var(--white);
 
@@ -196,8 +196,8 @@
 .top-header-navigation__burger-button {
   margin-left: 24px;
   border: none;
-  background: none;
   padding: 8px;
+  background: none;
   cursor: pointer;
 
   @include m.breakpoint(1124px) {
@@ -229,8 +229,8 @@
   }
 
   .ant-drawer-header {
-    box-shadow: 0 1px 4px rgb(34 43 69 / 0.15);
     padding: 0 8px 0 16px;
+    box-shadow: 0 1px 4px rgb(34 43 69 / 0.15);
   }
 
   .ant-drawer-body {

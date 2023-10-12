@@ -6,13 +6,13 @@
 
   &__hero {
     position: relative;
+    height: 468px;
     margin-top: calc(-1 * var(--header-height));
+    padding: calc(72px + var(--header-height)) 16px 0;
     background: var(--color-primary-600);
     background-image: url('../../svg/headBg.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding: calc(72px + var(--header-height)) 16px 0;
-    height: 468px;
     color: var(--white);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
@@ -55,10 +55,10 @@
     color: var(--text-primary);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      border-radius: 16px;
-      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
-      padding: 64px;
       width: 568px;
+      border-radius: 16px;
+      padding: 64px;
+      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
 
       &,
       &.how-did-you-hear {
@@ -110,8 +110,8 @@
     }
 
     button {
-      margin: 24px auto 0;
       width: 235px;
+      margin: 24px auto 0;
     }
 
     &__tags {
@@ -191,8 +191,8 @@
 
     @include m.breakpoint(v.$desktop-sm) {
       row-gap: 20px;
-      margin-top: 20px;
       width: 568px;
+      margin-top: 20px;
     }
 
     p {

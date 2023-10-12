@@ -28,16 +28,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    padding: 24px;
     background-image: url('./assets/bg-up-mobile.svg');
     background-position: 0 20px;
     background-repeat: no-repeat;
-    padding: 24px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
+      padding: 40px;
       background-image: url('./assets/bg-up.svg'), url('./assets/bg-down.svg');
       background-position: bottom left, top right;
       background-repeat: no-repeat, no-repeat;
-      padding: 40px;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
@@ -84,12 +84,12 @@
   &__btn-wrapper {
     display: flex;
     align-items: center;
-    margin-top: 23px;
     width: 100%;
+    margin-top: 23px;
 
     @include m.breakpoint(v.$phone) {
-      margin-top: 35px;
       width: auto;
+      margin-top: 35px;
 
       .btn {
         width: auto;

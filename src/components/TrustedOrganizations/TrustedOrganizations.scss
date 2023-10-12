@@ -6,8 +6,8 @@
     @include m.font-poppins(v.$fw-semi-bold);
     @include m.font-scale(medium);
 
-    margin: 0 auto 40px;
     width: 309px;
+    margin: 0 auto 40px;
     text-align: center;
     color: var(--text-primary);
 
@@ -30,9 +30,9 @@
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 40px;
-    margin: 0 5px;
     width: 100%;
     max-width: 252px;
+    margin: 0 5px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       display: flex;

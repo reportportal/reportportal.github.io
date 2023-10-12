@@ -2,8 +2,8 @@
 @use 'src/styles/variables' as v;
 
 .customers-statistics {
-  background-image: var(--gradient-primary-2);
   padding: 68px 0 152px;
+  background-image: var(--gradient-primary-2);
   color: var(--white);
 
   @include m.breakpoint(v.$tablet-sm-exact) {
@@ -33,10 +33,10 @@
     padding-left: 16px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
+      max-width: 996px;
       margin: 0 auto;
       padding-right: 0;
       padding-left: 0;
-      max-width: 996px;
     }
   }
 
@@ -94,9 +94,9 @@
   li {
     display: flex;
     flex-direction: column;
+    width: 100%;
     border-left: 1px solid var(--text-service);
     padding-left: 16px;
-    width: 100%;
 
     strong {
       &:nth-child(1) {

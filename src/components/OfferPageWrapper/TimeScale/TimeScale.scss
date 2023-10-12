@@ -12,17 +12,17 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       display: block;
+      width: v.$tablet-sm-exact;
       margin: 24px auto 54px;
+      padding-left: 25px;
       background-image: url('./svg/desktop.svg');
       background-position-x: center;
-      padding-left: 25px;
-      width: v.$tablet-sm-exact;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      background-size: cover;
-      padding-left: 0;
       width: 890px;
+      padding-left: 0;
+      background-size: cover;
 
       &-shifted {
         background-image: url('./svg/desktop-shifted.svg');
@@ -72,8 +72,8 @@
     @include m.font-poppins();
     @include m.font-scale(small);
 
-    margin-bottom: 22px;
     min-width: 90px;
+    margin-bottom: 22px;
     white-space: nowrap;
     color: var(--text-primary);
 
@@ -130,9 +130,9 @@
     @include m.font-poppins();
     @include m.font-scale(small);
 
-    margin-left: 35px;
     width: 190px;
     height: 150px;
+    margin-left: 35px;
     color: var(--text-service);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
@@ -153,10 +153,10 @@
         position: absolute;
         top: 8px;
         left: -22px;
-        border-radius: 50%;
-        background: var(--text-service);
         width: 8px;
         height: 8px;
+        border-radius: 50%;
+        background: var(--text-service);
         content: '';
       }
     }

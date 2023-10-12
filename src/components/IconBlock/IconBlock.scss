@@ -33,10 +33,10 @@
 }
 
 .pentagon {
-  background: no-repeat -8px 0;
-  background-size: 105%;
   width: 266px;
   height: 291px;
+  background: no-repeat -8px 0;
+  background-size: 105%;
 
   @for $i from 1 through 5 {
     &-#{$i} {
@@ -46,8 +46,8 @@
 }
 
 .circle {
-  background: url('icons/CircleSubtract.svg') no-repeat -8px -2px;
-  background-size: 105%;
   width: 279px;
   height: 279px;
+  background: url('icons/CircleSubtract.svg') no-repeat -8px -2px;
+  background-size: 105%;
 }

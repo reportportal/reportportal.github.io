@@ -8,27 +8,27 @@ $border-thickness: 1px;
   top: var(--header-height);
   right: 0;
   left: 0;
-  transition: transform 0.5 ease-in-out;
   margin-top: 120px;
   margin-bottom: 120px;
   padding: 25px;
   padding-top: var(--header-height);
+  transition: transform 0.5 ease-in-out;
 
   &__path {
     position: sticky;
     top: var(--header-height);
     right: 0;
     left: 0;
-    transition: transform 0.5 ease-in-out;
     margin-top: 120px;
     margin-bottom: 120px;
     padding: 25px;
     padding-top: var(--header-height);
+    transition: transform 0.5 ease-in-out;
   }
 
   &__box {
-    display: flex;
     position: relative;
+    display: flex;
     flex-direction: column;
 
     &-item {
@@ -39,10 +39,10 @@ $border-thickness: 1px;
       }
 
       &-line {
-        display: block;
         position: absolute;
         left: 11px;
         z-index: var(--scroll-indicator-line-z-index);
+        display: block;
         border-left: $border-thickness solid var(--text-light-grey);
       }
     }
@@ -51,8 +51,8 @@ $border-thickness: 1px;
   &__link {
     @include m.font-noto-sans(v.$fw-semi-bold);
 
-    display: flex;
     position: relative;
+    display: flex;
     flex-direction: column;
     margin-left: 30px;
     line-height: 1.7;
@@ -69,17 +69,17 @@ $border-thickness: 1px;
     }
 
     &::before {
-      display: block;
       position: absolute;
       top: 7px;
       left: -26px;
       z-index: var(--scroll-indicator-bullet-z-index);
-      transition: background-color 0.4s ease-out;
+      display: block;
+      width: 13px;
+      height: 13px;
       border: $border-thickness solid var(--text-light-grey);
       border-radius: 50%;
       background-color: var(--white);
-      width: 13px;
-      height: 13px;
+      transition: background-color 0.4s ease-out;
       content: '';
     }
 
@@ -88,9 +88,9 @@ $border-thickness: 1px;
 
       &::before {
         left: -25px;
-        transition: background-color 0.4s ease-out;
         border: none;
         background-color: var(--color-primary-500);
+        transition: background-color 0.4s ease-out;
       }
 
       .indicatory__box-item-substring {

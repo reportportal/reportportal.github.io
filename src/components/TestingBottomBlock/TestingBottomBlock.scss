@@ -2,11 +2,11 @@
 @use 'src/styles/variables' as v;
 
 .testing-bottom-block {
+  padding-top: 120px;
   background: bottom url('../../svg/testing/FooterTriangles.svg') no-repeat,
     url('../../svg/testing/DarkBackgound.svg');
   background-position: bottom -104px center, center;
   background-size: 1440px 218px, cover;
-  padding-top: 120px;
   color: var(--white);
 
   @include m.breakpoint(v.$tablet-sm-exact) {
@@ -28,8 +28,8 @@
     @include m.font-noto-sans();
     @include m.font-scale(x2-medium);
 
-    margin-bottom: 58px;
     max-width: 992px;
+    margin-bottom: 58px;
     text-align: center;
 
     @include m.breakpoint(v.$tablet-sm-exact) {

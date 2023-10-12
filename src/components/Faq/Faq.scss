@@ -33,10 +33,10 @@ $mobile-horizontal-padding: 16px;
     h1 {
       @include features-title();
 
+      max-width: 952px;
       margin-top: 0;
       margin-bottom: 48px;
       padding: 0 16px;
-      max-width: 952px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         @include m.font-poppins(v.$fw-bold);

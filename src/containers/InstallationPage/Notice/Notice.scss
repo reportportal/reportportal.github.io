@@ -6,9 +6,9 @@
   margin-top: 24px;
 
   &__border {
+    width: 4px;
     border-radius: 4px;
     background-color: var(--text-light-grey);
-    width: 4px;
   }
 
   &__content {

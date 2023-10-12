@@ -2,14 +2,14 @@
 @use 'src/styles/variables' as v;
 
 .common-requests {
+  padding: 120px 0;
   background-image: url('../../../svg/testing/GrayVector.svg');
   background-repeat: no-repeat;
   background-size: 100% 90%;
-  padding: 120px 0;
 
   h2 {
-    margin: 0 auto;
     max-width: 328px;
+    margin: 0 auto;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       max-width: none;
@@ -23,13 +23,13 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       gap: 90px;
-      margin: 74px 24px 60px;
       width: 1440px;
+      margin: 74px 24px 60px;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      margin: 74px 120px 60px;
       width: 1410px;
+      margin: 74px 120px 60px;
     }
 
     &:last-child {
@@ -52,25 +52,25 @@
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         display: block;
-        margin: 0 auto;
         max-width: 1520px;
+        margin: 0 auto;
       }
     }
 
     &__item {
-      display: flex;
       position: relative;
+      display: flex;
       flex-direction: column;
       flex-shrink: 0;
       align-items: center;
       align-self: stretch;
       justify-content: center;
       gap: 16px;
+      width: 239px;
       border-radius: 16px;
+      padding: 40px;
       box-shadow: 0 19px 34px 0 rgb(91 112 115 / 0.08);
       background: var(--white);
-      padding: 40px;
-      width: 239px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         align-items: flex-start;

@@ -7,14 +7,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    height: 468px;
     margin-top: calc(-1 * var(--header-height));
+    padding-top: calc(var(--header-height));
+    padding-bottom: 16px;
     background: var(--color-primary-600);
     background-image: url('../../svg/headBg.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: calc(var(--header-height));
-    padding-bottom: 16px;
-    height: 468px;
     color: var(--white);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
@@ -181,13 +181,13 @@
 
       @include m.breakpoint(v.$desktop-sm) {
         position: static;
-        transform: none;
         margin-top: 64px;
+        transform: none;
       }
 
       > a {
-        padding: 16px;
         width: 348px;
+        padding: 16px;
 
         @include m.breakpoint(v.$desktop-sm) {
           width: 268px;
@@ -209,9 +209,9 @@
     margin-right: -16px;
     margin-left: -16px;
     border-radius: 16px;
+    padding: 40px;
     box-shadow: 0 8px 16px 0 rgb(0 45 55 / 0.12);
     background: var(--bg-white);
-    padding: 40px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin-right: 0;
@@ -220,8 +220,8 @@
 
     @include m.breakpoint(v.$desktop-sm) {
       flex-shrink: 0;
-      margin-top: 0;
       width: 588px;
+      margin-top: 0;
     }
 
     .case-page__column--intro {
@@ -260,10 +260,10 @@
         position: absolute;
         top: 8px;
         left: 0;
-        border-radius: 50%;
-        background-color: var(--text-light-grey);
         width: 8px;
         height: 8px;
+        border-radius: 50%;
+        background-color: var(--text-light-grey);
         content: '';
 
         @include m.breakpoint(v.$tablet-sm-exact) {
@@ -283,8 +283,8 @@
 
   &__benefits-results {
     position: relative;
-    margin-top: 40px;
     width: 100%;
+    margin-top: 40px;
 
     &--body {
       display: flex;
@@ -348,11 +348,11 @@
             align-self: stretch;
             justify-content: center;
             gap: 8px;
+            width: 134px;
+            height: 26px;
             border: 1px solid var(--purple-grey);
             border-radius: 8px 8px 0 0;
             background: var(--purple-grey);
-            width: 134px;
-            height: 26px;
 
             @include m.breakpoint(v.$tablet-sm-exact) {
               display: none;
@@ -387,19 +387,19 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            border-radius: 0 0 8px 8px;
-            background: var(--bg-light-grey);
             width: 134px;
             height: 48px;
+            border-radius: 0 0 8px 8px;
+            background: var(--bg-light-grey);
             color: var(--text-primary);
 
             @include m.breakpoint(v.$tablet-sm-exact) {
               @include m.font-scale(medium);
 
               justify-content: flex-start;
-              padding-top: 8px;
               width: 124px;
               height: 100%;
+              padding-top: 8px;
             }
 
             &:first-child {
@@ -451,8 +451,8 @@
           @include m.font-noto-sans(v.$fw-regular);
           @include m.font-scale(base);
 
-          display: flex;
           position: relative;
+          display: flex;
           flex-direction: row;
           padding-left: 40px;
           color: var(--text-primary);
@@ -462,13 +462,13 @@
           }
 
           &::before {
-            display: inline-block;
             position: absolute;
             left: 8px;
-            background-image: url('../../svg/check.svg');
-            background-size: cover;
+            display: inline-block;
             width: 24px;
             height: 24px;
+            background-image: url('../../svg/check.svg');
+            background-size: cover;
             content: '';
 
             @include m.breakpoint(v.$tablet-sm-exact) {

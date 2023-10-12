@@ -2,18 +2,18 @@
 @use 'src/styles/variables' as v;
 
 .blog-post-page {
-  display: flex;
   position: relative;
   z-index: 20;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   margin-top: calc(-1 * var(--header-height));
+  padding: calc(116px + var(--header-height)) 16px 8px 16px;
   background: var(--color-primary-600);
   background-image: url('../../svg/headBg.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  padding: calc(116px + var(--header-height)) 16px 8px 16px;
   color: var(--white);
 
   @include m.breakpoint(v.$tablet-sm-exact) {
@@ -103,9 +103,9 @@
       }
 
       > img {
-        margin-right: 8px;
         width: 16px;
         height: 16px;
+        margin-right: 8px;
       }
     }
 
@@ -129,9 +129,9 @@
 
         &__image {
           display: inline-block;
-          margin-right: 8px;
           width: 16px;
           height: 16px;
+          margin-right: 8px;
         }
 
         &__text {
@@ -149,14 +149,14 @@
     padding-top: 50px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
+      max-width: 700px;
       margin-bottom: 154px;
       padding-top: 120px;
-      max-width: 700px;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      margin-bottom: 164px;
       max-width: 790px;
+      margin-bottom: 164px;
     }
 
     .blog-post-page__second-heading:first-child,
@@ -213,8 +213,8 @@
     margin: 48px 0;
     border: 1px solid var(--color-primary-500);
     border-radius: 8px;
-    background: var(--color-primary-100);
     padding: 32px;
+    background: var(--color-primary-100);
     word-wrap: break-word;
     color: var(--text-grey);
 
@@ -259,14 +259,14 @@
     padding: 8px 0 8px 24px;
 
     &::before {
-      display: block;
       position: absolute;
       top: 0;
       left: 0;
-      border-radius: 2px;
-      background: var(--graphics-light-blue);
+      display: block;
       width: 4px;
       height: 100%;
+      border-radius: 2px;
+      background: var(--graphics-light-blue);
       content: '';
     }
 

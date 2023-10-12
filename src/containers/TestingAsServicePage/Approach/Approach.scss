@@ -3,42 +3,42 @@
 
 .approach {
   position: relative;
+  height: 1430px;
   margin-bottom: 120px;
   background: url('../../../svg/testing/HorizontalLine.svg') no-repeat,
     url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 26%,
     url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 51%,
     url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 75%,
     url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 98%;
-  height: 1430px;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
+    height: 1345px;
     background: url('../../../svg/testing/HorizontalLine.svg') no-repeat,
       url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 20%,
       url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 40%,
       url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 60%,
       url('../../../svg/testing/HorizontalLine.svg') no-repeat 0 80%;
     background-size: 100%;
-    height: 1345px;
     overflow: hidden;
   }
 
   @include m.breakpoint(v.$desktop-sm) {
+    height: auto;
     background: url('../../../svg/testing/VerticalLine.svg') no-repeat 20%,
       url('../../../svg/testing/VerticalLine.svg') no-repeat 40%,
       url('../../../svg/testing/VerticalLine.svg') no-repeat 60%,
       url('../../../svg/testing/VerticalLine.svg') no-repeat 80%;
-    height: auto;
   }
 
   &__months {
-    display: flex;
     position: absolute;
     top: -26px;
     right: 40%;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 70px;
     height: 1414px;
+    margin-bottom: 70px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       top: 0;
@@ -51,8 +51,8 @@
     @include m.breakpoint(v.$desktop-sm) {
       position: static;
       flex-direction: row;
-      margin-bottom: 70px;
       height: auto;
+      margin-bottom: 70px;
     }
   }
 
@@ -109,10 +109,10 @@
         position: absolute;
         top: 0;
         left: -20px;
-        border-radius: 50%;
-        background-color: var(--color-primary-300);
         width: 10px;
         height: 10px;
+        border-radius: 50%;
+        background-color: var(--color-primary-300);
         font-weight: bold;
         content: '';
       }
@@ -121,9 +121,9 @@
         position: absolute;
         top: 4px;
         left: -16px;
-        background-color: var(--color-primary-300);
         width: 2px;
         height: 100%;
+        background-color: var(--color-primary-300);
         font-weight: bold;
         content: '';
       }
@@ -131,25 +131,25 @@
 
     &-first {
       position: relative;
+      height: 380px;
       margin-bottom: 0;
       margin-left: 16px;
-      height: 380px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
+        height: 242px;
         margin-bottom: 30px;
         margin-left: 90px;
-        height: 242px;
       }
 
       @include m.breakpoint(v.$desktop-sm) {
-        margin-left: 0;
         height: auto;
+        margin-left: 0;
       }
 
       .phase__info {
-        display: flex;
         position: absolute;
         top: 350px;
+        display: flex;
         height: 1077px;
 
         @include m.breakpoint(v.$tablet-sm-exact) {
@@ -159,9 +159,9 @@
         }
 
         @include m.breakpoint(v.$desktop-sm) {
-          display: inline-block;
           position: relative;
           top: 0;
+          display: inline-block;
           width: 100%;
           height: auto;
           text-align: center;
@@ -170,13 +170,13 @@
     }
 
     &-second {
+      height: 350px;
       margin-bottom: 0;
       margin-left: 32px;
-      height: 350px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        margin-left: 195px;
         height: 268px;
+        margin-left: 195px;
 
         .phase--short {
           width: 440px;
@@ -184,9 +184,9 @@
       }
 
       @include m.breakpoint(v.$desktop-sm) {
+        height: auto;
         margin-bottom: 32px;
         margin-left: 241px;
-        height: auto;
 
         .phase--short {
           width: 240px;
@@ -202,21 +202,21 @@
     }
 
     &-third {
+      height: 350px;
       margin-bottom: 0;
       margin-left: 56px;
-      height: 350px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        margin-bottom: 32px;
-        margin-left: 300px;
         width: 717px;
         height: 237px;
+        margin-bottom: 32px;
+        margin-left: 300px;
       }
 
       @include m.breakpoint(v.$desktop-sm) {
         justify-content: center;
-        margin-left: 482px;
         height: auto;
+        margin-left: 482px;
       }
 
       .phase__dropdown {

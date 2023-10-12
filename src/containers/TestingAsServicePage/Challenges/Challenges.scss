@@ -7,8 +7,8 @@
   background-size: 100% 90%;
 
   &__wrapper {
-    padding: 120px 16px;
     max-width: 1175px;
+    padding: 120px 16px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       padding: 120px 24px;
@@ -30,11 +30,11 @@
       flex-basis: 352px;
       align-items: center;
       justify-content: center;
+      height: 160px;
       border-radius: 16px;
+      padding: 32px;
       box-shadow: 0 8px 16px 0 rgb(0 45 55 / 0.12);
       background: var(--white) url('../../../svg/testing/CheckedCorner.svg') no-repeat;
-      padding: 32px;
-      height: 160px;
       text-align: center;
       color: var(--text-primary);
     }

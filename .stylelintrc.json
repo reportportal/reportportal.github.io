@@ -54,13 +54,6 @@
     "order/properties-order": [
       ["all",
         {
-          "groupName": "BoxModel",
-          "properties": [
-            "box-sizing",
-            "display"
-          ]
-        },
-        {
           "groupName": "Position",
           "properties": [
             "position",
@@ -70,6 +63,13 @@
             "bottom",
             "left",
             "z-index"
+          ]
+        },
+        {
+          "groupName": "BoxModel",
+          "properties": [
+            "box-sizing",
+            "display"
           ]
         },
         {
@@ -136,16 +136,16 @@
           ]
         },
         {
-          "groupName": "TransformTransition",
+          "groupName": "Dimensions",
           "properties": [
-            "transform",
-            "transform-origin",
-            "transform-style",
-            "transition",
-            "transition-delay",
-            "transition-duration",
-            "transition-property",
-            "transition-timing-function"
+            "min-inline-size",
+            "writing-mode",
+            "width",
+            "min-width",
+            "max-width",
+            "height",
+            "min-height",
+            "max-height"
           ]
         },
         {
@@ -157,16 +157,6 @@
             "margin-bottom",
             "margin-left",
             "margin-inline-end"
-          ]
-        },
-        {
-          "groupName": "Outline",
-          "properties": [
-            "outline",
-            "outline-offset",
-            "outline-width",
-            "outline-style",
-            "outline-color"
           ]
         },
         {
@@ -208,6 +198,26 @@
           ]
         },
         {
+          "groupName": "Outline",
+          "properties": [
+            "outline",
+            "outline-offset",
+            "outline-width",
+            "outline-style",
+            "outline-color"
+          ]
+        },
+        {
+          "groupName": "Padding",
+          "properties": [
+            "padding",
+            "padding-top",
+            "padding-right",
+            "padding-bottom",
+            "padding-left"
+          ]
+        },
+        {
           "groupName": "Background",
           "properties": [
             "box-shadow",
@@ -224,29 +234,6 @@
             "background-size",
             "background-attachment",
             "background-blend-mode"
-          ]
-        },
-        {
-          "groupName": "Padding",
-          "properties": [
-            "padding",
-            "padding-top",
-            "padding-right",
-            "padding-bottom",
-            "padding-left"
-          ]
-        },
-        {
-          "groupName": "Dimensions",
-          "properties": [
-            "min-inline-size",
-            "writing-mode",
-            "width",
-            "min-width",
-            "max-width",
-            "height",
-            "min-height",
-            "max-height"
           ]
         },
         {
@@ -279,6 +266,19 @@
             "border-collapse",
             "border-spacing",
             "empty-cells"
+          ]
+        },
+        {
+          "groupName": "TransformTransition",
+          "properties": [
+            "transform",
+            "transform-origin",
+            "transform-style",
+            "transition",
+            "transition-delay",
+            "transition-duration",
+            "transition-property",
+            "transition-timing-function"
           ]
         },
         {

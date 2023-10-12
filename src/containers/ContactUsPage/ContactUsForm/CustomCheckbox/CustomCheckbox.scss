@@ -53,21 +53,21 @@
     position: absolute;
     top: -2px;
     left: 0;
-    border: 1px solid var(--text-light-grey);
-    border-radius: 3px;
     width: 24px;
     height: 24px;
+    border: 1px solid var(--text-light-grey);
+    border-radius: 3px;
 
     &::after {
-      display: none;
       position: absolute;
       inset: -2px 0 0;
-      transform: rotate(40deg);
+      display: none;
+      width: 5px;
+      height: 11px;
       margin: auto;
       border: solid var(--white);
       border-width: 0 2px 2px 0;
-      width: 5px;
-      height: 11px;
+      transform: rotate(40deg);
       content: '';
     }
   }

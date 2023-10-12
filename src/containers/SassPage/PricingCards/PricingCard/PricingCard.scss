@@ -2,16 +2,16 @@
 @use 'src/styles/variables' as v;
 
 .pricing-card {
-  display: flex;
   position: relative;
+  display: flex;
   flex-direction: column;
-  transition: box-shadow 0.4s ease-out;
-  border-radius: 15px;
-  box-shadow: 0 4px 16px rgb(16 46 52 / 0.1);
-  background: var(--white);
-  padding: 32px;
   width: 100%;
   max-width: 387px;
+  border-radius: 15px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgb(16 46 52 / 0.1);
+  background: var(--white);
+  transition: box-shadow 0.4s ease-out;
 
   @include m.breakpoint(v.$phone) {
     height: 630px;
@@ -29,11 +29,11 @@
     top: -15px;
     left: 50%;
     z-index: 2;
-    transform: translateX(-50%);
-    border-radius: 15px;
-    background: var(--graphics-amber);
-    padding: 4px 30px;
     width: 198px;
+    border-radius: 15px;
+    padding: 4px 30px;
+    background: var(--graphics-amber);
+    transform: translateX(-50%);
     text-align: center;
     text-transform: uppercase;
     color: var(--white);
@@ -55,9 +55,9 @@
   &__description {
     @include m.font-noto-sans(base);
 
+    height: 80px;
     margin-top: 8px;
     margin-bottom: 40px;
-    height: 80px;
     text-align: center;
     white-space: pre-wrap;
     color: var(--text-primary);
@@ -114,18 +114,18 @@
         position: absolute;
         top: 8px;
         left: 0;
-        border-radius: 50%;
-        background: var(--gradient-primary);
         width: 8px;
         height: 8px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
         content: '';
       }
     }
   }
 
   .btn {
-    margin: 0 auto;
     width: 100%;
+    margin: 0 auto;
 
     &--outline {
       padding: 14px 32px;

@@ -5,11 +5,11 @@
   position: relative;
   z-index: 20;
   margin-top: calc(-1 * var(--header-height));
+  padding: calc(72px + var(--header-height)) 16px 88px;
   background: var(--color-primary-600);
   background-image: url('../../svg/headBg.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  padding: calc(72px + var(--header-height)) 16px 88px;
   color: var(--white);
 
   &__title {
@@ -63,9 +63,9 @@
     justify-content: flex-end;
     gap: 24px;
     border-radius: 16px;
+    padding: 24px;
     box-shadow: 0 8px 16px 0 rgb(0 45 55 / 0.12);
     background-size: cover;
-    padding: 24px;
 
     @include m.breakpoint(v.$desktop-sm) {
       width: 100%;
@@ -77,8 +77,8 @@
   }
 
   &-item {
-    display: flex;
     position: relative;
+    display: flex;
     flex-direction: column;
     flex-shrink: 0;
     align-items: flex-start;
@@ -152,6 +152,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 48px;
   height: 56px;
+  margin-top: 48px;
 }

@@ -3,10 +3,10 @@
 
 .pricing-hero {
   position: relative;
-  margin-top: calc(-1 * var(--header-height));
-  background: url('./assets/bg.svg') no-repeat -50px -40px;
-  padding: var(--header-height) 16px 273px;
   min-height: 500px;
+  margin-top: calc(-1 * var(--header-height));
+  padding: var(--header-height) 16px 273px;
+  background: url('./assets/bg.svg') no-repeat -50px -40px;
 
   @include m.breakpoint(v.$desktop-md) {
     background-position: center;
@@ -37,10 +37,10 @@
     @include m.breakpoint(v.$desktop-sm) {
       @include m.font-scale(x4-large);
 
+      max-width: var(--size-max-width);
       margin-right: auto;
       margin-left: auto;
       padding-top: 80px;
-      max-width: var(--size-max-width);
     }
   }
 
@@ -87,16 +87,16 @@
       @include m.font-noto-sans();
       @include m.font-scale(base);
 
-      padding-top: 8px;
       max-width: 534px;
+      padding-top: 8px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         max-width: unset;
       }
 
       @include m.breakpoint(v.$desktop-sm) {
-        padding-top: 4px;
         max-width: 534px;
+        padding-top: 4px;
       }
     }
   }

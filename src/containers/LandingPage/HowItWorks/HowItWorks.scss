@@ -25,8 +25,8 @@
   }
 
   &__content {
-    display: flex;
     position: relative;
+    display: flex;
     flex-direction: column;
     padding-top: 64px;
     padding-bottom: 64px;
@@ -64,6 +64,8 @@
       top: 0;
       left: 19.5px;
       z-index: -1;
+      width: 1px;
+      height: 100%;
       background: linear-gradient(
         180deg,
         rgb(195 200 213 / 0) 0%,
@@ -71,8 +73,6 @@
         var(--text-light-grey) 86.62%,
         rgb(195 200 213 / 0) 100%
       );
-      width: 1px;
-      height: 100%;
       content: '';
     }
 
@@ -83,8 +83,8 @@
     }
 
     .ant-steps-item {
-      transition: height 0.3s;
       min-height: 80px;
+      transition: height 0.3s;
 
       &:not(.ant-steps-item-active) {
         .ant-steps-item-description {
@@ -110,10 +110,10 @@
         }
 
         .ant-steps-item-icon {
-          margin-top: 5px;
-          margin-inline-end: 32px;
           width: 12px;
           height: 12px;
+          margin-top: 5px;
+          margin-inline-end: 32px;
 
           .ant-steps-icon-dot {
             border: 1px solid var(--text-light-grey);
@@ -183,16 +183,16 @@
           }
 
           &::before {
-            display: none;
             position: absolute;
             left: 18.5px;
-            transition: background 0.3s;
+            display: none;
+            width: 3px;
+            height: 100%;
             border-radius: 1px;
             background: linear-gradient(to bottom, var(--color-primary-500) 50%, transparent 0);
             background-position: bottom;
             background-size: 100% 200%;
-            width: 3px;
-            height: 100%;
+            transition: background 0.3s;
             animation: progressAnimationBottom linear 10s forwards;
             content: '';
           }

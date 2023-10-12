@@ -10,10 +10,10 @@
     @include m.font-poppins(v.$fw-semi-bold);
 
     display: flex;
-    border-radius: 80px;
-    background-color: rgb(255 255 255 / 0.2);
     width: 100%;
     max-width: 490px;
+    border-radius: 80px;
+    background-color: rgb(255 255 255 / 0.2);
     color: var(--white);
   }
 
@@ -25,13 +25,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scale(0.95);
-    transition: all 0.4s ease-out;
-    border-radius: 80px;
-    background-color: transparent;
-    padding: 14px;
     width: 50%;
     height: 52px;
+    border-radius: 80px;
+    padding: 14px;
+    background-color: transparent;
+    transform: scale(0.95);
+    transition: all 0.4s ease-out;
     cursor: pointer;
 
     &:hover {
@@ -54,8 +54,8 @@
   }
 
   &__active {
-    transform: scale(1);
     background-color: var(--white);
+    transform: scale(1);
     color: var(--color-primary-700);
 
     &:hover {

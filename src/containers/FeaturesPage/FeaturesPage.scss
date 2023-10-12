@@ -49,12 +49,12 @@
     }
 
     .banner__title {
-      margin: 0 auto;
       max-width: 500px;
+      margin: 0 auto;
 
       @include m.breakpoint(v.$desktop-sm) {
-        margin: unset;
         max-width: initial;
+        margin: unset;
       }
     }
 
@@ -69,10 +69,10 @@
 
   &__hero {
     margin-top: calc(-1 * var(--header-height));
+    padding-top: var(--header-height);
     background-image: url('../../svg/BackgroundHero.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: var(--header-height);
 
     @include m.breakpoint(v.$desktop-sm) {
       background-size: contain;
@@ -114,8 +114,8 @@
       @include m.breakpoint(v.$tablet-sm-exact) {
         @include m.font-scale(x3-large);
 
-        margin-top: 16px;
         width: 720px;
+        margin-top: 16px;
       }
 
       @include m.breakpoint(v.$desktop-sm) {
@@ -172,8 +172,8 @@
     top: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(270deg, #fbfcfd 0%, rgb(251 252 253 / 0) 100%);
     width: 120px;
+    background: linear-gradient(270deg, #fbfcfd 0%, rgb(251 252 253 / 0) 100%);
     content: '';
     pointer-events: none;
   }
@@ -194,20 +194,20 @@
     @include m.breakpoint(1200px) {
       justify-content: center;
       gap: 74px;
+      max-width: 1200px;
       margin: 0 auto;
       padding-right: 0;
       padding-left: 0;
-      max-width: 1200px;
     }
   }
 
   &-item {
     display: flex;
     flex-direction: column;
-    padding-top: 12px;
-    padding-bottom: 12px;
     min-width: 116px;
     max-width: 116px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     text-align: center;
 
     @include m.breakpoint(1200px) {
@@ -307,8 +307,8 @@
       display: inline-flex;
       margin-bottom: 8px;
       border-radius: 16px;
-      background: var(--graphics-orchid);
       padding: 0 8px;
+      background: var(--graphics-orchid);
       color: var(--white);
     }
 
@@ -370,8 +370,8 @@
   text-align: center;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
-    margin: 120px auto 0;
     max-width: 996px;
+    margin: 120px auto 0;
   }
 
   @include m.breakpoint(v.$tablet-sm-exact) {
@@ -464,20 +464,20 @@
   &-content {
     display: flex;
     flex-direction: column;
-    margin-top: 64px;
     width: 100%;
+    margin-top: 64px;
 
     @include m.breakpoint(v.$desktop-sm) {
-      margin-top: 80px;
       width: 792px;
+      margin-top: 80px;
     }
 
     &-item {
       border: none;
       border-bottom: 2px solid var(--purple-grey);
-      background: none;
       padding-top: 24px;
       padding-bottom: 24px;
+      background: none;
       text-align: left;
       cursor: pointer;
 

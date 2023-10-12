@@ -28,8 +28,8 @@
 
   .testing-bottom-block__description {
     @include m.breakpoint(v.$tablet-sm-exact) {
-      margin-bottom: 40px;
       max-width: 980px;
+      margin-bottom: 40px;
     }
   }
 }

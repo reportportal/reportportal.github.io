@@ -2,8 +2,8 @@
 @use 'src/styles/variables' as v;
 
 .input-field {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   width: 100%;
 
   label {
@@ -21,14 +21,14 @@
     display: flex;
     align-items: center;
     align-self: stretch;
-    margin-top: 4px;
-    outline: none;
-    border: 1px solid var(--text-light-grey);
-    border-radius: 4px;
-    background: var(--white);
-    padding: 10px 16px;
     width: 100%;
     height: 56px;
+    margin-top: 4px;
+    border: 1px solid var(--text-light-grey);
+    border-radius: 4px;
+    outline: none;
+    padding: 10px 16px;
+    background: var(--white);
     color: var(--text-dark);
 
     &:hover {
