@@ -11,7 +11,16 @@ import { OPTIONS } from './constants';
 
 import './BlogPostPage.scss';
 
-export const BlogPostPage = ({ industry, title, author, date, articleBody }) => (
+interface Props {
+  author: string
+  articleBody: any
+  date: string
+  industry: string
+  title?: {
+    title: string
+  }
+}
+export const BlogPostPage: React.FC<Props> = ({ industry, title, author, date, articleBody }) => (
   <>
     <div className="blog-post-page">
       <div className="blog-post-page__head">

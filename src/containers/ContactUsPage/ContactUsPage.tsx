@@ -8,9 +8,17 @@ import { ContactUsForm } from './ContactUsForm';
 
 import './ContactUsPage.scss';
 
+interface Props {
+  config: {
+    info: string
+    isDiscussFieldShown: boolean
+    options: string
+    title: string
+  }
+}
 const getBlocksWith = createBemBlockBuilder(['contact-us']);
 
-export const ContactUsPage = ({ config }) => (
+export const ContactUsPage: React.FC<Props> = ({ config }) => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__hero')}>
       <div className="container">

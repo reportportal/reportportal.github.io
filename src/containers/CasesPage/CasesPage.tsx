@@ -8,9 +8,32 @@ import { SubscriptionBanner } from '@components/SubscriptionBanner';
 
 import './CasesPage.scss';
 
+interface Case {
+  cardBackgroundImage: {
+    file: {
+      url: string
+    }
+  }
+  icon: {
+    file: {
+      url: string
+    }
+  }
+  id: string
+  industry: string
+  slug: string
+  title: string
+}
+
+interface Props {
+  cases: Case[]
+  handleLoadMore: () => void
+  showLoadMore: boolean
+}
+
 const getBlocksWith = createBemBlockBuilder(['cases-page']);
 
-export const CasesPage = ({ cases, handleLoadMore, showLoadMore }) => (
+export const CasesPage: React.FC<Props> = ({ cases, handleLoadMore, showLoadMore }) => (
   <>
     <div className={getBlocksWith()}>
       <div className="container">

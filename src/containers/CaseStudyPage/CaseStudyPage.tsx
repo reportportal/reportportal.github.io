@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import noop from 'lodash/noop';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { ContentfulRichTextGatsbyReference, RenderRichTextData, renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { ArrowLeft } from '@svg/arrowLeft.jsx';
 import { createBemBlockBuilder } from '@utils';
@@ -13,9 +13,17 @@ import { OPTIONS } from './constants';
 
 import './CaseStudyPage.scss';
 
+interface Props {
+  benefitsResults: RenderRichTextData<ContentfulRichTextGatsbyReference>
+  challenges: RenderRichTextData<ContentfulRichTextGatsbyReference>
+  industry: string
+  highlights: RenderRichTextData<ContentfulRichTextGatsbyReference>
+  title: string
+}
+
 const getBlocksWith = createBemBlockBuilder(['case-page']);
 
-export const CaseStudyPage = ({ title, industry, challenges, highlights, benefitsResults }) => {
+export const CaseStudyPage: React.FC<Props> = ({ title, industry, challenges, highlights, benefitsResults }) => {
   useEffect(() => {
     function setupTable() {
       const tables = Array.from(document.querySelectorAll('table')).reverse();
@@ -26,7 +34,7 @@ export const CaseStudyPage = ({ title, industry, challenges, highlights, benefit
         let counter = 0;
 
         tables.forEach((table, idx) => {
-          const ulPrevHeight = table.previousElementSibling.getBoundingClientRect().height;
+          const ulPrevHeight = table.previousElementSibling!.getBoundingClientRect().height;
 
           table.style.height = `${ulPrevHeight}px`;
           table.style.bottom = idx === 0 ? '0px' : `${counter}px`;
