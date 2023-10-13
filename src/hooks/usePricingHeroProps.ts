@@ -1,11 +1,11 @@
 import React from 'react';
 import { useToggle } from 'ahooks';
 
-import CloudIcon from '@containers/SassPage/icons/cloud-icon.inline.svg';
-import ServerIcon from '@containers/SassPage/icons/server-icon.inline.svg';
-import D4jIcon from '@containers/AcceleratorsPage/icons/d4j.inline.svg';
-import HelleniumIcon from '@containers/AcceleratorsPage/icons/hellenium.inline.svg';
-import QaIcon from '@containers/AcceleratorsPage/icons/qa.inline.svg';
+import CloudIcon from '../containers/SassPage/icons/cloud-icon.inline.svg';
+import ServerIcon from '../containers/SassPage/icons/server-icon.inline.svg';
+import D4jIcon from '../containers/AcceleratorsPage/icons/d4j.inline.svg';
+import HelleniumIcon from '../containers/AcceleratorsPage/icons/hellenium.inline.svg';
+import QaIcon from '../containers/AcceleratorsPage/icons/qa.inline.svg';
 
 const pricingButtons = [
   {
