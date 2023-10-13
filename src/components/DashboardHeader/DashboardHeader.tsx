@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { createBemBlockBuilder } from '@utils';
+import { createBemBlockBuilder } from '../../utils';
 
 import './DashboardHeader.scss';
 
+interface Props {
+  title: string
+  dashboardText: string
+}
+
 const getBlocksWith = createBemBlockBuilder(['dashboard-header']);
 
-export const DashboardHeader = ({ title, dashboardText }) => (
+export const DashboardHeader: React.FC<Props> = ({ title, dashboardText }) => (
   <div className={getBlocksWith()}>
     <div className="container">
       <div className={getBlocksWith('__heading')}>
