@@ -1,15 +1,25 @@
 import { useScroll } from 'ahooks';
 import { useState, useRef, useLayoutEffect } from 'react';
 
-export const useScrollDirection = ({ callbackFn, isMenuOpen }) => {
-  const [scrollDirection, setScrollDirection] = useState(null);
+interface Props {
+  callbackFn: () => void
+  isMenuOpen: boolean
+}
+
+enum Directions {
+  DOWN = 'down',
+  UP = 'up'
+}
+
+export const useScrollDirection = ({ callbackFn, isMenuOpen }: Props) => {
+  const [scrollDirection, setScrollDirection] = useState<Directions | null>(null);
   const lastScrollYRef = useRef(0);
   const scroll = useScroll();
 
   const scrollY = scroll?.top ?? 0;
 
   useLayoutEffect(() => {
-    const direction = scrollY > lastScrollYRef.current ? 'down' : 'up';
+    const direction = scrollY > lastScrollYRef.current ? Directions.DOWN : Directions.UP;
 
     if (
       direction !== scrollDirection &&
