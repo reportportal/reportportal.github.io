@@ -1,18 +1,27 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '@utils';
-import LinkArrow from '@svg/externalLinkArrow.inline.svg';
+import { createBemBlockBuilder } from '../../../../utils';
+import LinkArrow from '../../../../svg/externalLinkArrow.inline.svg';
 
 import { Link } from '../../../Link';
 
 import '../../ComparePlans.scss';
 import '../RowSection.scss';
 
+interface Props {
+  footerButtons: {
+    btn: string
+    mode: string
+    href: string
+    compareHref: string
+  }[]
+}
+
 const getBlocksWith = createBemBlockBuilder(['rowSection']);
 const getBlocksWithCompare = createBemBlockBuilder(['compare']);
 
-export const FooterColumns = ({ footerButtons }) => (
+export const FooterColumns: React.FC<Props> = ({ footerButtons }) => (
   <div className={classNames(getBlocksWith(), getBlocksWith('__container'))}>
     <div className={getBlocksWithCompare('__row-title-wrapper')}>
       <div

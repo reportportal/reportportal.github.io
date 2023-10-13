@@ -3,17 +3,24 @@ import { useMediaQuery } from 'react-responsive';
 import isBoolean from 'lodash/isBoolean';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '@utils';
-import { $desktopSm } from '@utils/breakpoint';
+import { createBemBlockBuilder } from '../../../utils';
+import { $desktopSm } from '../../../utils/breakpoint';
 
 import MarkIcon from './icons/mark.inline.svg';
 import CrossIcon from './icons/cross.inline.svg';
 
 import '../ComparePlans.scss';
 
+interface Props {
+  title: string
+  cols: string[]
+  mobileColumns: {
+    [key: string]: string
+  }
+}
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
-export const Columns = ({ title = '', cols, mobileColumns = {} }) => {
+export const Columns: React.FC<Props> = ({ title = '', cols, mobileColumns = {} }) => {
   const isDesktop = useMediaQuery({ query: $desktopSm });
   const [isVisibility, setIsVisibility] = useState(true);
 
@@ -23,7 +30,7 @@ export const Columns = ({ title = '', cols, mobileColumns = {} }) => {
     setIsVisibility(shouldShow);
   }, [isDesktop, title]);
 
-  const constructElementKey = (item, index) => {
+  const constructElementKey = (item: string, index: number) => {
     let str = String(item);
 
     if (str.length < 3) {
@@ -33,7 +40,7 @@ export const Columns = ({ title = '', cols, mobileColumns = {} }) => {
     return str.substring(0, index + 1);
   };
 
-  const getMark = value =>
+  const getMark = (value: string) =>
     value ? (
       <div className={getCompareContainer('__mark-icon')}>
         <MarkIcon />
