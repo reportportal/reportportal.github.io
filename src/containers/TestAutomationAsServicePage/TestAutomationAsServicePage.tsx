@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { DashboardHeader } from '@components/DashboardHeader';
-import { SpiderBlock } from '@components/SpiderBlock';
-import { TestingBottomBlock } from '@components/TestingBottomBlock';
+import { DashboardHeader } from '../../components/DashboardHeader';
+import { SpiderBlock } from '../../components/SpiderBlock';
+import { TestingBottomBlock } from '../../components/TestingBottomBlock';
 
 import { Benefits } from './Benefits';
 import { ServiceAria } from './ServiceAria';
@@ -10,7 +10,7 @@ import { DASHBOARD_HEADER_INFO, TESTING_BOTTOM_BLOCK_INFO } from './constants';
 
 import './TestAutomationAsServicePage.scss';
 
-export const TestAutomationAsServicePage = () => (
+export const TestAutomationAsServicePage: React.FC = () => (
   <div className="test-automation">
     <DashboardHeader
       title={DASHBOARD_HEADER_INFO.title}

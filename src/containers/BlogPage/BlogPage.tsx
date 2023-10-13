@@ -1,14 +1,19 @@
 import React from 'react';
 
-import { ArticlePreview } from '@components/ArticlePreview';
-import { SubscriptionBanner } from '@components/SubscriptionBanner';
-import { createBemBlockBuilder } from '@utils';
+import { ArticlePreview } from '@/components/ArticlePreview';
+import { SubscriptionBanner } from '@/components/SubscriptionBanner';
+import { createBemBlockBuilder } from '@/utils';
 
 import './BlogPage.scss';
 
+interface Props {
+  loadMorePost: () => void
+  nodes: unknown[]
+  posts: unknown[]
+}
 const getBlocksWith = createBemBlockBuilder(['blog']);
 
-export const BlogPage = ({ posts, nodes, loadMorePost }) => (
+export const BlogPage: React.FC<Props> = ({ posts, nodes, loadMorePost }) => (
   <>
     <div className={getBlocksWith()}>
       <div className="container">

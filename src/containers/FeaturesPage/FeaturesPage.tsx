@@ -4,17 +4,17 @@ import { useScroll } from 'ahooks';
 import classNames from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 
-import { useScrollDirection } from '@hooks';
-import { iconsCommon } from '@utils/imageSource';
-import { DOCUMENTATION_URL } from '@utils/constants';
-import { createBemBlockBuilder, mediaDesktopSm } from '@utils';
-import { Link } from '@components/Link';
-import { ProcessIntegration } from '@components/ProcessIntegration';
-import { SupportedFrameworks } from '@components/SupportedFrameworks';
-import { ArrowLink } from '@components/ArrowLink';
-import { Banner } from '@components/Banner';
-import { StartTestingWithReportPortal } from '@components/StartTestingWithReportPortal';
-import { Faq } from '@components/Faq';
+import { useScrollDirection } from '../../hooks';
+import { iconsCommon } from '../../utils/imageSource';
+import { DOCUMENTATION_URL } from '../../utils/constants';
+import { createBemBlockBuilder, mediaDesktopSm } from '../../utils';
+import { Link } from '../../components/Link';
+import { ProcessIntegration } from '../../components/ProcessIntegration';
+import { SupportedFrameworks } from '../../components/SupportedFrameworks';
+import { ArrowLink } from '../../components/ArrowLink';
+import { Banner } from '../../components/Banner';
+import { StartTestingWithReportPortal } from '../../components/StartTestingWithReportPortal';
+import { Faq } from '../../components/Faq';
 
 import { FEATURES_LIST, NAVIGATION_LIST } from './constants';
 
@@ -22,13 +22,13 @@ import './FeaturesPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
-export const FeaturesPage = () => {
+export const FeaturesPage: React.FC = () => {
   const handleScroll = () => {
     const itemList = document.querySelectorAll(
       `.${getBlocksWith('__features-list-item-container')}`,
     );
 
-    let activeIndex = null;
+    let activeIndex: number | null = null;
 
     // eslint-disable-next-line no-plusplus
     for (let i = itemList.length - 1; i >= 0; i--) {
@@ -56,7 +56,7 @@ export const FeaturesPage = () => {
   const location = useLocation();
   const [isFeaturesMenuSticky, setIsFeaturesMenuSticky] = useState(false);
   const [activeElement, setActiveElement] = useState(location.hash);
-  const processIntegrationRef = useRef(null);
+  const processIntegrationRef = useRef<null | HTMLElement>(null);
   const scrollDirection = useScrollDirection({ callbackFn: handleScroll, isMenuOpen: null });
   const scroll = useScroll();
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
@@ -72,14 +72,20 @@ export const FeaturesPage = () => {
   const setHistoryValue = val => window.history.replaceState(null, '', `/features/${val}`);
 
   useEffect(() => {
-    const processIntegrationTopPosition = processIntegrationRef.current.getBoundingClientRect().top;
+    const processIntegrationTopPosition = processIntegrationRef.current?.getBoundingClientRect().top;
     const offset = 100;
-    const isStickyPositionReached =
-      (scrollDirection === 'up'
-        ? processIntegrationTopPosition - headerHeight - offset
-        : processIntegrationTopPosition - offset) > 0;
 
-    if (isFeaturesMenuSticky !== isStickyPositionReached) {
+    let isStickyPositionReached: boolean = false;
+    
+    if(processIntegrationTopPosition){
+      isStickyPositionReached =
+        (scrollDirection === 'up'
+          ? processIntegrationTopPosition - headerHeight - offset
+          : processIntegrationTopPosition - offset) > 0;
+    }
+
+
+    if (isStickyPositionReached && isFeaturesMenuSticky !== isStickyPositionReached) {
       setIsFeaturesMenuSticky(!isFeaturesMenuSticky);
     }
   }, [scroll, scrollDirection, isFeaturesMenuSticky]);
