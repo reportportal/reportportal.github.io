@@ -1,5 +1,5 @@
 import React from 'react';
-import { Collapse } from 'antd';
+import { Collapse, CollapseProps } from 'antd';
 import classNames from 'classnames';
 
 import ArrowIcon from '../../svg/arrow.inline.svg';
@@ -12,13 +12,9 @@ import { Link } from '../Link';
 import './Faq.scss';
 
 interface Props {
-  items: {
-    key: Number
-    label: String
-    children: React.ReactNode
-  }[]
-  titleId?: String
-  documentationLink?: String
+  items: CollapseProps['items']
+  titleId?: string
+  documentationLink?: string
   showMoreInfoLink: Boolean
 }
 
