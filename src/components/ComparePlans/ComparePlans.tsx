@@ -3,9 +3,9 @@ import { useMediaQuery } from 'react-responsive';
 import { Collapse } from 'antd';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '@utils';
-import { iconsCommon } from '@utils/imageSource';
-import { $desktopSm } from '@utils/breakpoint';
+import { createBemBlockBuilder } from '../../utils';
+import { iconsCommon } from '../../utils/imageSource';
+import { $desktopSm } from '../../utils/breakpoint';
 
 import { Columns } from './Columns';
 import { RowSection } from './RowSection';
@@ -15,9 +15,23 @@ import { ColumnsHeader } from './ColumnsHeader';
 
 import './ComparePlans.scss';
 
+interface Props {
+  dataPlans: {
+    feature: string
+    section: string
+    description: string
+    footer: string
+    href: string
+  }[]
+  columns: string
+  footerButtons: string
+  isCollapsibleOnMobile: boolean
+  mobileColumns: string
+}
+
 const getBlocksWith = createBemBlockBuilder(['compare']);
 
-export const ComparePlans = ({
+export const ComparePlans: React.FC<Props> = ({
   dataPlans,
   columns,
   footerButtons,
@@ -28,12 +42,12 @@ export const ComparePlans = ({
   const { Panel } = Collapse;
   const columnsNames = Object.values(columns);
 
-  const prepareColumnData = row => Object.values(row);
+  const prepareColumnData = (row: string) => Object.values(row);
 
-  const constructElementKey = (index, feature, section) =>
+  const constructElementKey = (index: number, feature: string, section: string) =>
     feature ? feature.substring(0, index + 1) : `key${section}` || '';
 
-  const isRow = (section, footer) => !(section || footer);
+  const isRow = (section: string, footer: string) => !(section || footer);
 
   const getColumnsHeader = () => <ColumnsHeader title="Features" columns={columnsNames} />;
 
@@ -66,10 +80,10 @@ export const ComparePlans = ({
           {dataPlans.map(({ description, feature, section, footer, href, ...rowData }, index) => (
             <Panel
               showArrow={isRow(section, footer)}
-              collapsible={!isRow(section, footer) && 'disabled'}
+              collapsible={!isRow(section, footer) ? 'disabled' : undefined}
               header={
                 isRow(section, footer) ? (
-                  <ExpandableRow feature={feature} columnsData={prepareColumnData(rowData)} />
+                  <ExpandableRow feature={feature} columnsData={prepareColumnData(rowData as string)} />
                 ) : (
                   <RowSection footer={footer} footerButtons={footerButtons} />
                 )
@@ -90,7 +104,7 @@ export const ComparePlans = ({
                       <ColumnsHeader columns={columnsNames} mobileColumns={mobileColumns} />
                     )}
                     <div className={getBlocksWith('__tab-data-last-item')}>
-                      <Columns cols={prepareColumnData(rowData)} />
+                      <Columns cols={prepareColumnData(rowData as string)} />
                     </div>
                   </div>
                 </div>
