@@ -6,7 +6,14 @@ import { ApplyOurService } from './ApplyOurService';
 
 import './TestingBottomBlock.scss';
 
-export const TestingBottomBlock = ({ children, title, description, url }) => (
+interface Props {
+  children: React.ReactNode
+  title: string
+  description?: string
+  url: string
+}
+
+export const TestingBottomBlock: React.FC<Props> = ({ children, title, description, url }) => (
   <div className="testing-bottom-block">
     <div className="container">
       <div className="testing-bottom-block__heading">
@@ -18,9 +25,3 @@ export const TestingBottomBlock = ({ children, title, description, url }) => (
     </div>
   </div>
 );
-
-TestingBottomBlock.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  children: PropTypes.element.isRequired,
-};

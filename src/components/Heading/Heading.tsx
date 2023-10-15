@@ -6,7 +6,7 @@ import './Heading.scss';
 interface Props {
   title: string
   color: string
-  tag: keyof JSX.IntrinsicElements;
+  tag?: keyof JSX.IntrinsicElements;
 }
 
 const headingSize = {

@@ -5,7 +5,11 @@ import { Link } from '../../Link';
 
 import './ApplyOurService.scss';
 
-export const ApplyOurService = ({ url }) => (
+interface Props {
+  url: string
+}
+
+export const ApplyOurService: React.FC<Props> = ({ url }) => (
   <div className="apply-our-service">
     <div className="apply-our-service__heading">
       <Heading color="white-heading" title="Apply for our service" />
