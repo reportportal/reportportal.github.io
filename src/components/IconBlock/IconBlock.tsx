@@ -6,9 +6,9 @@ import './IconBlock.scss';
 interface Props {
   type: string
   number: string
-  text: string
-  benefit: string
-  progressNumber: string
+  text?: string
+  benefit?: string
+  progressNumber: number
 }
 
 export const IconBlock: React.FC<Props> = ({ type, number, text, benefit, progressNumber }) => (

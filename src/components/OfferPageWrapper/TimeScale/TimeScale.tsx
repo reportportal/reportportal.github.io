@@ -1,13 +1,21 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '@utils';
+import { createBemBlockBuilder } from '../../../utils';
 
 import './TimeScale.scss';
 
+interface Props {
+  data: {
+    items: string[]
+    time: string
+  }[]
+  isShifted: boolean
+}
+
 const getBlocksWith = createBemBlockBuilder(['time-scale']);
 
-export const TimeScale = ({ data, isShifted = false }) => (
+export const TimeScale: React.FC<Props> = ({ data, isShifted = false }) => (
   <div
     className={classNames(getBlocksWith('__wrapper'), {
       [getBlocksWith('__wrapper-shifted')]: isShifted,
