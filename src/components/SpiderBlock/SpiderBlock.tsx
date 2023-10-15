@@ -6,7 +6,16 @@ import { LEFT_ASIDE_TEXT, RIGHT_ASIDE_TEXT } from './constants';
 
 import './SpiderBlock.scss';
 
-export const SpiderBlock = ({ blockType = 'original' }) => (
+enum BlockTypes {
+  ORIGINAL = 'original',
+  OPACITY = 'opacity'
+}
+
+interface Props {
+  blockType: BlockTypes
+}
+
+export const SpiderBlock: React.FC<Props> = ({ blockType = BlockTypes.ORIGINAL }) => (
   <div className="spider container">
     <div className="spider-container">
       <div className="spider-container__aside">
@@ -59,7 +68,3 @@ export const SpiderBlock = ({ blockType = 'original' }) => (
     </div>
   </div>
 );
-
-SpiderBlock.propTypes = {
-  blockType: PropTypes.oneOf(['original', 'opacity']),
-};
