@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Tabs, ConfigProvider } from 'antd';
 
-import { createBemBlockBuilder } from '@utils';
+import { createBemBlockBuilder } from '../../utils';
 
 import {
   FRAMEWORK_ICONS_DOT_NET,
@@ -24,7 +24,7 @@ const getBlocksWith = createBemBlockBuilder(['frameworks']);
 
 const activeTab = TAB_LIST[0].label;
 
-export const SupportedFrameworks = () => {
+export const SupportedFrameworks: React.FC = () => {
   const [currentLanguage, setActiveLanguage] = useState(activeTab);
 
   const getCurrentFrameworks = useCallback(() => {

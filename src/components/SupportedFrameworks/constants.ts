@@ -1,4 +1,4 @@
-import { iconsFrameworks } from '@utils/imageSource';
+import { iconsFrameworks } from '../../utils/imageSource';
 
 export const TAB_LIST = [
   {
