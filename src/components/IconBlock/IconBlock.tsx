@@ -3,7 +3,15 @@ import classNames from 'classnames';
 
 import './IconBlock.scss';
 
-export const IconBlock = ({ type, number, text, benefit, progressNumber }) => (
+interface Props {
+  type: string
+  number: string
+  text: string
+  benefit: string
+  progressNumber: string
+}
+
+export const IconBlock: React.FC<Props> = ({ type, number, text, benefit, progressNumber }) => (
   <div className={classNames('icon-block', type, `${type}-${progressNumber}`)}>
     <span
       className={classNames('icon-block__number', {
