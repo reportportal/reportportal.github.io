@@ -3,7 +3,7 @@ import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '@utils';
+import { createBemBlockBuilder } from '../../utils';
 
 import { Link } from '../Link';
 import { EnvelopeIcon } from './icons';
@@ -11,7 +11,12 @@ import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';
 
-export const SubscriptionForm = ({ subscriptionFormState, setSubscriptionFormState }) => {
+interface Props {
+  subscriptionFormState: string
+  setSubscriptionFormState: () => void
+}
+
+export const SubscriptionForm: React.FC<Props> = ({ subscriptionFormState, setSubscriptionFormState }) => {
   const [form] = Form.useForm();
   const [isValid, setIsValid] = useState(true);
   const email = Form.useWatch('email', form);
