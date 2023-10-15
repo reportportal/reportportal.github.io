@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '@utils';
+import { createBemBlockBuilder } from '../../utils';
 
 import { SubscriptionForm } from '../SubscriptionForm';
 import { Banner } from '../Banner';
@@ -10,7 +10,7 @@ import './SubscriptionBanner.scss';
 
 const getBlocksWith = createBemBlockBuilder(['subscription-banner']);
 
-export const SubscriptionBanner = () => {
+export const SubscriptionBanner: React.FC = () => {
   const [subscriptionFormState, setSubscriptionFormState] = useState({
     isSubmitted: false,
     isAlreadySubscribed: false,
