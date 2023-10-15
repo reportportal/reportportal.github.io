@@ -14,7 +14,7 @@ interface Props {
   activeBtnName: string
 }
 
-interface Button {
+export interface Button {
   iconComponent: (btn: Button) => string
   text: string
   linkTo?: string
