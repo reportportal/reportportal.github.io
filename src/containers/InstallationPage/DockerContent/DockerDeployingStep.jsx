@@ -105,7 +105,7 @@ services:
         </Notice>
 
         <p>
-          3. Expose Docker Volumes to the file system{' '}
+          4. Expose Docker Volumes to the file system{' '}
           <span className={getBlocksWith('__sub-text')}>(optional)</span>
         </p>
         <ul className={getBlocksWith('__marked-list')}>
@@ -142,7 +142,7 @@ services:
         </p>
 
         <p>
-          4. PostgreSQL Performance Tuning{' '}
+          5. PostgreSQL Performance Tuning{' '}
           <span className={getBlocksWith('__sub-text')}>(optional)</span>
         </p>
         <p>
