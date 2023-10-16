@@ -6,6 +6,7 @@
 
   @include m.breakpoint(v.$tablet-sm-exact) {
     @include m.font-scale(x3-large);
+
     padding-bottom: 120px;
   }
 
@@ -17,27 +18,27 @@
     margin-top: 64px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      padding-left: 90px;
       padding-right: 90px;
+      padding-left: 90px;
     }
   }
 }
 
 .benefits-of-taas-list {
   display: grid;
-  grid-template-columns: repeat(1, 280px);
   justify-content: center;
+  grid-template-columns: repeat(1, 280px);
   gap: 52px;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
-    grid-template-columns: repeat(2, 280px);
     justify-content: space-around;
+    grid-template-columns: repeat(2, 280px);
     gap: 24px;
   }
 
   @include m.breakpoint(v.$desktop-sm) {
-    grid-template-columns: repeat(4, 280px);
     justify-content: center;
+    grid-template-columns: repeat(4, 280px);
   }
 
   li {

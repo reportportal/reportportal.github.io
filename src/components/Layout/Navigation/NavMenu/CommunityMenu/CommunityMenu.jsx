@@ -45,7 +45,7 @@ export const CommunityMenu = ({ isDesktop = true, isOpen, menuContainerRef }) =>
 
   const communityList = (
     <SectionList
-      className={classNames('community-list', { 'section-list--secondary': isDesktop })}
+      className={classNames('community-list', { 'section-list-secondary': isDesktop })}
       showTitle={isDesktop}
       title="Join the Community"
       items={COMMUNITY_LIST}

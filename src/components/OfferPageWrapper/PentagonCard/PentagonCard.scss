@@ -6,15 +6,15 @@ $pentagon-width: 314px;
 
 .pentagon-card {
   &__wrapper {
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-width: $pentagon-width;
     color: var(--text-primary);
-    z-index: 10;
   }
 
-  &__contactButton {
+  &__contact-button {
     width: 235px;
     margin: auto auto 64px;
 

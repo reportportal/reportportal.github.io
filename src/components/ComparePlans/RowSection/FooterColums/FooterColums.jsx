@@ -9,7 +9,7 @@ import { Link } from '../../../Link';
 import '../../ComparePlans.scss';
 import '../RowSection.scss';
 
-const getBlocksWith = createBemBlockBuilder(['rowSection']);
+const getBlocksWith = createBemBlockBuilder(['row-section']);
 const getBlocksWithCompare = createBemBlockBuilder(['compare']);
 
 export const FooterColumns = ({ footerButtons }) => (
@@ -31,7 +31,7 @@ export const FooterColumns = ({ footerButtons }) => (
       >
         {footerButtons.map(({ btn, mode, href, compareHref }) => (
           <div key={href} className={getBlocksWithCompare('__row-title-col')}>
-            <div className={getBlocksWith('__buttonsWrapper')}>
+            <div className={getBlocksWith('__buttons-wrapper')}>
               <Link
                 className={classNames('btn', `btn--${mode}`, getBlocksWith('__button'))}
                 to={compareHref ?? href}

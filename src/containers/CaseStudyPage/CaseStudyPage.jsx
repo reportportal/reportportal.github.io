@@ -88,8 +88,8 @@ export const CaseStudyPage = ({ title, industry, challenges, highlights, benefit
                 {highlights?.raw && renderRichText(highlights, OPTIONS)}
               </div>
               {benefitsResults?.raw && (
-                <div className={getBlocksWith('__benefitsResults')}>
-                  <div className={getBlocksWith('__benefitsResults--body')}>
+                <div className={getBlocksWith('__benefits-results')}>
+                  <div className={getBlocksWith('__benefits-results--body')}>
                     {renderRichText(benefitsResults, OPTIONS)}
                   </div>
                 </div>

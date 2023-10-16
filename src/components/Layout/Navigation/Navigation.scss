@@ -5,35 +5,35 @@
   position: relative;
   top: 0;
   z-index: var(--z-index-header);
-  color: var(--white);
   transform: translate3d(0, 0, 0);
   transition: background 0.3s, top 0.3s;
+  color: var(--white);
 
   &--active,
   &:hover {
+    box-shadow: 0 8px 24px rgb(34 61 69 / 0.08);
     background: var(--white);
     color: var(--text-primary);
-    box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
   }
 
   &__wrapper {
     display: flex;
     width: 100%;
     max-width: calc(var(--size-max-width) + 48px);
-    padding: 0 24px;
     margin: 0 auto;
+    padding: 0 24px;
     color: inherit;
   }
 }
 
 .top-header-navigation {
+  position: relative;
   display: flex;
-  width: 100%;
   align-content: flex-end;
   justify-content: space-between;
-  position: relative;
+  width: 100%;
 
-  &__logoLink {
+  &__logo-link {
     padding: 18px 0;
     line-height: 0;
 
@@ -69,13 +69,13 @@
     display: flex;
     align-items: center;
     min-inline-size: max-content;
-    padding: 28px 16px;
     border: unset;
+    padding: 28px 16px;
+    background: unset;
+    transition: color 0.3s;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    background: unset;
-    transition: color 0.3s;
 
     &:hover {
       color: var(--color-primary-500);
@@ -93,8 +93,8 @@
 
     svg {
       transform: rotate(180deg);
-      vertical-align: middle;
       transition: stroke 0.3s;
+      vertical-align: middle;
 
       .header:hover & {
         stroke: var(--text-primary);
@@ -110,11 +110,11 @@
 
   &__actions {
     display: flex;
-    align-items: center;
     flex: 0 0 auto;
+    align-items: center;
   }
 
-  &__actionsAuth {
+  &__actions-auth {
     display: none;
     align-items: center;
 
@@ -127,8 +127,8 @@
     display: none;
     align-items: center;
     margin-right: 8px;
-    color: var(--purple-grey);
     transition: color 0.3s;
+    color: var(--purple-grey);
 
     @include m.breakpoint(1224px) {
       display: flex;
@@ -149,18 +149,18 @@
     }
   }
 
-  &__loginButton {
+  &__login-button {
     @include m.font-poppins(v.$fw-semi-bold);
     @include m.font-scale(base);
 
     display: inline-block;
-    background-color: transparent;
-    box-shadow: none;
-    padding: 9px 21.5px;
     outline: none;
-    color: var(--white);
-    text-align: center;
+    padding: 9px 21.5px;
+    box-shadow: none;
+    background-color: transparent;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    text-align: center;
+    color: var(--white);
 
     .top-header--active &,
     .top-header:hover & {
@@ -172,13 +172,13 @@
     }
   }
 
-  &__signupButton {
-    @extend .top-header-navigation__loginButton;
+  &__signup-button {
+    @extend .top-header-navigation__login-button;
 
     display: inline-block;
+    margin-left: 16px;
     border: 2px solid var(--white);
     border-radius: 6px;
-    margin-left: 16px;
 
     .top-header--active &,
     .top-header:hover & {
@@ -192,11 +192,11 @@
   }
 }
 
-.top-header-navigation__closeButton,
-.top-header-navigation__burgerButton {
-  padding: 8px;
-  border: none;
+.top-header-navigation__close-button,
+.top-header-navigation__burger-button {
   margin-left: 24px;
+  border: none;
+  padding: 8px;
   background: none;
   cursor: pointer;
 
@@ -209,7 +209,7 @@
   }
 }
 
-.top-header-navigation__burgerButton {
+.top-header-navigation__burger-button {
   color: var(--white);
 
   .top-header--active &,
@@ -218,7 +218,7 @@
   }
 }
 
-.top-header-navigation__closeButton {
+.top-header-navigation__close-button {
   align-self: center;
   color: var(--dark);
 }
@@ -230,7 +230,7 @@
 
   .ant-drawer-header {
     padding: 0 8px 0 16px;
-    box-shadow: 0 1px 4px rgba(34, 43, 69, 0.15);
+    box-shadow: 0 1px 4px rgb(34 43 69 / 0.15);
   }
 
   .ant-drawer-body {
@@ -242,8 +242,8 @@
   .ant-drawer-title,
   .ant-collapse-header-text {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 
   .ant-collapse {
@@ -254,8 +254,8 @@
     .ant-collapse-header-text {
       @include m.font-poppins(v.$fw-semi-bold);
 
-      font-size: 18px;
       line-height: 24px;
+      font-size: 18px;
     }
 
     .ant-collapse-header {

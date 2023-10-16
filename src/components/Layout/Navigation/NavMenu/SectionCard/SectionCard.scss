@@ -11,19 +11,19 @@
   &__title {
     @include m.font-poppins(v.$fw-semi-bold);
 
-    padding-left: 8px;
     margin: 0 0 18px;
-    color: var(--text-service);
+    padding-left: 8px;
     text-transform: uppercase;
+    color: var(--text-service);
   }
 
   &__text {
     @include m.font-poppins();
     @include m.font-scale(small);
 
-    color: var(--text-primary);
     margin-top: 16px;
     margin-bottom: 0;
+    color: var(--text-primary);
   }
 
   &__footer {

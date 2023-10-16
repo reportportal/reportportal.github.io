@@ -29,9 +29,9 @@
       padding-left: 28px;
 
       &::before {
-        display: inline-block;
         position: absolute;
         left: 8px;
+        display: inline-block;
         width: 8px;
         color: var(--color-primary-400);
         font-weight: bold;
@@ -50,10 +50,10 @@
 
   &.separator {
     &::after {
-      display: inline-block;
       position: absolute;
       bottom: -6px;
       left: 0;
+      display: inline-block;
       width: 264px;
       height: 2px;
       background-color: var(--purple-grey);
@@ -61,10 +61,7 @@
       content: '';
 
       @include m.breakpoint(v.$desktop-sm) {
-        top: 0;
-        right: -10px;
-        bottom: auto;
-        left: auto;
+        inset: 0 -10px auto auto;
         width: 2px;
         height: 212px;
       }

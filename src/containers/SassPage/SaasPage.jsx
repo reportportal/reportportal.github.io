@@ -37,13 +37,13 @@ export const SaasPage = () => {
       />
       <PricingCards discountState={discountState} offersData={OFFERS_DATA} />
       <ComparePlans dataPlans={DATA_PLANS} columns={COLUMNS} footerButtons={BUTTONS_DATA} />
-      <div className={classNames(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
+      <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
         <TrustedOrganizations />
       </div>
-      <div className={getBlocksWith('__faqContainer')}>
+      <div className={getBlocksWith('__faq-container')}>
         <Faq items={FAQ_ITEMS} />
       </div>
-      <div className={getBlocksWith('__stillHaveQuestion')}>
+      <div className={getBlocksWith('__still-have-question')}>
         <Banner
           title="Do you still have questions?"
           linkTitle="Contact us"

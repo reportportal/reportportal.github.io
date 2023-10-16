@@ -20,11 +20,11 @@ export const CustomersStatistics = () => (
           Streamline quality and efficiency of your testing processes
         </h3>
         <ul className={getBlocksWithList()}>
-          {STATISTIC_INFO.map(({ quantity, doer, action }) => (
+          {STATISTIC_INFO.map(({ quantity, entities, achievement }) => (
             <li key={quantity}>
               <strong>{quantity}</strong>
-              <strong>v{doer}</strong>
-              <span>{action}</span>
+              <strong>{entities}</strong>
+              <span>{achievement}</span>
             </li>
           ))}
         </ul>

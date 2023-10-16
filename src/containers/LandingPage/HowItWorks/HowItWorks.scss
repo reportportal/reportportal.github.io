@@ -12,8 +12,8 @@
     @include m.font-scale(x4-medium);
 
     margin: 0;
-    color: var(--text-primary);
     text-align: center;
+    color: var(--text-primary);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-scale(large);
@@ -31,15 +31,9 @@
     padding-top: 64px;
     padding-bottom: 64px;
 
-    &.has-interval {
-      .ant-steps-item-tail::before {
-        display: block !important;
-      }
-    }
-
     @include m.breakpoint(v.$tablet-sm-exact) {
-      justify-content: space-between;
       flex-direction: row;
+      justify-content: space-between;
       margin-top: 32px;
       margin-bottom: 64px;
       padding-bottom: 0;
@@ -60,27 +54,32 @@
       }
 
       > div:first-child {
-        width: 294px;
         flex-shrink: 0;
+        width: 294px;
       }
     }
 
-    &:after {
+    &::after {
       position: absolute;
-      content: '';
       top: 0;
       left: 19.5px;
+      z-index: -1;
       width: 1px;
       height: 100%;
-      z-index: -1;
-
       background: linear-gradient(
         180deg,
-        rgba(195, 200, 213, 0) 0%,
+        rgb(195 200 213 / 0) 0%,
         var(--text-light-grey) 13.95%,
         var(--text-light-grey) 86.62%,
-        rgba(195, 200, 213, 0) 100%
+        rgb(195 200 213 / 0) 100%
       );
+      content: '';
+    }
+
+    &.has-interval {
+      .ant-steps-item-tail::before {
+        display: block !important;
+      }
     }
 
     .ant-steps-item {
@@ -117,8 +116,8 @@
           margin-inline-end: 32px;
 
           .ant-steps-icon-dot {
-            background-color: var(--white);
             border: 1px solid var(--text-light-grey);
+            background-color: var(--white);
           }
         }
 
@@ -140,8 +139,8 @@
 
       &.ant-steps-item-active {
         .ant-steps-item-container .ant-steps-item-icon .ant-steps-icon-dot {
-          background-color: var(--color-primary-500);
           border-color: var(--color-primary-500);
+          background-color: var(--color-primary-500);
         }
 
         .ant-steps-item-title {
@@ -185,17 +184,17 @@
 
           &::before {
             position: absolute;
+            left: 18.5px;
             display: none;
             width: 3px;
-            left: 18.5px;
             height: 100%;
             border-radius: 1px;
-            transition: background 0.3s;
-            content: '';
             background: linear-gradient(to bottom, var(--color-primary-500) 50%, transparent 0);
-            background-size: 100% 200%;
             background-position: bottom;
+            background-size: 100% 200%;
+            transition: background 0.3s;
             animation: progressAnimationBottom linear 10s forwards;
+            content: '';
           }
         }
       }
@@ -207,10 +206,6 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       display: flex;
-    }
-
-    &-text {
-      display: none;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
@@ -235,9 +230,13 @@
       }
 
       > div:first-child {
-        width: 400px;
         flex-shrink: 0;
+        width: 400px;
       }
+    }
+
+    &-text {
+      display: none;
     }
   }
 
@@ -253,8 +252,8 @@
       }
 
       @include m.breakpoint(v.$desktop-sm) {
-        max-width: initial;
         flex-grow: 0;
+        max-width: initial;
       }
     }
   }

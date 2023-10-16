@@ -1,6 +1,15 @@
 @use 'src/styles/mixins' as m;
 
 .solutions-list__item {
+  &:first-child .solutions-list__item-title::after {
+    @include m.font-noto-sans();
+
+    display: inline-block;
+    margin-left: 7px;
+    color: var(--text-service);
+    content: '(home)';
+  }
+
   &-icon {
     &--tdspora {
       background-image: url('icons/tdspora-2.svg');
@@ -17,14 +26,5 @@
     &--qa-space {
       background-image: url('../icons/qa-space-2.svg');
     }
-  }
-
-  &:first-child .solutions-list__item__title::after {
-    @include m.font-noto-sans();
-
-    content: '(home)';
-    display: inline-block;
-    margin-left: 7px;
-    color: var(--text-service);
   }
 }

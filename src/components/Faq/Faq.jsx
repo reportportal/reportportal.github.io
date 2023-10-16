@@ -33,8 +33,8 @@ export const Faq = ({
             expandIconPosition="end"
             expandIcon={({ isActive }) => (
               <img
-                className={classNames(getBlocksWith('__expandIcon'), {
-                  [getBlocksWith('__expandIcon-active')]: isActive,
+                className={classNames(getBlocksWith('__expand-icon'), {
+                  [getBlocksWith('__expand-icon--active')]: isActive,
                 })}
                 src={iconsCommon.arrowLight}
                 alt={isActive ? 'Collapse' : 'Expand'}

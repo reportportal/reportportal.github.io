@@ -61,17 +61,17 @@
       align-items: center;
       justify-content: center;
       order: -1;
-      background: center center url('../../../svg/testing/FullPentagon.svg') no-repeat;
-      background-size: contain;
       width: 313px;
       height: 327px;
+      background: center center url('../../../svg/testing/FullPentagon.svg') no-repeat;
+      background-size: contain;
 
       @include m.breakpoint(v.$desktop-sm) {
         order: 0;
-        background: center center url('../../../svg/testing/Spider.svg') no-repeat;
-        background-size: contain;
         width: 400px;
         height: 587px;
+        background: center center url('../../../svg/testing/Spider.svg') no-repeat;
+        background-size: contain;
       }
 
       &-title {

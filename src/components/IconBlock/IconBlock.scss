@@ -12,13 +12,13 @@
   &__number {
     @include m.font-poppins(v.$fw-bold);
     @include m.font-scale(x4-large);
-  }
 
-  &__numberOnly {
-    @include m.font-poppins(v.$fw-bold);
-    @include m.font-scale(large);
+    &--only {
+      @include m.font-poppins(v.$fw-bold);
+      @include m.font-scale(large);
 
-    width: 115px;
+      width: 115px;
+    }
   }
 
   &__text {

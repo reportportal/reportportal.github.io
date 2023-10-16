@@ -1,8 +1,8 @@
 @use 'src/styles/mixins' as m;
 @use 'src/styles/variables' as v;
 
-.rowSection {
-  margin: 3px 0 4px 0;
+.row-section {
+  margin: 3px 0 4px;
   text-align: center;
   cursor: auto;
 
@@ -33,15 +33,15 @@
   }
 
   &__title {
-    letter-spacing: 1px;
     text-transform: uppercase;
+    letter-spacing: 1px;
     color: var(--text-primary);
   }
 
-  &__buttonsWrapper {
+  &__buttons-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 
   &__button {
@@ -54,16 +54,16 @@
     @include m.breakpoint(v.$desktop-sm) {
       @include m.font-scale();
 
-      font-weight: 600;
       padding: 20px 0;
+      font-weight: 600;
     }
   }
 
   &__row-title-footer {
     @include m.breakpoint(v.$desktop-sm) {
-      width: 39%;
       display: flex;
       justify-content: space-between;
+      width: 39%;
 
       div {
         margin-right: 16px;

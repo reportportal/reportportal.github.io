@@ -39,7 +39,7 @@ export const ProductMenu = ({ isDesktop = true, isOpen, menuContainerRef }) => {
 
   const integrationsList = (
     <SectionList
-      className={classNames('section-list--secondary', 'integrations-list')}
+      className={classNames('section-list-secondary', 'integrations-list')}
       title="Integrations"
       items={INTEGRATIONS_LIST}
     />

@@ -4,9 +4,9 @@
 .frameworks {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   margin: 24px auto 40px;
-  align-items: center;
   text-align: center;
 
   @include m.breakpoint(v.$tablet-sm) {
@@ -16,16 +16,16 @@
   &__box {
     width: 100%;
     min-height: 656px;
-    background: var(--white);
-    box-shadow: 0 4px 16px rgba(16, 46, 52, 0.1);
     border-radius: 16px;
+    box-shadow: 0 4px 16px rgb(16 46 52 / 0.1);
+    background: var(--white);
 
     &-tabs {
       padding: 10px 24px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        padding-left: 32px;
         padding-right: 32px;
+        padding-left: 32px;
       }
 
       .ant-tabs-tab {
@@ -36,16 +36,16 @@
         position: relative;
 
         &::after {
-          content: '';
-          display: block;
           position: absolute;
+          right: 0;
           bottom: -12px;
           left: 0;
-          right: 0;
+          display: block;
           border-bottom: 3px solid var(--color-primary-600);
           opacity: 0;
           transition: left 0.3s, right 0.3s, opacity 0.2s;
           transition-delay: 0.3s, 0.3s, 0s;
+          content: '';
         }
       }
 
@@ -53,13 +53,13 @@
         .ant-tabs-tab.ant-tabs-tab-active
         .ant-tabs-tab-btn {
         &::after {
-          left: 0;
           right: 0;
+          left: 0;
           opacity: 1;
 
           @include m.breakpoint(v.$tablet-sm) {
-            left: -25px;
             right: -25px;
+            left: -25px;
           }
         }
       }
@@ -71,8 +71,8 @@
       }
 
       .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
-        justify-content: space-around;
         flex: 1;
+        justify-content: space-around;
       }
 
       .ant-tabs-nav {
@@ -98,9 +98,9 @@
       top: -10px;
       display: block;
       height: 20px;
+      border-radius: 16px;
       padding: 0 10px;
       background: var(--purple-grey);
-      border-radius: 16px;
       line-height: 20px;
       color: var(--text-service);
     }
@@ -129,22 +129,10 @@
         flex: 1 0 50px;
         justify-content: center;
         height: 80px;
-        padding: 14px 0;
         border: 1px solid var(--purple-grey);
         border-radius: 10px;
+        padding: 14px 0;
         transition: all 0.3s ease;
-
-        &-arrow {
-          position: absolute;
-          display: none;
-          top: 9px;
-          right: 6px;
-          width: 10px;
-          height: 10px;
-          background-image: url('../../svg/link_arrow.svg');
-          background-repeat: no-repeat;
-          transition: all 0.3s ease;
-        }
 
         &:hover {
           border: 1px solid var(--color-primary-500);
@@ -152,6 +140,18 @@
           .frameworks__box-content-item-arrow {
             display: block;
           }
+        }
+
+        &-arrow {
+          position: absolute;
+          top: 9px;
+          right: 6px;
+          display: none;
+          width: 10px;
+          height: 10px;
+          background-image: url('../../svg/link_arrow.svg');
+          background-repeat: no-repeat;
+          transition: all 0.3s ease;
         }
       }
 

@@ -6,8 +6,8 @@ $border-thickness: 1px;
 .indicatory {
   position: sticky;
   top: var(--header-height);
-  left: 0;
   right: 0;
+  left: 0;
   margin-top: 120px;
   margin-bottom: 120px;
   padding: 25px;
@@ -17,8 +17,8 @@ $border-thickness: 1px;
   &__path {
     position: sticky;
     top: var(--header-height);
-    left: 0;
     right: 0;
+    left: 0;
     margin-top: 120px;
     margin-bottom: 120px;
     padding: 25px;
@@ -40,10 +40,10 @@ $border-thickness: 1px;
 
       &-line {
         position: absolute;
-        display: block;
         left: 11px;
-        border-left: $border-thickness solid var(--text-light-grey);
         z-index: var(--scroll-indicator-line-z-index);
+        display: block;
+        border-left: $border-thickness solid var(--text-light-grey);
       }
     }
   }
@@ -55,9 +55,9 @@ $border-thickness: 1px;
     display: flex;
     flex-direction: column;
     margin-left: 30px;
-    color: var(--text-light-grey);
     line-height: 1.7;
     white-space: pre-wrap;
+    color: var(--text-light-grey);
     cursor: pointer;
 
     &:hover {
@@ -68,33 +68,34 @@ $border-thickness: 1px;
       border: 1px solid var(--color-primary-500);
     }
 
+    &::before {
+      position: absolute;
+      top: 7px;
+      left: -26px;
+      z-index: var(--scroll-indicator-bullet-z-index);
+      display: block;
+      width: 13px;
+      height: 13px;
+      border: $border-thickness solid var(--text-light-grey);
+      border-radius: 50%;
+      background-color: var(--white);
+      transition: background-color 0.4s ease-out;
+      content: '';
+    }
+
     &.active {
       color: var(--text-primary);
+
       &::before {
         left: -25px;
+        border: none;
         background-color: var(--color-primary-500);
         transition: background-color 0.4s ease-out;
-        border: none;
       }
 
       .indicatory__box-item-substring {
         color: var(--text-grey);
       }
-    }
-
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      left: -26px;
-      top: 7px;
-      width: 13px;
-      height: 13px;
-      background-color: var(--white);
-      transition: background-color 0.4s ease-out;
-      border: $border-thickness solid var(--text-light-grey);
-      border-radius: 50%;
-      z-index: var(--scroll-indicator-bullet-z-index);
     }
   }
 }
