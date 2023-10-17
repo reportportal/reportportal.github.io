@@ -1,9 +1,8 @@
 import React from 'react';
 import { Typography } from 'antd';
 
-import { Link } from '@components/Link';
-import { createBemBlockBuilder } from '@utils';
-
+import { Link } from '../../../components/Link';
+import { createBemBlockBuilder } from '../../../utils';
 import { Notice } from '../Notice';
 
 import '../InstallationPage.scss';

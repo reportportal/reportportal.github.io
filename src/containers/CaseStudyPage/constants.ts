@@ -3,7 +3,7 @@ import { BLOCKS } from '@contentful/rich-text-types';
 import React from 'react';
 import compact from 'lodash/compact';
 
-import { createBemBlockBuilder } from '@utils';
+import { createBemBlockBuilder } from '../../utils';
 
 const getBlocksWith = createBemBlockBuilder(['case-page']);
 

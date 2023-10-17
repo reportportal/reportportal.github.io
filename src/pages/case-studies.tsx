@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { PageProps, graphql } from 'gatsby';
 
-import { Layout } from '@/components/Layout';
-import { CasesPage } from '@/containers/CasesPage';
+import { Layout } from '../components/Layout';
+import { CasesPage } from '../containers/CasesPage';
 
 interface DataProps {
   allContentfulCaseStudy: {

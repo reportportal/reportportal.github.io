@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 
-import { Layout } from '@/components/Layout';
-import { CaseStudyPage } from '@/containers/CaseStudyPage';
+import { Layout } from '../../components/Layout';
+import { CaseStudyPage } from '../../containers/CaseStudyPage';
 import { DataProps } from './types';
 
 export const CaseStudyTemplate = ({ data }: PageProps<DataProps>) => {

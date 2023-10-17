@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Layout } from '@components/Layout';
-import { QaspPage } from '@containers/AcceleratorsPage';
+import { Layout } from '../../components/Layout';
+import { QaspPage } from '../../containers/AcceleratorsPage';
 
 const Qasp = () => (
   <Layout className="offer-page-wrapper">

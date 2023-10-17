@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '@utils';
-import { TrustedOrganizations } from '@components/TrustedOrganizations';
+import { createBemBlockBuilder } from '../../utils';
+import { TrustedOrganizations } from '../../components/TrustedOrganizations';
 
 import { ContactUsForm } from './ContactUsForm';
 

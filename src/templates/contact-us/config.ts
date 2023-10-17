@@ -134,7 +134,7 @@ const createConfig = ({ baseConfig, source, ...rest }) => ({
   ...rest,
 });
 
-module.exports.config = [
+export const config = [
   createConfig({
     baseConfig: startupPlanBaseConfig,
     url: '/contact-us/saas/startup-plan/',

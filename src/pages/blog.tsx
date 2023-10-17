@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { PageProps, graphql } from 'gatsby';
 
-import { Layout } from '@/components/Layout';
-import { BlogPage } from '@/containers/BlogPage';
+import { Layout } from '../components/Layout';
+import { BlogPage } from '../containers/BlogPage';
 
 const PAGE_SIZE = 9;
 

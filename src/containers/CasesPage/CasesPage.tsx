@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import DownloadIcon from '@svg/download.inline.svg';
-import { createBemBlockBuilder } from '@utils';
-import { Link } from '@components/Link';
-import { SubscriptionBanner } from '@components/SubscriptionBanner';
+import DownloadIcon from '../../svg/download.inline.svg';
+import { createBemBlockBuilder } from '../../utils';
+import { Link } from '../../components/Link';
+import { SubscriptionBanner } from '../../components/SubscriptionBanner';
 
 import './CasesPage.scss';
 

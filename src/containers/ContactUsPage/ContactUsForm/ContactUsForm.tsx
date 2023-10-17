@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
 
-import ArrowIcon from '@svg/arrow.inline.svg';
-import { createBemBlockBuilder } from '@utils';
-import { Link } from '@components/Link';
+import ArrowIcon from '../../../svg/arrow.inline.svg';
+import { createBemBlockBuilder } from '../../../utils';
+import { Link } from '../../../components/Link';
 
 import { validate } from './utils';
 import { FormFieldWrapper } from './FormFieldWrapper';

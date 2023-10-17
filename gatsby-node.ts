@@ -1,9 +1,9 @@
-const fs = require('node:fs');
-const path = require('node:path');
+import fs from 'node:fs';
+import path from 'node:path';
 
-const axios = require('axios');
+import axios from 'axios';
 
-const { config: contactUsConfigs } = require('./src/templates/contact-us/config.js');
+import { config as contactUsConfig } from './src/templates/contact-us/config';
 
 import { GatsbyNode } from "gatsby"
 
@@ -17,17 +17,24 @@ type TypeData = {
   }
 }
 
+interface Repos {
+  total: number,
+  repos: {
+    [key: string]: string
+  }
+}
+
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   await axios
     .get('https://status.reportportal.io/github/stars')
-    .then(response => response.data)
-    .then(data => {
+    .then((response: { data: Repos }) => response.data)
+    .then((data: Repos) => {
       fs.writeFileSync('static/github.json', JSON.stringify(data));
     });
 
-  const blogPost = path.resolve('./src/templates/BlogPost/blog-post.js');
+  const blogPost = path.resolve('./src/templates/BlogPost/blog-post.tsx');
 
   const result = await graphql<TypeData>(
     `
@@ -47,13 +54,13 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     return;
   }
 
-  const posts = result.data.allContentfulBlogPost.nodes;
+  const posts = result.data?.allContentfulBlogPost.nodes;
 
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  posts.forEach(post => {
+  posts?.forEach(post => {
     createPage({
       path: `/blog/${post.slug}/`,
       component: blogPost,
@@ -63,9 +70,9 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     });
   });
 
-  const ContactUsPage = path.resolve('./src/templates/contact-us/contact-us.js');
+  const ContactUsPage = path.resolve('./src/templates/contact-us/contact-us.tsx');
 
-  contactUsConfigs.forEach(contactUsConfig => {
+  contactUsConfig.forEach((contactUsConfig: { url: string }) => {
     createPage({
       path: contactUsConfig.url,
       component: ContactUsPage,
