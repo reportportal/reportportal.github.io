@@ -125,7 +125,7 @@ services:
 
         <Text className={getBlocksWith('__code')} code copyable>
           {
-            'mkdir -p ./data/elasticsearch\nchmod 777 ./data/elasticsearch\nchgrp 1000 ./data/elasticsearch'
+            'mkdir -p ./data/elasticsearch\nchmod 775 ./data/elasticsearch\nchgrp 1000 ./data/elasticsearch'
           }
         </Text>
 
