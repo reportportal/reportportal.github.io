@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 
-import { BlogPostPage } from '@/containers/BlogPostPage';
-import { Layout } from '@/components/Layout';
+import { BlogPostPage } from '../../containers/BlogPostPage';
+import { Layout } from '../../components/Layout';
 import { DataProps } from './types';
 
 const BlogPostTemplate = ({ data }: PageProps<DataProps>) => {

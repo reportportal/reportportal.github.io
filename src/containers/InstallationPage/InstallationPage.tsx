@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder, mediaDesktopSm } from '@utils';
-import { ButtonSwitcher } from '@components/ButtonSwitcher';
-import { Banner } from '@components/Banner';
+import { createBemBlockBuilder, mediaDesktopSm } from '../../utils';
+import { ButtonSwitcher } from '../../components/ButtonSwitcher';
+import { Banner } from '../../components/Banner';
 
 import { DockerIcon, KubernetesIcon } from './icons';
 import { KubernetesContent } from './KubernetesContent';

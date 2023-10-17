@@ -3,11 +3,11 @@ import classNames from 'classnames';
 import noop from 'lodash/noop';
 import { ContentfulRichTextGatsbyReference, RenderRichTextData, renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import { ArrowLeft } from '@svg/arrowLeft.jsx';
-import { createBemBlockBuilder } from '@utils';
-import DownloadIcon from '@svg/download.inline.svg';
-import { Link } from '@components/Link';
-import { SubscriptionBanner } from '@components/SubscriptionBanner';
+import { ArrowLeft } from '../../svg/arrowLeft.jsx';
+import { createBemBlockBuilder } from '../../utils';
+import DownloadIcon from '../../svg/download.inline.svg';
+import { Link } from '../../components/Link';
+import { SubscriptionBanner } from '../../components/SubscriptionBanner';
 
 import { OPTIONS } from './constants';
 

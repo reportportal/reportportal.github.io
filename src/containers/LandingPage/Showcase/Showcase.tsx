@@ -3,9 +3,9 @@ import { useMediaQuery } from 'react-responsive';
 import Marquee from 'react-fast-marquee';
 import { useAtom } from 'jotai';
 
-import { createBemBlockBuilder } from '@utils';
-import { watchProductOverviewAtom } from '@components/Layout';
-import { Link } from '@components/Link';
+import { createBemBlockBuilder } from '../../../utils';
+import { watchProductOverviewAtom } from '../../../components/Layout';
+import { Link } from '../../../components/Link';
 
 import { Carousel } from './Carousel/Carousel';
 import WalmartIcon from './icons/walmart.inline.svg';
