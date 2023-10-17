@@ -28,6 +28,20 @@
       max-width: 294px;
     }
 
+    &:nth-child(4) {
+      .benefits__item-title {
+        max-width: 200px;
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          max-width: none;
+        }
+
+        @include m.breakpoint(v.$desktop-sm) {
+          max-width: 200px;
+        }
+      }
+    }
+
     &-title {
       @include m.font-poppins(v.$fw-semi-bold);
       @include m.font-scale(medium);
@@ -48,20 +62,6 @@
         @include m.font-scale(small);
 
         color: var(--white);
-      }
-    }
-
-    &:nth-child(4) {
-      .benefits__item-title {
-        max-width: 200px;
-
-        @include m.breakpoint(v.$tablet-sm-exact) {
-          max-width: none;
-        }
-
-        @include m.breakpoint(v.$desktop-sm) {
-          max-width: 200px;
-        }
       }
     }
   }

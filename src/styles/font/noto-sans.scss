@@ -3,8 +3,8 @@
 @font-face {
   font-family: 'Noto Sans';
   font-weight: $fw-regular;
-  font-display: swap;
   font-style: normal;
+  font-display: swap;
   src: local('Noto Sans Regular'), local('NotoSans-Regular'),
     url('/fonts/Noto_Sans/NotoSans-Regular.ttf') format('truetype');
 }
@@ -12,8 +12,8 @@
 @font-face {
   font-family: 'Noto Sans';
   font-weight: $fw-medium;
-  font-display: swap;
   font-style: normal;
+  font-display: swap;
   src: local('Noto Sans Medium'), local('NotoSans-Medium'),
     url('/fonts/Noto_Sans/NotoSans-Medium.ttf') format('truetype');
 }
@@ -21,8 +21,8 @@
 @font-face {
   font-family: 'Noto Sans';
   font-weight: $fw-semi-bold;
-  font-display: swap;
   font-style: normal;
+  font-display: swap;
   src: local('Noto Sans SemiBold'), local('NotoSans-SemiBold'),
     url('/fonts/Noto_Sans/NotoSans-SemiBold.ttf') format('truetype');
 }

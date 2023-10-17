@@ -14,8 +14,8 @@ export const TimeScale = ({ data, isShifted = false }) => (
     })}
   >
     <div
-      className={classNames(getBlocksWith('__periodsWrapper'), {
-        [getBlocksWith('__periodsWrapper-shifted')]: isShifted,
+      className={classNames(getBlocksWith('__periods-wrapper'), {
+        [getBlocksWith('__periods-wrapper--shifted')]: isShifted,
       })}
     >
       {data.map(period => (
@@ -25,8 +25,8 @@ export const TimeScale = ({ data, isShifted = false }) => (
       ))}
     </div>
     <div
-      className={classNames(getBlocksWith('__itemsWrapper'), {
-        [getBlocksWith('__itemsWrapper-shifted')]: isShifted,
+      className={classNames(getBlocksWith('__items-wrapper'), {
+        [getBlocksWith('__items-wrapper--shifted')]: isShifted,
       })}
     >
       {data.map(period => (

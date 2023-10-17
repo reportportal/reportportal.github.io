@@ -16,8 +16,8 @@
     @include m.font-scale(x4-medium);
 
     margin: 0;
-    color: var(--text-primary);
     text-align: center;
+    color: var(--text-primary);
 
     @include m.breakpoint(v.$phone-lg) {
       @include m.font-scale(large);
@@ -38,11 +38,11 @@
 }
 
 .why-report-portal-list {
-  padding: 32px 0;
-  gap: 64px;
   display: grid;
-  grid-template-columns: repeat(1, 280px);
   justify-content: center;
+  grid-template-columns: repeat(1, 280px);
+  gap: 64px;
+  padding: 32px 0;
 
   @include m.breakpoint(v.$tablet-sm) {
     justify-content: space-around;
@@ -50,29 +50,29 @@
   }
 
   @include m.breakpoint(v.$desktop-sm) {
-    gap: 24px;
     justify-content: center;
     grid-template-columns: repeat(4, 280px);
+    gap: 24px;
   }
 
   li {
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex-shrink: 1;
+    align-items: center;
     width: 282px;
 
     h3 {
       @include m.font-poppins(v.$fw-semi-bold);
       @include m.font-scale(medium);
 
+      margin: 40px 0 0;
+      text-align: center;
+      color: var(--text-primary);
+
       @include m.breakpoint(v.$tablet-sm) {
         @include m.font-scale(x2-medium);
       }
-
-      text-align: center;
-      margin: 40px 0 0;
-      color: var(--text-primary);
     }
 
     span {
@@ -81,8 +81,8 @@
 
       display: inline-block;
       margin-top: 8px;
-      color: var(--text-primary);
       text-align: center;
+      color: var(--text-primary);
     }
   }
 }

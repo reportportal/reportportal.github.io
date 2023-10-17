@@ -21,8 +21,8 @@ export const SectionItem = ({ title, link = '#', icon, iconClass, text, classNam
         />
       )}
       <div>
-        <p className={getBlocksWith('__title')}>{title}</p>
-        {text && <p className={getBlocksWith('__text')}>{text}</p>}
+        <p className={getBlocksWith('-title')}>{title}</p>
+        {text && <p className={getBlocksWith('-text')}>{text}</p>}
       </div>
     </Link>
   );

@@ -1,22 +1,22 @@
 export const STATISTIC_INFO = [
   {
     quantity: '1600+',
-    doer: 'Companies',
-    action: 'Are already using ReportPortal',
+    entities: 'Companies',
+    achievement: 'Are already using ReportPortal',
   },
   {
     quantity: '40+',
-    doer: 'Companies from Fortune 500 list',
-    action: 'Among our clients',
+    entities: 'Companies from Fortune 500 list',
+    achievement: 'Among our clients',
   },
   {
     quantity: '46M+',
-    doer: 'Launches/year',
-    action: 'Testing activity of our users',
+    entities: 'Launches/year',
+    achievement: 'Testing activity of our users',
   },
   {
     quantity: '1.9M',
-    doer: 'Downloads',
-    action: 'Interest in getting benefit from our product',
+    entities: 'Downloads',
+    achievement: 'Interest in getting benefit from our product',
   },
 ];

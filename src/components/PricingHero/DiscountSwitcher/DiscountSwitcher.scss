@@ -3,10 +3,10 @@
 .switcher {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
-  margin: 0 auto;
-  gap: 8px;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
 
   &__option {
     @include m.font-noto-sans();
@@ -19,24 +19,24 @@
     position: relative;
     width: 46px;
     height: 30px;
-    background: var(--white);
     border-radius: 30px;
+    background: var(--white);
     cursor: pointer;
 
-    &:before {
-      content: '';
+    &::before {
       position: absolute;
-      left: 5px;
       top: 5px;
+      left: 5px;
       width: 20px;
       height: 20px;
       border-radius: 100%;
       background: var(--color-primary-500);
       transition: left 0.4s ease-out;
+      content: '';
     }
 
     &-active {
-      &:before {
+      &::before {
         right: 5px;
         left: 21px;
       }

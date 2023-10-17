@@ -7,8 +7,8 @@
   color: var(--white);
 
   @include m.breakpoint(v.$tablet-sm-exact) {
-    padding-left: 24px;
     padding-right: 24px;
+    padding-left: 24px;
   }
 
   @include m.breakpoint(v.$desktop-sm) {
@@ -29,14 +29,14 @@
   }
 
   &__content {
-    padding-left: 16px;
     padding-right: 16px;
+    padding-left: 16px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       max-width: 996px;
       margin: 0 auto;
-      padding-left: 0;
       padding-right: 0;
+      padding-left: 0;
     }
   }
 
@@ -95,8 +95,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-left: 16px;
     border-left: 1px solid var(--text-service);
+    padding-left: 16px;
 
     strong {
       &:nth-child(1) {

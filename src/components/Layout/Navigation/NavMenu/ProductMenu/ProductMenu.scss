@@ -1,37 +1,7 @@
 .integrations-list__item {
-  &-icon {
-    &--jira-cloud {
-      background-image: url('icons/jira-cloud-1.svg');
-    }
-
-    &--jira-server {
-      background-image: url('icons/jira-server-1.svg');
-    }
-
-    &--azure-do {
-      background-image: url('icons/azure-do-1.svg');
-    }
-
-    &--rally {
-      background-image: url('icons/rally-1.svg');
-    }
-
-    &--sauce-labs {
-      background-image: url('icons/sauce-labs-1.svg');
-    }
-
-    &--ldap {
-      background-image: url('icons/ldap-1.svg');
-    }
-
-    &--saml {
-      background-image: url('icons/saml-1.svg');
-    }
-  }
-
   &:hover {
-    background: var(--bg-grey2);
     border-radius: 8px;
+    background: var(--bg-grey2);
     color: var(--text-primary);
 
     .integrations-list__item-icon {
@@ -62,6 +32,36 @@
       &--saml {
         background-image: url('icons/saml-2.svg');
       }
+    }
+  }
+
+  &-icon {
+    &--jira-cloud {
+      background-image: url('icons/jira-cloud-1.svg');
+    }
+
+    &--jira-server {
+      background-image: url('icons/jira-server-1.svg');
+    }
+
+    &--azure-do {
+      background-image: url('icons/azure-do-1.svg');
+    }
+
+    &--rally {
+      background-image: url('icons/rally-1.svg');
+    }
+
+    &--sauce-labs {
+      background-image: url('icons/sauce-labs-1.svg');
+    }
+
+    &--ldap {
+      background-image: url('icons/ldap-1.svg');
+    }
+
+    &--saml {
+      background-image: url('icons/saml-1.svg');
     }
   }
 }

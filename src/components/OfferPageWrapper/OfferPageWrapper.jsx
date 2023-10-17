@@ -62,7 +62,7 @@ export const OfferPageWrapper = ({
         <h2>Indicative professional service hour utilization</h2>
         <div className={getBlocksWith('__utilization-subtitle')}>{utilizationDescription}</div>
         <TimeScale data={timeScaleData} isShifted={isScaleShifted} />
-        <div className={getBlocksWith('__subscriptionInfo')}>
+        <div className={getBlocksWith('__subscription-info')}>
           <InfoIcon />
           <div>
             Subscription plan professional service hours are accumulated monthly and last depending
@@ -79,11 +79,13 @@ export const OfferPageWrapper = ({
         mobileColumns={MOBILE_COLUMNS}
       />
       {page === 'pricing' && (
-        <div className={classNames(getBlocksWith('__trustedOrganizationsContainer'), 'container')}>
+        <div
+          className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}
+        >
           <TrustedOrganizations />
         </div>
       )}
-      <div className={getBlocksWith('__faqContainer')}>
+      <div className={getBlocksWith('__faq-container')}>
         <Faq
           items={faqData}
           titleId="faq"
@@ -91,7 +93,7 @@ export const OfferPageWrapper = ({
           showMoreInfoLink={!(pagePath === 'qasp')}
         />
       </div>
-      <div className={getBlocksWith('__stillHaveQuestion')}>
+      <div className={getBlocksWith('__still-have-question')}>
         <Banner title="Do you still have questions?" linkTitle="Contact us" link={contactUsLink} />
       </div>
     </div>

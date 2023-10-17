@@ -10,6 +10,7 @@ module.exports = {
       'Centralized test automation dashboard. Provides AI-based defects triage and real time test report dashboard.',
     keywords:
       'test automation dashboard, test automation reporting, qa automation dashboard, test automation results dashboard, test report dashboard, qa metrics dashboard, test execution report, end to end testing reporting tools, ReportPortal installation, ReportPortal integration, ReportPortal dashboard',
+    siteUrl: 'https://reportportal.io/',
   },
   plugins: [
     'gatsby-plugin-svgr-svgo',
@@ -29,6 +30,42 @@ module.exports = {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: process.env.GTM_ID,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/sitemap-landing',
+        excludes: [
+          '/contact-us/taas',
+          '/contact-us/taaas',
+          '/contact-us/qaaas',
+          '/contact-us/saas/**',
+          '/contact-us/on-premises/**',
+          '/contact-us/qasp',
+          '/contact-us/d4j',
+          '/contact-us/hlm',
+          '/contact-us/qasp/**',
+          '/contact-us/d4j/**',
+          '/contact-us/hlm/**',
+        ],
+        query: `{
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }`,
+        serialize: ({ path }) => {
+          return {
+            url: path,
+          };
+        },
       },
     },
   ],

@@ -2,17 +2,17 @@
 @use 'src/styles/variables' as v;
 
 .quality-approach {
+  max-width: 1167px;
   margin: 0 auto;
   padding-bottom: 120px;
-  max-width: 1167px;
 
   &__block {
     display: flex;
     flex-direction: column;
 
     &-top {
-      display: flex;
       position: relative;
+      display: flex;
       flex-direction: column;
       align-items: center;
       gap: 50px;
@@ -26,16 +26,16 @@
     }
 
     .block-top__item {
+      width: 330px;
+      min-height: 360px;
+      padding: 32px 13px;
       background: bottom url('../../../svg/testing/BottomArrowBG.svg') no-repeat,
         bottom url('../../../svg/testing/BottomFullArrowBG.svg') no-repeat;
       background-size: contain;
-      padding: 32px 13px;
-      width: 330px;
-      min-height: 360px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        padding: 32px;
         width: 389px;
+        padding: 32px;
       }
 
       @include m.breakpoint(v.$desktop-sm) {
@@ -81,9 +81,9 @@
       @include m.breakpoint(v.$desktop-sm) {
         display: block;
         align-self: center;
-        background: bottom url('../../../svg/testing/Trident.svg') no-repeat;
         width: 778px;
         height: 374px;
+        background: bottom url('../../../svg/testing/Trident.svg') no-repeat;
       }
     }
   }
@@ -91,7 +91,7 @@
   &__circle-process {
     display: flex;
     justify-content: center;
-    margin: 64px 0 64px;
+    margin: 64px 0;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin: 120px 0 92px;
@@ -102,33 +102,33 @@
     }
 
     .circle-process {
-      display: flex;
       position: relative;
+      display: flex;
       align-items: center;
       justify-content: center;
+      width: 325px;
+      height: 280px;
       background: bottom url('../../../svg/testing/BottomArrowBG.svg') no-repeat,
         bottom url('../../../svg/testing/BottomFullArrowBG.svg') no-repeat;
       background-size: contain, cover;
-      width: 325px;
-      height: 280px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        background-size: cover;
         width: 390px;
         height: 260px;
+        background-size: cover;
       }
 
       &__wrapper {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin-bottom: 10px;
         max-width: 272px;
+        margin-bottom: 10px;
 
         @include m.breakpoint(v.$tablet-sm-exact) {
           gap: 4px;
-          margin-bottom: 50px;
           max-width: 346px;
+          margin-bottom: 50px;
         }
       }
 
@@ -140,10 +140,10 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        border-radius: 4px;
-        background: var(--color-primary-800);
-        padding: 10px;
         width: 132px;
+        border-radius: 4px;
+        padding: 10px;
+        background: var(--color-primary-800);
 
         @include m.breakpoint(v.$tablet-sm-exact) {
           width: 171px;
@@ -168,19 +168,19 @@
     align-items: center;
     gap: 32px;
     margin: 0 auto;
-    background: bottom url('../../../svg/testing/BlueBottomBorderBG.svg') no-repeat,
-      linear-gradient(180deg, rgba(102, 210, 230, 0) 6.77%, rgba(0, 180, 213, 0.24) 100%);
-    background-size: contain;
     padding: 48px 0;
+    background: bottom url('../../../svg/testing/BlueBottomBorderBG.svg') no-repeat,
+      linear-gradient(180deg, rgb(102 210 230 / 0) 6.77%, rgb(0 180 213 / 0.24) 100%);
+    background-size: contain;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      padding: 48px 12px;
       width: 720px;
+      padding: 48px 12px;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      padding: 48px 64px;
       width: 859px;
+      padding: 48px 64px;
     }
 
     .deliverables {

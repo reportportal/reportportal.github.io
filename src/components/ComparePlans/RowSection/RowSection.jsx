@@ -9,7 +9,7 @@ import { FooterColumns } from './FooterColums';
 
 import './RowSection.scss';
 
-const getBlocksWith = createBemBlockBuilder(['rowSection']);
+const getBlocksWith = createBemBlockBuilder(['row-section']);
 
 export const RowSection = ({ footer, footerButtons }) => {
   const isDesktop = useMediaQuery({ query: $desktopSm });

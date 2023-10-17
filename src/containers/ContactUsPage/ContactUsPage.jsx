@@ -27,7 +27,7 @@ export const ContactUsPage = ({ config }) => (
         isDiscussFieldShown={config.isDiscussFieldShown}
         options={config.options}
       />
-      <div className={classNames(getBlocksWith('__trustedOrganizationsContainer'))}>
+      <div className={classNames(getBlocksWith('__trusted-organizations-container'))}>
         <TrustedOrganizations />
       </div>
     </div>

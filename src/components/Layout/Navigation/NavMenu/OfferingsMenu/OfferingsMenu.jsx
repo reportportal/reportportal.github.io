@@ -23,7 +23,7 @@ export const OfferingsMenu = ({ isDesktop = true, isOpen, menuContainerRef }) =>
 
   const pricingForSolutionsList = (
     <SectionList
-      className={classNames('pricing-solutions-list', { 'section-list--secondary': isDesktop })}
+      className={classNames('pricing-solutions-list', { 'section-list-secondary': isDesktop })}
       title="Pricing for Solutions"
       items={PRICING_FOR_SOLUTIONS_LIST}
     />

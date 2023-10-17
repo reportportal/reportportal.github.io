@@ -8,23 +8,11 @@
   position: relative;
   display: inline-block;
   margin-top: 12px;
-  padding: 8px 32px 8px 8px;
-  color: var(--text-primary);
   border: none;
+  padding: 8px 32px 8px 8px;
   background: transparent;
+  color: var(--text-primary);
   cursor: pointer;
-
-  &--primary {
-    padding-left: 0;
-    color: var(--color-primary-600);
-  }
-
-  & svg {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translate(0, -50%);
-  }
 
   &:hover {
     color: var(--color-primary-500);
@@ -38,5 +26,17 @@
     opacity: 0.3;
     color: var(--color-primary-600);
     cursor: auto;
+  }
+
+  &--primary {
+    padding-left: 0;
+    color: var(--color-primary-600);
+  }
+
+  & svg {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translate(0, -50%);
   }
 }

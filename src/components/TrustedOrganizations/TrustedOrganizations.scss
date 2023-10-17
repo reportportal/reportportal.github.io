@@ -6,8 +6,8 @@
     @include m.font-poppins(v.$fw-semi-bold);
     @include m.font-scale(medium);
 
-    margin: 0 auto 40px auto;
     width: 309px;
+    margin: 0 auto 40px;
     text-align: center;
     color: var(--text-primary);
 
@@ -25,14 +25,25 @@
 
   &__icons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
     row-gap: 40px;
     width: 100%;
     max-width: 252px;
-    justify-content: center;
-    align-items: center;
-    margin: 0 5px 0;
+    margin: 0 5px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      display: flex;
+      justify-content: center;
+      gap: 32px 30px;
+      max-width: 100%;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      column-gap: 56px;
+    }
 
     svg {
       transform: scale(0.8);
@@ -40,17 +51,6 @@
       @include m.breakpoint(v.$phone) {
         transform: none;
       }
-    }
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      display: flex;
-      gap: 32px 30px;
-      justify-content: center;
-      max-width: 100%;
-    }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      column-gap: 56px;
     }
 
     &-wrapper {

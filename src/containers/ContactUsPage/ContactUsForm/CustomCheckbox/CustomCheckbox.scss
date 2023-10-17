@@ -6,12 +6,35 @@
   @include m.font-scale(small);
 
   position: relative;
-  padding-left: 32px;
   margin-top: 2px;
+  padding-left: 32px;
+  line-height: 20px;
+  color: var(--primary-colors-almost-black);
   cursor: pointer;
   user-select: none;
-  color: var(--primary-colors-almost-black);
-  line-height: 20px;
+
+  &:active,
+  &:hover {
+    input {
+      & ~ .custom-checkbox__checkmark {
+        border-color: var(--text-service);
+      }
+
+      &:checked ~ .custom-checkbox__checkmark {
+        border-color: var(--color-primary-500);
+        background-color: var(--color-primary-500);
+      }
+    }
+  }
+
+  &:not(:hover):not(:active) {
+    input:checked {
+      & ~ .custom-checkbox__checkmark {
+        border-color: var(--color-primary-600);
+        background-color: var(--color-primary-600);
+      }
+    }
+  }
 
   a {
     color: var(--text-service);
@@ -30,18 +53,14 @@
     position: absolute;
     top: -2px;
     left: 0;
-    height: 24px;
     width: 24px;
-    border-radius: 3px;
+    height: 24px;
     border: 1px solid var(--text-light-grey);
+    border-radius: 3px;
 
-    &:after {
+    &::after {
       position: absolute;
-      content: '';
-      top: -2px;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      inset: -2px 0 0;
       display: none;
       width: 5px;
       height: 11px;
@@ -49,41 +68,19 @@
       border: solid var(--white);
       border-width: 0 2px 2px 0;
       transform: rotate(40deg);
+      content: '';
     }
   }
 
   input {
     position: absolute;
+    width: 0;
+    height: 0;
     opacity: 0;
     cursor: pointer;
-    height: 0;
-    width: 0;
 
-    &:checked ~ .custom-checkbox__checkmark:after {
+    &:checked ~ .custom-checkbox__checkmark::after {
       display: block;
-    }
-  }
-
-  &:not(:hover):not(:active) {
-    input:checked {
-      & ~ .custom-checkbox__checkmark {
-        background-color: var(--color-primary-600);
-        border-color: var(--color-primary-600);
-      }
-    }
-  }
-
-  &:active,
-  &:hover {
-    input {
-      & ~ .custom-checkbox__checkmark {
-        border-color: var(--text-service);
-      }
-
-      &:checked ~ .custom-checkbox__checkmark {
-        background-color: var(--color-primary-500);
-        border-color: var(--color-primary-500);
-      }
     }
   }
 }
