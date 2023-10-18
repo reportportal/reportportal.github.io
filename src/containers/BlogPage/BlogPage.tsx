@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ArticlePreview } from '@/components/ArticlePreview';
-import { SubscriptionBanner } from '@/components/SubscriptionBanner';
-import { createBemBlockBuilder } from '@/utils';
+import { ArticlePreview } from '../../components/ArticlePreview';
+import { SubscriptionBanner } from '../../components/SubscriptionBanner';
+import { createBemBlockBuilder } from '../../utils';
 
 import './BlogPage.scss';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import { SubscriptionBanner } from '@components/SubscriptionBanner';
+import { SubscriptionBanner } from '../../components/SubscriptionBanner';
 
 import ArrowLeft from './icons/arrow-left.svg';
 import User from './icons/user.svg';
