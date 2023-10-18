@@ -13,7 +13,7 @@ import { usePricingHeroProps } from '../../hooks/usePricingHeroProps';
 import { PricingCards } from './PricingCards';
 import { BUTTONS_DATA, COLUMNS, DATA_PLANS, FAQ_ITEMS, OFFERS_DATA } from './constants';
 
-import '@components/OfferPageWrapper/OfferPageWrapper.scss';
+import '../../components/OfferPageWrapper/OfferPageWrapper.scss';
 
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
