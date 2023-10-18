@@ -38,7 +38,7 @@ export const acceleratorsButtons = [
   },
 ];
 
-export const usePricingHeroProps = page => {
+export const usePricingHeroProps = (page: string) => {
   const [discountState, { toggle: toggleDiscountState }] = useToggle(true);
 
   return {
