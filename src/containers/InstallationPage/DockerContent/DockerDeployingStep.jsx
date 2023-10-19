@@ -91,7 +91,7 @@ export const DockerDeployingStep = () => {
         For a more comprehensive installation guide, please refer to the{' '}
         <Link
           className={getBlocksWith('__link')}
-          to="https://reportportal.io/docs/installation-steps/DeployWithDockerOnLinuxMac/"
+          to={`${DOCUMENTATION_URL}/installation-steps/DeployWithDockerOnLinuxMac/`}
         >
           link
         </Link>
