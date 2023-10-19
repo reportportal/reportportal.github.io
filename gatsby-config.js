@@ -35,7 +35,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        output: '.',
         excludes: [
           '/contact-us/taas',
           '/contact-us/taaas',
