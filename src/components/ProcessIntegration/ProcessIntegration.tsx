@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import Marquee from 'react-fast-marquee';
 
-import { createBemBlockBuilder } from '../../utils';
-import { DOCUMENTATION_URL } from '../../utils/constants';
+import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
+
 import { Link } from '../Link';
 import SauceLabsIcon from './icons/saucelabs.inline.svg';
 import MicrosoftIcon from './icons/microsoft.inline.svg';

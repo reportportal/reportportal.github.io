@@ -6,11 +6,11 @@ import { isAbsoluteURL } from '../../../../utils';
 import { Link } from '../../../Link';
 
 interface Props {
-  title: string
+  title: string;
   items: {
     title: string;
     link?: string;
-  }[]
+  }[];
 }
 
 export const FooterList: React.FC<Props> = ({ title, items }) => (

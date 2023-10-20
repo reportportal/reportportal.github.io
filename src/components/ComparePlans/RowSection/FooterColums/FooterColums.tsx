@@ -1,21 +1,21 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../../utils';
-import LinkArrow from '../../../../svg/externalLinkArrow.inline.svg';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
 
-import { Link } from '../../../Link';
+import LinkArrow from '../../../../svg/externalLinkArrow.inline.svg';
 
 import '../../ComparePlans.scss';
 import '../RowSection.scss';
 
 interface Props {
   footerButtons: {
-    btn: string
-    mode: string
-    href: string
-    compareHref: string
-  }[]
+    btn: string;
+    mode: string;
+    href: string;
+    compareHref: string;
+  }[];
 }
 
 const getBlocksWith = createBemBlockBuilder(['rowSection']);

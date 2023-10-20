@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Layout } from '../../components/Layout';
-import { SaasPage } from '../../containers/SassPage';
+import { Layout } from '@app/components/Layout';
+import { SaasPage } from '@app/containers/SassPage';
 
 const Saas = () => (
   <Layout className="offer-page-wrapper">

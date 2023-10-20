@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Tabs, ConfigProvider } from 'antd';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import {
   FRAMEWORK_ICONS_DOT_NET,

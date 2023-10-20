@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { DashboardHeader } from '../../components/DashboardHeader';
-import { TestingBottomBlock } from '../../components/TestingBottomBlock';
+import { DashboardHeader } from '@app/components/DashboardHeader';
+import { TestingBottomBlock } from '@app/components/TestingBottomBlock';
 
 import { OurSolution } from './OurSolution';
 import { QualityApproach } from './QualityApproach';

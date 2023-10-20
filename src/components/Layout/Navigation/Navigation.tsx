@@ -6,12 +6,12 @@ import upperFirst from 'lodash/upperFirst';
 import axios from 'axios';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { useScrollDirection } from '../../../hooks';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
+import { useScrollDirection } from '@app/hooks';
 
 // eslint-disable-next-line import/no-unresolved
 import githubStats from '../../../../static/github.json'; // Will be generated at build time
-import { Link } from '../../Link';
 import {
   SolutionsMenu,
   ProductMenu,

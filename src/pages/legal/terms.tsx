@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Layout } from '../../components/Layout';
-import { TermsPage } from '../../containers/TermsPage';
+import { Layout } from '@app/components/Layout';
+import { TermsPage } from '@app/containers/TermsPage';
 
 const Terms = () => (
   <Layout>

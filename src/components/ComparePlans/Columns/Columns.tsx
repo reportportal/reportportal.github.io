@@ -3,8 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import isBoolean from 'lodash/isBoolean';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { $desktopSm } from '../../../utils/breakpoint';
+import { createBemBlockBuilder, $desktopSm } from '@app/utils';
 
 import MarkIcon from './icons/mark.inline.svg';
 import CrossIcon from './icons/cross.inline.svg';
@@ -12,11 +11,11 @@ import CrossIcon from './icons/cross.inline.svg';
 import '../ComparePlans.scss';
 
 interface Props {
-  title: string
-  cols: string[]
+  title: string;
+  cols: string[];
   mobileColumns: {
-    [key: string]: string
-  }
+    [key: string]: string;
+  };
 }
 const getCompareContainer = createBemBlockBuilder(['compare']);
 

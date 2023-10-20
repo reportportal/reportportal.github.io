@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { Columns } from '../Columns';
 
 import '../ComparePlans.scss';
 
 interface Props {
-  feature: string
-  columnsData: string[]
+  feature: string;
+  columnsData: string[];
 }
 
 const getBlocksWith = createBemBlockBuilder(['compare']);

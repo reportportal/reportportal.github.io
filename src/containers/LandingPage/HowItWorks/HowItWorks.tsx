@@ -1,23 +1,22 @@
 import React from 'react';
 import Lottie from 'lottie-react';
-import { StepProps, Steps, StepsProps } from 'antd';
+import { StepProps, Steps } from 'antd';
 import classNames from 'classnames';
 
-import { useAnimationInterval } from '../../../hooks';
-import { createBemBlockBuilder } from '../../../utils';
-import { LIST_ANIMATION_DELAY } from '../../../utils/constants';
-import { Link } from '../../../components/Link';
+import { Link } from '@app/components/Link';
+import { useAnimationInterval } from '@app/hooks';
+import { createBemBlockBuilder, LIST_ANIMATION_DELAY } from '@app/utils';
 
 import { SECTIONS_INFO } from './constants';
 
 import './HowItWorks.scss';
 
 interface Sections extends StepProps {
-  title: string
-  content: string
+  title: string;
+  content: string;
   animation: {
-    [key: string]: any
-  } 
+    [key: string]: any;
+  };
 }
 
 const getBlocksWith = createBemBlockBuilder(['how-it-works']);

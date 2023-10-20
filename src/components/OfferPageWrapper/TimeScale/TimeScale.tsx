@@ -1,16 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import './TimeScale.scss';
 
 interface Props {
   data: {
-    items: string[]
-    time: string
-  }[]
-  isShifted: boolean
+    items: string[];
+    time: string;
+  }[];
+  isShifted: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['time-scale']);

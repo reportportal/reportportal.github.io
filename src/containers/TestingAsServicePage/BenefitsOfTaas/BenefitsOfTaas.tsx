@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { Heading } from '../../../components/Heading';
+import { Heading } from '@app/components/Heading';
+import { createBemBlockBuilder } from '@app/utils';
 
 import EasyToBuy from './icons/easyToBuy.inline.svg';
 import HighStandard from './icons/highStandard.inline.svg';

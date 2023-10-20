@@ -1,8 +1,8 @@
 import React from 'react';
 import { Typography } from 'antd';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { Link } from '../../../components/Link';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { Notice } from '../Notice';
 

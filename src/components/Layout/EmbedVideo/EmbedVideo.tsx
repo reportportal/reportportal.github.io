@@ -4,9 +4,9 @@ import { Modal } from 'antd';
 import './EmbedVideo.scss';
 
 interface Props {
-  isOpen: boolean
-  embedId: string
-  onClick: () => void
+  isOpen: boolean;
+  embedId: string;
+  onClick: () => void;
 }
 
 export const EmbedVideo: React.FC<Props> = ({ isOpen, embedId, onClick }) => {

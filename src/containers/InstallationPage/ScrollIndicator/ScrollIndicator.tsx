@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-scroll';
 import { useScroll, useSize } from 'ahooks';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import '../InstallationPage.scss';
 import './ScrollIndicator.scss';

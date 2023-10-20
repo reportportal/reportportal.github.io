@@ -1,13 +1,15 @@
+import React from 'react';
+
 export type TimeScaleData = {
-  time: number
-  items: string[]
-}[]
+  time: number;
+  items: string[];
+}[];
 
 export type FaqData = {
-  key: number
-  label: string
-  children: React.ReactNode
-}
+  key: number;
+  label: string;
+  children: React.ReactNode;
+};
 
 export const TIME_SCALE_DATA: TimeScaleData = [
   {

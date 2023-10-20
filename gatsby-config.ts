@@ -1,9 +1,8 @@
-import { GatsbyConfig } from "gatsby";
+import { GatsbyConfig } from 'gatsby';
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -74,4 +73,4 @@ const config: GatsbyConfig = {
   trailingSlash: 'never',
 };
 
-export default config
+export default config;

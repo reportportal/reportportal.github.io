@@ -1,5 +1,4 @@
-import { features } from './../../utils/imageSource';
-import { DOCUMENTATION_URL } from './../../utils/constants';
+import { features, DOCUMENTATION_URL } from '@app/utils';
 
 export const NAVIGATION_LIST = [
   { id: 1, name: 'Single-entry point for test reporting', link: '#single-entry' },

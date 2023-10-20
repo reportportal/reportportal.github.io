@@ -3,20 +3,27 @@ import classNames from 'classnames';
 import noop from 'lodash/noop';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import { ArrowLeft } from '../../svg/arrowLeft'
-import { createBemBlockBuilder } from '../../utils';
-import DownloadIcon from '../../svg/download.inline.svg';
-import { Link } from '../../components/Link';
-import { SubscriptionBanner } from '../../components/SubscriptionBanner';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
+import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
+import { CaseStudy } from '@app/templates/case-study/types';
 
 import { OPTIONS } from './constants';
 
+import { ArrowLeft } from '../../svg/arrowLeft';
+import DownloadIcon from '../../svg/download.inline.svg';
+
 import './CaseStudyPage.scss';
-import { CaseStudy } from '../../templates/case-study/types';
 
 const getBlocksWith = createBemBlockBuilder(['case-page']);
 
-export const CaseStudyPage: React.FC<CaseStudy> = ({ title, industry, challenges, highlights, benefitsResults }) => {
+export const CaseStudyPage: React.FC<CaseStudy> = ({
+  title,
+  industry,
+  challenges,
+  highlights,
+  benefitsResults,
+}) => {
   useEffect(() => {
     function setupTable() {
       const tables = Array.from(document.querySelectorAll('table')).reverse();

@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { TrustedOrganizations } from '../../components/TrustedOrganizations';
+import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { ContactUsForm } from './ContactUsForm';
 
@@ -10,11 +10,11 @@ import './ContactUsPage.scss';
 
 interface Props {
   config: {
-    info: string
-    isDiscussFieldShown: boolean
-    options: string
-    title: string
-  }
+    info: string;
+    isDiscussFieldShown: boolean;
+    options: string;
+    title: string;
+  };
 }
 const getBlocksWith = createBemBlockBuilder(['contact-us']);
 

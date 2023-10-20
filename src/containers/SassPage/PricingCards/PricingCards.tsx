@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { PricingCard } from './PricingCard';
 
@@ -8,22 +8,22 @@ import './PricingCards.scss';
 
 interface Props {
   offersData: {
-    title: string
-    description: string
-    listItems: string[]
+    title: string;
+    description: string;
+    listItems: string[];
     price: {
-      currency: string
-      value: string
-      period: string
-      message: string
-      discountedValue: string
-    }
-    actionText: string
-    isPopular: string
-    actionVariant: string
-    href: string
-  }[]
-  discountState: string
+      currency: string;
+      value: string;
+      period: string;
+      message: string;
+      discountedValue: string;
+    };
+    actionText: string;
+    isPopular: string;
+    actionVariant: string;
+    href: string;
+  }[];
+  discountState: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pricing-cards']);

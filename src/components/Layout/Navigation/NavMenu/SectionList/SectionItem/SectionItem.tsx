@@ -1,20 +1,26 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../../../../utils';
-
-import { Link } from '../../../../../Link';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
 
 interface Props {
-  title: string
-  link: string
-  icon: string
-  iconClass: string
-  text: string
-  className: string
+  title: string;
+  link: string;
+  icon: string;
+  iconClass: string;
+  text: string;
+  className: string;
 }
 
-export const SectionItem: React.FC<Props> = ({ title, link = '#', icon, iconClass, text, className = '' }) => {
+export const SectionItem: React.FC<Props> = ({
+  title,
+  link = '#',
+  icon,
+  iconClass,
+  text,
+  className = '',
+}) => {
   const getBlocksWith = createBemBlockBuilder(['section-item', className]);
 
   return (

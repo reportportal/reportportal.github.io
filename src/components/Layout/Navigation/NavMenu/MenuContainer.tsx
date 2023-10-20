@@ -3,10 +3,10 @@ import { useClickAway } from 'ahooks';
 import { BasicTarget } from 'ahooks/lib/utils/domTarget';
 
 interface Props {
-  isOpen: boolean
-  menuLinksRef: BasicTarget
-  children: React.ReactNode
-  onClose: () => void
+  isOpen: boolean;
+  menuLinksRef: BasicTarget;
+  children: React.ReactNode;
+  onClose: () => void;
 }
 
 export const MenuContainer: React.FC<Props> = ({ isOpen, menuLinksRef, children, onClose }) => {

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const TestResultsIcon = () => {
+export const TestResultsIcon: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="none">
       <path

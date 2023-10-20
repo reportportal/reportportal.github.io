@@ -9,10 +9,10 @@ import { Link } from '../../Link';
 import './PentagonCard.scss';
 
 interface Props {
-  stepNumber: number
-  hours: string
-  price: number
-  contactLink: string
+  stepNumber: number;
+  hours: string;
+  price: number;
+  contactLink: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pentagon-card']);

@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Layout } from '@components/Layout';
-import { LandingPage } from '@containers/LandingPage';
+import { Layout } from '@app/components/Layout';
+import { LandingPage } from '@app/containers/LandingPage';
 
-export const Root: React.FC = () => (
+const Root: React.FC = () => (
   <Layout>
     <LandingPage />
   </Layout>
 );
 
+export default Root;

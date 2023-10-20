@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Layout } from '@components/Layout';
-import { TestingAsServicePage } from '@containers/TestingAsServicePage';
+import { Layout } from '@app/components/Layout';
+import { TestingAsServicePage } from '@app/containers/TestingAsServicePage';
 
-export const TestingAsService: React.FC = () => (
+const TestingAsService: React.FC = () => (
   <Layout>
     <TestingAsServicePage />
   </Layout>
 );
 
+export default TestingAsService;

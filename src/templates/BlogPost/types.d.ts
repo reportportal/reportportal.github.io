@@ -1,11 +1,11 @@
 export interface DataProps {
   contentfulBlogPost: {
-    industry: string
+    industry: string;
     title?: {
-      title: string
-    }
-    author: string
-    date: string
-    articleBody: string
-  }
+      title: string;
+    };
+    author: string;
+    date: string;
+    articleBody: string;
+  };
 }
