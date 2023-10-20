@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { ArticlePreview } from '../../../components/ArticlePreview';
-import { createBemBlockBuilder } from '../../../utils';
-import { useLatestFromOurBlog } from '../../../hooks';
+import { ArticlePreview } from '@app/components/ArticlePreview';
+import { createBemBlockBuilder } from '@app/utils';
+import { useLatestFromOurBlog } from '@app/hooks';
 
 import './LatestFromOurBlog.scss';
 

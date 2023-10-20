@@ -2,8 +2,8 @@ import React from 'react';
 import noop from 'lodash/noop';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { usePricingHeroProps } from '../../hooks/usePricingHeroProps';
+import { createBemBlockBuilder } from '@app/utils';
+import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 
 import { TrustedOrganizations } from '../TrustedOrganizations';
 import { Faq } from '../Faq';
@@ -21,26 +21,26 @@ import './OfferPageWrapper.scss';
 
 interface Props {
   hero: {
-    title: string
-    subtitle?: string
-    description: string
-    offerType: string
-  },
-  page: string
-  pagePath: string
+    title: string;
+    subtitle?: string;
+    description: string;
+    offerType: string;
+  };
+  page: string;
+  pagePath: string;
   timeScaleData: {
-    time: number | string
-    items: string[] | React.ReactNode[]
-  }[]
+    time: number | string;
+    items: string[] | React.ReactNode[];
+  }[];
   faqData: {
-    key: Number;
-    label: String;
+    key: number;
+    label: string;
     children: React.ReactNode;
-  }[]
-  contactUsLink: string
-  utilizationDescription: string
-  faqLink?: string
-  isScaleShifted?: boolean
+  }[];
+  contactUsLink: string;
+  utilizationDescription: string;
+  faqLink?: string;
+  isScaleShifted?: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
@@ -114,7 +114,7 @@ export const OfferPageWrapper: React.FC<Props> = ({
           items={faqData}
           titleId="faq"
           documentationLink={faqLink}
-          showMoreInfoLink={!(pagePath === 'qasp')}
+          showMoreInfoLink={pagePath !== 'qasp'}
         />
       </div>
       <div className={getBlocksWith('__still-have-question')}>

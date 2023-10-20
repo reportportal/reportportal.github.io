@@ -1,18 +1,18 @@
 import React from 'react';
 import chunk from 'lodash/chunk';
 
-import { createBemBlockBuilder } from '../../../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { SectionItem } from './SectionItem';
 
 import './SectionList.scss';
 
 interface Props {
-  title: string
-  showTitle: boolean
-  items: { title: string }[]
-  itemsPerRow?: number
-  className: string
+  title: string;
+  showTitle: boolean;
+  items: { title: string }[];
+  itemsPerRow?: number;
+  className: string;
 }
 
 export const SectionList: React.FC<Props> = ({

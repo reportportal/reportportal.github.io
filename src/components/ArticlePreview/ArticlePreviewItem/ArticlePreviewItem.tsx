@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { Typography } from 'antd';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { Post } from '../types';
 import { ArticleAuthor } from './ArticleAuthor';
@@ -13,7 +13,7 @@ import './ArticlePreviewItem.scss';
 const getBlocksWith = createBemBlockBuilder(['article-preview-item']);
 
 interface Props {
-  post: Post
+  post: Post;
 }
 
 export const ArticlePreviewItem: React.FC<Props> = ({ post }) => {

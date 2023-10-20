@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { PageProps, graphql } from 'gatsby';
 
-import { Layout } from '@components/Layout';
-import { CasesPage } from '@containers/CasesPage';
+import { Layout } from '@app/components/Layout';
+import { CasesPage } from '@app/containers/CasesPage';
 
 interface DataProps {
   allContentfulCaseStudy: {
-    [key: string]: any
-  }
+    [key: string]: any;
+  };
 }
-export const Cases: React.FC<PageProps<DataProps>> = ({ data }) => {
 
-  const { allContentfulCaseStudy: { nodes } } = data
+const Cases: React.FC<PageProps<DataProps>> = ({ data }) => {
+  const {
+    allContentfulCaseStudy: { nodes },
+  } = data;
 
   const [caseStudies, setCaseStudies] = useState(nodes.slice(0, 12));
   const [displayCount, setDisplayCount] = useState(12);
@@ -35,6 +37,8 @@ export const Cases: React.FC<PageProps<DataProps>> = ({ data }) => {
   );
 };
 
+export default Cases;
+
 export const pageQuery = graphql`
   query CaseStudyIndexQuery {
     allContentfulCaseStudy(sort: { id: DESC }) {
@@ -57,4 +61,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-

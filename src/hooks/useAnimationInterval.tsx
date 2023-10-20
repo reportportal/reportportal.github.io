@@ -3,8 +3,8 @@ import { useRafInterval } from 'ahooks';
 import { useInView } from 'react-intersection-observer';
 
 interface Props {
-  interval: number
-  totalItemsLength: number
+  interval: number;
+  totalItemsLength: number;
 }
 
 export const useAnimationInterval = ({ interval = 10000, totalItemsLength }: Props) => {

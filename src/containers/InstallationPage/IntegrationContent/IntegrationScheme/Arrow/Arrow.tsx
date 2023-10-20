@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import React from 'react';
 
 interface Props {
-  children: React.ReactNode
-  state: boolean
+  children: React.ReactNode;
+  state: boolean;
 }
 
 export const Arrow: React.FC<Props> = ({ children, state }) => (

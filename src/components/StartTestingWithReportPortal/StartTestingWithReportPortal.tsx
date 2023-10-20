@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { iconsCommon } from '../../utils/imageSource';
+import { createBemBlockBuilder, iconsCommon } from '@app/utils';
 
 import { Link } from '../Link';
 

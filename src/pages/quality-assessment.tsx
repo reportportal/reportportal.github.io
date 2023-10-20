@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Layout } from '@components/Layout';
-import { QualityAssessmentPage } from '@containers/QualityAssessmentPage';
+import { Layout } from '@app/components/Layout';
+import { QualityAssessmentPage } from '@app/containers/QualityAssessmentPage';
 
-export const TestAutomationAsService: React.FC = () => (
+const TestAutomationAsService: React.FC = () => (
   <Layout>
     <QualityAssessmentPage />
   </Layout>
 );
 
+export default TestAutomationAsService;

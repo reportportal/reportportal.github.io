@@ -2,8 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 
 interface Props {
-  children: React.ReactNode
-  direction: boolean
+  children: React.ReactNode;
+  direction: boolean;
 }
 
 export const EventNode: React.FC<Props> = ({ children, direction }) => (

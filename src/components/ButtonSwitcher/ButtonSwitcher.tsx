@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { Link } from '../Link';
 import { INCREASED_BUTTON_NUMBER } from './constants';
@@ -9,15 +9,15 @@ import { INCREASED_BUTTON_NUMBER } from './constants';
 import './ButtonSwitcher.scss';
 
 interface Props {
-  buttons: Button[]
-  onSwitch: (text: string) => void
-  activeBtnName: string
+  buttons: Button[];
+  onSwitch: (text: string) => void;
+  activeBtnName: string;
 }
 
 export interface Button {
-  iconComponent: (btn: Button) => string
-  text: string
-  linkTo?: string
+  iconComponent: (btn: Button) => string;
+  text: string;
+  linkTo?: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['switcher']);

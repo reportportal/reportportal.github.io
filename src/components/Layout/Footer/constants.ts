@@ -1,4 +1,4 @@
-import { DOCUMENTATION_URL } from '../../../utils/constants';
+import { DOCUMENTATION_URL } from '@app/utils';
 
 export const PRODUCT_LINKS = [
   {

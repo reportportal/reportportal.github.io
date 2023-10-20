@@ -6,7 +6,7 @@ import { Link } from '../../Link';
 import './ApplyOurService.scss';
 
 interface Props {
-  url: string
+  url: string;
 }
 
 export const ApplyOurService: React.FC<Props> = ({ url }) => (

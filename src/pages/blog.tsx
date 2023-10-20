@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { PageProps, graphql } from 'gatsby';
 
-import { Layout } from '@components/Layout';
-import { BlogPage } from '@containers/BlogPage';
+import { Layout } from '@app/components/Layout';
+import { BlogPage } from '@app/containers/BlogPage';
 
 const PAGE_SIZE = 9;
 
 interface DataProps {
   allContentfulBlogPost: {
     nodes: {
-      [key: string]: any
-    }
-  }
+      [key: string]: any;
+    };
+  };
 }
 
-export const BlogIndex: React.FC<PageProps<DataProps>> = ({ data }) => {
-  const { nodes } = data.allContentfulBlogPost
+const BlogIndex: React.FC<PageProps<DataProps>> = ({ data }) => {
+  const { nodes } = data.allContentfulBlogPost;
 
   const [posts, setPosts] = useState(nodes.slice(0, PAGE_SIZE));
 
@@ -27,6 +27,8 @@ export const BlogIndex: React.FC<PageProps<DataProps>> = ({ data }) => {
     </Layout>
   );
 };
+
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query BlogIndexQuery {

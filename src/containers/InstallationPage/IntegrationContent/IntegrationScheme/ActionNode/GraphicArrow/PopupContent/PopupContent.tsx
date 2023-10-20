@@ -6,10 +6,10 @@ import '../../../../../InstallationPage.scss';
 
 interface Props {
   info?: {
-    scheme: string
-    type: string
-    url: string
-  }
+    scheme: string;
+    type: string;
+    url: string;
+  };
 }
 
 export const PopupContent: React.FC<Props> = ({ info }) => {

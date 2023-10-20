@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { Link } from '../../../components/Link';
+import { createBemBlockBuilder } from '@app/utils';
+import { Link } from '@app/components/Link';
 
 import '../InstallationPage.scss';
 

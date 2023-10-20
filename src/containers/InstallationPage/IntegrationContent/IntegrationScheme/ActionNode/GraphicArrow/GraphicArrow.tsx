@@ -6,12 +6,12 @@ import { PopupContent } from './PopupContent';
 import { Arrow } from '../../Arrow';
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
   info?: {
-    type: string
-    scheme: string
-    url: string
-  }
+    type: string;
+    scheme: string;
+    url: string;
+  };
 }
 
 export const GraphicArrow: React.FC<Props> = ({ children, info }) => {

@@ -2,9 +2,9 @@ import React from 'react';
 import { Divider } from 'antd';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
 
-import { Link } from '../../Link';
 import { FooterList } from './FooterList';
 import { PRODUCT_LINKS, SERVICES_LINKS, SOLUTIONS_LINKS, LEARN_LINKS } from './constants';
 import TwitterIcon from './icons/twitter.inline.svg';

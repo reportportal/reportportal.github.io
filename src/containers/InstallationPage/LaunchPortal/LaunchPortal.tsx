@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Typography } from 'antd';
 
-import { Link } from '../../../components/Link';
-import { createBemBlockBuilder } from '../../../utils';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
+
 import { Notice } from '../Notice';
 
 import '../InstallationPage.scss';
 
-export const LaunchPortal = () => {
+export const LaunchPortal: FC = () => {
   const { Text } = Typography;
   const getBlocksWith = createBemBlockBuilder(['installation']);
 

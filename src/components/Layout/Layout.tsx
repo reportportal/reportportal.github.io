@@ -15,9 +15,10 @@ export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscrib
 export const watchProductOverviewAtom = atom({ isOpen: false });
 
 interface Props {
-  children: JSX.Element,
-  className?: string
+  children: JSX.Element;
+  className?: string;
 }
+
 export const Layout = ({ children, className }: Props) => {
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);

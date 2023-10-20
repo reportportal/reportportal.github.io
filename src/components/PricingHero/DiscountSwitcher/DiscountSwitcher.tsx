@@ -1,13 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import './DiscountSwitcher.scss';
 
 interface Props {
-  switchDiscount: () => void
-  discountState: boolean
+  switchDiscount: () => void;
+  discountState: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['switcher']);

@@ -2,13 +2,13 @@ import { useScroll } from 'ahooks';
 import { useState, useRef, useLayoutEffect } from 'react';
 
 interface Props {
-  callbackFn: () => void
-  isMenuOpen: boolean
+  callbackFn: () => void;
+  isMenuOpen: boolean;
 }
 
 enum Directions {
   DOWN = 'down',
-  UP = 'up'
+  UP = 'up',
 }
 
 export const useScrollDirection = ({ callbackFn, isMenuOpen }: Props) => {

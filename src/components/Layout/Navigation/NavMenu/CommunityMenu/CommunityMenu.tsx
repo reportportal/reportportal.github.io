@@ -2,11 +2,11 @@ import React from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../../../utils';
+import { subscriptionFormAtom } from '@app/components/Layout';
+import { Link } from '@app/components/Link';
+import { SubscriptionForm } from '@app/components/SubscriptionForm';
+import { createBemBlockBuilder } from '@app/utils';
 
-import { subscriptionFormAtom } from '../../../Layout';
-import { Link } from '../../../../Link';
-import { SubscriptionForm } from '../../../../SubscriptionForm';
 import { GithubCover } from '../covers/GithubCover';
 import { SectionList } from '../SectionList';
 import { SectionCard } from '../SectionCard';
@@ -17,9 +17,9 @@ import '../Menu.scss';
 import './CommunityMenu.scss';
 
 interface Props {
-  isDesktop: boolean
-  isOpen: boolean
-  menuContainerRef: string
+  isDesktop: boolean;
+  isOpen: boolean;
+  menuContainerRef: string;
 }
 
 export const CommunityMenu: React.FC<Props> = ({ isDesktop = true, isOpen, menuContainerRef }) => {

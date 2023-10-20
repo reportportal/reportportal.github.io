@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 
-import { isAbsoluteURL } from '../../utils';
-import { DOCUMENTATION_URL } from '../../utils/constants';
+import { isAbsoluteURL, DOCUMENTATION_URL } from '@app/utils';
 
 interface Props {
-  activeClassName?: string
-  children: string | React.ReactNode
-  className?: string
-  onClick?: (event: any) => void
-  partiallyActive?: boolean
-  to: string
+  activeClassName?: string;
+  children: string | React.ReactNode;
+  className?: string;
+  onClick?: (event: any) => void;
+  partiallyActive?: boolean;
+  to: string;
 }
 
 // These links are considered SEO trusted, they should be opened in the new tab without "rel" attribute set
@@ -24,7 +23,13 @@ const TRUSTED_DOMAINS = [
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
 // pass it only to GatsbyLink
-export const Link: React.FC<Props> = ({ children, to, activeClassName, partiallyActive, ...other }) => {
+export const Link: React.FC<Props> = ({
+  children,
+  to,
+  activeClassName,
+  partiallyActive,
+  ...other
+}) => {
   // Tailor the following test to your environment.
   // This example assumes that any internal link (intended for Gatsby)
   // will start with exactly one slash, and that anything else is external.

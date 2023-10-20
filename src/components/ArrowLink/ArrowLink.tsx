@@ -1,14 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { Link } from '../Link';
 import ArrowIcon from './icons/arrow-icon.inline.svg';
 
 interface Props {
-  text: string
-  mode: string
+  text: string;
+  mode: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['arrow-link']);

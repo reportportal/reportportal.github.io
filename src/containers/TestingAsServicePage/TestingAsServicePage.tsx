@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { DashboardHeader } from '../../components/DashboardHeader';
-import { SpiderBlock } from '../../components/SpiderBlock';
-import { TestingBottomBlock } from '../../components/TestingBottomBlock';
+import { DashboardHeader } from '@app/components/DashboardHeader';
+import { SpiderBlock } from '@app/components/SpiderBlock';
+import { TestingBottomBlock } from '@app/components/TestingBottomBlock';
 
 import { BenefitsOfTaas } from './BenefitsOfTaas';
 import { Challenges } from './Challenges';

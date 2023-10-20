@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { LEFT_ASIDE_TEXT, RIGHT_ASIDE_TEXT } from './constants';
@@ -8,11 +7,11 @@ import './SpiderBlock.scss';
 
 enum BlockTypes {
   ORIGINAL = 'original',
-  OPACITY = 'opacity'
+  OPACITY = 'opacity',
 }
 
 interface Props {
-  blockType: BlockTypes
+  blockType?: BlockTypes;
 }
 
 export const SpiderBlock: React.FC<Props> = ({ blockType = BlockTypes.ORIGINAL }) => (

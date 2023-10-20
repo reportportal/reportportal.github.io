@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Heading } from '../../../components/Heading';
-import { UnorderedList } from '../../../components/UnorderedList';
+import { Heading } from '@app/components/Heading';
+import { UnorderedList } from '@app/components/UnorderedList';
 
 import { TIPS_LIST } from './constants';
 

@@ -1,30 +1,39 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { GatsbyNode } from 'gatsby';
 import axios from 'axios';
 
 import { config as contactUsConfig } from './src/templates/contact-us/config';
 
-import { GatsbyNode } from "gatsby"
+type PostType = {
+  slug: string;
+};
 
-type TypePost = {
-  slug: string
-}
-
-type TypeData = {
+type PostTypeDto = {
   allContentfulBlogPost: {
-    nodes: TypePost[]
-  }
-}
+    nodes: PostType[];
+  };
+};
+
+type CaseType = {
+  slug: string;
+};
+
+type CaseTypeDto = {
+  allContentfulCaseStudy: {
+    nodes: CaseType[];
+  };
+};
 
 interface Repos {
-  total: number,
+  total: number;
   repos: {
-    [key: string]: string
-  }
+    [key: string]: string;
+  };
 }
 
-export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   await axios
@@ -36,7 +45,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   const blogPost = path.resolve('./src/templates/BlogPost/blog-post.tsx');
 
-  const result = await graphql<TypeData>(
+  const blogsResponse = await graphql<PostTypeDto>(
     `
       {
         allContentfulBlogPost {
@@ -48,13 +57,13 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     `,
   );
 
-  if (result.errors) {
-    reporter.panicOnBuild('There was an error loading your Contentful posts', result.errors);
+  if (blogsResponse.errors) {
+    reporter.panicOnBuild('There was an error loading your Contentful posts', blogsResponse.errors);
 
     return;
   }
 
-  const posts = result.data?.allContentfulBlogPost.nodes;
+  const posts = blogsResponse.data?.allContentfulBlogPost.nodes;
 
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
@@ -80,6 +89,50 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
         config: contactUsConfig,
       },
     });
+  });
+
+  const caseStudyTemplate = path.resolve('./src/templates/case-study/case-study.tsx');
+  const caseStudiesResponse = await graphql<CaseTypeDto>(
+    `
+      {
+        allContentfulCaseStudy {
+          nodes {
+            slug
+          }
+        }
+      }
+    `,
+  );
+
+  if (caseStudiesResponse.errors) {
+    reporter.panicOnBuild(
+      'There was an error loading your Contentful case studies',
+      caseStudiesResponse.errors,
+    );
+
+    return;
+  }
+
+  const caseStudies = caseStudiesResponse.data?.allContentfulCaseStudy.nodes;
+
+  caseStudies?.forEach(caseStudy => {
+    createPage({
+      path: `/case-studies/${caseStudy.slug}/`,
+      component: caseStudyTemplate,
+      context: {
+        slug: caseStudy.slug,
+      },
+    });
+  });
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@app': path.resolve(__dirname, 'src'),
+      },
+    },
   });
 };
 

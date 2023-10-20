@@ -12,13 +12,13 @@ import { OPTIONS } from './constants';
 import './BlogPostPage.scss';
 
 interface Props {
-  author: string
-  articleBody: any
-  date: string
-  industry: string
+  author: string;
+  articleBody: any;
+  date: string;
+  industry: string;
   title?: {
-    title: string
-  }
+    title: string;
+  };
 }
 export const BlogPostPage: React.FC<Props> = ({ industry, title, author, date, articleBody }) => (
   <>

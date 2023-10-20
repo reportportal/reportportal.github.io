@@ -1,9 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { DOCUMENTATION_URL } from '../../utils/constants';
-import { Link } from '../../components/Link';
+import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
+import { Link } from '@app/components/Link';
 
 import NotFoundIcon from './svg/not-found.inline.svg';
 

@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Layout } from '@components/Layout';
-import { InstallationPage } from '@containers/InstallationPage';
+import { Layout } from '@app/components/Layout';
+import { InstallationPage } from '@app/containers/InstallationPage';
 
-export const Installation: React.FC = () => (
+const Installation: React.FC = () => (
   <Layout>
     <InstallationPage />
   </Layout>
 );
 
+export default Installation;
