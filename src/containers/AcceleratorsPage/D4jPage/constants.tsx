@@ -6,7 +6,7 @@ export type TimeScaleData = {
 export type FaqData = {
   key: number
   label: string
-  children: string
+  children: React.ReactNode
 }
 
 export const TIME_SCALE_DATA: TimeScaleData = [
@@ -28,7 +28,7 @@ export const TIME_SCALE_DATA: TimeScaleData = [
   },
 ];
 
-export const FAQ_DATA: FaqData = [
+export const FAQ_DATA: FaqData[] = [
   {
     key: 1,
     label: 'What is the validity period for professional service hours?',

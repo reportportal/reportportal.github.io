@@ -8,7 +8,7 @@ import { Post } from './types';
 
 import './ArticlePreview.scss';
 
-interface Props {
+export interface Props {
   posts: Post[]
 }
 

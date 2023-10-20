@@ -1,7 +1,10 @@
 export interface DataProps {
     pageContext: {
       config: {
-        [key: string]: any
+        info: string
+        isDiscussFieldShown: boolean
+        options: string
+        title: string
       }
     }
   }

@@ -1,8 +1,11 @@
+import { GatsbyConfig } from "gatsby";
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-module.exports = {
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title:
       'ReportPortal test automation analytics platform and real-time reporting, powered by Machine Learning',
@@ -70,3 +73,5 @@ module.exports = {
   ],
   trailingSlash: 'never',
 };
+
+export default config

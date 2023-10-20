@@ -22,15 +22,15 @@ import './OfferPageWrapper.scss';
 interface Props {
   hero: {
     title: string
-    subtitle: string
+    subtitle?: string
     description: string
     offerType: string
   },
   page: string
   pagePath: string
   timeScaleData: {
-    time: string;
-    items: string[];
+    time: number | string
+    items: string[] | React.ReactNode[]
   }[]
   faqData: {
     key: Number;

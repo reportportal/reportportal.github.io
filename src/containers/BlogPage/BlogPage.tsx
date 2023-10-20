@@ -5,11 +5,14 @@ import { SubscriptionBanner } from '../../components/SubscriptionBanner';
 import { createBemBlockBuilder } from '../../utils';
 
 import './BlogPage.scss';
+import { Post } from '@/components/ArticlePreview/types';
 
 interface Props {
   loadMorePost: () => void
-  nodes: unknown[]
-  posts: unknown[]
+  nodes: {
+    [key: string]: any
+  }
+  posts: Post[]
 }
 const getBlocksWith = createBemBlockBuilder(['blog']);
 
