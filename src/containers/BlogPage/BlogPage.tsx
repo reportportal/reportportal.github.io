@@ -1,18 +1,18 @@
 import React from 'react';
 
-import { ArticlePreview } from '../../components/ArticlePreview';
-import { SubscriptionBanner } from '../../components/SubscriptionBanner';
-import { createBemBlockBuilder } from '../../utils';
+import { ArticlePreview } from '@app/components/ArticlePreview';
+import { Post } from '@app/components/ArticlePreview/types';
+import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
+import { createBemBlockBuilder } from '@app/utils';
 
 import './BlogPage.scss';
-import { Post } from '@/components/ArticlePreview/types';
 
 interface Props {
-  loadMorePost: () => void
+  loadMorePost: () => void;
   nodes: {
-    [key: string]: any
-  }
-  posts: Post[]
+    [key: string]: any;
+  };
+  posts: Post[];
 }
 const getBlocksWith = createBemBlockBuilder(['blog']);
 

@@ -8,22 +8,22 @@ import './PricingCard.scss';
 
 interface Props {
   card: {
-    title: string
-    description: string
-    listItems: string[]
+    title: string;
+    description: string;
+    listItems: string[];
     price: {
-      currency: string
-      value: string
-      period: string
-      message: string
-      discountedValue: string
-    }
-    actionText: string
-    isPopular: string
-    actionVariant: string
-    href: string
-  }
-  discountState: string
+      currency: string;
+      value: string;
+      period: string;
+      message: string;
+      discountedValue: string;
+    };
+    actionText: string;
+    isPopular: string;
+    actionVariant: string;
+    href: string;
+  };
+  discountState: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pricing-card']);

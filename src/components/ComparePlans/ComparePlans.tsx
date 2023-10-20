@@ -3,9 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Collapse } from 'antd';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { iconsCommon } from '../../utils/imageSource';
-import { $desktopSm } from '../../utils/breakpoint';
+import { createBemBlockBuilder, iconsCommon, $desktopSm } from '@app/utils';
 
 import { Columns } from './Columns';
 import { RowSection } from './RowSection';
@@ -17,16 +15,16 @@ import './ComparePlans.scss';
 
 interface Props {
   dataPlans: {
-    feature: string
-    section: string
-    description: string
-    footer: string
-    href: string
-  }[]
-  columns: string
-  footerButtons: string
-  isCollapsibleOnMobile: boolean
-  mobileColumns: string
+    feature: string;
+    section: string;
+    description: string;
+    footer: string;
+    href: string;
+  }[];
+  columns: string;
+  footerButtons: string;
+  isCollapsibleOnMobile: boolean;
+  mobileColumns: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['compare']);
@@ -83,7 +81,10 @@ export const ComparePlans: React.FC<Props> = ({
               collapsible={!isRow(section, footer) ? 'disabled' : undefined}
               header={
                 isRow(section, footer) ? (
-                  <ExpandableRow feature={feature} columnsData={prepareColumnData(rowData as string)} />
+                  <ExpandableRow
+                    feature={feature}
+                    columnsData={prepareColumnData(rowData as string)}
+                  />
                 ) : (
                   <RowSection footer={footer} footerButtons={footerButtons} />
                 )

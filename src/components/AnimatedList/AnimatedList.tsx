@@ -1,9 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { LIST_ANIMATION_DELAY } from '../../utils/constants';
-import { useAnimationInterval } from '../../hooks';
+import { createBemBlockBuilder, LIST_ANIMATION_DELAY } from '@app/utils';
+import { useAnimationInterval } from '@app/hooks';
 
 import { ArrowLink } from '../ArrowLink';
 
@@ -11,21 +10,27 @@ import './AnimatedList.scss';
 
 interface Props {
   data: {
-    description: string
-    image: string
-    link: string
-    title: string
-  }[]
-  title: string
-  subtitle: string
-  listDesktopPosition: string
-  children: React.ReactNode
+    description: string;
+    image: string;
+    link: string;
+    title: string;
+  }[];
+  title: string;
+  subtitle: string;
+  listDesktopPosition: string;
+  children: React.ReactNode;
 }
 
 const getBlocksWith = createBemBlockBuilder(['animated-list-container']);
 const getBlocksWithList = createBemBlockBuilder(['animated-list']);
 
-export const AnimatedList: React.FC<Props> = ({ data, title, subtitle, listDesktopPosition = 'left', children }) => {
+export const AnimatedList: React.FC<Props> = ({
+  data,
+  title,
+  subtitle,
+  listDesktopPosition = 'left',
+  children,
+}) => {
   const { ref, delay, activeListIndex, setIndexAndResetInterval } = useAnimationInterval({
     totalItemsLength: data.length,
     interval: LIST_ANIMATION_DELAY,

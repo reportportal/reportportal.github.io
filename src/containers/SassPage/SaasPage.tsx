@@ -2,13 +2,13 @@ import React from 'react';
 import noop from 'lodash/noop';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../utils';
-import { TrustedOrganizations } from '../../components/TrustedOrganizations';
-import { ComparePlans } from '../../components/ComparePlans';
-import { Faq } from '../../components/Faq';
-import { Banner } from '../../components/Banner';
-import { PricingHero } from '../../components/PricingHero';
-import { usePricingHeroProps } from '../../hooks/usePricingHeroProps';
+import { createBemBlockBuilder } from '@app/utils';
+import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
+import { ComparePlans } from '@app/components/ComparePlans';
+import { Faq } from '@app/components/Faq';
+import { Banner } from '@app/components/Banner';
+import { PricingHero } from '@app/components/PricingHero';
+import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 
 import { PricingCards } from './PricingCards';
 import { BUTTONS_DATA, COLUMNS, DATA_PLANS, FAQ_ITEMS, OFFERS_DATA } from './constants';

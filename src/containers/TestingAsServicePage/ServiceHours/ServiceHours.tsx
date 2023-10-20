@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Heading } from '../../../components/Heading';
-import { IconBlock } from '../../../components/IconBlock';
-import { UnorderedList } from '../../../components/UnorderedList';
+import { Heading } from '@app/components/Heading';
+import { IconBlock } from '@app/components/IconBlock';
+import { UnorderedList } from '@app/components/UnorderedList';
 
 import { SERVICE_HOURS_LIST } from './constants';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { ArticlePreviewItem } from './ArticlePreviewItem';
 import { Post } from './types';
@@ -9,7 +9,7 @@ import { Post } from './types';
 import './ArticlePreview.scss';
 
 export interface Props {
-  posts: Post[]
+  posts: Post[];
 }
 
 const getBlocksWith = createBemBlockBuilder(['article-preview-list']);

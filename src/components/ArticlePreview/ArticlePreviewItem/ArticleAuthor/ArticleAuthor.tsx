@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { createBemBlockBuilder } from '../../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import AuthorIcon from './icons/author.inline.svg';
 
 import './ArticleAuthor.scss';
 
 interface Props {
-  authorName: string
+  authorName: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['article-author']);

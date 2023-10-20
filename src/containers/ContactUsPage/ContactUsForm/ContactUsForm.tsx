@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
 
-import ArrowIcon from '../../../svg/arrow.inline.svg';
-import { createBemBlockBuilder } from '../../../utils';
-import { Link } from '../../../components/Link';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { validate } from './utils';
 import { FormFieldWrapper } from './FormFieldWrapper';
@@ -13,6 +12,8 @@ import { SalesForceFormBase } from './SalesForceFormBase';
 import { FormInput } from './FormInput';
 import { CustomCheckbox } from './CustomCheckbox';
 import { MAX_LENGTH } from './constants';
+
+import ArrowIcon from '../../../svg/arrow.inline.svg';
 
 import '../ContactUsPage.scss';
 

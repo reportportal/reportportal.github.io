@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DOCUMENTATION_URL } from '../../../../../utils/constants';
+import { DOCUMENTATION_URL } from '@app/utils';
 
 import {
   AiIcon,

@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../../../utils';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
 
-import { Link } from '../../../../Link';
 import { SectionList } from '../SectionList';
 import { PRICING_CONFIG, SERVICE_LIST, PRICING_FOR_SOLUTIONS_LIST } from './constants';
 
@@ -11,9 +11,9 @@ import '../Menu.scss';
 import './OfferingsMenu.scss';
 
 interface Props {
-  isDesktop: boolean
-  isOpen: boolean
-  menuContainerRef: string
+  isDesktop: boolean;
+  isOpen: boolean;
+  menuContainerRef: string;
 }
 
 export const OfferingsMenu: React.FC<Props> = ({ isDesktop = true, isOpen, menuContainerRef }) => {

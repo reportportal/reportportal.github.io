@@ -2,20 +2,18 @@ import React from 'react';
 import { Collapse, CollapseProps } from 'antd';
 import classNames from 'classnames';
 
-import ArrowIcon from '../../svg/arrow.inline.svg';
-import { iconsCommon } from '../../utils/imageSource';
-import { DOCUMENTATION_URL } from '../../utils/constants';
-import { createBemBlockBuilder } from '../../utils';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder, DOCUMENTATION_URL, iconsCommon } from '@app/utils';
 
-import { Link } from '../Link';
+import ArrowIcon from '../../svg/arrow.inline.svg';
 
 import './Faq.scss';
 
 interface Props {
-  items: CollapseProps['items']
-  titleId?: string
-  documentationLink?: string
-  showMoreInfoLink: Boolean
+  items: CollapseProps['items'];
+  titleId?: string;
+  documentationLink?: string;
+  showMoreInfoLink: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['faq']);

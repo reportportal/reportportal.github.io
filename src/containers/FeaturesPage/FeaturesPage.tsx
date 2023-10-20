@@ -4,17 +4,15 @@ import { useScroll } from 'ahooks';
 import classNames from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 
-import { useScrollDirection } from '../../hooks';
-import { iconsCommon } from '../../utils/imageSource';
-import { DOCUMENTATION_URL } from '../../utils/constants';
-import { createBemBlockBuilder, mediaDesktopSm } from '../../utils';
-import { Link } from '../../components/Link';
-import { ProcessIntegration } from '../../components/ProcessIntegration';
-import { SupportedFrameworks } from '../../components/SupportedFrameworks';
-import { ArrowLink } from '../../components/ArrowLink';
-import { Banner } from '../../components/Banner';
-import { StartTestingWithReportPortal } from '../../components/StartTestingWithReportPortal';
-import { Faq } from '../../components/Faq';
+import { useScrollDirection } from '@app/hooks';
+import { createBemBlockBuilder, mediaDesktopSm, iconsCommon, DOCUMENTATION_URL } from '@app/utils';
+import { Link } from '@app/components/Link';
+import { ProcessIntegration } from '@app/components/ProcessIntegration';
+import { SupportedFrameworks } from '@app/components/SupportedFrameworks';
+import { ArrowLink } from '@app/components/ArrowLink';
+import { Banner } from '@app/components/Banner';
+import { StartTestingWithReportPortal } from '@app/components/StartTestingWithReportPortal';
+import { Faq } from '@app/components/Faq';
 
 import { FEATURES_LIST, NAVIGATION_LIST } from './constants';
 
@@ -72,18 +70,18 @@ export const FeaturesPage: React.FC = () => {
   const setHistoryValue = val => window.history.replaceState(null, '', `/features/${val}`);
 
   useEffect(() => {
-    const processIntegrationTopPosition = processIntegrationRef.current?.getBoundingClientRect().top;
+    const processIntegrationTopPosition =
+      processIntegrationRef.current?.getBoundingClientRect().top;
     const offset = 100;
 
     let isStickyPositionReached: boolean = false;
-    
-    if(processIntegrationTopPosition){
+
+    if (processIntegrationTopPosition) {
       isStickyPositionReached =
         (scrollDirection === 'up'
           ? processIntegrationTopPosition - headerHeight - offset
           : processIntegrationTopPosition - offset) > 0;
     }
-
 
     if (isStickyPositionReached && isFeaturesMenuSticky !== isStickyPositionReached) {
       setIsFeaturesMenuSticky(!isFeaturesMenuSticky);

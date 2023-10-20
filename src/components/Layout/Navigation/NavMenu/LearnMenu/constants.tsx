@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DOCUMENTATION_URL } from '../../../../../utils/constants';
+import { DOCUMENTATION_URL } from '@app/utils';
 
 import DocumentationIcon from './icons/documentation.inline.svg';
 import BlogIcon from './icons/blog.inline.svg';

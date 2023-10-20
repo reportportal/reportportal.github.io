@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Heading } from '../Heading';
 import { ApplyOurService } from './ApplyOurService';
@@ -7,10 +6,10 @@ import { ApplyOurService } from './ApplyOurService';
 import './TestingBottomBlock.scss';
 
 interface Props {
-  children: React.ReactNode
-  title: string
-  description?: string
-  url: string
+  children: React.ReactNode;
+  title: string;
+  description?: string;
+  url: string;
 }
 
 export const TestingBottomBlock: React.FC<Props> = ({ children, title, description, url }) => (

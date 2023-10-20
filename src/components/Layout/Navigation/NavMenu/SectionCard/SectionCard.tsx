@@ -1,16 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import './SectionCard.scss';
 
 interface Props {
-  title: string
-  cover: React.ReactElement
-  text: string
-  className?: string
-  children: React.ReactNode
+  title: string;
+  cover: React.ReactElement;
+  text: string;
+  className?: string;
+  children: React.ReactNode;
 }
 
 export const SectionCard: React.FC<Props> = ({ title, cover, text, className = '', children }) => {

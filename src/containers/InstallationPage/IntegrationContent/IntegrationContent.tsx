@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { createBemBlockBuilder } from '../../../utils';
-import { SupportedFrameworks } from '../../../components/SupportedFrameworks';
-import { Link } from '../../../components/Link';
+import { SupportedFrameworks } from '@app/components/SupportedFrameworks';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { IntegrationScheme } from './IntegrationScheme';
 

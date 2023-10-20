@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createBemBlockBuilder } from '../../../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { EventNode } from '../EventNode';
 import { ActionNode } from '../ActionNode';
@@ -17,9 +17,9 @@ import '../IntegrationScheme.scss';
 import '../../../InstallationPage.scss';
 
 interface Props {
-  portion: { text: string }[]
-  row: number
-  lastRow: number
+  portion: { text: string }[];
+  row: number;
+  lastRow: number;
 }
 
 const getBlocksWith = createBemBlockBuilder(['scheme']);

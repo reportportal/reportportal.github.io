@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import './SubscriptionFormCard.scss';
 
 interface Props {
-  title: string
-  subtitle: string
+  title: string;
+  subtitle: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['subscription-form-card']);

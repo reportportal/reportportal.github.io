@@ -1,10 +1,10 @@
 interface BaseConfig {
-  title: string
+  title: string;
   options: {
-    name: string
-    value: string
-  }[]
-  info: string
+    name: string;
+    value: string;
+  }[];
+  info: string;
 }
 
 const SALESFORCE_SOURCE_NAME = 'ReportPortalSource__c';
@@ -134,7 +134,15 @@ const HealeniumBaseConfig = {
   isDiscussFieldShown: false,
 };
 
-const createConfig = ({ baseConfig, source, ...rest }: { baseConfig: BaseConfig, url: string, source: string }) => ({
+const createConfig = ({
+  baseConfig,
+  source,
+  ...rest
+}: {
+  baseConfig: BaseConfig;
+  url: string;
+  source: string;
+}) => ({
   ...baseConfig,
   options: baseConfig.options.concat({
     name: SALESFORCE_SOURCE_NAME,

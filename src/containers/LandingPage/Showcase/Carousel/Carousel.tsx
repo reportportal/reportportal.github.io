@@ -2,14 +2,12 @@ import React, { useCallback, useRef, memo } from 'react';
 import { Carousel as AntdCarousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
 
-import { createBemBlockBuilder } from '../../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
-import ArrowIcon from '../icons/arrow.inline.svg'
+import ArrowIcon from '../icons/arrow.inline.svg';
 
 interface Props {
-  slides: [
-    { icon: string }[]
-  ]
+  slides: [{ icon: string }[]];
 }
 
 const getBlocksWith = createBemBlockBuilder(['showcase__carousel']);

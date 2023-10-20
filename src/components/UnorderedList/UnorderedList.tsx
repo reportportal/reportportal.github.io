@@ -1,16 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './UnorderedList.scss';
 
 interface Props {
-  title?: string
-  hasSeparator?: boolean
+  title?: string;
+  hasSeparator?: boolean;
   list: {
-    info?: string
-    description?: string
-  }[]
+    info?: string;
+    description?: string;
+  }[];
 }
 
 export const UnorderedList: React.FC<Props> = ({ title, hasSeparator, list }) => (
@@ -31,7 +30,3 @@ export const UnorderedList: React.FC<Props> = ({ title, hasSeparator, list }) =>
     </ul>
   </div>
 );
-
-UnorderedList.propTypes = {
-  title: PropTypes.string,
-};

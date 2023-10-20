@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { createBemBlockBuilder } from '../../../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { ActionNode } from '../ActionNode';
 import { EventNode } from '../EventNode';
@@ -9,7 +9,7 @@ import { EventNode } from '../EventNode';
 import '../IntegrationScheme.scss';
 
 interface Props {
-  state: string
+  state: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['scheme']);

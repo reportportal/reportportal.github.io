@@ -3,18 +3,24 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 interface Props {
-  description: string
-  lang: string
+  description: string;
+  lang: string;
   meta: ConcatArray<{
-    name: string
-    content: string
-    property?: undefined
-  }>
-  title: string
-  image: string
+    name: string;
+    content: string;
+    property?: undefined;
+  }>;
+  title: string;
+  image: string;
 }
 
-export const Seo: React.FC<Props> = ({ description = '', lang = 'en', meta = [], title, image }) => {
+export const Seo: React.FC<Props> = ({
+  description = '',
+  lang = 'en',
+  meta = [],
+  title,
+  image,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {

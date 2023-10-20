@@ -1,13 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { createBemBlockBuilder } from '../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import './DashboardHeader.scss';
 
 interface Props {
-  title: string
-  dashboardText: string
+  title: string;
+  dashboardText: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['dashboard-header']);
@@ -25,8 +24,3 @@ export const DashboardHeader: React.FC<Props> = ({ title, dashboardText }) => (
     </div>
   </div>
 );
-
-DashboardHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  dashboardText: PropTypes.string.isRequired,
-};

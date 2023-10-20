@@ -1,34 +1,35 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import { Link } from '@app/components/Link';
+import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
+import { createBemBlockBuilder } from '@app/utils';
+
 import DownloadIcon from '../../svg/download.inline.svg';
-import { createBemBlockBuilder } from '../../utils';
-import { Link } from '../../components/Link';
-import { SubscriptionBanner } from '../../components/SubscriptionBanner';
 
 import './CasesPage.scss';
 
 interface Case {
   cardBackgroundImage: {
     file: {
-      url: string
-    }
-  }
+      url: string;
+    };
+  };
   icon: {
     file: {
-      url: string
-    }
-  }
-  id: string
-  industry: string
-  slug: string
-  title: string
+      url: string;
+    };
+  };
+  id: string;
+  industry: string;
+  slug: string;
+  title: string;
 }
 
 interface Props {
-  cases: Case[]
-  handleLoadMore: () => void
-  showLoadMore: boolean
+  cases: Case[];
+  handleLoadMore: () => void;
+  showLoadMore: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['cases-page']);

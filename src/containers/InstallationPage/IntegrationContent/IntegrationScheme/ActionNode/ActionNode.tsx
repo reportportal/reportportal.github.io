@@ -4,14 +4,14 @@ import classNames from 'classnames';
 import { GraphicArrow } from './GraphicArrow';
 
 interface Props {
-  children: React.ReactNode
-  direction?: boolean
-  infoArrow?: boolean
+  children: React.ReactNode;
+  direction?: boolean;
+  infoArrow?: boolean;
   info?: {
-    type: string
-    scheme: string
-    url: string
-  }
+    type: string;
+    scheme: string;
+    url: string;
+  };
 }
 
 export const ActionNode: React.FC<Props> = ({ children, direction, infoArrow = true, info }) => (

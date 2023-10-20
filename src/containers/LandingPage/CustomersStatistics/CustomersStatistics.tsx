@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { STATISTIC_INFO } from './constants';
 

@@ -2,21 +2,20 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 
-import { $desktopSm } from '../../../utils/breakpoint';
-import { createBemBlockBuilder } from '../../../utils';
+import { createBemBlockBuilder, $desktopSm } from '@app/utils';
 
 import { FooterColumns } from './FooterColums';
 
 import './RowSection.scss';
 
 interface Props {
-  footer: string
+  footer: string;
   footerButtons: {
     btn: string;
     mode: string;
     href: string;
     compareHref: string;
-  }[]
+  }[];
 }
 
 const getBlocksWith = createBemBlockBuilder(['rowSection']);
