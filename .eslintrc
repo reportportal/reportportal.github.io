@@ -4,7 +4,7 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "prettier",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
   ],
   "plugins": ["react", "prettier"],
   "parser": "@babel/eslint-parser",
@@ -21,15 +21,16 @@
   },
   "settings": {
     "import/resolver": {
+      "typescript": {},
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       },
       "alias": [
-        ["@components", "./src/components"],
-        ["@containers", "./src/containers"],
-        ["@utils", "./src/utils"],
-        ["@svg", "./src/svg"],
-        ["@hooks", "./src/hooks"]
+        ["@components", "src/components"],
+        ["@containers", "src/containers"],
+        ["@utils", "src/utils"],
+        ["@svg", "src/svg"],
+        ["@hooks", "src/hooks"]
       ]
     }
   },
