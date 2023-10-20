@@ -3,9 +3,9 @@ import { graphql, PageProps } from 'gatsby';
 
 import { Layout } from '../../components/Layout';
 import { CaseStudyPage } from '../../containers/CaseStudyPage';
-import { DataProps } from './types';
+import { CaseStudyProps } from './types';
 
-export const CaseStudyTemplate = ({ data }: PageProps<DataProps>) => {
+export const CaseStudyTemplate = ({ data }: PageProps<CaseStudyProps>) => {
   const { title, industry, challenges, highlights, benefitsResults } = data.contentfulCaseStudy
 
   return (

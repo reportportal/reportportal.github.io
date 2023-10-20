@@ -5,7 +5,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 interface Props {
   description: string
   lang: string
-  meta: string[]
+  meta: ConcatArray<{
+    name: string
+    content: string
+    property?: undefined
+  }>
   title: string
   image: string
 }
@@ -36,7 +40,7 @@ export const Seo: React.FC<Props> = ({ description = '', lang = 'en', meta = [],
       }}
       title={title}
       defaultTitle={defaultTitle}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={defaultTitle && `%s | ${defaultTitle}`}
       meta={[
         {
           name: 'description',

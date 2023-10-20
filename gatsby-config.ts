@@ -1,13 +1,17 @@
+import { GatsbyConfig } from "gatsby";
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-module.exports = {
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title:
       'ReportPortal test automation analytics platform and real-time reporting, powered by Machine Learning',
     description:
       'Provides real-time analytics in reporting, automated test results visualization and an integration with your existing test automation process. Powered by Machine Learning to categorize test automation fails, leveraging historical data. Free and Open Sourced. Fork Us on GitHub.',
+    keywords: ''
   },
   plugins: [
     'gatsby-plugin-svgr-svgo',
@@ -32,3 +36,5 @@ module.exports = {
   ],
   trailingSlash: 'never',
 };
+
+export default config

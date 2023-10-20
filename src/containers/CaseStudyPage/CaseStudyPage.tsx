@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import noop from 'lodash/noop';
-import { ContentfulRichTextGatsbyReference, RenderRichTextData, renderRichText } from 'gatsby-source-contentful/rich-text';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import { ArrowLeft } from '../../svg/arrowLeft.jsx';
+import { ArrowLeft } from '../../svg/arrowLeft'
 import { createBemBlockBuilder } from '../../utils';
 import DownloadIcon from '../../svg/download.inline.svg';
 import { Link } from '../../components/Link';
@@ -12,18 +12,11 @@ import { SubscriptionBanner } from '../../components/SubscriptionBanner';
 import { OPTIONS } from './constants';
 
 import './CaseStudyPage.scss';
-
-interface Props {
-  benefitsResults: RenderRichTextData<ContentfulRichTextGatsbyReference>
-  challenges: RenderRichTextData<ContentfulRichTextGatsbyReference>
-  industry: string
-  highlights: RenderRichTextData<ContentfulRichTextGatsbyReference>
-  title: string
-}
+import { CaseStudy } from '../../templates/case-study/types';
 
 const getBlocksWith = createBemBlockBuilder(['case-page']);
 
-export const CaseStudyPage: React.FC<Props> = ({ title, industry, challenges, highlights, benefitsResults }) => {
+export const CaseStudyPage: React.FC<CaseStudy> = ({ title, industry, challenges, highlights, benefitsResults }) => {
   useEffect(() => {
     function setupTable() {
       const tables = Array.from(document.querySelectorAll('table')).reverse();
