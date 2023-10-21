@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
-import { BLOCKS } from '@contentful/rich-text-types';
 import React from 'react';
+import { BLOCKS } from '@contentful/rich-text-types';
 import compact from 'lodash/compact';
 
 import { createBemBlockBuilder } from '@app/utils';
@@ -42,4 +42,3 @@ export const OPTIONS = {
     ),
   },
 };
-/* eslint-enable react/no-multi-comp */

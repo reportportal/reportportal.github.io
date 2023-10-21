@@ -43,4 +43,3 @@ export const OPTIONS = {
     ),
   },
 };
-/* eslint-enable react/no-multi-comp */
