@@ -52,10 +52,16 @@ npm run dev
 ```
 2. Open `http://localhost:8080/`
 
-## Deployment Instructions for Git Branch
-## To deploy your Git branch to AWS S3, please follow these steps:
+## Deployment
 
-1. Navigate to the "Deploy to AWS S3" action in your repository.
+Each changes pushing (direct pushing or via merging a Pull Request) to the:
+
+- `develop` branch will trigger the deployment to the dev environment to AWS S3 bucket.
+- `master` branch will trigger the deployment to the prod environment to GitHub Pages (https://reportportal.io).
+
+### To deploy your Git branch to dev environment (AWS S3), please follow these steps:
+
+1. Navigate to the "Deploy to Dev (AWS S3)" action in your repository.
 2. Choose "Run Workflow" from the dropdown menu.
 3. Enter the name of your branch and click on the "Run workflow" button.
 4. Wait for the deployment process to complete. You can check the progress in the "Actions" tab of your repository.
