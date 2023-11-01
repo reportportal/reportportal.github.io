@@ -32,13 +32,7 @@ export const Link: React.FC<Props> = ({
   // Tailor the following test to your environment.
   // This example assumes that any internal link (intended for Gatsby)
   // will start with exactly one slash, and that anything else is external.
-  const isTrustedLink = TRUSTED_DOMAINS.some(domain => {
-    if (domain && to) {
-      return to.startsWith(domain);
-    }
-
-    return false;
-  });
+  const isTrustedLink = TRUSTED_DOMAINS.some(domain => to.startsWith(domain as string));
   const isInternal = !isTrustedLink && !isAbsoluteURL(to);
 
   // Use Gatsby Link for internal links, and <a> for others

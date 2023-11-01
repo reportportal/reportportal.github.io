@@ -5,7 +5,7 @@ import './Heading.scss';
 
 interface Props {
   title: string;
-  color: string;
+  color?: string;
   tag?: keyof JSX.IntrinsicElements;
 }
 
