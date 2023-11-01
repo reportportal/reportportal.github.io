@@ -1,14 +1,36 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
-
+import {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from 'gatsby-source-contentful/rich-text';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { ArticlePreviewItem } from './ArticlePreviewItem';
-import { Post } from './types';
 
 import './ArticlePreview.scss';
 
-export interface Props {
+interface Post {
+  id: number;
+  slug: string;
+  title: {
+    title: string;
+  };
+  featuredImage: {
+    file: {
+      url: string;
+    };
+  };
+  category: string;
+  description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  publishDate: string;
+  leadParagraph: {
+    leadParagraph: string;
+  };
+  author: string;
+}
+
+interface Props {
   posts: Post[];
 }
 

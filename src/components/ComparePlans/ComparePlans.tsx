@@ -2,7 +2,6 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Collapse } from 'antd';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder, iconsCommon, $desktopSm } from '@app/utils';
 
 import { Columns } from './Columns';

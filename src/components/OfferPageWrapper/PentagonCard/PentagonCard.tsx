@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { createBemBlockBuilder, formatNumberWithCommas } from '../../../utils';
+import { createBemBlockBuilder, formatNumberWithCommas } from '@app/utils';
 
 import { IconBlock } from '../../IconBlock';
 import { Link } from '../../Link';
@@ -13,12 +12,22 @@ interface Props {
   hours: string;
   price: number;
   contactLink: string;
+  discountState: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pentagon-card']);
 
-export const PentagonCard: React.FC<Props> = ({ stepNumber, hours, price, contactLink }) => {
+export const PentagonCard: FC<Props> = ({
+  stepNumber,
+  hours,
+  price,
+  contactLink,
+  discountState,
+}) => {
   const isFirstStep = stepNumber === 1;
+  const contactUsURL = !price
+    ? contactLink
+    : `${contactLink}/${discountState ? 'yearly' : 'quarterly'}`;
 
   const getPrice = () => (
     <>
@@ -36,7 +45,7 @@ export const PentagonCard: React.FC<Props> = ({ stepNumber, hours, price, contac
     <div className={getBlocksWith('__wrapper')}>
       <IconBlock type="pentagon" progressNumber={stepNumber} {...getProps()} />
       <div className={getBlocksWith('__price')}>{isFirstStep ? 'Free' : getPrice()} </div>
-      <Link to={contactLink}>
+      <Link to={contactUsURL}>
         <button
           type="button"
           className={classNames(

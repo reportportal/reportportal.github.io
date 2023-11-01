@@ -1,8 +1,7 @@
 import React from 'react';
 import noop from 'lodash/noop';
 import classNames from 'classnames';
-
-import { createBemBlockBuilder } from '@app/utils';
+import { createBemBlockBuilder, ON_PREMISES_OFFER_PRICES } from '@app/utils';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 
 import { TrustedOrganizations } from '../TrustedOrganizations';
@@ -15,7 +14,7 @@ import { TimeScale } from './TimeScale';
 import { PentagonCard } from './PentagonCard';
 import { COLUMNS, MOBILE_COLUMNS } from './constants';
 import InfoIcon from './icons/infoIcon.inline.svg';
-import { getOfferPrices, getDataPlans, getFooterButtons } from './utils';
+import { getDataPlans, getFooterButtons, getOfferLinks } from './utils';
 
 import './OfferPageWrapper.scss';
 
@@ -72,15 +71,20 @@ export const OfferPageWrapper: React.FC<Props> = ({
         discountState={discountState}
       />
       <div className={getBlocksWith('__pentagons')}>
-        {getOfferPrices(pagePath).map((offer, index) => (
-          <PentagonCard
-            stepNumber={index + 1}
-            hours={offer.hours}
-            price={discountState ? offer.discountedValue : offer.value}
-            contactLink={offer.href}
-            key={offer.hours}
-          />
-        ))}
+        {getOfferLinks(pagePath).map((href, index) => {
+          const offerPrice = ON_PREMISES_OFFER_PRICES[index];
+
+          return (
+            <PentagonCard
+              stepNumber={index + 1}
+              hours={`${offerPrice.hours}`}
+              discountState={discountState}
+              price={discountState ? offerPrice.discountedValue : offerPrice.value}
+              contactLink={href}
+              key={offerPrice.hours}
+            />
+          );
+        })}
       </div>
       <div className={getBlocksWith('__utilization')}>
         <h2>Indicative professional service hour utilization</h2>
