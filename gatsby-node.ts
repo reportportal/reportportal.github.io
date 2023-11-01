@@ -81,12 +81,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
 
   const ContactUsPage = path.resolve('./src/templates/contact-us/contact-us.tsx');
 
-  contactUsConfig.forEach((contactUsConfig: { url: string }) => {
+  contactUsConfig.forEach((config: { url: string }) => {
     createPage({
-      path: contactUsConfig.url,
+      path: config.url,
       component: ContactUsPage,
       context: {
-        config: contactUsConfig,
+        config,
       },
     });
   });
