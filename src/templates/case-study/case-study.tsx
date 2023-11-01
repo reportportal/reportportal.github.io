@@ -1,9 +1,21 @@
 import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
+import {
+  RenderRichTextData,
+  ContentfulRichTextGatsbyReference,
+} from 'gatsby-source-contentful/rich-text';
 import { Layout } from '@app/components/Layout';
 import { CaseStudyPage } from '@app/containers/CaseStudyPage';
 
-import { CaseStudyProps } from './types';
+interface CaseStudyProps {
+  contentfulCaseStudy: {
+    benefitsResults: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+    challenges: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+    industry: string;
+    highlights: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+    title: string;
+  };
+}
 
 const CaseStudyTemplate: FC<PageProps<CaseStudyProps>> = ({ data }) => {
   const { title, industry, challenges, highlights, benefitsResults } = data.contentfulCaseStudy;

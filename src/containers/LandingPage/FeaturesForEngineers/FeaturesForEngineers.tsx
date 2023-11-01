@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { AnimatedList } from '../../../components/AnimatedList';
-import { Link } from '../../../components/Link';
+import { AnimatedList } from '@app/components/AnimatedList';
+import { Link } from '@app/components/Link';
 
 import { FEATURES_FOR_ENGINEERS_LIST } from './constants';
 

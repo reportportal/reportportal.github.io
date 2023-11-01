@@ -18,7 +18,7 @@ interface Props {
   }[];
 }
 
-const getBlocksWith = createBemBlockBuilder(['rowSection']);
+const getBlocksWith = createBemBlockBuilder(['row-section']);
 const getBlocksWithCompare = createBemBlockBuilder(['compare']);
 
 export const FooterColumns: React.FC<Props> = ({ footerButtons }) => (
