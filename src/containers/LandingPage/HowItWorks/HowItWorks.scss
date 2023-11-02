@@ -208,6 +208,10 @@
       display: flex;
     }
 
+    &-text {
+      display: none;
+    }
+
     @include m.breakpoint(v.$desktop-sm) {
       align-items: center;
       gap: 40px;
@@ -233,10 +237,6 @@
         flex-shrink: 0;
         width: 400px;
       }
-    }
-
-    &-text {
-      display: none;
     }
   }
 

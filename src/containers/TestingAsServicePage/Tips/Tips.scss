@@ -19,14 +19,6 @@
       flex-flow: row wrap;
       justify-content: center;
       gap: 16px;
-
-      .unordered-list {
-        height: 220px;
-      }
-
-      .unordered-list:nth-child(3)::after {
-        display: none;
-      }
     }
 
     @include m.breakpoint(v.$desktop-sm) {
@@ -35,19 +27,27 @@
       align-items: flex-start;
       gap: 16px;
       margin-top: 16px;
-
-      .unordered-list {
-        height: auto;
-      }
-
-      .unordered-list:nth-child(3)::after {
-        display: inline-block;
-      }
     }
 
     .unordered-list {
       width: 265px;
       padding: 32px 16px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        height: 220px;
+
+        &:nth-child(3)::after {
+          display: none;
+        }
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        height: auto;
+
+        &:nth-child(3)::after {
+          display: inline-block;
+        }
+      }
     }
   }
 }

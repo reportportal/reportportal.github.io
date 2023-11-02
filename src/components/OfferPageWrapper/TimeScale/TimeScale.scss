@@ -37,21 +37,17 @@
     flex-direction: column;
     margin-left: 35px;
 
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      flex-direction: row;
-      margin-left: 5px;
+    div:nth-child(2) {
+      margin-top: 151px;
+      margin-bottom: 172px;
 
-      div:nth-child(2) {
-        margin: 0 154px;
+      @include m.breakpoint(v.$desktop-sm) {
+        margin: 0 195px 0 215px;
       }
     }
 
-    @include m.breakpoint(v.$desktop-sm) {
-      div:nth-child(2) {
-        margin: 0 195px 0 215px;
-      }
-
-      &--shifted {
+    &--shifted {
+      @include m.breakpoint(v.$desktop-sm) {
         div:nth-child(1) {
           margin-left: 76px;
         }
@@ -60,11 +56,6 @@
           margin: 0 163px 0 170px;
         }
       }
-    }
-
-    div:nth-child(2) {
-      margin-top: 151px;
-      margin-bottom: 172px;
     }
   }
 
@@ -94,10 +85,19 @@
       flex-direction: row;
       margin-top: 8px;
       margin-left: 8px;
+    }
 
-      ul:nth-child(2) {
+    ul:nth-child(2) {
+      margin-top: 54px;
+      margin-bottom: 54px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
         margin: 0 18px 0 68px;
       }
+    }
+
+    ul:nth-child(3) {
+      margin-bottom: 45px;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
@@ -114,15 +114,6 @@
           margin: 0 32px 0 74px;
         }
       }
-    }
-
-    ul:nth-child(2) {
-      margin-top: 54px;
-      margin-bottom: 54px;
-    }
-
-    ul:nth-child(3) {
-      margin-bottom: 45px;
     }
   }
 
