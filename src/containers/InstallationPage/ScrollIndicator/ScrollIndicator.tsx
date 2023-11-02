@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-scroll';
 import { useScroll, useSize } from 'ahooks';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import '../InstallationPage.scss';
@@ -24,9 +23,9 @@ export const ScrollIndicator = ({ sections }) => {
   const [topPosition, setTopPosition] = useState(0);
   const [bottomPosition, setBottomPosition] = useState(-DEFAULT_BOTTOM_LINE_POSITION);
 
+  const indicatoryRef = useRef(null);
   const indicatoryScrollPosition = useScroll(indicatoryRef);
   const pathRef = useRef(null);
-  const indicatoryRef = useRef(null);
   const pathSize = useSize(pathRef);
   const indicatorySize = useSize(indicatoryRef);
 
