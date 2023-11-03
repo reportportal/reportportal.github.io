@@ -1,11 +1,10 @@
-import React from 'react';
-
-import { AnimatedList } from '../../../components/AnimatedList';
-import { Link } from '../../../components/Link';
+import React, { FC } from 'react';
+import { AnimatedList } from '@app/components/AnimatedList';
+import { Link } from '@app/components/Link';
 
 import { BENEFITS_FOR_BUSINESS_LIST } from './constants';
 
-export const BenefitsForBusiness: React.FC = () => (
+export const BenefitsForBusiness: FC = () => (
   <AnimatedList
     title="Benefits for business"
     subtitle="Features full of benefits from business perspective"

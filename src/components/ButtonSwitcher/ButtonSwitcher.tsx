@@ -7,7 +7,7 @@ import { INCREASED_BUTTON_NUMBER } from './constants';
 
 import './ButtonSwitcher.scss';
 
-interface Button {
+export interface Button {
   iconComponent: (btn: Button) => string;
   text: string;
   linkTo?: string;

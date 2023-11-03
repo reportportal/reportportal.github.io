@@ -1,4 +1,4 @@
-import { features } from '../../../utils/imageSource';
+import { features } from '@app/utils/imageSource';
 
 export const FEATURES_FOR_ENGINEERS_LIST = [
   {

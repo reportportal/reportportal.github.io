@@ -6,12 +6,12 @@ import { Layout } from '@app/components/Layout';
 interface DataProps {
   contentfulBlogPost: {
     industry: string;
-    title?: {
-      title: string;
-    };
     author: string;
     date: string;
     articleBody: string;
+    title?: {
+      title: string;
+    };
   };
 }
 

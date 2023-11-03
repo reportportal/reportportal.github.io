@@ -1,7 +1,7 @@
 import { useScroll } from 'ahooks';
 import { useState, useRef, useLayoutEffect } from 'react';
 
-interface Props {
+interface ScrollDirection {
   callbackFn: () => void;
   isMenuOpen: boolean;
 }
@@ -11,7 +11,7 @@ enum Directions {
   UP = 'up',
 }
 
-export const useScrollDirection = ({ callbackFn, isMenuOpen }: Props) => {
+export const useScrollDirection = ({ callbackFn, isMenuOpen }: ScrollDirection) => {
   const [scrollDirection, setScrollDirection] = useState<Directions | null>(null);
   const lastScrollYRef = useRef(0);
   const scroll = useScroll();

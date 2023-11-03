@@ -1,9 +1,8 @@
 import React from 'react';
+import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
 
-import { OfferPageWrapper } from '../../../components/OfferPageWrapper';
-
-import { TIME_SCALE_DATA } from './constants';
 import { FAQ_DATA } from '../D4jPage/constants';
+import { TIME_SCALE_DATA } from './constants';
 
 export const QaspPage: React.FC = () => (
   <OfferPageWrapper

@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { OfferPageWrapper } from '../../../components/OfferPageWrapper';
+import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
 
 import { TIME_SCALE_DATA, FAQ_DATA } from './constants';
 

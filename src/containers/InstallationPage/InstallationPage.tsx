@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder, mediaDesktopSm } from '@app/utils';
 import { ButtonSwitcher } from '@app/components/ButtonSwitcher';
 import { Banner } from '@app/components/Banner';
@@ -33,7 +32,7 @@ const buttons = [
 
 const ACTIVE_BUTTON = buttons[0].text;
 
-export const InstallationPage = () => {
+export const InstallationPage: FC = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
 

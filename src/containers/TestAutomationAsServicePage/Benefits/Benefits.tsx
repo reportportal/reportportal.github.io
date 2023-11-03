@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { UnorderedList } from '../../../components/UnorderedList';
+import { UnorderedList } from '@app/components/UnorderedList';
 
 import FasterTTM from './icons/FasterTTM.inline.svg';
 import Flexibility from './icons/Flexibility.inline.svg';

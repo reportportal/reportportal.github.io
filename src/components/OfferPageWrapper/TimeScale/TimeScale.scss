@@ -37,9 +37,18 @@
     flex-direction: column;
     margin-left: 35px;
 
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      flex-direction: row;
+      margin-left: 5px;
+    }
+
     div:nth-child(2) {
       margin-top: 151px;
       margin-bottom: 172px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        margin: 0 154px;
+      }
 
       @include m.breakpoint(v.$desktop-sm) {
         margin: 0 195px 0 215px;

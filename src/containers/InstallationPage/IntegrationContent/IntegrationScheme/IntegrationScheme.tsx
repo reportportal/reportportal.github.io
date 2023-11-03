@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 import { useToggle } from 'ahooks';
 import { Divider } from 'antd';
-
 import { createBemBlockBuilder, mediaTabletSm } from '@app/utils';
 
 import { SchemeRow } from './SchemeRow';
@@ -17,7 +16,7 @@ import './IntegrationScheme.scss';
 const getGeneralBlocksWith = createBemBlockBuilder(['installation']);
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 
-export const IntegrationScheme: React.FC = () => {
+export const IntegrationScheme: FC = () => {
   const [collapsedScheme, { toggle: toggleCollapsedSchemeState }] = useToggle(true);
   const isDesktop = useMediaQuery({ query: mediaTabletSm });
 

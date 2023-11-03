@@ -1,19 +1,18 @@
 import React, { FC } from 'react';
 import { Layout } from '@app/components/Layout';
 import { ContactUsPage } from '@app/containers/ContactUsPage';
+import { PageProps } from 'gatsby';
 
-interface ContactUsProps {
-  pageContext: {
-    config: {
-      info: string;
-      isDiscussFieldShown: boolean;
-      options: string;
-      title: string;
-    };
+interface ContextProps {
+  config: {
+    info: string;
+    isDiscussFieldShown: boolean;
+    options: string;
+    title: string;
   };
 }
 
-const ContactUs: FC<ContactUsProps> = ({ pageContext: { config } }) => (
+const ContactUs: FC<PageProps<null, ContextProps>> = ({ pageContext: { config } }) => (
   <Layout className="features-page-layout">
     <ContactUsPage config={config} />
   </Layout>

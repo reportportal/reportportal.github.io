@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, formatNumberWithCommas } from '@app/utils';
 
 import './PricingCard.scss';
 
-interface Props {
+interface PricingCardProps {
   card: {
     title: string;
     description: string;
@@ -27,7 +27,7 @@ interface Props {
 
 const getBlocksWith = createBemBlockBuilder(['pricing-card']);
 
-export const PricingCard: React.FC<Props> = ({ card, discountState }) => {
+export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
   const { title, description, listItems, price, actionText, isPopular, actionVariant, href } = card;
   const { currency, value, period, message, discountedValue } = price;
   const contactUsURL = !value ? href : `${href}/${discountState ? 'yearly' : 'quarterly'}`;
