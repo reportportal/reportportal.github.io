@@ -3,66 +3,19 @@ import { useMediaQuery } from 'react-responsive';
 import Marquee from 'react-fast-marquee';
 import { useAtom } from 'jotai';
 import { watchProductOverviewAtom, Link } from '@app/components';
+import { useClientCarouselItems } from '@app/hooks';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { Carousel } from './Carousel/Carousel';
-import WalmartIcon from './icons/walmart.inline.svg';
-import DowJonesIcon from './icons/dowjones.inline.svg';
-import NokiaIcon from './icons/nokia.inline.svg';
-import AthenaHealthIcon from './icons/athenahealth.inline.svg';
-import DisneyIcon from './icons/disney.inline.svg';
-import MastercardIcon from './icons/mastercard.inline.svg';
-import IbmIcon from './icons/ibm.inline.svg';
-import SiemensIcon from './icons/siemens.inline.svg';
-import McKessonIcon from './icons/mckesson.inline.svg';
-import RedisIcon from './icons/redis.inline.svg';
-import ThompsonReutersIcon from './icons/thompsonreuters.inline.svg';
-import StarbucksIcon from './icons/starbucks.inline.svg';
-import AzureIcon from './icons/azure.inline.svg';
-import AdidasIcon from './icons/adidas.inline.svg';
-import CitcoIcon from './icons/citco.inline.svg';
-import VerizonIcon from './icons/verizon.inline.svg';
-import MilwaukeeIcon from './icons/milwaukee.inline.svg';
-import PearsonIcon from './icons/pearson.inline.svg';
-import RingIcon from './icons/ring.inline.svg';
-import DellIcon from './icons/dell.inline.svg';
 
 import './Showcase.scss';
 
 const getBlocksWith = createBemBlockBuilder(['showcase']);
 
-const slides = [
-  [
-    { icon: <WalmartIcon /> },
-    { icon: <DowJonesIcon /> },
-    { icon: <NokiaIcon /> },
-    { icon: <AthenaHealthIcon /> },
-    { icon: <DisneyIcon /> },
-    { icon: <MastercardIcon /> },
-    { icon: <IbmIcon /> },
-  ],
-  [
-    { icon: <SiemensIcon /> },
-    { icon: <McKessonIcon /> },
-    { icon: <RedisIcon /> },
-    { icon: <ThompsonReutersIcon /> },
-    { icon: <StarbucksIcon /> },
-    { icon: <AzureIcon /> },
-  ],
-  [
-    { icon: <AdidasIcon /> },
-    { icon: <CitcoIcon /> },
-    { icon: <VerizonIcon /> },
-    { icon: <MilwaukeeIcon /> },
-    { icon: <PearsonIcon /> },
-    { icon: <RingIcon /> },
-    { icon: <DellIcon /> },
-  ],
-];
-
 export const Showcase: FC = () => {
   const [, setWatchProductOverviewState] = useAtom(watchProductOverviewAtom);
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
+  const { slides, allSlidesItems } = useClientCarouselItems();
 
   const toggleEmbedVideoOpen = useCallback(
     () => setWatchProductOverviewState(({ isOpen }) => ({ isOpen: !isOpen })),
@@ -117,9 +70,9 @@ export const Showcase: FC = () => {
           pauseOnHover
           gradient={false}
         >
-          {slides.flat().map((slide, index) => (
-            <div className={getBlocksWith('__carousel-logo')} key={index}>
-              {slide.icon}
+          {allSlidesItems.map(({ id, logo }) => (
+            <div className={getBlocksWith('__carousel-logo')} key={id}>
+              <img src={logo.url} alt={logo.title} />
             </div>
           ))}
         </Marquee>
