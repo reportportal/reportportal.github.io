@@ -62,7 +62,7 @@ export const Showcase: FC = () => {
           <span>Watch video</span>
         </button>
       </div>
-      {isDesktop && <Carousel slides={slides} />}
+      {isDesktop && <Carousel slides={slides} logoKey="primaryLogo" />}
       {!isDesktop && (
         <Marquee
           className={getBlocksWith('__carousel-mobile')}
@@ -70,9 +70,9 @@ export const Showcase: FC = () => {
           pauseOnHover
           gradient={false}
         >
-          {allSlidesItems.map(({ id, logo }) => (
+          {allSlidesItems.map(({ id, primaryLogo }) => (
             <div className={getBlocksWith('__carousel-logo')} key={id}>
-              <img src={logo.url} alt={logo.title} />
+              <img src={primaryLogo?.url} alt={primaryLogo?.title} />
             </div>
           ))}
         </Marquee>

@@ -4,7 +4,7 @@ import { CarouselSlide } from '@app/utils';
 
 interface ClientCarouselItems {
   slides: CarouselSlide[];
-  allSlidesItems: CarouselSlide['items'];
+  allSlidesItems: CarouselSlide['organizations'];
 }
 
 export const useClientCarouselItems = (): ClientCarouselItems => {
@@ -17,9 +17,10 @@ export const useClientCarouselItems = (): ClientCarouselItems => {
       allContentfulClientCarouselSlide(sort: { order: ASC }) {
         nodes {
           id
-          items {
+          organizations {
             id
-            logo {
+            title
+            primaryLogo {
               ... on ContentfulAsset {
                 title
                 contentful_id
@@ -33,7 +34,18 @@ export const useClientCarouselItems = (): ClientCarouselItems => {
     }
   `);
 
-  const allSlidesItems = useMemo(() => slides.flatMap(({ items }) => items), [slides]);
+  const allSlidesItems = useMemo(
+    () => slides.flatMap(({ organizations }) => organizations),
+    [slides],
+  );
+
+  allSlidesItems.forEach(organization => {
+    if (!organization.primaryLogo?.url) {
+      throw new Error(
+        `'primaryLogo.url' field should be present on the ${organization.title} organization Contentful record`,
+      );
+    }
+  });
 
   return { slides, allSlidesItems };
 };

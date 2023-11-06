@@ -1,17 +1,18 @@
 import React, { useCallback, useRef, memo, FC } from 'react';
 import { Carousel as AntdCarousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
-import { CarouselSlide, createBemBlockBuilder } from '@app/utils';
+import { CarouselSlide, ContentfulAsset, createBemBlockBuilder, Organization } from '@app/utils';
 
 import ArrowIcon from '../icons/arrow.inline.svg';
 
 interface CarouselProps {
   slides: CarouselSlide[];
+  logoKey: keyof Organization;
 }
 
 const getBlocksWith = createBemBlockBuilder(['showcase__carousel']);
 
-export const Carousel: FC<CarouselProps> = memo(({ slides }) => {
+export const Carousel: FC<CarouselProps> = memo(({ slides, logoKey }) => {
   const carouselRef = useRef<CarouselRef | null>(null);
 
   const handlePrevClick = useCallback(() => {
@@ -28,11 +29,14 @@ export const Carousel: FC<CarouselProps> = memo(({ slides }) => {
         <ArrowIcon />
       </button>
       <AntdCarousel ref={carouselRef} autoplay pauseOnHover={false} autoplaySpeed={5000}>
-        {slides.map(({ id, items }) => (
+        {slides.map(({ id, organizations }) => (
           <div className={getBlocksWith('-slide')} key={id}>
-            {items.map(({ id: logoId, logo }) => (
-              <div className={getBlocksWith('-logo')} key={logoId}>
-                <img src={logo.url} alt={logo.title} />
+            {organizations.map(organization => (
+              <div className={getBlocksWith('-logo')} key={organization.id}>
+                <img
+                  src={(organization[logoKey] as ContentfulAsset)?.url}
+                  alt={(organization[logoKey] as ContentfulAsset)?.title}
+                />
               </div>
             ))}
           </div>

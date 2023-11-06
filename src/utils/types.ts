@@ -1,9 +1,16 @@
-interface CarouselSlideItem {
+export interface ContentfulAsset {
+  url: string;
+  title: string;
+}
+
+export interface Organization {
   id: string;
-  logo: { url: string; title: string };
+  title: string;
+  primaryLogo?: ContentfulAsset;
+  secondaryLogo?: ContentfulAsset;
 }
 
 export interface CarouselSlide {
   id: string;
-  items: CarouselSlideItem[];
+  organizations: Organization[];
 }
