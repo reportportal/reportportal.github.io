@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
-
 import { BlogPostPage } from '@app/containers/BlogPostPage';
 import { Layout } from '@app/components/Layout';
 
 import { DataProps } from './types';
 
-const BlogPostTemplate = ({ data }: PageProps<DataProps>) => {
+const BlogPostTemplate: FC<PageProps<DataProps>> = ({ data }) => {
   const { industry, title, author, date, articleBody } = data.contentfulBlogPost;
 
   return (
