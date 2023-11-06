@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
-
 import { Layout } from '@app/components/Layout';
 import { CaseStudyPage } from '@app/containers/CaseStudyPage';
 
 import { CaseStudyProps } from './types';
 
-const CaseStudyTemplate = ({ data }: PageProps<CaseStudyProps>) => {
+const CaseStudyTemplate: FC<PageProps<CaseStudyProps>> = ({ data }) => {
   const { title, industry, challenges, highlights, benefitsResults } = data.contentfulCaseStudy;
 
   return (
