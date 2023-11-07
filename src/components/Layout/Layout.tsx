@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { atom, useAtom } from 'jotai';
 
@@ -19,7 +19,7 @@ interface Props {
   className?: string;
 }
 
-export const Layout = ({ children, className }: Props) => {
+export const Layout: FC<Props> = ({ children, className }) => {
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
 
