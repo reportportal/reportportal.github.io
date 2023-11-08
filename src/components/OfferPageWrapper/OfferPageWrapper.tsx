@@ -26,7 +26,7 @@ interface OfferPageWrapperProps {
     offerType: string;
   };
   page: string;
-  pagePath: string;
+  pagePath: 'on-premises' | 'd4j' | 'qasp' | 'hlm';
   timeScaleData: {
     time: number | string;
     items: string[] | React.ReactNode[];
@@ -73,14 +73,19 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
       <div className={getBlocksWith('__pentagons')}>
         {getOfferLinks(pagePath).map((href, index) => {
           const offerPrice = ON_PREMISES_OFFER_PRICES[index];
+          const price = discountState ? offerPrice.discountedValue : offerPrice.value;
+          const contactUsURL =
+            !price || pagePath !== 'on-premises'
+              ? href
+              : `${href}/${discountState ? 'yearly' : 'quarterly'}`;
 
           return (
             <PentagonCard
               stepNumber={index + 1}
               hours={`${offerPrice.hours}`}
               discountState={discountState}
-              price={discountState ? offerPrice.discountedValue : offerPrice.value}
-              contactLink={href}
+              price={price}
+              contactLink={contactUsURL}
               key={offerPrice.hours}
             />
           );

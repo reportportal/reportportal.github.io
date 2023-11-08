@@ -17,17 +17,8 @@ interface Props {
 
 const getBlocksWith = createBemBlockBuilder(['pentagon-card']);
 
-export const PentagonCard: FC<Props> = ({
-  stepNumber,
-  hours,
-  price,
-  contactLink,
-  discountState,
-}) => {
+export const PentagonCard: FC<Props> = ({ stepNumber, hours, price, contactLink }) => {
   const isFirstStep = stepNumber === 1;
-  const contactUsURL = !price
-    ? contactLink
-    : `${contactLink}/${discountState ? 'yearly' : 'quarterly'}`;
 
   const getPrice = () => (
     <>
@@ -45,7 +36,7 @@ export const PentagonCard: FC<Props> = ({
     <div className={getBlocksWith('__wrapper')}>
       <IconBlock type="pentagon" progressNumber={stepNumber} {...getProps()} />
       <div className={getBlocksWith('__price')}>{isFirstStep ? 'Free' : getPrice()} </div>
-      <Link to={contactUsURL}>
+      <Link to={contactLink}>
         <button
           type="button"
           className={classNames(
