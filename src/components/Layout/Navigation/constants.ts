@@ -6,4 +6,10 @@ export const MENU_INITIAL_STATE = {
   community: false,
 };
 
+export interface MenuProps {
+  isOpen: boolean;
+  menuContainerRef: string;
+  isDesktop?: boolean;
+}
+
 export const MENU_ORDER = ['product', 'solutions', 'offerings', 'learn', 'community'];

@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import { useClickAway, useToggle } from 'ahooks';
 import { Button } from 'antd';
 
-import { PopupContent } from './PopupContent';
 import { Arrow } from '../../Arrow';
+import { PopupContent } from './PopupContent';
 
-interface Props {
+interface GraphicArrowProps {
   children: React.ReactNode;
   info?: {
     type: string;
@@ -14,7 +14,7 @@ interface Props {
   };
 }
 
-export const GraphicArrow: React.FC<Props> = ({ children, info }) => {
+export const GraphicArrow: FC<GraphicArrowProps> = ({ children, info }) => {
   const [isPopupOpen, { toggle: togglePopupOpenState }] = useToggle();
   const popupButtonRef = useRef(null);
   const popupRef = useRef(null);

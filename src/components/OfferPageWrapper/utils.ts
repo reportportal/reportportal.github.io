@@ -1,34 +1,13 @@
 import compact from 'lodash/compact';
-
 import { DOCUMENTATION_URL } from '@app/utils';
 
 import { START_NOW_LINKS } from './constants';
 
-export const getOfferPrices = page => [
-  {
-    value: 0,
-    discountedValue: 0,
-    hours: 0,
-    href: START_NOW_LINKS[page],
-  },
-  {
-    value: 3000,
-    discountedValue: 2850,
-    hours: 25,
-    href: `/contact-us/${page}/package-25`,
-  },
-  {
-    value: 6000,
-    discountedValue: 5700,
-    hours: 60,
-    href: `/contact-us/${page}/package-60`,
-  },
-  {
-    value: 13500,
-    discountedValue: 12825,
-    hours: 160,
-    href: `/contact-us/${page}/package-160`,
-  },
+export const getOfferLinks = page => [
+  START_NOW_LINKS[page],
+  `/contact-us/${page}/package-25`,
+  `/contact-us/${page}/package-60`,
+  `/contact-us/${page}/package-160`,
 ];
 
 export const getFooterButtons = page => [

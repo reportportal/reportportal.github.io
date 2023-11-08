@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import './SectionCard.scss';
 
-interface Props {
+interface SectionCardProps {
   title: string;
   cover: React.ReactElement;
   text: string;
-  className?: string;
   children: React.ReactNode;
+  className?: string;
 }
 
-export const SectionCard: React.FC<Props> = ({ title, cover, text, className = '', children }) => {
+export const SectionCard: FC<SectionCardProps> = ({
+  title,
+  cover,
+  text,
+  className = '',
+  children,
+}) => {
   const getBlocksWith = createBemBlockBuilder(['section-card', className]);
 
   return (

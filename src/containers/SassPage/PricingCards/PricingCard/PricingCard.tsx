@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { createBemBlockBuilder, formatNumberWithCommas } from '../../../../utils';
-import { Link } from '../../../../components/Link';
+import { Link } from '@app/components';
+import { createBemBlockBuilder, formatNumberWithCommas } from '@app/utils';
 
 import './PricingCard.scss';
 
-interface Props {
+interface PricingCardProps {
   card: {
     title: string;
     description: string;
@@ -28,9 +27,10 @@ interface Props {
 
 const getBlocksWith = createBemBlockBuilder(['pricing-card']);
 
-export const PricingCard: React.FC<Props> = ({ card, discountState }) => {
+export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
   const { title, description, listItems, price, actionText, isPopular, actionVariant, href } = card;
   const { currency, value, period, message, discountedValue } = price;
+  const contactUsURL = !value ? href : `${href}/${discountState ? 'yearly' : 'quarterly'}`;
 
   return (
     <div className={getBlocksWith()}>
@@ -58,7 +58,10 @@ export const PricingCard: React.FC<Props> = ({ card, discountState }) => {
           )}
         </div>
         {href ? (
-          <Link className={classNames('btn', `btn--${actionVariant}`, 'btn--large')} to={href}>
+          <Link
+            className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}
+            to={contactUsURL}
+          >
             {actionText}
           </Link>
         ) : (

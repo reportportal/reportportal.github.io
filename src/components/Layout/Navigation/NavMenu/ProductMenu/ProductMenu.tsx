@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
-
+import { watchProductOverviewAtom, Link, ArrowLink } from '@app/components';
 import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
 
-import { watchProductOverviewAtom } from '../../../Layout';
-import { Link } from '../../../../Link';
-import { ArrowLink } from '../../../../ArrowLink';
+import { MenuProps } from '../../constants';
 import { SectionList } from '../SectionList';
 import { PlayIcon } from './icons';
 import { GENERAL_LIST, FEATURES_LIST, INTEGRATIONS_LIST } from './constants';
@@ -14,13 +12,7 @@ import { GENERAL_LIST, FEATURES_LIST, INTEGRATIONS_LIST } from './constants';
 import '../Menu.scss';
 import './ProductMenu.scss';
 
-interface Props {
-  isDesktop: boolean;
-  isOpen: boolean;
-  menuContainerRef: string;
-}
-
-export const ProductMenu: React.FC<Props> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
+export const ProductMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-product']);
   const [, setWatchProductOverviewState] = useAtom(watchProductOverviewAtom);
 

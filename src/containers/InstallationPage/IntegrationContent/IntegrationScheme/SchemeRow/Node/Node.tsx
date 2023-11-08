@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
-export const Node = ({ children, direction, row, isDownArrow, number, lastRow }) => (
+interface NodeProps {
+  children: ReactNode;
+  direction: boolean;
+  row: boolean;
+  isDownArrow: boolean;
+  number: number;
+  lastRow: boolean;
+}
+
+export const Node: FC<NodeProps> = ({ children, direction, row, isDownArrow, number, lastRow }) => (
   <div
     className={classNames('scheme__col-inner', {
       'scheme__col-inner-active': !direction,

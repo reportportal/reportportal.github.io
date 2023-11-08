@@ -1,8 +1,9 @@
-import React from 'react';
-
-import { StartTestingWithReportPortal } from '../../components/StartTestingWithReportPortal';
-import { ProcessIntegration } from '../../components/ProcessIntegration';
-import { SubscriptionBanner } from '../../components/SubscriptionBanner';
+import React, { FC } from 'react';
+import {
+  StartTestingWithReportPortal,
+  ProcessIntegration,
+  SubscriptionBanner,
+} from '@app/components';
 
 import { Showcase } from './Showcase';
 import { WhyReportPortal } from './WhyReportPortal';
@@ -12,7 +13,7 @@ import { BenefitsForBusiness } from './BenefitsForBusiness';
 import { FeaturesForEngineers } from './FeaturesForEngineers';
 import { LatestFromOurBlog } from './LatestFromOurBlog';
 
-export const LandingPage: React.FC = () => (
+export const LandingPage: FC = () => (
   <>
     <Showcase />
     <WhyReportPortal />

@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import './DiscountSwitcher.scss';
 
-interface Props {
+interface DiscountSwitcherProps {
   switchDiscount: () => void;
   discountState: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['switcher']);
 
-export const DiscountSwitcher: React.FC<Props> = ({ switchDiscount, discountState }) => (
+export const DiscountSwitcher: FC<DiscountSwitcherProps> = ({ switchDiscount, discountState }) => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__option')}>Quarterly</div>
     <div

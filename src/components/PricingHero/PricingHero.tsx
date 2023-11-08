@@ -1,16 +1,15 @@
-import React from 'react';
-
+import React, { FC } from 'react';
 import { createBemBlockBuilder } from '@app/utils';
 
-import { Button, ButtonSwitcher } from '../ButtonSwitcher';
+import { ButtonSwitcher, ButtonSwitcherProps } from '../ButtonSwitcher';
 import { DiscountSwitcher } from './DiscountSwitcher';
 
 import './PricingHero.scss';
 
-interface Props {
+interface PricingHeroProps {
   title: string;
   subtitle: string;
-  buttons: Button[];
+  buttons: ButtonSwitcherProps['buttons'];
   switchActiveBtn: () => void;
   activeButton: string;
   switchDiscount: () => void;
@@ -21,7 +20,7 @@ interface Props {
 
 const getBlocksWith = createBemBlockBuilder(['pricing-hero']);
 
-export const PricingHero: React.FC<Props> = ({
+export const PricingHero: FC<PricingHeroProps> = ({
   title,
   subtitle,
   buttons,

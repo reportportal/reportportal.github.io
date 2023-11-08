@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, ReactElement, useCallback } from 'react';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { atom, useAtom } from 'jotai';
 
@@ -14,12 +14,12 @@ import { EmbedVideo } from './EmbedVideo';
 export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscribed: false });
 export const watchProductOverviewAtom = atom({ isOpen: false });
 
-interface Props {
-  children: JSX.Element;
+interface LayoutProps {
+  children: ReactElement;
   className?: string;
 }
 
-export const Layout: FC<Props> = ({ children, className }) => {
+export const Layout: FC<LayoutProps> = ({ children, className }) => {
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
 

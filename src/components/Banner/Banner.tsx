@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { Link } from '../Link';
@@ -9,15 +8,15 @@ import './Banner.scss';
 
 const getBlocksWith = createBemBlockBuilder(['banner']);
 
-interface Props {
+interface BannerProps {
   title: string;
+  link?: string;
+  linkTitle?: string;
   subtitle?: string;
-  link: string;
-  linkTitle: string;
   children?: React.JSX.Element;
 }
 
-export const Banner: React.FC<Props> = ({ title, subtitle, link, linkTitle, children }) => (
+export const Banner: FC<BannerProps> = ({ title, subtitle, link, linkTitle, children }) => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__bg')} />
     <div className="container">

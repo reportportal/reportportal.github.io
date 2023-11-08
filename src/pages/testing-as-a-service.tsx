@@ -1,9 +1,8 @@
-import React from 'react';
-
-import { Layout } from '@app/components/Layout';
+import React, { FC } from 'react';
+import { Layout } from '@app/components';
 import { TestingAsServicePage } from '@app/containers/TestingAsServicePage';
 
-const TestingAsService: React.FC = () => (
+const TestingAsService: FC = () => (
   <Layout>
     <TestingAsServicePage />
   </Layout>

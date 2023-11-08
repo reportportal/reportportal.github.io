@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
-interface Props {
-  children: React.ReactNode;
+interface EventNodeProps {
   direction: boolean;
+  children: ReactNode;
 }
 
-export const EventNode: React.FC<Props> = ({ children, direction }) => (
+export const EventNode: FC<EventNodeProps> = ({ children, direction }) => (
   <div
     className={classNames('scheme__col-action', {
       'scheme__col-action-active': !direction,

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const ForkIcon: React.FC = () => {
+export const ForkIcon: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
       <path

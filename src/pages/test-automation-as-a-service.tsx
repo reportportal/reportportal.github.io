@@ -1,9 +1,8 @@
-import React from 'react';
-
-import { Layout } from '@app/components/Layout';
+import React, { FC } from 'react';
+import { Layout } from '@app/components';
 import { TestAutomationAsServicePage } from '@app/containers/TestAutomationAsServicePage';
 
-export const TestAutomationAsService: React.FC = () => (
+export const TestAutomationAsService: FC = () => (
   <Layout>
     <TestAutomationAsServicePage />
   </Layout>

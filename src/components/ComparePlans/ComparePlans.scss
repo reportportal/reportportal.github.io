@@ -83,8 +83,10 @@
       @include m.breakpoint(v.$desktop-sm) {
         margin-bottom: 0;
         box-shadow: none;
+      }
 
-        .compare__row-title-col {
+      .compare__row-title-col {
+        @include m.breakpoint(v.$desktop-sm) {
           @include m.font-scale(base);
 
           white-space: normal;
@@ -234,31 +236,31 @@
       @include m.breakpoint(v.$desktop-sm) {
         padding: 0 54px 32px 86px;
         color: var(--text-primary);
+      }
 
-        .compare__row-title {
+      .compare__row-title {
+        @include m.breakpoint(v.$desktop-sm) {
           @include m.font-poppins(v.$fw-semi-bold);
           @include m.font-scale(medium);
         }
-      }
 
-      .compare__row-title-col {
-        @include m.breakpoint(v.$desktop-sm) {
+        &-col {
           &::before {
-            content: none;
+            white-space: pre-line;
+            content: attr(data-short);
+
+            @include m.breakpoint(v.$desktop-sm) {
+              content: none;
+            }
           }
 
           div {
-            display: block;
+            display: none;
+
+            @include m.breakpoint(v.$desktop-sm) {
+              display: block;
+            }
           }
-        }
-
-        &::before {
-          white-space: pre-line;
-          content: attr(data-short);
-        }
-
-        div {
-          display: none;
         }
       }
     }
@@ -332,14 +334,14 @@
           margin-top: auto;
           margin-bottom: auto;
           text-align: left;
-
-          > a {
-            margin-left: -36px;
-          }
         }
 
         > a {
           margin-left: 0;
+
+          @include m.breakpoint(v.$desktop-sm) {
+            margin-left: -36px;
+          }
         }
       }
 

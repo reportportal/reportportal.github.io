@@ -1,14 +1,11 @@
-import React from 'react';
-
-import { Heading } from '@app/components/Heading';
-import { IconBlock } from '@app/components/IconBlock';
-import { UnorderedList } from '@app/components/UnorderedList';
+import React, { FC } from 'react';
+import { Heading, IconBlock, UnorderedList } from '@app/components';
 
 import { SERVICE_HOURS_LIST } from './constants';
 
 import './ServiceHours.scss';
 
-export const ServiceHours: React.FC = () => (
+export const ServiceHours: FC = () => (
   <div className="service-hours container">
     <div className="service-hours__heading">
       <Heading title="TaaS uses a single currency across all testing services – Professional Service Hours" />

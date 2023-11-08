@@ -1,6 +1,5 @@
-import React from 'react';
-
-import { UnorderedList } from '../../../components/UnorderedList';
+import React, { FC } from 'react';
+import { UnorderedList } from '@app/components';
 
 import FasterTTM from './icons/FasterTTM.inline.svg';
 import Flexibility from './icons/Flexibility.inline.svg';
@@ -33,7 +32,7 @@ const BENEFITS = [
   },
 ];
 
-export const Benefits: React.FC = () => (
+export const Benefits: FC = () => (
   <div className="benefits">
     {BENEFITS.map(({ icon, title, list }) => (
       <div key={title} className="benefits__item">

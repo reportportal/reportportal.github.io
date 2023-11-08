@@ -1,7 +1,5 @@
-import React from 'react';
-
-import { SupportedFrameworks } from '@app/components/SupportedFrameworks';
-import { Link } from '@app/components/Link';
+import React, { FC } from 'react';
+import { Link, SupportedFrameworks } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { IntegrationScheme } from './IntegrationScheme';
@@ -10,7 +8,7 @@ import '../InstallationPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['installation']);
 
-export const IntegrationContent: React.FC = () => {
+export const IntegrationContent: FC = () => {
   return (
     <>
       <IntegrationScheme />

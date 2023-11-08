@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Layout } from '@app/components/Layout';
+import { Layout } from '@app/components';
 import { QaspPage } from '@app/containers/AcceleratorsPage';
 
 const Qasp = () => (

@@ -1,18 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, FC } from 'react';
 import { useLocation } from '@gatsbyjs/reach-router';
 import { useScroll } from 'ahooks';
 import classNames from 'classnames';
 import { useMediaQuery } from 'react-responsive';
-
 import { useScrollDirection } from '@app/hooks';
 import { createBemBlockBuilder, mediaDesktopSm, iconsCommon, DOCUMENTATION_URL } from '@app/utils';
-import { Link } from '@app/components/Link';
-import { ProcessIntegration } from '@app/components/ProcessIntegration';
-import { SupportedFrameworks } from '@app/components/SupportedFrameworks';
-import { ArrowLink } from '@app/components/ArrowLink';
-import { Banner } from '@app/components/Banner';
-import { StartTestingWithReportPortal } from '@app/components/StartTestingWithReportPortal';
-import { Faq } from '@app/components/Faq';
+import {
+  Link,
+  ProcessIntegration,
+  SupportedFrameworks,
+  ArrowLink,
+  Banner,
+  StartTestingWithReportPortal,
+  Faq,
+} from '@app/components';
 
 import { FEATURES_LIST, NAVIGATION_LIST } from './constants';
 
@@ -20,7 +21,7 @@ import './FeaturesPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
-export const FeaturesPage: React.FC = () => {
+export const FeaturesPage: FC = () => {
   const handleScroll = () => {
     const itemList = document.querySelectorAll(
       `.${getBlocksWith('__features-list-item-container')}`,

@@ -1,12 +1,11 @@
-import React from 'react';
-
-import { Heading } from '../../../components/Heading';
+import React, { FC } from 'react';
+import { Heading } from '@app/components';
 
 import { TOP_REQUEST_LIST, BOTTOM_REQUEST_LIST } from './constants';
 
 import './CommonRequests.scss';
 
-export const CommonRequests: React.FC = () => (
+export const CommonRequests: FC = () => (
   <div className="common-requests">
     <Heading title="Common client requests" />
     <div className="requests__wrapper">

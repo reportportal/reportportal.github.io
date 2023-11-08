@@ -1,8 +1,6 @@
-import React from 'react';
-
-import { UnorderedList } from '../../../components/UnorderedList';
-import { Heading } from '../../../components/Heading';
-import RepeatSvg from '../../../svg/testing/Repeat.svg';
+import React, { FC } from 'react';
+import { UnorderedList, Heading } from '@app/components';
+import RepeatSvg from '@app/svg/testing/Repeat.svg';
 
 import {
   CLIENT_VERSION_LIST,
@@ -15,7 +13,7 @@ import {
 
 import './QualityApproach.scss';
 
-export const QualityApproach: React.FC = () => (
+export const QualityApproach: FC = () => (
   <div className="quality-approach">
     <div className="quality-approach__block">
       <div className="quality-approach__block-top block-top">

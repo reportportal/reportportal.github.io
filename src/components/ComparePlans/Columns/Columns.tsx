@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import isBoolean from 'lodash/isBoolean';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder, $desktopSm } from '@app/utils';
 
 import MarkIcon from './icons/mark.inline.svg';
@@ -10,7 +9,7 @@ import CrossIcon from './icons/cross.inline.svg';
 
 import '../ComparePlans.scss';
 
-interface Props {
+interface ColumnsProps {
   title: string;
   cols: string[];
   mobileColumns: {
@@ -19,7 +18,7 @@ interface Props {
 }
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
-export const Columns: React.FC<Props> = ({ title = '', cols, mobileColumns = {} }) => {
+export const Columns: FC<ColumnsProps> = ({ title = '', cols, mobileColumns = {} }) => {
   const isDesktop = useMediaQuery({ query: $desktopSm });
   const [isVisibility, setIsVisibility] = useState(true);
 

@@ -90,15 +90,15 @@
     @include m.breakpoint(v.$desktop-sm) {
       padding: 0;
       text-align: center;
-
-      svg {
-        margin-right: 4px;
-      }
     }
 
     svg {
       min-width: 28px;
       margin-right: 16px;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        margin-right: 4px;
+      }
     }
 
     a {

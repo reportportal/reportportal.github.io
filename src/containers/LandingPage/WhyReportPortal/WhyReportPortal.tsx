@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { RealTimeAnalyticsIcon } from './icons/RealTimeAnalyticsIcon';
@@ -13,7 +12,7 @@ import './WhyReportPortal.scss';
 const getBlocksWith = createBemBlockBuilder(['why-report-portal']);
 const getBlocksWithList = createBemBlockBuilder(['why-report-portal-list']);
 
-export const WhyReportPortal: React.FC = () => (
+export const WhyReportPortal: FC = () => (
   <section className={classNames(getBlocksWith(), 'container')}>
     <h2 className={getBlocksWith('__title')}>Why ReportPortal?</h2>
     <div className={getBlocksWith('__content')}>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const DockerIcon: React.FC = () => (
+export const DockerIcon: FC = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="23" fill="none">
     <path
       fill="currentColor"

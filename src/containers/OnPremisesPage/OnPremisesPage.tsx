@@ -1,10 +1,9 @@
-import React from 'react';
-
-import { OfferPageWrapper } from '../../components/OfferPageWrapper';
+import React, { FC } from 'react';
+import { OfferPageWrapper } from '@app/components';
 
 import { FAQ_DATA, TIME_SCALE_DATA } from './constants';
 
-export const OnPremisesPage: React.FC = () => (
+export const OnPremisesPage: FC = () => (
   <OfferPageWrapper
     hero={{
       title: 'ReportPortal services pricing',

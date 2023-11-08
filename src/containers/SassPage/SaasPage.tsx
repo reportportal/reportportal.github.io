@@ -1,19 +1,14 @@
 import React from 'react';
 import noop from 'lodash/noop';
 import classNames from 'classnames';
-
-import { createBemBlockBuilder } from '@app/utils';
-import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
-import { ComparePlans } from '@app/components/ComparePlans';
-import { Faq } from '@app/components/Faq';
-import { Banner } from '@app/components/Banner';
-import { PricingHero } from '@app/components/PricingHero';
+import { createBemBlockBuilder, SAAS_OFFERS_DATA } from '@app/utils';
+import { TrustedOrganizations, ComparePlans, Faq, Banner, PricingHero } from '@app/components';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 
 import { PricingCards } from './PricingCards';
-import { BUTTONS_DATA, COLUMNS, DATA_PLANS, FAQ_ITEMS, OFFERS_DATA } from './constants';
+import { BUTTONS_DATA, COLUMNS, DATA_PLANS, FAQ_ITEMS } from './constants';
 
-import '../../components/OfferPageWrapper/OfferPageWrapper.scss';
+import '@app/components/OfferPageWrapper/OfferPageWrapper.scss';
 
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
@@ -35,7 +30,7 @@ export const SaasPage = () => {
         switchDiscount={toggleDiscountState}
         discountState={discountState}
       />
-      <PricingCards discountState={discountState} offersData={OFFERS_DATA} />
+      <PricingCards discountState={discountState} offersData={SAAS_OFFERS_DATA} />
       <ComparePlans dataPlans={DATA_PLANS} columns={COLUMNS} footerButtons={BUTTONS_DATA} />
       <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
         <TrustedOrganizations />

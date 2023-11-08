@@ -1,19 +1,18 @@
 import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import './Notice.scss';
 
 const getBlocksWith = createBemBlockBuilder(['notice']);
 
-interface Props {
+interface NoticeProps {
   importance?: boolean;
   title?: string;
   children?: ReactNode;
 }
 
-export const Notice: FC<Props> = ({ importance = false, children, title = '' }) => (
+export const Notice: FC<NoticeProps> = ({ importance = false, children, title = '' }) => (
   <div className={getBlocksWith()}>
     <div className={classNames(getBlocksWith('__border'), { notice__importance: importance })} />
     <div className={getBlocksWith('__content')}>

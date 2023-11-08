@@ -1,26 +1,20 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-interface Props {
-  description: string;
-  lang: string;
-  meta: ConcatArray<{
-    name: string;
-    content: string;
-    property?: undefined;
-  }>;
+interface SeoProps {
   title: string;
   image: string;
+  description?: string;
+  lang?: string;
+  meta?: ConcatArray<{
+    name: string;
+    content: string;
+    property?: string;
+  }>;
 }
 
-export const Seo: React.FC<Props> = ({
-  description = '',
-  lang = 'en',
-  meta = [],
-  title,
-  image,
-}) => {
+export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], title, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {

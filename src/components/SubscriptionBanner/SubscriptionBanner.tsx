@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { SubscriptionForm } from '../SubscriptionForm';
@@ -10,7 +9,7 @@ import './SubscriptionBanner.scss';
 
 const getBlocksWith = createBemBlockBuilder(['subscription-banner']);
 
-export const SubscriptionBanner: React.FC = () => {
+export const SubscriptionBanner: FC = () => {
   const [subscriptionFormState, setSubscriptionFormState] = useState({
     isSubmitted: false,
     isAlreadySubscribed: false,

@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
-
-import { UnorderedList } from '@app/components/UnorderedList';
-
-import RightIcon from '../../../../svg/testing/Right.svg';
+import { UnorderedList } from '@app/components';
+import RightIcon from '@app/svg/testing/Right.svg';
 
 import './ListDropdown.scss';
 
-interface Props {
+interface ListDropdownProps {
   title: string;
   list: {
     info?: string;
@@ -15,7 +13,7 @@ interface Props {
   }[];
 }
 
-export const ListDropdown: React.FC<Props> = ({ title, list }) => {
+export const ListDropdown: FC<ListDropdownProps> = ({ title, list }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisible = () => {

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const GithubCover: React.FC = () => {
+export const GithubCover: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="256" height="40" fill="none">
       <rect width="187" height="16" x="61" y="4" fill="#EDEFF7" opacity=".7" rx="8" />

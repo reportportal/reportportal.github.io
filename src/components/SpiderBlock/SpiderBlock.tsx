@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 
 import { LEFT_ASIDE_TEXT, RIGHT_ASIDE_TEXT } from './constants';
@@ -10,11 +10,11 @@ enum BlockTypes {
   OPACITY = 'opacity',
 }
 
-interface Props {
+interface SpiderBlockProps {
   blockType?: BlockTypes;
 }
 
-export const SpiderBlock: React.FC<Props> = ({ blockType = BlockTypes.ORIGINAL }) => (
+export const SpiderBlock: FC<SpiderBlockProps> = ({ blockType = BlockTypes.ORIGINAL }) => (
   <div className="spider container">
     <div className="spider-container">
       <div className="spider-container__aside">

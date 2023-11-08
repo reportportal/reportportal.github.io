@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Heading } from '../../Heading';
 import { Link } from '../../Link';
 
 import './ApplyOurService.scss';
 
-interface Props {
+interface ApplyOurServiceProps {
   url: string;
 }
 
-export const ApplyOurService: React.FC<Props> = ({ url }) => (
+export const ApplyOurService: FC<ApplyOurServiceProps> = ({ url }) => (
   <div className="apply-our-service">
     <div className="apply-our-service__heading">
       <Heading color="white-heading" title="Apply for our service" />

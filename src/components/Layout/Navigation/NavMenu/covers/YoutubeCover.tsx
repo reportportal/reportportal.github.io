@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const YoutubeCover: React.FC = () => {
+export const YoutubeCover: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="208" height="40" fill="none">
       <rect width="153" height="16" x="4" y="8" fill="#EDEFF7" rx="8" />

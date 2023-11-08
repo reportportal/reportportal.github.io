@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import noop from 'lodash/noop';
 import classNames from 'classnames';
-
-import { createBemBlockBuilder } from '@app/utils';
+import { createBemBlockBuilder, ON_PREMISES_OFFER_PRICES } from '@app/utils';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 
 import { TrustedOrganizations } from '../TrustedOrganizations';
@@ -15,11 +14,11 @@ import { TimeScale } from './TimeScale';
 import { PentagonCard } from './PentagonCard';
 import { COLUMNS, MOBILE_COLUMNS } from './constants';
 import InfoIcon from './icons/infoIcon.inline.svg';
-import { getOfferPrices, getDataPlans, getFooterButtons } from './utils';
+import { getDataPlans, getFooterButtons, getOfferLinks } from './utils';
 
 import './OfferPageWrapper.scss';
 
-interface Props {
+interface OfferPageWrapperProps {
   hero: {
     title: string;
     subtitle?: string;
@@ -27,7 +26,7 @@ interface Props {
     offerType: string;
   };
   page: string;
-  pagePath: string;
+  pagePath: 'on-premises' | 'd4j' | 'qasp' | 'hlm';
   timeScaleData: {
     time: number | string;
     items: string[] | React.ReactNode[];
@@ -45,7 +44,7 @@ interface Props {
 
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
-export const OfferPageWrapper: React.FC<Props> = ({
+export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   hero: { title, subtitle, description, offerType },
   page,
   pagePath,
@@ -72,15 +71,25 @@ export const OfferPageWrapper: React.FC<Props> = ({
         discountState={discountState}
       />
       <div className={getBlocksWith('__pentagons')}>
-        {getOfferPrices(pagePath).map((offer, index) => (
-          <PentagonCard
-            stepNumber={index + 1}
-            hours={offer.hours}
-            price={discountState ? offer.discountedValue : offer.value}
-            contactLink={offer.href}
-            key={offer.hours}
-          />
-        ))}
+        {getOfferLinks(pagePath).map((href, index) => {
+          const offerPrice = ON_PREMISES_OFFER_PRICES[index];
+          const price = discountState ? offerPrice.discountedValue : offerPrice.value;
+          const contactUsURL =
+            !price || pagePath !== 'on-premises'
+              ? href
+              : `${href}/${discountState ? 'yearly' : 'quarterly'}`;
+
+          return (
+            <PentagonCard
+              stepNumber={index + 1}
+              hours={`${offerPrice.hours}`}
+              discountState={discountState}
+              price={price}
+              contactLink={contactUsURL}
+              key={offerPrice.hours}
+            />
+          );
+        })}
       </div>
       <div className={getBlocksWith('__utilization')}>
         <h2>Indicative professional service hour utilization</h2>

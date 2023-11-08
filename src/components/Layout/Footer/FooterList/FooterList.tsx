@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
+import ArrowIcon from '@app/svg/arrow.inline.svg';
+import { Link } from '@app/components';
+import { isAbsoluteURL } from '@app/utils';
 
-import ArrowIcon from '../../../../svg/arrow.inline.svg';
-import { isAbsoluteURL } from '../../../../utils';
-
-import { Link } from '../../../Link';
-
-interface Props {
+interface FooterListProps {
   title: string;
   items: {
     title: string;
-    link?: string;
+    link: string;
   }[];
 }
 
-export const FooterList: React.FC<Props> = ({ title, items }) => (
+export const FooterList: FC<FooterListProps> = ({ title, items }) => (
   <div className="footer__list">
     <h4>{title}</h4>
     <ul>
@@ -21,7 +19,7 @@ export const FooterList: React.FC<Props> = ({ title, items }) => (
         <li key={item.title}>
           <Link to={item.link}>
             {item.title}
-            {item.link && isAbsoluteURL(item.link) && <ArrowIcon />}
+            {isAbsoluteURL(item.link) && <ArrowIcon />}
           </Link>
         </li>
       ))}

@@ -1,22 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { Link } from '@app/components/Link';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
+import { MenuProps } from '../../constants';
 import { SectionList } from '../SectionList';
 import { PRICING_CONFIG, SERVICE_LIST, PRICING_FOR_SOLUTIONS_LIST } from './constants';
 
 import '../Menu.scss';
 import './OfferingsMenu.scss';
 
-interface Props {
-  isDesktop: boolean;
-  isOpen: boolean;
-  menuContainerRef: string;
-}
-
-export const OfferingsMenu: React.FC<Props> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
+export const OfferingsMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-offerings']);
 
   const pricingList = (
@@ -63,25 +57,23 @@ export const OfferingsMenu: React.FC<Props> = ({ isDesktop = true, isOpen, menuC
 
   return (
     <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
-      <>
-        <div className={getBlocksWith('__body')}>
-          <div className={getBlocksWith('__body-row')}>
-            <div className={classNames(getBlocksWith('__body-col--lf'), 'row')}>
-              {pricingList}
-              {servicesList}
-            </div>
-            <div
-              className={classNames(
-                getBlocksWith('__body-col--rt'),
-                getBlocksWith('__body-col--flex-column'),
-              )}
-            >
-              {pricingForSolutionsList}
-            </div>
+      <div className={getBlocksWith('__body')}>
+        <div className={getBlocksWith('__body-row')}>
+          <div className={classNames(getBlocksWith('__body-col--lf'), 'row')}>
+            {pricingList}
+            {servicesList}
+          </div>
+          <div
+            className={classNames(
+              getBlocksWith('__body-col--rt'),
+              getBlocksWith('__body-col--flex-column'),
+            )}
+          >
+            {pricingForSolutionsList}
           </div>
         </div>
-        {footer}
-      </>
+      </div>
+      {footer}
     </div>
   );
 };

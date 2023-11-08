@@ -1,8 +1,5 @@
-import React from 'react';
-
-import { DashboardHeader } from '@app/components/DashboardHeader';
-import { SpiderBlock } from '@app/components/SpiderBlock';
-import { TestingBottomBlock } from '@app/components/TestingBottomBlock';
+import React, { FC } from 'react';
+import { DashboardHeader, SpiderBlock, TestingBottomBlock } from '@app/components';
 
 import { BenefitsOfTaas } from './BenefitsOfTaas';
 import { Challenges } from './Challenges';
@@ -11,7 +8,7 @@ import { Tips } from './Tips';
 import { Approach } from './Approach';
 import { DASHBOARD_HEADER_INFO, TESTING_BOTTOM_BLOCK_INFO } from './constants';
 
-export const TestingAsServicePage: React.FC = () => (
+export const TestingAsServicePage: FC = () => (
   <>
     <DashboardHeader
       title={DASHBOARD_HEADER_INFO.title}

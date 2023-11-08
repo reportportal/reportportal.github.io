@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { Link } from '../Link';
@@ -8,21 +7,21 @@ import { INCREASED_BUTTON_NUMBER } from './constants';
 
 import './ButtonSwitcher.scss';
 
-interface Props {
-  buttons: Button[];
-  onSwitch: (text: string) => void;
-  activeBtnName: string;
-}
-
-export interface Button {
+interface Button {
   iconComponent: (btn: Button) => string;
   text: string;
   linkTo?: string;
 }
 
+export interface ButtonSwitcherProps {
+  buttons: Button[];
+  onSwitch: (text: string) => void;
+  activeBtnName: string;
+}
+
 const getBlocksWith = createBemBlockBuilder(['switcher']);
 
-export const ButtonSwitcher: React.FC<Props> = ({ buttons, onSwitch, activeBtnName }) => {
+export const ButtonSwitcher: FC<ButtonSwitcherProps> = ({ buttons, onSwitch, activeBtnName }) => {
   const hasAdditionalButton = buttons.length === INCREASED_BUTTON_NUMBER;
 
   const isActive = (btnName: string) => btnName === activeBtnName;

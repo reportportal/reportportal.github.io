@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { Link } from '@app/components/Link';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
+import { MenuProps } from '../../constants';
 import { YoutubeCover } from '../covers/YoutubeCover';
 import { SectionList } from '../SectionList';
 import { SectionCard } from '../SectionCard';
@@ -12,15 +12,9 @@ import { RESOURCES_LIST } from './constants';
 import '../Menu.scss';
 import './LearnMenu.scss';
 
-interface Props {
-  isDesktop: boolean;
-  isOpen: boolean;
-  menuContainerRef: string;
-}
-
 const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
 
-export const LearnMenu: React.FC<Props> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
+export const LearnMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   let resourcesItems = RESOURCES_LIST;
 
   if (!isDesktop) {

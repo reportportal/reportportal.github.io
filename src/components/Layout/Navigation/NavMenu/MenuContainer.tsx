@@ -1,15 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { useClickAway } from 'ahooks';
 import { BasicTarget } from 'ahooks/lib/utils/domTarget';
 
-interface Props {
+interface MenuContainerProps {
   isOpen: boolean;
   menuLinksRef: BasicTarget;
   children: React.ReactNode;
   onClose: () => void;
 }
 
-export const MenuContainer: React.FC<Props> = ({ isOpen, menuLinksRef, children, onClose }) => {
+export const MenuContainer: FC<MenuContainerProps> = ({
+  isOpen,
+  menuLinksRef,
+  children,
+  onClose,
+}) => {
   const menuContainerRef = useRef(null);
 
   useClickAway(() => {

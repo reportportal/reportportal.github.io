@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Modal } from 'antd';
 
 import './EmbedVideo.scss';
 
-interface Props {
+interface EmbedVideoProps {
   isOpen: boolean;
   embedId: string;
   onClick: () => void;
 }
 
-export const EmbedVideo: React.FC<Props> = ({ isOpen, embedId, onClick }) => {
+export const EmbedVideo: FC<EmbedVideoProps> = ({ isOpen, embedId, onClick }) => {
   return (
     <Modal
       className="video-responsive"

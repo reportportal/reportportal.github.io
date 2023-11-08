@@ -1,11 +1,9 @@
-import React from 'react';
-
-import { AnimatedList } from '../../../components/AnimatedList';
-import { Link } from '../../../components/Link';
+import React, { FC } from 'react';
+import { Link, AnimatedList } from '@app/components';
 
 import { FEATURES_FOR_ENGINEERS_LIST } from './constants';
 
-export const FeaturesForEngineers: React.FC = () => (
+export const FeaturesForEngineers: FC = () => (
   <AnimatedList
     title="Features for engineers"
     subtitle="Reducing team efforts. Bringing more value"

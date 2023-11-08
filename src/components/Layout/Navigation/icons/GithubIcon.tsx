@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-interface Props {
+interface GithubIconProps {
   text: string;
 }
 
-export const GithubIcon: React.FC<Props> = ({ text }) => (
+export const GithubIcon: FC<GithubIconProps> = ({ text }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="90" height="24" fill="none">
     <path
       fill="currentColor"

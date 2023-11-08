@@ -1,4 +1,4 @@
-import { features } from '../../../utils/imageSource';
+import { features } from '@app/utils/imageSource';
 
 export const BENEFITS_FOR_BUSINESS_LIST = [
   {

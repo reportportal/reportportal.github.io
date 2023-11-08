@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { ActionNode } from '../ActionNode';
@@ -8,13 +7,13 @@ import { EventNode } from '../EventNode';
 
 import '../IntegrationScheme.scss';
 
-interface Props {
+interface SchemeHeaderProps {
   state: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 
-export const SchemeHeader: React.FC<Props> = ({ state }) => (
+export const SchemeHeader: FC<SchemeHeaderProps> = ({ state }) => (
   <div
     className={classNames(getBlocksWith(), getBlocksWith('__header'), {
       [getBlocksWith('__collapse-header')]: state,

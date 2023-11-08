@@ -4,7 +4,7 @@ import path from 'node:path';
 import { GatsbyNode } from 'gatsby';
 import axios from 'axios';
 
-import { config as contactUsConfig } from './src/templates/contact-us/config';
+import { contactUsConfig } from './src/utils/contactUsConfig';
 
 type PostType = {
   slug: string;

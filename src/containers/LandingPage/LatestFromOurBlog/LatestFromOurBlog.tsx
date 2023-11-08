@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { ArticlePreview } from '@app/components/ArticlePreview';
+import { ArticlePreview } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 import { useLatestFromOurBlog } from '@app/hooks';
 
@@ -9,7 +8,7 @@ import './LatestFromOurBlog.scss';
 
 const getBlocksWith = createBemBlockBuilder(['latest-from-our-blog']);
 
-export const LatestFromOurBlog: React.FC = () => {
+export const LatestFromOurBlog: FC = () => {
   const { nodes } = useLatestFromOurBlog();
 
   return (

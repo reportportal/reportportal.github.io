@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { GraphicArrow } from './GraphicArrow';
 
-interface Props {
-  children: React.ReactNode;
+interface ActionNodeProps {
+  children: ReactNode;
   direction?: boolean;
   infoArrow?: boolean;
   info?: {
@@ -14,7 +14,12 @@ interface Props {
   };
 }
 
-export const ActionNode: React.FC<Props> = ({ children, direction, infoArrow = true, info }) => (
+export const ActionNode: FC<ActionNodeProps> = ({
+  children,
+  direction,
+  infoArrow = true,
+  info,
+}) => (
   <div
     className={classNames('scheme__col-action scheme__col-action-info', {
       'scheme__col-action-active': !direction,

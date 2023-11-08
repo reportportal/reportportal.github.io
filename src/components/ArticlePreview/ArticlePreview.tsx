@@ -1,20 +1,19 @@
-import React from 'react';
+import React, { FC } from 'react';
 import isEmpty from 'lodash/isEmpty';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { ArticlePreviewItem } from './ArticlePreviewItem';
-import { Post } from './types';
+import { Post } from './constants';
 
 import './ArticlePreview.scss';
 
-export interface Props {
+interface ArticlePreviewProps {
   posts: Post[];
 }
 
 const getBlocksWith = createBemBlockBuilder(['article-preview-list']);
 
-export const ArticlePreview: React.FC<Props> = ({ posts }) =>
+export const ArticlePreview: FC<ArticlePreviewProps> = ({ posts }) =>
   !isEmpty(posts) ? (
     <ul className={getBlocksWith()}>
       {posts.map(post => (

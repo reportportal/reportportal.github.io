@@ -1,7 +1,5 @@
-import React from 'react';
-
-import { DashboardHeader } from '@app/components/DashboardHeader';
-import { TestingBottomBlock } from '@app/components/TestingBottomBlock';
+import React, { FC } from 'react';
+import { DashboardHeader, TestingBottomBlock } from '@app/components';
 
 import { OurSolution } from './OurSolution';
 import { QualityApproach } from './QualityApproach';
@@ -10,7 +8,7 @@ import { DASHBOARD_HEADER_INFO, TESTING_BOTTOM_BLOCK_INFO } from './constants';
 
 import './QualityAssessmentPage.scss';
 
-export const QualityAssessmentPage: React.FC = () => (
+export const QualityAssessmentPage: FC = () => (
   <div className="quality-assessment">
     <DashboardHeader
       title={DASHBOARD_HEADER_INFO.title}

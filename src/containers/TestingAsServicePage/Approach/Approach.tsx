@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { ListDropdown } from './ListDropdown';
 import { EXECUTION_LIST, RAMP_UP_LIST, DISCOVERY_LIST } from './constants';
 
 import './Approach.scss';
 
-export const Approach: React.FC = () => (
+export const Approach: FC = () => (
   <div className="approach">
     <div className="approach__months">
       <div>Month 1</div>

@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
-import { Link } from '@app/components/Link';
 
 import '../InstallationPage.scss';
 
-export const KubernetesContent = () => {
+export const KubernetesContent: FC = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
 
   return (

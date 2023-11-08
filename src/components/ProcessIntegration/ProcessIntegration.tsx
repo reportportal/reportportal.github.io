@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import Marquee from 'react-fast-marquee';
-
 import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
 
 import { Link } from '../Link';

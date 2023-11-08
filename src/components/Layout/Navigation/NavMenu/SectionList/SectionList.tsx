@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { FC } from 'react';
 import chunk from 'lodash/chunk';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { SectionItem } from './SectionItem';
 
 import './SectionList.scss';
 
-interface Props {
+interface SectionListProps {
   title: string;
-  showTitle: boolean;
   items: { title: string }[];
+  className?: string;
+  showTitle?: boolean;
   itemsPerRow?: number;
-  className: string;
 }
 
-export const SectionList: React.FC<Props> = ({
+export const SectionList: FC<SectionListProps> = ({
   title,
   showTitle = true,
   items,
@@ -26,12 +25,7 @@ export const SectionList: React.FC<Props> = ({
   const columns = chunk(items, itemsPerRow).map((column, columnIndex) => (
     <div key={columnIndex} className={getBlocksWith('__col')}>
       {column.map(data => (
-        <SectionItem
-          showTitle={showTitle}
-          key={data.title}
-          className={getBlocksWith('__item')}
-          {...data}
-        />
+        <SectionItem key={data.title} className={getBlocksWith('__item')} {...data} />
       ))}
     </div>
   ));

@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { Link } from '@app/components/Link';
-import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
+import { Link, SubscriptionBanner } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import DownloadIcon from '../../svg/download.inline.svg';
@@ -26,7 +24,7 @@ interface Case {
   title: string;
 }
 
-interface Props {
+interface CasesPageProps {
   cases: Case[];
   handleLoadMore: () => void;
   showLoadMore: boolean;
@@ -34,7 +32,7 @@ interface Props {
 
 const getBlocksWith = createBemBlockBuilder(['cases-page']);
 
-export const CasesPage: React.FC<Props> = ({ cases, handleLoadMore, showLoadMore }) => (
+export const CasesPage: FC<CasesPageProps> = ({ cases, handleLoadMore, showLoadMore }) => (
   <>
     <div className={getBlocksWith()}>
       <div className="container">

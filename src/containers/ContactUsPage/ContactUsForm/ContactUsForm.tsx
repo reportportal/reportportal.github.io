@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
-
-import { Link } from '@app/components/Link';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { validate } from './utils';

@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { Tabs, ConfigProvider } from 'antd';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import {
@@ -24,8 +23,8 @@ const getBlocksWith = createBemBlockBuilder(['frameworks']);
 
 const activeTab = TAB_LIST[0].label;
 
-export const SupportedFrameworks: React.FC = () => {
-  const [currentLanguage, setActiveLanguage] = useState(activeTab);
+export const SupportedFrameworks: FC = () => {
+  const [currentLanguage, setCurrentLanguage] = useState(activeTab);
 
   const getCurrentFrameworks = useCallback(() => {
     const frameworks = {
@@ -66,7 +65,7 @@ export const SupportedFrameworks: React.FC = () => {
               defaultActiveKey={activeTab}
               tabPosition="top"
               items={TAB_LIST}
-              onTabClick={setActiveLanguage}
+              onTabClick={setCurrentLanguage}
             />
           </ConfigProvider>
         </div>
