@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { Link } from '../Link';
@@ -11,12 +10,12 @@ import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';
 
-interface Props {
+interface SubscriptionFormProps {
   subscriptionFormState: string;
   setSubscriptionFormState: () => void;
 }
 
-export const SubscriptionForm: React.FC<Props> = ({
+export const SubscriptionForm: FC<SubscriptionFormProps> = ({
   subscriptionFormState,
   setSubscriptionFormState,
 }) => {

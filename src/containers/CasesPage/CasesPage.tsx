@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Link } from '@app/components/Link';
-import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
+import { Link, SubscriptionBanner } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import DownloadIcon from '../../svg/download.inline.svg';

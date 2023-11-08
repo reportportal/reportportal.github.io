@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Divider } from 'antd';
 import classNames from 'classnames';
-
-import { Link } from '@app/components/Link';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { FooterList } from './FooterList';
@@ -42,7 +41,7 @@ const socialLinks = [
   },
 ];
 
-export const Footer: React.FC = () => {
+export const Footer: FC = () => {
   return (
     <footer className={getBlocksWith()}>
       <div className={classNames(getBlocksWith('__container'), 'container')}>

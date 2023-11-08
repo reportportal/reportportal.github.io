@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
+import { Link } from '@app/components';
 import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
-import { Link } from '@app/components/Link';
 
 import NotFoundIcon from './svg/not-found.inline.svg';
 
@@ -10,7 +9,7 @@ import './NotFoundPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['not-found-page']);
 
-export const NotFoundPage: React.FC = () => (
+export const NotFoundPage: FC = () => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__hero')}>
       <div className={classNames(getBlocksWith('__container'), 'container')}>

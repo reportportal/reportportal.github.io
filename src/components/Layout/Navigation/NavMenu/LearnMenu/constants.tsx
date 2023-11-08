@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { DOCUMENTATION_URL } from '@app/utils';
 
 import DocumentationIcon from './icons/documentation.inline.svg';

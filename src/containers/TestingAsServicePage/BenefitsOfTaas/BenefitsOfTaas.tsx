@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { Heading } from '@app/components/Heading';
+import { Heading } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import EasyToBuy from './icons/easyToBuy.inline.svg';
@@ -33,7 +32,7 @@ const BENEFITS = [
   },
 ];
 
-export const BenefitsOfTaas: React.FC = () => (
+export const BenefitsOfTaas: FC = () => (
   <section className={classNames(getBlocksWith(), 'container')}>
     <Heading title="Benefits of TaaS" />
     <div className={getBlocksWith('__content')}>

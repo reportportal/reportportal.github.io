@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const HeartIcon: React.FC = () => {
+export const HeartIcon: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
       <path

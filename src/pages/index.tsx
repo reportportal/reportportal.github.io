@@ -1,9 +1,8 @@
-import React from 'react';
-
-import { Layout } from '@app/components/Layout';
+import React, { FC } from 'react';
+import { Layout } from '@app/components';
 import { LandingPage } from '@app/containers/LandingPage';
 
-const Root: React.FC = () => (
+const Root: FC = () => (
   <Layout>
     <LandingPage />
   </Layout>

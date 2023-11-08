@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Collapse } from 'antd';
 import classNames from 'classnames';
@@ -12,7 +12,7 @@ import { ColumnsHeader } from './ColumnsHeader';
 
 import './ComparePlans.scss';
 
-interface Props {
+interface ComparePlansProps {
   dataPlans: {
     feature: string;
     section: string;
@@ -28,7 +28,7 @@ interface Props {
 
 const getBlocksWith = createBemBlockBuilder(['compare']);
 
-export const ComparePlans: React.FC<Props> = ({
+export const ComparePlans: FC<ComparePlansProps> = ({
   dataPlans,
   columns,
   footerButtons,

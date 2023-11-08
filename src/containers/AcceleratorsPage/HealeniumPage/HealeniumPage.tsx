@@ -1,9 +1,9 @@
-import React from 'react';
-import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
+import React, { FC } from 'react';
+import { OfferPageWrapper } from '@app/components';
 
 import { TIME_SCALE_DATA, FAQ_DATA } from './constants';
 
-export const HealeniumPage: React.FC = () => (
+export const HealeniumPage: FC = () => (
   <OfferPageWrapper
     hero={{
       title: 'Explore pricing packages for our accelerators',

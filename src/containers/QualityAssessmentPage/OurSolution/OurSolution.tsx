@@ -1,12 +1,11 @@
-import React from 'react';
-
-import { Heading } from '../../../components/Heading';
+import React, { FC } from 'react';
+import { Heading } from '@app/components';
 
 import { LEFT_ASIDE_TEXT, RIGHT_ASIDE_TEXT } from './constants';
 
 import './OurSolution.scss';
 
-export const OurSolution: React.FC = () => (
+export const OurSolution: FC = () => (
   <div className="our-solution container">
     <Heading title="Our solution is Quality Assessment and consulting" />
     <div className="our-solution__spider">

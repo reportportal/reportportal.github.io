@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { FC } from 'react';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { EventNode } from '../EventNode';
@@ -16,7 +15,7 @@ import {
 import '../IntegrationScheme.scss';
 import '../../../InstallationPage.scss';
 
-interface Props {
+interface SchemeRowProps {
   portion: { text: string }[];
   row: number;
   lastRow: number;
@@ -24,22 +23,22 @@ interface Props {
 
 const getBlocksWith = createBemBlockBuilder(['scheme']);
 
-export const SchemeRow: React.FC<Props> = ({ portion, row, lastRow }) => {
-  const isEvenRow = !(row % 2 === 0);
+export const SchemeRow: FC<SchemeRowProps> = ({ portion, row, lastRow }) => {
+  const isEvenRow = row % 2 !== 0;
   const isLastRow = row === lastRow;
 
-  const isBoundaryNode = index =>
+  const isBoundaryNode = (index: number) =>
     isLastRow ? isLastNode(index) : row === 1 && index === FIRST_ROW_NODE;
 
-  const isLastNode = index =>
+  const isLastNode = (index: number) =>
     !!((!isEvenRow && index === FIRST_ROW_NODE) || (isEvenRow && index === LAST_ROW_NODE));
 
-  const isDownArrow = index =>
+  const isDownArrow = (index: number) =>
     isLastRow
       ? false
       : (isEvenRow && index === LAST_ROW_NODE) || (!isEvenRow && index === FIRST_ROW_NODE);
 
-  const calculateNumber = index =>
+  const calculateNumber = (index: number) =>
     isEvenRow
       ? (row - 1) * ROW_NODE_NUMBER + NODE_POSITION[index]
       : (row - 1) * ROW_NODE_NUMBER + ADJUSTING_COEFFICIENT - NODE_POSITION[index];

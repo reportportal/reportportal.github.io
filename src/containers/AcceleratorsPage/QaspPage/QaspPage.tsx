@@ -1,10 +1,10 @@
-import React from 'react';
-import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
+import React, { FC } from 'react';
+import { OfferPageWrapper } from '@app/components';
 
 import { FAQ_DATA } from '../D4jPage/constants';
 import { TIME_SCALE_DATA } from './constants';
 
-export const QaspPage: React.FC = () => (
+export const QaspPage: FC = () => (
   <OfferPageWrapper
     hero={{
       title: 'Explore pricing packages for our accelerators',

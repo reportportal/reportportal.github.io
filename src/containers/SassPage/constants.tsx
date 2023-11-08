@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { DOCUMENTATION_URL } from '@app/utils';
 
 export const BUTTONS_DATA = [

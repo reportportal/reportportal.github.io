@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { FC } from 'react';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { STATISTIC_INFO } from './constants';
@@ -9,7 +8,7 @@ import './CustomersStatistics.scss';
 const getBlocksWith = createBemBlockBuilder(['customers-statistics']);
 const getBlocksWithList = createBemBlockBuilder(['customers-statistics-list']);
 
-export const CustomersStatistics: React.FC = () => (
+export const CustomersStatistics: FC = () => (
   <section className={getBlocksWith()}>
     <div className={getBlocksWith('__container')}>
       <div className={getBlocksWith('__content')}>

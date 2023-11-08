@@ -1,5 +1,5 @@
-import { useScroll } from 'ahooks';
 import { useState, useRef, useLayoutEffect } from 'react';
+import { useScroll } from 'ahooks';
 
 interface ScrollDirection {
   callbackFn: () => void;

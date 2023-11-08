@@ -4,10 +4,10 @@ import {
   RenderRichTextData,
   ContentfulRichTextGatsbyReference,
 } from 'gatsby-source-contentful/rich-text';
-import { Layout } from '@app/components/Layout';
+import { Layout } from '@app/components';
 import { CaseStudyPage } from '@app/containers/CaseStudyPage';
 
-interface CaseStudyProps {
+export interface CaseStudyProps {
   contentfulCaseStudy: {
     benefitsResults: RenderRichTextData<ContentfulRichTextGatsbyReference>;
     challenges: RenderRichTextData<ContentfulRichTextGatsbyReference>;

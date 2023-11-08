@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
+import { TrustedOrganizations } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { ContactUsForm } from './ContactUsForm';
 
 import './ContactUsPage.scss';
 
-interface Props {
+interface ContactUsPageProps {
   config: {
     info: string;
     isDiscussFieldShown: boolean;
@@ -18,7 +17,7 @@ interface Props {
 }
 const getBlocksWith = createBemBlockBuilder(['contact-us']);
 
-export const ContactUsPage: React.FC<Props> = ({ config }) => (
+export const ContactUsPage: FC<ContactUsPageProps> = ({ config }) => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__hero')}>
       <div className="container">

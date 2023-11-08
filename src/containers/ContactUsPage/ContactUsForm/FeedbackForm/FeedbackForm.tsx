@@ -3,7 +3,6 @@ import { Tag } from 'antd';
 import isEmpty from 'lodash/isEmpty';
 import xor from 'lodash/xor';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { TAGS_DATA } from './constants';

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const KubernetesIcon: React.FC = () => (
+export const KubernetesIcon: FC = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
     <path
       fill="currentColor"

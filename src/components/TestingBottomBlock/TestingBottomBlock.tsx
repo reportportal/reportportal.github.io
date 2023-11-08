@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Heading } from '../Heading';
 import { ApplyOurService } from './ApplyOurService';
 
 import './TestingBottomBlock.scss';
 
-interface Props {
+interface TestingBottomBlockProps {
   children: React.ReactNode;
   title: string;
   description?: string;
   url: string;
 }
 
-export const TestingBottomBlock: React.FC<Props> = ({ children, title, description, url }) => (
+export const TestingBottomBlock: FC<TestingBottomBlockProps> = ({
+  children,
+  title,
+  description,
+  url,
+}) => (
   <div className="testing-bottom-block">
     <div className="container">
       <div className="testing-bottom-block__heading">

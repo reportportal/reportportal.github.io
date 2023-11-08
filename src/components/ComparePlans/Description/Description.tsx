@@ -1,21 +1,20 @@
-import React from 'react';
-
+import React, { FC } from 'react';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { Link } from '../../Link';
 
 import '../ComparePlans.scss';
 
-interface Props {
+interface DescriptionProps {
   text: string;
   href: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['compare']);
 
-export const Description: React.FC<Props> = ({ text, href }) => {
+export const Description: FC<DescriptionProps> = ({ text, href }) => {
   const getLink = () => {
-    const match = text.match(/([^*]*)\*([^*]+)\*([^*]*)/);
+    const match = /([^*]*)\*([^*]+)\*([^*]*)/.exec(text);
 
     if (match) {
       const [, beforeText, highlightedText, afterText] = match;

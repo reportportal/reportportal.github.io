@@ -1,7 +1,6 @@
-import React from 'react';
-
+import React, { FC } from 'react';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
-import { Link } from '@app/components/Link';
 
 import { Notice } from '../Notice';
 
@@ -9,7 +8,7 @@ import '../InstallationPage.scss';
 
 const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 
-export const DockerInstall: React.FC = () => {
+export const DockerInstall: FC = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
 
   return (

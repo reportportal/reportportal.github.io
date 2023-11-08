@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import './CustomCheckbox.scss';

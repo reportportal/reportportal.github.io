@@ -1,9 +1,8 @@
-import React from 'react';
-
-import { Layout } from '@app/components/Layout';
+import React, { FC } from 'react';
+import { Layout } from '@app/components';
 import { InstallationPage } from '@app/containers/InstallationPage';
 
-const Installation: React.FC = () => (
+const Installation: FC = () => (
   <Layout>
     <InstallationPage />
   </Layout>

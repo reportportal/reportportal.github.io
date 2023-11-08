@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Layout } from '@app/components/Layout';
+import { Layout } from '@app/components';
 import { D4jPage } from '@app/containers/AcceleratorsPage';
 
 const D4j = () => (

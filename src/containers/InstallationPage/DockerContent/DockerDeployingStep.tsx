@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Typography } from 'antd';
-
-import { Link } from '@app/components/Link';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { Notice } from '../Notice';
@@ -10,7 +9,7 @@ import '../InstallationPage.scss';
 
 const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 
-export const DockerDeployingStep: React.FC = () => {
+export const DockerDeployingStep: FC = () => {
   const { Text } = Typography;
   const getBlocksWith = createBemBlockBuilder(['installation']);
 

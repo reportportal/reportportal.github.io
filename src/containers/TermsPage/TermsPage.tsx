@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import DownloadIcon from '../../svg/download.inline.svg';
 
 import './TermsPage.scss';
 
-export const TermsPage: React.FC = () => (
+export const TermsPage: FC = () => (
   <div className="terms-page">
     <div className="terms-page__hero">
       <div className="container">

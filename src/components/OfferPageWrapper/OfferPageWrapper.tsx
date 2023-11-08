@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import noop from 'lodash/noop';
 import classNames from 'classnames';
 import { createBemBlockBuilder, ON_PREMISES_OFFER_PRICES } from '@app/utils';
@@ -18,7 +18,7 @@ import { getDataPlans, getFooterButtons, getOfferLinks } from './utils';
 
 import './OfferPageWrapper.scss';
 
-interface Props {
+interface OfferPageWrapperProps {
   hero: {
     title: string;
     subtitle?: string;
@@ -44,7 +44,7 @@ interface Props {
 
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
-export const OfferPageWrapper: React.FC<Props> = ({
+export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   hero: { title, subtitle, description, offerType },
   page,
   pagePath,

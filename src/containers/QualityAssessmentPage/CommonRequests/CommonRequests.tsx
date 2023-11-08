@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Heading } from '@app/components/Heading';
+import { Heading } from '@app/components';
 
 import { TOP_REQUEST_LIST, BOTTOM_REQUEST_LIST } from './constants';
 

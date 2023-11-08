@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
+import { OfferPageWrapper } from '@app/components';
 
 import { FAQ_DATA, TIME_SCALE_DATA } from './constants';
 

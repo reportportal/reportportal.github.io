@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Layout } from '@app/components/Layout';
-import { ContactUsPage } from '@app/containers/ContactUsPage';
 import { PageProps } from 'gatsby';
+import { Layout } from '@app/components';
+import { ContactUsPage } from '@app/containers/ContactUsPage';
 
 interface ContextProps {
   config: {

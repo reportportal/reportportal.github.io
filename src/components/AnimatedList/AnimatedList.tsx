@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder, LIST_ANIMATION_DELAY } from '@app/utils';
 import { useAnimationInterval } from '@app/hooks';
 
@@ -8,7 +7,7 @@ import { ArrowLink } from '../ArrowLink';
 
 import './AnimatedList.scss';
 
-interface Props {
+interface AnimatedListProps {
   data: {
     description: string;
     image: string;
@@ -24,7 +23,7 @@ interface Props {
 const getBlocksWith = createBemBlockBuilder(['animated-list-container']);
 const getBlocksWithList = createBemBlockBuilder(['animated-list']);
 
-export const AnimatedList: React.FC<Props> = ({
+export const AnimatedList: FC<AnimatedListProps> = ({
   data,
   title,
   subtitle,

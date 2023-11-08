@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
-
-import { subscriptionFormAtom } from '@app/components/Layout';
-import { Link } from '@app/components/Link';
-import { SubscriptionForm } from '@app/components/SubscriptionForm';
+import { subscriptionFormAtom, Link, SubscriptionForm } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
+import { MenuProps } from '../../constants';
 import { GithubCover } from '../covers/GithubCover';
 import { SectionList } from '../SectionList';
 import { SectionCard } from '../SectionCard';
@@ -16,13 +14,7 @@ import { COMMUNITY_LIST } from './constants';
 import '../Menu.scss';
 import './CommunityMenu.scss';
 
-interface Props {
-  isDesktop: boolean;
-  isOpen: boolean;
-  menuContainerRef: string;
-}
-
-export const CommunityMenu: React.FC<Props> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
+export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
 
@@ -75,22 +67,20 @@ export const CommunityMenu: React.FC<Props> = ({ isDesktop = true, isOpen, menuC
 
   return (
     <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
-      <>
-        <div className={getBlocksWith('__body')}>
-          <div className={getBlocksWith('__body-row')}>
-            <div className={getBlocksWith('__body-col--lf')}>{contributionCard}</div>
-            <div
-              className={classNames(
-                getBlocksWith('__body-col--rt'),
-                getBlocksWith('__body-col--flex-column'),
-              )}
-            >
-              {communityList}
-            </div>
+      <div className={getBlocksWith('__body')}>
+        <div className={getBlocksWith('__body-row')}>
+          <div className={getBlocksWith('__body-col--lf')}>{contributionCard}</div>
+          <div
+            className={classNames(
+              getBlocksWith('__body-col--rt'),
+              getBlocksWith('__body-col--flex-column'),
+            )}
+          >
+            {communityList}
           </div>
         </div>
-        {footer}
-      </>
+      </div>
+      {footer}
     </div>
   );
 };

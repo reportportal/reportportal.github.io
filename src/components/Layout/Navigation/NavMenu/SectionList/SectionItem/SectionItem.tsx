@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { Link } from '@app/components/Link';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
-interface Props {
+interface SectionItemProps {
   title: string;
-  link: string;
   icon: string;
   iconClass: string;
   text: string;
-  className: string;
+  link?: string;
+  className?: string;
 }
 
-export const SectionItem: React.FC<Props> = ({
+export const SectionItem: FC<SectionItemProps> = ({
   title,
   link = '#',
   icon,

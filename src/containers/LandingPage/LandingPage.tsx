@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
-import { StartTestingWithReportPortal } from '@app/components/StartTestingWithReportPortal';
-import { ProcessIntegration } from '@app/components/ProcessIntegration';
-import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
+import {
+  StartTestingWithReportPortal,
+  ProcessIntegration,
+  SubscriptionBanner,
+} from '@app/components';
 
 import { Showcase } from './Showcase';
 import { WhyReportPortal } from './WhyReportPortal';

@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { Link } from '@app/components/Link';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
-
-import LinkArrow from '../../../../svg/externalLinkArrow.inline.svg';
+import LinkArrow from '@app/svg/externalLinkArrow.inline.svg';
 
 import '../../ComparePlans.scss';
 import '../RowSection.scss';
 
-interface Props {
+interface FooterColumnsProps {
   footerButtons: {
     btn: string;
     mode: string;
@@ -21,7 +19,7 @@ interface Props {
 const getBlocksWith = createBemBlockBuilder(['row-section']);
 const getBlocksWithCompare = createBemBlockBuilder(['compare']);
 
-export const FooterColumns: React.FC<Props> = ({ footerButtons }) => (
+export const FooterColumns: FC<FooterColumnsProps> = ({ footerButtons }) => (
   <div className={classNames(getBlocksWith(), getBlocksWith('__container'))}>
     <div className={getBlocksWithCompare('__row-title-wrapper')}>
       <div

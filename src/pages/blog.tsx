@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { PageProps, graphql } from 'gatsby';
-
-import { Layout } from '@app/components/Layout';
+import { Layout } from '@app/components';
 import { BlogPage } from '@app/containers/BlogPage';
 
 const PAGE_SIZE = 9;
@@ -14,7 +13,7 @@ interface DataProps {
   };
 }
 
-const BlogIndex: React.FC<PageProps<DataProps>> = ({ data }) => {
+const BlogIndex: FC<PageProps<DataProps>> = ({ data }) => {
   const { nodes } = data.allContentfulBlogPost;
 
   const [posts, setPosts] = useState(nodes.slice(0, PAGE_SIZE));

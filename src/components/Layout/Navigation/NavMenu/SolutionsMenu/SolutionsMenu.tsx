@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
-import { Link } from '@app/components/Link';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { CaseStudiesCover } from '../covers/CaseStudiesCover';
@@ -12,13 +11,17 @@ import { SOLUTIONS_LIST } from './constants';
 import '../Menu.scss';
 import './SolutionsMenu.scss';
 
-interface Props {
+interface SolutionsMenuProps {
   isDesktop: boolean;
   isOpen: boolean;
   menuContainerRef: string;
 }
 
-export const SolutionsMenu: React.FC<Props> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
+export const SolutionsMenu: FC<SolutionsMenuProps> = ({
+  isDesktop = true,
+  isOpen,
+  menuContainerRef,
+}) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
 
   const solutionsList = (

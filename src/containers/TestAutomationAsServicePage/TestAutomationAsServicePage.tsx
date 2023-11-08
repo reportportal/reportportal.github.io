@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import { DashboardHeader } from '@app/components/DashboardHeader';
-import { SpiderBlock } from '@app/components/SpiderBlock';
-import { TestingBottomBlock } from '@app/components/TestingBottomBlock';
+import { DashboardHeader, SpiderBlock, TestingBottomBlock } from '@app/components';
 
 import { Benefits } from './Benefits';
 import { ServiceAria } from './ServiceAria';

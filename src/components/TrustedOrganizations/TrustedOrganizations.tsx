@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import { icons } from './icons/iconsData';
@@ -9,7 +8,7 @@ import './TrustedOrganizations.scss';
 
 const getBlocksWith = createBemBlockBuilder(['trusted-organizations']);
 
-export const TrustedOrganizations: React.FC = () => (
+export const TrustedOrganizations: FC = () => (
   <div className={classNames(getBlocksWith())}>
     <div className={getBlocksWith('__title')}>
       Trusted by the world&apos;s leading organizations

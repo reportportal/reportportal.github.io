@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const CaseStudiesCover: React.FC = () => {
+export const CaseStudiesCover: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="256" height="208" fill="none">
       <rect width="116" height="16" x="66" y="32" fill="#EDEFF7" rx="8" />

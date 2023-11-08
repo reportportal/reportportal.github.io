@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Typography } from 'antd';
 
 import '../../../IntegrationScheme.scss';
 import '../../../../../InstallationPage.scss';
 
-interface Props {
+interface PopupContentProps {
   info?: {
     scheme: string;
     type: string;
@@ -12,7 +12,7 @@ interface Props {
   };
 }
 
-export const PopupContent: React.FC<Props> = ({ info }) => {
+export const PopupContent: FC<PopupContentProps> = ({ info }) => {
   const { Text } = Typography;
 
   return (

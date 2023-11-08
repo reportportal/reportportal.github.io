@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import { PageProps, graphql } from 'gatsby';
-
-import { Layout } from '@app/components/Layout';
+import { Layout } from '@app/components';
 import { CasesPage } from '@app/containers/CasesPage';
 
 interface DataProps {
@@ -10,7 +9,7 @@ interface DataProps {
   };
 }
 
-const Cases: React.FC<PageProps<DataProps>> = ({ data }) => {
+const Cases: FC<PageProps<DataProps>> = ({ data }) => {
   const {
     allContentfulCaseStudy: { nodes },
   } = data;

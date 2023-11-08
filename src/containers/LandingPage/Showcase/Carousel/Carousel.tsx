@@ -1,18 +1,17 @@
-import React, { useCallback, useRef, memo } from 'react';
+import React, { useCallback, useRef, memo, FC } from 'react';
 import { Carousel as AntdCarousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
-
 import { createBemBlockBuilder } from '@app/utils';
 
 import ArrowIcon from '../icons/arrow.inline.svg';
 
-interface Props {
+interface CarouselProps {
   slides: [{ icon: string }[]];
 }
 
 const getBlocksWith = createBemBlockBuilder(['showcase__carousel']);
 
-export const Carousel: React.FC<Props> = memo(({ slides }) => {
+export const Carousel: FC<CarouselProps> = memo(({ slides }) => {
   const carouselRef = useRef<CarouselRef | null>(null);
 
   const handlePrevClick = useCallback(() => {

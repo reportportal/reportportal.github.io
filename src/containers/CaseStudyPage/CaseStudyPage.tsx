@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import classNames from 'classnames';
 import noop from 'lodash/noop';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-
-import { Link } from '@app/components/Link';
+import { Link, SubscriptionBanner } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
-import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
-import { CaseStudy } from '@app/templates/case-study/types';
+import { CaseStudyProps } from '@app/templates/case-study/case-study';
 
 import { OPTIONS } from './constants';
-
 import { ArrowLeft } from '../../svg/arrowLeft';
 import DownloadIcon from '../../svg/download.inline.svg';
 
@@ -17,7 +14,7 @@ import './CaseStudyPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['case-page']);
 
-export const CaseStudyPage: React.FC<CaseStudy> = ({
+export const CaseStudyPage: FC<CaseStudyProps['contentfulCaseStudy']> = ({
   title,
   industry,
   challenges,

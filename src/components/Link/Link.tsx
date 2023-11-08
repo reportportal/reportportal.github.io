@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { isAbsoluteURL, DOCUMENTATION_URL } from '@app/utils';
 
-interface Props {
-  activeClassName?: string;
+export interface LinkProps {
   children: string | React.ReactNode;
-  className?: string;
-  onClick?: (event: any) => void;
-  partiallyActive?: boolean;
   to: string;
+  className?: string;
+  activeClassName?: string;
+  partiallyActive?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 // These links are considered SEO trusted, they should be opened in the new tab without "rel" attribute set
@@ -22,7 +22,7 @@ const TRUSTED_DOMAINS = [
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
 // pass it only to GatsbyLink
-export const Link: React.FC<Props> = ({
+export const Link: FC<LinkProps> = ({
   children,
   to,
   activeClassName,

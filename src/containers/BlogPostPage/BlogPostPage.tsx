@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link } from 'gatsby';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
+import {
+  ContentfulRichTextGatsbyReference,
+  renderRichText,
+  RenderRichTextData,
+} from 'gatsby-source-contentful/rich-text';
+import { SubscriptionBanner } from '@app/components';
 
 import ArrowLeft from './icons/arrow-left.svg';
 import User from './icons/user.svg';
@@ -10,16 +14,22 @@ import { OPTIONS } from './constants';
 
 import './BlogPostPage.scss';
 
-interface Props {
+interface BlogPostPageProps {
   author: string;
-  articleBody: any;
+  articleBody: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   date: string;
   industry: string;
   title?: {
     title: string;
   };
 }
-export const BlogPostPage: React.FC<Props> = ({ industry, title, author, date, articleBody }) => (
+export const BlogPostPage: FC<BlogPostPageProps> = ({
+  industry,
+  title,
+  author,
+  date,
+  articleBody,
+}) => (
   <>
     <div className="blog-post-page">
       <div className="blog-post-page__head">

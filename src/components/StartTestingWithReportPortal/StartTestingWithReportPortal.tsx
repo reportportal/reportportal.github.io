@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-
 import { createBemBlockBuilder, iconsCommon } from '@app/utils';
 
 import { Link } from '../Link';
@@ -9,7 +8,7 @@ import './StartTestingWithReportPortal.scss';
 
 const getBlocksWith = createBemBlockBuilder(['start-testing-with-report-portal']);
 
-export const StartTestingWithReportPortal: React.FC = () => (
+export const StartTestingWithReportPortal: FC = () => (
   <section className={classNames(getBlocksWith(), 'container')}>
     <div className={getBlocksWith('__leading')}>
       <div className={getBlocksWith('__leading-heading')}>

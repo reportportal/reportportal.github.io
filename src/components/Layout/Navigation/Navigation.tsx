@@ -1,12 +1,11 @@
-import React, { useEffect, useReducer, useRef, useState } from 'react';
+import React, { useEffect, useReducer, useRef, useState, FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useToggle, useScroll } from 'ahooks';
 import { Drawer, Collapse } from 'antd';
 import upperFirst from 'lodash/upperFirst';
 import axios from 'axios';
 import classNames from 'classnames';
-
-import { Link } from '@app/components/Link';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 import { useScrollDirection } from '@app/hooks';
 
@@ -42,7 +41,7 @@ const menuItems = {
   community: { Component: CommunityMenu },
 };
 
-export const Navigation: React.FC = () => {
+export const Navigation: FC = () => {
   const menuLinksRef = useRef(null);
 
   const scroll = useScroll();

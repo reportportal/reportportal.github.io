@@ -1,13 +1,11 @@
-import React from 'react';
-
-import { Heading } from '@app/components/Heading';
-import { UnorderedList } from '@app/components/UnorderedList';
+import React, { FC } from 'react';
+import { Heading, UnorderedList } from '@app/components';
 
 import { TIPS_LIST } from './constants';
 
 import './Tips.scss';
 
-export const Tips: React.FC = () => (
+export const Tips: FC = () => (
   <div className="tips container">
     <Heading title="Use Professional Service Hours across any service listed within" tag="h3" />
     <div className="tips-lists">

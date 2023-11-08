@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const EnvelopeIcon: React.FC = () => {
+export const EnvelopeIcon: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
       <path

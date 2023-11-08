@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link } from 'gatsby';
 import { Typography } from 'antd';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-
 import { createBemBlockBuilder } from '@app/utils';
 
-import { Post } from '../types';
+import { Post } from '../constants';
 import { ArticleAuthor } from './ArticleAuthor';
 
 import './ArticlePreviewItem.scss';
 
 const getBlocksWith = createBemBlockBuilder(['article-preview-item']);
 
-interface Props {
+interface ArticlePreviewItemProps {
   post: Post;
 }
 
-export const ArticlePreviewItem: React.FC<Props> = ({ post }) => {
+export const ArticlePreviewItem: FC<ArticlePreviewItemProps> = ({ post }) => {
   return (
     <li className={getBlocksWith()}>
       <Link to={`/blog/${post.slug}`} className={getBlocksWith('__link')}>
