@@ -5,13 +5,13 @@ import AuthorIcon from './icons/author.inline.svg';
 
 import './ArticleAuthor.scss';
 
-interface Props {
+interface ArticleAuthorProps {
   authorName: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['article-author']);
 
-export const ArticleAuthor: FC<Props> = ({ authorName }) => {
+export const ArticleAuthor: FC<ArticleAuthorProps> = ({ authorName }) => {
   return (
     <p className={getBlocksWith()}>
       <span className={getBlocksWith('__icon')}>

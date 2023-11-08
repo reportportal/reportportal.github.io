@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
-import { UnorderedList, UnorderedList } from '@app/components';
+import { UnorderedList } from '@app/components';
 import RightIcon from '@app/svg/testing/Right.svg';
 
 import './ListDropdown.scss';

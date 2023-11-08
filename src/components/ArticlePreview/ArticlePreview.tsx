@@ -7,13 +7,13 @@ import { Post } from './constants';
 
 import './ArticlePreview.scss';
 
-interface Props {
+interface ArticlePreviewProps {
   posts: Post[];
 }
 
 const getBlocksWith = createBemBlockBuilder(['article-preview-list']);
 
-export const ArticlePreview: FC<Props> = ({ posts }) =>
+export const ArticlePreview: FC<ArticlePreviewProps> = ({ posts }) =>
   !isEmpty(posts) ? (
     <ul className={getBlocksWith()}>
       {posts.map(post => (
