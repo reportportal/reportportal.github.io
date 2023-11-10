@@ -1,28 +1,24 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { PageProps, graphql } from 'gatsby';
 import { Layout } from '@app/components';
 import { BlogPage } from '@app/containers/BlogPage';
+import { BlogPostsQueryDto, BlogPostDto } from '@app/utils';
 
 const PAGE_SIZE = 9;
 
-interface DataProps {
-  allContentfulBlogPost: {
-    nodes: {
-      [key: string]: any;
-    };
-  };
-}
+const BlogIndex: FC<PageProps<BlogPostsQueryDto>> = ({ data: { allContentfulBlogPost } }) => {
+  const { nodes: allPosts } = allContentfulBlogPost;
 
-const BlogIndex: FC<PageProps<DataProps>> = ({ data }) => {
-  const { nodes } = data.allContentfulBlogPost;
+  const [visiblePosts, setVisiblePosts] = useState<BlogPostDto[]>(allPosts.slice(0, PAGE_SIZE));
 
-  const [posts, setPosts] = useState(nodes.slice(0, PAGE_SIZE));
-
-  const loadMorePost = () => setPosts(nodes.slice(0, posts.length + PAGE_SIZE));
+  const loadMorePosts = useCallback(
+    () => setVisiblePosts(prevState => allPosts.slice(0, prevState.length + PAGE_SIZE)),
+    [allPosts],
+  );
 
   return (
     <Layout>
-      <BlogPage posts={posts} loadMorePost={loadMorePost} nodes={nodes} />
+      <BlogPage visiblePosts={visiblePosts} allPosts={allPosts} loadMorePosts={loadMorePosts} />
     </Layout>
   );
 };

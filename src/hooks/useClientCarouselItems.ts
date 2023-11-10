@@ -1,18 +1,20 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import { useMemo } from 'react';
-import { CarouselSlide } from '@app/utils';
+import { CarouselSlideDto } from '@app/utils';
 
-interface ClientCarouselItems {
-  slides: CarouselSlide[];
-  allSlidesItems: CarouselSlide['organizations'];
+interface ClientCarouselItemsDto {
+  slides: CarouselSlideDto[];
+  allSlidesItems: CarouselSlideDto['organizations'];
 }
 
-export const useClientCarouselItems = (): ClientCarouselItems => {
+interface ClientCarouselItemsQueryDto {
+  allContentfulClientCarouselSlide: { nodes: CarouselSlideDto[] };
+}
+
+export const useClientCarouselItems = (): ClientCarouselItemsDto => {
   const {
     allContentfulClientCarouselSlide: { nodes: slides },
-  } = useStaticQuery<{
-    allContentfulClientCarouselSlide: { nodes: CarouselSlide[] };
-  }>(graphql`
+  } = useStaticQuery<ClientCarouselItemsQueryDto>(graphql`
     query ContentfulClientCarouselSlideQuery {
       allContentfulClientCarouselSlide(sort: { order: ASC }) {
         nodes {

@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
 import isEmpty from 'lodash/isEmpty';
-import { createBemBlockBuilder } from '@app/utils';
+import { createBemBlockBuilder, PostDto } from '@app/utils';
 
 import { ArticlePreviewItem } from './ArticlePreviewItem';
-import { Post } from './constants';
 
 import './ArticlePreview.scss';
 
 interface ArticlePreviewProps {
-  posts: Post[];
+  posts: PostDto[];
 }
 
 const getBlocksWith = createBemBlockBuilder(['article-preview-list']);

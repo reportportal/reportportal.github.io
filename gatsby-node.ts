@@ -6,31 +6,29 @@ import axios from 'axios';
 
 import { contactUsConfig } from './src/utils/contactUsConfig';
 
-type PostType = {
+interface PostType {
   slug: string;
-};
+}
 
-type PostTypeDto = {
+interface PostTypeDto {
   allContentfulBlogPost: {
     nodes: PostType[];
   };
-};
+}
 
-type CaseType = {
+interface CaseType {
   slug: string;
-};
+}
 
-type CaseTypeDto = {
+interface CaseTypeDto {
   allContentfulCaseStudy: {
     nodes: CaseType[];
   };
-};
+}
 
 interface Repos {
   total: number;
-  repos: {
-    [key: string]: string;
-  };
+  repos: Record<string, string>;
 }
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {

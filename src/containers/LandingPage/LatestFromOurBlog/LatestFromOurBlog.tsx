@@ -9,13 +9,13 @@ import './LatestFromOurBlog.scss';
 const getBlocksWith = createBemBlockBuilder(['latest-from-our-blog']);
 
 export const LatestFromOurBlog: FC = () => {
-  const { nodes } = useLatestFromOurBlog();
+  const posts = useLatestFromOurBlog();
 
   return (
     <section className={classNames(getBlocksWith(), 'container')}>
       <h2 className={getBlocksWith('__title')}>Latest from our blog</h2>
       <div className={getBlocksWith('__latest-post')}>
-        <ArticlePreview posts={nodes} />
+        <ArticlePreview posts={posts} />
       </div>
     </section>
   );

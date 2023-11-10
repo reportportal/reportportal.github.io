@@ -1,13 +1,18 @@
 import React, { useCallback, useRef, memo, FC } from 'react';
 import { Carousel as AntdCarousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
-import { CarouselSlide, ContentfulAsset, createBemBlockBuilder, Organization } from '@app/utils';
+import {
+  CarouselSlideDto,
+  ContentfulAsset,
+  createBemBlockBuilder,
+  OrganizationDto,
+} from '@app/utils';
 
 import ArrowIcon from '../icons/arrow.inline.svg';
 
 interface CarouselProps {
-  slides: CarouselSlide[];
-  logoKey: keyof Organization;
+  slides: CarouselSlideDto[];
+  logoKey: keyof OrganizationDto;
 }
 
 const getBlocksWith = createBemBlockBuilder(['showcase__carousel']);

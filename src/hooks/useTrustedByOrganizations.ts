@@ -1,18 +1,20 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import { Organization } from '@app/utils';
 
-interface TrustedByOrganizations {
+interface TrustedByOrganizationsQuery {
   organizations: Required<Organization>[];
 }
 
-export const useTrustedByOrganizations = (): TrustedByOrganizations['organizations'] => {
+interface TrustedByOrganizationsQueryDto {
+  allContentfulTrustedByOrganizations: { nodes: TrustedByOrganizationsQuery[] };
+}
+
+export const useTrustedByOrganizations = (): TrustedByOrganizationsQuery['organizations'] => {
   const {
     allContentfulTrustedByOrganizations: {
       nodes: [{ organizations }],
     },
-  } = useStaticQuery<{
-    allContentfulTrustedByOrganizations: { nodes: TrustedByOrganizations[] };
-  }>(graphql`
+  } = useStaticQuery<TrustedByOrganizationsQueryDto>(graphql`
     query ContentfulTrustedByOrganizationsQuery {
       allContentfulTrustedByOrganizations(limit: 1) {
         nodes {

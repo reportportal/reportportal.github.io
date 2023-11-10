@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link, SubscriptionBanner } from '@app/components';
-import { createBemBlockBuilder } from '@app/utils';
+import { ContentfulAsset, createBemBlockBuilder } from '@app/utils';
 
 import DownloadIcon from '../../svg/download.inline.svg';
 
@@ -9,14 +9,10 @@ import './CasesPage.scss';
 
 interface Case {
   cardBackgroundImage: {
-    file: {
-      url: string;
-    };
+    file: ContentfulAsset;
   };
   icon: {
-    file: {
-      url: string;
-    };
+    file: ContentfulAsset;
   };
   id: string;
   industry: string;
