@@ -17,7 +17,7 @@ const HEADER_HEIGHT = 76;
 
 export const ScrollIndicator = ({ sections }) => {
   const [offset, setOffset] = useState(-FIRST_POSITION_OFFSET);
-  const [indicatorMarginTop, setIndicatorMarginTop] = useState(HEADER_HEIGHT);
+  const [indicatorTopPosition, setIndicatorTopPosition] = useState(HEADER_HEIGHT);
   const scroll = useScroll(document);
 
   const [topPosition, setTopPosition] = useState(0);
@@ -48,16 +48,12 @@ export const ScrollIndicator = ({ sections }) => {
 
     const marginValue = (viewportHeight - indicatorySize?.height) / 2;
 
-    setIndicatorMarginTop(marginValue);
+    setIndicatorTopPosition(marginValue);
   }, [indicatorySize]);
 
   return (
-    <div ref={pathRef} className={getBlocksWith()}>
-      <div
-        ref={indicatoryRef}
-        className={getBlocksWith('__path')}
-        style={{ top: `${indicatorMarginTop}px` }}
-      >
+    <div ref={pathRef} className={getBlocksWith()} style={{ top: `${indicatorTopPosition}px` }}>
+      <div ref={indicatoryRef} className={getBlocksWith('__path')}>
         <div className={getBlocksWith('__box')}>
           <div
             className={getBlocksWith('__box-item-line')}

@@ -56,7 +56,7 @@ export const FeaturesPage: FC = () => {
   const [isFeaturesMenuSticky, setIsFeaturesMenuSticky] = useState(false);
   const [activeElement, setActiveElement] = useState(location.hash);
   const processIntegrationRef = useRef<null | HTMLElement>(null);
-  const scrollDirection = useScrollDirection({ callbackFn: handleScroll, isMenuOpen: null });
+  const scrollDirection = useScrollDirection({ callbackFn: handleScroll, isMenuOpen: false });
   const scroll = useScroll();
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
   const scrollY = scroll?.top ?? 0;
@@ -210,10 +210,8 @@ export const FeaturesPage: FC = () => {
       </div>
       <ProcessIntegration ref={processIntegrationRef} />
       <div className={getBlocksWith('__frameworks')}>
-        <div className="container">
-          <h2>Supported frameworks</h2>
-          <h3>Explore supported frameworks by language</h3>
-        </div>
+        <h2>Supported frameworks</h2>
+        <h3>Explore supported frameworks by language</h3>
         <SupportedFrameworks />
       </div>
       <StartTestingWithReportPortal />
