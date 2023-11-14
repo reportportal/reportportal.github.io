@@ -46,6 +46,16 @@
       .ant-tabs .ant-tabs-tab {
         padding: 12px 16px;
       }
+
+      .ant-tabs-top > .ant-tabs-nav::before {
+        right: -16px;
+        left: -16px;
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          right: -24px;
+          left: -24px;
+        }
+      }
     }
   }
 

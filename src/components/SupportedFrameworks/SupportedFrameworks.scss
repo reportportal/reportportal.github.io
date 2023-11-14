@@ -87,6 +87,11 @@
           right: -32px;
           left: -32px;
         }
+
+        @include m.breakpoint(v.$desktop-sm) {
+          right: -24px;
+          left: -24px;
+        }
       }
     }
 
@@ -110,10 +115,10 @@
       grid-template-columns: repeat(2, 1fr);
       row-gap: 32px;
       column-gap: 24px;
-      padding: 24px;
+      padding: 32px 16px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        padding: 32px;
+        padding: 32px 24px;
       }
 
       @include m.breakpoint(550px) {
