@@ -3,6 +3,7 @@ import noop from 'lodash/noop';
 import classNames from 'classnames';
 import { createBemBlockBuilder, ON_PREMISES_OFFER_PRICES } from '@app/utils';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
+import InfoIcon from '@app/svg/infoIcon.inline.svg';
 
 import { TrustedOrganizations } from '../TrustedOrganizations';
 import { Faq } from '../Faq';
@@ -13,7 +14,6 @@ import { Link } from '../Link';
 import { TimeScale } from './TimeScale';
 import { PentagonCard } from './PentagonCard';
 import { COLUMNS, MOBILE_COLUMNS } from './constants';
-import InfoIcon from './icons/infoIcon.inline.svg';
 import { getDataPlans, getFooterButtons, getOfferLinks } from './utils';
 
 import './OfferPageWrapper.scss';
@@ -67,8 +67,12 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
         offerType={offerType}
         description={description}
         switchActiveBtn={noop}
-        switchDiscount={toggleDiscountState}
-        discountState={discountState}
+        switcherProps={{
+          switchDiscount: toggleDiscountState,
+          discountState,
+          messageInactive: 'Quarterly',
+          messageActive: 'Yearly (Save 5%)',
+        }}
       />
       <div className={getBlocksWith('__pentagons')}>
         {getOfferLinks(pagePath).map((href, index) => {

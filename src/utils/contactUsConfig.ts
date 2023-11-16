@@ -19,6 +19,22 @@ const yearlyOption = { isYearly: true };
 const quarterlyOption = { isYearly: false };
 const availableOptions = [quarterlyOption, yearlyOption];
 
+const createPriceInfoSaaS = ({
+  isYearly,
+  pricingSource,
+}: AvailableOption & {
+  pricingSource: { value: number; discountedValueQuarterly: number; discountedValueYearly: number };
+}) => {
+  return `<p>
+      <div><strong>Price: <span>$${formatNumberWithCommas(
+        pricingSource.value,
+      )}</span> $${formatNumberWithCommas(
+    isYearly ? pricingSource.discountedValueYearly : pricingSource.discountedValueQuarterly,
+  )}/month</strong></div>
+      <div><strong>Billing period:</strong> ${isYearly ? 'Yearly' : 'Quarterly'}</div>
+    </p>`;
+};
+
 const createPriceInfo = ({
   isYearly,
   pricingSource,
@@ -39,7 +55,7 @@ const createStartupPlanBaseConfig = ({ isYearly }: AvailableOption) => ({
       value: 'RP SaaS',
     },
   ],
-  info: `${createPriceInfo({ isYearly, pricingSource: SAAS_OFFERS_DATA[0].price })}
+  info: `${createPriceInfoSaaS({ isYearly, pricingSource: SAAS_OFFERS_DATA[0].price })}
         <p>Contact us to get Startup Plan Details and its Free Trial.</p>`,
 });
 
@@ -51,7 +67,7 @@ const createBusinessPlanBaseConfig = ({ isYearly }: AvailableOption) => ({
       value: 'RP SaaS',
     },
   ],
-  info: `${createPriceInfo({ isYearly, pricingSource: SAAS_OFFERS_DATA[1].price })}
+  info: `${createPriceInfoSaaS({ isYearly, pricingSource: SAAS_OFFERS_DATA[1].price })}
         <p>Contact us to get Business Plan Details and ReportPortal Free Trial.</p>`,
 });
 

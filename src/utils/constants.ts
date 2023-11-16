@@ -18,7 +18,8 @@ export const SAAS_OFFERS_DATA = [
     price: {
       currency: '$',
       value: 599,
-      discountedValue: 569,
+      discountedValueQuarterly: 539,
+      discountedValueYearly: 509,
       period: 'month',
       message: '',
     },
@@ -42,7 +43,8 @@ export const SAAS_OFFERS_DATA = [
     price: {
       currency: '$',
       value: 2799,
-      discountedValue: 2659,
+      discountedValueQuarterly: 2519,
+      discountedValueYearly: 2379,
       period: 'month',
       message: '',
     },
@@ -66,7 +68,8 @@ export const SAAS_OFFERS_DATA = [
     price: {
       currency: '',
       value: 0,
-      discountedValue: 0,
+      discountedValueQuarterly: 0,
+      discountedValueYearly: 0,
       period: '',
       message: 'Let’s talk',
     },

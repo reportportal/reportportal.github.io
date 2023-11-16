@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { ButtonSwitcher, ButtonSwitcherProps } from '../ButtonSwitcher';
-import { DiscountSwitcher } from './DiscountSwitcher';
+import { DiscountSwitcher, DiscountSwitcherProps } from './DiscountSwitcher';
 
 import './PricingHero.scss';
 
@@ -16,6 +16,7 @@ interface PricingHeroProps {
   discountState: boolean;
   offerType: string;
   description: string;
+  switcherProps: DiscountSwitcherProps;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pricing-hero']);
@@ -26,8 +27,7 @@ export const PricingHero: FC<PricingHeroProps> = ({
   buttons,
   switchActiveBtn,
   activeButton,
-  switchDiscount,
-  discountState,
+  switcherProps,
   offerType,
   description,
 }) => (
@@ -42,7 +42,7 @@ export const PricingHero: FC<PricingHeroProps> = ({
       <div className={getBlocksWith('__wrapper-subtitle')}>{description}</div>
     </div>
     <div className={getBlocksWith('__discount-switcher')}>
-      <DiscountSwitcher switchDiscount={switchDiscount} discountState={discountState} />
+      <DiscountSwitcher {...switcherProps} />
     </div>
   </div>
 );
