@@ -222,6 +222,11 @@
 
     strong {
       font-weight: v.$fw-semi-bold;
+
+      span {
+        text-decoration: line-through;
+        font-weight: v.$fw-regular;
+      }
     }
   }
 

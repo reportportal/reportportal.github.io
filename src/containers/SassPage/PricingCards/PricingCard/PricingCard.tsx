@@ -12,10 +12,11 @@ interface PricingCardProps {
     listItems: string[];
     price: {
       currency: string;
-      value: string;
+      value: number;
       period: string;
       message: string;
-      discountedValue: string;
+      discountedValueQuarterly: number;
+      discountedValueYearly: number;
     };
     actionText: string;
     isPopular: string;
@@ -28,14 +29,15 @@ interface PricingCardProps {
 const getBlocksWith = createBemBlockBuilder(['pricing-card']);
 
 export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
-  const { title, description, listItems, price, actionText, isPopular, actionVariant, href } = card;
-  const { currency, value, period, message, discountedValue } = price;
+  const { title, description, listItems, price, actionText, actionVariant, href } = card;
+  const { currency, value, period, message, discountedValueQuarterly, discountedValueYearly } =
+    price;
   const contactUsURL = !value ? href : `${href}/${discountState ? 'yearly' : 'quarterly'}`;
 
   return (
     <div className={getBlocksWith()}>
       <div>
-        {isPopular && <div className={getBlocksWith('__popular')}>Most popular</div>}
+        <div className={getBlocksWith('__popular')}>BLACK FRIDAY -{discountState ? 15 : 10}%</div>
         <div className={getBlocksWith('__title')}>{title}</div>
         <div className={getBlocksWith('__description')}>{description}</div>
         <ul>
@@ -47,11 +49,17 @@ export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
       <div className={getBlocksWith('__bottom-panel')}>
         <div className={getBlocksWith('__price')}>
           {message ? (
-            <span>{message}</span>
+            <span className={getBlocksWith('__price-value')}>{message}</span>
           ) : (
             <>
-              <span>
-                {currency} {formatNumberWithCommas(discountState ? discountedValue : value)}
+              <span className={getBlocksWith('__price-value-old')}>
+                {currency} {formatNumberWithCommas(value)}
+              </span>
+              <span className={getBlocksWith('__price-value')}>
+                {currency}{' '}
+                {formatNumberWithCommas(
+                  discountState ? discountedValueYearly : discountedValueQuarterly,
+                )}
               </span>
               / {period}
             </>
