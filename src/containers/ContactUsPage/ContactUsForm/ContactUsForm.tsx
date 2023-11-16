@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
+import isEmpty from 'lodash/isEmpty';
 import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -20,7 +21,6 @@ const getBlocksWith = createBemBlockBuilder(['contact-us-form']);
 
 export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   const [isFeedbackFormVisible, { setTrue: showFeedbackForm }] = useBoolean(false);
-  const [iframe, setIframe] = useState(null);
   const formik = useFormik({
     initialValues: {
       first_name: '',
@@ -30,29 +30,32 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
       termsAgree: false,
       ...(isDiscussFieldShown && { discuss: '' }),
     },
+    validateOnBlur: false,
+    validateOnChange: false,
     validate,
   });
+  const { getFieldProps, validateForm, values } = formik;
 
-  const { dirty, isValid, getFieldProps } = formik;
-  const iframeName = 'dummyframe';
+  const handleSubmit = event => {
+    event.preventDefault();
 
-  useEffect(() => {
-    const dummyFrame = document.createElement('iframe');
-
-    dummyFrame.name = iframeName;
-    dummyFrame.id = iframeName;
-    dummyFrame.style.display = 'none';
-
-    document.body.appendChild(dummyFrame);
-
-    setIframe(dummyFrame);
-
-    return () => dummyFrame.parentNode.removeChild(dummyFrame);
-  }, []);
-
-  const handleSubmit = () => {
-    iframe.onload = () => showFeedbackForm();
-    iframe.onerror = () => showFeedbackForm();
+    validateForm().then(errors => {
+      if (isEmpty(errors)) {
+        fetch(process.env.SALESFORCE_URL, {
+          method: 'POST',
+          body: new URLSearchParams(values),
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+          .then(() => {
+            showFeedbackForm();
+          })
+          .catch(() => {
+            showFeedbackForm();
+          });
+      }
+    });
   };
 
   if (isFeedbackFormVisible) {
@@ -62,12 +65,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   return (
     <FormikProvider value={formik}>
       <div className={getBlocksWith('-container')}>
-        <form
-          className={getBlocksWith()}
-          action={process.env.SALESFORCE_URL}
-          method="POST"
-          target={iframeName}
-        >
+        <form className={getBlocksWith()}>
           <SalesForceFormBase
             additionalFields={options.map(option => (
               <input key={option.name} type="hidden" {...option} />
@@ -103,8 +101,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
                   information as set out in the{' '}
                   <Link to="https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy">
                     Privacy Policy <ArrowIcon />
-                  </Link>{' '}
-                  and outside of my home jurisdiction
+                  </Link>
                 </>
               }
             />
@@ -113,7 +110,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             className="btn btn--primary btn--large"
             type="submit"
             data-gtm="send_request"
-            disabled={!(isValid && dirty && getFieldProps('termsAgree').value)}
+            disabled={!getFieldProps('termsAgree').value}
             onClick={handleSubmit}
           >
             Send request
