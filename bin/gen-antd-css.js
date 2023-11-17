@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const fs = require('fs');
 
 const { extractStyle } = require('@ant-design/static-style-extract');

@@ -13,29 +13,6 @@
   cursor: pointer;
   user-select: none;
 
-  &:active,
-  &:hover {
-    input {
-      & ~ .custom-checkbox__checkmark {
-        border-color: var(--text-service);
-      }
-
-      &:checked ~ .custom-checkbox__checkmark {
-        border-color: var(--color-primary-500);
-        background-color: var(--color-primary-500);
-      }
-    }
-  }
-
-  &:not(:hover):not(:active) {
-    input:checked {
-      & ~ .custom-checkbox__checkmark {
-        border-color: var(--color-primary-600);
-        background-color: var(--color-primary-600);
-      }
-    }
-  }
-
   a {
     color: var(--text-service);
     font-weight: v.$fw-medium;
@@ -81,6 +58,29 @@
 
     &:checked ~ .custom-checkbox__checkmark::after {
       display: block;
+    }
+  }
+
+  &:active,
+  &:hover {
+    input {
+      & ~ .custom-checkbox__checkmark {
+        border-color: var(--text-service);
+      }
+
+      &:checked ~ .custom-checkbox__checkmark {
+        border-color: var(--color-primary-500);
+        background-color: var(--color-primary-500);
+      }
+    }
+  }
+
+  &:not(:hover):not(:active) {
+    input:checked {
+      & ~ .custom-checkbox__checkmark {
+        border-color: var(--color-primary-600);
+        background-color: var(--color-primary-600);
+      }
     }
   }
 }

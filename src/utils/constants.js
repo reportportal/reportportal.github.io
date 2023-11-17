@@ -1,3 +1,0 @@
-export const LIST_ANIMATION_DELAY = 10000;
-
-export const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;

@@ -21,7 +21,7 @@
     background: var(--white);
 
     &-tabs {
-      padding: 10px 24px;
+      padding: 10px 24px 0;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         padding-right: 32px;
@@ -64,19 +64,19 @@
         }
       }
 
-      .ant-tabs-tab + .ant-tabs-tab {
-        @include m.breakpoint(v.$tablet-sm) {
+      .ant-tabs-nav-list .ant-tabs-tab + .ant-tabs-tab {
+        @include m.breakpoint(v.$tablet-sm-exact) {
           margin-left: 0;
         }
       }
 
-      .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
-        flex: 1;
-        justify-content: space-around;
-      }
-
-      .ant-tabs-nav {
+      .ant-tabs > .ant-tabs-nav {
         margin-bottom: 0;
+
+        .ant-tabs-nav-list {
+          flex: 1;
+          justify-content: space-between;
+        }
       }
 
       .ant-tabs-top > .ant-tabs-nav::before {
@@ -86,6 +86,11 @@
         @include m.breakpoint(v.$tablet-sm-exact) {
           right: -32px;
           left: -32px;
+        }
+
+        @include m.breakpoint(v.$desktop-sm) {
+          right: -24px;
+          left: -24px;
         }
       }
     }
@@ -108,11 +113,12 @@
     &-content {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      padding: 24px;
+      row-gap: 32px;
+      column-gap: 24px;
+      padding: 32px 16px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        padding: 32px;
+        padding: 32px 24px;
       }
 
       @include m.breakpoint(550px) {

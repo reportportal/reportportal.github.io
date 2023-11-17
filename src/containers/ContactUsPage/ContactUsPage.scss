@@ -54,6 +54,12 @@
     background: var(--white);
     color: var(--text-primary);
 
+    &.how-did-you-hear {
+      row-gap: unset;
+      margin-top: 64px;
+      margin-bottom: 64px;
+    }
+
     @include m.breakpoint(v.$tablet-sm-exact) {
       width: 568px;
       border-radius: 16px;
@@ -79,12 +85,6 @@
           margin-top: -110px;
         }
       }
-    }
-
-    &.how-did-you-hear {
-      row-gap: unset;
-      margin-top: 64px;
-      margin-bottom: 64px;
     }
 
     &-container {
@@ -222,6 +222,11 @@
 
     strong {
       font-weight: v.$fw-semi-bold;
+
+      span {
+        text-decoration: line-through;
+        font-weight: v.$fw-regular;
+      }
     }
   }
 

@@ -5,3 +5,4 @@ node_modules
 .github
 public
 github.json
+/src/containers/LandingPage/HowItWorks/animations
