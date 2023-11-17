@@ -32,7 +32,7 @@ export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
   const { title, description, listItems, price, actionText, actionVariant, href } = card;
   const { currency, value, period, message, discountedValueQuarterly, discountedValueYearly } =
     price;
-  const contactUsURL = !value ? href : `${href}/${discountState ? 'yearly' : 'quarterly'}`;
+  const contactUsURL = `${href}/${discountState ? 'yearly' : 'quarterly'}`;
 
   return (
     <div className={getBlocksWith()}>

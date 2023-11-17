@@ -74,7 +74,7 @@ export const SAAS_OFFERS_DATA = [
       message: 'Let’s talk',
     },
     actionText: 'Get a quote',
-    href: '/contact-us/saas/enterprise-plan/',
+    href: '/contact-us/saas/enterprise-plan',
     isPopular: false,
     actionVariant: 'outline',
   },
