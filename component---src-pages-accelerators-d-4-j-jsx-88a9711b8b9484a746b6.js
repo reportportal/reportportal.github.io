@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreportportal_github_io=self.webpackChunkreportportal_github_io||[]).push([[841],{47539:function(e,r,t){t.r(r);var a=t(67294),u=t(59700),l=t(91521);r.default=function(){return a.createElement(u.Ar,{className:"offer-page-wrapper"},a.createElement(l.Dx,null))}}}]);
-//# sourceMappingURL=component---src-pages-accelerators-d-4-j-jsx-88a9711b8b9484a746b6.js.map
