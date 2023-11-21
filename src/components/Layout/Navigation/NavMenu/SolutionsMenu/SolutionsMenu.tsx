@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
+import { useSolutionsList } from '@app/hooks/useSolutionsList';
 
 import { CaseStudiesCover } from '../covers/CaseStudiesCover';
-import { SectionList } from '../SectionList';
+import { LinkList } from '../LinkList';
 import { SectionCard } from '../SectionCard';
-import { SOLUTIONS_LIST } from './constants';
 
 import '../Menu.scss';
 import './SolutionsMenu.scss';
@@ -17,19 +17,21 @@ interface SolutionsMenuProps {
   menuContainerRef: string;
 }
 
+const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
+
 export const SolutionsMenu: FC<SolutionsMenuProps> = ({
   isDesktop = true,
   isOpen,
   menuContainerRef,
 }) => {
-  const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
+  const { solutions } = useSolutionsList();
 
   const solutionsList = (
-    <SectionList
+    <LinkList
       className="solutions-list"
       showTitle={isDesktop}
       title="Our Solutions"
-      items={SOLUTIONS_LIST}
+      items={solutions}
     />
   );
 
@@ -40,7 +42,7 @@ export const SolutionsMenu: FC<SolutionsMenuProps> = ({
       text="Featured customers' stories where ReportPortal shines the best."
     >
       <div className={classNames(getBlocksWith('__btn-group'), 'full-width')}>
-        <Link className={classNames('btn', 'btn--outline', 'full-width')} to="/case-studies">
+        <Link className="btn btn--outline full-width" to="/case-studies">
           Explore Case Studies
         </Link>
       </div>
@@ -55,7 +57,7 @@ export const SolutionsMenu: FC<SolutionsMenuProps> = ({
     <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
       <div>
         <div className={getBlocksWith('__body-row')}>
-          <div className={classNames(getBlocksWith('__body-col--lf'))}>{solutionsList}</div>
+          <div className={getBlocksWith('__body-col--lf')}>{solutionsList}</div>
           <div
             className={classNames(
               getBlocksWith('__body-col--rt'),

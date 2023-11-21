@@ -9,22 +9,4 @@
     color: var(--text-service);
     content: '(home)';
   }
-
-  &-icon {
-    &--tdspora {
-      background-image: url('icons/tdspora-2.svg');
-    }
-
-    &--drill4j {
-      background-image: url('../icons/drill4j-2.svg');
-    }
-
-    &--healenium {
-      background-image: url('../icons/healenium-2.svg');
-    }
-
-    &--qa-space {
-      background-image: url('../icons/qa-space-2.svg');
-    }
-  }
 }
