@@ -6,7 +6,7 @@ import { createBemBlockBuilder } from '@app/utils';
 import { useCommunityList } from '@app/hooks';
 
 import { MenuProps } from '../../constants';
-import { GithubCover } from '../covers/GithubCover';
+import GithubCover from '../covers/github.inline.svg';
 import { SectionList } from '../SectionList';
 import { SectionCard } from '../SectionCard';
 import { HeartIcon, ForkIcon } from './icons';
@@ -38,7 +38,7 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
       className="contribution-card"
       title="Github Contribution"
       cover={<GithubCover />}
-      text="Our team makes ReportPortal, but it’s our community that shapes and improves it."
+      text="Our team develops ReportPortal, but it’s our community that shapes and improves it."
     >
       <div className={classNames(getBlocksWith('__btn-group'), 'full-width')}>
         <Link
@@ -59,7 +59,6 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
   const communityList = (
     <SectionList
       className={classNames('community-list', { 'section-list-secondary': isDesktop })}
-      showTitle={isDesktop}
       title="Join the Community"
       items={formatCommunities()}
     />

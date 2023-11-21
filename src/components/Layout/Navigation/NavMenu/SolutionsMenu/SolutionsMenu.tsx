@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from '@app/components';
+import { useSolutionsList } from '@app/hooks';
 import { createBemBlockBuilder } from '@app/utils';
-import { useSolutionsList } from '@app/hooks/useSolutionsList';
 
-import { CaseStudiesCover } from '../covers/CaseStudiesCover';
+import CaseStudiesCover from '../covers/case-studies.inline.svg';
 import { LinkList } from '../LinkList';
 import { SectionCard } from '../SectionCard';
 
 import '../Menu.scss';
+import './SolutionsMenu.scss';
 
 interface SolutionsMenuProps {
   isDesktop: boolean;
@@ -36,6 +37,7 @@ export const SolutionsMenu: FC<SolutionsMenuProps> = ({
 
   const caseStudiesCard = (
     <SectionCard
+      className="solutions-card"
       title="Case Studies"
       cover={<CaseStudiesCover />}
       text="Featured customers' stories where ReportPortal shines the best."

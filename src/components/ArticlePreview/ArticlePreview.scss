@@ -5,11 +5,13 @@
   display: grid;
   grid-template-columns: fit-content(328px);
   grid-gap: calc(4 * var(--base-spacing)) calc(3 * var(--base-spacing));
-  margin: -25px;
-  padding: 25px;
+  margin: -25px -16px;
+  padding: 25px 16px;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
-    grid-template-columns: repeat(2, 348px);
+    grid-template-columns: repeat(2, minmax(min-content, 348px));
+    margin: -25px -24px;
+    padding: 25px 24px;
   }
 
   @include m.breakpoint(v.$desktop-sm) {

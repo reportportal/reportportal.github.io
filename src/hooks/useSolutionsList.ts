@@ -6,10 +6,10 @@ interface SolutionsListDto {
 }
 
 interface SolutionsListQueryDto {
-  allContentfulCustomersStatistics: { nodes: SolutionsListDto };
+  allContentfulSolutionsList: { nodes: SolutionsListDto[] };
 }
 
-export const useSolutionsList = (): SolutionsListQueryDto => {
+export const useSolutionsList = (): SolutionsListDto => {
   const {
     allContentfulSolutionsList: {
       nodes: [solutionsList],
