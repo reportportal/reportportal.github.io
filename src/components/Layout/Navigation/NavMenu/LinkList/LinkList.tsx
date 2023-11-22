@@ -6,14 +6,14 @@ import { LinkListItem } from './LinkListItem';
 
 import './LinkList.scss';
 
-export type ListItem = {
+export interface ListItem {
   title: string;
   description: string;
   link: string;
   icon: {
     url: string;
   };
-};
+}
 
 interface LinkListProps {
   title: string;
