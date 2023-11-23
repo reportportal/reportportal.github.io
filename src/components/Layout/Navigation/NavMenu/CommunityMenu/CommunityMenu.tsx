@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import { useAtom } from 'jotai';
 import classNames from 'classnames';
-import { subscriptionFormAtom, Link, SubscriptionForm } from '@app/components';
+import { Link, SubscriptionForm } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 import { useCommunityList } from '@app/hooks';
 
@@ -14,9 +13,9 @@ import { HeartIcon, ForkIcon } from './icons';
 import '../Menu.scss';
 import './CommunityMenu.scss';
 
+const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
+
 export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
-  const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
-  const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
   const communities = useCommunityList();
 
   const formatCommunities = () => {
@@ -65,12 +64,9 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
   );
 
   const footer = (
-    <div className={classNames(getBlocksWith('__footer'), 'temporary-hide')}>
+    <div className={classNames(getBlocksWith('__footer'))}>
       <div className={getBlocksWith('__footer-container')}>
-        <SubscriptionForm
-          subscriptionFormState={subscriptionFormState}
-          setSubscriptionFormState={setSubscriptionFormState}
-        />
+        <SubscriptionForm />
       </div>
     </div>
   );

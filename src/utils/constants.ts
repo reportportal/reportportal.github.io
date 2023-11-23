@@ -64,3 +64,6 @@ export const SAAS_OFFERS = [
 export type SAAS_OFFERS_KEYS = (typeof SAAS_OFFERS)[number]['key'];
 
 export const isNewYearMode = isDateBetweenNov25AndJan15GMT3();
+
+export const EMAIL_VALIDATION_REGEX =
+  /^(?![.])(?!.*[_.-]{2})[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?<![_\-.])$/;
