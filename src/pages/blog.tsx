@@ -17,7 +17,7 @@ const BlogIndex: FC<PageProps<BlogPostsQueryDto>> = ({ data: { allContentfulBlog
   );
 
   return (
-    <Layout>
+    <Layout className="with-footer-banner">
       <BlogPage visiblePosts={visiblePosts} allPosts={allPosts} loadMorePosts={loadMorePosts} />
     </Layout>
   );

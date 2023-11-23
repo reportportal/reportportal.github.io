@@ -1,4 +1,5 @@
-const emailValidateRegEx = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+import { EMAIL_VALIDATION_REGEX } from '@app/utils';
+
 const textFieldRegex = /^[\wa-я.\s-]+$/i;
 
 const validateField = ({ value, regex, message }) => {
@@ -26,7 +27,7 @@ const fields = [
   },
   {
     name: 'email',
-    regex: emailValidateRegEx,
+    regex: EMAIL_VALIDATION_REGEX,
     message: 'Please check your email',
   },
   {

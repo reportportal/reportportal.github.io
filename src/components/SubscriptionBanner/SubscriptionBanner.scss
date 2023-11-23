@@ -3,12 +3,6 @@
 @import 'src/styles/buttons';
 
 .subscription-banner {
-  padding-bottom: 21px;
-
-  @include m.breakpoint(v.$desktop-sm) {
-    padding-bottom: 54px;
-  }
-
   .banner__titles {
     align-self: flex-start;
     margin: unset;
