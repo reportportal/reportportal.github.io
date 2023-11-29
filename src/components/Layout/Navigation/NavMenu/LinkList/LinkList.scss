@@ -1,0 +1,75 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.link-list {
+  @include m.font-scale(small);
+
+  &:not(:first-child) {
+    margin-top: 40px;
+  }
+
+  &__title {
+    @include m.font-poppins(v.$fw-semi-bold);
+
+    margin: 0 0 16px;
+    padding-left: 8px;
+    text-transform: uppercase;
+    color: var(--text-service);
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    width: 324px;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      gap: 8px;
+    }
+  }
+}
+
+.link-list-item {
+  @include m.font-scale(base);
+
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+
+  &:hover {
+    border-radius: 8px;
+    background: var(--bg-grey2);
+  }
+
+  &-title {
+    @include m.font-poppins(v.$fw-semi-bold);
+
+    line-height: 24px;
+  }
+
+  &-description {
+    @include m.font-poppins();
+    @include m.font-scale(small);
+
+    line-height: 20px;
+  }
+
+  &-title,
+  &-description {
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  &-addition {
+    @include m.font-noto-sans();
+
+    display: inline-block;
+    margin-left: 7px;
+    color: var(--text-service);
+  }
+
+  &-icon {
+    width: 28px;
+    height: 28px;
+    margin: 4px;
+  }
+}
