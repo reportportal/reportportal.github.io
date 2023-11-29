@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import chunk from 'lodash/chunk';
-import { createBemBlockBuilder } from '@app/utils';
+import { ContentfulAsset, createBemBlockBuilder } from '@app/utils';
 
 import { LinkListItem } from './LinkListItem';
 
@@ -10,15 +10,14 @@ export interface ListItem {
   title: string;
   description: string;
   link: string;
-  icon: {
-    url: string;
-  };
+  addition?: string;
+  icon: ContentfulAsset;
 }
 
 interface LinkListProps {
   title: string;
   items: ListItem[];
-  className?: string;
+  className: string;
   showTitle?: boolean;
   itemsPerRow?: number;
 }
@@ -26,11 +25,11 @@ interface LinkListProps {
 export const LinkList: FC<LinkListProps> = ({
   title,
   items,
+  className = '',
   showTitle = true,
   itemsPerRow = items.length,
-  className = '',
 }) => {
-  const getBlocksWith = createBemBlockBuilder(['link-list', className as string]);
+  const getBlocksWith = createBemBlockBuilder(['link-list', className]);
 
   const columns = chunk(items, itemsPerRow).map((column, columnIndex) => (
     <div key={columnIndex} className={getBlocksWith('__col')}>

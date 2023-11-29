@@ -9,7 +9,6 @@ import { LinkList } from '../LinkList';
 import { SectionCard } from '../SectionCard';
 
 import '../Menu.scss';
-import './SolutionsMenu.scss';
 
 interface SolutionsMenuProps {
   isDesktop: boolean;

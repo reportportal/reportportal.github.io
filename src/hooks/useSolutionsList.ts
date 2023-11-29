@@ -22,6 +22,7 @@ export const useSolutionsList = (): SolutionsListQueryDto => {
             description
             link
             title
+            addition
             icon {
               url
             }

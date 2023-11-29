@@ -59,6 +59,14 @@
     color: var(--text-primary);
   }
 
+  &-addition {
+    @include m.font-noto-sans();
+
+    display: inline-block;
+    margin-left: 7px;
+    color: var(--text-service);
+  }
+
   &-icon {
     width: 28px;
     height: 28px;
