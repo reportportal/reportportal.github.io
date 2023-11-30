@@ -15,6 +15,13 @@ export interface OrganizationDto {
   secondaryLogo?: ContentfulAsset;
 }
 
+export interface CommunityListDto {
+  title: string;
+  link: string;
+  icon: ContentfulAsset;
+  hoverIcon: ContentfulAsset;
+}
+
 export interface CarouselSlideDto {
   id: string;
   organizations: OrganizationDto[];

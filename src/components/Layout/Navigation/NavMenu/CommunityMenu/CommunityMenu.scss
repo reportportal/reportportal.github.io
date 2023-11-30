@@ -1,42 +1,14 @@
 .community-list__item {
   &,
   &:hover {
-    .community-list__item-icon {
-      &--slack {
-        background-image: url('icons/slack-2.svg');
-      }
-
-      &--twitter {
-        background-image: url('icons/twitter-2.svg');
-      }
-
-      &--youtube {
-        background-image: url('../icons/youtube-2.svg');
-      }
-
-      &--linkedin {
-        background-image: url('icons/linkedin-2.svg');
-      }
+    .community-list__item-icon--community {
+      background-image: var(--hoverIcon);
     }
   }
 
   .is-desktop & {
-    &-icon {
-      &--slack {
-        background-image: url('icons/slack-1.svg');
-      }
-
-      &--twitter {
-        background-image: url('icons/twitter-1.svg');
-      }
-
-      &--youtube {
-        background-image: url('icons/youtube-1.svg');
-      }
-
-      &--linkedin {
-        background-image: url('icons/linkedin-1.svg');
-      }
+    &-icon--community {
+      background-image: var(--icon);
     }
   }
 }
