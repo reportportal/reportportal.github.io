@@ -17,7 +17,6 @@ export const OnPremisesPage: FC = () => (
     timeScaleData={TIME_SCALE_DATA}
     faqData={FAQ_DATA}
     contactUsLink="/contact-us/general"
-    utilizationDescription=" Professional service hour is the minimum for any support request. Unless otherwise noted,
-        a Professional Service Hour is equal to an hour of work or fraction thereof"
+    utilizationDescription="Professional Service Hour is the minimum for any support request. Unless otherwise noted, a Professional Service Hour is equal to an hour of work or fraction thereof"
   />
 );
