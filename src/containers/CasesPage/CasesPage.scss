@@ -57,6 +57,7 @@
   }
 
   &-item-box {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -74,6 +75,18 @@
 
     &:hover {
       box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
+
+      &:before {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.1);
+      }
     }
   }
 

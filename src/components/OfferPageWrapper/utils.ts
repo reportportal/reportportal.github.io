@@ -39,9 +39,9 @@ export const getFooterButtons = page => [
 export const getDataPlans = page =>
   compact([
     {
-      feature: 'Professional service hours',
+      feature: 'Professional Service Hours',
       description:
-        'A professional service hour is a blended hour included into your subscription plan, which may consist of the time of various specialists, whether it is the time of a business analyst, architect, lead automation engineer, DevOps (System Engineer) or performance engineer. \n' +
+        'A Professional Service Hour is a blended hour included into your subscription plan, which may consist of the time of various specialists, whether it is the time of a business analyst, architect, lead automation engineer, DevOps (System Engineer) or performance engineer. \n' +
         '\n' +
         'It can be used for various purposes related to ReportPortal installation, configuration, integration, customization, feature implementation, TAF updates, test case implementation, etc.',
       openSource: false,

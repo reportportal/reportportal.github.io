@@ -23,6 +23,10 @@
     .article-preview-item__title {
       color: var(--color-primary-500);
     }
+
+    .article-preview-item__featured-image::before {
+      background: rgba(0, 0, 0, 0.1);
+    }
   }
 
   &:active {

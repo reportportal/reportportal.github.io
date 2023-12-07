@@ -103,8 +103,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
                   information as set out in the{' '}
                   <Link to="https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy">
                     Privacy Policy <ArrowIcon />
-                  </Link>{' '}
-                  and outside of my home jurisdiction
+                  </Link>
                 </>
               }
             />

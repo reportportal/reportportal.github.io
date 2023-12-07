@@ -29,7 +29,7 @@ export const PentagonCard: FC<Props> = ({ stepNumber, hours, price, contactLink 
   const getProps = () => {
     return isFirstStep
       ? { number: 'Open Source' }
-      : { number: hours, text: 'Professional', benefit: 'service hours' };
+      : { number: hours, text: 'Professional', benefit: 'Service Hours' };
   };
 
   return (
