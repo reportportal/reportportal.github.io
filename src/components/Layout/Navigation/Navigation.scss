@@ -1,6 +1,8 @@
 @use 'src/styles/mixins' as m;
 @use 'src/styles/variables' as v;
 
+$desktop-sm-header: 1124px;
+
 .top-header {
   position: relative;
   top: 0;
@@ -9,11 +11,40 @@
   transition: background 0.3s, top 0.3s;
   color: var(--white);
 
+  .new-year-mode & {
+    transition: top 0.3s;
+  }
+
   &--active,
   &:hover {
     box-shadow: 0 8px 24px rgb(34 61 69 / 0.08);
     background: var(--white);
     color: var(--text-primary);
+
+    .new-year-mode & {
+      position: relative;
+      background: url('./icons/new-year-background.inline.svg');
+      background-position: $desktop-sm-header 0;
+
+      @include m.breakpoint($desktop-sm-header) {
+        background-position-x: center;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: -24px;
+        width: 100%;
+        height: 35px;
+        background: url('./icons/new-year-background-snow.inline.svg');
+        background-position: $desktop-sm-header 0;
+        z-index: 1000;
+
+        @include m.breakpoint($desktop-sm-header) {
+          background-position-x: center;
+        }
+      }
+    }
   }
 
   &__wrapper {
@@ -37,8 +68,17 @@
     padding: 18px 0;
     line-height: 0;
 
-    path {
-      transition: fill 0.3s;
+    svg {
+      .new-year-mode & {
+        margin-top: -6px;
+      }
+
+      height: 40px;
+      overflow: visible;
+
+      path {
+        transition: fill 0.3s;
+      }
     }
 
     .top-header--active &,
@@ -46,6 +86,10 @@
     .top-header:hover & {
       [class*='logo-block'] {
         fill: #00b0d1;
+      }
+
+      [class*='logo-stroke'] {
+        stroke: #dadee8;
       }
 
       [class*='logo-title'] {
@@ -57,7 +101,7 @@
   &__list {
     display: none;
 
-    @include m.breakpoint(1124px) {
+    @include m.breakpoint($desktop-sm-header) {
       display: flex;
     }
   }
@@ -120,6 +164,10 @@
 
     @include m.breakpoint(v.$tablet-sm) {
       display: flex;
+
+      .new-year-mode & {
+        display: none;
+      }
     }
   }
 
@@ -200,7 +248,7 @@
   background: none;
   cursor: pointer;
 
-  @include m.breakpoint(1124px) {
+  @include m.breakpoint($desktop-sm-header) {
     display: none;
   }
 
@@ -244,6 +292,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .ant-drawer-title a {
+    padding: 0;
   }
 
   .ant-collapse {
