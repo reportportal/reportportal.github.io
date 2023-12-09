@@ -1,4 +1,5 @@
 import React, { FC, ReactElement, useCallback } from 'react';
+import Snowfall from 'react-snowfall';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { atom, useAtom } from 'jotai';
 import classNames from 'classnames';
@@ -12,6 +13,15 @@ import { Navigation } from './Navigation';
 import { Footer } from './Footer';
 import { EmbedVideo } from './EmbedVideo';
 import { isDateBetweenNov25AndDec14 } from './utils';
+
+const snowfallProps = {
+  color: '#ebfbff',
+  snowflakeCount: 197,
+  speed: [1, 3],
+  wind: [-0.5, 1],
+  radius: [0.5, 1],
+  style: { position: 'fixed', zIndex: 1000 },
+};
 
 export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscribed: false });
 export const watchProductOverviewAtom = atom({ isOpen: false });
@@ -45,6 +55,7 @@ export const Layout: FC<LayoutProps> = ({ children, className }) => {
           onClick={toggleEmbedVideoOpen}
         />
       </div>
+      {isNewYearMode && <Snowfall {...snowfallProps} />}
     </StyleProvider>
   );
 };
