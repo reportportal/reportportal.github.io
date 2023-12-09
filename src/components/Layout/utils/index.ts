@@ -1,1 +1,1 @@
-export * from './isDateBetweenNov25AndDec14';
+export * from './isDateBetweenNov25AndJan14';

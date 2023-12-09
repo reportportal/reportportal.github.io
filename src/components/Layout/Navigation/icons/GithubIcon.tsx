@@ -17,7 +17,7 @@ export const GithubIcon: FC<GithubIconProps> = ({ text }) => (
       fillRule="evenodd"
       d="M33 8.7 28 12l5 3.3V19a4 4 0 0 0 4 4h49a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H37a4 4 0 0 0-4 4v3.7ZM29.878 12 34 14.748V19a3 3 0 0 0 3 3h49a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H37a3 3 0 0 0-3 3v4.252L29.878 12Z"
       clipRule="evenodd"
-      opacity=".5"
+      opacity="1"
     />
     <path
       fill="currentColor"

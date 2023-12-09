@@ -11,10 +11,6 @@ $desktop-sm-header: 1124px;
   transition: background 0.3s, top 0.3s;
   color: var(--white);
 
-  .new-year-mode & {
-    transition: top 0.3s;
-  }
-
   &--active,
   &:hover {
     box-shadow: 0 8px 24px rgb(34 61 69 / 0.08);
@@ -22,29 +18,37 @@ $desktop-sm-header: 1124px;
     color: var(--text-primary);
 
     .new-year-mode & {
-      position: relative;
       background: url('./icons/new-year-background.inline.svg');
-      background-position: $desktop-sm-header 0;
-
-      @include m.breakpoint($desktop-sm-header) {
-        background-position-x: center;
-      }
+      backdrop-filter: blur(8px);
 
       &::after {
         position: absolute;
-        content: '';
         bottom: -24px;
-        width: 100%;
-        height: 35px;
-        background: url('./icons/new-year-background-snow.inline.svg');
-        background-position: $desktop-sm-header 0;
         z-index: 1000;
+        width: 100%;
+        height: 34px;
+        background: url('./icons/new-year-background-snow.inline.svg');
+        overflow: visible;
+        content: '';
+      }
+
+      &,
+      &::after {
+        background-position: 2070px 0;
 
         @include m.breakpoint($desktop-sm-header) {
+          background-position-x: -960px;
+        }
+
+        @include m.breakpoint(v.$desktop-md) {
           background-position-x: center;
         }
       }
     }
+  }
+
+  .new-year-mode & {
+    transition: top 0.3s;
   }
 
   &__wrapper {
@@ -69,12 +73,12 @@ $desktop-sm-header: 1124px;
     line-height: 0;
 
     svg {
+      height: 40px;
+      overflow: visible;
+
       .new-year-mode & {
         margin-top: -6px;
       }
-
-      height: 40px;
-      overflow: visible;
 
       path {
         transition: fill 0.3s;
@@ -164,10 +168,6 @@ $desktop-sm-header: 1124px;
 
     @include m.breakpoint(v.$tablet-sm) {
       display: flex;
-
-      .new-year-mode & {
-        display: none;
-      }
     }
   }
 
