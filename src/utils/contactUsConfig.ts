@@ -19,22 +19,6 @@ const yearlyOption = { isYearly: true };
 const quarterlyOption = { isYearly: false };
 const availableOptions = [quarterlyOption, yearlyOption];
 
-const createPriceInfoSaaS = ({
-  isYearly,
-  pricingSource,
-}: AvailableOption & {
-  pricingSource: { value: number; discountedValueQuarterly: number; discountedValueYearly: number };
-}) => {
-  return `<p>
-      <span><strong>Price: <span>$${formatNumberWithCommas(
-        pricingSource.value,
-      )}</span> $${formatNumberWithCommas(
-    isYearly ? pricingSource.discountedValueYearly : pricingSource.discountedValueQuarterly,
-  )}/month</strong></span>
-      <span><strong>Billing period:</strong> ${isYearly ? 'Yearly' : 'Quarterly'}</span>
-    </p>`;
-};
-
 const createPriceInfo = ({
   isYearly,
   pricingSource,
@@ -55,8 +39,8 @@ const createStartupPlanBaseConfig = ({ isYearly }: AvailableOption) => ({
       value: 'RP SaaS',
     },
   ],
-  info: `${createPriceInfoSaaS({ isYearly, pricingSource: SAAS_OFFERS_DATA[0].price })}
-        <p>Contact us to get Startup Plan Details and its Free Trial.<br/>The offer remains valid if the contract is signed by December, 15.</p>`,
+  info: `${createPriceInfo({ isYearly, pricingSource: SAAS_OFFERS_DATA[0].price })}
+        <p>Contact us to get Startup Plan Details and its Free Trial.</p>`,
 });
 
 const createBusinessPlanBaseConfig = ({ isYearly }: AvailableOption) => ({
@@ -67,11 +51,11 @@ const createBusinessPlanBaseConfig = ({ isYearly }: AvailableOption) => ({
       value: 'RP SaaS',
     },
   ],
-  info: `${createPriceInfoSaaS({ isYearly, pricingSource: SAAS_OFFERS_DATA[1].price })}
-        <p>Contact us to get Business Plan Details and ReportPortal Free Trial.<br/>The offer remains valid if the contract is signed by December, 15.</p>`,
+  info: `${createPriceInfo({ isYearly, pricingSource: SAAS_OFFERS_DATA[1].price })}
+        <p>Contact us to get Business Plan Details and ReportPortal Free Trial.</p>`,
 });
 
-const createEnterprisePlanBaseConfig = ({ isYearly }: AvailableOption) => ({
+const createEnterprisePlanBaseConfig = () => ({
   title: 'Enterprise Plan',
   options: [
     {
@@ -79,12 +63,8 @@ const createEnterprisePlanBaseConfig = ({ isYearly }: AvailableOption) => ({
       value: 'RP SaaS',
     },
   ],
-  info: `<p>A <strong>${isYearly ? 15 : 10}% discount</strong> for ${
-    isYearly ? 'an' : 'a'
-  } <strong>${
-    isYearly ? 'annual' : 'quarterly'
-  }</strong> subscription will be offered as a part of the Black Friday offering.</p>
-        <p>Contact us to get Enterprise Plan Details and ReportPortal Free Trial.<br/>The offer remains valid if the contract is signed by December, 15.</p>`,
+  info: `<p>Tailored offering integrated with SaaS Business plan and packages of Managed Services.</p>
+        <p>Contact us to get Enterprise Plan Details and ReportPortal Free Trial.</p>`,
 });
 
 const createPackage25BaseConfig = ({ isYearly }: AvailableOption) => ({
@@ -214,7 +194,7 @@ export const contactUsConfig = [
       ...option,
     }),
     createConfig({
-      baseConfig: createEnterprisePlanBaseConfig(option),
+      baseConfig: createEnterprisePlanBaseConfig(),
       url: '/contact-us/saas/enterprise-plan',
       source: 'Landing page / SaaS / Request "Enterprise Plan"',
       ...option,
@@ -231,7 +211,7 @@ export const contactUsConfig = [
     source: 'Landing page / SaaS / Compare Plan / Request "Business Plan"',
   }),
   createConfig({
-    baseConfig: createEnterprisePlanBaseConfig(yearlyOption),
+    baseConfig: createEnterprisePlanBaseConfig(),
     url: '/contact-us/saas/compare/enterprise-plan',
     source: 'Landing page / SaaS / Compare Plan / Request "Enterprise Plan"',
   }),
