@@ -2,8 +2,15 @@ import React from 'react';
 import noop from 'lodash/noop';
 import classNames from 'classnames';
 import { createBemBlockBuilder, SAAS_OFFERS_DATA } from '@app/utils';
-import { TrustedOrganizations, ComparePlans, Faq, Banner, PricingHero } from '@app/components';
-import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
+import {
+  TrustedOrganizations,
+  ComparePlans,
+  Faq,
+  Banner,
+  PricingHero,
+  FooterContent,
+} from '@app/components';
+import { usePricingHeroProps } from '@app/hooks';
 import InfoIcon from '@app/svg/infoIcon.inline.svg';
 
 import { PricingCards } from './PricingCards';
@@ -46,13 +53,13 @@ export const SaasPage = () => {
       <div className={getBlocksWith('__faq-container')}>
         <Faq items={FAQ_ITEMS} />
       </div>
-      <div className={getBlocksWith('__still-have-question')}>
+      <FooterContent>
         <Banner
           title="Do you still have questions?"
           linkTitle="Contact us"
           link="/contact-us/general"
         />
-      </div>
+      </FooterContent>
     </div>
   );
 };

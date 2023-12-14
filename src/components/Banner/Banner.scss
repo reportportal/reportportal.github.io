@@ -4,18 +4,6 @@
 .banner {
   position: relative;
 
-  &__bg {
-    position: absolute;
-    inset: 50% 0 -35px;
-    border-top: 1px solid var(--purple-grey);
-    background: var(--bg-light-grey);
-    color: var(--text-service);
-
-    @include m.breakpoint(v.$desktop-sm) {
-      bottom: -100px;
-    }
-  }
-
   &__wrapper {
     position: relative;
     border-radius: 16px;

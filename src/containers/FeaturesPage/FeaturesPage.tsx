@@ -13,6 +13,7 @@ import {
   Banner,
   StartTestingWithReportPortal,
   Faq,
+  FooterContent,
 } from '@app/components';
 
 import { FEATURES_LIST, NAVIGATION_LIST } from './constants';
@@ -218,14 +219,15 @@ export const FeaturesPage: FC = () => {
       <div className={classNames(getBlocksWith('__faq'), 'container')}>
         <Faq items={collapsableList} showMoreInfoLink={false} />
       </div>
-
-      <div className={getBlocksWith('__banner')}>
-        <Banner
-          title="Still have questions about our features?"
-          linkTitle="Contact us"
-          link="/contact-us/general"
-        />
-      </div>
+      <FooterContent>
+        <div className={getBlocksWith('__banner')}>
+          <Banner
+            title="Still have questions about our features?"
+            linkTitle="Contact us"
+            link="/contact-us/general"
+          />
+        </div>
+      </FooterContent>
     </div>
   );
 };

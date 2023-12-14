@@ -6,3 +6,4 @@ export * from './useTrustedByOrganizations';
 export * from './useCustomersStatistics';
 export * from './useCommunityList';
 export * from './useSolutionsList';
+export * from './usePricingHeroProps';
