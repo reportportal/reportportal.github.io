@@ -1,9 +1,7 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
+import { FooterContent, SubscriptionForm, Banner } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
-
-import { SubscriptionForm } from '../SubscriptionForm';
-import { Banner } from '../Banner';
 
 import './SubscriptionBanner.scss';
 
@@ -15,17 +13,22 @@ export const SubscriptionBanner: FC = () => {
     isAlreadySubscribed: false,
   });
 
+  // temporary hidden
+  return null;
+
   return (
-    <div className={classNames(getBlocksWith(), 'temporary-hide')}>
-      <Banner
-        title="Stay in the know"
-        subtitle="Get the latest ReportPortal news, product updates and articles via email"
-      >
-        <SubscriptionForm
-          subscriptionFormState={subscriptionFormState}
-          setSubscriptionFormState={setSubscriptionFormState}
-        />
-      </Banner>
-    </div>
+    <FooterContent>
+      <div className={classNames(getBlocksWith())}>
+        <Banner
+          title="Stay in the know"
+          subtitle="Get the latest ReportPortal news, product updates and articles via email"
+        >
+          <SubscriptionForm
+            subscriptionFormState={subscriptionFormState}
+            setSubscriptionFormState={setSubscriptionFormState}
+          />
+        </Banner>
+      </div>
+    </FooterContent>
   );
 };

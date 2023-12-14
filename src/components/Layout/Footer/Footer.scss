@@ -19,8 +19,44 @@
   }
 
   @include m.breakpoint(v.$desktop-sm) {
-    padding-top: 72px;
+    padding-top: 120px;
     padding-bottom: 76px;
+  }
+
+  .new-year-mode & {
+    background: url('./icons/new-year-background.inline.svg');
+    background-size: cover;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      background-position: center 0;
+    }
+
+    &::after {
+      position: absolute;
+      top: -15px;
+      z-index: -1;
+      width: 100%;
+      height: 38px;
+      background: url('./icons/new-year-background-snow.inline.svg');
+      content: '';
+
+      @include m.breakpoint(v.$desktop-md) {
+        background-size: cover;
+      }
+    }
+  }
+
+  #footer-content:not(:empty) {
+    margin-top: -50px;
+    transform: translateY(-50%);
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-top: -64px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: -120px;
+    }
   }
 
   &__logo {
@@ -115,6 +151,10 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin: 64px 0;
+    }
+
+    .new-year-mode & {
+      border-color: var(--text-light-grey);
     }
   }
 

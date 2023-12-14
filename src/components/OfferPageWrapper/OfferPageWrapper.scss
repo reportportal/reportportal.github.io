@@ -145,21 +145,6 @@
     }
   }
 
-  &__still-have-question {
-    margin-top: 73px;
-    margin-bottom: 35px;
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      margin-top: 151px;
-      margin-bottom: 35px;
-    }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      margin-top: 212px;
-      margin-bottom: 100px;
-    }
-  }
-
   &__trusted-organizations-container {
     margin-top: 130px;
 
