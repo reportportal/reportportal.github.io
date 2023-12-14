@@ -2,17 +2,20 @@ import React, { FC } from 'react';
 import noop from 'lodash/noop';
 import classNames from 'classnames';
 import { createBemBlockBuilder, ON_PREMISES_OFFER_PRICES } from '@app/utils';
-import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
+import { usePricingHeroProps } from '@app/hooks';
+import {
+  FooterContent,
+  TrustedOrganizations,
+  Banner,
+  Link,
+  PentagonCard,
+  PricingHero,
+  ComparePlans,
+  Faq,
+  TimeScale,
+} from '@app/components';
 import InfoIcon from '@app/svg/infoIcon.inline.svg';
 
-import { TrustedOrganizations } from '../TrustedOrganizations';
-import { Faq } from '../Faq';
-import { PricingHero } from '../PricingHero';
-import { ComparePlans } from '../ComparePlans';
-import { Banner } from '../Banner';
-import { Link } from '../Link';
-import { TimeScale } from './TimeScale';
-import { PentagonCard } from './PentagonCard';
 import { COLUMNS, MOBILE_COLUMNS } from './constants';
 import { getDataPlans, getFooterButtons, getOfferLinks } from './utils';
 
@@ -130,9 +133,9 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
           showMoreInfoLink={pagePath !== 'qasp'}
         />
       </div>
-      <div className={getBlocksWith('__still-have-question')}>
+      <FooterContent>
         <Banner title="Do you still have questions?" linkTitle="Contact us" link={contactUsLink} />
-      </div>
+      </FooterContent>
     </div>
   );
 };

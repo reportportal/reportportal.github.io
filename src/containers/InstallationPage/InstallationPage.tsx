@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
-import { ButtonSwitcher, Banner } from '@app/components';
+import { ButtonSwitcher, Banner, FooterContent } from '@app/components';
 import { createBemBlockBuilder, mediaDesktopSm } from '@app/utils';
 
 import { DockerIcon, KubernetesIcon } from './icons';
@@ -101,14 +101,16 @@ export const InstallationPage: FC = () => {
           </div>
         </div>
       </div>
-      <div className={getBlocksWith('__banner')}>
-        <Banner
-          title="Still have questions about installation?"
-          subtitle="Chat with us in Slack channel"
-          linkTitle="Go to Slack channel"
-          link="https://slack.epmrpp.reportportal.io/"
-        />
-      </div>
+      <FooterContent>
+        <div className={getBlocksWith('__banner')}>
+          <Banner
+            title="Still have questions about installation?"
+            subtitle="Chat with us in Slack channel"
+            linkTitle="Go to Slack channel"
+            link="https://slack.epmrpp.reportportal.io/"
+          />
+        </div>
+      </FooterContent>
     </div>
   );
 };

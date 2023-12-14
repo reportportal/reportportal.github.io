@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { Divider } from 'antd';
+import { useAtom } from 'jotai';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link, newYearModeAtom } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { FooterList } from './FooterList';
@@ -12,7 +13,7 @@ import GithubIcon from './icons/github.inline.svg';
 import SlackIcon from './icons/slack.inline.svg';
 import LinkedinIcon from './icons/linkedin.inline.svg';
 import LambdaIcon from './icons/lambda.inline.svg';
-import { NavLogoIcon } from './icons';
+import { NavLogoIcon, NewYearNavLogoIcon } from './icons';
 
 import './Footer.scss';
 
@@ -42,13 +43,16 @@ const socialLinks = [
 ];
 
 export const Footer: FC = () => {
+  const [isNewYearMode] = useAtom(newYearModeAtom);
+
   return (
     <footer className={getBlocksWith()}>
       <div className={classNames(getBlocksWith('__container'), 'container')}>
+        <section id="footer-content" />
         <section className={getBlocksWith('__navigation')}>
           <div className={getBlocksWith('__purpose')}>
             <Link to="/" className={getBlocksWith('__logo')}>
-              <NavLogoIcon />
+              {isNewYearMode ? <NewYearNavLogoIcon /> : <NavLogoIcon />}
             </Link>
             <span>
               ReportPortal is a service, that provides increased capabilities to speed up results
