@@ -10,8 +10,7 @@
   border-radius: 15px;
   padding: 32px;
   box-shadow: 0 4px 16px rgb(16 46 52 / 0.1);
-  background: var(--text-primary);
-  color: var(--white);
+  background: var(--white);
   transition: box-shadow 0.4s ease-out;
 
   @include m.breakpoint(v.$phone) {
@@ -33,7 +32,7 @@
     width: 198px;
     border-radius: 15px;
     padding: 4px 30px;
-    background: var(--graphics-pink);
+    background: var(--graphics-amber);
     transform: translateX(-50%);
     text-align: center;
     text-transform: uppercase;
@@ -45,6 +44,7 @@
     @include m.font-scale(x3-medium);
 
     text-align: center;
+    color: var(--dark);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-poppins(v.$fw-bold);
@@ -60,26 +60,18 @@
     margin-bottom: 40px;
     text-align: center;
     white-space: pre-wrap;
+    color: var(--text-primary);
   }
 
   &__price {
     @include m.font-noto-sans(base);
 
     margin-bottom: 18px;
+    color: var(--text-primary);
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin-bottom: 24px;
     }
-  }
-
-  &__price-value-old {
-    @include m.font-scale();
-    @include m.font-poppins(v.$fw-bold);
-
-    display: inline-block;
-    margin-right: 5px;
-    text-decoration: line-through;
-    color: var(--text-service);
   }
 
   &__price-value {
@@ -116,6 +108,7 @@
       position: relative;
       margin-bottom: 10px;
       padding-left: 26px;
+      color: var(--text-primary);
 
       &::before {
         position: absolute;

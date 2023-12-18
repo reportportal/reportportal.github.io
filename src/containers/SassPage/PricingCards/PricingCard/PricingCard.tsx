@@ -15,8 +15,7 @@ interface PricingCardProps {
       value: number;
       period: string;
       message: string;
-      discountedValueQuarterly: number;
-      discountedValueYearly: number;
+      discountedValue: number;
     };
     actionText: string;
     isPopular: string;
@@ -29,15 +28,14 @@ interface PricingCardProps {
 const getBlocksWith = createBemBlockBuilder(['pricing-card']);
 
 export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
-  const { title, description, listItems, price, actionText, actionVariant, href } = card;
-  const { currency, value, period, message, discountedValueQuarterly, discountedValueYearly } =
-    price;
+  const { title, description, listItems, price, actionText, isPopular, actionVariant, href } = card;
+  const { currency, value, period, message, discountedValue } = price;
   const contactUsURL = `${href}/${discountState ? 'yearly' : 'quarterly'}`;
 
   return (
     <div className={getBlocksWith()}>
       <div>
-        <div className={getBlocksWith('__popular')}>BLACK FRIDAY -{discountState ? 15 : 10}%</div>
+        {isPopular && <div className={getBlocksWith('__popular')}>Most popular</div>}
         <div className={getBlocksWith('__title')}>{title}</div>
         <div className={getBlocksWith('__description')}>{description}</div>
         <ul>
@@ -52,14 +50,8 @@ export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
             <span className={getBlocksWith('__price-value')}>{message}</span>
           ) : (
             <>
-              <span className={getBlocksWith('__price-value-old')}>
-                {currency} {formatNumberWithCommas(value)}
-              </span>
               <span className={getBlocksWith('__price-value')}>
-                {currency}{' '}
-                {formatNumberWithCommas(
-                  discountState ? discountedValueYearly : discountedValueQuarterly,
-                )}
+                {currency} {formatNumberWithCommas(discountState ? discountedValue : value)}
               </span>
               / {period}
             </>
