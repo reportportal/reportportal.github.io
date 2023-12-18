@@ -11,7 +11,6 @@ import {
   FooterContent,
 } from '@app/components';
 import { usePricingHeroProps } from '@app/hooks';
-import InfoIcon from '@app/svg/infoIcon.inline.svg';
 
 import { PricingCards } from './PricingCards';
 import { BUTTONS_DATA, COLUMNS, DATA_PLANS, FAQ_ITEMS } from './constants';
@@ -38,14 +37,11 @@ export const SaasPage = () => {
         switcherProps={{
           switchDiscount: toggleDiscountState,
           discountState,
-          messageInactive: 'Quarterly (-10%)',
-          messageActive: 'Annually (-15%)',
+          messageInactive: 'Quarterly',
+          messageActive: 'Yearly (Save 5%)',
         }}
       />
       <PricingCards discountState={discountState} offersData={SAAS_OFFERS_DATA} />
-      <div className={classNames('container', getBlocksWith('__offer-message'))}>
-        <InfoIcon /> The offer remains valid if the contract is signed by December, 15
-      </div>
       <ComparePlans dataPlans={DATA_PLANS} columns={COLUMNS} footerButtons={BUTTONS_DATA} />
       <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
         <TrustedOrganizations />
