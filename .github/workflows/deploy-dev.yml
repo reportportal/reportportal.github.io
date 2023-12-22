@@ -21,6 +21,7 @@ env:
   SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N7T000000i00E
   DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
   GTM_ID: GTM-MK7ZHTL
+  CLOUDFRONT_ID: EILUB1IE9EON0
 
 on:
   push:
@@ -80,3 +81,6 @@ jobs:
 
       - name: Deploy to AWS S3
         run: aws s3 sync ./${{ env.BUILD_DIR }} s3://${{ env.AWS_S3_BUCKET_NAME }}
+
+      - name: Clearing CloudFront cache for the entire distribution
+        run: aws cloudfront create-invalidation --distribution-id ${{ env.CLOUDFRONT_ID }} --paths "/*"
