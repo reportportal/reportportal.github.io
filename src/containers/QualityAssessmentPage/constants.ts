@@ -1,10 +1,9 @@
 export const DASHBOARD_HEADER_INFO = {
-  title: 'Quality Assessment',
+  title: 'Quality Engineering Consulting',
   dashboardText:
-    'For companies seeking to improve financial performance and customer satisfaction, the quickest route to success is often a product-quality transformation',
+    'Unique approach and world-class expertise for holistic product-quality transformation — to optimize your financial performance and improve customer satisfaction',
 };
 
 export const TESTING_BOTTOM_BLOCK_INFO = {
-  title: 'Our approach',
-  description: 'Quality Assessment',
+  title: 'Our approach to QE Assessments',
 };

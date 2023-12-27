@@ -22,7 +22,7 @@ export const TestingBottomBlock: FC<TestingBottomBlockProps> = ({
     <div className="container">
       <div className="testing-bottom-block__heading">
         <Heading title={title} color="white-heading" />
-        <div className="testing-bottom-block__description">{description}</div>
+        {description && <div className="testing-bottom-block__description">{description}</div>}
       </div>
       {children}
       <ApplyOurService url={url} />

@@ -23,6 +23,10 @@
       @include m.breakpoint(v.$desktop-sm) {
         padding-bottom: 175px;
       }
+
+      &-text {
+        width: 920px;
+      }
     }
   }
 

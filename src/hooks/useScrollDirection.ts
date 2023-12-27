@@ -6,7 +6,7 @@ interface ScrollDirection {
   isMenuOpen: boolean;
 }
 
-enum Directions {
+export enum Directions {
   DOWN = 'down',
   UP = 'up',
 }

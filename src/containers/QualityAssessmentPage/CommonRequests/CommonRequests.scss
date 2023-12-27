@@ -16,6 +16,14 @@
     }
   }
 
+  &__sub-header {
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
+
+    text-align: center;
+    color: var(--text-service);
+  }
+
   .requests {
     display: flex;
     gap: 24px;

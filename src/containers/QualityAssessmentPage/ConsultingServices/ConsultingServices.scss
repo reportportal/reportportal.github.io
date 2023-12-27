@@ -1,0 +1,126 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.consulting-services {
+  padding: 120px 24px;
+  color: var(--text-primary);
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    padding: 120px;
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    padding: 0;
+  }
+
+  .heading {
+    margin-bottom: 64px;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 24px;
+    padding: 32px 0;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      flex-direction: column-reverse;
+      padding: 64px 0;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      flex-direction: row;
+      gap: 56px;
+
+      &--inventory {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  .info-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__title {
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(x3-medium);
+
+      margin-bottom: 32px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        @include m.font-poppins(v.$fw-bold);
+        @include m.font-scale(x3-large);
+      }
+    }
+
+    &__text {
+      @include m.font-noto-sans();
+      @include m.font-scale();
+    }
+
+    .unordered-list {
+      padding: 16px 0;
+    }
+  }
+
+  .assessment-image {
+    width: 312px;
+    height: 301px;
+    padding: 13px 11px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      width: 519px;
+      height: 501px;
+      padding: 20px;
+
+      img {
+        width: auto;
+      }
+    }
+  }
+
+  .inventory-image {
+    width: 316px;
+    height: 275px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      width: 557px;
+      height: 501px;
+    }
+
+    &__title {
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale();
+
+      margin: 0 30px;
+      text-align: center;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        margin: 40px 73px 0;
+      }
+    }
+
+    img {
+      width: inherit;
+    }
+  }
+
+  .improvement-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 312px;
+    height: 203px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      width: 557px;
+      height: 552px;
+    }
+
+    img {
+      width: inherit;
+    }
+  }
+}

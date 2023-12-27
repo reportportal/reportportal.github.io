@@ -6,6 +6,10 @@
   margin: 0 auto;
   padding-bottom: 120px;
 
+  @include m.breakpoint(v.$desktop-sm) {
+    margin-top: 64px;
+  }
+
   &__block {
     display: flex;
     flex-direction: column;
