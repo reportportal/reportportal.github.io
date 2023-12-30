@@ -8,7 +8,7 @@ import './CommonRequests.scss';
 
 export const CommonRequests: FC = () => {
   const requestsWrapper = useRef<null | HTMLElement>(null);
-  const scrollDirection = useScrollDirection({ callbackFn: null, isMenuOpen: false });
+  const scrollDirection = useScrollDirection({ isMenuOpen: false });
 
   useEffect(() => {
     const onRequestScroll = () => {
