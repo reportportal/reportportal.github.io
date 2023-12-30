@@ -18,3 +18,5 @@ export const MOBILE_COLUMNS = {
   [COLUMNS.package60]: 'Pack.\n60',
   [COLUMNS.package160]: 'Pack.\n160',
 };
+
+export const OFFER_HOURS = [0, 25, 60, 160] as const;

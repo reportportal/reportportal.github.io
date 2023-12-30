@@ -48,3 +48,37 @@ export interface BlogPostDto {
 export interface BlogPostsQueryDto {
   allContentfulBlogPost: { nodes: BlogPostDto[] };
 }
+
+interface PricingConfigOptionDto {
+  yearly: number;
+  quarterly: number;
+}
+
+export interface PricingConfigShared {
+  currency: string;
+  period: string;
+}
+
+export interface PricingConfigDto extends PricingConfigShared {
+  currency: string;
+  period: string;
+  saas: {
+    startup: PricingConfigOptionDto;
+    business: PricingConfigOptionDto;
+    enterprise: string;
+  };
+  onPremises: {
+    openSource: string;
+    package25: PricingConfigOptionDto;
+    package60: PricingConfigOptionDto;
+    package160: PricingConfigOptionDto;
+  };
+}
+
+export type SassPricingConfig = PricingConfigShared & { prices: PricingConfigDto['saas'] };
+
+export type OnPremisesPricingConfig = PricingConfigShared & {
+  prices: PricingConfigDto['onPremises'];
+};
+
+export type Discount = 'quarterly' | 'yearly';

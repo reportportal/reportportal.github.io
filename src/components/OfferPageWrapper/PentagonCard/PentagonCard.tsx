@@ -1,52 +1,62 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { createBemBlockBuilder, formatNumberWithCommas } from '@app/utils';
+import { Link, IconBlock } from '@app/components';
+import {
+  createBemBlockBuilder,
+  Discount,
+  formatNumberWithCommas,
+  OnPremisesPricingConfig,
+} from '@app/utils';
 
-import { IconBlock } from '../../IconBlock';
-import { Link } from '../../Link';
+import { OFFER_HOURS } from '../constants';
 
 import './PentagonCard.scss';
 
-interface Props {
-  stepNumber: number;
-  hours: string;
-  price: number;
+interface PentagonCardProps {
+  progressNumber: number;
+  hours: (typeof OFFER_HOURS)[number];
+  pricing: OnPremisesPricingConfig;
   contactLink: string;
-  discountState: boolean;
+  discount: Discount;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pentagon-card']);
 
-export const PentagonCard: FC<Props> = ({ stepNumber, hours, price, contactLink }) => {
-  const isFirstStep = stepNumber === 1;
-
-  const getPrice = () => (
-    <>
-      ${formatNumberWithCommas(price)} <span>/ month</span>
-    </>
-  );
-
-  const getProps = () => {
-    return isFirstStep
-      ? { number: 'Open Source' }
-      : { number: hours, text: 'Professional', benefit: 'Service Hours' };
-  };
+export const PentagonCard: FC<PentagonCardProps> = ({
+  hours,
+  discount,
+  pricing: { currency, period, prices },
+  contactLink,
+  progressNumber,
+}) => {
+  const iconBlockProps = hours
+    ? { value: hours, text: 'Professional', benefit: 'Service Hours' }
+    : { value: 'Open Source' };
 
   return (
     <div className={getBlocksWith('__wrapper')}>
-      <IconBlock type="pentagon" progressNumber={stepNumber} {...getProps()} />
-      <div className={getBlocksWith('__price')}>{isFirstStep ? 'Free' : getPrice()} </div>
+      <IconBlock type="pentagon" progressNumber={progressNumber} {...iconBlockProps} />
+      <div className={getBlocksWith('__price')}>
+        {!hours ? (
+          prices.openSource
+        ) : (
+          <>
+            {currency}
+            {formatNumberWithCommas(prices[`package${hours}`][discount])} <span>/ {period}</span>
+          </>
+        )}
+      </div>
       <Link to={contactLink}>
         <button
           type="button"
           className={classNames(
             getBlocksWith('__contact-button'),
             'btn',
-            `btn--${isFirstStep ? 'outline' : 'primary'}`,
+            `btn--${hours ? 'primary' : 'outline'}`,
             'btn--large',
           )}
         >
-          {isFirstStep ? 'Start now' : 'Contact us'}
+          {hours ? 'Contact us' : 'Start now'}
         </button>
       </Link>
     </div>
