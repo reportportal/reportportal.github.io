@@ -1,4 +1,4 @@
-export const isDateBetweenNov25AndJan14 = (): boolean => {
+export const isDateBetweenNov25AndJan14 = () => {
   const currentDate = new Date();
 
   currentDate.setUTCHours(currentDate.getUTCHours() + 3);
@@ -7,9 +7,20 @@ export const isDateBetweenNov25AndJan14 = (): boolean => {
 
   startDate.setUTCHours(startDate.getUTCHours() + 3);
 
-  const endDate = new Date(currentDate.getUTCFullYear() + 1, 0, 14, 23, 59, 59);
+  const isNovemberOrLater = currentDate.getMonth() >= 10;
+
+  const endDate = new Date(
+    currentDate.getUTCFullYear() + (isNovemberOrLater ? 1 : 0),
+    0,
+    14,
+    23,
+    59,
+    59,
+  );
 
   endDate.setUTCHours(endDate.getUTCHours() + 3);
 
-  return currentDate >= startDate && currentDate <= endDate;
+  return isNovemberOrLater
+    ? currentDate >= startDate && currentDate <= endDate
+    : currentDate <= endDate;
 };
