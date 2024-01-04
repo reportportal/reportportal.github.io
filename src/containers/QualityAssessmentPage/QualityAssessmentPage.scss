@@ -21,7 +21,8 @@
       }
 
       @include m.breakpoint(v.$desktop-sm) {
-        padding-bottom: 175px;
+        padding-top: 144px;
+        padding-bottom: 120px;
       }
 
       &-text {

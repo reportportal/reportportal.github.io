@@ -13,7 +13,7 @@ export const INVENTORY_LIST = [
 export const IMPROVEMENT_LIST = [
   { info: 'Scale: 4-50 client teams' },
   { info: 'Duration: 3-15 months' },
-  { info: 'Team: 1 expert' },
+  { info: 'CIP Team: 8-28 experts' },
 ];
 
 export const ASSESSMENT_INFO = {

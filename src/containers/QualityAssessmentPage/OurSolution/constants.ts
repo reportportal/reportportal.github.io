@@ -1,13 +1,13 @@
 export const LEFT_ASIDE_TEXT = [
   {
+    title: 'Quality Architect is a unique consulting talent',
+    description:
+      'Quality Architecture is a unique EPAM discipline to cover solutioning in quality engineering. Quality Architects have solid hands-on engineering background, 10-20 years of experience and available in multiple locations',
+  },
+  {
     title: 'Flexible engagement model based on expert-week pricing',
     description:
       'Flexible expert-week engagements to fit a custom scope. Assessment is scoped based on the number of teams/projects to be reviewed',
-  },
-  {
-    title: 'Quality architect is a unique consulting talent',
-    description:
-      'Quality Architecture is a unique EPAM discipline to cover solutioning in quality engineering. Quality Architects have solid handson engineering background, 10-20 years of experience and available in multiple locations',
   },
   {
     title: 'E2E improvements delivery',

@@ -15,7 +15,7 @@ export const CommonRequests: FC = () => {
       if (requestsWrapper.current) {
         const { top, width } = requestsWrapper.current!.getBoundingClientRect();
         const { scrollLeft, scrollWidth } = requestsWrapper.current;
-        const isScrollingDown = top < 350 && scrollLeft < scrollWidth - width;
+        const isScrollingDown = top < 200 && scrollLeft < scrollWidth - width;
         const isScrollingUp = top > -200 && scrollLeft > 0;
 
         if (scrollDirection === Directions.UP && isScrollingUp) {
@@ -41,7 +41,13 @@ export const CommonRequests: FC = () => {
         <div className="requests">
           {TOP_REQUEST_LIST.map(({ description, groupName }, index) => (
             <div className="requests__item" key={index}>
-              <div className="requests__item-description">{description}</div>
+              <div className="requests__item-description">
+                {description.map(({ bold, text }) => (
+                  <span key={text} {...(bold && { className: 'requests__item-description--bold' })}>
+                    {text}
+                  </span>
+                ))}
+              </div>
               <div className="requests__item-group-name">{groupName}</div>
             </div>
           ))}
@@ -49,7 +55,13 @@ export const CommonRequests: FC = () => {
         <div className="requests">
           {BOTTOM_REQUEST_LIST.map(({ description, groupName }, index) => (
             <div className="requests__item" key={index}>
-              <div className="requests__item-description">{description}</div>
+              <div className="requests__item-description">
+                {description.map(({ bold, text }) => (
+                  <span key={text} {...(bold && { className: 'requests__item-description--bold' })}>
+                    {text}
+                  </span>
+                ))}
+              </div>
               <div className="requests__item-group-name">{groupName}</div>
             </div>
           ))}

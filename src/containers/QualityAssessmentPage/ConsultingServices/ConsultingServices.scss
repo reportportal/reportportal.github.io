@@ -62,6 +62,10 @@
 
     .unordered-list {
       padding: 16px 0;
+
+      &__list {
+        gap: 4px;
+      }
     }
   }
 
@@ -98,7 +102,7 @@
       text-align: center;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        margin: 40px 73px 0;
+        margin: 40px 73px 20px;
       }
     }
 
