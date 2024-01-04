@@ -27,6 +27,9 @@ on:
   push:
     branches:
       - develop
+  schedule:
+    - cron: "0 21 24 10 *"
+    - cron: "0 21 4 1 *"
   workflow_dispatch:
 
 jobs:

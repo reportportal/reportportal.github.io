@@ -2,12 +2,11 @@ import React, { useEffect, useReducer, useRef, useState, FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useToggle, useScroll } from 'ahooks';
 import { Drawer, Collapse } from 'antd';
-import { useAtom } from 'jotai';
 import upperFirst from 'lodash/upperFirst';
 import axios from 'axios';
 import classNames from 'classnames';
-import { Link, newYearModeAtom } from '@app/components';
-import { createBemBlockBuilder } from '@app/utils';
+import { Link } from '@app/components';
+import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
 import { useScrollDirection } from '@app/hooks';
 
 // eslint-disable-next-line import/no-unresolved
@@ -45,8 +44,6 @@ const menuItems = {
 
 export const Navigation: FC = () => {
   const menuLinksRef = useRef(null);
-  const [isNewYearMode] = useAtom(newYearModeAtom);
-
   const scroll = useScroll();
   const [isMobileMenuOpen, { setRight: openMobileMenu, setLeft: closeMobileMenu }] = useToggle();
   const [githubCounter, setGithubCounter] = useState(githubStats.repos.reportportal);

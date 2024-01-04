@@ -1,3 +1,5 @@
+import { isDateBetweenNov25AndJan15GMT3 } from './isDateBetweenNov25AndJan15GMT3';
+
 export const LIST_ANIMATION_DELAY = 10000;
 
 export const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
@@ -99,3 +101,5 @@ export const ON_PREMISES_OFFER_PRICES = [
     hours: 160,
   },
 ];
+
+export const isNewYearMode = isDateBetweenNov25AndJan15GMT3();
