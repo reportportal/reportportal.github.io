@@ -6,7 +6,7 @@ export const isDateBetweenNov25AndJan15 = () => {
 
   const isNovemberOrLater = currentDate.getUTCMonth() >= 10;
   const startDate = new Date(Date.UTC(currentDate.getUTCFullYear(), 10, 25, GMT3, 0, 0));
-  const endDate = new Date(Date.UTC(currentDate.getUTCFullYear(), 0, 15, GMT3, 0, 0));
+  const endDate = new Date(Date.UTC(currentDate.getUTCFullYear(), 0, 5, GMT3, 0, 0));
 
   const result = isNovemberOrLater ? currentDate >= startDate : currentDate <= endDate;
 
