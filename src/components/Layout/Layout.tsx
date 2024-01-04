@@ -12,7 +12,7 @@ import { Seo } from './Seo';
 import { Navigation } from './Navigation';
 import { Footer } from './Footer';
 import { EmbedVideo } from './EmbedVideo';
-import { isDateBetweenNov25AndJan14 } from './utils';
+import { isDateBetweenNov25AndJan15 } from './utils';
 
 const snowfallProps = {
   color: '#dee4fd',
@@ -25,7 +25,7 @@ const snowfallProps = {
 
 export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscribed: false });
 export const watchProductOverviewAtom = atom({ isOpen: false });
-export const newYearModeAtom = atom(isDateBetweenNov25AndJan14());
+export const newYearModeAtom = atom(isDateBetweenNov25AndJan15());
 
 interface LayoutProps {
   children: ReactElement;
