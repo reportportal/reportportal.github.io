@@ -9,11 +9,19 @@
 
   h2 {
     max-width: 328px;
-    margin: 0 auto;
+    margin: 0 auto 16px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       max-width: none;
     }
+  }
+
+  &__sub-header {
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
+
+    text-align: center;
+    color: var(--text-service);
   }
 
   .requests {
@@ -22,7 +30,7 @@
     margin: 40px 16px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      gap: 90px;
+      gap: 109px;
       width: 1440px;
       margin: 74px 24px 60px;
     }
@@ -68,14 +76,14 @@
       gap: 16px;
       width: 239px;
       border-radius: 16px;
-      padding: 40px;
+      padding: 32px;
       box-shadow: 0 19px 34px 0 rgb(91 112 115 / 0.08);
       background: var(--white);
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         align-items: flex-start;
-        width: 421px;
-        height: 228px;
+        width: 393px;
+        height: 218px;
       }
 
       &::before {
@@ -88,17 +96,21 @@
       }
 
       &-description {
-        @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-poppins();
         @include m.font-scale();
 
         color: var(--text-primary);
+
+        &--bold {
+          @include m.font-poppins(v.$fw-bold);
+        }
       }
 
       &-group-name {
         @include m.font-poppins(v.$fw-medium);
         @include m.font-scale();
 
-        color: var(--text-grey);
+        color: var(--text-service);
       }
     }
   }

@@ -332,7 +332,7 @@ export const contactUsConfig = [
         value: 'RP QAaaS',
       },
     ],
-    info: '<p>Looking for quotes on Quality Assessment Services?<br />Simply fill out the form.</p>',
+    info: '<p>Looking for quotes on Quality Engineering Consulting Services?<br />Simply fill out the form.</p>',
     isDiscussFieldShown: false,
   },
   {

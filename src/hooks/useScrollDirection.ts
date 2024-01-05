@@ -7,7 +7,7 @@ interface ScrollDirection {
   callbackFn?: () => void;
 }
 
-enum Directions {
+export enum Directions {
   DOWN = 'down',
   UP = 'up',
 }

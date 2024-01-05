@@ -7,7 +7,7 @@ import './OurSolution.scss';
 
 export const OurSolution: FC = () => (
   <div className="our-solution container">
-    <Heading title="Our solution is Quality Assessment and consulting" />
+    <Heading title="Our Quality Engineering Consulting differentiators" />
     <div className="our-solution__spider">
       <div className="our-solution__spider-aside">
         {LEFT_ASIDE_TEXT.map(({ title, description }) => (
@@ -18,7 +18,7 @@ export const OurSolution: FC = () => (
         ))}
       </div>
       <div className="our-solution__spider-image">
-        <div className="our-solution__spider-image-title">Quality Assessment</div>
+        <div className="our-solution__spider-image-title">QE Consulting</div>
       </div>
       <div className="our-solution__spider-aside">
         {RIGHT_ASIDE_TEXT.map(({ title, description }) => (

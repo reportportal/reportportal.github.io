@@ -43,8 +43,8 @@ export const SERVICE_LIST = [
   },
   {
     icon: <QualityAssessmentIcon />,
-    title: 'Quality Assessment',
-    text: 'Consulting to bring up Quality Engineering Transformation',
+    title: 'QE Consulting',
+    text: 'Holistic Quality Engineering (QE) transformation',
     link: '/quality-assessment',
   },
 ];
