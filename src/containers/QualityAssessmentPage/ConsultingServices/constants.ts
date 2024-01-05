@@ -21,7 +21,7 @@ export const ASSESSMENT_INFO = {
   upperText:
     'Deep and wide assessment heavily based on hard data analysis to address specific customer ask or problem or evaluate Quality Engineering maturity.',
   lowerText:
-    'Based on interviews and hard data analysis: stories, test cases, defects, codebase, and reports, Provides highly informed decisions.',
+    'Based on interviews and hard data analysis: stories, test cases, defects, codebase, and reports. Provides highly informed decisions.',
 };
 
 export const INVENTORY_INFO = {

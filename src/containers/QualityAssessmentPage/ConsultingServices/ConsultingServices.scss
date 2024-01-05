@@ -70,6 +70,7 @@
   }
 
   .assessment-image {
+    align-self: center;
     width: 312px;
     height: 301px;
     padding: 13px 11px;
@@ -86,8 +87,8 @@
   }
 
   .inventory-image {
-    width: 316px;
-    height: 275px;
+    align-self: center;
+    width: 100%;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       width: 557px;
@@ -98,7 +99,7 @@
       @include m.font-poppins(v.$fw-semi-bold);
       @include m.font-scale();
 
-      margin: 0 30px;
+      margin: 0 30px 20px;
       text-align: center;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
@@ -107,16 +108,19 @@
     }
 
     img {
-      width: inherit;
+      @include m.breakpoint(v.$desktop-sm) {
+        width: inherit;
+      }
     }
   }
 
   .improvement-image {
     display: flex;
     align-items: center;
+    align-self: center;
     justify-content: center;
-    width: 312px;
-    height: 203px;
+    width: 100%;
+    padding: 0 12px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       width: 557px;
@@ -125,6 +129,8 @@
 
     img {
       width: inherit;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px 0 rgb(0 59 72 / 0.08);
     }
   }
 }
