@@ -11,7 +11,7 @@ import { FeedbackForm } from './FeedbackForm';
 import { SalesForceFormBase } from './SalesForceFormBase';
 import { FormInput } from './FormInput';
 import { CustomCheckbox } from './CustomCheckbox';
-import { MAX_LENGTH } from './constants';
+import { MAX_LENGTH, CONTACT_US_URL } from './constants';
 
 import ArrowIcon from '../../../svg/arrow.inline.svg';
 
@@ -41,11 +41,11 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
 
     validateForm().then(errors => {
       if (isEmpty(errors)) {
-        fetch(process.env.SALESFORCE_URL, {
+        fetch(CONTACT_US_URL, {
           method: 'POST',
-          body: new URLSearchParams(values),
+          body: JSON.stringify(values),
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
           },
         })
           .then(() => {
@@ -90,7 +90,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
               maxLength={MAX_LENGTH}
             />
           )}
-          <FormFieldWrapper name={process.env.SALESFORCE_MARKETING_AGREE_INPUT_NAME}>
+          <FormFieldWrapper name="wouldLikeToReceiveAds">
             <CustomCheckbox label="Subscribe to ReportPortal news" />
           </FormFieldWrapper>
           <FormFieldWrapper name="termsAgree">
