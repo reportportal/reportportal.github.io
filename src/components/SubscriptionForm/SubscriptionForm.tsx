@@ -2,9 +2,9 @@ import React, { useState, useEffect, FC } from 'react';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
 import classNames from 'classnames';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
-import { Link } from '../Link';
 import { EnvelopeIcon } from './icons';
 import { SubscriptionFormCard } from './SubscriptionFormCard';
 

@@ -1,28 +1,27 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { GatsbyNode } from 'gatsby';
+import { GatsbyNode, NodePluginArgs } from 'gatsby';
 import axios from 'axios';
+import pick from 'lodash/pick';
+import camelCase from 'lodash/camelCase';
 
-import { contactUsConfig } from './src/utils/contactUsConfig';
+import { createContactUsConfig } from './src/utils/contactUsConfig';
+import { PricingConfigDto } from './src/utils/types';
 
-interface PostType {
+interface Slug {
   slug: string;
 }
 
 interface PostTypeDto {
   allContentfulBlogPost: {
-    nodes: PostType[];
+    nodes: Slug[];
   };
-}
-
-interface CaseType {
-  slug: string;
 }
 
 interface CaseTypeDto {
   allContentfulCaseStudy: {
-    nodes: CaseType[];
+    nodes: Slug[];
   };
 }
 
@@ -30,6 +29,15 @@ interface Repos {
   total: number;
   repos: Record<string, string>;
 }
+
+interface PricingConfigTypeDto {
+  allContentfulPricingConfig: {
+    nodes: PricingConfigDto[];
+  };
+}
+
+const acceleratorsTemplatesPath = './src/templates/accelerators';
+const pricingTemplatesPath = './src/templates/pricing';
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -41,7 +49,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
       fs.writeFileSync('static/github.json', JSON.stringify(data));
     });
 
-  const blogPost = path.resolve('./src/templates/BlogPost/blog-post.tsx');
+  const blogPost = path.resolve('./src/templates/blog-post/blog-post.tsx');
 
   const blogsResponse = await graphql<PostTypeDto>(
     `
@@ -79,7 +87,60 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
 
   const ContactUsPage = path.resolve('./src/templates/contact-us/contact-us.tsx');
 
-  contactUsConfig.forEach((config: { url: string }) => {
+  const pricingConfigResponse = await graphql<PricingConfigTypeDto>(
+    `
+      {
+        allContentfulPricingConfig(
+          filter: { title: { eq: "SaaS and On-Premises pricing configs" } }
+        ) {
+          nodes {
+            currency
+            period
+            saas {
+              startup {
+                yearly
+                quarterly
+              }
+              business {
+                yearly
+                quarterly
+              }
+              enterprise
+            }
+            onPremises {
+              openSource
+              package25 {
+                yearly
+                quarterly
+              }
+              package60 {
+                yearly
+                quarterly
+              }
+              package160 {
+                yearly
+                quarterly
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+
+  if (pricingConfigResponse.errors) {
+    reporter.panicOnBuild(
+      'There was an error loading Contentful pricing config',
+      pricingConfigResponse.errors,
+    );
+
+    return;
+  }
+
+  const pricingConfig = pricingConfigResponse.data?.allContentfulPricingConfig
+    .nodes[0] as PricingConfigDto;
+
+  createContactUsConfig(pricingConfig).forEach((config: { url: string }) => {
     createPage({
       path: config.url,
       component: ContactUsPage,
@@ -122,9 +183,37 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
       },
     });
   });
+
+  const sharedPricingContext = pick(pricingConfig, 'currency', 'period');
+
+  fs.readdirSync(acceleratorsTemplatesPath).forEach(file => {
+    const key = path.basename(file, '.tsx');
+
+    createPage({
+      path: `/accelerators/${key}/`,
+      component: path.resolve(path.join(acceleratorsTemplatesPath, file)),
+      context: {
+        ...sharedPricingContext,
+        prices: pricingConfig.onPremises,
+      },
+    });
+  });
+
+  fs.readdirSync(pricingTemplatesPath).forEach(file => {
+    const key = path.basename(file, '.tsx');
+
+    createPage({
+      path: `/pricing/${key}/`,
+      component: path.resolve(path.join(pricingTemplatesPath, file)),
+      context: {
+        ...sharedPricingContext,
+        prices: pricingConfig[camelCase(key) as keyof PricingConfigDto],
+      },
+    });
+  });
 };
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ actions }: NodePluginArgs) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {

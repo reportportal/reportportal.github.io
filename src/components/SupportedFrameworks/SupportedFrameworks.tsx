@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useState } from 'react';
 import { Tabs, ConfigProvider } from 'antd';
+import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
 import {
@@ -15,7 +16,6 @@ import {
   $colorPrimary500,
   $poppinsFont,
 } from './constants';
-import { Link } from '../Link';
 
 import './SupportedFrameworks.scss';
 

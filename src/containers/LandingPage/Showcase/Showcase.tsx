@@ -25,7 +25,15 @@ export const Showcase: FC = () => {
   return (
     <div className={getBlocksWith()}>
       <div className={getBlocksWith('__bg-video-container')}>
-        <video className={getBlocksWith('__bg-video')} autoPlay loop muted>
+        <video
+          className={getBlocksWith('__bg-video')}
+          preload="auto"
+          autoPlay
+          loop
+          muted
+          controlsList="nodownload"
+          playsInline
+        >
           <source src="/RP_promo_video.webm" type="video/webm" />
           <source src="/RP_promo_video.mp4" type="video/mp4" />
           Your browser does not support the video tag

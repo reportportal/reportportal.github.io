@@ -59,8 +59,8 @@ export const InstallationPage: FC = () => {
           <div className={getBlocksWith('__btn-box')}>
             <ButtonSwitcher
               buttons={buttons}
-              onSwitch={switchActiveBtn}
               activeBtnName={activeButton}
+              onSwitch={switchActiveBtn}
             />
           </div>
         </div>
