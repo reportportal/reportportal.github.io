@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
 import isEmpty from 'lodash/isEmpty';
 import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
-import { validate } from './utils';
+import { validate, getBaseSalesForceValues } from './utils';
 import { FormFieldWrapper } from './FormFieldWrapper';
 import { FeedbackForm } from './FeedbackForm';
-import { SalesForceFormBase } from './SalesForceFormBase';
 import { FormInput } from './FormInput';
 import { CustomCheckbox } from './CustomCheckbox';
 import { MAX_LENGTH, CONTACT_US_URL } from './constants';
@@ -21,6 +20,7 @@ const getBlocksWith = createBemBlockBuilder(['contact-us-form']);
 
 export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   const [isFeedbackFormVisible, { setTrue: showFeedbackForm }] = useBoolean(false);
+  const [isLoading, setIsLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
       first_name: '',
@@ -28,6 +28,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
       email: '',
       company: '',
       termsAgree: false,
+      wouldLikeToReceiveAds: false,
       ...(isDiscussFieldShown && { discuss: '' }),
     },
     validateOnBlur: false,
@@ -41,18 +42,28 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
 
     validateForm().then(errors => {
       if (isEmpty(errors)) {
+        setIsLoading(true);
+
+        const baseSalesForceValues = getBaseSalesForceValues(options);
+        const postData = {
+          ...values,
+          ...baseSalesForceValues,
+        };
+
         fetch(CONTACT_US_URL, {
           method: 'POST',
-          body: JSON.stringify(values),
+          body: JSON.stringify(postData),
           headers: {
             'Content-Type': 'application/json',
           },
         })
           .then(() => {
             showFeedbackForm();
+            setIsLoading(false);
           })
           .catch(() => {
             showFeedbackForm();
+            setIsLoading(false);
           });
       }
     });
@@ -66,11 +77,6 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
     <FormikProvider value={formik}>
       <div className={getBlocksWith('-container')}>
         <form className={getBlocksWith()}>
-          <SalesForceFormBase
-            additionalFields={options.map(option => (
-              <input key={option.name} type="hidden" {...option} />
-            ))}
-          />
           <FormInput name="first_name" label="First name" placeholder="John" maxLength={40} />
           <FormInput name="last_name" label="Last name" placeholder="Smith" maxLength={80} />
           <FormInput
@@ -110,7 +116,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             className="btn btn--primary btn--large"
             type="submit"
             data-gtm="send_request"
-            disabled={!getFieldProps('termsAgree').value}
+            disabled={!getFieldProps('termsAgree').value || isLoading}
             onClick={handleSubmit}
           >
             Send request
