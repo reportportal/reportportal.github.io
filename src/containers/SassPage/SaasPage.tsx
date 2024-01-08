@@ -1,7 +1,5 @@
-import React from 'react';
-import noop from 'lodash/noop';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-import { createBemBlockBuilder, SAAS_OFFERS_DATA } from '@app/utils';
 import {
   TrustedOrganizations,
   ComparePlans,
@@ -11,6 +9,7 @@ import {
   FooterContent,
 } from '@app/components';
 import { usePricingHeroProps } from '@app/hooks';
+import { createBemBlockBuilder, SassPricingConfig } from '@app/utils';
 
 import { PricingCards } from './PricingCards';
 import { BUTTONS_DATA, COLUMNS, DATA_PLANS, FAQ_ITEMS } from './constants';
@@ -19,11 +18,11 @@ import '@app/components/OfferPageWrapper/OfferPageWrapper.scss';
 
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
-export const SaasPage = () => {
-  const { buttons, discountState, toggleDiscountState } = usePricingHeroProps('pricing');
+export const SaasPage: FC<SassPricingConfig> = pricing => {
+  const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps('pricing');
 
   return (
-    <div>
+    <>
       <PricingHero
         title="ReportPortal services pricing"
         subtitle="Flexible options for small teams to global enterprises"
@@ -33,15 +32,14 @@ export const SaasPage = () => {
         description="An instance of ReportPortal application is hosted for you. ReportPortal team takes care
           about infrastructure, availability, backups, monitoring and version updates and provides
           support by request."
-        switchActiveBtn={noop}
         switcherProps={{
-          switchDiscount: toggleDiscountState,
-          discountState,
+          toggleDiscount,
+          isDiscount,
           messageInactive: 'Quarterly',
           messageActive: 'Yearly (Save 5%)',
         }}
       />
-      <PricingCards discountState={discountState} offersData={SAAS_OFFERS_DATA} />
+      <PricingCards pricing={pricing} isDiscount={isDiscount} />
       <ComparePlans dataPlans={DATA_PLANS} columns={COLUMNS} footerButtons={BUTTONS_DATA} />
       <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
         <TrustedOrganizations />
@@ -56,6 +54,6 @@ export const SaasPage = () => {
           link="/contact-us/general"
         />
       </FooterContent>
-    </div>
+    </>
   );
 };

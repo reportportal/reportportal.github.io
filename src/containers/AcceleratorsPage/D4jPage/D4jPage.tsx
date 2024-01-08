@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { OfferPageWrapper } from '@app/components';
+import { OnPremisesPricingConfig } from '@app/utils';
 
 import { TIME_SCALE_DATA, FAQ_DATA } from './constants';
 
-export const D4jPage: FC = () => (
+export const D4jPage: FC<OnPremisesPricingConfig> = pricing => (
   <OfferPageWrapper
     hero={{
       title: 'Explore pricing packages for our accelerators',
@@ -15,6 +16,7 @@ export const D4jPage: FC = () => (
     pagePath="d4j"
     timeScaleData={TIME_SCALE_DATA}
     faqData={FAQ_DATA}
+    pricing={pricing}
     contactUsLink="/contact-us/d4j"
     utilizationDescription="Our team will provide services in support of Client's use of Drill4J plugin. Such services will vary based on Client's needs. The table below describes the different support services we customarily provide"
     faqLink="https://drill4j.github.io/docs/faq"

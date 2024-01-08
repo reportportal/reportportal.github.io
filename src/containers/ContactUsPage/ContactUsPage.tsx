@@ -15,6 +15,7 @@ interface ContactUsPageProps {
     title: string;
   };
 }
+
 const getBlocksWith = createBemBlockBuilder(['contact-us']);
 
 export const ContactUsPage: FC<ContactUsPageProps> = ({ config }) => (
