@@ -40,7 +40,7 @@ export default Cases;
 
 export const pageQuery = graphql`
   query CaseStudyIndexQuery {
-    allContentfulCaseStudy(sort: { id: DESC }) {
+    allContentfulCaseStudy(sort: { createdAt: DESC }) {
       nodes {
         id
         industry
@@ -49,6 +49,7 @@ export const pageQuery = graphql`
             url
           }
         }
+        createdAt
         cardBackgroundImage {
           file {
             url
