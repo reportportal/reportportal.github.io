@@ -7,10 +7,10 @@ import { CommonRequests } from './CommonRequests';
 import { ConsultingServices } from './ConsultingServices';
 import { DASHBOARD_HEADER_INFO, TESTING_BOTTOM_BLOCK_INFO } from './constants';
 
-import './QualityAssessmentPage.scss';
+import './QualityEngineeringConsultingPage.scss';
 
-export const QualityAssessmentPage: FC = () => (
-  <div className="quality-assessment">
+export const QualityEngineeringConsultingPage: FC = () => (
+  <div className="qe-consulting">
     <DashboardHeader
       title={DASHBOARD_HEADER_INFO.title}
       dashboardText={DASHBOARD_HEADER_INFO.dashboardText}
@@ -18,7 +18,7 @@ export const QualityAssessmentPage: FC = () => (
     <OurSolution />
     <CommonRequests />
     <ConsultingServices />
-    <TestingBottomBlock title={TESTING_BOTTOM_BLOCK_INFO.title} url="/contact-us/qaaas">
+    <TestingBottomBlock title={TESTING_BOTTOM_BLOCK_INFO.title} url="/contact-us/qe-consulting">
       <QualityApproach />
     </TestingBottomBlock>
   </div>

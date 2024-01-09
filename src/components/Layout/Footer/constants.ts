@@ -34,7 +34,7 @@ export const SERVICES_LINKS = [
   },
   {
     title: 'QE Consulting',
-    link: '/quality-assessment',
+    link: '/qe-consulting',
   },
 ];
 

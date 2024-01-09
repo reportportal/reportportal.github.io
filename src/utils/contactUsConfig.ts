@@ -322,7 +322,7 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
       isDiscussFieldShown: false,
     },
     {
-      url: '/contact-us/qaaas',
+      url: '/contact-us/qe-consulting',
       title: 'Contact us',
       options: [
         {
