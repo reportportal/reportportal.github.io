@@ -3,7 +3,7 @@ import { Layout } from '@app/components';
 import { LandingPage } from '@app/containers/LandingPage';
 
 const Root: FC = () => (
-  <Layout className="with-footer-banner">
+  <Layout>
     <LandingPage />
   </Layout>
 );

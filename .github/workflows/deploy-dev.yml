@@ -22,6 +22,7 @@ env:
   DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
   GTM_ID: GTM-MK7ZHTL
   CLOUDFRONT_ID: EILUB1IE9EON0
+  MAILCHIMP_URL: https://reportportal.us18.list-manage.com/subscribe/post-json?u=6ea28d10d9a89b360d8649a4c&id=ca6d0eec5b
 
 on:
   push:
@@ -71,6 +72,7 @@ jobs:
           echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env.production
           echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env.production
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production
+          echo MAILCHIMP_URL=${{ env.MAILCHIMP_URL }} >> .env.production
 
       - name: Build the source code
         run: npm run build

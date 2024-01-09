@@ -3,7 +3,7 @@ import { Layout } from '@app/components';
 import { TermsPage } from '@app/containers/TermsPage';
 
 const Terms: FC = () => (
-  <Layout className="with-footer-banner">
+  <Layout>
     <TermsPage />
   </Layout>
 );

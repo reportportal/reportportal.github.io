@@ -21,7 +21,7 @@ const CaseStudyTemplate: FC<PageProps<CaseStudyProps>> = ({ data }) => {
   const { title, industry, challenges, highlights, benefitsResults } = data.contentfulCaseStudy;
 
   return (
-    <Layout className="with-footer-banner">
+    <Layout>
       <CaseStudyPage {...{ title, industry, challenges, highlights, benefitsResults }} />
     </Layout>
   );

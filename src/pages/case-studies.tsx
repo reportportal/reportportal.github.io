@@ -1,6 +1,5 @@
 import React, { useState, useEffect, FC } from 'react';
 import { PageProps, graphql } from 'gatsby';
-import classNames from 'classnames';
 import { Layout } from '@app/components';
 import { CasesPage } from '@app/containers/CasesPage';
 
@@ -27,7 +26,7 @@ const Cases: FC<PageProps<DataProps>> = ({ data }) => {
   }, [displayCount, nodes]);
 
   return (
-    <Layout className={classNames('cases-page-layout', 'with-footer-banner')}>
+    <Layout className="cases-page-layout">
       <CasesPage
         cases={caseStudies}
         handleLoadMore={handleLoadMore}

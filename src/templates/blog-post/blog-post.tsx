@@ -19,7 +19,7 @@ const BlogPostTemplate: FC<PageProps<DataProps>> = ({ data }) => {
   const { industry, title, author, date, articleBody } = data.contentfulBlogPost;
 
   return (
-    <Layout className="with-footer-banner">
+    <Layout>
       <BlogPostPage {...{ industry, title, author, date, articleBody }} />
     </Layout>
   );

@@ -12,8 +12,6 @@ import { SubscriptionFormCard } from './SubscriptionFormCard';
 import './SubscriptionForm.scss';
 
 const getBlocksWith = createBemBlockBuilder(['subscription-form']);
-const MAILCHIMP_U = '6ea28d10d9a89b360d8649a4c';
-const MAILCHIMP_ID = 'ca6d0eec5b';
 const alreadySubscribedStatusMessage =
   "You're already subscribed, your profile has been updated. Thank you!";
 const thankYouStatusMessage = 'Thank you for subscribing!';
@@ -31,7 +29,7 @@ export const SubscriptionForm: FC = () => {
 
   const subscribeUser = (emailToSubscribe: string) => {
     jsonp(
-      `https://reportportal.us18.list-manage.com/subscribe/post-json?u=${MAILCHIMP_U}&id=${MAILCHIMP_ID}&MERGE0=${emailToSubscribe}`,
+      `${process.env.MAILCHIMP_URL}&MERGE0=${emailToSubscribe}`,
       { param: 'c' },
       (error, data) => {
         const { msg, result } = data;
