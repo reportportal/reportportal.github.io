@@ -12,7 +12,7 @@ interface BaseConfig {
 
 type AvailableOption = { isYearly: boolean };
 
-const SALESFORCE_SOURCE_NAME = 'ReportPortalSource__c';
+const SALESFORCE_SOURCE_NAME = 'ReportPortalSource';
 const LEAD_SOURCE = 'lead_source';
 const packageNumbers = [25, 60, 160];
 const yearlyOption = { isYearly: true };

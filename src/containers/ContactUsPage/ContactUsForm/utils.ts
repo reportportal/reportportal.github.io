@@ -55,8 +55,6 @@ export const getBaseSalesForceValues = options => {
   );
 
   return {
-    oid: process.env.SALESFORCE_OID,
-    retURL: 'http://',
     lead_status: 'New',
     ...pageConfig,
   };
