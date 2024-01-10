@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, MouseEvent } from 'react';
 import { useClickAway } from 'ahooks';
 import { BasicTarget } from 'ahooks/lib/utils/domTarget';
 
@@ -15,7 +15,7 @@ export const MenuContainer: FC<MenuContainerProps> = ({
   children,
   onClose,
 }) => {
-  const menuContainerRef = useRef(null);
+  const menuContainerRef = useRef<HTMLDivElement>(null);
 
   useClickAway(() => {
     if (!isOpen) {
@@ -26,22 +26,32 @@ export const MenuContainer: FC<MenuContainerProps> = ({
   }, [menuContainerRef, menuLinksRef]);
 
   useEffect(() => {
+    const mainContainer = menuContainerRef.current;
+
     if (!isOpen) {
       return;
     }
 
-    const handleClick = event => {
-      const shouldCloseMenu = ['a', 'button'].some(tagName => event.target.closest(tagName));
+    const handleClick = (event: MouseEvent<HTMLElement>) => {
+      const shouldCloseMenu = ['a', 'button'].some(tagName => event.currentTarget.closest(tagName));
+      const isSubmitButton = event.currentTarget.getAttribute('type') === 'submit';
 
-      if (shouldCloseMenu) {
+      if (shouldCloseMenu && !isSubmitButton) {
         onClose();
       }
     };
 
-    menuContainerRef.current?.addEventListener('click', handleClick);
+    mainContainer?.addEventListener(
+      'click',
+      handleClick as unknown as EventListenerOrEventListenerObject,
+    );
 
     // eslint-disable-next-line consistent-return
-    return () => menuContainerRef.current?.removeEventListener('click', handleClick);
+    return () =>
+      mainContainer?.removeEventListener(
+        'click',
+        handleClick as unknown as EventListenerOrEventListenerObject,
+      );
   }, [isOpen, menuContainerRef, onClose]);
 
   return React.Children.map(children, child =>

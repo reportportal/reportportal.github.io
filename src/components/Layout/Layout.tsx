@@ -23,7 +23,6 @@ const snowfallProps = {
   style: { position: 'fixed', zIndex: 1000 },
 };
 
-export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscribed: false });
 export const watchProductOverviewAtom = atom({ isOpen: false });
 
 interface LayoutProps {
