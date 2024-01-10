@@ -10,7 +10,7 @@ import { FormFieldWrapper } from './FormFieldWrapper';
 import { FeedbackForm } from './FeedbackForm';
 import { FormInput } from './FormInput';
 import { CustomCheckbox } from './CustomCheckbox';
-import { MAX_LENGTH, CONTACT_US_URL } from './constants';
+import { MAX_LENGTH } from './constants';
 
 import ArrowIcon from '../../../svg/arrow.inline.svg';
 
@@ -50,7 +50,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
           ...baseSalesForceValues,
         };
 
-        fetch(CONTACT_US_URL, {
+        fetch(process.env.CONTACT_US_URL, {
           method: 'POST',
           body: JSON.stringify(postData),
           headers: {
