@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState, FC } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { useLocation } from '@gatsbyjs/reach-router';
 import { useScroll } from 'ahooks';
 import classNames from 'classnames';
-import { useMediaQuery } from 'react-responsive';
 import { useScrollDirection } from '@app/hooks';
 import { createBemBlockBuilder, mediaDesktopSm, iconsCommon, DOCUMENTATION_URL } from '@app/utils';
 import {
@@ -13,6 +13,7 @@ import {
   Banner,
   StartTestingWithReportPortal,
   Faq,
+  FooterContent,
 } from '@app/components';
 
 import { FEATURES_LIST, NAVIGATION_LIST } from './constants';
@@ -20,6 +21,14 @@ import { FEATURES_LIST, NAVIGATION_LIST } from './constants';
 import './FeaturesPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
+
+const scrollToAnchor = (anchor: string) => {
+  const anchorTarget = document.getElementById(anchor.slice(1));
+
+  if (anchorTarget) {
+    anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+  }
+};
 
 export const FeaturesPage: FC = () => {
   const handleScroll = () => {
@@ -68,7 +77,7 @@ export const FeaturesPage: FC = () => {
   const menuItemActiveClassName = getBlocksWith('__features-navigation-item--active');
   const featureItemClassName = getBlocksWith('__features-navigation-item');
 
-  const setHistoryValue = val => window.history.replaceState(null, '', `/features/${val}`);
+  const setHistoryValue = val => window.history.replaceState(null, '', `/features${val}`);
 
   useEffect(() => {
     const processIntegrationTopPosition =
@@ -92,11 +101,7 @@ export const FeaturesPage: FC = () => {
   const handleNavClick = (event, anchor) => {
     event.preventDefault();
 
-    const anchorTarget = document.getElementById(anchor.slice(1));
-
-    if (anchorTarget) {
-      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-    }
+    scrollToAnchor(anchor);
   };
 
   const collapsableList = [
@@ -143,7 +148,15 @@ export const FeaturesPage: FC = () => {
             <h2>Empower your testing process with ReportPortal</h2>
           </div>
           <div className={getBlocksWith('__hero-dashboard')}>
-            <img src={iconsCommon.dashboard} alt="" />
+            <img
+              src={iconsCommon.dashboard}
+              alt=""
+              onLoad={() => {
+                if (activeElement) {
+                  scrollToAnchor(activeElement);
+                }
+              }}
+            />
           </div>
         </div>
       </div>
@@ -218,14 +231,15 @@ export const FeaturesPage: FC = () => {
       <div className={classNames(getBlocksWith('__faq'), 'container')}>
         <Faq items={collapsableList} showMoreInfoLink={false} />
       </div>
-
-      <div className={getBlocksWith('__banner')}>
-        <Banner
-          title="Still have questions about our features?"
-          linkTitle="Contact us"
-          link="/contact-us/general"
-        />
-      </div>
+      <FooterContent>
+        <div className={getBlocksWith('__banner')}>
+          <Banner
+            title="Still have questions about our features?"
+            linkTitle="Contact us"
+            link="/contact-us/general"
+          />
+        </div>
+      </FooterContent>
     </div>
   );
 };

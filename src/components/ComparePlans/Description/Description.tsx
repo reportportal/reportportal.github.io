@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { createBemBlockBuilder } from '@app/utils';
-
-import { Link } from '../../Link';
+import { Link } from '@app/components';
 
 import '../ComparePlans.scss';
 

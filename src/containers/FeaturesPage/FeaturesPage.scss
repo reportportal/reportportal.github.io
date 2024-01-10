@@ -35,19 +35,6 @@
   }
 
   &__banner {
-    position: relative;
-    margin-top: 120px;
-    padding-bottom: 40px;
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      padding-bottom: 22px;
-    }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      margin-top: 200px;
-      padding-bottom: 76px;
-    }
-
     .banner__title {
       max-width: 500px;
       margin: 0 auto;
@@ -55,14 +42,6 @@
       @include m.breakpoint(v.$desktop-sm) {
         max-width: initial;
         margin: unset;
-      }
-    }
-
-    .banner__bg {
-      bottom: -50px;
-
-      @include m.breakpoint(v.$tablet-sm-exact) {
-        bottom: -92px;
       }
     }
   }
@@ -432,6 +411,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 80px;
+  padding-bottom: 244px;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
     padding-top: 80px;

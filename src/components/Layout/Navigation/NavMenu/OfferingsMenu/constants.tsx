@@ -5,7 +5,7 @@ import OnPremiseIcon from './icons/on-premise.inline.svg';
 import FreeVersionIcon from './icons/free-version.inline.svg';
 import TaaSIcon from './icons/taas.inline.svg';
 import TAaaSIcon from './icons/taaas.inline.svg';
-import QualityAssessmentIcon from './icons/quality-assessment.inline.svg';
+import QEConsultingIcon from './icons/qe-consulting.inline.svg';
 
 export const PRICING_CONFIG = [
   {
@@ -42,10 +42,10 @@ export const SERVICE_LIST = [
     link: '/test-automation-as-a-service',
   },
   {
-    icon: <QualityAssessmentIcon />,
-    title: 'Quality Assessment',
-    text: 'Consulting to bring up Quality Engineering Transformation',
-    link: '/quality-assessment',
+    icon: <QEConsultingIcon />,
+    title: 'QE Consulting',
+    text: 'Holistic Quality Engineering (QE) transformation',
+    link: '/qe-consulting',
   },
 ];
 

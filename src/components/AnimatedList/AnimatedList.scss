@@ -114,6 +114,10 @@
     padding: 0;
     list-style: none;
 
+    & + img {
+      display: none;
+    }
+
     @include m.breakpoint(v.$desktop-sm) {
       flex-shrink: 0;
       width: 486px;

@@ -1,8 +1,8 @@
 import { useStaticQuery, graphql } from 'gatsby';
-import { Organization } from '@app/utils';
+import { OrganizationDto } from '@app/utils';
 
 interface TrustedByOrganizationsQuery {
-  organizations: Required<Organization>[];
+  organizations: Required<OrganizationDto>[];
 }
 
 interface TrustedByOrganizationsQueryDto {

@@ -39,16 +39,21 @@
 
   &:not(:last-child) {
     margin-bottom: 8px;
+
+    .menu-dialog-offerings &,
+    .menu-dialog-community & {
+      margin-bottom: 0;
+    }
   }
 
   &--no-text {
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     line-height: 20px;
 
     svg,
     .section-item-icon {
-      top: 6px;
+      top: 8px;
     }
   }
 
@@ -59,6 +64,8 @@
   &-text {
     @include m.font-poppins();
     @include m.font-scale(small);
+
+    line-height: 20px;
   }
 
   &-title,

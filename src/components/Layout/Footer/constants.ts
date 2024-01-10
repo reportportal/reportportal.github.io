@@ -33,8 +33,8 @@ export const SERVICES_LINKS = [
     link: '/test-automation-as-a-service',
   },
   {
-    title: 'Quality Assessment',
-    link: '/quality-assessment',
+    title: 'QE Consulting',
+    link: '/qe-consulting',
   },
 ];
 

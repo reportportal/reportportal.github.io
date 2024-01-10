@@ -72,14 +72,14 @@
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin-bottom: 24px;
     }
+  }
 
-    span {
-      @include m.font-scale(large);
-      @include m.font-poppins(v.$fw-bold);
+  &__price-value {
+    @include m.font-scale(large);
+    @include m.font-poppins(v.$fw-bold);
 
-      display: inline-block;
-      margin-right: 5px;
-    }
+    display: inline-block;
+    margin-right: 5px;
   }
 
   &__bottom-panel {

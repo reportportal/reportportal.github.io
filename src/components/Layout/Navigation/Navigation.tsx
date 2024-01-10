@@ -6,7 +6,7 @@ import upperFirst from 'lodash/upperFirst';
 import axios from 'axios';
 import classNames from 'classnames';
 import { Link } from '@app/components';
-import { createBemBlockBuilder } from '@app/utils';
+import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
 import { useScrollDirection } from '@app/hooks';
 
 // eslint-disable-next-line import/no-unresolved
@@ -22,6 +22,7 @@ import {
 import {
   GithubIcon,
   NavLogoIcon,
+  NewYearNavLogoIcon,
   ArrowIconDesktop,
   BurgerIcon,
   CrossIcon,
@@ -43,7 +44,6 @@ const menuItems = {
 
 export const Navigation: FC = () => {
   const menuLinksRef = useRef(null);
-
   const scroll = useScroll();
   const [isMobileMenuOpen, { setRight: openMobileMenu, setLeft: closeMobileMenu }] = useToggle();
   const [githubCounter, setGithubCounter] = useState(githubStats.repos.reportportal);
@@ -62,7 +62,7 @@ export const Navigation: FC = () => {
   );
 
   const isMenuOpen = Object.values(menus).some(Boolean);
-  const scrollDirection = useScrollDirection({ callbackFn: null, isMenuOpen });
+  const scrollDirection = useScrollDirection({ isMenuOpen });
 
   useEffect(() => {
     const fetchGithubStars = () => {
@@ -94,12 +94,12 @@ export const Navigation: FC = () => {
 
   const logo = (
     <Link to="/" className={getBlocksWith('-navigation__logo-link')}>
-      <NavLogoIcon />
+      {isNewYearMode ? <NewYearNavLogoIcon /> : <NavLogoIcon />}
     </Link>
   );
 
   const headerHeight = 76;
-  const isSticky = scrollDirection !== 'down' || isMenuOpen;
+  const isSticky = scrollDirection === 'up' || isMenuOpen;
   const isActive = isMenuOpen || scrollY > headerHeight;
 
   return (
@@ -214,7 +214,7 @@ export const Navigation: FC = () => {
         placement="right"
         closable={false}
         open={!isDesktop && isMobileMenuOpen}
-        onClose={openMobileMenu}
+        onClose={closeMobileMenu}
       >
         <Collapse expandIconPosition="end" ghost accordion>
           {MENU_ORDER.map(menuItem => {

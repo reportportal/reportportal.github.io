@@ -201,6 +201,10 @@
       row-gap: 8px;
       margin: 0;
 
+      > span {
+        display: block;
+      }
+
       @include m.breakpoint(v.$desktop-sm) {
         row-gap: 4px;
       }
@@ -221,7 +225,13 @@
     }
 
     strong {
+      display: contents;
       font-weight: v.$fw-semi-bold;
+
+      span {
+        text-decoration: line-through;
+        font-weight: v.$fw-regular;
+      }
     }
   }
 

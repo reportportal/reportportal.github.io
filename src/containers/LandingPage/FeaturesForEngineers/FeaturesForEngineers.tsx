@@ -11,7 +11,7 @@ export const FeaturesForEngineers: FC = () => (
     data={FEATURES_FOR_ENGINEERS_LIST}
   >
     <Link className="btn btn--primary btn--large" to="/features">
-      Expand All Features
+      Explore all features
     </Link>
   </AnimatedList>
 );

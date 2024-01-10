@@ -291,18 +291,7 @@
   }
 
   &__banner {
-    position: relative;
-    padding-bottom: 26px;
-    background: var(--white);
     line-height: 24px;
-
-    @include m.breakpoint(v.$phone-lg) {
-      padding-bottom: 6px;
-    }
-
-    @include m.breakpoint(v.$tablet-lg) {
-      padding-bottom: 90px;
-    }
   }
 
   &__final {

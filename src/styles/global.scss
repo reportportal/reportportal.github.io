@@ -4,6 +4,11 @@
 @import 'buttons';
 @import 'css-variables';
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 html * {
   box-sizing: border-box;
 }

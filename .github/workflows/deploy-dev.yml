@@ -19,11 +19,15 @@ env:
   CONTACT_US_URL: https://testio--partial.sandbox.my.salesforce-sites.com/leadcapture/services/apexrest/leadservice
   DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
   GTM_ID: GTM-MK7ZHTL
+  CLOUDFRONT_ID: EILUB1IE9EON0
 
 on:
   push:
     branches:
       - develop
+  schedule:
+    - cron: "0 21 24 10 *"
+    - cron: "0 21 4 1 *"
   workflow_dispatch:
 
 jobs:
@@ -76,3 +80,6 @@ jobs:
 
       - name: Deploy to AWS S3
         run: aws s3 sync ./${{ env.BUILD_DIR }} s3://${{ env.AWS_S3_BUCKET_NAME }}
+
+      - name: Clearing CloudFront cache for the entire distribution
+        run: aws cloudfront create-invalidation --distribution-id ${{ env.CLOUDFRONT_ID }} --paths "/*"

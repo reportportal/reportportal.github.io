@@ -1,36 +1,40 @@
 import React, { FC } from 'react';
+import isString from 'lodash/isString';
 import classNames from 'classnames';
 import { Link } from '@app/components';
-import { createBemBlockBuilder, formatNumberWithCommas } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  Discount,
+  formatNumberWithCommas,
+  SAAS_OFFERS_KEYS,
+  SassPricingConfig,
+} from '@app/utils';
 
 import './PricingCard.scss';
 
 interface PricingCardProps {
-  card: {
+  offer: {
+    key: SAAS_OFFERS_KEYS;
     title: string;
     description: string;
     listItems: string[];
-    price: {
-      currency: string;
-      value: string;
-      period: string;
-      message: string;
-      discountedValue: string;
-    };
     actionText: string;
-    isPopular: string;
+    isPopular: boolean;
     actionVariant: string;
     href: string;
   };
-  discountState: string;
+  discount: Discount;
+  pricing: SassPricingConfig;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pricing-card']);
 
-export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
-  const { title, description, listItems, price, actionText, isPopular, actionVariant, href } = card;
-  const { currency, value, period, message, discountedValue } = price;
-  const contactUsURL = !value ? href : `${href}/${discountState ? 'yearly' : 'quarterly'}`;
+export const PricingCard: FC<PricingCardProps> = ({
+  offer: { key, title, description, listItems, actionText, isPopular, actionVariant, href },
+  pricing: { prices, currency, period },
+  discount,
+}) => {
+  const priceValue = prices[key];
 
   return (
     <div className={getBlocksWith()}>
@@ -39,19 +43,19 @@ export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
         <div className={getBlocksWith('__title')}>{title}</div>
         <div className={getBlocksWith('__description')}>{description}</div>
         <ul>
-          {listItems.map((item, index) => (
-            <li key={index}>{item}</li>
+          {listItems.map(item => (
+            <li key={item}>{item}</li>
           ))}
         </ul>
       </div>
       <div className={getBlocksWith('__bottom-panel')}>
         <div className={getBlocksWith('__price')}>
-          {message ? (
-            <span>{message}</span>
+          {isString(priceValue) ? (
+            <span className={getBlocksWith('__price-value')}>{priceValue}</span>
           ) : (
             <>
-              <span>
-                {currency} {formatNumberWithCommas(discountState ? discountedValue : value)}
+              <span className={getBlocksWith('__price-value')}>
+                {currency} {formatNumberWithCommas(priceValue[discount])}
               </span>
               / {period}
             </>
@@ -60,7 +64,7 @@ export const PricingCard: FC<PricingCardProps> = ({ card, discountState }) => {
         {href ? (
           <Link
             className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}
-            to={contactUsURL}
+            to={`${href}/${discount}`}
           >
             {actionText}
           </Link>

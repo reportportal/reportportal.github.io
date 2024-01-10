@@ -1,0 +1,245 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.quality-approach {
+  max-width: 1167px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+
+  @include m.breakpoint(v.$desktop-sm) {
+    margin-top: 64px;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+
+    &-top {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+      }
+    }
+
+    .block-top__item {
+      width: 330px;
+      min-height: 360px;
+      padding: 32px 13px;
+      background: bottom url('../../../svg/testing/BottomArrowBG.svg') no-repeat,
+        bottom url('../../../svg/testing/BottomFullArrowBG.svg') no-repeat;
+      background-size: contain;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        width: 389px;
+        padding: 32px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        padding: 32px 44px;
+      }
+
+      &-title {
+        @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale(medium);
+
+        text-align: center;
+      }
+
+      .unordered-list {
+        gap: 4px;
+        padding-top: 16px;
+
+        &__list {
+          color: var(--white);
+
+          &-description {
+            padding-left: 0;
+          }
+        }
+      }
+
+      &--unique {
+        position: static;
+        height: 520px;
+
+        @include m.breakpoint(v.$desktop-sm) {
+          position: absolute;
+          top: 0;
+          left: 389px;
+          height: 520px;
+        }
+      }
+    }
+
+    &-bottom {
+      display: none;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        display: block;
+        align-self: center;
+        width: 778px;
+        height: 374px;
+        background: bottom url('../../../svg/testing/Trident.svg') no-repeat;
+      }
+    }
+  }
+
+  &__circle-process {
+    display: flex;
+    justify-content: center;
+    margin: 64px 0;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin: 120px 0 92px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin: 0 0 40px;
+    }
+
+    .circle-process {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 325px;
+      height: 280px;
+      background: bottom url('../../../svg/testing/BottomArrowBG.svg') no-repeat,
+        bottom url('../../../svg/testing/BottomFullArrowBG.svg') no-repeat;
+      background-size: contain, cover;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        width: 390px;
+        height: 260px;
+        background-size: cover;
+      }
+
+      &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        max-width: 272px;
+        margin-bottom: 10px;
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          gap: 4px;
+          max-width: 346px;
+          margin-bottom: 50px;
+        }
+      }
+
+      &__item {
+        @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale();
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 132px;
+        border-radius: 4px;
+        padding: 10px;
+        background: var(--color-primary-800);
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          width: 171px;
+        }
+      }
+
+      &__image {
+        position: absolute;
+        top: 120px;
+        width: 32px;
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          top: 89px;
+        }
+      }
+    }
+  }
+
+  &__deliverables {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    margin: 0 auto;
+    padding: 48px 0;
+    background: bottom url('../../../svg/testing/BlueBottomBorderBG.svg') no-repeat,
+      linear-gradient(180deg, rgb(102 210 230 / 0) 6.77%, rgb(0 180 213 / 0.24) 100%);
+    background-size: contain;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      width: 720px;
+      padding: 48px 12px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      width: 859px;
+      padding: 48px 64px;
+    }
+
+    .deliverables {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        flex-direction: row;
+        gap: 6px;
+        width: 710px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        gap: 24px;
+        width: 731px;
+      }
+
+      &__item {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        gap: 16px;
+        width: 228px;
+
+        &-title {
+          @include m.font-poppins(v.$fw-semi-bold);
+          @include m.font-scale(medium);
+
+          height: 64px;
+          text-align: center;
+
+          @include m.breakpoint(v.$tablet-sm-exact) {
+            align-self: center;
+            max-width: 192px;
+          }
+
+          @include m.breakpoint(v.$desktop-sm) {
+            max-width: none;
+          }
+        }
+
+        .unordered-list {
+          padding: 0;
+
+          &__list {
+            @include m.font-poppins();
+            @include m.font-scale(small);
+
+            gap: 4px;
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+}

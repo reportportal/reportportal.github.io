@@ -40,7 +40,7 @@ const config: GatsbyConfig = {
         excludes: [
           '/contact-us/taas',
           '/contact-us/taaas',
-          '/contact-us/qaaas',
+          '/contact-us/qe-consulting',
           '/contact-us/saas/**',
           '/contact-us/on-premises/**',
           '/contact-us/qasp',
