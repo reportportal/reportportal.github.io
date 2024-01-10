@@ -31,6 +31,7 @@
     "formik": "^2.4.3",
     "framer-motion": "^10.0.1",
     "jotai": "^2.0.2",
+    "jsonp": "^0.2.1",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",
     "react": "^18.0.0",
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "@ant-design/static-style-extract": "^1.0.2",
+    "@types/jsonp": "^0.2.3",
     "@types/node": "^20.8.2",
     "@types/react": "^18.2.24",
     "@types/react-dom": "^18.2.10",
