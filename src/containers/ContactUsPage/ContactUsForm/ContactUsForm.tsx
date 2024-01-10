@@ -56,15 +56,10 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-        })
-          .then(() => {
-            showFeedbackForm();
-            setIsLoading(false);
-          })
-          .catch(() => {
-            showFeedbackForm();
-            setIsLoading(false);
-          });
+        }).finally(() => {
+          showFeedbackForm();
+          setIsLoading(false);
+        });
       }
     });
   };
