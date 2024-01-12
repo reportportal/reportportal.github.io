@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import { Divider } from 'antd';
-import { useAtom } from 'jotai';
 import classNames from 'classnames';
-import { Link, newYearModeAtom } from '@app/components';
-import { createBemBlockBuilder } from '@app/utils';
+import { Link } from '@app/components';
+import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
 
 import { FooterList } from './FooterList';
 import { PRODUCT_LINKS, SERVICES_LINKS, SOLUTIONS_LINKS, LEARN_LINKS } from './constants';
@@ -43,8 +42,6 @@ const socialLinks = [
 ];
 
 export const Footer: FC = () => {
-  const [isNewYearMode] = useAtom(newYearModeAtom);
-
   return (
     <footer className={getBlocksWith()}>
       <div className={classNames(getBlocksWith('__container'), 'container')}>
