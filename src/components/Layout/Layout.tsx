@@ -3,6 +3,7 @@ import Snowfall from 'react-snowfall';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { atom, useAtom } from 'jotai';
 import classNames from 'classnames';
+import { isNewYearMode } from '@app/utils';
 
 // eslint-disable-next-line import/no-unresolved
 import '../../../static/antd.min.css'; // Will be generated at build time
@@ -12,7 +13,6 @@ import { Seo } from './Seo';
 import { Navigation } from './Navigation';
 import { Footer } from './Footer';
 import { EmbedVideo } from './EmbedVideo';
-import { isDateBetweenNov25AndJan14 } from './utils';
 
 const snowfallProps = {
   color: '#dee4fd',
@@ -25,7 +25,6 @@ const snowfallProps = {
 
 export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscribed: false });
 export const watchProductOverviewAtom = atom({ isOpen: false });
-export const newYearModeAtom = atom(isDateBetweenNov25AndJan14());
 
 interface LayoutProps {
   children: ReactElement;
@@ -35,7 +34,6 @@ interface LayoutProps {
 export const Layout: FC<LayoutProps> = ({ children, className }) => {
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
-  const [isNewYearMode] = useAtom(newYearModeAtom);
 
   const toggleEmbedVideoOpen = useCallback(
     () => setWatchProductOverviewState(({ isOpen }) => ({ isOpen: !isOpen })),
