@@ -5,5 +5,5 @@ export const DASHBOARD_HEADER_INFO = {
 };
 
 export const TESTING_BOTTOM_BLOCK_INFO = {
-  title: 'Our approach to QE Assessments',
+  title: 'Our approach to Assessments',
 };
