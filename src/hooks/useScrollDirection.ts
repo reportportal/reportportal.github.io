@@ -1,17 +1,18 @@
 import { useState, useRef, useLayoutEffect } from 'react';
 import { useScroll } from 'ahooks';
+import noop from 'lodash/noop';
 
 interface ScrollDirection {
-  callbackFn: () => void;
   isMenuOpen: boolean;
+  callbackFn?: () => void;
 }
 
-enum Directions {
+export enum Directions {
   DOWN = 'down',
   UP = 'up',
 }
 
-export const useScrollDirection = ({ callbackFn, isMenuOpen }: ScrollDirection) => {
+export const useScrollDirection = ({ isMenuOpen, callbackFn = noop }: ScrollDirection) => {
   const [scrollDirection, setScrollDirection] = useState<Directions | null>(null);
   const lastScrollYRef = useRef(0);
   const scroll = useScroll();
@@ -20,17 +21,19 @@ export const useScrollDirection = ({ callbackFn, isMenuOpen }: ScrollDirection) 
 
   useLayoutEffect(() => {
     const direction = scrollY > lastScrollYRef.current ? Directions.DOWN : Directions.UP;
+    const isScrollDebouncedEnough = Math.abs(scrollY - lastScrollYRef.current) > 10;
 
-    if (
-      direction !== scrollDirection &&
-      (scrollY - lastScrollYRef.current > 10 || scrollY - lastScrollYRef.current < -10)
-    ) {
-      setScrollDirection(direction);
+    if (scrollY === 0) {
+      setScrollDirection(null);
     }
 
-    lastScrollYRef.current = Math.max(scrollY, 0);
+    if (isScrollDebouncedEnough) {
+      lastScrollYRef.current = scrollY;
 
-    if (callbackFn) {
+      if (direction !== scrollDirection) {
+        setScrollDirection(direction);
+      }
+
       callbackFn();
     }
   }, [scrollY]);

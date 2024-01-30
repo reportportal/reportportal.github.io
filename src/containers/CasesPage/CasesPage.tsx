@@ -48,7 +48,9 @@ export const CasesPage: FC<CasesPageProps> = ({ cases, handleLoadMore, showLoadM
     <div className={classNames(getBlocksWith('__cases-list'), 'container')}>
       {cases.map(({ id, industry, title, icon, cardBackgroundImage, slug }) => (
         <div
-          style={{ backgroundImage: `url(${cardBackgroundImage?.file?.url})` }}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          style={{ '--background': `url(${cardBackgroundImage?.file?.url})` }}
           className={classNames(getBlocksWith('__cases-list-item-box'), industry.toLowerCase())}
           key={id}
           id={id}

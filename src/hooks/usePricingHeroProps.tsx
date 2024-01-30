@@ -39,11 +39,11 @@ export const acceleratorsButtons = [
 ];
 
 export const usePricingHeroProps = (page: string) => {
-  const [discountState, { toggle: toggleDiscountState }] = useToggle(true);
+  const [isDiscount, { toggle: toggleDiscount }] = useToggle(true);
 
   return {
-    discountState,
+    isDiscount,
     buttons: page === 'pricing' ? pricingButtons : acceleratorsButtons,
-    toggleDiscountState,
+    toggleDiscount,
   };
 };

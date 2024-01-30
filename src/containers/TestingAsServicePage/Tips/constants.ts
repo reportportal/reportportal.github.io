@@ -14,7 +14,7 @@ const SPECIALIZED_LIST = [
 
 const EXPLORATORY_LIST = [
   {
-    info: 'Fixed scope of 65 manual professional service hours of crowdsourced testing done by a team of 25-50 testers in for 24 to 48 hours)',
+    info: 'Fixed scope of 65 manual Professional Service Hours of crowdsourced testing done by a team of 25-50 testers in for 24 to 48 hours)',
   },
 ];
 

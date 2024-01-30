@@ -5,20 +5,22 @@ import './IconBlock.scss';
 
 interface IconBlockProps {
   type: string;
-  number: string;
-  progressNumber: number;
+  value: string | number;
+  progressNumber?: number;
   text?: string;
   benefit?: string;
 }
 
-export const IconBlock: FC<IconBlockProps> = ({ type, number, text, benefit, progressNumber }) => (
-  <div className={classNames('icon-block', type, `${type}-${progressNumber}`)}>
+export const IconBlock: FC<IconBlockProps> = ({ type, value, text, benefit, progressNumber }) => (
+  <div
+    className={classNames('icon-block', type, { [`${type}-${progressNumber}`]: progressNumber })}
+  >
     <span
       className={classNames('icon-block__number', {
         'icon-block__number--only': !(text && benefit),
       })}
     >
-      {number}
+      {value}
     </span>
     <span className="icon-block__text">{text}</span>
     <span className="icon-block__benefit">{benefit}</span>

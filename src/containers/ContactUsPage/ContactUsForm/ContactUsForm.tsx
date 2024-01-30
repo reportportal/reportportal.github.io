@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
+import isEmpty from 'lodash/isEmpty';
 import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
-import { validate } from './utils';
+import { validate, getBaseSalesForceValues } from './utils';
 import { FormFieldWrapper } from './FormFieldWrapper';
 import { FeedbackForm } from './FeedbackForm';
-import { SalesForceFormBase } from './SalesForceFormBase';
 import { FormInput } from './FormInput';
 import { CustomCheckbox } from './CustomCheckbox';
 import { MAX_LENGTH } from './constants';
@@ -20,7 +20,7 @@ const getBlocksWith = createBemBlockBuilder(['contact-us-form']);
 
 export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   const [isFeedbackFormVisible, { setTrue: showFeedbackForm }] = useBoolean(false);
-  const [iframe, setIframe] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
       first_name: '',
@@ -28,31 +28,40 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
       email: '',
       company: '',
       termsAgree: false,
+      wouldLikeToReceiveAds: false,
       ...(isDiscussFieldShown && { discuss: '' }),
     },
+    validateOnBlur: false,
+    validateOnChange: false,
     validate,
   });
+  const { getFieldProps, validateForm, values } = formik;
 
-  const { dirty, isValid, getFieldProps } = formik;
-  const iframeName = 'dummyframe';
+  const handleSubmit = event => {
+    event.preventDefault();
 
-  useEffect(() => {
-    const dummyFrame = document.createElement('iframe');
+    validateForm().then(errors => {
+      if (isEmpty(errors)) {
+        setIsLoading(true);
 
-    dummyFrame.name = iframeName;
-    dummyFrame.id = iframeName;
-    dummyFrame.style.display = 'none';
+        const baseSalesForceValues = getBaseSalesForceValues(options);
+        const postData = {
+          ...values,
+          ...baseSalesForceValues,
+        };
 
-    document.body.appendChild(dummyFrame);
-
-    setIframe(dummyFrame);
-
-    return () => dummyFrame.parentNode.removeChild(dummyFrame);
-  }, []);
-
-  const handleSubmit = () => {
-    iframe.onload = () => showFeedbackForm();
-    iframe.onerror = () => showFeedbackForm();
+        fetch(process.env.CONTACT_US_URL, {
+          method: 'POST',
+          body: JSON.stringify(postData),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).finally(() => {
+          showFeedbackForm();
+          setIsLoading(false);
+        });
+      }
+    });
   };
 
   if (isFeedbackFormVisible) {
@@ -62,17 +71,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   return (
     <FormikProvider value={formik}>
       <div className={getBlocksWith('-container')}>
-        <form
-          className={getBlocksWith()}
-          action={process.env.SALESFORCE_URL}
-          method="POST"
-          target={iframeName}
-        >
-          <SalesForceFormBase
-            additionalFields={options.map(option => (
-              <input key={option.name} type="hidden" {...option} />
-            ))}
-          />
+        <form className={getBlocksWith()}>
           <FormInput name="first_name" label="First name" placeholder="John" maxLength={40} />
           <FormInput name="last_name" label="Last name" placeholder="Smith" maxLength={80} />
           <FormInput
@@ -92,7 +91,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
               maxLength={MAX_LENGTH}
             />
           )}
-          <FormFieldWrapper name={process.env.SALESFORCE_MARKETING_AGREE_INPUT_NAME}>
+          <FormFieldWrapper name="wouldLikeToReceiveAds">
             <CustomCheckbox label="Subscribe to ReportPortal news" />
           </FormFieldWrapper>
           <FormFieldWrapper name="termsAgree">
@@ -103,8 +102,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
                   information as set out in the{' '}
                   <Link to="https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy">
                     Privacy Policy <ArrowIcon />
-                  </Link>{' '}
-                  and outside of my home jurisdiction
+                  </Link>
                 </>
               }
             />
@@ -113,7 +111,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             className="btn btn--primary btn--large"
             type="submit"
             data-gtm="send_request"
-            disabled={!(isValid && dirty && getFieldProps('termsAgree').value)}
+            disabled={!getFieldProps('termsAgree').value || isLoading}
             onClick={handleSubmit}
           >
             Send request

@@ -7,8 +7,8 @@ import './DiscountSwitcher.scss';
 export interface DiscountSwitcherProps {
   messageActive: string;
   messageInactive: string;
-  switchDiscount: () => void;
-  discountState: boolean;
+  isDiscount: boolean;
+  toggleDiscount: () => void;
 }
 
 const getBlocksWith = createBemBlockBuilder(['switcher']);
@@ -16,16 +16,16 @@ const getBlocksWith = createBemBlockBuilder(['switcher']);
 export const DiscountSwitcher: FC<DiscountSwitcherProps> = ({
   messageActive,
   messageInactive,
-  switchDiscount,
-  discountState,
+  toggleDiscount,
+  isDiscount,
 }) => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__option')}>{messageInactive}</div>
     <div
       className={classNames(getBlocksWith('__switcher'), {
-        [getBlocksWith('__switcher-active')]: Boolean(discountState),
+        [getBlocksWith('__switcher-active')]: isDiscount,
       })}
-      onClick={switchDiscount}
+      onClick={toggleDiscount}
     />
     <div className={getBlocksWith('__option')}>{messageActive}</div>
   </div>

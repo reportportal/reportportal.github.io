@@ -62,7 +62,7 @@ export const Navigation: FC = () => {
   );
 
   const isMenuOpen = Object.values(menus).some(Boolean);
-  const scrollDirection = useScrollDirection({ callbackFn: null, isMenuOpen });
+  const scrollDirection = useScrollDirection({ isMenuOpen });
 
   useEffect(() => {
     const fetchGithubStars = () => {
@@ -99,7 +99,7 @@ export const Navigation: FC = () => {
   );
 
   const headerHeight = 76;
-  const isSticky = scrollDirection !== 'down' || isMenuOpen;
+  const isSticky = scrollDirection === 'up' || isMenuOpen;
   const isActive = isMenuOpen || scrollY > headerHeight;
 
   return (
@@ -214,7 +214,7 @@ export const Navigation: FC = () => {
         placement="right"
         closable={false}
         open={!isDesktop && isMobileMenuOpen}
-        onClose={openMobileMenu}
+        onClose={closeMobileMenu}
       >
         <Collapse expandIconPosition="end" ghost accordion>
           {MENU_ORDER.map(menuItem => {

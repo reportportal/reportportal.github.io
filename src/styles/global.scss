@@ -4,13 +4,18 @@
 @import 'buttons';
 @import 'css-variables';
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 html * {
   box-sizing: border-box;
 }
 
 body {
-  @include font-noto-sans();
-  @include font-scale();
+  @include m.font-noto-sans();
+  @include m.font-scale();
 
   margin: 0;
   background: var(--white);

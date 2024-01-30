@@ -1,11 +1,10 @@
 import React, { FC } from 'react';
-import { Link } from 'gatsby';
 import {
   ContentfulRichTextGatsbyReference,
   renderRichText,
   RenderRichTextData,
 } from 'gatsby-source-contentful/rich-text';
-import { SubscriptionBanner } from '@app/components';
+import { SubscriptionBanner, Link } from '@app/components';
 
 import ArrowLeft from './icons/arrow-left.svg';
 import User from './icons/user.svg';

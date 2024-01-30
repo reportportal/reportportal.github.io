@@ -33,14 +33,14 @@ export const TIME_SCALE_DATA: TimeScaleData = [
 export const FAQ_DATA: FaqData[] = [
   {
     key: 1,
-    label: 'What is the validity period for professional service hours?',
+    label: 'What is the validity period for Professional Service Hours?',
     children: (
       <div>
-        The professional service hours included into the subscription plan are accumulated on a
+        The Professional Service Hours included into the subscription plan are accumulated on a
         monthly basis and are valid for the payment term only. If quarterly payment option is
-        chosen, no more than 3 monthly amounts of professional service hours can be accumulated or
+        chosen, no more than 3 monthly amounts of Professional Service Hours can be accumulated or
         used prospectively; if yearly payment option is chosen, up to 12 monthly amounts of
-        professional service hours can be accumulated or used prospectively.
+        Professional Service Hours can be accumulated or used prospectively.
       </div>
     ),
   },
@@ -89,7 +89,7 @@ export const FAQ_DATA: FaqData[] = [
         <div>Unfortunately, no.</div>
         <div>You can&apos;t downgrade your billing plan at any time.</div>
         <div>
-          However, if you need more professional service hours, we can discuss the plan upgrade. For
+          However, if you need more Professional Service Hours, we can discuss the plan upgrade. For
           that, please, press &quot;Get a Quote&quot; in the upper right corner of our landing page.
           We&apos;ll be happy to help you to find the most suitable plan for your team and provide a
           quote.
@@ -103,12 +103,12 @@ export const FAQ_DATA: FaqData[] = [
     children: (
       <>
         <div>
-          If Company seeks to consume more professional service hours than have been contracted for
-          according to the Order, overage fees of 25% on a per professional service hour basis will
+          If Company seeks to consume more Professional Service Hours than have been contracted for
+          according to the Order, overage fees of 25% on a per Professional Service Hour basis will
           apply.
         </div>
         <div>
-          Professional service hours may be used for the duration of the payment term, and expire at
+          Professional Service Hours may be used for the duration of the payment term, and expire at
           that time. For example, annual upfront payment entitles Company to use the contracted
           monthly service points at any point in the year. For a quarterly upfront payment, service
           points must be used within three months.

@@ -8,15 +8,12 @@ import './PricingHero.scss';
 
 interface PricingHeroProps {
   title: string;
-  subtitle: string;
   buttons: ButtonSwitcherProps['buttons'];
-  switchActiveBtn: () => void;
   activeButton: string;
-  switchDiscount: () => void;
-  discountState: boolean;
   offerType: string;
   description: string;
   switcherProps: DiscountSwitcherProps;
+  subtitle?: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pricing-hero']);
@@ -25,7 +22,6 @@ export const PricingHero: FC<PricingHeroProps> = ({
   title,
   subtitle,
   buttons,
-  switchActiveBtn,
   activeButton,
   switcherProps,
   offerType,
@@ -35,7 +31,7 @@ export const PricingHero: FC<PricingHeroProps> = ({
     <h1 className={getBlocksWith('__title')}>{title}</h1>
     {subtitle && <p className={getBlocksWith('__subtitle')}>{subtitle}</p>}
     <div className={getBlocksWith('__btn-box')}>
-      <ButtonSwitcher buttons={buttons} onSwitch={switchActiveBtn} activeBtnName={activeButton} />
+      <ButtonSwitcher buttons={buttons} activeBtnName={activeButton} />
     </div>
     <div className={getBlocksWith('__wrapper')}>
       <div className={getBlocksWith('__wrapper-title')}>{offerType}</div>

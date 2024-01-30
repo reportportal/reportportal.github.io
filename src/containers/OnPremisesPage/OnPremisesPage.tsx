@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { OfferPageWrapper } from '@app/components';
+import { OnPremisesPricingConfig } from '@app/utils';
 
 import { FAQ_DATA, TIME_SCALE_DATA } from './constants';
 
-export const OnPremisesPage: FC = () => (
+export const OnPremisesPage: FC<OnPremisesPricingConfig> = pricing => (
   <OfferPageWrapper
     hero={{
       title: 'ReportPortal services pricing',
@@ -16,8 +17,8 @@ export const OnPremisesPage: FC = () => (
     pagePath="on-premises"
     timeScaleData={TIME_SCALE_DATA}
     faqData={FAQ_DATA}
+    pricing={pricing}
     contactUsLink="/contact-us/general"
-    utilizationDescription=" Professional service hour is the minimum for any support request. Unless otherwise noted,
-        a Professional Service Hour is equal to an hour of work or fraction thereof"
+    utilizationDescription="Professional Service Hour is the minimum for any support request. Unless otherwise noted, a Professional Service Hour is equal to an hour of work or fraction thereof"
   />
 );

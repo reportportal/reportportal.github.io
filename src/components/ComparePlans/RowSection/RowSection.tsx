@@ -17,7 +17,7 @@ interface RowSectionProps {
   }[];
 }
 
-const getBlocksWith = createBemBlockBuilder(['rowSection']);
+const getBlocksWith = createBemBlockBuilder(['row-section']);
 
 export const RowSection: FC<RowSectionProps> = ({ footer, footerButtons }) => {
   const isDesktop = useMediaQuery({ query: $desktopSm });

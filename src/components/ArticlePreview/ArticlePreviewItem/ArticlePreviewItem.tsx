@@ -2,9 +2,8 @@ import React, { FC } from 'react';
 import { Link } from 'gatsby';
 import { Typography } from 'antd';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { createBemBlockBuilder } from '@app/utils';
+import { BlogPostDto, createBemBlockBuilder } from '@app/utils';
 
-import { Post } from '../constants';
 import { ArticleAuthor } from './ArticleAuthor';
 
 import './ArticlePreviewItem.scss';
@@ -12,7 +11,7 @@ import './ArticlePreviewItem.scss';
 const getBlocksWith = createBemBlockBuilder(['article-preview-item']);
 
 interface ArticlePreviewItemProps {
-  post: Post;
+  post: BlogPostDto;
 }
 
 export const ArticlePreviewItem: FC<ArticlePreviewItemProps> = ({ post }) => {

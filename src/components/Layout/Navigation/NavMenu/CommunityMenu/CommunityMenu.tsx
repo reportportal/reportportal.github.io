@@ -3,13 +3,13 @@ import { useAtom } from 'jotai';
 import classNames from 'classnames';
 import { subscriptionFormAtom, Link, SubscriptionForm } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
+import { useCommunityList } from '@app/hooks';
 
 import { MenuProps } from '../../constants';
-import { GithubCover } from '../covers/GithubCover';
+import GithubCover from '../covers/github.inline.svg';
 import { SectionList } from '../SectionList';
 import { SectionCard } from '../SectionCard';
 import { HeartIcon, ForkIcon } from './icons';
-import { COMMUNITY_LIST } from './constants';
 
 import '../Menu.scss';
 import './CommunityMenu.scss';
@@ -17,13 +17,28 @@ import './CommunityMenu.scss';
 export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
+  const communities = useCommunityList();
+
+  const formatCommunities = () => {
+    return communities.map(community => ({
+      title: community.title,
+      link: community.link,
+      iconClass: 'community',
+      iconProps: {
+        style: {
+          '--icon': `url('${community.icon.url}')`,
+          '--hoverIcon': `url('${community.hoverIcon.url}')`,
+        },
+      },
+    }));
+  };
 
   const contributionCard = (
     <SectionCard
       className="contribution-card"
       title="Github Contribution"
       cover={<GithubCover />}
-      text="Our team makes ReportPortal, but it’s our community that shapes and improves it."
+      text="Our team develops ReportPortal, but it’s our community that shapes and improves it."
     >
       <div className={classNames(getBlocksWith('__btn-group'), 'full-width')}>
         <Link
@@ -44,9 +59,8 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
   const communityList = (
     <SectionList
       className={classNames('community-list', { 'section-list-secondary': isDesktop })}
-      showTitle={isDesktop}
       title="Join the Community"
-      items={COMMUNITY_LIST}
+      items={formatCommunities()}
     />
   );
 

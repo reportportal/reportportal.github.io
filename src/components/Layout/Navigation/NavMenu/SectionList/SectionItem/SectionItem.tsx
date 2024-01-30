@@ -10,6 +10,7 @@ interface SectionItemProps {
   text: string;
   link?: string;
   className?: string;
+  iconProps?: Record<string, string>;
 }
 
 export const SectionItem: FC<SectionItemProps> = ({
@@ -19,6 +20,7 @@ export const SectionItem: FC<SectionItemProps> = ({
   iconClass,
   text,
   className = '',
+  iconProps = {},
 }) => {
   const getBlocksWith = createBemBlockBuilder(['section-item', className]);
 
@@ -32,6 +34,7 @@ export const SectionItem: FC<SectionItemProps> = ({
       {iconClass && (
         <span
           className={classNames(getBlocksWith('-icon'), getBlocksWith(`-icon--${iconClass}`))}
+          {...iconProps}
         />
       )}
       <div>
