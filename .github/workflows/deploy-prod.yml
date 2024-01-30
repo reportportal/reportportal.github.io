@@ -13,9 +13,8 @@
 
 name: Deploy to prod (GitHub Pages)
 env:
-  CONTACT_US_URL: https://testio--partial.sandbox.my.salesforce-sites.com/leadcapture/services/apexrest/leadservice
+  CONTACT_US_URL: https://testio.my.salesforce-sites.com/leadcapture/services/apexrest/leadservice
   DOCUMENTATION_URL: //reportportal.io/docs
-  DOCUMENTATION_BRANCH: https://github.com/reportportal/documentation/edit/master/
   GTM_ID: GTM-MK7ZHTL
   BUILD_DIR : "public/"
 
@@ -51,7 +50,6 @@ jobs:
           echo GTM_ID=${{ env.GTM_ID }} >> .env.production
           echo CONTACT_US_URL=${{ env.CONTACT_US_URL }} >> .env.production
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production
-          echo DOCUMENTATION_BRANCH=${{ env.DOCUMENTATION_BRANCH }} >> .env.production
 
       - name: Build the source code
         run: npm run build
