@@ -14,8 +14,8 @@ html * {
 }
 
 body {
-  @include font-noto-sans();
-  @include font-scale();
+  @include m.font-noto-sans();
+  @include m.font-scale();
 
   margin: 0;
   background: var(--white);

@@ -1,6 +1,5 @@
-@import 'variables';
-@import 'mixins/font';
-@import 'mixins/font-scale';
+@use 'variables' as v;
+@use 'mixins' as m;
 
 a.btn--primary {
   &:hover,
@@ -10,8 +9,8 @@ a.btn--primary {
 }
 
 .btn {
-  @include font-poppins($fw-semi-bold);
-  @include font-scale(base);
+  @include m.font-poppins(v.$fw-semi-bold);
+  @include m.font-scale(base);
 
   display: flex;
   align-items: center;

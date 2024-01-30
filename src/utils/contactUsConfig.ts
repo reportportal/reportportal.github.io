@@ -12,7 +12,7 @@ interface BaseConfig {
 
 type AvailableOption = { isYearly: boolean };
 
-const SALESFORCE_SOURCE_NAME = 'ReportPortalSource__c';
+const SALESFORCE_SOURCE_NAME = 'ReportPortalSource';
 const LEAD_SOURCE = 'lead_source';
 const packageNumbers = [25, 60, 160];
 const yearlyOption = { isYearly: true };
@@ -341,8 +341,14 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
       url: '/contact-us/general',
       title: 'Contact us',
       options: [
-        { name: 'ReportPortalSource__c', value: 'Landing page / General' },
-        { name: 'lead_source', value: 'RP General' },
+        {
+          name: SALESFORCE_SOURCE_NAME,
+          value: 'Landing page / General',
+        },
+        {
+          name: LEAD_SOURCE,
+          value: 'RP General',
+        },
       ],
       info: `<p>Got questions or need information about ReportPortal?</p>
         <ul>
