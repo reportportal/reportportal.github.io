@@ -44,18 +44,3 @@ export const validate = values =>
 
     return errors;
   }, {});
-
-export const getBaseSalesForceValues = options => {
-  const pageConfig = options.reduce(
-    (acc, { name, value }) => ({
-      ...acc,
-      [name]: value,
-    }),
-    {},
-  );
-
-  return {
-    lead_status: 'New',
-    ...pageConfig,
-  };
-};

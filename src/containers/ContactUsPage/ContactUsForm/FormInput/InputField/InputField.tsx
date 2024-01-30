@@ -1,31 +1,30 @@
 import React from 'react';
 import classNames from 'classnames';
-import omit from 'lodash/omit';
 
 import './InputField.scss';
 
 export const InputField = ({
   className,
+  touched,
   error,
   value,
   label,
+  initialValue,
+  initialTouched,
   InputElement = 'input',
+  initialError,
   ...props
 }) => (
   <div
     className={classNames('input-field', className, {
-      error,
+      error: touched && error,
       filled: value,
     })}
   >
     <label>
       {label}
-      <InputElement
-        className="input"
-        value={value}
-        {...omit(props, ['touched', 'initialValue', 'initialTouched', 'initialError'])}
-      />
+      <InputElement className="input" value={value} {...props} />
     </label>
-    {error ? <div className={classNames('error-message')}>{error}</div> : null}
+    {touched && error ? <div className={classNames('error-message')}>{error}</div> : null}
   </div>
 );

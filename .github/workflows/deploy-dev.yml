@@ -16,7 +16,9 @@ env:
   AWS_S3_BUCKET_NAME : "rpp-landing"
   AWS_REGION_NAME : "eu-central-1"
   BUILD_DIR : "public/"
-  CONTACT_US_URL: https://testio--partial.sandbox.my.salesforce-sites.com/leadcapture/services/apexrest/leadservice
+  SALESFORCE_URL: https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8
+  SALESFORCE_OID: 00D7a0000005481
+  SALESFORCE_MARKETING_AGREE_INPUT_NAME: 00N7T000000i00E
   DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
   GTM_ID: GTM-MK7ZHTL
   CLOUDFRONT_ID: EILUB1IE9EON0
@@ -62,7 +64,9 @@ jobs:
           echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN_DEV }} >> .env.production
           echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID_DEV }} >> .env.production
           echo GTM_ID=${{ env.GTM_ID }} >> .env.production
-          echo CONTACT_US_URL=${{ env.CONTACT_US_URL }} >> .env.production
+          echo SALESFORCE_URL=${{ env.SALESFORCE_URL }} >> .env.production
+          echo SALESFORCE_OID=${{ env.SALESFORCE_OID }} >> .env.production
+          echo SALESFORCE_MARKETING_AGREE_INPUT_NAME=${{ env.SALESFORCE_MARKETING_AGREE_INPUT_NAME }} >> .env.production
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production
 
       - name: Build the source code
