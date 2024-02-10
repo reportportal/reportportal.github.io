@@ -14,8 +14,9 @@ export interface LinkProps {
 // These links are considered SEO trusted, they should be opened in the new tab without "rel" attribute set
 const TRUSTED_DOMAINS = [
   'https://tdspora.ai',
-  'https://drill4j.github.io/',
+  'https://drill4j.github.io',
   'https://healenium.io',
+  'https://merch.reportportal.io',
   DOCUMENTATION_URL,
 ];
 
