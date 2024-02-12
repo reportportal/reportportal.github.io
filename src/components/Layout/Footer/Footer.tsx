@@ -58,10 +58,10 @@ export const Footer: FC = () => {
             <span>© {new Date().getFullYear()} ReportPortal</span>
           </div>
           <div className={getBlocksWith('__navigation-links')}>
-            <FooterList title="PRODUCT" items={PRODUCT_LINKS} />
-            <FooterList title="SERVICES" items={SERVICES_LINKS} />
-            <FooterList title="SOLUTIONS" items={SOLUTIONS_LINKS} />
-            <FooterList title="LEARN" items={LEARN_LINKS} />
+            <FooterList title="Product" items={PRODUCT_LINKS} />
+            <FooterList title="Services" items={SERVICES_LINKS} />
+            <FooterList title="Solutions" items={SOLUTIONS_LINKS} />
+            <FooterList title="Resources" items={LEARN_LINKS} />
           </div>
         </section>
         <Divider />
@@ -83,9 +83,9 @@ export const Footer: FC = () => {
           </div>
           <div className={getBlocksWith('__other-links')}>
             <ul className={getBlocksWith('__social-links')}>
-              {socialLinks.map((socialLink, index) => (
-                <li key={index}>
-                  <Link to={socialLink.link}>{socialLink.icon}</Link>
+              {socialLinks.map(({ link, icon }) => (
+                <li key={link}>
+                  <Link to={link}>{icon}</Link>
                 </li>
               ))}
             </ul>
