@@ -9,7 +9,9 @@ interface DataProps {
     author: string;
     date: string;
     articleBody: string;
-    title: string;
+    title?: {
+      title: string;
+    };
     seoTitle?: string;
     seoDescription?: string;
   };
@@ -19,7 +21,7 @@ const BlogPostTemplate: FC<PageProps<DataProps>> = ({ data }) => {
   const { industry, title, seoTitle, seoDescription, author, date, articleBody } = data.contentfulBlogPost;
 
   return (
-    <Layout seoData={{ title: seoTitle || title, description: seoDescription }}>
+    <Layout seoData={{ title: seoTitle || title?.title, description: seoDescription }}>
       <BlogPostPage {...{ industry, title, author, date, articleBody }} />
     </Layout>
   );
