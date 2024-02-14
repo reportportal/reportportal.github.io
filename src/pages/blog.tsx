@@ -3,6 +3,7 @@ import { PageProps, graphql } from 'gatsby';
 import { Layout } from '@app/components';
 import { BlogPage } from '@app/containers/BlogPage';
 import { BlogPostsQueryDto, BlogPostDto } from '@app/utils';
+import { SEO_DATA } from "@app/pages/constants";
 
 const PAGE_SIZE = 9;
 
@@ -17,7 +18,7 @@ const BlogIndex: FC<PageProps<BlogPostsQueryDto>> = ({ data: { allContentfulBlog
   );
 
   return (
-    <Layout>
+    <Layout seoData={SEO_DATA.blog}>
       <BlogPage visiblePosts={visiblePosts} allPosts={allPosts} loadMorePosts={loadMorePosts} />
     </Layout>
   );

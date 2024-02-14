@@ -2,6 +2,7 @@ import React, { useState, useEffect, FC } from 'react';
 import { PageProps, graphql } from 'gatsby';
 import { Layout } from '@app/components';
 import { CasesPage } from '@app/containers/CasesPage';
+import { SEO_DATA } from "@app/pages/constants";
 
 interface DataProps {
   allContentfulCaseStudy: {
@@ -26,7 +27,7 @@ const Cases: FC<PageProps<DataProps>> = ({ data }) => {
   }, [displayCount, nodes]);
 
   return (
-    <Layout className="cases-page-layout">
+    <Layout seoData={SEO_DATA.caseStudies} className="cases-page-layout">
       <CasesPage
         cases={caseStudies}
         handleLoadMore={handleLoadMore}

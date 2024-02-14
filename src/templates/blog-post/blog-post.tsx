@@ -9,17 +9,17 @@ interface DataProps {
     author: string;
     date: string;
     articleBody: string;
-    title?: {
-      title: string;
-    };
+    title: string;
+    seoTitle?: string;
+    seoDescription?: string;
   };
 }
 
 const BlogPostTemplate: FC<PageProps<DataProps>> = ({ data }) => {
-  const { industry, title, author, date, articleBody } = data.contentfulBlogPost;
+  const { industry, title, seoTitle, seoDescription, author, date, articleBody } = data.contentfulBlogPost;
 
   return (
-    <Layout>
+    <Layout seoData={{ title: seoTitle || title, description: seoDescription }}>
       <BlogPostPage {...{ industry, title, author, date, articleBody }} />
     </Layout>
   );
@@ -37,6 +37,8 @@ export const pageQuery = graphql`
       title {
         title
       }
+      seoTitle
+      seoDescription
       date(formatString: "MMMM D, YYYY")
       author
       articleBody {
