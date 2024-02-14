@@ -208,18 +208,9 @@
       display: flex;
     }
 
-    &-text {
-      display: none;
-    }
-
     @include m.breakpoint(v.$desktop-sm) {
       align-items: center;
       gap: 40px;
-
-      &-text {
-        display: block;
-        color: var(--text-primary);
-      }
 
       &-text-title {
         @include m.font-poppins(v.$fw-bold);
@@ -236,6 +227,15 @@
       > div:first-child {
         flex-shrink: 0;
         width: 400px;
+      }
+    }
+
+    &-text {
+      display: none;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        display: block;
+        color: var(--text-primary);
       }
     }
   }

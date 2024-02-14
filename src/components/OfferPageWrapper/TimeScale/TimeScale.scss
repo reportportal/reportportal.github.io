@@ -103,18 +103,18 @@
       @include m.breakpoint(v.$tablet-sm-exact) {
         margin: 0 18px 0 68px;
       }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        margin: 0 75px 0 136px;
+      }
     }
 
     ul:nth-child(3) {
       margin-bottom: 45px;
     }
 
-    @include m.breakpoint(v.$desktop-sm) {
-      ul:nth-child(2) {
-        margin: 0 75px 0 136px;
-      }
-
-      &--shifted {
+    &--shifted {
+      @include m.breakpoint(v.$desktop-sm) {
         ul:nth-child(1) {
           margin-left: 118px;
         }

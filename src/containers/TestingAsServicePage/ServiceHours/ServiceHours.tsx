@@ -8,9 +8,9 @@ import './ServiceHours.scss';
 export const ServiceHours: FC = () => (
   <div className="service-hours container">
     <div className="service-hours__heading">
-      <Heading title="TaaS uses a single currency across all testing services – Professional Service Hours" />
+      <Heading title="TaaS uses a single currency across all testing services – Professional Service Points" />
       <div className="service-hours__description">
-        The TaaS model allows you to use Professional Service Hours for the exact testing services
+        The TaaS model allows you to use Professional Service Points for the exact testing services
         you need, at the time you need them. It reduces fixed costs and allows you to scale the
         testing team up or down based on need. The exact cost of a Service Point can depend on the
         location and the type of service it’s used for
@@ -22,7 +22,7 @@ export const ServiceHours: FC = () => (
           type="pentagon"
           value={1}
           text="Professional"
-          benefit="service hour"
+          benefit="Service Point"
           progressNumber={5}
         />
         <div className="service-hours__equals-images--equal" />

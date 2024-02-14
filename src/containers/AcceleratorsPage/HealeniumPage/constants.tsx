@@ -22,14 +22,14 @@ export const TIME_SCALE_DATA = [
 export const FAQ_DATA = [
   {
     key: 1,
-    label: 'What is the validity period for Professional Service Hours?',
+    label: 'What is the validity period for Professional Service Points?',
     children: (
       <div>
-        The Professional Service Hours included into the subscription plan are accumulated on a
+        The Professional Service Points included into the subscription plan are accumulated on a
         monthly basis and are valid for the payment term only. If quarterly payment option is
-        chosen, no more than 3 monthly amounts of Professional Service Hours can be accumulated or
+        chosen, no more than 3 monthly amounts of Professional Service Points can be accumulated or
         used prospectively; if yearly payment option is chosen, up to 12 monthly amounts of
-        Professional Service Hours can be accumulated or used prospectively.
+        Professional Service Points can be accumulated or used prospectively.
       </div>
     ),
   },

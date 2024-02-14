@@ -69,7 +69,7 @@
   },
   "overrides": [
     {
-      "files": ["src/pages/**/*.tsx", "src/templates/**/*.tsx"],
+      "files": ["src/pages/**/*.tsx", "src/templates/**/*.tsx", "stylelint.config.js"],
       "rules": {
         "import/no-default-export": 0
       }

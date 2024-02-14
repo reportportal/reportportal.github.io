@@ -216,6 +216,14 @@
       }
 
       .phase__dropdown {
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          width: 340px;
+        }
+
+        @include m.breakpoint(v.$desktop-sm) {
+          width: 100%;
+        }
+
         &::before,
         &::after {
           background-color: var(--color-primary-700);
@@ -223,20 +231,12 @@
 
         &::after {
           height: 697px;
-        }
 
-        @include m.breakpoint(v.$tablet-sm-exact) {
-          width: 340px;
-
-          &::after {
+          @include m.breakpoint(v.$tablet-sm-exact) {
             height: 801px;
           }
-        }
 
-        @include m.breakpoint(v.$desktop-sm) {
-          width: 100%;
-
-          &::after {
+          @include m.breakpoint(v.$desktop-sm) {
             height: 2px;
           }
         }
@@ -261,6 +261,10 @@
 
         width: 100%;
 
+        @include m.breakpoint(v.$desktop-sm) {
+          text-align: center;
+        }
+
         &::before,
         &::after {
           background-color: var(--graphics-amber);
@@ -268,18 +272,12 @@
 
         &::after {
           height: 347px;
-        }
 
-        @include m.breakpoint(v.$tablet-sm-exact) {
-          &::after {
+          @include m.breakpoint(v.$tablet-sm-exact) {
             height: 535px;
           }
-        }
 
-        @include m.breakpoint(v.$desktop-sm) {
-          text-align: center;
-
-          &::after {
+          @include m.breakpoint(v.$desktop-sm) {
             height: 2px;
           }
         }

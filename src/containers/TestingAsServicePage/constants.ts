@@ -1,7 +1,7 @@
 export const DASHBOARD_HEADER_INFO = {
   title: 'Testing as a Service',
   dashboardText:
-    'Testing as a Service is an outcome-based testing delivery model that offers testing software, hardware, and expert resources on demand, thus allowing you to optimize your testing costs',
+    'Testing as a Service is an output-based testing delivery model that offers testing software, hardware, and expert resources on demand, thus allowing you to optimize your testing costs',
 };
 
 export const TESTING_BOTTOM_BLOCK_INFO = {

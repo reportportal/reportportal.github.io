@@ -16,6 +16,7 @@ interface ColumnsProps {
     [key: string]: string;
   };
 }
+
 const getCompareContainer = createBemBlockBuilder(['compare']);
 
 export const Columns: FC<ColumnsProps> = ({ title = '', cols, mobileColumns = {} }) => {

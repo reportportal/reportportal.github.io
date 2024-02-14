@@ -63,11 +63,9 @@ export const CasesPage: FC<CasesPageProps> = ({ cases, handleLoadMore, showLoadM
             <div className={getBlocksWith('__cases-list-item-leading')}>
               <p>{industry}</p>
             </div>
-
             <div className={getBlocksWith('__cases-list-item-icon')}>
               <img src={icon?.file?.url} alt="" />
             </div>
-
             <div className={getBlocksWith('__cases-list-item-trailing')}>
               <p>{title}</p>
             </div>
