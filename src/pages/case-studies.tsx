@@ -2,7 +2,7 @@ import React, { useState, useEffect, FC } from 'react';
 import { PageProps, graphql } from 'gatsby';
 import { Layout } from '@app/components';
 import { CasesPage } from '@app/containers/CasesPage';
-import { SEO_DATA } from "@app/pages/constants";
+import { SEO_DATA } from "@app/utils";
 
 interface DataProps {
   allContentfulCaseStudy: {

@@ -2,8 +2,7 @@ import React, { FC, useCallback, useState } from 'react';
 import { PageProps, graphql } from 'gatsby';
 import { Layout } from '@app/components';
 import { BlogPage } from '@app/containers/BlogPage';
-import { BlogPostsQueryDto, BlogPostDto } from '@app/utils';
-import { SEO_DATA } from "@app/pages/constants";
+import { BlogPostsQueryDto, BlogPostDto, SEO_DATA } from '@app/utils';
 
 const PAGE_SIZE = 9;
 
