@@ -8,11 +8,14 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title:
       'ReportPortal test automation analytics platform and real-time reporting, powered by Machine Learning',
+    titlePS: 'ReportPortal',
     description:
       'Centralized test automation dashboard. Provides AI-based defects triage and real time test report dashboard.',
     keywords:
       'test automation dashboard, test automation reporting, qa automation dashboard, test automation results dashboard, test report dashboard, qa metrics dashboard, test execution report, end to end testing reporting tools, ReportPortal installation, ReportPortal integration, ReportPortal dashboard',
-    siteUrl: 'https://reportportal.io/',
+    siteUrl: 'https://reportportal.io',
+    image: 'https://reportportal.io/favicon.ico',
+    siteName: 'ReportPortal | AI-powered Test Automaton Dashboard',
   },
   plugins: [
     'gatsby-plugin-svgr-svgo',
