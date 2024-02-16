@@ -127,3 +127,6 @@ export const SEO_DATA = {
     description: 'Whether you have questions about our services or need assistance, feel free to connect with us using this form.',
   },
 };
+
+export const EMAIL_VALIDATION_REGEX =
+  /^(?![.])(?!.*[_.-]{2})[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?<![_\-.])$/;
