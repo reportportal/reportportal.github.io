@@ -1,10 +1,17 @@
 const MANUAL_TESTING_LIST = [
-  { info: 'Test case authoring and execution' },
-  { info: 'Accessibility testing (Premium solution)' },
-  { info: 'UX testing' },
+  { info: 'Test case authoring & execution' },
+  { info: 'Regression test support' },
+  { info: 'E2E Testing' },
+  { info: 'API Testing' },
 ];
 
-const AUTOMATION_LIST = [{ info: 'API' }, { info: 'UI' }, { info: 'Any open-source framework' }];
+const AUTOMATION_LIST = [
+  { info: 'API/UI Scripting' },
+  { info: 'Custom Frameworks' },
+  { info: 'CI/CD setup or improvements' },
+  { info: 'Reporting improvements' },
+  { info: 'Framework assessments' },
+];
 
 const SPECIALIZED_LIST = [
   { info: 'Load & Performance testing' },
@@ -14,7 +21,7 @@ const SPECIALIZED_LIST = [
 
 const EXPLORATORY_LIST = [
   {
-    info: 'Fixed scope of 65 manual Professional Service Hours of crowdsourced testing done by a team of 25-50 testers in for 24 to 48 hours)',
+    info: 'Fixed scope of 65 manual Professional Service Points of crowdsourced testing done by a team of 25-50 testers in for 24 to 48 hours)',
   },
 ];
 

@@ -46,9 +46,9 @@ export const Seo: FC<SeoProps> = ({
   const url = `${site?.siteMetadata?.siteUrl}${location.pathname}`;
   const defaultTitle = site.siteMetadata?.title;
   const titlePS = site.siteMetadata?.titlePS;
-  const combinedTitle = `${title || defaultTitle} | ${titlePS}`;
+  const combinedTitle = `${title ?? defaultTitle} | ${titlePS}`;
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = image || site.siteMetadata?.image;
+  const metaImage = image ?? site.siteMetadata?.image;
   const keywords = site.siteMetadata?.keywords;
   const metaSiteName = site.siteMetadata?.siteName;
 

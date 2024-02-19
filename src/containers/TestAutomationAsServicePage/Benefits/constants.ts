@@ -1,7 +1,7 @@
 export const FLEXIBILITY_LIST = [
   { info: 'Ability to spike capacity to accelerate Automation efforts' },
   { info: 'Ability to add specific skills to the project without any contract changes' },
-  { info: 'Pay only for what you use through outcome-based model and Flex teams' },
+  { info: 'Pay only for what you use through output-based model and Flex teams' },
 ];
 
 export const LOWER_COST_LIST = [
@@ -14,12 +14,17 @@ export const FASTER_TTM_LIST = [
   { info: 'Ensure faster provisioning of services' },
   { info: 'Free up your teams for critical internal work' },
   {
-    info: 'Leverage EPAM’s proven accelerators (e.g., Automation frameworks, reporting portals, sourcing technologies)',
+    info: 'Leverage EPAM’s proven accelerators e.g.  Report Portal, Automation frameworks, Alita AI hub, etc..',
   },
 ];
 
 export const SERVICE_LIST = [
-  { info: 'Ability to spike capacity to accelerate Automation efforts' },
-  { info: 'Ability to add specific skills to the project without any contract changes' },
-  { info: 'Pay only for what you use through outcome-based model and Flex teams' },
+  { info: 'Test oversight and management provided for full engagement' },
+  { info: 'Testing governed by your SLAs/output' },
+  {
+    info: 'TaaS Core team provides knowledge retention: planning, training, and flex team management',
+  },
+  {
+    info: 'Core team ownership of automation deliverables',
+  },
 ];

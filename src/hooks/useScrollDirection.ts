@@ -36,6 +36,7 @@ export const useScrollDirection = ({ isMenuOpen, callbackFn = noop }: ScrollDire
 
       callbackFn();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrollY]);
 
   useLayoutEffect(() => {

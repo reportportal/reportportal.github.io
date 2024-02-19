@@ -22,7 +22,7 @@ const BlogPostTemplate: FC<PageProps<DataProps>> = ({ data }) => {
     data.contentfulBlogPost;
 
   return (
-    <Layout seoData={{ title: seoTitle || title?.title, description: seoDescription }}>
+    <Layout seoData={{ title: seoTitle ?? title?.title, description: seoDescription }}>
       <BlogPostPage {...{ industry, title, author, date, articleBody }} />
     </Layout>
   );

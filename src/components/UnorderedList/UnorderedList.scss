@@ -63,10 +63,10 @@
       color: var(--color-primary-400);
       content: '';
 
-      @include m.breakpoint(v.$desktop-sm) {
+      @include m.breakpoint(v.$tablet-lg) {
         inset: 0 -10px auto auto;
         width: 2px;
-        height: 212px;
+        height: 100%;
       }
     }
   }

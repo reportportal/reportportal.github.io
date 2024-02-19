@@ -19,6 +19,6 @@ export const OnPremisesPage: FC<OnPremisesPricingConfig> = pricing => (
     faqData={FAQ_DATA}
     pricing={pricing}
     contactUsLink="/contact-us/general"
-    utilizationDescription="Professional Service Hour is the minimum for any support request. Unless otherwise noted, a Professional Service Hour is equal to an hour of work or fraction thereof"
+    utilizationDescription="Professional Service Point is the minimum for any support request. Unless otherwise noted, a Professional Service Point is equal to an hour of work or fraction thereof"
   />
 );

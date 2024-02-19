@@ -10,12 +10,12 @@ import QaIcon from '../containers/AcceleratorsPage/icons/qa.inline.svg';
 const pricingButtons = [
   {
     text: 'SaaS',
-    iconComponent: () => <CloudIcon />,
+    icon: <CloudIcon />,
     linkTo: '/pricing/saas',
   },
   {
     text: 'On-Premises',
-    iconComponent: () => <ServerIcon />,
+    icon: <ServerIcon />,
     linkTo: '/pricing/on-premises',
   },
 ];
@@ -23,17 +23,17 @@ const pricingButtons = [
 export const acceleratorsButtons = [
   {
     text: 'Drill4J',
-    iconComponent: () => <D4jIcon />,
+    icon: <D4jIcon />,
     linkTo: '/accelerators/d4j',
   },
   {
     text: 'Healenium',
-    iconComponent: () => <HelleniumIcon />,
+    icon: <HelleniumIcon />,
     linkTo: '/accelerators/hlm',
   },
   {
     text: 'QaSpace',
-    iconComponent: () => <QaIcon />,
+    icon: <QaIcon />,
     linkTo: '/accelerators/qasp',
   },
 ];

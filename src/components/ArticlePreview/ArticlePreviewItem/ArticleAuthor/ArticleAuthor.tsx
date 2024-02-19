@@ -11,13 +11,11 @@ interface ArticleAuthorProps {
 
 const getBlocksWith = createBemBlockBuilder(['article-author']);
 
-export const ArticleAuthor: FC<ArticleAuthorProps> = ({ authorName }) => {
-  return (
-    <p className={getBlocksWith()}>
-      <span className={getBlocksWith('__icon')}>
-        <AuthorIcon />
-      </span>
-      {authorName}
-    </p>
-  );
-};
+export const ArticleAuthor: FC<ArticleAuthorProps> = ({ authorName }) => (
+  <p className={getBlocksWith()}>
+    <span className={getBlocksWith('__icon')}>
+      <AuthorIcon />
+    </span>
+    {authorName}
+  </p>
+);

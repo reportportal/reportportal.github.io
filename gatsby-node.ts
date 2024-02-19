@@ -1,3 +1,5 @@
+/* eslint-disable import/no-import-module-exports */
+
 import fs from 'node:fs';
 import path from 'node:path';
 

@@ -41,60 +41,58 @@ const socialLinks = [
   },
 ];
 
-export const Footer: FC = () => {
-  return (
-    <footer className={getBlocksWith()}>
-      <div className={classNames(getBlocksWith('__container'), 'container')}>
-        <section id="footer-content" />
-        <section className={getBlocksWith('__navigation')}>
-          <div className={getBlocksWith('__purpose')}>
-            <Link to="/" className={getBlocksWith('__logo')}>
-              {isNewYearMode ? <NewYearNavLogoIcon /> : <NavLogoIcon />}
-            </Link>
+export const Footer: FC = () => (
+  <footer className={getBlocksWith()}>
+    <div className={classNames(getBlocksWith('__container'), 'container')}>
+      <section id="footer-content" />
+      <section className={getBlocksWith('__navigation')}>
+        <div className={getBlocksWith('__purpose')}>
+          <Link to="/" className={getBlocksWith('__logo')}>
+            {isNewYearMode ? <NewYearNavLogoIcon /> : <NavLogoIcon />}
+          </Link>
+          <span>
+            ReportPortal is a service, that provides increased capabilities to speed up results
+            analysis and reporting through the use of built-in analytics features.
+          </span>
+          <span>© {new Date().getFullYear()} ReportPortal</span>
+        </div>
+        <div className={getBlocksWith('__navigation-links')}>
+          <FooterList title="Product" items={PRODUCT_LINKS} />
+          <FooterList title="Services" items={SERVICES_LINKS} />
+          <FooterList title="Solutions" items={SOLUTIONS_LINKS} />
+          <FooterList title="Resources" items={LEARN_LINKS} />
+        </div>
+      </section>
+      <Divider />
+      <section className={getBlocksWith('__secondary')}>
+        <div className={getBlocksWith('__legal')}>
+          <span className={getBlocksWith('__license')}>
             <span>
-              ReportPortal is a service, that provides increased capabilities to speed up results
-              analysis and reporting through the use of built-in analytics features.
+              Sponsored by&nbsp;
+              <Link to="https://www.epam.com/">EPAM</Link>
             </span>
-            <span>© {new Date().getFullYear()} ReportPortal</span>
-          </div>
-          <div className={getBlocksWith('__navigation-links')}>
-            <FooterList title="Product" items={PRODUCT_LINKS} />
-            <FooterList title="Services" items={SERVICES_LINKS} />
-            <FooterList title="Solutions" items={SOLUTIONS_LINKS} />
-            <FooterList title="Resources" items={LEARN_LINKS} />
-          </div>
-        </section>
-        <Divider />
-        <section className={getBlocksWith('__secondary')}>
-          <div className={getBlocksWith('__legal')}>
-            <span className={getBlocksWith('__license')}>
-              <span>
-                Sponsored by&nbsp;
-                <Link to="https://www.epam.com/">EPAM</Link>
-              </span>
-              <span>Licensed under Apache v2.0</span>
-            </span>
-            <div className={getBlocksWith('__terms')}>
-              <Link to="/legal/terms">Terms & Conditions</Link>
-              <Link to="https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy">
-                Privacy Policy
-              </Link>
-            </div>
-          </div>
-          <div className={getBlocksWith('__other-links')}>
-            <ul className={getBlocksWith('__social-links')}>
-              {socialLinks.map(({ link, icon }) => (
-                <li key={link}>
-                  <Link to={link}>{icon}</Link>
-                </li>
-              ))}
-            </ul>
-            <Link to="https://www.lambdatest.com/">
-              <LambdaIcon />
+            <span>Licensed under Apache v2.0</span>
+          </span>
+          <div className={getBlocksWith('__terms')}>
+            <Link to="/legal/terms">Terms & Conditions</Link>
+            <Link to="https://privacy.epam.com/core/interaction/showpolicy?type=PrivacyPolicy">
+              Privacy Policy
             </Link>
           </div>
-        </section>
-      </div>
-    </footer>
-  );
-};
+        </div>
+        <div className={getBlocksWith('__other-links')}>
+          <ul className={getBlocksWith('__social-links')}>
+            {socialLinks.map(({ link, icon }) => (
+              <li key={link}>
+                <Link to={link}>{icon}</Link>
+              </li>
+            ))}
+          </ul>
+          <Link to="https://www.lambdatest.com/">
+            <LambdaIcon />
+          </Link>
+        </div>
+      </section>
+    </div>
+  </footer>
+);

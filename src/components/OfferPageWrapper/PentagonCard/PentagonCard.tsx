@@ -30,7 +30,7 @@ export const PentagonCard: FC<PentagonCardProps> = ({
   progressNumber,
 }) => {
   const iconBlockProps = hours
-    ? { value: hours, text: 'Professional', benefit: 'Service Hours' }
+    ? { value: hours, text: 'Professional', benefit: 'Service Points' }
     : { value: 'Open Source' };
 
   return (

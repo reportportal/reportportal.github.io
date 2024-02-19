@@ -1,5 +1,6 @@
 import { GatsbyConfig } from 'gatsby';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -82,4 +83,5 @@ const config: GatsbyConfig = {
   trailingSlash: 'never',
 };
 
+// eslint-disable-next-line import/no-default-export
 export default config;

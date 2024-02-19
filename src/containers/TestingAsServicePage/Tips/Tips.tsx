@@ -7,7 +7,7 @@ import './Tips.scss';
 
 export const Tips: FC = () => (
   <div className="tips container">
-    <Heading title="Use Professional Service Hours across any service listed within" tag="h3" />
+    <Heading title="Use Professional Service Points across any service listed within" tag="h3" />
     <div className="tips-lists">
       {TIPS_LIST.map(tipsItem => (
         <UnorderedList key={tipsItem.title} {...tipsItem} />

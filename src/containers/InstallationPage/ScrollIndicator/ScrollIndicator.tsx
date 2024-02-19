@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, FC } from 'react';
 import { Link } from 'react-scroll';
 import { useScroll, useSize } from 'ahooks';
 import { createBemBlockBuilder } from '@app/utils';
@@ -15,10 +15,14 @@ const DEFAULT_BOTTOM_LINE_POSITION = 400;
 
 const HEADER_HEIGHT = 76;
 
-export const ScrollIndicator = ({ sections }) => {
+interface ScrollIndicatorProps {
+  sections: { id: string; title: string; step?: string }[];
+}
+
+export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ sections }) => {
   const [offset, setOffset] = useState(-FIRST_POSITION_OFFSET);
   const [indicatorTopPosition, setIndicatorTopPosition] = useState(HEADER_HEIGHT);
-  const scroll = useScroll(document);
+  const scroll = useScroll();
 
   const [topPosition, setTopPosition] = useState(0);
   const [bottomPosition, setBottomPosition] = useState(-DEFAULT_BOTTOM_LINE_POSITION);
@@ -30,23 +34,24 @@ export const ScrollIndicator = ({ sections }) => {
   const indicatorySize = useSize(indicatoryRef);
 
   useEffect(() => {
-    const top = indicatoryScrollPosition?.top + HERO_HEIGHT;
-    const bottom = pathSize?.height - indicatorySize?.height - top;
+    const top = (indicatoryScrollPosition?.top ?? 0) + HERO_HEIGHT;
+    const bottom = (pathSize?.height ?? 0) - (indicatorySize?.height ?? 0) - top;
 
     const adjustedBottom = bottom < HERO_HEIGHT ? DEFAULT_BOTTOM_LINE_POSITION : bottom;
 
     setTopPosition(-top);
     setBottomPosition(-adjustedBottom);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [indicatoryScrollPosition?.top]);
 
   useEffect(() => {
-    scroll?.top < FIRST_POSITION_OFFSET ? setOffset(-FIRST_POSITION_OFFSET) : setOffset(-OFFSET);
+    setOffset(scroll?.top < FIRST_POSITION_OFFSET ? -FIRST_POSITION_OFFSET : -OFFSET);
   }, [scroll]);
 
   useEffect(() => {
     const viewportHeight = window.innerHeight;
 
-    const marginValue = (viewportHeight - indicatorySize?.height) / 2;
+    const marginValue = (viewportHeight - (indicatorySize?.height ?? 0)) / 2;
 
     setIndicatorTopPosition(marginValue);
   }, [indicatorySize]);

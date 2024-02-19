@@ -9,19 +9,14 @@
   ],
   "plugins": ["@typescript-eslint", "react", "prettier"],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 7,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "classes": true
-    }
-  },
   "env": {
     "browser": true,
     "node": true
   },
   "rules": {
+    "object-shorthand": "error",
     "no-debugger": 0,
+    "no-shadow": 0,
     "no-console": 0,
     "new-cap": 0,
     "strict": 0,
@@ -60,8 +55,8 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": "auto",
-        "arrowParens": "avoid"
+        "usePrettierrc": true,
+        "endOfLine": "auto"
       }
     ],
     "react-hooks/exhaustive-deps": 1,
@@ -69,7 +64,7 @@
   },
   "overrides": [
     {
-      "files": ["src/pages/**/*.tsx", "src/templates/**/*.tsx"],
+      "files": ["src/pages/**/*.tsx", "src/templates/**/*.tsx", "stylelint.config.js"],
       "rules": {
         "import/no-default-export": 0
       }

@@ -92,6 +92,6 @@ inquirer
     spaceImport({ spaceId, managementToken, content: exportFile }),
   )
   .then(() => {
-    console.log(`All set! You can now run ${chalk.yellow('npm run dev')} to see it in action.`);
+    console.log(`All set! You can now run ${chalk.yellow('npm run start')} to see it in action.`);
   })
   .catch(error => console.error(error));

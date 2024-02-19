@@ -97,13 +97,13 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
         })}
       </div>
       <div className={getBlocksWith('__utilization')}>
-        <h2>Indicative Professional Service Hour utilization</h2>
+        <h2>Indicative Professional Service Point utilization</h2>
         <div className={getBlocksWith('__utilization-subtitle')}>{utilizationDescription}</div>
         <TimeScale data={timeScaleData} isShifted={isScaleShifted} />
         <div className={getBlocksWith('__subscription-info')}>
           <InfoIcon />
           <div>
-            Subscription plan Professional Service Hours are accumulated monthly and last depending
+            Subscription plan Professional Service Points are accumulated monthly and last depending
             on the plan selected.
             <Link to="#faq">More details in FAQ</Link>
           </div>

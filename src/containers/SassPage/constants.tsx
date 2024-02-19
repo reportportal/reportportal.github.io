@@ -54,9 +54,9 @@ export const DATA_PLANS = [
     enterprise: 'Extended retention policy',
   },
   {
-    feature: 'Technical support hours',
+    feature: 'Technical Support Points',
     description:
-      'A technical support hour (pre-paid) is a blended hour, included in your subscription plan, that consists of Application Support Specialist time. It can be used for integration, operation and features-related queries.',
+      'A Technical Support Point (pre-paid) is a blended hour, included in your subscription plan, that consists of Application Support Specialist time. It can be used for integration, operation and features-related queries.',
     startup: '5',
     business: '10',
     enterprise: 'Dedicated specialist',
@@ -64,7 +64,7 @@ export const DATA_PLANS = [
   {
     feature: 'Additional technical support',
     description:
-      'If your usage exceeds the specified quantity of technical support hours included in the subscription package, you will need to pay for the exceeding amount at pay-as-you-go system.',
+      'If your usage exceeds the specified quantity of Technical Support Points included in the subscription package, you will need to pay for the exceeding amount at pay-as-you-go system.',
     startup: '150$/h',
     business: '150$/h',
     enterprise: '150$/h',

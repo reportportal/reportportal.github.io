@@ -27,7 +27,7 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
       iconProps: {
         style: {
           '--icon': `url('${community.icon.url}')`,
-          '--hoverIcon': `url('${community.hoverIcon.url}')`,
+          '--hover-icon': `url('${community.hoverIcon.url}')`,
         },
       },
     }));

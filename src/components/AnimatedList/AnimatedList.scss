@@ -114,10 +114,6 @@
     padding: 0;
     list-style: none;
 
-    & + img {
-      display: none;
-    }
-
     @include m.breakpoint(v.$desktop-sm) {
       flex-shrink: 0;
       width: 486px;
@@ -125,8 +121,12 @@
       img {
         display: none;
       }
+    }
 
-      & + img {
+    & + img {
+      display: none;
+
+      @include m.breakpoint(v.$desktop-sm) {
         display: block;
       }
     }
@@ -137,18 +137,18 @@
     padding: 24px;
     cursor: pointer;
 
+    @include m.breakpoint(v.$desktop-sm) {
+      & + .animated-list__item--active {
+        border-top: none;
+      }
+    }
+
     &:last-child {
       border-bottom: 1px solid var(--purple-grey);
     }
 
     .animated-list__item--active + & {
       border-top: none;
-    }
-
-    @include m.breakpoint(v.$desktop-sm) {
-      & + .animated-list__item--active {
-        border-top: none;
-      }
     }
   }
 

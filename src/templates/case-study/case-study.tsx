@@ -24,7 +24,7 @@ const CaseStudyTemplate: FC<PageProps<CaseStudyProps>> = ({ data }) => {
     data.contentfulCaseStudy;
 
   return (
-    <Layout seoData={{ title: seoTitle || title, description: seoDescription }}>
+    <Layout seoData={{ title: seoTitle ?? title, description: seoDescription }}>
       <CaseStudyPage {...{ title, industry, challenges, highlights, benefitsResults }} />
     </Layout>
   );
