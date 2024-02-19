@@ -7,7 +7,7 @@ interface SeoProps {
   title?: string;
   image?: string;
   description?: string;
-  noindex?: boolean;
+  noIndex?: boolean;
   lang?: string;
   meta?: ConcatArray<{
     name: string;
@@ -22,7 +22,7 @@ export const Seo: FC<SeoProps> = ({
   description = '',
   lang = 'en',
   meta = [],
-  noindex = false,
+  noIndex = false,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -115,7 +115,7 @@ export const Seo: FC<SeoProps> = ({
         },
         {
           name: 'robots',
-          content: noindex ? 'noindex' : '',
+          content: noIndex ? 'noindex' : '',
         },
       ].concat(meta)}
     >

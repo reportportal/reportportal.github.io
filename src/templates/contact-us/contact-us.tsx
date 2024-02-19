@@ -13,15 +13,15 @@ interface ContextProps {
     isDiscussFieldShown: boolean;
     options: string;
     title: string;
+    url: string;
   };
 }
 
 const ContactUs: FC<PageProps<null, ContextProps>> = ({ pageContext: { config } }) => {
-  const location = useLocation();
-  const noindex = location.pathname !== CONTACT_US_GENERAL_PATH;
+  const noIndex = config?.url !== CONTACT_US_GENERAL_PATH;
 
   return (
-    <Layout seoData={{ noindex: noindex, ...SEO_DATA.contactUsGeneral }} className="features-page-layout">
+    <Layout seoData={{ noIndex: noIndex, ...SEO_DATA.contactUsGeneral }} className="features-page-layout">
       <ContactUsPage config={config} />
     </Layout>
   );
