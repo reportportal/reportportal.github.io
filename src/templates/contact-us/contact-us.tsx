@@ -21,7 +21,7 @@ const ContactUs: FC<PageProps<null, ContextProps>> = ({ pageContext: { config } 
 
   return (
     <Layout
-      seoData={{ noIndex: noIndex, ...SEO_DATA.contactUsGeneral }}
+      seoData={{ noIndex, ...SEO_DATA.contactUsGeneral }}
       className="features-page-layout"
     >
       <ContactUsPage config={config} />
