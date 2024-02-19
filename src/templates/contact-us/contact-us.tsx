@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { PageProps } from 'gatsby';
-import { useLocation } from '@reach/router';
 import { Layout } from '@app/components';
 import { ContactUsPage } from '@app/containers/ContactUsPage';
 import { SEO_DATA } from "@app/utils";
