@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import { ButtonSwitcher, ButtonSwitcherProps } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
-import { ButtonSwitcher, ButtonSwitcherProps } from '../ButtonSwitcher';
 import { DiscountSwitcher, DiscountSwitcherProps } from './DiscountSwitcher';
 
 import './PricingHero.scss';

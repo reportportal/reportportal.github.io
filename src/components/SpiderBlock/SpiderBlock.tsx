@@ -5,16 +5,11 @@ import { LEFT_ASIDE_TEXT, RIGHT_ASIDE_TEXT } from './constants';
 
 import './SpiderBlock.scss';
 
-enum BlockTypes {
-  ORIGINAL = 'original',
-  OPACITY = 'opacity',
-}
-
 interface SpiderBlockProps {
-  blockType?: BlockTypes;
+  blockType?: 'original' | 'opacity';
 }
 
-export const SpiderBlock: FC<SpiderBlockProps> = ({ blockType = BlockTypes.ORIGINAL }) => (
+export const SpiderBlock: FC<SpiderBlockProps> = ({ blockType = 'original' }) => (
   <div className="spider container">
     <div className="spider-container">
       <div className="spider-container__aside">

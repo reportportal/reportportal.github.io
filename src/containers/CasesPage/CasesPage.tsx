@@ -7,7 +7,7 @@ import DownloadIcon from '../../svg/download.inline.svg';
 
 import './CasesPage.scss';
 
-interface Case {
+export interface Case {
   cardBackgroundImage: {
     file: ContentfulAsset;
   };

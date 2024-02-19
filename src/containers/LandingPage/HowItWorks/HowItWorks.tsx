@@ -13,9 +13,7 @@ import './HowItWorks.scss';
 interface Sections extends StepProps {
   title: string;
   content: string;
-  animation: {
-    [key: string]: any;
-  };
+  animation: unknown;
 }
 
 const getBlocksWith = createBemBlockBuilder(['how-it-works']);

@@ -19,12 +19,12 @@ const getBlocksWith = createBemBlockBuilder(['installation']);
 const buttons = [
   {
     text: 'With Docker',
-    iconComponent: () => <DockerIcon />,
+    icon: <DockerIcon />,
     scrollPoints: DOCKER_SECTIONS,
   },
   {
     text: 'With Kubernetes',
-    iconComponent: () => <KubernetesIcon />,
+    icon: <KubernetesIcon />,
     scrollPoints: KUBERNETES_SECTIONS,
   },
 ];
@@ -35,13 +35,8 @@ export const InstallationPage: FC = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
 
-  const getSections = () => {
-    const activeButtonObject = buttons.find(button => button.text === activeButton);
-
-    return activeButtonObject ? activeButtonObject.scrollPoints : null;
-  };
-
-  const isFirstBtnActive = () => activeButton === buttons[0].text;
+  const isFirstBtnActive = activeButton === buttons[0].text;
+  const sections = buttons.find(button => button.text === activeButton)?.scrollPoints ?? [];
 
   const switchActiveBtn = btnName => {
     if (btnName !== activeButton) {
@@ -69,12 +64,12 @@ export const InstallationPage: FC = () => {
       <div className="container">
         <div className={getBlocksWith('__main')}>
           <div className={getBlocksWith('__main-indicator')}>
-            {isDesktop && <ScrollIndicator sections={getSections()} />}
+            {isDesktop && <ScrollIndicator sections={sections} />}
           </div>
 
           <div className={getBlocksWith('__main-content')}>
             <div className={classNames({ [getBlocksWith('__main-inner')]: !isDesktop })}>
-              {isFirstBtnActive() ? (
+              {isFirstBtnActive ? (
                 <>
                   <div name="section-1">
                     <DockerInstall />
