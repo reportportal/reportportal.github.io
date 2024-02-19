@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Layout } from '@app/components';
 import { TestAutomationAsServicePage } from '@app/containers/TestAutomationAsServicePage';
-import { SEO_DATA } from "@app/utils";
+import { SEO_DATA } from '@app/utils';
 
 export const TestAutomationAsService: FC = () => (
   <Layout seoData={SEO_DATA.testAutomationAsAService}>

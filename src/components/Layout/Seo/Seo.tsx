@@ -43,7 +43,7 @@ export const Seo: FC<SeoProps> = ({
   );
 
   const location = useLocation();
-  const url = `${site?.siteMetadata?.siteUrl}${location.pathname}`
+  const url = `${site?.siteMetadata?.siteUrl}${location.pathname}`;
   const defaultTitle = site.siteMetadata?.title;
   const titlePS = site.siteMetadata?.titlePS;
   const combinedTitle = `${title || defaultTitle} | ${titlePS}`;

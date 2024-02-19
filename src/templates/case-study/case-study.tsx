@@ -20,7 +20,8 @@ export interface CaseStudyProps {
 }
 
 const CaseStudyTemplate: FC<PageProps<CaseStudyProps>> = ({ data }) => {
-  const { title, seoTitle, seoDescription, industry, challenges, highlights, benefitsResults } = data.contentfulCaseStudy;
+  const { title, seoTitle, seoDescription, industry, challenges, highlights, benefitsResults } =
+    data.contentfulCaseStudy;
 
   return (
     <Layout seoData={{ title: seoTitle || title, description: seoDescription }}>
