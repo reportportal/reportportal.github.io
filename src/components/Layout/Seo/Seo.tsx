@@ -7,6 +7,7 @@ interface SeoProps {
   title?: string;
   image?: string;
   description?: string;
+  noIndex?: boolean;
   lang?: string;
   meta?: ConcatArray<{
     name: string;
@@ -15,7 +16,14 @@ interface SeoProps {
   }>;
 }
 
-export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], title, image }) => {
+export const Seo: FC<SeoProps> = ({
+  title,
+  image,
+  description = '',
+  lang = 'en',
+  meta = [],
+  noIndex = false,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -35,7 +43,7 @@ export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], ti
   );
 
   const location = useLocation();
-  const url = `${site?.siteMetadata?.siteUrl}${location.pathname}`
+  const url = `${site?.siteMetadata?.siteUrl}${location.pathname}`;
   const defaultTitle = site.siteMetadata?.title;
   const titlePS = site.siteMetadata?.titlePS;
   const combinedTitle = `${title || defaultTitle} | ${titlePS}`;
@@ -104,6 +112,10 @@ export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], ti
         {
           name: 'og:url',
           content: url,
+        },
+        {
+          name: 'robots',
+          content: noIndex ? 'noindex' : '',
         },
       ].concat(meta)}
     >

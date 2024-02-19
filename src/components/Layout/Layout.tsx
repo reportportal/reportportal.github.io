@@ -30,8 +30,9 @@ interface LayoutProps {
   children: ReactElement;
   className?: string;
   seoData?: {
-    title?: string,
-    description?: string,
+    title?: string;
+    description?: string;
+    noIndex?: boolean;
   };
 }
 
@@ -47,7 +48,7 @@ export const Layout: FC<LayoutProps> = ({ children, className, seoData }) => {
   return (
     <StyleProvider hashPriority="high">
       <div className={classNames(className, { 'new-year-mode': isNewYearMode })}>
-        <Seo description={seoData?.description} title={seoData?.title}/>
+        <Seo description={seoData?.description} title={seoData?.title} noIndex={seoData?.noIndex} />
         <Navigation />
         <main>{children}</main>
         <Footer />

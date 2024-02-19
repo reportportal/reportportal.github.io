@@ -18,7 +18,8 @@ interface DataProps {
 }
 
 const BlogPostTemplate: FC<PageProps<DataProps>> = ({ data }) => {
-  const { industry, title, seoTitle, seoDescription, author, date, articleBody } = data.contentfulBlogPost;
+  const { industry, title, seoTitle, seoDescription, author, date, articleBody } =
+    data.contentfulBlogPost;
 
   return (
     <Layout seoData={{ title: seoTitle || title?.title, description: seoDescription }}>
