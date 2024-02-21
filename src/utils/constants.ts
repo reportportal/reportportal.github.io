@@ -111,7 +111,7 @@ export const SEO_DATA = {
       'Optimize your testing costs with our on-demand software, hardware, and expert resources.',
   },
   saas: {
-    title: 'Pricing: Saas',
+    title: 'Pricing: SaaS',
     description:
       'Explore our flexible pricing plans from small teams to global enterprises. Harness the power of our end-to-end testing reporting tool.',
   },
