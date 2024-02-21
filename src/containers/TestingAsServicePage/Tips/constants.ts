@@ -15,7 +15,8 @@ const AUTOMATION_LIST = [
 
 const SPECIALIZED_LIST = [
   { info: 'Load & Performance testing' },
-  { info: 'Load + Crowd (Black Friday Burst)' },
+  { info: 'Localization testing' },
+  { info: 'Accessibility' },
   { info: 'Security (coming soon)' },
 ];
 
