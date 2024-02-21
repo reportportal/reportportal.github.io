@@ -1,15 +1,16 @@
 import React, { useState, useEffect, FC } from 'react';
 import { PageProps, graphql } from 'gatsby';
 import { Layout } from '@app/components';
-import { CasesPage } from '@app/containers/CasesPage';
+import { Case, CasesPage } from '@app/containers/CasesPage';
+import { SEO_DATA } from '@app/utils';
 
-interface DataProps {
+interface CasesProps {
   allContentfulCaseStudy: {
-    [key: string]: any;
+    nodes: Case[];
   };
 }
 
-const Cases: FC<PageProps<DataProps>> = ({ data }) => {
+const Cases: FC<PageProps<CasesProps>> = ({ data }) => {
   const {
     allContentfulCaseStudy: { nodes },
   } = data;
@@ -26,7 +27,7 @@ const Cases: FC<PageProps<DataProps>> = ({ data }) => {
   }, [displayCount, nodes]);
 
   return (
-    <Layout className="cases-page-layout">
+    <Layout seoData={SEO_DATA.caseStudies} className="cases-page-layout">
       <CasesPage
         cases={caseStudies}
         handleLoadMore={handleLoadMore}

@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
+import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 
 interface SeoProps {
-  title: string;
-  image: string;
+  title?: string;
+  image?: string;
   description?: string;
+  noIndex?: boolean;
   lang?: string;
   meta?: ConcatArray<{
     name: string;
@@ -14,24 +16,41 @@ interface SeoProps {
   }>;
 }
 
-export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], title, image }) => {
+export const Seo: FC<SeoProps> = ({
+  title,
+  image,
+  description = '',
+  lang = 'en',
+  meta = [],
+  noIndex = false,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
+            titlePS
             description
             keywords
+            image
+            siteName
+            siteUrl
           }
         }
       }
     `,
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const location = useLocation();
+  const url = `${site?.siteMetadata?.siteUrl}${location.pathname}`;
   const defaultTitle = site.siteMetadata?.title;
+  const titlePS = site.siteMetadata?.titlePS;
+  const combinedTitle = `${title ?? defaultTitle} | ${titlePS}`;
+  const metaDescription = description || site.siteMetadata.description;
+  const metaImage = image ?? site.siteMetadata?.image;
   const keywords = site.siteMetadata?.keywords;
+  const metaSiteName = site.siteMetadata?.siteName;
 
   return (
     <Helmet
@@ -40,7 +59,7 @@ export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], ti
       }}
       title={title}
       defaultTitle={defaultTitle}
-      titleTemplate={defaultTitle && `%s | ${defaultTitle}`}
+      titleTemplate={titlePS && `%s | ${titlePS}`}
       meta={[
         {
           name: 'description',
@@ -48,11 +67,11 @@ export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], ti
         },
         {
           name: 'image',
-          content: image,
+          content: metaImage,
         },
         {
           property: 'og:title',
-          content: title,
+          content: combinedTitle,
         },
         {
           property: 'og:description',
@@ -64,7 +83,7 @@ export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], ti
         },
         {
           property: 'og:image',
-          content: image,
+          content: metaImage,
         },
         {
           name: 'twitter:card',
@@ -76,7 +95,7 @@ export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], ti
         },
         {
           name: 'twitter:title',
-          content: title,
+          content: combinedTitle,
         },
         {
           name: 'twitter:description',
@@ -85,6 +104,18 @@ export const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], ti
         {
           name: 'keywords',
           content: keywords,
+        },
+        {
+          name: 'og:site_name',
+          content: metaSiteName,
+        },
+        {
+          name: 'og:url',
+          content: url,
+        },
+        {
+          name: 'robots',
+          content: noIndex ? 'noindex' : '',
         },
       ].concat(meta)}
     >

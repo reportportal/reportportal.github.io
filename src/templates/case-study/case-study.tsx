@@ -14,14 +14,17 @@ export interface CaseStudyProps {
     industry: string;
     highlights: RenderRichTextData<ContentfulRichTextGatsbyReference>;
     title: string;
+    seoTitle?: string;
+    seoDescription?: string;
   };
 }
 
 const CaseStudyTemplate: FC<PageProps<CaseStudyProps>> = ({ data }) => {
-  const { title, industry, challenges, highlights, benefitsResults } = data.contentfulCaseStudy;
+  const { title, seoTitle, seoDescription, industry, challenges, highlights, benefitsResults } =
+    data.contentfulCaseStudy;
 
   return (
-    <Layout>
+    <Layout seoData={{ title: seoTitle ?? title, description: seoDescription }}>
       <CaseStudyPage {...{ title, industry, challenges, highlights, benefitsResults }} />
     </Layout>
   );
@@ -33,6 +36,8 @@ export const pageQuery = graphql`
   query CaseStudyBySlug($slug: String!) {
     contentfulCaseStudy(slug: { eq: $slug }) {
       title
+      seoTitle
+      seoDescription
       industry
       challenges {
         raw

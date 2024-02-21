@@ -9,6 +9,7 @@ interface BlogPageProps {
   allPosts: BlogPostDto[];
   loadMorePosts: () => void;
 }
+
 const getBlocksWith = createBemBlockBuilder(['blog']);
 
 export const BlogPage: FC<BlogPageProps> = ({ visiblePosts, allPosts, loadMorePosts }) => (

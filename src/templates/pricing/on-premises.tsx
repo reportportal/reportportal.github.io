@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import { PageProps } from 'gatsby';
 import { Layout } from '@app/components';
 import { OnPremisesPage } from '@app/containers/OnPremisesPage';
-import { OnPremisesPricingConfig } from '@app/utils';
+import { OnPremisesPricingConfig, SEO_DATA } from '@app/utils';
 
 const OnPremises: FC<PageProps<null, OnPremisesPricingConfig>> = ({ pageContext }) => (
-  <Layout className="offer-page-wrapper">
+  <Layout seoData={SEO_DATA.onPremises} className="offer-page-wrapper">
     <OnPremisesPage {...pageContext} />
   </Layout>
 );

@@ -60,7 +60,7 @@ export const SOLUTIONS_LINKS = [
 export const LEARN_LINKS = [
   {
     title: 'Documentation',
-    link: DOCUMENTATION_URL,
+    link: DOCUMENTATION_URL as string,
   },
   {
     title: 'Blog',
@@ -73,5 +73,9 @@ export const LEARN_LINKS = [
   {
     title: 'FAQ',
     link: `${DOCUMENTATION_URL}/FAQ/`,
+  },
+  {
+    title: 'Merch store',
+    link: 'https://merch.reportportal.io/',
   },
 ];

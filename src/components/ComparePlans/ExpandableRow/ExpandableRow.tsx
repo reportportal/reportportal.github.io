@@ -12,10 +12,8 @@ interface ExpandableRowProps {
 
 const getBlocksWith = createBemBlockBuilder(['compare']);
 
-export const ExpandableRow: FC<ExpandableRowProps> = ({ feature, columnsData }) => {
-  return (
-    <div className={getBlocksWith('__row')}>
-      <Columns title={feature} cols={columnsData} />
-    </div>
-  );
-};
+export const ExpandableRow: FC<ExpandableRowProps> = ({ feature, columnsData }) => (
+  <div className={getBlocksWith('__row')}>
+    <Columns title={feature} cols={columnsData} />
+  </div>
+);

@@ -26,7 +26,7 @@ export const useAnimationInterval = ({
 
   useEffect(() => {
     setDelay(inView ? interval : undefined);
-  }, [inView]);
+  }, [setDelay, interval, inView]);
 
   return {
     inView,

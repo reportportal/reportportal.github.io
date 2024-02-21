@@ -17,15 +17,18 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       flex-flow: row wrap;
+      align-items: stretch;
       justify-content: center;
       gap: 16px;
+      max-width: v.$tablet-sm-exact;
+      margin-inline: auto;
     }
 
-    @include m.breakpoint(v.$desktop-sm) {
+    @include m.breakpoint(v.$tablet-lg) {
       display: flex;
       flex-flow: row nowrap;
-      align-items: flex-start;
       gap: 16px;
+      max-width: initial;
       margin-top: 16px;
     }
 
@@ -34,18 +37,16 @@
       padding: 32px 16px;
 
       @include m.breakpoint(v.$tablet-sm-exact) {
-        height: 220px;
+        height: auto;
 
         &:nth-child(3)::after {
           display: none;
         }
       }
 
-      @include m.breakpoint(v.$desktop-sm) {
-        height: auto;
-
+      @include m.breakpoint(v.$tablet-lg) {
         &:nth-child(3)::after {
-          display: inline-block;
+          display: block;
         }
       }
     }

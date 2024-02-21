@@ -16,7 +16,7 @@ const getBlocksWithList = createBemBlockBuilder(['benefits-of-taas-list']);
 const BENEFITS = [
   {
     icon: <EasyToBuy />,
-    text: 'Easy to buy through professional Service Hours model',
+    text: 'Easy to buy through Professional Service Points model',
   },
   {
     icon: <Service />,
@@ -28,7 +28,7 @@ const BENEFITS = [
   },
   {
     icon: <HighStandard />,
-    text: 'Outcome-based model, with exceptionally high standards for quality',
+    text: 'Output-based model, with exceptionally high standards for quality',
   },
 ];
 

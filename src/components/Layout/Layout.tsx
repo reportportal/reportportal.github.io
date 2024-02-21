@@ -29,9 +29,14 @@ export const watchProductOverviewAtom = atom({ isOpen: false });
 interface LayoutProps {
   children: ReactElement;
   className?: string;
+  seoData?: {
+    title?: string;
+    description?: string;
+    noIndex?: boolean;
+  };
 }
 
-export const Layout: FC<LayoutProps> = ({ children, className }) => {
+export const Layout: FC<LayoutProps> = ({ children, className, seoData }) => {
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
 
@@ -43,7 +48,7 @@ export const Layout: FC<LayoutProps> = ({ children, className }) => {
   return (
     <StyleProvider hashPriority="high">
       <div className={classNames(className, { 'new-year-mode': isNewYearMode })}>
-        <Seo />
+        <Seo description={seoData?.description} title={seoData?.title} noIndex={seoData?.noIndex} />
         <Navigation />
         <main>{children}</main>
         <Footer />

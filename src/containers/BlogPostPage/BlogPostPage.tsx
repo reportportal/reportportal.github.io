@@ -22,6 +22,7 @@ interface BlogPostPageProps {
     title: string;
   };
 }
+
 export const BlogPostPage: FC<BlogPostPageProps> = ({
   industry,
   title,

@@ -54,18 +54,21 @@
     background: var(--white);
     color: var(--text-primary);
 
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      width: 568px;
+      border-radius: 16px;
+      padding: 64px;
+      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
+    }
+
     &.how-did-you-hear {
       row-gap: unset;
       margin-top: 64px;
       margin-bottom: 64px;
     }
 
+    /* stylelint-disable order/order */
     @include m.breakpoint(v.$tablet-sm-exact) {
-      width: 568px;
-      border-radius: 16px;
-      padding: 64px;
-      box-shadow: 0 8px 32px 0 rgb(0 45 55 / 0.12);
-
       &,
       &.how-did-you-hear {
         margin-top: 80px;
@@ -201,12 +204,12 @@
       row-gap: 8px;
       margin: 0;
 
-      > span {
-        display: block;
-      }
-
       @include m.breakpoint(v.$desktop-sm) {
         row-gap: 4px;
+      }
+
+      > span {
+        display: block;
       }
     }
 

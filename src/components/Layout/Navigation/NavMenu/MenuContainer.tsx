@@ -15,7 +15,7 @@ export const MenuContainer: FC<MenuContainerProps> = ({
   children,
   onClose,
 }) => {
-  const menuContainerRef = useRef(null);
+  const menuContainerRef = useRef<HTMLDivElement>(null);
 
   useClickAway(() => {
     if (!isOpen) {
@@ -38,10 +38,12 @@ export const MenuContainer: FC<MenuContainerProps> = ({
       }
     };
 
-    menuContainerRef.current?.addEventListener('click', handleClick);
+    const ref = menuContainerRef.current;
+
+    ref?.addEventListener('click', handleClick);
 
     // eslint-disable-next-line consistent-return
-    return () => menuContainerRef.current?.removeEventListener('click', handleClick);
+    return () => ref?.removeEventListener('click', handleClick);
   }, [isOpen, menuContainerRef, onClose]);
 
   return React.Children.map(children, child =>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 import noop from 'lodash/noop';
 import { Link } from '@app/components';
@@ -9,7 +9,7 @@ import { INCREASED_BUTTON_NUMBER } from './constants';
 import './ButtonSwitcher.scss';
 
 interface Button {
-  iconComponent: (btn: Button) => string;
+  icon: ReactNode;
   text: string;
   linkTo?: string;
 }
@@ -39,7 +39,7 @@ export const ButtonSwitcher: FC<ButtonSwitcherProps> = ({
             [getBlocksWith('__icon-increased')]: hasAdditionalButton,
           })}
         >
-          {btn.iconComponent(btn)}
+          {btn.icon}
         </div>
         <span
           className={classNames(getBlocksWith('__text'), {

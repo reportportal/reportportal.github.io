@@ -47,9 +47,9 @@ Use next information for prompts during setup:
 ## Start App
 
 1. To run the application in development mode use the following command:
-```bash
-npm run dev
-```
+  ```bash
+  npm run start
+  ```
 2. Open `http://localhost:8080/`
 
 ## Deployment
@@ -72,7 +72,7 @@ That's it! Your changes should now be live on the website. If you encounter any 
 ## Libraries
 
 - [Gatsby](https://www.gatsbyjs.com/). Project is built on top of Gatsby to leverage its Static Site Generation feature. Make sure that you check that app works and looks correctly both in dev mode (`npm run dev`) and in production mode `npm run build && npm run serve`. You should pay attention whether elements are not shifting/jumping on the initial load in the production mode.
-- [And Design](https://ant.design/components/overview/). Project uses components from Ant Design. Use them when you can to avoid creating things from scratch, but make sure to style them according [to our design](https://www.figma.com/file/JDa2JNX88qMJbdWeFpBfNz/%F0%9F%8C%90-RP-Landing-2.0). As an example check out how `Steps` component is used and styled in the [HowItWorks](./src/components/LandingPage/HowItWorks) component
+- [And Design](https://ant.design/components/overview/). Project uses components from Ant Design. Use them when you can to avoid creating things from scratch, but make sure to style them according [to our design](https://www.figma.com/file/JDa2JNX88qMJbdWeFpBfNz/%F0%9F%8C%90-RP-Landing-2.0). As an example check out how `Steps` component is used and styled in the [HowItWorks](./src/containers/LandingPage/HowItWorks) component
 
 ## SCSS/CSS
 
