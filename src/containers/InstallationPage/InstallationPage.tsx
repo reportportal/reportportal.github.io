@@ -4,13 +4,21 @@ import classNames from 'classnames';
 import { ButtonSwitcher, Banner, FooterContent } from '@app/components';
 import { createBemBlockBuilder, mediaDesktopSm } from '@app/utils';
 
-import { DockerIcon, KubernetesIcon } from './icons';
+import { DockerIcon, GoogleCloudIcon, KubernetesIcon } from './icons';
 import { KubernetesContent } from './KubernetesContent';
+import { GoogleCloudContent, GoogleCloudLaunchPortal } from './GoogleCloudContent';
 import { LaunchPortal } from './LaunchPortal';
 import { DockerDeployingStep, DockerInstall } from './DockerContent';
 import { IntegrationContent } from './IntegrationContent';
 import { ScrollIndicator } from './ScrollIndicator';
-import { KUBERNETES_SECTIONS, DOCKER_SECTIONS } from './constants';
+import {
+  KUBERNETES_SECTIONS,
+  DOCKER_SECTIONS,
+  GOOGLE_CLOUD_SECTIONS,
+  DOCKER,
+  GOOGLE_CLOUD,
+  KUBERNETES,
+} from './constants';
 
 import './InstallationPage.scss';
 
@@ -18,14 +26,19 @@ const getBlocksWith = createBemBlockBuilder(['installation']);
 
 const buttons = [
   {
-    text: 'With Docker',
+    text: DOCKER,
     icon: <DockerIcon />,
     scrollPoints: DOCKER_SECTIONS,
   },
   {
-    text: 'With Kubernetes',
+    text: KUBERNETES,
     icon: <KubernetesIcon />,
     scrollPoints: KUBERNETES_SECTIONS,
+  },
+  {
+    text: GOOGLE_CLOUD,
+    icon: <GoogleCloudIcon />,
+    scrollPoints: GOOGLE_CLOUD_SECTIONS,
   },
 ];
 
@@ -35,14 +48,47 @@ export const InstallationPage: FC = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
 
-  const isFirstBtnActive = activeButton === buttons[0].text;
   const sections = buttons.find(button => button.text === activeButton)?.scrollPoints ?? [];
 
-  const switchActiveBtn = btnName => {
+  const switchActiveBtn = (btnName: string) => {
     if (btnName !== activeButton) {
       setActiveButton(btnName);
     }
   };
+
+  const getConfigureSection = () => {
+    switch (activeButton) {
+      case KUBERNETES:
+        return (
+          <div name="section-1">
+            <KubernetesContent />
+          </div>
+        );
+      case GOOGLE_CLOUD:
+        return (
+          <div name="section-1">
+            <GoogleCloudContent />
+          </div>
+        );
+      default:
+        return (
+          <>
+            <div name="section-0">
+              <DockerInstall />
+            </div>
+            <div name="section-1">
+              <DockerDeployingStep />
+            </div>
+          </>
+        );
+    }
+  };
+
+  const getLaunchPortalSection = () => (
+    <div name="section-2">
+      {activeButton === GOOGLE_CLOUD ? <GoogleCloudLaunchPortal /> : <LaunchPortal />}
+    </div>
+  );
 
   return (
     <div>
@@ -69,27 +115,9 @@ export const InstallationPage: FC = () => {
 
           <div className={getBlocksWith('__main-content')}>
             <div className={classNames({ [getBlocksWith('__main-inner')]: !isDesktop })}>
-              {isFirstBtnActive ? (
-                <>
-                  <div name="section-1">
-                    <DockerInstall />
-                  </div>
-
-                  <div name="section-2">
-                    <DockerDeployingStep />
-                  </div>
-                </>
-              ) : (
-                <div name="section-1">
-                  <KubernetesContent />
-                </div>
-              )}
-
+              {getConfigureSection()}
+              {getLaunchPortalSection()}
               <div name="section-3">
-                <LaunchPortal />
-              </div>
-
-              <div name="section-4">
                 <IntegrationContent />
               </div>
             </div>

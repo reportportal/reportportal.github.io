@@ -34,6 +34,10 @@
     transition: all 0.4s ease-out;
     cursor: pointer;
 
+    @include m.breakpoint-max(v.$tablet-sm-exact - 1) {
+      transform: scale(1);
+    }
+
     &:hover {
       color: var(--white);
     }
@@ -42,11 +46,16 @@
   &__text {
     margin-left: 10px;
 
-    &-increased {
-      display: none;
+    @include m.breakpoint-max(v.$tablet-sm-exact - 1) {
+      margin: unset;
 
-      @include m.breakpoint(v.$tablet-sm) {
+      &-increased {
+        position: absolute;
+        top: 58px;
         display: inline-block;
+        color: var(--white);
+        font-size: 14px;
+        font-weight: v.$fw-regular;
       }
     }
   }
