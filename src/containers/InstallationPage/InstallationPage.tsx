@@ -44,6 +44,14 @@ const buttons = [
 
 const ACTIVE_BUTTON = buttons[0].text;
 
+const sectionsContent: {
+  [key: string]: React.FC[];
+} = {
+  [DOCKER]: [DockerInstall, DockerDeployingStep, LaunchPortal, IntegrationContent],
+  [KUBERNETES]: [KubernetesContent, LaunchPortal, IntegrationContent],
+  [GOOGLE_CLOUD]: [GoogleCloudContent, GoogleCloudLaunchPortal, IntegrationContent],
+};
+
 export const InstallationPage: FC = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
@@ -54,14 +62,6 @@ export const InstallationPage: FC = () => {
     if (btnName !== activeButton) {
       setActiveButton(btnName);
     }
-  };
-
-  const sectionsContent: {
-    [key: string]: React.FC[];
-  } = {
-    [DOCKER]: [DockerInstall, DockerDeployingStep, LaunchPortal, IntegrationContent],
-    [KUBERNETES]: [KubernetesContent, LaunchPortal, IntegrationContent],
-    [GOOGLE_CLOUD]: [GoogleCloudContent, GoogleCloudLaunchPortal, IntegrationContent],
   };
 
   return (
