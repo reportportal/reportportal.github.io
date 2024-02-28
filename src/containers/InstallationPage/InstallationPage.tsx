@@ -56,39 +56,13 @@ export const InstallationPage: FC = () => {
     }
   };
 
-  const getConfigureSection = () => {
-    switch (activeButton) {
-      case KUBERNETES:
-        return (
-          <div name="section-1">
-            <KubernetesContent />
-          </div>
-        );
-      case GOOGLE_CLOUD:
-        return (
-          <div name="section-1">
-            <GoogleCloudContent />
-          </div>
-        );
-      default:
-        return (
-          <>
-            <div name="section-0">
-              <DockerInstall />
-            </div>
-            <div name="section-1">
-              <DockerDeployingStep />
-            </div>
-          </>
-        );
-    }
+  const sectionsContent: {
+    [key: string]: React.FC[];
+  } = {
+    [DOCKER]: [DockerInstall, DockerDeployingStep, LaunchPortal, IntegrationContent],
+    [KUBERNETES]: [KubernetesContent, LaunchPortal, IntegrationContent],
+    [GOOGLE_CLOUD]: [GoogleCloudContent, GoogleCloudLaunchPortal, IntegrationContent],
   };
-
-  const getLaunchPortalSection = () => (
-    <div name="section-2">
-      {activeButton === GOOGLE_CLOUD ? <GoogleCloudLaunchPortal /> : <LaunchPortal />}
-    </div>
-  );
 
   return (
     <div>
@@ -115,11 +89,11 @@ export const InstallationPage: FC = () => {
 
           <div className={getBlocksWith('__main-content')}>
             <div className={classNames({ [getBlocksWith('__main-inner')]: !isDesktop })}>
-              {getConfigureSection()}
-              {getLaunchPortalSection()}
-              <div name="section-3">
-                <IntegrationContent />
-              </div>
+              {sectionsContent[activeButton].map((SectionComponent, index) => (
+                <div key={activeButton + index} name={`section-${index}`}>
+                  <SectionComponent />
+                </div>
+              ))}
             </div>
           </div>
         </div>

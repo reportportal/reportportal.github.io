@@ -34,20 +34,8 @@ export const ButtonSwitcher: FC<ButtonSwitcherProps> = ({
   const getWrappedButton = (btn: Button) => {
     const buttonText = (
       <>
-        <div
-          className={classNames(getBlocksWith('__icon'), {
-            [getBlocksWith('__icon-increased')]: hasAdditionalButton,
-          })}
-        >
-          {btn.icon}
-        </div>
-        <span
-          className={classNames(getBlocksWith('__text'), {
-            [getBlocksWith('__text-increased')]: hasAdditionalButton,
-          })}
-        >
-          {btn.text}
-        </span>
+        <div className={classNames(getBlocksWith('__icon'))}>{btn.icon}</div>
+        <span className={classNames(getBlocksWith('__text'))}>{btn.text}</span>
       </>
     );
 

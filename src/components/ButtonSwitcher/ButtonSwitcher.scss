@@ -47,16 +47,13 @@
     margin-left: 10px;
 
     @include m.breakpoint-max(v.$tablet-sm-exact - 1) {
+      position: absolute;
+      top: 58px;
+      display: inline-block;
       margin: unset;
-
-      &-increased {
-        position: absolute;
-        top: 58px;
-        display: inline-block;
-        color: var(--white);
-        font-size: 14px;
-        font-weight: v.$fw-regular;
-      }
+      color: var(--white);
+      font-size: 14px;
+      font-weight: v.$fw-regular;
     }
   }
 
@@ -71,23 +68,7 @@
   }
 
   &__icon {
-    display: none;
+    display: inline-block;
     margin-bottom: -4px;
-
-    @include m.breakpoint(v.$phone) {
-      display: none;
-
-      &-increased {
-        display: inline-block;
-      }
-    }
-
-    @include m.breakpoint(v.$tablet-sm) {
-      display: inline-block;
-    }
-
-    &-increased {
-      display: inline-block;
-    }
   }
 }
