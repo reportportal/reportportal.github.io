@@ -52,4 +52,13 @@
       }
     }
   }
+
+  &__button {
+    margin-top: 40px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      max-width: 160px;
+      margin: 64px auto 0;
+    }
+  }
 }

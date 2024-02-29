@@ -83,6 +83,11 @@ export const SEO_DATA = {
     title: 'Blog',
     description: "Stay informed by reading ReportPortal's updates, news, and technology articles.",
   },
+  community: {
+    title: 'Community',
+    description:
+      'Connect, learn, and collaborate with testing enthusiasts. Join the ReportPortal community.',
+  },
   terms: {
     title: 'Terms and Conditions',
     description:

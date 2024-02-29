@@ -1,0 +1,54 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.statistic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 48px 0 0;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    justify-content: center;
+    padding: 80px 0;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 16px;
+
+    strong {
+      &:nth-child(1) {
+        @include m.font-poppins(v.$fw-bold);
+        @include m.font-scale(x4-medium);
+
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          @include m.font-scale(large);
+        }
+      }
+
+      &:nth-child(2) {
+        @include m.font-poppins(v.$fw-semi-bold);
+        @include m.font-scale();
+      }
+    }
+
+    span {
+      @include m.font-noto-sans();
+      @include m.font-scale();
+
+      margin-top: 8px;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        display: inline-block;
+        width: 98%;
+      }
+    }
+  }
+}

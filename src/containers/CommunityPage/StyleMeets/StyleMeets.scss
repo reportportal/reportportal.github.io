@@ -1,0 +1,70 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.style-meets {
+  padding: 416px 0 200px;
+  background-image: url('../../../svg/community/product-images-mobile.png'),
+    url('../../../svg/community/merch-store-mobile.svg');
+  background-position: top 90px center, center 0;
+  background-repeat: no-repeat;
+  background-size: 100%, cover;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    padding: 200px 0;
+    background-image: url('../../../svg/community/product-images-tablet.png'),
+      url('../../../svg/community/merch-store-tablet.svg');
+    background-position: center right 10px, center 0;
+    background-size: 40%, cover;
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    background-image: url('../../../svg/community/product-images-desktop.png'),
+      url('../../../svg/community/merch-store-desktop.svg');
+    background-position: center right 120px, center 0;
+    background-size: 43%, cover;
+  }
+
+  &__info {
+    max-width: 441px;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      max-width: 486px;
+    }
+  }
+
+  &__title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-medium);
+
+    max-width: 792px;
+    color: var(--white);
+
+    @include m.breakpoint(v.$phone-lg) {
+      @include m.font-scale(large);
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      @include m.font-scale(x3-large);
+    }
+  }
+
+  &__description {
+    @include m.font-noto-sans();
+    @include m.font-scale(medium);
+
+    color: var(--white);
+  }
+
+  &__button {
+    max-width: none;
+    margin-top: 48px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      max-width: 248px;
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      max-width: 180px;
+    }
+  }
+}
