@@ -22,3 +22,5 @@ export * from './UnorderedList';
 export * from './ComparePlans';
 export * from './PricingHero';
 export * from './Layout';
+export * from './LinkedCard';
+export * from './StatisticList';

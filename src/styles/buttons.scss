@@ -80,6 +80,25 @@ a.btn--primary {
     }
   }
 
+  &--pink {
+    background: var(--graphics-pink);
+    color: var(--white);
+
+    &:hover {
+      background: var(--graphics-coral);
+      color: var(--white);
+    }
+
+    &:active {
+      background: var(--graphics-orchid);
+      color: var(--white);
+    }
+
+    &:disabled {
+      background: rgb(var(--graphics-pink) / 0.3);
+    }
+  }
+
   &--outline,
   &--outline-2 {
     border: 2px solid var(--color-primary-600);

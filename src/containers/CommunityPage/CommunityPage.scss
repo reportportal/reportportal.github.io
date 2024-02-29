@@ -1,0 +1,15 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.community {
+  .linked-card-block {
+    .go-to-documentation-button {
+      max-width: none;
+      margin: 0 auto;
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        max-width: 240px;
+      }
+    }
+  }
+}

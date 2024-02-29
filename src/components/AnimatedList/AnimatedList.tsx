@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { createBemBlockBuilder, LIST_ANIMATION_DELAY } from '@app/utils';
 import { useAnimationInterval } from '@app/hooks';
 
-import { ArrowLink } from '../ArrowLink';
+import { LinkedCard } from '../LinkedCard';
 
 import './AnimatedList.scss';
 
@@ -68,12 +68,13 @@ export const AnimatedList: FC<AnimatedListProps> = ({
                   key={itemTitle}
                 >
                   <img src={image} alt="" />
-                  <div className={getBlocksWithList('__card')}>
-                    <strong>{itemTitle}</strong>
-                    <p>{description}</p>
-                    <ArrowLink mode="primary" to={link} text="Learn more" />
-                    {delay && <div className={getBlocksWithList('__card-progress')} />}
-                  </div>
+                  <LinkedCard
+                    itemTitle={itemTitle}
+                    description={description}
+                    link={link}
+                    linkText="Learn more"
+                    delay={delay}
+                  />
                 </li>
               ),
             )}

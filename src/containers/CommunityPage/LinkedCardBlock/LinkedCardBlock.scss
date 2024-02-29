@@ -1,0 +1,42 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.linked-card-block {
+  padding: 120px 0;
+
+  &--background {
+    background-image: url('../../../svg/community/hero-line.svg');
+    background-position: center -730px;
+    background-repeat: no-repeat;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      background-position: center -605px;
+    }
+  }
+
+  .title-block {
+    &__title {
+      max-width: 792px;
+    }
+
+    &__subtitle {
+      max-width: 590px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 996px;
+    margin: 64px auto;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      flex-direction: row;
+    }
+
+    .linked-card {
+      flex: 1 1 0;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.sponsors {
+  margin-top: 24px;
+  background-image: url('../../../svg/community/sponsor-tablet.svg');
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text-primary);
+
+  @include m.breakpoint(v.$desktop-sm) {
+    background-image: url('../../../svg/community/sponsor-desktop.svg');
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 56px 16px;
+    text-align: center;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      padding: 56px 24px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      flex-direction: row;
+      padding: 56px 0;
+    }
+  }
+
+  &__title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-medium);
+
+    margin-bottom: 16px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-scale(large);
+    }
+  }
+
+  &__description {
+    @include m.font-noto-sans();
+    @include m.font-scale();
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-scale(medium);
+    }
+  }
+
+  &__button {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    padding-left: 64px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      width: auto;
+      margin-top: 48px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: 0;
+    }
+
+    &::before {
+      position: absolute;
+      top: 20px;
+      left: 80px;
+      width: 16px;
+      height: 16px;
+      background-image: url('../icons/heart.svg');
+      content: '';
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        left: 32px;
+      }
+    }
+  }
+}

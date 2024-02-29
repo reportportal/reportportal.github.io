@@ -1,0 +1,30 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.title-block {
+  &__title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-medium);
+
+    margin: 0 auto;
+    text-align: center;
+    color: var(--text-primary);
+
+    @include m.breakpoint(v.$phone-lg) {
+      @include m.font-scale(large);
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      @include m.font-scale(x3-large);
+    }
+  }
+
+  &__subtitle {
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
+
+    margin: 16px auto 0;
+    text-align: center;
+    color: var(--text-service);
+  }
+}
