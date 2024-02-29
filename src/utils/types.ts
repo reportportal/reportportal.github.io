@@ -15,11 +15,13 @@ export interface OrganizationDto {
   secondaryLogo?: ContentfulAsset;
 }
 
-export interface CommunityListDto {
+export interface ImageWrapperDto {
   title: string;
+  description: string;
   link: string;
   icon: ContentfulAsset;
-  hoverIcon: ContentfulAsset;
+  subTitle?: string;
+  hoverIcon?: ContentfulAsset;
 }
 
 export interface CarouselSlideDto {

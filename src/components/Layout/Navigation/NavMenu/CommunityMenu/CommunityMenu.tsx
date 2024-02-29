@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
 import { Link, SubscriptionForm } from '@app/components';
+import { useMenuFetch } from '@app/hooks';
 import { createBemBlockBuilder, subscriptionFormAtom } from '@app/utils';
-import { useCommunityList } from '@app/hooks';
 
 import { MenuProps } from '../../constants';
 import GithubCover from '../covers/github.inline.svg';
@@ -12,26 +12,11 @@ import { SectionCard } from '../SectionCard';
 import { HeartIcon, ForkIcon } from './icons';
 
 import '../Menu.scss';
-import './CommunityMenu.scss';
 
 export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
-  const communities = useCommunityList();
-
-  const formatCommunities = () => {
-    return communities.map(community => ({
-      title: community.title,
-      link: community.link,
-      iconClass: 'community',
-      iconProps: {
-        style: {
-          '--icon': `url('${community.icon.url}')`,
-          '--hover-icon': `url('${community.hoverIcon.url}')`,
-        },
-      },
-    }));
-  };
+  const { communities } = useMenuFetch();
 
   const contributionCard = (
     <SectionCard
@@ -60,7 +45,7 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
     <SectionList
       className={classNames('community-list', { 'section-list-secondary': isDesktop })}
       title="Join the Community"
-      items={formatCommunities()}
+      items={communities}
     />
   );
 

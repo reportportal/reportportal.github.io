@@ -17,6 +17,7 @@ env:
   DOCUMENTATION_URL: //reportportal.io/docs
   GTM_ID: GTM-MK7ZHTL
   BUILD_DIR : "public/"
+  CONTENTFUL_ENV_ID : "master"
 
 on:
   push:
@@ -47,6 +48,7 @@ jobs:
           touch .env.production
           echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} >> .env.production
           echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} >> .env.production
+          echo CONTENTFUL_ENV_ID=${{ env.CONTENTFUL_ENV_ID }} >> .env.production
           echo GTM_ID=${{ env.GTM_ID }} >> .env.production
           echo CONTACT_US_URL=${{ env.CONTACT_US_URL }} >> .env.production
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production

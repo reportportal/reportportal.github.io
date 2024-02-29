@@ -1,0 +1,63 @@
+import { useStaticQuery, graphql } from 'gatsby';
+import { ImageWrapperDto } from '@app/utils';
+
+interface MenuQuery {
+  communities: Required<ImageWrapperDto>[];
+  integrations: Required<ImageWrapperDto>[];
+  solutions: ImageWrapperDto[];
+}
+
+interface MenuQueryDto {
+  allContentfulMenu: { nodes: MenuQuery[] };
+}
+
+export const useMenuFetch = (): MenuQuery => {
+  const { allContentfulMenu } = useStaticQuery<MenuQueryDto>(graphql`
+    query ContentfulMenuQuery {
+      allContentfulMenu(limit: 1) {
+        nodes {
+          communities {
+            sys {
+              __typename
+            }
+            title
+            link
+            icon {
+              url
+            }
+            hoverIcon {
+              url
+            }
+          }
+          integrations {
+            sys {
+              __typename
+            }
+            title
+            link
+            icon {
+              url
+            }
+            hoverIcon {
+              url
+            }
+          }
+          solutions {
+            sys {
+              __typename
+            }
+            title
+            subTitle
+            link
+            description
+            icon {
+              url
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  return allContentfulMenu.nodes[0];
+};

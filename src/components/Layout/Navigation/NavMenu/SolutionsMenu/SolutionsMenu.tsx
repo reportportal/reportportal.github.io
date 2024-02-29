@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from '@app/components';
-import { useSolutionsList } from '@app/hooks';
+import { useMenuFetch } from '@app/hooks';
 import { createBemBlockBuilder } from '@app/utils';
 
 import CaseStudiesCover from '../covers/case-studies.inline.svg';
@@ -24,7 +24,7 @@ export const SolutionsMenu: FC<SolutionsMenuProps> = ({
   isOpen,
   menuContainerRef,
 }) => {
-  const { solutions } = useSolutionsList();
+  const { solutions } = useMenuFetch();
 
   const solutionsList = (
     <LinkList

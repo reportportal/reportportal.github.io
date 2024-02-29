@@ -2,18 +2,20 @@ import React, { FC } from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
 import { Link, ArrowLink } from '@app/components';
+import { useMenuFetch } from '@app/hooks';
 import { createBemBlockBuilder, DOCUMENTATION_URL, watchProductOverviewAtom } from '@app/utils';
 
 import { MenuProps } from '../../constants';
 import { SectionList } from '../SectionList';
 import { PlayIcon } from './icons';
-import { GENERAL_LIST, FEATURES_LIST, INTEGRATIONS_LIST } from './constants';
+import { GENERAL_LIST, FEATURES_LIST } from './constants';
 
 import '../Menu.scss';
 import './ProductMenu.scss';
 
 export const ProductMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-product']);
+  const { integrations } = useMenuFetch();
   const [, setWatchProductOverviewState] = useAtom(watchProductOverviewAtom);
 
   const generalList = (
@@ -38,7 +40,7 @@ export const ProductMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuConta
     <SectionList
       className={classNames('section-list-secondary', 'integrations-list')}
       title="Integrations"
-      items={INTEGRATIONS_LIST}
+      items={integrations}
     />
   );
 
