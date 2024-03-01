@@ -160,8 +160,10 @@
       padding-top: 160px;
     }
 
-    h3 {
+    h4 {
       @include m.font-poppins(v.$fw-bold);
+
+      font-size: 24px;
     }
   }
 

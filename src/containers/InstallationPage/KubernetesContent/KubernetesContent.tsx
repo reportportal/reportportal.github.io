@@ -20,14 +20,14 @@ export const KubernetesContent: FC = () => {
         We use Helm package manager charts to bootstrap a ReportPortal deployment on a Kubernetes
         cluster.
       </p>
-      <h3>Prerequisites</h3>
+      <h4>Prerequisites</h4>
       <Notice>Min requirements for a ReportPortal 1-node solution: 2 CPUs and 6Gi of memory</Notice>
       <p>Required versions:</p>
       <ul className={classNames(getBlocksWith('__list'), getBlocksWith('__main-list'))}>
         <li>Kubernetes v1.26+</li>
         <li>Helm Package Manager v3.4+</li>
       </ul>
-      <h3>Chart installation</h3>
+      <h4>Chart installation</h4>
       <p>Add the official ReportPortal Helm Chart repository:</p>
       <Text className={getBlocksWith('__code')} code copyable>
         helm repo add reportportal https://reportportal.io/kubernetes && helm repo update
