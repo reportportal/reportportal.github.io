@@ -17,10 +17,15 @@
     grid-template-columns: 0 1fr;
     column-gap: 30px;
     margin: 0;
+    color: var(--text-primary);
 
     @include m.breakpoint(v.$desktop-sm) {
       display: grid;
       grid-template-columns: 2.5fr 8fr;
+    }
+
+    p {
+      margin: 24px 0;
     }
 
     &-content {
@@ -153,6 +158,10 @@
 
     @include m.breakpoint(v.$tablet-lg) {
       padding-top: 160px;
+    }
+
+    h3 {
+      @include m.font-poppins(v.$fw-bold);
     }
   }
 

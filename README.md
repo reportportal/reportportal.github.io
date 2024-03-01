@@ -1,10 +1,13 @@
 # ReportPortal Landing page. Dev guide
 
 ## Prerequisites
-- Node.js v18 and above (* Must Have)
+
+- Node.js v18 and above (\* Must Have)
 
 ## Installation
+
 To install all project dependencies use the next command:
+
 ```bash
 npm install
 ```
@@ -14,8 +17,10 @@ npm install
 ### Option 1:
 
 If you already have Space_ID and Content Delivery API access token and do not have access to the Contentful profile that's enough for basic setup.
+
 1. Create file `.env.development` (do not commit it to the VCS)
 2. Fill in it with:
+
 ```bash
 CONTENTFUL_SPACE_ID={SPACE_ID}
 CONTENTFUL_ACCESS_TOKEN={ACCESS_TOKEN}
@@ -24,6 +29,7 @@ CONTENTFUL_ACCESS_TOKEN={ACCESS_TOKEN}
 ### Option 2:
 
 Run the next command to start setup:
+
 ```bash
 npm run setup
 ```
@@ -35,21 +41,25 @@ Use next information for prompts during setup:
 3. Content Delivery API access token (see [Get API Keys](#get-api-keys))
 
 ### Ask admin to give you credentials to Contentful
+
 - https://www.contentful.com
 
 ### Get API Keys
+
 - Get logged in to [contentful](https://www.contentful.com)
 - Go to Contentful -> Settings -> API Keys -> Content Delivery/Preview Tokens
 - Open one of the items and copy Content Delivery API access token and Content Preview API access token
-- Go to Contentful -> Settings -> API Keys ->  Content management tokens
+- Go to Contentful -> Settings -> API Keys -> Content management tokens
 - Generate your personal token
 
 ## Start App
 
 1. To run the application in development mode use the following command:
-  ```bash
-  npm run start
-  ```
+
+```bash
+npm run start
+```
+
 2. Open `http://localhost:8080/`
 
 ## Deployment
@@ -81,14 +91,16 @@ That's it! Your changes should now be live on the website. If you encounter any 
 - To work with different screens use [breakpoint](./src/styles/mixins/breakpoint.scss) mixin. Check styles for mobile on 360px width. To write styles for tablet use _breakpoint_ mixin with `$tablet-sm-exact: 768px` variable. To write styles for desktop use _breakpoint_ mixin with `$desktop-sm: 1239px` variable. Don't use other [screen variables](./src/styles/variables/screen.scss) unless it is really needed.
 - [Don't use modular CSS](https://github.com/reportportal/reportportal.github.io/pull/380#discussion_r1298267799)
 - [Follow import ordering](https://github.com/reportportal/reportportal.github.io/pull/380#discussion_r1298270084)
+
   ```
     import { GatsbyImage, getImage } from 'gatsby-plugin-image';
     import { renderRichText } from 'gatsby-source-contentful/rich-text';
-  
+
     import { ArticleAuthor } from '../ArticleAuthor';
-  
+
     import from './ArticlePreview.scss';
   ```
+
 - [Use @use instead of @import to import mixins and variables](https://github.com/reportportal/reportportal.github.io/pull/377#discussion_r1295708603)
   ```
     @use 'src/styles/mixins' as m;
@@ -97,4 +109,9 @@ That's it! Your changes should now be live on the website. If you encounter any 
 - [Include mixins first and add empty line after them](https://github.com/reportportal/reportportal.github.io/pull/377#discussion_r1295710195)
 
 ## JS
+
 - For links use [Link](src/components/Link) component
+
+## SVG
+
+- Store icons as svg with '.inline.svg' ending and then reference as it is component. Example - 'arrow.inline.svg'

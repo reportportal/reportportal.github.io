@@ -4,7 +4,9 @@ import classNames from 'classnames';
 import { ButtonSwitcher, Banner, FooterContent } from '@app/components';
 import { createBemBlockBuilder, mediaDesktopSm } from '@app/utils';
 
-import { DockerIcon, GoogleCloudIcon, KubernetesIcon } from './icons';
+import DockerIcon from './icons/docker.inline.svg';
+import GoogleCloudIcon from './icons/googleCloud.inline.svg';
+import KubernetesIcon from './icons/kubernetes.inline.svg';
 import { KubernetesContent } from './KubernetesContent';
 import { GoogleCloudContent, GoogleCloudLaunchPortal } from './GoogleCloudContent';
 import { LaunchPortal } from './LaunchPortal';
@@ -69,7 +71,9 @@ export const InstallationPage: FC = () => {
       <div className={getBlocksWith()}>
         <div className="container">
           <h1 className={getBlocksWith('__title')}>Installation guide</h1>
-          <p className={getBlocksWith('__subtitle')}>3 steps to get started with ReportPortal</p>
+          <p className={getBlocksWith('__subtitle')}>
+            Discover 3 pathways to install ReportPortal with
+          </p>
 
           <div className={getBlocksWith('__btn-box')}>
             <ButtonSwitcher
