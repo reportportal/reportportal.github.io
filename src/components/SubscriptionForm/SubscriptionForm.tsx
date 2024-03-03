@@ -1,7 +1,6 @@
 import React, { useState, useEffect, FC } from 'react';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
-import classNames from 'classnames';
 import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -57,11 +56,7 @@ export const SubscriptionForm: FC<SubscriptionFormProps> = ({
   }
 
   return (
-    <Form
-      form={form}
-      onFinish={handleFinish}
-      className={classNames(getBlocksWith('__form'), getBlocksWith('__form--error'))}
-    >
+    <Form form={form} onFinish={handleFinish} className={getBlocksWith('__form', '__form--error')}>
       <div className={getBlocksWith('__form-group')}>
         <Form.Item
           validateTrigger="onSubmit"
@@ -82,7 +77,7 @@ export const SubscriptionForm: FC<SubscriptionFormProps> = ({
         {() => (
           <button
             type="submit"
-            className={classNames('btn', 'btn--primary')}
+            className="btn btn--primary"
             disabled={form.isFieldsTouched(true) && !isValid}
           >
             Subscribe

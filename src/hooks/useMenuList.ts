@@ -11,7 +11,7 @@ interface MenuQueryDto {
   allContentfulMenu: { nodes: MenuQuery[] };
 }
 
-export const useMenuFetch = (): MenuQuery => {
+export const useMenuList = (): MenuQuery => {
   const { allContentfulMenu } = useStaticQuery<MenuQueryDto>(graphql`
     query ContentfulMenuQuery {
       allContentfulMenu(limit: 1) {

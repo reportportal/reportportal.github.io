@@ -60,13 +60,7 @@ export const AnimatedList: FC<AnimatedListProps> = ({
                   <strong>{itemTitle}</strong>
                 </li>
               ) : (
-                <li
-                  className={classNames(
-                    getBlocksWithList('__item'),
-                    getBlocksWithList('__item--active'),
-                  )}
-                  key={itemTitle}
-                >
+                <li className={getBlocksWithList('__item', '__item--active')} key={itemTitle}>
                   <img src={image} alt="" />
                   <div className={getBlocksWithList('__card')}>
                     <strong>{itemTitle}</strong>

@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
 import { useTrustedByOrganizations } from '@app/hooks';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -11,7 +10,7 @@ export const TrustedOrganizations: FC = () => {
   const organizations = useTrustedByOrganizations();
 
   return (
-    <div className={classNames(getBlocksWith())}>
+    <div className={getBlocksWith()}>
       <div className={getBlocksWith('__title')}>
         Trusted by the world&apos;s leading organizations
       </div>

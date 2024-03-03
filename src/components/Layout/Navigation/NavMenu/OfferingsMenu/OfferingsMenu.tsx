@@ -63,12 +63,7 @@ export const OfferingsMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
             {pricingList}
             {servicesList}
           </div>
-          <div
-            className={classNames(
-              getBlocksWith('__body-col--rt'),
-              getBlocksWith('__body-col--flex-column'),
-            )}
-          >
+          <div className={getBlocksWith('__body-col--rt', '__body-col--flex-column')}>
             {pricingForSolutionsList}
           </div>
         </div>

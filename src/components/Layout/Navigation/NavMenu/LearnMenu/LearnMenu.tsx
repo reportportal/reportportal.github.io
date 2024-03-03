@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
 import { Link } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -61,13 +60,8 @@ export const LearnMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContain
     <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
       <div className={getBlocksWith('__body')}>
         <div className={getBlocksWith('__body-row')}>
-          <div className={classNames(getBlocksWith('__body-col--lf'))}>{resourcesList}</div>
-          <div
-            className={classNames(
-              getBlocksWith('__body-col--rt'),
-              getBlocksWith('__body-col--card'),
-            )}
-          >
+          <div className={getBlocksWith('__body-col--lf')}>{resourcesList}</div>
+          <div className={getBlocksWith('__body-col--rt', '__body-col--card')}>
             {videoGuidesCard}
           </div>
         </div>

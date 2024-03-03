@@ -34,8 +34,8 @@ export const ButtonSwitcher: FC<ButtonSwitcherProps> = ({
   const getWrappedButton = (btn: Button) => {
     const buttonText = (
       <>
-        <div className={classNames(getBlocksWith('__icon'))}>{btn.icon}</div>
-        <span className={classNames(getBlocksWith('__text'))}>{btn.text}</span>
+        <div className={getBlocksWith('__icon')}>{btn.icon}</div>
+        <span className={getBlocksWith('__text')}>{btn.text}</span>
       </>
     );
 

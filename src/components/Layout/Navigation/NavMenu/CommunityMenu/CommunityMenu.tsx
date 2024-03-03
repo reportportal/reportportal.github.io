@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
 import { Link, SubscriptionForm } from '@app/components';
-import { useMenuFetch } from '@app/hooks';
+import { useMenuList } from '@app/hooks';
 import { createBemBlockBuilder, subscriptionFormAtom } from '@app/utils';
 
 import { MenuProps } from '../../constants';
@@ -16,7 +16,7 @@ import '../Menu.scss';
 export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
-  const { communities } = useMenuFetch();
+  const { communities } = useMenuList();
 
   const contributionCard = (
     <SectionCard
@@ -69,12 +69,7 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
       <div className={getBlocksWith('__body')}>
         <div className={getBlocksWith('__body-row')}>
           <div className={getBlocksWith('__body-col--lf')}>{contributionCard}</div>
-          <div
-            className={classNames(
-              getBlocksWith('__body-col--rt'),
-              getBlocksWith('__body-col--flex-column'),
-            )}
-          >
+          <div className={getBlocksWith('__body-col--rt', '__body-col--flex-column')}>
             {communityList}
           </div>
         </div>

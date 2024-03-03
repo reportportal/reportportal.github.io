@@ -58,7 +58,7 @@ export const FeedbackForm = ({ title }) => {
               ))}
             </div>
             <button
-              className={classNames('btn', 'btn--primary', 'btn--large')}
+              className="btn btn--primary btn--large"
               disabled={isEmpty(selectedTags)}
               onClick={handleSubmit}
             >

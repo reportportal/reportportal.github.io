@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import classNames from 'classnames';
 import { FooterContent, SubscriptionForm, Banner } from '@app/components';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -18,7 +17,7 @@ export const SubscriptionBanner: FC = () => {
 
   return (
     <FooterContent>
-      <div className={classNames(getBlocksWith())}>
+      <div className={getBlocksWith()}>
         <Banner
           title="Stay in the know"
           subtitle="Get the latest ReportPortal news, product updates and articles via email"

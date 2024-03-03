@@ -29,7 +29,7 @@ export const SectionItem: FC<SectionItemProps> = props => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         <span
-          className={classNames(getBlocksWith('-icon'), getBlocksWith(`-icon--${iconClassName}`))}
+          className={getBlocksWith('-icon', `-icon--${iconClassName}`)}
           {...(isDataFromContentful && {
             style: {
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment

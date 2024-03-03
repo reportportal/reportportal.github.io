@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from '@app/components';
-import { useMenuFetch } from '@app/hooks';
+import { useMenuList } from '@app/hooks';
 import { createBemBlockBuilder } from '@app/utils';
 
 import CaseStudiesCover from '../covers/case-studies.inline.svg';
@@ -24,7 +24,7 @@ export const SolutionsMenu: FC<SolutionsMenuProps> = ({
   isOpen,
   menuContainerRef,
 }) => {
-  const { solutions } = useMenuFetch();
+  const { solutions } = useMenuList();
 
   const solutionsList = (
     <LinkList
@@ -59,12 +59,7 @@ export const SolutionsMenu: FC<SolutionsMenuProps> = ({
       <div>
         <div className={getBlocksWith('__body-row')}>
           <div className={getBlocksWith('__body-col--lf')}>{solutionsList}</div>
-          <div
-            className={classNames(
-              getBlocksWith('__body-col--rt'),
-              getBlocksWith('__body-col--card'),
-            )}
-          >
+          <div className={getBlocksWith('__body-col--rt', '__body-col--card')}>
             {caseStudiesCard}
           </div>
         </div>
