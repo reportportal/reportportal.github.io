@@ -1,5 +1,8 @@
+In case your PR
+
 ### PR Checklist
 
+* [ ] Have you verified that the PR is pointing to the correct target branch? (`develop` for features/bugfixes, `master` for release/hotfix)?
 * [ ] Have you followed the guidelines in our [Dev Guide](../#readme)
 * [ ] Have you lint your code locally prior to submission (`npm run lint`)?
 * [ ] Have you run prettier (`npm run format`)?
