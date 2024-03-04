@@ -5,7 +5,7 @@ import './StyleMeets.scss';
 
 export const StyleMeets: FC = () => (
   <div className="style-meets">
-    <div className="container">
+    <div className="container style-meets__content">
       <div className="style-meets__info">
         <div className="style-meets__title">Style meets QA passion</div>
         <div className="style-meets__description">
@@ -23,6 +23,7 @@ export const StyleMeets: FC = () => (
           Shop now
         </Link>
       </div>
+      <div className="style-meets__images" />
     </div>
   </div>
 );

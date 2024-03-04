@@ -2,26 +2,40 @@
 @use 'src/styles/variables' as v;
 
 .style-meets {
-  padding: 416px 0 200px;
-  background-image: url('../../../svg/community/product-images-mobile.png'),
-    url('../../../svg/community/merch-store-mobile.svg');
-  background-position: top 90px center, center 0;
+  padding: 120px 0 200px;
+  background-image: url('../../../svg/community/merch-store-mobile.svg');
+  background-position: center 0;
   background-repeat: no-repeat;
-  background-size: 100%, cover;
+  background-size: cover;
+  overflow: hidden;
 
   @include m.breakpoint(v.$tablet-sm-exact) {
+    display: flex;
+    justify-content: center;
+    max-height: 820px;
     padding: 200px 0;
-    background-image: url('../../../svg/community/product-images-tablet.png'),
-      url('../../../svg/community/merch-store-tablet.svg');
-    background-position: center right 10px, center 0;
-    background-size: 40%, cover;
+    background-image: url('../../../svg/community/merch-store-tablet.svg');
   }
 
   @include m.breakpoint(v.$desktop-sm) {
-    background-image: url('../../../svg/community/product-images-desktop.png'),
-      url('../../../svg/community/merch-store-desktop.svg');
-    background-position: center right 120px, center 0;
-    background-size: 43%, cover;
+    max-height: 900px;
+    background-image: url('../../../svg/community/merch-store-desktop.svg');
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      flex-direction: row;
+      gap: 23px;
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      gap: 126px;
+    }
   }
 
   &__info {
@@ -39,7 +53,7 @@
     max-width: 792px;
     color: var(--white);
 
-    @include m.breakpoint(v.$phone-lg) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-scale(large);
     }
 
@@ -65,6 +79,28 @@
 
     @include m.breakpoint(v.$tablet-sm) {
       max-width: 180px;
+    }
+  }
+
+  &__images {
+    order: -1;
+    min-width: 1024px;
+    height: 256px;
+    background-image: url('../../../svg/community/product-images-mobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      order: 1;
+      min-width: 256px;
+      height: 1024px;
+      background-image: url('../../../svg/community/product-images-tablet.png');
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      min-width: 588px;
+      height: 1924px;
+      background-image: url('../../../svg/community/product-images-desktop.png');
     }
   }
 }
