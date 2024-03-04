@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { createBemBlockBuilder } from '@app/utils';
+import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
+import { Link } from '@app/components';
 
 import { Notice } from '../Notice';
 
@@ -41,6 +42,16 @@ export const GoogleCloudLaunchPortal: FC = () => {
         via the link.
       </Notice>
       <p>Let&apos;s get your ReportPortal instance up!</p>
+      <p>
+        For a more comprehensive installation guide, please refer to the{' '}
+        <Link
+          className={getBlocksWith('__link')}
+          to={`${DOCUMENTATION_URL}/installation-steps/DeployViaGoogleCloudMarketplace`}
+        >
+          link
+        </Link>
+        .
+      </p>
     </div>
   );
 };
