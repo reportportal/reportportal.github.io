@@ -1,5 +1,3 @@
-In case your PR
-
 ### PR Checklist
 
 * [ ] Have you verified that the PR is pointing to the correct target branch? (`develop` for features/bugfixes, `master` for release/hotfix)?
