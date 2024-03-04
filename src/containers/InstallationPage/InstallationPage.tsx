@@ -4,13 +4,23 @@ import classNames from 'classnames';
 import { ButtonSwitcher, Banner, FooterContent } from '@app/components';
 import { createBemBlockBuilder, mediaDesktopSm } from '@app/utils';
 
-import { DockerIcon, KubernetesIcon } from './icons';
+import DockerIcon from './icons/docker.inline.svg';
+import GoogleCloudIcon from './icons/googleCloud.inline.svg';
+import KubernetesIcon from './icons/kubernetes.inline.svg';
 import { KubernetesContent } from './KubernetesContent';
+import { GoogleCloudContent, GoogleCloudLaunchPortal } from './GoogleCloudContent';
 import { LaunchPortal } from './LaunchPortal';
 import { DockerDeployingStep, DockerInstall } from './DockerContent';
 import { IntegrationContent } from './IntegrationContent';
 import { ScrollIndicator } from './ScrollIndicator';
-import { KUBERNETES_SECTIONS, DOCKER_SECTIONS } from './constants';
+import {
+  KUBERNETES_SECTIONS,
+  DOCKER_SECTIONS,
+  GOOGLE_CLOUD_SECTIONS,
+  DOCKER,
+  GOOGLE_CLOUD,
+  KUBERNETES,
+} from './constants';
 
 import './InstallationPage.scss';
 
@@ -18,27 +28,39 @@ const getBlocksWith = createBemBlockBuilder(['installation']);
 
 const buttons = [
   {
-    text: 'With Docker',
+    text: DOCKER,
     icon: <DockerIcon />,
     scrollPoints: DOCKER_SECTIONS,
   },
   {
-    text: 'With Kubernetes',
+    text: KUBERNETES,
     icon: <KubernetesIcon />,
     scrollPoints: KUBERNETES_SECTIONS,
+  },
+  {
+    text: GOOGLE_CLOUD,
+    icon: <GoogleCloudIcon />,
+    scrollPoints: GOOGLE_CLOUD_SECTIONS,
   },
 ];
 
 const ACTIVE_BUTTON = buttons[0].text;
 
+const sectionsContent: {
+  [key: string]: React.FC[];
+} = {
+  [DOCKER]: [DockerInstall, DockerDeployingStep, LaunchPortal, IntegrationContent],
+  [KUBERNETES]: [KubernetesContent, LaunchPortal, IntegrationContent],
+  [GOOGLE_CLOUD]: [GoogleCloudContent, GoogleCloudLaunchPortal, IntegrationContent],
+};
+
 export const InstallationPage: FC = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
   const isDesktop = useMediaQuery({ query: mediaDesktopSm });
 
-  const isFirstBtnActive = activeButton === buttons[0].text;
   const sections = buttons.find(button => button.text === activeButton)?.scrollPoints ?? [];
 
-  const switchActiveBtn = btnName => {
+  const switchActiveBtn = (btnName: string) => {
     if (btnName !== activeButton) {
       setActiveButton(btnName);
     }
@@ -49,7 +71,9 @@ export const InstallationPage: FC = () => {
       <div className={getBlocksWith()}>
         <div className="container">
           <h1 className={getBlocksWith('__title')}>Installation guide</h1>
-          <p className={getBlocksWith('__subtitle')}>3 steps to get started with ReportPortal</p>
+          <p className={getBlocksWith('__subtitle')}>
+            Discover 3 pathways to install ReportPortal with
+          </p>
 
           <div className={getBlocksWith('__btn-box')}>
             <ButtonSwitcher
@@ -69,29 +93,11 @@ export const InstallationPage: FC = () => {
 
           <div className={getBlocksWith('__main-content')}>
             <div className={classNames({ [getBlocksWith('__main-inner')]: !isDesktop })}>
-              {isFirstBtnActive ? (
-                <>
-                  <div name="section-1">
-                    <DockerInstall />
-                  </div>
-
-                  <div name="section-2">
-                    <DockerDeployingStep />
-                  </div>
-                </>
-              ) : (
-                <div name="section-1">
-                  <KubernetesContent />
+              {sectionsContent[activeButton].map((SectionComponent, index) => (
+                <div key={activeButton + index} name={`section-${index}`}>
+                  <SectionComponent />
                 </div>
-              )}
-
-              <div name="section-3">
-                <LaunchPortal />
-              </div>
-
-              <div name="section-4">
-                <IntegrationContent />
-              </div>
+              ))}
             </div>
           </div>
         </div>
