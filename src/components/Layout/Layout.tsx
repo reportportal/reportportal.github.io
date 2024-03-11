@@ -6,7 +6,7 @@ import { useAtom } from 'jotai';
 import { AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 import { announcementOpenAtom, isNewYearMode, watchProductOverviewAtom } from '@app/utils';
-import { AnnouncementBar } from '@app/components';
+import { AnnouncementBar } from '@app/components/AnnouncementBar';
 
 // eslint-disable-next-line import/no-unresolved
 import '../../../static/antd.min.css'; // Will be generated at build time

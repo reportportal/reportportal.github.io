@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 import { useAtom } from 'jotai';
-import { watchProductOverviewAtom } from '@app/components/Layout';
 import { Link } from '@app/components/Link';
 import { ArrowLink } from '@app/components/ArrowLink';
 import { useMenuList } from '@app/hooks/useMenuList';
-import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
+import { createBemBlockBuilder, DOCUMENTATION_URL, watchProductOverviewAtom } from '@app/utils';
 
 import { MenuProps } from '../../constants';
 import { SectionList } from '../SectionList';

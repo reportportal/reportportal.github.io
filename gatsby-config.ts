@@ -24,6 +24,12 @@ const config: GatsbyConfig = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+      options: {
+        disable: process.env.ANALYSE_BUNDLE !== 'true',
+      },
+    },
     'gatsby-plugin-image',
     {
       resolve: 'gatsby-source-contentful',

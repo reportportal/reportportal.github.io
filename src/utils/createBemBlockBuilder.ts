@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 
 export const createBemBlockBuilder = (blocks: string[]) => {
   const cleanedBlocks = blocks.reduce(
