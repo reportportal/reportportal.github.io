@@ -20,6 +20,7 @@ export interface ImageWrapperDto {
   description: string;
   link: string;
   icon: ContentfulAsset;
+  alt?: string;
   subTitle?: string;
   hoverIcon?: ContentfulAsset;
 }
