@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { ArticlePreview, SubscriptionBanner } from '@app/components';
+import { ArticlePreview } from '@app/components/ArticlePreview';
+import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
 import { createBemBlockBuilder, BlogPostDto } from '@app/utils';
 
 import './BlogPage.scss';

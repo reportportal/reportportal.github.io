@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Heading } from '@app/components';
+import { Heading } from '@app/components/Heading';
 
 import { SERVICE_ARIA_INFO } from './constants';
 

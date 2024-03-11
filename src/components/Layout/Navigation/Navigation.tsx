@@ -5,9 +5,9 @@ import { Drawer, Collapse } from 'antd';
 import upperFirst from 'lodash/upperFirst';
 import axios from 'axios';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
-import { useScrollDirection } from '@app/hooks';
+import { useScrollDirection } from '@app/hooks/useScrollDirection';
 
 // eslint-disable-next-line import/no-unresolved
 import githubStats from '../../../../static/github.json'; // Will be generated at build time

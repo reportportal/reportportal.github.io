@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { ContentfulAsset, createBemBlockBuilder, isContentfulRecord } from '@app/utils';
 
 interface SectionItemProps {

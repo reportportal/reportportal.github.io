@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Link } from '@app/components';
-import { useMenuList } from '@app/hooks';
+import { Link } from '@app/components/Link';
+import { useMenuList } from '@app/hooks/useMenuList';
 import { createBemBlockBuilder } from '@app/utils';
 
 import CaseStudiesCover from '../covers/case-studies.inline.svg';

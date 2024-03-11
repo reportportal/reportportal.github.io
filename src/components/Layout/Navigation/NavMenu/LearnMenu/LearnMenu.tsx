@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { MenuProps } from '../../constants';

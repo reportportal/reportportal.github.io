@@ -1,20 +1,18 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { createBemBlockBuilder, OnPremisesPricingConfig } from '@app/utils';
-import { usePricingHeroProps } from '@app/hooks';
-import {
-  FooterContent,
-  TrustedOrganizations,
-  Banner,
-  Link,
-  PentagonCard,
-  PricingHero,
-  ComparePlans,
-  Faq,
-  TimeScale,
-} from '@app/components';
+import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
+import { FooterContent } from '@app/components/Layout';
+import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
+import { Banner } from '@app/components/Banner';
+import { Link } from '@app/components/Link';
+import { PricingHero } from '@app/components/PricingHero';
+import { ComparePlans } from '@app/components/ComparePlans';
+import { Faq } from '@app/components/Faq';
 import InfoIcon from '@app/svg/infoIcon.inline.svg';
 
+import { TimeScale } from './TimeScale';
+import { PentagonCard } from './PentagonCard';
 import { COLUMNS, MOBILE_COLUMNS, OFFER_HOURS } from './constants';
 import { getDataPlans, getFooterButtons, getOfferLinks } from './utils';
 

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { TrustedOrganizations } from '@app/components';
+import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { ContactUsForm } from './ContactUsForm';

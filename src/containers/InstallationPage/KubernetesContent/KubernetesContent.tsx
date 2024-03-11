@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Typography } from 'antd';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { Notice } from '../Notice';

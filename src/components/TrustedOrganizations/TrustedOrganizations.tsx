@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useTrustedByOrganizations } from '@app/hooks';
+import { useTrustedByOrganizations } from '@app/hooks/useTrustedByOrganizations';
 import { createBemBlockBuilder } from '@app/utils';
 
 import './TrustedOrganizations.scss';

@@ -1,4 +1,45 @@
-import { iconsFrameworks } from '@app/utils/imageSource';
+import artos from '@app/svg/icon_framework_artos.svg';
+import android from '@app/svg/icon_framework_android.svg';
+import behat from '@app/svg/icon_framework_behat.svg';
+import codecept from '@app/svg/icon_framework_codecept.svg';
+import codeception from '@app/svg/icon_framework_codeception.svg';
+import cucumber from '@app/svg/icon_framework_cucumber.svg';
+import cucumber2 from '@app/svg/icon_framework_cucumber2.svg';
+import cucumber3 from '@app/svg/icon_framework_cucumber3.svg';
+import cucumber4 from '@app/svg/icon_framework_cucumber4.svg';
+import cucumber5 from '@app/svg/icon_framework_cucumber5.svg';
+import cucumber6 from '@app/svg/icon_framework_cucumber6.svg';
+import cypress from '@app/svg/icon_framework_cypress.svg';
+import gauge from '@app/svg/icon_framework_gauge.svg';
+import gwen from '@app/svg/icon_framework_gwen.svg';
+import jasmine from '@app/svg/icon_framework_jasmine.svg';
+import jbehave from '@app/svg/icon_framework_jbehave.svg';
+import jest from '@app/svg/icon_framework_jest.svg';
+import junit from '@app/svg/icon_framework_junit.svg';
+import junit5 from '@app/svg/icon_framework_junit5.svg';
+import karate from '@app/svg/icon_framework_karate.svg';
+import mocha from '@app/svg/icon_framework_mocha.svg';
+import nightwatch from '@app/svg/icon_framework_nightwatch.svg';
+import nose from '@app/svg/icon_framework_nose.svg';
+import nunit from '@app/svg/icon_framework_nunit.svg';
+import phpunit from '@app/svg/icon_framework_phpunit.svg';
+import playwright from '@app/svg/icon_framework_playwright.svg';
+import postman from '@app/svg/icon_framework_postman.svg';
+import pytest from '@app/svg/icon_framework_pytest.svg';
+import pythonbehave from '@app/svg/icon_framework_pythonbehave.svg';
+import robotframework from '@app/svg/icon_framework_robotframework.svg';
+import scalatest from '@app/svg/icon_framework_scalatest.svg';
+import serenity from '@app/svg/icon_framework_serenity.svg';
+import soapui from '@app/svg/icon_framework_soapui.svg';
+import specflow from '@app/svg/icon_framework_specflow.svg';
+import spock from '@app/svg/icon_framework_spock.svg';
+import silktest from '@app/svg/icon_framework_silktest.svg';
+import testcafe from '@app/svg/icon_framework_testcafe.svg';
+import testng from '@app/svg/icon_framework_testng.svg';
+import unitnet from '@app/svg/icon_framework_unitnet.svg';
+import vstest from '@app/svg/icon_framework_vstest.svg';
+import webdriver from '@app/svg/icon_framework_webdriver.svg';
+import xctest from '@app/svg/icon_framework_xctest2.svg';
 
 export const TAB_LIST = [
   {
@@ -29,87 +70,87 @@ export const TAB_LIST = [
 
 export const FRAMEWORK_ICONS_JAVA = [
   {
-    icon: iconsFrameworks.testng,
+    icon: testng,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-testNG',
   },
   {
-    icon: iconsFrameworks.junit,
+    icon: junit,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-junit',
   },
   {
-    icon: iconsFrameworks.junit5,
+    icon: junit5,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-junit5',
   },
   {
-    icon: iconsFrameworks.spock,
+    icon: spock,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-spock',
   },
   {
-    icon: iconsFrameworks.soapui,
+    icon: soapui,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-soapui',
   },
   {
-    icon: iconsFrameworks.jbehave,
+    icon: jbehave,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-jbehave',
   },
   {
-    icon: iconsFrameworks.scalatest,
+    icon: scalatest,
     badge: false,
     href: 'https://github.com/reportportal/agent-scala-scalatest',
   },
   {
-    icon: iconsFrameworks.cucumber,
+    icon: cucumber,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-cucumber',
   },
   {
-    icon: iconsFrameworks.cucumber2,
+    icon: cucumber2,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-cucumber2',
   },
   {
-    icon: iconsFrameworks.cucumber3,
+    icon: cucumber3,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-cucumber3',
   },
   {
-    icon: iconsFrameworks.cucumber4,
+    icon: cucumber4,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-cucumber4',
   },
   {
-    icon: iconsFrameworks.cucumber5,
+    icon: cucumber5,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-cucumber5',
   },
   {
-    icon: iconsFrameworks.cucumber6,
+    icon: cucumber6,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-cucumber6',
   },
   {
-    icon: iconsFrameworks.serenity,
+    icon: serenity,
     badge: true,
     href: 'https://github.com/Invictum/serenity-reportportal-integration',
   },
   {
-    icon: iconsFrameworks.karate,
+    icon: karate,
     badge: false,
     href: 'https://github.com/reportportal/agent-java-karate',
   },
   {
-    icon: iconsFrameworks.artos,
+    icon: artos,
     badge: true,
     href: 'https://github.com/Arpit-Shah/reportportal-client',
   },
   {
-    icon: iconsFrameworks.android,
+    icon: android,
     badge: false,
     href: 'https://github.com/reportportal/android-java-example',
   },
@@ -117,22 +158,22 @@ export const FRAMEWORK_ICONS_JAVA = [
 
 export const FRAMEWORK_ICONS_DOT_NET = [
   {
-    icon: iconsFrameworks.nunit,
+    icon: nunit,
     badge: false,
     href: 'https://github.com/reportportal/agent-net-nunit',
   },
   {
-    icon: iconsFrameworks.vstest,
+    icon: vstest,
     badge: false,
     href: 'https://github.com/reportportal/agent-net-vstest',
   },
   {
-    icon: iconsFrameworks.specflow,
+    icon: specflow,
     badge: false,
     href: 'https://github.com/reportportal/agent-net-specflow',
   },
   {
-    icon: iconsFrameworks.unitnet,
+    icon: unitnet,
     badge: false,
     href: 'https://github.com/reportportal/agent-net-xunit',
   },
@@ -140,57 +181,57 @@ export const FRAMEWORK_ICONS_DOT_NET = [
 
 export const FRAMEWORK_ICONS_JAVASCRIPT = [
   {
-    icon: iconsFrameworks.cucumber,
+    icon: cucumber,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-cucumber',
   },
   {
-    icon: iconsFrameworks.jasmine,
+    icon: jasmine,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-jasmine',
   },
   {
-    icon: iconsFrameworks.mocha,
+    icon: mocha,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-mocha',
   },
   {
-    icon: iconsFrameworks.nightwatch,
+    icon: nightwatch,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-nightwatch',
   },
   {
-    icon: iconsFrameworks.jest,
+    icon: jest,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-jest',
   },
   {
-    icon: iconsFrameworks.cypress,
+    icon: cypress,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-cypress',
   },
   {
-    icon: iconsFrameworks.codecept,
+    icon: codecept,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-codecept',
   },
   {
-    icon: iconsFrameworks.postman,
+    icon: postman,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-postman',
   },
   {
-    icon: iconsFrameworks.testcafe,
+    icon: testcafe,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-testcafe',
   },
   {
-    icon: iconsFrameworks.webdriver,
+    icon: webdriver,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-webdriverio',
   },
   {
-    icon: iconsFrameworks.playwright,
+    icon: playwright,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-playwright',
   },
@@ -198,22 +239,22 @@ export const FRAMEWORK_ICONS_JAVASCRIPT = [
 
 export const FRAMEWORK_ICONS_PYTHON = [
   {
-    icon: iconsFrameworks.pytest,
+    icon: pytest,
     badge: false,
     href: 'https://github.com/reportportal/agent-python-pytest',
   },
   {
-    icon: iconsFrameworks.robotframework,
+    icon: robotframework,
     badge: false,
     href: 'https://github.com/reportportal/agent-Python-RobotFramework',
   },
   {
-    icon: iconsFrameworks.pythonbehave,
+    icon: pythonbehave,
     badge: false,
     href: 'https://github.com/reportportal/agent-python-behave',
   },
   {
-    icon: iconsFrameworks.nose,
+    icon: nose,
     badge: true,
     href: 'https://github.com/reportportal/agent-python-nosetests',
   },
@@ -221,17 +262,17 @@ export const FRAMEWORK_ICONS_PYTHON = [
 
 export const FRAMEWORK_ICONS_PHP = [
   {
-    icon: iconsFrameworks.behat,
+    icon: behat,
     badge: true,
     href: 'https://github.com/reportportal/agent-php-Behat',
   },
   {
-    icon: iconsFrameworks.phpunit,
+    icon: phpunit,
     badge: true,
     href: 'https://github.com/reportportal/agent-php-PHPUnit',
   },
   {
-    icon: iconsFrameworks.codeception,
+    icon: codeception,
     badge: true,
     href: 'https://github.com/reportportal/agent-php-Codeception',
   },
@@ -239,22 +280,22 @@ export const FRAMEWORK_ICONS_PHP = [
 
 export const FRAMEWORK_ICONS_OTHER = [
   {
-    icon: iconsFrameworks.silktest,
+    icon: silktest,
     badge: false,
     href: 'https://github.com/reportportal/agent-silktest',
   },
   {
-    icon: iconsFrameworks.xctest,
+    icon: xctest,
     badge: true,
     href: 'https://github.com/reportportal/agent-swift-XCTest',
   },
   {
-    icon: iconsFrameworks.gwen,
+    icon: gwen,
     badge: false,
     href: 'https://gweninterpreter.org/docs/reports/portal',
   },
   {
-    icon: iconsFrameworks.gauge,
+    icon: gauge,
     badge: false,
     href: 'https://github.com/reportportal/agent-net-gauge',
   },

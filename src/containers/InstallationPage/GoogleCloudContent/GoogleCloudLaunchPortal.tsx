@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 
 import { Notice } from '../Notice';
 

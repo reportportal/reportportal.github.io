@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import {
-  TrustedOrganizations,
-  ComparePlans,
-  Faq,
-  Banner,
-  PricingHero,
-  FooterContent,
-} from '@app/components';
-import { usePricingHeroProps } from '@app/hooks';
+import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
+import { ComparePlans } from '@app/components/ComparePlans';
+import { Faq } from '@app/components/Faq';
+import { Banner } from '@app/components/Banner';
+import { PricingHero } from '@app/components/PricingHero';
+import { FooterContent } from '@app/components/Layout';
+import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 import { createBemBlockBuilder, SassPricingConfig } from '@app/utils';
 
 import { PricingCards } from './PricingCards';

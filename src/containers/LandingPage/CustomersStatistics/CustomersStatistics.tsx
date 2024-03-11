@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useCustomersStatistics } from '@app/hooks';
+import { useCustomersStatistics } from '@app/hooks/useCustomersStatistics';
 import { createBemBlockBuilder } from '@app/utils';
 
 import './CustomersStatistics.scss';

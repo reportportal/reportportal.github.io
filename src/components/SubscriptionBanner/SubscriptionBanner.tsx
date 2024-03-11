@@ -1,5 +1,7 @@
 import React, { FC, useState } from 'react';
-import { FooterContent, SubscriptionForm, Banner } from '@app/components';
+import { FooterContent } from '@app/components/Layout';
+import { SubscriptionForm } from '@app/components/SubscriptionForm';
+import { Banner } from '@app/components/Banner';
 import { createBemBlockBuilder } from '@app/utils';
 
 import './SubscriptionBanner.scss';

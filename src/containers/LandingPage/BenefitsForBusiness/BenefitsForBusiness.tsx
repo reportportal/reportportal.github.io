@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Link, AnimatedList } from '@app/components';
+import { Link } from '@app/components/Link';
+import { AnimatedList } from '@app/components/AnimatedList';
 
 import { BENEFITS_FOR_BUSINESS_LIST } from './constants';
 

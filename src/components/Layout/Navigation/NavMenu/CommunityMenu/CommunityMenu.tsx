@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
-import { Link, SubscriptionForm } from '@app/components';
-import { useMenuList } from '@app/hooks';
-import { createBemBlockBuilder, subscriptionFormAtom } from '@app/utils';
+import { Link } from '@app/components/Link';
+import { SubscriptionForm } from '@app/components/SubscriptionForm';
+import { subscriptionFormAtom } from '@app/components/Layout';
+import { useMenuList } from '@app/hooks/useMenuList';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { MenuProps } from '../../constants';
 import GithubCover from '../covers/github.inline.svg';

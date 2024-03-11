@@ -1,7 +1,7 @@
 import React, { useState, useEffect, FC } from 'react';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { EnvelopeIcon } from './icons';

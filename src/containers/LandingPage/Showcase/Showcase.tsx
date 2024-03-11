@@ -2,9 +2,10 @@ import React, { FC, useCallback } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Marquee from 'react-fast-marquee';
 import { useAtom } from 'jotai';
-import { Link } from '@app/components';
-import { useClientCarouselItems } from '@app/hooks';
-import { createBemBlockBuilder, watchProductOverviewAtom } from '@app/utils';
+import { Link } from '@app/components/Link';
+import { watchProductOverviewAtom } from '@app/components/Layout';
+import { useClientCarouselItems } from '@app/hooks/useClientCarouselItems';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { Carousel } from './Carousel/Carousel';
 

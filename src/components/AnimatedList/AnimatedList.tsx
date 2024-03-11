@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { createBemBlockBuilder, LIST_ANIMATION_DELAY } from '@app/utils';
-import { useAnimationInterval } from '@app/hooks';
+import { useAnimationInterval } from '@app/hooks/useAnimationInterval';
 
 import { ArrowLink } from '../ArrowLink';
 
