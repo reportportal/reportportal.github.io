@@ -24,3 +24,4 @@ export * from './PricingHero';
 export * from './Layout';
 export * from './LinkedCard';
 export * from './StatisticList';
+export * from './Carousel';
