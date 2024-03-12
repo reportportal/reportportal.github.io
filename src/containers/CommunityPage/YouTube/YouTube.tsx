@@ -1,8 +1,10 @@
 import React, { FC, useCallback, useState, useMemo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import chunk from 'lodash/chunk';
+import classNames from 'classnames';
 import { Link, Carousel } from '@app/components';
 import { EmbedVideo } from '@app/components/Layout/EmbedVideo';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { TitleBlock } from '../TitleBlock';
 import { SlideItem } from './SlideItem';
@@ -10,6 +12,8 @@ import { prepareYoutubeVideos } from './utils';
 import youtubeVideos from '../../../../static/youtube.json'; // Will be generated at build time
 
 import './YouTube.scss';
+
+const getBlocksWith = createBemBlockBuilder(['youtube']);
 
 export const YouTube: FC = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState<boolean>(false);
@@ -32,7 +36,7 @@ export const YouTube: FC = () => {
   }, []);
 
   return (
-    <div className="youtube">
+    <div className={getBlocksWith()}>
       <div className="container">
         <TitleBlock
           title="Explore ReportPortal on YouTube"
@@ -49,7 +53,7 @@ export const YouTube: FC = () => {
             ))}
           </Carousel>
         ) : (
-          <div className="youtube__video-block">
+          <div className={getBlocksWith('__video-block')}>
             {videos.map(video => (
               <SlideItem key={video.id} openEmbedVideo={openEmbedVideo(video.id)} {...video} />
             ))}
@@ -57,7 +61,7 @@ export const YouTube: FC = () => {
         )}
         <EmbedVideo isOpen={isVideoModalOpen} embedId={videoId} onClick={closeEmbedVideo} />
         <Link
-          className="btn btn--outline btn--large youtube__button"
+          className={classNames(getBlocksWith('__button'), 'btn btn--outline btn--large')}
           to="https://www.youtube.com/@ReportPortal"
         >
           Watch more on YouTube

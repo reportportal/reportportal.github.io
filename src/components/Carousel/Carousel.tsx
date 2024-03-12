@@ -10,7 +10,7 @@ import './Carousel.scss';
 
 interface CarouselProps {
   children: React.ReactNode;
-  autoplay: boolean;
+  autoplay?: boolean;
   buttonColor?: string;
 }
 

@@ -23,8 +23,6 @@
   }
 
   .slick-dots {
-    bottom: -8px;
-
     li,
     li.slick-active {
       width: 32px;
@@ -33,7 +31,6 @@
 
       button {
         border-radius: 0;
-        background-color: rgb(255 255 255 / 0.3);
         transition: none;
 
         &,
@@ -42,9 +39,5 @@
         }
       }
     }
-  }
-
-  &-mobile {
-    margin-top: 120px;
   }
 }
