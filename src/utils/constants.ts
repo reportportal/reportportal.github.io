@@ -65,6 +65,8 @@ export type SAAS_OFFERS_KEYS = (typeof SAAS_OFFERS)[number]['key'];
 
 export const isNewYearMode = isDateBetweenNov25AndJan15GMT3();
 
+export const ANNOUNCEMENT_CLOSED_KEY = 'wasAnnouncementClosed';
+
 export const SEO_DATA = {
   index: {
     title:

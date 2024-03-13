@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
-import { subscriptionFormAtom, Link, SubscriptionForm } from '@app/components';
-import { createBemBlockBuilder } from '@app/utils';
+import { Link, SubscriptionForm } from '@app/components';
+import { createBemBlockBuilder, subscriptionFormAtom } from '@app/utils';
 import { useCommunityList } from '@app/hooks';
 
 import { MenuProps } from '../../constants';

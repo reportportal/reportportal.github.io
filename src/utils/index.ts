@@ -1,3 +1,4 @@
+export * from './atoms';
 export * from './createBemBlockBuilder';
 export * from './formatNumberWithCommas';
 export * from './isAbsoluteURL';

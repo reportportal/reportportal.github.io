@@ -18,18 +18,7 @@ export const DockerDeployingStep: FC = () => {
       <div className={getBlocksWith('__wrapper')}>
         <div className={getBlocksWith('__chapter')}>Step 1</div>
         <h3 className={getBlocksWith('__title-content')}>Configure and deploy ReportPortal</h3>
-        <p>
-          The following guide describes deployment on Linux/Mac. In case you went with Docker on
-          Windows, please proceed with the
-          <Link
-            className={getBlocksWith('__link')}
-            to={`${DOCUMENTATION_URL}/installation-steps/DeployWithDockerOnWindows/`}
-          >
-            {' '}
-            instruction
-          </Link>
-          .
-        </p>
+        <p>The following guide describes deployment on Linux/Mac/Windows.</p>
         <p>
           1. Download the latest ReportPortal Docker compose file from{' '}
           <Link
@@ -90,7 +79,7 @@ export const DockerDeployingStep: FC = () => {
         For a more comprehensive installation guide, please refer to the{' '}
         <Link
           className={getBlocksWith('__link')}
-          to={`${DOCUMENTATION_URL}/installation-steps/DeployWithDockerOnLinuxMac/`}
+          to={`${DOCUMENTATION_URL}/installation-steps/DeployWithDocker/`}
         >
           link
         </Link>
