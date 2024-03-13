@@ -1,19 +1,23 @@
 import React, { FC } from 'react';
-import { Link } from '@app/components';
+import classNames from 'classnames';
+import { Link } from '@app/components/Link';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { TitleBlock } from '../TitleBlock';
 
 import './JoinOurCommunity.scss';
 
+const getBlocksWith = createBemBlockBuilder(['join-our-community']);
+
 export const JoinOurCommunity: FC = () => (
-  <div className="join-our-community">
+  <div className={getBlocksWith()}>
     <TitleBlock
       title="Join our Slack community"
       subtitle="Unlock a world of insights, collaborate, and learn together — join our vibrant Slack
       community of 8700+ members"
     />
     <Link
-      className="btn btn--primary btn--large join-our-community__button"
+      className={classNames(getBlocksWith('__button'), 'btn btn--primary btn--large')}
       to="https://slack.epmrpp.reportportal.io"
     >
       Join our Slack

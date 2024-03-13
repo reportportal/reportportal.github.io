@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
-import { StartTestingWithReportPortal, Link, SubscriptionBanner } from '@app/components';
+import { StartTestingWithReportPortal } from '@app/components/StartTestingWithReportPortal';
+import { Link } from '@app/components/Link';
+import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
+import { DOCUMENTATION_URL } from '@app/utils';
 
 import { Hero } from './Hero';
 import { LinkedCardBlock } from './LinkedCardBlock';
@@ -21,7 +24,6 @@ export const CommunityPage: FC = () => (
       subtitle="Explore our GitHub activities and become a contributor to pull ReportPortal on a new level
           of test automation"
       cardsInfo={GITHUB_CONTRIBUTION_CARDS}
-      withBackground
     >
       <CodeOfConduct />
     </LinkedCardBlock>
@@ -31,10 +33,11 @@ export const CommunityPage: FC = () => (
       title="Documentation and resources"
       subtitle="Explore our guides, tutorials and other materials"
       cardsInfo={DOCUMENTATION_CARDS}
+      largePadding
     >
       <Link
         className="btn btn--outline btn--small go-to-documentation-button"
-        to="https://reportportal.io/docs"
+        to={DOCUMENTATION_URL}
       >
         Go to Documentation
       </Link>

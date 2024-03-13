@@ -60,7 +60,7 @@ export const SOLUTIONS_LINKS = [
 export const LEARN_LINKS = [
   {
     title: 'Documentation',
-    link: DOCUMENTATION_URL as string,
+    link: DOCUMENTATION_URL,
   },
   {
     title: 'Blog',

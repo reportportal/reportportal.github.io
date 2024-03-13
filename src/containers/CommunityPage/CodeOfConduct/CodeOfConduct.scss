@@ -16,6 +16,7 @@
   @include m.breakpoint(v.$tablet-sm-exact) {
     flex-direction: row;
     align-items: center;
+    padding: 24px 40px 24px 24px;
   }
 
   &__image {
@@ -40,7 +41,7 @@
 
   &__button {
     width: 100%;
-    min-width: 164px;
+    min-width: 165px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       width: auto;

@@ -2,7 +2,7 @@ import { isDateBetweenNov25AndJan15GMT3 } from './isDateBetweenNov25AndJan15GMT3
 
 export const LIST_ANIMATION_DELAY = 10000;
 
-export const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
+export const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL as string;
 
 export const SAAS_OFFERS = [
   {
