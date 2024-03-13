@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
-import { watchProductOverviewAtom, Link, ArrowLink } from '@app/components';
-import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
+import { Link, ArrowLink } from '@app/components';
+import { createBemBlockBuilder, DOCUMENTATION_URL, watchProductOverviewAtom } from '@app/utils';
 
 import { MenuProps } from '../../constants';
 import { SectionList } from '../SectionList';
