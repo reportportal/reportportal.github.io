@@ -1,3 +1,7 @@
+import isUndefined from 'lodash/isUndefined';
+
+const stringifyPeriods = ['year', 'month', 'day', 'hour', 'minute'];
+
 export const prepareYoutubeVideos = videos =>
   videos.map(({ id, title, duration, published_at: publishedAt, statistics, thumbnail }) => ({
     id,
@@ -19,27 +23,24 @@ export const timeSince = dateString => {
   const months = Math.floor(days / 30);
   const years = Math.floor(months / 12);
 
-  if (years > 0) {
-    return `${years} year${years > 1 ? 's' : ''} ago`;
+  const periods = [years, months, days, hours, minutes];
+  const currentPeriod = periods.find(period => period > 0);
+
+  if (isUndefined(currentPeriod)) {
+    return 'just now';
   }
 
-  if (months > 0) {
-    return `${months} month${months > 1 ? 's' : ''} ago`;
-  }
+  const currentIndex = periods.findIndex(period => period === currentPeriod);
 
-  if (days > 0) {
-    return `${days} day${days > 1 ? 's' : ''} ago`;
-  }
+  return `${currentPeriod} ${stringifyPeriods[currentIndex]}${currentPeriod > 1 ? 's' : ''} ago`;
+};
 
-  if (hours > 0) {
-    return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-  }
+const getViewDigit = count => {
+  const truncDigit = Math.trunc(count);
+  const floatDigit = count.toFixed(1);
+  const fractionalDigit = floatDigit.split('.')[1];
 
-  if (minutes > 0) {
-    return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-  }
-
-  return 'just now';
+  return fractionalDigit === '0' ? truncDigit : floatDigit;
 };
 
 export const formatYoutubeViews = viewCount => {
@@ -48,25 +49,27 @@ export const formatYoutubeViews = viewCount => {
   }
 
   if (viewCount < 1000000) {
-    return `${Math.round(viewCount / 1000)}K views`;
+    return `${getViewDigit(viewCount / 1000)}K views`;
   }
 
-  return `${Math.round(viewCount / 1000000)}M views`;
+  return `${getViewDigit(viewCount / 1000000)}M views`;
+};
+
+const getStringifyValue = value => {
+  const numericValue = parseInt(value || '0', 10);
+
+  return numericValue.toString().padStart(2, '0');
 };
 
 export const convertDuration = durationStr => {
   const match = durationStr.match(/PT(?:(\d+)H)?((\d+)M)?((\d+)S)?/);
 
   if (match) {
-    const hours = parseInt(match[1] || 0, 10);
-    const minutes = parseInt(match[3] || 0, 10);
-    const seconds = parseInt(match[5] || 0, 10);
+    const hours = getStringifyValue(match[1]);
+    const minutes = getStringifyValue(match[3]);
+    const seconds = getStringifyValue(match[5]);
 
-    const hoursStr = hours === 0 ? '' : hours.toString().padStart(2, '0');
-    const minutesStr = minutes.toString().padStart(2, '0');
-    const secondsStr = seconds.toString().padStart(2, '0');
-
-    return `${hoursStr ? `${hoursStr}:` : ''}${minutesStr}:${secondsStr}`;
+    return `${hours === '00' ? '' : `${hours}:`}${minutes}:${seconds}`;
   }
 
   return '00:00';

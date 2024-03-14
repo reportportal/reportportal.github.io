@@ -4,7 +4,7 @@ import chunk from 'lodash/chunk';
 import classNames from 'classnames';
 import { Link, Carousel } from '@app/components';
 import { EmbedVideo } from '@app/components/Layout/EmbedVideo';
-import { createBemBlockBuilder } from '@app/utils';
+import { createBemBlockBuilder, $desktopSm } from '@app/utils';
 
 import { TitleBlock } from '../TitleBlock';
 import { SlideItem } from './SlideItem';
@@ -16,9 +16,9 @@ import './YouTube.scss';
 const getBlocksWith = createBemBlockBuilder(['youtube']);
 
 export const YouTube: FC = () => {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState<boolean>(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [videoId, setVideoId] = useState<string | null>(null);
-  const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
+  const isDesktop = useMediaQuery({ query: $desktopSm });
 
   const videos = useMemo(() => prepareYoutubeVideos(youtubeVideos), []);
 
