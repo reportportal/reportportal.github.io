@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { ButtonSwitcher, Banner, FooterContent } from '@app/components';
-import { createBemBlockBuilder, mediaDesktopSm } from '@app/utils';
+import { createBemBlockBuilder, MEDIA_DESKTOP_SM } from '@app/utils';
 
 import { DockerIcon, KubernetesIcon } from './icons';
 import { KubernetesContent } from './KubernetesContent';
@@ -33,7 +33,7 @@ const ACTIVE_BUTTON = buttons[0].text;
 
 export const InstallationPage: FC = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
-  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
+  const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });
 
   const isFirstBtnActive = activeButton === buttons[0].text;
   const sections = buttons.find(button => button.text === activeButton)?.scrollPoints ?? [];

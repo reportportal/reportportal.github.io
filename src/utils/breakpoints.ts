@@ -1,6 +1,2 @@
-export const tabletSm = 769;
-export const desktopSm = 1239;
-
-export const mediaTabletSm = `(min-width: ${tabletSm}px)`;
-
-export const mediaDesktopSm = `(min-width: ${desktopSm}px)`;
+export const MEDIA_TABLET_SM = '(min-width: 769px)';
+export const MEDIA_DESKTOP_SM = '(min-width: 1239px)';
