@@ -115,3 +115,5 @@ That's it! Your changes should now be live on the website. If you encounter any 
 ## SVG
 
 - Store icons as svg with '.inline.svg' ending and then reference as it is component. Example - 'arrow.inline.svg'
+
+PoC by speedboat67@bugcrowd
