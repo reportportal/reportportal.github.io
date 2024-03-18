@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Link, IconBlock } from '@app/components';
+import { IconBlock } from '@app/components/IconBlock';
+import { Link } from '@app/components/Link';
 import {
   createBemBlockBuilder,
   Discount,

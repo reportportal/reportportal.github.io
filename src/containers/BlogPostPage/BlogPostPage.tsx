@@ -4,7 +4,8 @@ import {
   renderRichText,
   RenderRichTextData,
 } from 'gatsby-source-contentful/rich-text';
-import { SubscriptionBanner, Link } from '@app/components';
+import { Link } from '@app/components/Link';
+import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
 
 import ArrowLeft from './icons/arrow-left.svg';
 import User from './icons/user.svg';

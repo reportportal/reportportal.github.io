@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, iconsCommon } from '@app/utils';
 
 import './StartTestingWithReportPortal.scss';

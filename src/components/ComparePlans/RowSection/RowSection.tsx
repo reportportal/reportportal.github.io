@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import classNames from 'classnames';
 import { createBemBlockBuilder, $desktopSm } from '@app/utils';
 
 import { FooterColumns } from './FooterColums';
@@ -22,16 +21,9 @@ const getBlocksWith = createBemBlockBuilder(['row-section']);
 export const RowSection: FC<RowSectionProps> = ({ footer, footerButtons }) => {
   const isDesktop = useMediaQuery({ query: $desktopSm });
 
-  const getTitleRow = () => (
-    <div
-      className={classNames(
-        isDesktop ? getBlocksWith('__features') : getBlocksWith(),
-        getBlocksWith('__title'),
-      )}
-    >
-      Premium Features
-    </div>
+  const titleRow = (
+    <div className={getBlocksWith(isDesktop ? '__features' : '', '__title')}>Premium Features</div>
   );
 
-  return <>{footer ? <FooterColumns footerButtons={footerButtons} /> : getTitleRow()}</>;
+  return <>{footer ? <FooterColumns footerButtons={footerButtons} /> : titleRow}</>;
 };

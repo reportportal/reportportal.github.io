@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
-import { Heading, IconBlock, UnorderedList } from '@app/components';
+import { Heading } from '@app/components/Heading';
+import { IconBlock } from '@app/components/IconBlock';
+import { UnorderedList } from '@app/components/UnorderedList';
 
 import { SERVICE_HOURS_LIST } from './constants';
 

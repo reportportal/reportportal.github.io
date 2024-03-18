@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { ArticlePreview } from '@app/components';
+import { ArticlePreview } from '@app/components/ArticlePreview';
 import { createBemBlockBuilder } from '@app/utils';
-import { useLatestFromOurBlog } from '@app/hooks';
+import { useLatestFromOurBlog } from '@app/hooks/useLatestFromOurBlog';
 
 import './LatestFromOurBlog.scss';
 

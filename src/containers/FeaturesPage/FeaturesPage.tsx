@@ -3,18 +3,16 @@ import { useMediaQuery } from 'react-responsive';
 import { useLocation } from '@gatsbyjs/reach-router';
 import { useScroll } from 'ahooks';
 import classNames from 'classnames';
-import { useScrollDirection } from '@app/hooks';
+import { useScrollDirection } from '@app/hooks/useScrollDirection';
 import { createBemBlockBuilder, mediaDesktopSm, iconsCommon, DOCUMENTATION_URL } from '@app/utils';
-import {
-  Link,
-  ProcessIntegration,
-  SupportedFrameworks,
-  ArrowLink,
-  Banner,
-  StartTestingWithReportPortal,
-  Faq,
-  FooterContent,
-} from '@app/components';
+import { Link } from '@app/components/Link';
+import { ProcessIntegration } from '@app/components/ProcessIntegration';
+import { SupportedFrameworks } from '@app/components/SupportedFrameworks';
+import { ArrowLink } from '@app/components/ArrowLink';
+import { Banner } from '@app/components/Banner';
+import { StartTestingWithReportPortal } from '@app/components/StartTestingWithReportPortal';
+import { Faq } from '@app/components/Faq';
+import { FooterContent } from '@app/components/Layout';
 
 import { FEATURES_LIST, NAVIGATION_LIST } from './constants';
 

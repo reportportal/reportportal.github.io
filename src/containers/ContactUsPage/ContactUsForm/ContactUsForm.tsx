@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
 import isEmpty from 'lodash/isEmpty';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { validate, getBaseSalesForceValues } from './utils';

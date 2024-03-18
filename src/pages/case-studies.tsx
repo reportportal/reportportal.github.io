@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FC } from 'react';
 import { PageProps, graphql } from 'gatsby';
-import { Layout } from '@app/components';
+import { Layout } from '@app/components/Layout';
 import { Case, CasesPage } from '@app/containers/CasesPage';
 import { SEO_DATA } from '@app/utils';
 
