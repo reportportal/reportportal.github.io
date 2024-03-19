@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { OfferPageWrapper } from '@app/components';
+import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
 import { OnPremisesPricingConfig } from '@app/utils';
 
 import { FAQ_DATA } from '../D4jPage/constants';

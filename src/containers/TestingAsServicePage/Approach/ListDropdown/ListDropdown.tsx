@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
-import { UnorderedList } from '@app/components';
-import RightIcon from '@app/svg/testing/Right.svg';
+import { UnorderedList } from '@app/components/UnorderedList';
+import rightIcon from '@app/svg/testing/Right.svg';
 
 import './ListDropdown.scss';
 
@@ -25,7 +25,7 @@ export const ListDropdown: FC<ListDropdownProps> = ({ title, list }) => {
       <div className="list-dropdown__title" onClick={toggleVisible}>
         <img
           className={classNames('list-dropdown__icon', { open: isVisible })}
-          src={RightIcon}
+          src={rightIcon}
           alt="dropdown icon"
         />
         {title}

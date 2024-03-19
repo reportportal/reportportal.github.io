@@ -9,7 +9,7 @@ import {
   mediaTabletSm,
 } from '@app/utils';
 import { CrossIcon } from '@app/components/Layout/Navigation/icons';
-import { ArrowLink } from '@app/components';
+import { ArrowLink } from '@app/components/ArrowLink';
 
 import MerchIcon from './MerchIcon.inline.svg';
 

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { UnorderedList, Heading } from '@app/components';
+import { UnorderedList } from '@app/components/UnorderedList';
+import { Heading } from '@app/components/Heading';
 import RepeatSvg from '@app/svg/testing/Repeat.svg';
 
 import {

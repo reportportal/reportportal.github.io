@@ -20,29 +20,17 @@ export const SchemeHeader: FC<SchemeHeaderProps> = ({ state }) => (
     })}
   >
     <div className={getBlocksWith('__header-container-header')}>
-      <div className={classNames(getBlocksWith('__row'), getBlocksWith('__row-header'))}>
-        <div
-          className={classNames(getBlocksWith('__col-title'), getBlocksWith('__col-title-first'))}
-        >
+      <div className={getBlocksWith('__row', '__row-header')}>
+        <div className={getBlocksWith('__col-title', '__col-title-first')}>
           <p>Test Framework</p>
         </div>
 
-        <div
-          className={classNames(
-            getBlocksWith('__col-title'),
-            getBlocksWith('__col-title-event-node'),
-          )}
-        >
+        <div className={getBlocksWith('__col-title', '__col-title-event-node')}>
           {state && <EventNode direction>event</EventNode>}
         </div>
 
         <div className={getBlocksWith('__col-title')}>
-          <div
-            className={classNames(
-              getBlocksWith('__col-title-inner'),
-              getBlocksWith('__col-title-second'),
-            )}
-          >
+          <div className={getBlocksWith('__col-title-inner', '__col-title-second')}>
             <p>Agent / Client</p>
           </div>
         </div>
@@ -62,9 +50,7 @@ export const SchemeHeader: FC<SchemeHeaderProps> = ({ state }) => (
           )}
         </div>
 
-        <div
-          className={classNames(getBlocksWith('__col-title'), getBlocksWith('__col-title-last'))}
-        >
+        <div className={getBlocksWith('__col-title', '__col-title-last')}>
           <div className={getBlocksWith('__col-title-inner')}>
             <p>ReportPortal</p>
           </div>

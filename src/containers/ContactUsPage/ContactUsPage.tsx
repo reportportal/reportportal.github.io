@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { TrustedOrganizations } from '@app/components';
+import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { ContactUsForm } from './ContactUsForm';
@@ -35,7 +35,7 @@ export const ContactUsPage: FC<ContactUsPageProps> = ({ config }) => (
         isDiscussFieldShown={config.isDiscussFieldShown}
         options={config.options}
       />
-      <div className={classNames(getBlocksWith('__trusted-organizations-container'))}>
+      <div className={getBlocksWith('__trusted-organizations-container')}>
         <TrustedOrganizations />
       </div>
     </div>

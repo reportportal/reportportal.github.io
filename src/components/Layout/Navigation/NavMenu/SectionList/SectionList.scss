@@ -27,6 +27,8 @@
 .section-item {
   @include m.font-scale(base);
 
+  $root: &;
+
   position: relative;
   display: flex;
   padding: 8px 8px 8px 52px;
@@ -37,12 +39,32 @@
     background: var(--bg-grey2);
   }
 
+  &,
+  &:hover {
+    #{$root}-icon--contentful {
+      background-image: var(--hover-icon);
+    }
+  }
+
   &:not(:last-child) {
     margin-bottom: 8px;
 
     .menu-dialog-offerings &,
     .menu-dialog-community & {
       margin-bottom: 0;
+    }
+  }
+
+  .is-desktop & {
+    #{$root}-icon--contentful {
+      background-image: var(--icon);
+    }
+
+    /* stylelint-disable order/order */
+    &:hover {
+      #{$root}-icon--contentful {
+        background-image: var(--hover-icon);
+      }
     }
   }
 

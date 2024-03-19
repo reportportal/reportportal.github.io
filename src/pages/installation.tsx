@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Layout } from '@app/components';
+import { Layout } from '@app/components/Layout';
 import { InstallationPage } from '@app/containers/InstallationPage';
 import { SEO_DATA } from '@app/utils';
 

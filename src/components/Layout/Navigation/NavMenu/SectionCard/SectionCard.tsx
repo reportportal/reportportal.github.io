@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
 import { createBemBlockBuilder } from '@app/utils';
 
 import './SectionCard.scss';
@@ -22,7 +21,7 @@ export const SectionCard: FC<SectionCardProps> = ({
   const getBlocksWith = createBemBlockBuilder(['section-card', className]);
 
   return (
-    <div className={classNames(getBlocksWith())}>
+    <div className={getBlocksWith()}>
       <p className={getBlocksWith('__title')}>{title}</p>
       {cover}
       <p className={getBlocksWith('__text')}>{text}</p>

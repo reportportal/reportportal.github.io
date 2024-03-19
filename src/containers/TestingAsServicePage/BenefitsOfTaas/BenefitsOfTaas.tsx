@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Heading } from '@app/components';
+import { Heading } from '@app/components/Heading';
 import { createBemBlockBuilder } from '@app/utils';
 
 import EasyToBuy from './icons/easyToBuy.inline.svg';

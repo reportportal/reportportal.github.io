@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { UnorderedList } from '@app/components';
+import { UnorderedList } from '@app/components/UnorderedList';
 
 import FasterTTM from './icons/FasterTTM.inline.svg';
 import Flexibility from './icons/Flexibility.inline.svg';

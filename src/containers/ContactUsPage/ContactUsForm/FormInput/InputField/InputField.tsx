@@ -26,6 +26,6 @@ export const InputField = ({
         {...omit(props, ['touched', 'initialValue', 'initialTouched', 'initialError'])}
       />
     </label>
-    {error ? <div className={classNames('error-message')}>{error}</div> : null}
+    {error ? <div className="error-message">{error}</div> : null}
   </div>
 );

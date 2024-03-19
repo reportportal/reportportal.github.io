@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Collapse, CollapseProps } from 'antd';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, DOCUMENTATION_URL, iconsCommon } from '@app/utils';
 
 import ArrowIcon from '../../svg/arrow.inline.svg';

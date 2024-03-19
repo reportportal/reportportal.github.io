@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Heading, Link } from '@app/components';
+import { Link } from '@app/components/Link';
+import { Heading } from '@app/components/Heading';
 
 import './ApplyOurService.scss';
 

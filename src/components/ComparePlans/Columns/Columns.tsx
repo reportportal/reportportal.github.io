@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import isBoolean from 'lodash/isBoolean';
-import classNames from 'classnames';
 import { createBemBlockBuilder, $desktopSm } from '@app/utils';
 
 import MarkIcon from './icons/mark.inline.svg';
@@ -58,7 +57,7 @@ export const Columns: FC<ColumnsProps> = ({ title = '', cols, mobileColumns = {}
           {cols.map((columnValue, index) => (
             <div
               key={constructElementKey(columnValue, index)}
-              className={classNames(getCompareContainer('__row-title-col'))}
+              className={getCompareContainer('__row-title-col')}
               data-short={mobileColumns[columnValue] ?? columnValue}
             >
               {!isBoolean(columnValue) ? <div>{columnValue}</div> : getMark(columnValue)}

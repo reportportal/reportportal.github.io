@@ -64,11 +64,7 @@ export const ComparePlans: FC<ComparePlansProps> = ({
           expandIconPosition={isDesktop ? 'start' : 'end'}
           expandIcon={({ isActive }) => (
             <img
-              className={
-                isActive
-                  ? getBlocksWith('__tab--arrow-bottom')
-                  : getBlocksWith('__tab--arrow-right')
-              }
+              className={getBlocksWith(isActive ? '__tab--arrow-bottom' : '__tab--arrow-right')}
               src={iconsCommon.arrowDark}
               alt={isActive ? 'Collapse' : 'Expand'}
             />

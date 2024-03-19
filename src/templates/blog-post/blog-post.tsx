@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { BlogPostPage } from '@app/containers/BlogPostPage';
-import { Layout } from '@app/components';
+import { Layout } from '@app/components/Layout';
 
 interface DataProps {
   contentfulBlogPost: {

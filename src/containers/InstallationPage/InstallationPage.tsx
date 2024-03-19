@@ -1,7 +1,9 @@
 import React, { FC, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
-import { ButtonSwitcher, Banner, FooterContent } from '@app/components';
+import { ButtonSwitcher } from '@app/components/ButtonSwitcher';
+import { Banner } from '@app/components/Banner';
+import { FooterContent } from '@app/components/Layout';
 import { createBemBlockBuilder, mediaDesktopSm } from '@app/utils';
 
 import DockerIcon from './icons/docker.inline.svg';

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { PageProps } from 'gatsby';
-import { Layout } from '@app/components';
+import { Layout } from '@app/components/Layout';
 import { QaspPage } from '@app/containers/AcceleratorsPage';
 import { OnPremisesPricingConfig, SEO_DATA } from '@app/utils';
 

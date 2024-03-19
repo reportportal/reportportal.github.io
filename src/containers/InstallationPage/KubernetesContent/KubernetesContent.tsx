@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Typography } from 'antd';
-import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { Notice } from '../Notice';
@@ -23,7 +22,7 @@ export const KubernetesContent: FC = () => {
       <h4>Prerequisites</h4>
       <Notice>Min requirements for a ReportPortal 1-node solution: 2 CPUs and 6Gi of memory</Notice>
       <p>Required versions:</p>
-      <ul className={classNames(getBlocksWith('__list'), getBlocksWith('__main-list'))}>
+      <ul className={getBlocksWith('__list', '__main-list')}>
         <li>Kubernetes v1.26+</li>
         <li>Helm Package Manager v3.4+</li>
       </ul>
@@ -54,7 +53,7 @@ export const KubernetesContent: FC = () => {
       <p>
         To customize your chart, follow the instructions in the{' '}
         <Link
-          className={classNames(getBlocksWith('__link'))}
+          className={getBlocksWith('__link')}
           to="https://github.com/reportportal/kubernetes/blob/develop/reportportal/README.md#configuration"
         >
           Configuration section

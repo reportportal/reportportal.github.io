@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import isString from 'lodash/isString';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import {
   createBemBlockBuilder,
   Discount,

@@ -2,7 +2,8 @@ import React, { FC, useEffect } from 'react';
 import classNames from 'classnames';
 import noop from 'lodash/noop';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { Link, SubscriptionBanner } from '@app/components';
+import { Link } from '@app/components/Link';
+import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
 import { createBemBlockBuilder } from '@app/utils';
 import { CaseStudyProps } from '@app/templates/case-study/case-study';
 

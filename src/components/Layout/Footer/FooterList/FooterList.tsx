@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import ArrowIcon from '@app/svg/arrow.inline.svg';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { isAbsoluteURL } from '@app/utils';
 
 interface FooterListProps {
