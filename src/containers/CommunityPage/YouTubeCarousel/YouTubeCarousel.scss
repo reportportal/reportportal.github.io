@@ -1,0 +1,21 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.you-tube-carousel {
+  padding: 120px 0;
+
+  .title-block {
+    &__subtitle {
+      max-width: 590px;
+    }
+  }
+
+  &__button {
+    max-width: none;
+    margin: 48px auto 0;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      max-width: 268px;
+    }
+  }
+}

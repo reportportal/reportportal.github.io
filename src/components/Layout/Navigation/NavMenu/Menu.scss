@@ -99,6 +99,23 @@
       left: 8px;
     }
   }
+
+  & &-community {
+    &__button {
+      position: relative;
+      justify-content: flex-start;
+      padding-left: 52px;
+
+      &::before {
+        position: absolute;
+        left: 8px;
+        width: 36px;
+        height: 36px;
+        background-image: url('../NavMenu/CommunityMenu/icons/community.svg');
+        content: '';
+      }
+    }
+  }
 }
 
 .features-list__title {

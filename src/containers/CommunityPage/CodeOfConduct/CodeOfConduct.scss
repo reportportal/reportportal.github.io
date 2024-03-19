@@ -1,0 +1,51 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.code-of-conduct {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 996px;
+  margin: 0 auto;
+  border: 1px solid var(--purple-grey);
+  border-radius: 16px;
+  padding: 24px;
+  background: var(--bg-light-grey);
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    flex-direction: row;
+    align-items: center;
+    padding: 24px 40px 24px 24px;
+  }
+
+  &__image {
+    width: 96px;
+  }
+
+  &__title {
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(medium);
+
+    color: var(--text-primary);
+  }
+
+  &__description {
+    @include m.font-noto-sans();
+    @include m.font-scale();
+
+    margin: 6px 0 0;
+    line-height: 24px;
+    color: var(--text-primary);
+  }
+
+  &__button {
+    width: 100%;
+    min-width: 165px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      width: auto;
+      margin: 0 auto;
+    }
+  }
+}
