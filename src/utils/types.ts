@@ -38,6 +38,7 @@ export interface BlogPostDto {
   };
   featuredImage: {
     file: ContentfulAsset;
+    description: string;
   };
   category: string;
   description: RenderRichTextData<ContentfulRichTextGatsbyReference>;

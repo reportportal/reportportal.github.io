@@ -14,6 +14,7 @@ export interface Case {
   };
   icon: {
     file: ContentfulAsset;
+    description: string;
   };
   id: string;
   industry: string;
@@ -65,7 +66,7 @@ export const CasesPage: FC<CasesPageProps> = ({ cases, handleLoadMore, showLoadM
               <p>{industry}</p>
             </div>
             <div className={getBlocksWith('__cases-list-item-icon')}>
-              <img src={icon?.file?.url} alt="" />
+              <img src={icon?.file?.url} alt={icon?.description} />
             </div>
             <div className={getBlocksWith('__cases-list-item-trailing')}>
               <p>{title}</p>
