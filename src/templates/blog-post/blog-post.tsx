@@ -51,6 +51,7 @@ export const pageQuery = graphql`
             contentful_id
             __typename
             gatsbyImageData
+            description
           }
         }
       }
