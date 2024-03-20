@@ -2,7 +2,8 @@ import React, { FC, useCallback, useState, useMemo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import chunk from 'lodash/chunk';
 import classNames from 'classnames';
-import { Link, Carousel } from '@app/components';
+import { Link } from '@app/components/Link';
+import { Carousel } from '@app/components/Carousel';
 import { EmbedVideo } from '@app/components/Layout/EmbedVideo';
 import { createBemBlockBuilder, MEDIA_DESKTOP_SM } from '@app/utils';
 

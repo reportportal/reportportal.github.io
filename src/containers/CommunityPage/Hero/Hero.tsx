@@ -1,5 +1,4 @@
 import React, { FC, useMemo } from 'react';
-import classNames from 'classnames';
 import { StatisticList } from '@app/components/StatisticList';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -29,7 +28,7 @@ export const Hero: FC = () => {
   return (
     <div className={getBlocksWith()}>
       <div className="container">
-        <h1 className={classNames(getBlocksWith('__title'), getBlocksWith('__title--width'))}>
+        <h1 className={getBlocksWith('__title', '__title--width')}>
           Join the ReportPortal community
         </h1>
         <div className={getBlocksWith('__subtitle')}>

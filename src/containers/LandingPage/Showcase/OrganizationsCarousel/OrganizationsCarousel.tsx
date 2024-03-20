@@ -1,5 +1,5 @@
 import React, { memo, FC } from 'react';
-import { Carousel as CarouselComponent } from '@app/components';
+import { Carousel } from '@app/components/Carousel';
 import {
   CarouselSlideDto,
   ContentfulAsset,
@@ -7,15 +7,15 @@ import {
   OrganizationDto,
 } from '@app/utils';
 
-interface CarouselProps {
+interface OrganizationsCarouselProps {
   slides: CarouselSlideDto[];
   logoKey: keyof OrganizationDto;
 }
 
 const getBlocksWith = createBemBlockBuilder(['showcase__carousel']);
 
-export const Carousel: FC<CarouselProps> = memo(({ slides, logoKey }) => (
-  <CarouselComponent>
+export const OrganizationsCarousel: FC<OrganizationsCarouselProps> = memo(({ slides, logoKey }) => (
+  <Carousel>
     {slides.map(({ id, organizations }) => (
       <div className={getBlocksWith('-slide')} key={id}>
         {organizations.map(organization => (
@@ -28,7 +28,7 @@ export const Carousel: FC<CarouselProps> = memo(({ slides, logoKey }) => (
         ))}
       </div>
     ))}
-  </CarouselComponent>
+  </Carousel>
 ));
 
-Carousel.displayName = 'Carousel';
+OrganizationsCarousel.displayName = 'OrganizationsCarousel';
