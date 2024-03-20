@@ -17,6 +17,8 @@ const TRUSTED_DOMAINS = [
   'https://drill4j.github.io',
   'https://healenium.io',
   'https://merch.reportportal.io',
+  'https://console.cloud.google.com/marketplace/product/epam-mp-rp/reportportal?project=epam-mp-rp',
+  'https://demo.reportportal.io',
   DOCUMENTATION_URL,
 ];
 
@@ -50,10 +52,13 @@ export const Link: FC<LinkProps> = ({
     );
   }
 
+  // https://DOCUMENTATION_URL is the way to define DOCUMENTATION_URL in Contentful
+  const href = to.replace('https://DOCUMENTATION_URL', DOCUMENTATION_URL);
+
   return (
     // eslint-disable-next-line react/jsx-no-target-blank
     <a
-      href={to}
+      href={href}
       target="_blank"
       {...(!isTrustedLink && {
         rel: 'noopener noreferrer',

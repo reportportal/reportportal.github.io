@@ -1,4 +1,4 @@
-# Copyright 2023 EPAM Systems
+# Copyright 2024 EPAM Systems
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -17,6 +17,7 @@ env:
   DOCUMENTATION_URL: //reportportal.io/docs
   GTM_ID: GTM-MK7ZHTL
   BUILD_DIR : "public/"
+  CONTENTFUL_ENV_ID : "master"
 
 on:
   push:
@@ -32,10 +33,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -47,6 +48,7 @@ jobs:
           touch .env.production
           echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} >> .env.production
           echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} >> .env.production
+          echo CONTENTFUL_ENV_ID=${{ env.CONTENTFUL_ENV_ID }} >> .env.production
           echo GTM_ID=${{ env.GTM_ID }} >> .env.production
           echo CONTACT_US_URL=${{ env.CONTACT_US_URL }} >> .env.production
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production

@@ -18,7 +18,7 @@ export const ArticlePreviewItem: FC<ArticlePreviewItemProps> = ({ post }) => (
   <li className={getBlocksWith()}>
     <Link to={`/blog/${post.slug}`} className={getBlocksWith('__link')}>
       <div className={getBlocksWith('__featured-image')}>
-        <img alt={post.title.title} src={post.featuredImage.file.url} />
+        <img alt={post.featuredImage.description} src={post.featuredImage.file.url} />
       </div>
       <div className={getBlocksWith('__content')}>
         <p className={getBlocksWith('__category')}>{post.category}</p>

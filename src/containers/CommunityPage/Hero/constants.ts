@@ -12,7 +12,6 @@ export const STATISTICS = [
     entities: 'Slack channel members',
   },
   {
-    quantity: '1,612',
     entities: 'Stars on GitHub',
   },
 ];

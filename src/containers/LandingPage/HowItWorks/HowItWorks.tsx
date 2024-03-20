@@ -2,8 +2,8 @@ import React from 'react';
 import Lottie from 'lottie-react';
 import { StepProps, Steps } from 'antd';
 import classNames from 'classnames';
-import { Link } from '@app/components';
-import { useAnimationInterval } from '@app/hooks';
+import { Link } from '@app/components/Link';
+import { useAnimationInterval } from '@app/hooks/useAnimationInterval';
 import { createBemBlockBuilder, LIST_ANIMATION_DELAY } from '@app/utils';
 
 import { SECTIONS_INFO } from './constants';

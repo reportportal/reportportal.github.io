@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { createBemBlockBuilder } from '@app/utils';
 
 import './TitleBlock.scss';
 
@@ -7,9 +8,11 @@ interface TitleBlockProps {
   subtitle: string;
 }
 
+const getBlocksWith = createBemBlockBuilder(['title-block']);
+
 export const TitleBlock: FC<TitleBlockProps> = ({ title, subtitle }) => (
   <>
-    <div className="title-block__title">{title}</div>
-    <div className="title-block__subtitle">{subtitle}</div>
+    <div className={getBlocksWith('__title')}>{title}</div>
+    <div className={getBlocksWith('__subtitle')}>{subtitle}</div>
   </>
 );

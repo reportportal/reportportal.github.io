@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Divider } from 'antd';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
 
 import { FooterList } from './FooterList';

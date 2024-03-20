@@ -4,7 +4,7 @@ import {
   RenderRichTextData,
   ContentfulRichTextGatsbyReference,
 } from 'gatsby-source-contentful/rich-text';
-import { Layout } from '@app/components';
+import { Layout } from '@app/components/Layout';
 import { CaseStudyPage } from '@app/containers/CaseStudyPage';
 
 export interface CaseStudyProps {
@@ -46,6 +46,7 @@ export const pageQuery = graphql`
             contentful_id
             __typename
             url
+            description
           }
         }
       }

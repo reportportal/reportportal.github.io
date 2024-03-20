@@ -1,9 +1,12 @@
-import React, { FC, ReactElement, useCallback } from 'react';
+import React, { FC, ReactElement, useCallback, useRef } from 'react';
+import { useLocation } from '@reach/router';
 import Snowfall from 'react-snowfall';
 import { StyleProvider } from '@ant-design/cssinjs';
-import { atom, useAtom } from 'jotai';
+import { useAtom } from 'jotai';
+import { AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
-import { isNewYearMode } from '@app/utils';
+import { announcementOpenAtom, isNewYearMode, watchProductOverviewAtom } from '@app/utils';
+import { AnnouncementBar } from '@app/components/AnnouncementBar';
 
 // eslint-disable-next-line import/no-unresolved
 import '../../../static/antd.min.css'; // Will be generated at build time
@@ -23,9 +26,6 @@ const snowfallProps = {
   style: { position: 'fixed', zIndex: 1000 },
 };
 
-export const subscriptionFormAtom = atom({ isSubmitted: false, isAlreadySubscribed: false });
-export const watchProductOverviewAtom = atom({ isOpen: false });
-
 interface LayoutProps {
   children: ReactElement;
   className?: string;
@@ -37,8 +37,12 @@ interface LayoutProps {
 }
 
 export const Layout: FC<LayoutProps> = ({ children, className, seoData }) => {
+  const location = useLocation();
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
+  const [isAnnouncementBarOpen] = useAtom(announcementOpenAtom);
+  const announcementBarRef = useRef<HTMLDivElement>(null);
+  const isIndexPage = location.pathname === '/';
 
   const toggleEmbedVideoOpen = useCallback(
     () => setWatchProductOverviewState(({ isOpen }) => ({ isOpen: !isOpen })),
@@ -48,8 +52,15 @@ export const Layout: FC<LayoutProps> = ({ children, className, seoData }) => {
   return (
     <StyleProvider hashPriority="high">
       <div className={classNames(className, { 'new-year-mode': isNewYearMode })}>
+        <AnimatePresence>
+          {isAnnouncementBarOpen && isIndexPage && (
+            <div ref={announcementBarRef}>
+              <AnnouncementBar />
+            </div>
+          )}
+        </AnimatePresence>
         <Seo description={seoData?.description} title={seoData?.title} noIndex={seoData?.noIndex} />
-        <Navigation />
+        <Navigation announcementBarRef={announcementBarRef} />
         <main>{children}</main>
         <Footer />
         <EmbedVideo

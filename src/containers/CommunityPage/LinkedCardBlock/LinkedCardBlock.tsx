@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
-import { LinkedCard } from '@app/components';
+import { LinkedCard } from '@app/components/LinkedCard';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { TitleBlock } from '../TitleBlock';
 
@@ -17,24 +18,26 @@ interface LinkedCardBlockProps {
     linkText: string;
     icon: string;
   }[];
-  withBackground?: boolean;
+  largePadding?: boolean;
 }
+
+const getBlocksWith = createBemBlockBuilder(['linked-card-block']);
 
 export const LinkedCardBlock: FC<LinkedCardBlockProps> = ({
   children,
   title,
   subtitle,
   cardsInfo,
-  withBackground,
+  largePadding,
 }) => (
   <div
-    className={classNames('linked-card-block', {
-      'linked-card-block--background': withBackground,
+    className={classNames(getBlocksWith(), {
+      'linked-card-block--large-padding': largePadding,
     })}
   >
     <div className="container">
       <TitleBlock title={title} subtitle={subtitle} />
-      <div className="linked-card-block__cards">
+      <div className={getBlocksWith('__cards')}>
         {cardsInfo.map(({ itemTitle, description, link, linkText, icon }) => (
           <LinkedCard
             key={itemTitle}

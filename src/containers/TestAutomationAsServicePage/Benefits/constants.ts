@@ -14,7 +14,7 @@ export const FASTER_TTM_LIST = [
   { info: 'Ensure faster provisioning of services' },
   { info: 'Free up your teams for critical internal work' },
   {
-    info: 'Leverage EPAM’s proven accelerators e.g.  Report Portal, Automation frameworks, Alita AI hub, etc..',
+    info: 'Leverage EPAM’s proven accelerators e.g. ReportPortal, Automation frameworks, Alita AI hub, etc..',
   },
 ];
 

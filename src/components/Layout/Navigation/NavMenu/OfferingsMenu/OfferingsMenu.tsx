@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { MenuProps } from '../../constants';
@@ -63,12 +63,7 @@ export const OfferingsMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
             {pricingList}
             {servicesList}
           </div>
-          <div
-            className={classNames(
-              getBlocksWith('__body-col--rt'),
-              getBlocksWith('__body-col--flex-column'),
-            )}
-          >
+          <div className={getBlocksWith('__body-col--rt', '__body-col--flex-column')}>
             {pricingForSolutionsList}
           </div>
         </div>

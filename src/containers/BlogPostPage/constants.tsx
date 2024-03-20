@@ -9,11 +9,11 @@ export const OPTIONS = {
   },
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: node => {
-      const { gatsbyImageData } = node.data.target;
+      const { gatsbyImageData, description } = node.data.target;
 
       return (
         <div className="blog-post-page__gatsby-image">
-          <GatsbyImage image={gatsbyImageData} alt="" />
+          <GatsbyImage image={gatsbyImageData} alt={description} />
         </div>
       );
     },

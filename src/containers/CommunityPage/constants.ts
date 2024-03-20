@@ -1,3 +1,5 @@
+import { DOCUMENTATION_URL } from '@app/utils';
+
 import improveCoreSvg from './icons/improve-core.svg';
 import boostAgentsSvg from './icons/boost-agents.svg';
 import enhanceIntegrationsSvg from './icons/enhance-integrations.svg';
@@ -11,7 +13,7 @@ export const GITHUB_CONTRIBUTION_CARDS = [
     description:
       'Enhance the ReportPortal application directly. Share your skills to make the platform better.',
     link: 'https://github.com/reportportal/reportportal/wiki/Contribution',
-    linkText: 'Fork us on GitHub',
+    linkText: 'Learn more',
     icon: improveCoreSvg,
   },
   {
@@ -19,7 +21,7 @@ export const GITHUB_CONTRIBUTION_CARDS = [
     description:
       'Make testing smoother by improving agents. Help us maintain compatibility and add features.',
     link: 'https://github.com/reportportal/reportportal/wiki/Contribution',
-    linkText: 'Fork us on GitHub',
+    linkText: 'Learn more',
     icon: boostAgentsSvg,
   },
   {
@@ -27,7 +29,7 @@ export const GITHUB_CONTRIBUTION_CARDS = [
     description:
       'Streamline workflows by enhancing integrations. Contribute to connect ReportPortal with other tools.',
     link: 'https://github.com/reportportal/reportportal/wiki/Contribution',
-    linkText: 'Fork us on GitHub',
+    linkText: 'Learn more',
     icon: enhanceIntegrationsSvg,
   },
 ];
@@ -37,7 +39,7 @@ export const DOCUMENTATION_CARDS = [
     itemTitle: 'Installation guides',
     description:
       'Your roadmap to successfully setting up ReportPortal. Learn how to install, configure, and optimize our platform for your specific needs.',
-    link: 'https://reportportal.io/docs/category/installation-steps',
+    link: `${DOCUMENTATION_URL}/category/installation-steps`,
     linkText: 'Open in Documentation',
     icon: installationGuideSvg,
   },
@@ -45,7 +47,7 @@ export const DOCUMENTATION_CARDS = [
     itemTitle: 'Developer’s guide',
     description:
       "In-depth documentation tailored to developers, offering insights into ReportPortal's architecture, APIs, and customization options to maximize its potential.",
-    link: 'https://reportportal.io/docs/category/developers-guides',
+    link: `${DOCUMENTATION_URL}/category/developers-guides`,
     linkText: 'Open in Documentation',
     icon: developerGuideSvg,
   },
@@ -53,7 +55,7 @@ export const DOCUMENTATION_CARDS = [
     itemTitle: 'Release notes',
     description:
       'Stay informed about the latest updates with our detailed release notes. Discover the newest features and improvements in each ReportPortal version.',
-    link: 'https://reportportal.io/docs/category/releases',
+    link: `${DOCUMENTATION_URL}/category/releases`,
     linkText: 'Open in Documentation',
     icon: releaseNotesSvg,
   },

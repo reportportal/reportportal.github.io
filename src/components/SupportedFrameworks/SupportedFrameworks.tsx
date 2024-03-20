@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useState } from 'react';
 import { Tabs, ConfigProvider } from 'antd';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
 import {

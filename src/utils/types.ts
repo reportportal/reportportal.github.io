@@ -15,11 +15,14 @@ export interface OrganizationDto {
   secondaryLogo?: ContentfulAsset;
 }
 
-export interface CommunityListDto {
+export interface ImageWrapperDto {
   title: string;
+  description: string;
   link: string;
   icon: ContentfulAsset;
-  hoverIcon: ContentfulAsset;
+  alt?: string;
+  subTitle?: string;
+  hoverIcon?: ContentfulAsset;
 }
 
 export interface CarouselSlideDto {
@@ -35,6 +38,7 @@ export interface BlogPostDto {
   };
   featuredImage: {
     file: ContentfulAsset;
+    description: string;
   };
   category: string;
   description: RenderRichTextData<ContentfulRichTextGatsbyReference>;

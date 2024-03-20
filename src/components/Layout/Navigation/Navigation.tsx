@@ -1,13 +1,13 @@
-import React, { useEffect, useReducer, useRef, useState, FC } from 'react';
+import React, { useEffect, useReducer, useRef, useState, FC, RefObject, useMemo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useToggle, useScroll } from 'ahooks';
 import { Drawer, Collapse } from 'antd';
 import upperFirst from 'lodash/upperFirst';
 import axios from 'axios';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
-import { useScrollDirection } from '@app/hooks';
+import { useScrollDirection } from '@app/hooks/useScrollDirection';
 
 // eslint-disable-next-line import/no-unresolved
 import githubStats from '../../../../static/github.json'; // Will be generated at build time
@@ -42,14 +42,19 @@ const menuItems = {
   community: { Component: CommunityMenu },
 };
 
-export const Navigation: FC = () => {
-  const menuLinksRef = useRef(null);
+const getBlocksWith = createBemBlockBuilder(['top-header']);
+
+interface NavigationProps {
+  announcementBarRef: RefObject<HTMLDivElement>;
+}
+
+export const Navigation: FC<NavigationProps> = ({ announcementBarRef }) => {
+  const menuLinksRef = useRef<HTMLUListElement>(null);
   const scroll = useScroll();
   const [isMobileMenuOpen, { setRight: openMobileMenu, setLeft: closeMobileMenu }] = useToggle();
   const [githubCounter, setGithubCounter] = useState(githubStats.repos.reportportal);
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
   const scrollY = scroll?.top ?? 0;
-  const getBlocksWith = createBemBlockBuilder(['top-header']);
 
   const [menus, updateMenus] = useReducer(
     (prevState, newState) => ({
@@ -98,7 +103,14 @@ export const Navigation: FC = () => {
     </Link>
   );
 
-  const headerHeight = 76;
+  const announcementBarHeight = useMemo(
+    () => announcementBarRef?.current?.offsetHeight ?? 0,
+    [announcementBarRef],
+  );
+  const headerHeight = useMemo(
+    () => (menuLinksRef?.current?.offsetHeight ?? 0) + announcementBarHeight,
+    [announcementBarHeight],
+  );
   const isSticky = scrollDirection === 'up' || isMenuOpen;
   const isActive = isMenuOpen || scrollY > headerHeight;
 

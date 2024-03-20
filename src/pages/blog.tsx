@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useState } from 'react';
 import { PageProps, graphql } from 'gatsby';
-import { Layout } from '@app/components';
+import { Layout } from '@app/components/Layout';
 import { BlogPage } from '@app/containers/BlogPage';
 import { BlogPostsQueryDto, BlogPostDto, SEO_DATA } from '@app/utils';
 
@@ -47,6 +47,7 @@ export const pageQuery = graphql`
           file {
             url
           }
+          description
         }
       }
     }

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { DashboardHeader, TestingBottomBlock } from '@app/components';
+import { DashboardHeader } from '@app/components/DashboardHeader';
+import { TestingBottomBlock } from '@app/components/TestingBottomBlock';
 
 import { OurSolution } from './OurSolution';
 import { QualityApproach } from './QualityApproach';

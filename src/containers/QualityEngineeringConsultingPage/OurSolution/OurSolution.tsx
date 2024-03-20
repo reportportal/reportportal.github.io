@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Heading } from '@app/components';
+import { Heading } from '@app/components/Heading';
 
 import { LEFT_ASIDE_TEXT, RIGHT_ASIDE_TEXT } from './constants';
 

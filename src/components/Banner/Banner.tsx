@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
 import './Banner.scss';
@@ -25,7 +24,7 @@ export const Banner: FC<BannerProps> = ({ title, subtitle, link, linkTitle, chil
         </div>
         {link && (
           <div className={getBlocksWith('__btn-wrapper')}>
-            <Link className={classNames('btn', 'btn--primary', 'btn--large')} to={link}>
+            <Link className="btn btn--primary btn--large" to={link}>
               {linkTitle}
             </Link>
           </div>

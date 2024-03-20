@@ -2,7 +2,7 @@ import { isDateBetweenNov25AndJan15GMT3 } from './isDateBetweenNov25AndJan15GMT3
 
 export const LIST_ANIMATION_DELAY = 10000;
 
-export const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
+export const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL as string;
 
 export const SAAS_OFFERS = [
   {
@@ -65,6 +65,8 @@ export type SAAS_OFFERS_KEYS = (typeof SAAS_OFFERS)[number]['key'];
 
 export const isNewYearMode = isDateBetweenNov25AndJan15GMT3();
 
+export const ANNOUNCEMENT_CLOSED_KEY = 'wasAnnouncementClosed';
+
 export const SEO_DATA = {
   index: {
     title:
@@ -116,7 +118,7 @@ export const SEO_DATA = {
       'Optimize your testing costs with our on-demand software, hardware, and expert resources.',
   },
   saas: {
-    title: 'Pricing: Saas',
+    title: 'Pricing: SaaS',
     description:
       'Explore our flexible pricing plans from small teams to global enterprises. Harness the power of our end-to-end testing reporting tool.',
   },

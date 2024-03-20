@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, DOCUMENTATION_URL } from '@app/utils';
 
 import NotFoundIcon from './svg/not-found.inline.svg';

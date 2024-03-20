@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { createBemBlockBuilder, LIST_ANIMATION_DELAY } from '@app/utils';
-import { useAnimationInterval } from '@app/hooks';
+import { useAnimationInterval } from '@app/hooks/useAnimationInterval';
 
 import { LinkedCard } from '../LinkedCard';
 
@@ -60,13 +60,7 @@ export const AnimatedList: FC<AnimatedListProps> = ({
                   <strong>{itemTitle}</strong>
                 </li>
               ) : (
-                <li
-                  className={classNames(
-                    getBlocksWithList('__item'),
-                    getBlocksWithList('__item--active'),
-                  )}
-                  key={itemTitle}
-                >
+                <li className={getBlocksWithList('__item', '__item--active')} key={itemTitle}>
                   <img src={image} alt="" />
                   <LinkedCard
                     itemTitle={itemTitle}

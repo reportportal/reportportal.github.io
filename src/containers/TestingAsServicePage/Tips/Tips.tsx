@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Heading, UnorderedList } from '@app/components';
+import { Heading } from '@app/components/Heading';
+import { UnorderedList } from '@app/components/UnorderedList';
 
 import { TIPS_LIST } from './constants';
 

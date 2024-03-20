@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { useCustomersStatistics } from '@app/hooks';
+import { useCustomersStatistics } from '@app/hooks/useCustomersStatistics';
 import { createBemBlockBuilder } from '@app/utils';
-import { StatisticList } from '@app/components';
+import { StatisticList } from '@app/components/StatisticList';
 
 import './CustomersStatistics.scss';
 

@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Link, SubscriptionBanner } from '@app/components';
+import { Link } from '@app/components/Link';
+import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
 import { ContentfulAsset, createBemBlockBuilder } from '@app/utils';
 
 import DownloadIcon from '../../svg/download.inline.svg';
@@ -13,6 +14,7 @@ export interface Case {
   };
   icon: {
     file: ContentfulAsset;
+    description: string;
   };
   id: string;
   industry: string;
@@ -64,7 +66,7 @@ export const CasesPage: FC<CasesPageProps> = ({ cases, handleLoadMore, showLoadM
               <p>{industry}</p>
             </div>
             <div className={getBlocksWith('__cases-list-item-icon')}>
-              <img src={icon?.file?.url} alt="" />
+              <img src={icon?.file?.url} alt={icon?.description} />
             </div>
             <div className={getBlocksWith('__cases-list-item-trailing')}>
               <p>{title}</p>

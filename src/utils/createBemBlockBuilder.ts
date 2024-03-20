@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import isEmpty from 'lodash/isEmpty';
 
 export const createBemBlockBuilder = (blocks: string[]) => {
   const cleanedBlocks = blocks.reduce(
@@ -9,9 +10,15 @@ export const createBemBlockBuilder = (blocks: string[]) => {
     [],
   );
 
-  return (elementOrModifier = '') =>
+  return (...selectors: string[]) =>
     cleanedBlocks.reduce(
-      (classList, block) => classNames(classList, `${block}${elementOrModifier}`),
+      (classList, block) =>
+        classNames(
+          classList,
+          ...(!isEmpty(selectors) ? selectors : ['']).map(
+            (elementOrModifier = '') => `${block}${elementOrModifier}`,
+          ),
+        ),
       '',
     );
 };

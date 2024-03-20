@@ -3,10 +3,7 @@
 
 .sponsors {
   margin-top: 24px;
-  background-image: url('../../../svg/community/sponsor-tablet.svg');
-  background-position: center 0;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url('../../../svg/community/sponsor-tablet.svg') no-repeat center 0 / cover;
   color: var(--text-primary);
 
   @include m.breakpoint(v.$desktop-sm) {
@@ -40,6 +37,10 @@
     @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-scale(large);
     }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      text-align: left;
+    }
   }
 
   &__description {
@@ -48,6 +49,10 @@
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-scale(medium);
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      text-align: left;
     }
   }
 

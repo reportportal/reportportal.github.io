@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect } from 'react';
-import { Heading } from '@app/components';
-import { useScrollDirection, Directions } from '@app/hooks';
+import { Heading } from '@app/components/Heading';
+import { useScrollDirection, Directions } from '@app/hooks/useScrollDirection';
 
 import { TOP_REQUEST_LIST, BOTTOM_REQUEST_LIST } from './constants';
 

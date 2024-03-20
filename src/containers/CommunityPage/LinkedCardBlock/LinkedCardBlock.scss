@@ -4,13 +4,9 @@
 .linked-card-block {
   padding: 120px 0;
 
-  &--background {
-    background-image: url('../../../svg/community/hero-line.svg');
-    background-position: center -730px;
-    background-repeat: no-repeat;
-
+  &--large-padding {
     @include m.breakpoint(v.$desktop-sm) {
-      background-position: center -605px;
+      padding: 200px 0;
     }
   }
 

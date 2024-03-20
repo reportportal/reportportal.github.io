@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 import noop from 'lodash/noop';
-import { Link } from '@app/components';
+import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { INCREASED_BUTTON_NUMBER } from './constants';
@@ -34,20 +34,8 @@ export const ButtonSwitcher: FC<ButtonSwitcherProps> = ({
   const getWrappedButton = (btn: Button) => {
     const buttonText = (
       <>
-        <div
-          className={classNames(getBlocksWith('__icon'), {
-            [getBlocksWith('__icon-increased')]: hasAdditionalButton,
-          })}
-        >
-          {btn.icon}
-        </div>
-        <span
-          className={classNames(getBlocksWith('__text'), {
-            [getBlocksWith('__text-increased')]: hasAdditionalButton,
-          })}
-        >
-          {btn.text}
-        </span>
+        <div className={getBlocksWith('__icon')}>{btn.icon}</div>
+        <span className={getBlocksWith('__text')}>{btn.text}</span>
       </>
     );
 
