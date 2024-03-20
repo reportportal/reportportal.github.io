@@ -10,7 +10,7 @@ import { CodeOfConduct } from './CodeOfConduct';
 import { JoinOurCommunity } from './JoinOurCommunity';
 import { Sponsors } from './Sponsors';
 import { StyleMeets } from './StyleMeets';
-import { YouTubeCarousel } from './YouTubeCarousel';
+import { YouTube } from './YouTube';
 import { LatestFromOurBlog } from '../LandingPage/LatestFromOurBlog';
 import { GITHUB_CONTRIBUTION_CARDS, DOCUMENTATION_CARDS } from './constants';
 
@@ -43,8 +43,8 @@ export const CommunityPage: FC = () => (
       </Link>
     </LinkedCardBlock>
     <StyleMeets />
-    <YouTubeCarousel />
-    <StartTestingWithReportPortal />
+    <YouTube />
+    <StartTestingWithReportPortal startFreeTrialUrl="/contact-us/community" />
     <LatestFromOurBlog isViewAll />
     <SubscriptionBanner />
   </div>

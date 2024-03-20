@@ -38,6 +38,31 @@ interface PricingConfigTypeDto {
   };
 }
 
+const validThumbnailKeys = ['default', 'high', 'maxres', 'medium', 'standard'] as const;
+
+type ValidThumbnailKeysType = (typeof validThumbnailKeys)[number];
+
+interface Thumbnail {
+  [key: ValidThumbnailKeysType]: {
+    height: number;
+    width: number;
+    url: string;
+  };
+}
+
+interface YoutubeVideoDto {
+  id: string;
+  title: string;
+  duration: string;
+  published_at: string;
+  statistics: {
+    comment_count: number;
+    like_count: number;
+    view_count: number;
+  };
+  thumbnail: Partial<Thumbnail>;
+}
+
 const acceleratorsTemplatesPath = './src/templates/accelerators';
 const pricingTemplatesPath = './src/templates/pricing';
 
@@ -49,6 +74,13 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     .then((response: { data: Repos }) => response.data)
     .then((data: Repos) => {
       fs.writeFileSync('static/github.json', JSON.stringify(data));
+    });
+
+  await axios
+    .get('https://status.reportportal.io/youtube?count=12')
+    .then((response: { data: YoutubeVideoDto[] }) => response.data)
+    .then(data => {
+      fs.writeFileSync('static/youtube.json', JSON.stringify(data));
     });
 
   const blogPost = path.resolve('./src/templates/blog-post/blog-post.tsx');

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Collapse } from 'antd';
 import classNames from 'classnames';
-import { createBemBlockBuilder, iconsCommon, $desktopSm } from '@app/utils';
+import { createBemBlockBuilder, iconsCommon, MEDIA_DESKTOP_SM } from '@app/utils';
 
 import { Columns } from './Columns';
 import { RowSection } from './RowSection';
@@ -35,7 +35,7 @@ export const ComparePlans: FC<ComparePlansProps> = ({
   isCollapsibleOnMobile = true,
   mobileColumns,
 }) => {
-  const isDesktop = useMediaQuery({ query: $desktopSm });
+  const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });
   const { Panel } = Collapse;
   const columnsNames = Object.values(columns);
 

@@ -1,9 +1,8 @@
-import React, { useEffect, useReducer, useRef, useState, FC, RefObject, useMemo } from 'react';
+import React, { useEffect, useReducer, useRef, FC, RefObject, useMemo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useToggle, useScroll } from 'ahooks';
 import { Drawer, Collapse } from 'antd';
 import upperFirst from 'lodash/upperFirst';
-import axios from 'axios';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
@@ -49,10 +48,10 @@ interface NavigationProps {
 }
 
 export const Navigation: FC<NavigationProps> = ({ announcementBarRef }) => {
-  const menuLinksRef = useRef<HTMLUListElement>(null);
+  const menuLinksRef = useRef<HTMLUListElement | null>(null);
   const scroll = useScroll();
   const [isMobileMenuOpen, { setRight: openMobileMenu, setLeft: closeMobileMenu }] = useToggle();
-  const [githubCounter, setGithubCounter] = useState(githubStats.repos.reportportal);
+  const githubCounter = githubStats.repos.reportportal;
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
   const scrollY = scroll?.top ?? 0;
 
@@ -68,18 +67,6 @@ export const Navigation: FC<NavigationProps> = ({ announcementBarRef }) => {
 
   const isMenuOpen = Object.values(menus).some(Boolean);
   const scrollDirection = useScrollDirection({ isMenuOpen });
-
-  useEffect(() => {
-    const fetchGithubStars = () => {
-      axios
-        .get('https://status.reportportal.io/github/stars')
-        .then(response => response.data)
-        .then(data => setGithubCounter(data.repos.reportportal))
-        .catch(console.error);
-    };
-
-    fetchGithubStars();
-  }, []);
 
   useEffect(() => {
     const handleClick = event => {
