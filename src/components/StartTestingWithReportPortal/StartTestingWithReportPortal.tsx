@@ -5,9 +5,15 @@ import { createBemBlockBuilder, iconsCommon } from '@app/utils';
 
 import './StartTestingWithReportPortal.scss';
 
+interface StartTestingWithReportPortalProps {
+  startFreeTrialUrl?: string;
+}
+
 const getBlocksWith = createBemBlockBuilder(['start-testing-with-report-portal']);
 
-export const StartTestingWithReportPortal: FC = () => (
+export const StartTestingWithReportPortal: FC<StartTestingWithReportPortalProps> = ({
+  startFreeTrialUrl = '/contact-us/general',
+}) => (
   <section className={classNames(getBlocksWith(), 'container')}>
     <div className={getBlocksWith('__leading')}>
       <div className={getBlocksWith('__leading-heading')}>
@@ -20,7 +26,7 @@ export const StartTestingWithReportPortal: FC = () => (
       <div className={getBlocksWith('__leading-button-group')}>
         <Link
           className="btn btn--primary btn--large"
-          to="/contact-us/general"
+          to={startFreeTrialUrl}
           data-gtm="start_free_trial"
         >
           Start free trial

@@ -163,6 +163,17 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
     isDiscussFieldShown: false,
   };
 
+  const generalAndCommunityBaseConfig = {
+    title: 'Contact us',
+    info: `<p>Got questions or need information about ReportPortal?</p>
+        <ul>
+          <li><strong>Inquiries:</strong> Feel free to ask.</li>
+          <li><strong>Quotes:</strong> Request pricing details.</li>
+          <li><strong>Free Trial:</strong> Get ReportPortal trial.</li>
+        </ul>`,
+    isDiscussFieldShown: false,
+  };
+
   return [
     ...availableOptions.flatMap(option => [
       createConfig({
@@ -338,8 +349,8 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
       isDiscussFieldShown: false,
     },
     {
+      ...generalAndCommunityBaseConfig,
       url: '/contact-us/general',
-      title: 'Contact us',
       options: [
         {
           name: SALESFORCE_SOURCE_NAME,
@@ -350,13 +361,21 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
           value: 'RP General',
         },
       ],
-      info: `<p>Got questions or need information about ReportPortal?</p>
-        <ul>
-          <li><strong>Inquiries:</strong> Feel free to ask.</li>
-          <li><strong>Quotes:</strong> Request pricing details.</li>
-          <li><strong>Free Trial:</strong> Get ReportPortal trial.</li>
-        </ul>`,
-      isDiscussFieldShown: false,
+    },
+    {
+      ...generalAndCommunityBaseConfig,
+      url: '/contact-us/community',
+      options: [
+        {
+          name: SALESFORCE_SOURCE_NAME,
+          value: 'Landing page / RP Community',
+        },
+        {
+          name: LEAD_SOURCE,
+          value: 'RP Community',
+        },
+      ],
+      isDiscussFieldShown: true,
     },
   ];
 };

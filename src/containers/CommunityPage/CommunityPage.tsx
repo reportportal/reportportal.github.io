@@ -44,7 +44,7 @@ export const CommunityPage: FC = () => (
     </LinkedCardBlock>
     <StyleMeets />
     <YouTube />
-    <StartTestingWithReportPortal />
+    <StartTestingWithReportPortal startFreeTrialUrl="/contact-us/community" />
     <LatestFromOurBlog isViewAll />
     <SubscriptionBanner />
   </div>
