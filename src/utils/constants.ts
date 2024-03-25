@@ -83,6 +83,14 @@ export const SEO_DATA = {
     title: 'Blog',
     description: "Stay informed by reading ReportPortal's updates, news, and technology articles.",
   },
+  business: {
+    title: 'Business',
+    description: 'TBD',
+  },
+  individual: {
+    title: 'individual',
+    description: 'TBD',
+  },
   community: {
     title: 'Community',
     description:

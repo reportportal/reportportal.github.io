@@ -53,7 +53,7 @@ export interface BlogPostsQueryDto {
   allContentfulBlogPost: { nodes: BlogPostDto[] };
 }
 
-interface PricingConfigOptionDto {
+export interface PricingConfigOptionDto {
   yearly: number;
   quarterly: number;
 }

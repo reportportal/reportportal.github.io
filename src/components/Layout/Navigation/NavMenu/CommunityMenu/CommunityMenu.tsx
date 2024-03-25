@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
-import { Link } from '@app/components/Link';
 import { SubscriptionForm } from '@app/components/SubscriptionForm';
 import { useMenuList } from '@app/hooks/useMenuList';
 import { createBemBlockBuilder, subscriptionFormAtom } from '@app/utils';
 
+import { COMMUNITY_LIST } from './constants';
 import { MenuProps } from '../../constants';
 import GithubCover from '../covers/github.inline.svg';
 import { SectionList } from '../SectionList';
@@ -18,18 +18,18 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
   const { communities } = useMenuList();
 
+  const generalList = (
+    <SectionList
+      showTitle={false}
+      className="general-list"
+      itemsPerRow={2}
+      items={COMMUNITY_LIST}
+    />
+  );
+
   const contributionCard = (
-    <SectionCard
-      className="contribution-card"
-      title="Github Contribution"
-      cover={<GithubCover />}
-      text="Our team develops ReportPortal, but it’s our community that shapes and improves it."
-    >
-      <div className={classNames(getBlocksWith('__btn-group'), 'full-width')}>
-        <Link className="btn btn--outline full-width" to="/community">
-          Join the community
-        </Link>
-      </div>
+    <SectionCard className="contribution-card" title="Github Contribution" cover={<GithubCover />}>
+      {generalList}
     </SectionCard>
   );
 
@@ -55,9 +55,7 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
   if (!isDesktop) {
     return (
       <div className={getBlocksWith()}>
-        <Link className={classNames(getBlocksWith('__button'), 'btn')} to="/community">
-          Join the community
-        </Link>
+        {generalList}
         {communityList}
       </div>
     );

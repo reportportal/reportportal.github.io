@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { ButtonSwitcher, ButtonSwitcherProps } from '@app/components/ButtonSwitcher';
+import { ButtonSwitcherProps } from '@app/components/ButtonSwitcher';
+import { HeroSwitching } from '@app/components/HeroSwitching';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { DiscountSwitcher, DiscountSwitcherProps } from './DiscountSwitcher';
@@ -28,11 +29,12 @@ export const PricingHero: FC<PricingHeroProps> = ({
   description,
 }) => (
   <div className={getBlocksWith()}>
-    <h1 className={getBlocksWith('__title')}>{title}</h1>
-    {subtitle && <p className={getBlocksWith('__subtitle')}>{subtitle}</p>}
-    <div className={getBlocksWith('__btn-box')}>
-      <ButtonSwitcher buttons={buttons} activeBtnName={activeButton} />
-    </div>
+    <HeroSwitching
+      activeButton={activeButton}
+      buttons={buttons}
+      title={title}
+      subtitle={subtitle}
+    />
     <div className={getBlocksWith('__wrapper')}>
       <div className={getBlocksWith('__wrapper-title')}>{offerType}</div>
       <div className={getBlocksWith('__wrapper-subtitle')}>{description}</div>
