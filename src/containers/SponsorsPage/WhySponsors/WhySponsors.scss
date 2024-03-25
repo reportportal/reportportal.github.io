@@ -1,0 +1,40 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.why-sponsors {
+  .why-instance-blocks {
+    padding: 200px 16px 64px;
+  }
+
+  .why-instance-blocks-list {
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      grid-template-columns: repeat(3, 229px);
+      gap: 16px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      grid-template-columns: repeat(3, 384px);
+      gap: 64px;
+    }
+
+    li {
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        width: 229px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        width: 384px;
+      }
+
+      h3 {
+        @include m.breakpoint(v.$tablet-sm-exact) {
+          width: 160px;
+        }
+
+        @include m.breakpoint(v.$desktop-sm) {
+          max-width: none;
+        }
+      }
+    }
+  }
+}

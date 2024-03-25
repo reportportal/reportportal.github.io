@@ -1,0 +1,34 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.hero-switching {
+  &__title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(large);
+
+    margin: 0;
+    text-align: center;
+
+    @include m.breakpoint(v.$phone) {
+      @include m.font-scale(x3-large);
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      @include m.font-scale(x4-large);
+    }
+  }
+
+  &__subtitle {
+    @include m.font-noto-sans();
+    @include m.font-scale(x2-medium);
+
+    margin-top: 16px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  &__btn-box {
+    display: flex;
+    justify-content: center;
+  }
+}

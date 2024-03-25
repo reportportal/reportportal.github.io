@@ -4,10 +4,10 @@ import chunk from 'lodash/chunk';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
 import { Carousel } from '@app/components/Carousel';
+import { TitleBlock } from '@app/components/TitleBlock';
 import { EmbedVideo } from '@app/components/Layout/EmbedVideo';
 import { createBemBlockBuilder, MEDIA_DESKTOP_SM } from '@app/utils';
 
-import { TitleBlock } from '../TitleBlock';
 import { SlideItem } from './SlideItem';
 import { prepareYoutubeVideos } from './utils';
 import youtubeVideos from '../../../../static/youtube.json'; // Will be generated at build time

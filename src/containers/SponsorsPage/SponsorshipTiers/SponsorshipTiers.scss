@@ -1,0 +1,47 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.sponsorship-tiers {
+  padding: 120px 13px;
+  background: var(--gradient-light-grey);
+
+  @include m.breakpoint(v.$desktop-sm) {
+    padding: 120px 0 200px;
+  }
+
+  &__card-wrapper {
+    display: flex;
+    flex: 1 1 0;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 40px;
+    margin: 64px auto 0;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      width: 720px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      width: 792px;
+    }
+
+    .pricing-card {
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        max-width: 340px;
+      }
+
+      @include m.breakpoint(v.$desktop-sm) {
+        max-width: 376px;
+      }
+
+      &__description {
+        height: auto;
+      }
+
+      &__popular {
+        background-color: var(--graphics-jade);
+      }
+    }
+  }
+}

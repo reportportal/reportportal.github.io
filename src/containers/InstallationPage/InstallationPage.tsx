@@ -1,9 +1,9 @@
 import React, { FC, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
-import { ButtonSwitcher } from '@app/components/ButtonSwitcher';
 import { Banner } from '@app/components/Banner';
 import { FooterContent } from '@app/components/Layout';
+import { HeroSwitching } from '@app/components/HeroSwitching';
 import { createBemBlockBuilder, MEDIA_DESKTOP_SM } from '@app/utils';
 
 import DockerIcon from './icons/docker.inline.svg';
@@ -72,18 +72,13 @@ export const InstallationPage: FC = () => {
     <div>
       <div className={getBlocksWith()}>
         <div className="container">
-          <h1 className={getBlocksWith('__title')}>Installation guide</h1>
-          <p className={getBlocksWith('__subtitle')}>
-            Discover 3 pathways to install ReportPortal with
-          </p>
-
-          <div className={getBlocksWith('__btn-box')}>
-            <ButtonSwitcher
-              buttons={buttons}
-              activeBtnName={activeButton}
-              onSwitch={switchActiveBtn}
-            />
-          </div>
+          <HeroSwitching
+            activeButton={activeButton}
+            buttons={buttons}
+            title="Installation guide"
+            subtitle="Discover 3 pathways to install ReportPortal with"
+            switchActiveBtn={switchActiveBtn}
+          />
         </div>
       </div>
 

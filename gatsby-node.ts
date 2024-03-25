@@ -65,6 +65,7 @@ interface YoutubeVideoDto {
 
 const acceleratorsTemplatesPath = './src/templates/accelerators';
 const pricingTemplatesPath = './src/templates/pricing';
+const sponsorsTemplatesPath = './src/templates/sponsors';
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -243,6 +244,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
         ...sharedPricingContext,
         prices: pricingConfig[camelCase(key) as keyof PricingConfigDto],
       },
+    });
+  });
+
+  fs.readdirSync(sponsorsTemplatesPath).forEach(file => {
+    const key = path.basename(file, '.tsx');
+
+    createPage({
+      path: `/sponsors/${key}/`,
+      component: path.resolve(path.join(sponsorsTemplatesPath, file)),
     });
   });
 };

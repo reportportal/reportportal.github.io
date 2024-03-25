@@ -46,7 +46,7 @@ interface OfferPageWrapperProps {
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
 export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
-  hero: { title, subtitle, description, offerType },
+  hero,
   page,
   pagePath,
   timeScaleData,
@@ -58,6 +58,7 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   pricing,
 }) => {
   const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps(page);
+  const { title, subtitle, description, offerType } = hero;
 
   return (
     <>

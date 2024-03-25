@@ -49,8 +49,7 @@
   &:not(:last-child) {
     margin-bottom: 8px;
 
-    .menu-dialog-offerings &,
-    .menu-dialog-community & {
+    .menu-dialog-offerings & {
       margin-bottom: 0;
     }
   }

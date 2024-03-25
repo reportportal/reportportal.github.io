@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
+import { TitleBlock } from '@app/components/TitleBlock';
 import { createBemBlockBuilder } from '@app/utils';
-
-import { TitleBlock } from '../TitleBlock';
 
 import './JoinOurCommunity.scss';
 

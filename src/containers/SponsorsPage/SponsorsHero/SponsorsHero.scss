@@ -1,0 +1,16 @@
+.sponsors-hero {
+  position: relative;
+  z-index: 20;
+  margin-top: calc(-1 * var(--header-height));
+  padding: calc(72px + var(--header-height)) 16px 56px;
+  background: var(--color-primary-600);
+  background-image: url('../../../svg/headBg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white);
+
+  .hero-switching__subtitle {
+    max-width: 790px;
+    margin: 16px auto 64px;
+  }
+}

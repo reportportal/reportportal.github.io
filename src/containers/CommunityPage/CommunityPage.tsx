@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { StartTestingWithReportPortal } from '@app/components/StartTestingWithReportPortal';
 import { Link } from '@app/components/Link';
+import { LinkedCardBlock } from '@app/components/LinkedCardBlock';
 import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
 import { DOCUMENTATION_URL } from '@app/utils';
 
 import { Hero } from './Hero';
-import { LinkedCardBlock } from './LinkedCardBlock';
 import { CodeOfConduct } from './CodeOfConduct';
 import { JoinOurCommunity } from './JoinOurCommunity';
 import { Sponsors } from './Sponsors';

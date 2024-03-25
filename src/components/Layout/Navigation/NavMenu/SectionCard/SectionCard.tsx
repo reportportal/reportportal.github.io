@@ -6,8 +6,8 @@ import './SectionCard.scss';
 interface SectionCardProps {
   title: string;
   cover: React.ReactElement;
-  text: string;
   children: React.ReactNode;
+  text?: string;
   className?: string;
 }
 
@@ -24,7 +24,7 @@ export const SectionCard: FC<SectionCardProps> = ({
     <div className={getBlocksWith()}>
       <p className={getBlocksWith('__title')}>{title}</p>
       {cover}
-      <p className={getBlocksWith('__text')}>{text}</p>
+      {text && <p className={getBlocksWith('__text')}>{text}</p>}
       <div className={getBlocksWith('__footer')}>{children}</div>
     </div>
   );

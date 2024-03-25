@@ -10,7 +10,7 @@
     text-align: center;
     color: var(--text-primary);
 
-    @include m.breakpoint(v.$phone-lg) {
+    @include m.breakpoint(v.$tablet-sm-exact) {
       @include m.font-scale(large);
     }
 

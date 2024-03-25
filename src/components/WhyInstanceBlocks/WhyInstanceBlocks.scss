@@ -1,0 +1,88 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.why-instance-blocks {
+  padding-top: 120px;
+  padding-bottom: 80px;
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    @include m.font-scale(x3-large);
+
+    padding-bottom: 120px;
+  }
+
+  &__title {
+    @include m.font-poppins(v.$fw-bold);
+    @include m.font-scale(x4-medium);
+
+    margin: 0;
+    text-align: center;
+    color: var(--text-primary);
+
+    @include m.breakpoint(v.$phone-lg) {
+      @include m.font-scale(large);
+    }
+
+    @include m.breakpoint(v.$tablet-sm) {
+      @include m.font-scale(x3-large);
+    }
+  }
+
+  &__content {
+    margin-top: 64px;
+
+    @include m.breakpoint(v.$tablet-sm) {
+      margin-top: 64px;
+    }
+  }
+}
+
+.why-instance-blocks-list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(1, 280px);
+  gap: 64px;
+  padding: 32px 0;
+
+  @include m.breakpoint(v.$tablet-sm) {
+    justify-content: space-around;
+    grid-template-columns: repeat(2, 280px);
+  }
+
+  @include m.breakpoint(v.$desktop-sm) {
+    justify-content: center;
+    grid-template-columns: repeat(4, 280px);
+    gap: 24px;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    align-items: center;
+    width: 282px;
+
+    h3 {
+      @include m.font-poppins(v.$fw-semi-bold);
+      @include m.font-scale(medium);
+
+      margin: 40px 0 0;
+      text-align: center;
+      color: var(--text-primary);
+
+      @include m.breakpoint(v.$tablet-sm) {
+        @include m.font-scale(x2-medium);
+      }
+    }
+
+    span {
+      @include m.font-noto-sans();
+      @include m.font-scale(medium);
+
+      display: inline-block;
+      margin-top: 8px;
+      text-align: center;
+      color: var(--text-primary);
+    }
+  }
+}

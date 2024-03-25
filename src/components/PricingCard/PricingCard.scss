@@ -5,6 +5,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   max-width: 387px;
   border-radius: 15px;
@@ -13,30 +14,46 @@
   background: var(--white);
   transition: box-shadow 0.4s ease-out;
 
-  @include m.breakpoint(v.$phone) {
-    height: 630px;
-  }
-
   &:hover {
     box-shadow: 0 8px 24px rgb(57 109 120 / 0.3);
+  }
+
+  &--full-width {
+    flex: 1 0 auto;
+    max-width: none !important;
+
+    .btn {
+      max-width: 320px;
+    }
+  }
+
+  &__popular,
+  &__diamond {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    z-index: 2;
+    width: 198px;
+    transform: translateX(-50%);
   }
 
   &__popular {
     @include m.font-poppins(v.$fw-semi-bold);
     @include m.font-scale(small);
 
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    z-index: 2;
-    width: 198px;
     border-radius: 15px;
     padding: 4px 30px;
     background: var(--graphics-amber);
-    transform: translateX(-50%);
     text-align: center;
     text-transform: uppercase;
     color: var(--white);
+  }
+
+  &__diamond {
+    top: -22px;
+    width: 64px;
+    height: 64px;
+    background: url('./icons/diamond.svg');
   }
 
   &__title {
@@ -88,7 +105,7 @@
 
   ul {
     position: relative;
-    margin: 0 0 44px 10px;
+    margin: 40px 0 44px 10px;
     list-style: none;
     white-space: pre-wrap;
 
@@ -97,7 +114,7 @@
     }
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      margin: 0 0 49px 16px;
+      margin: 40px 0 49px 16px;
       padding-left: 12px;
     }
 
@@ -112,7 +129,7 @@
 
       &::before {
         position: absolute;
-        top: 8px;
+        top: 6px;
         left: 0;
         width: 8px;
         height: 8px;
@@ -129,6 +146,10 @@
 
     &--outline {
       padding: 14px 32px;
+    }
+
+    svg {
+      margin-left: 8px;
     }
   }
 }
