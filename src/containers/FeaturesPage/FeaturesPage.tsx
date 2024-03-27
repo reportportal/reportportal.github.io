@@ -4,7 +4,12 @@ import { useLocation } from '@gatsbyjs/reach-router';
 import { useScroll } from 'ahooks';
 import classNames from 'classnames';
 import { useScrollDirection } from '@app/hooks/useScrollDirection';
-import { createBemBlockBuilder, mediaDesktopSm, iconsCommon, DOCUMENTATION_URL } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  MEDIA_DESKTOP_SM,
+  iconsCommon,
+  DOCUMENTATION_URL,
+} from '@app/utils';
 import { Link } from '@app/components/Link';
 import { ProcessIntegration } from '@app/components/ProcessIntegration';
 import { SupportedFrameworks } from '@app/components/SupportedFrameworks';
@@ -65,7 +70,7 @@ export const FeaturesPage: FC = () => {
   const processIntegrationRef = useRef<null | HTMLElement>(null);
   const scrollDirection = useScrollDirection({ callbackFn: handleScroll, isMenuOpen: false });
   const scroll = useScroll();
-  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
+  const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });
   const scrollY = scroll?.top ?? 0;
 
   const featuresBlockStickyPosition = 126;

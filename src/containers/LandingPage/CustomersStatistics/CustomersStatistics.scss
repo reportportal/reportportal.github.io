@@ -38,6 +38,20 @@
       padding-right: 0;
       padding-left: 0;
     }
+
+    .statistic-list {
+      @include m.breakpoint(v.$desktop-sm) {
+        gap: 45.33px;
+      }
+
+      li {
+        border-left: 1px solid var(--text-service);
+      }
+
+      span {
+        color: var(--text-light-grey);
+      }
+    }
   }
 
   &__title {
@@ -71,61 +85,6 @@
 
     @include m.breakpoint(v.$desktop-sm) {
       text-align: left;
-    }
-  }
-}
-
-.customers-statistics-list {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  padding: 48px 0 0;
-
-  @include m.breakpoint(v.$tablet-sm-exact) {
-    flex-direction: row;
-    gap: 24px;
-  }
-
-  @include m.breakpoint(v.$desktop-sm) {
-    justify-content: center;
-    gap: 45.33px;
-    padding: 80px 0 0;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-left: 1px solid var(--text-service);
-    padding-left: 16px;
-
-    strong {
-      &:nth-child(1) {
-        @include m.font-poppins(v.$fw-bold);
-        @include m.font-scale(x4-medium);
-
-        @include m.breakpoint(v.$tablet-sm-exact) {
-          @include m.font-scale(large);
-        }
-      }
-
-      &:nth-child(2) {
-        @include m.font-poppins(v.$fw-semi-bold);
-        @include m.font-scale();
-      }
-    }
-
-    span {
-      @include m.font-noto-sans();
-      @include m.font-scale();
-
-      margin-top: 8px;
-      color: var(--text-light-grey);
-
-      @include m.breakpoint(v.$desktop-sm) {
-        display: inline-block;
-        width: 98%;
-      }
     }
   }
 }

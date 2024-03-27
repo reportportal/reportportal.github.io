@@ -10,7 +10,6 @@ import { MenuProps } from '../../constants';
 import GithubCover from '../covers/github.inline.svg';
 import { SectionList } from '../SectionList';
 import { SectionCard } from '../SectionCard';
-import { HeartIcon, ForkIcon } from './icons';
 
 import '../Menu.scss';
 
@@ -27,16 +26,8 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
       text="Our team develops ReportPortal, but it’s our community that shapes and improves it."
     >
       <div className={classNames(getBlocksWith('__btn-group'), 'full-width')}>
-        <Link
-          className="btn btn--outline full-width"
-          to="https://github.com/reportportal/reportportal"
-        >
-          <ForkIcon />
-          Fork
-        </Link>
-        <Link className="btn btn--outline full-width" to="https://github.com/sponsors/reportportal">
-          <HeartIcon />
-          Sponsor
+        <Link className="btn btn--outline full-width" to="/community">
+          Join the community
         </Link>
       </div>
     </SectionCard>
@@ -45,7 +36,7 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
   const communityList = (
     <SectionList
       className={classNames('community-list', { 'section-list-secondary': isDesktop })}
-      title="Join the Community"
+      title="Our social medias"
       items={communities}
     />
   );
@@ -62,7 +53,14 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
   );
 
   if (!isDesktop) {
-    return <div className={getBlocksWith()}>{communityList}</div>;
+    return (
+      <div className={getBlocksWith()}>
+        <Link className={classNames(getBlocksWith('__button'), 'btn')} to="/community">
+          Join the community
+        </Link>
+        {communityList}
+      </div>
+    );
   }
 
   return (

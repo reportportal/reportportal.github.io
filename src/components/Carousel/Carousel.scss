@@ -1,0 +1,43 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+
+  &__button {
+    border: none;
+    padding: 0;
+    background: none;
+    line-height: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:last-child {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .slick-dots {
+    li,
+    li.slick-active {
+      width: 32px;
+      height: 2px;
+      margin-inline: 8px;
+
+      button {
+        border-radius: 0;
+        transition: none;
+
+        &,
+        &:hover {
+          opacity: unset;
+        }
+      }
+    }
+  }
+}

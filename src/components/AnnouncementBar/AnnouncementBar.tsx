@@ -6,7 +6,7 @@ import {
   ANNOUNCEMENT_CLOSED_KEY,
   announcementOpenAtom,
   createBemBlockBuilder,
-  mediaTabletSm,
+  MEDIA_TABLET_SM,
 } from '@app/utils';
 import { CrossIcon } from '@app/components/Layout/Navigation/icons';
 import { ArrowLink } from '@app/components/ArrowLink';
@@ -22,7 +22,7 @@ const desktopBannerHeight = 56;
 
 export const AnnouncementBar: FC = () => {
   const [, setAnnouncementOpen] = useAtom(announcementOpenAtom);
-  const isTablet = useMediaQuery({ query: mediaTabletSm });
+  const isTablet = useMediaQuery({ query: MEDIA_TABLET_SM });
   const bannerHeight = isTablet ? desktopBannerHeight : mobileBannerHeight;
   const heightAnimation = { y: bannerHeight * -1, height: 0 };
 

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { ButtonSwitcher } from '@app/components/ButtonSwitcher';
 import { Banner } from '@app/components/Banner';
 import { FooterContent } from '@app/components/Layout';
-import { createBemBlockBuilder, mediaDesktopSm } from '@app/utils';
+import { createBemBlockBuilder, MEDIA_DESKTOP_SM } from '@app/utils';
 
 import DockerIcon from './icons/docker.inline.svg';
 import GoogleCloudIcon from './icons/googleCloud.inline.svg';
@@ -58,7 +58,7 @@ const sectionsContent: {
 
 export const InstallationPage: FC = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
-  const isDesktop = useMediaQuery({ query: mediaDesktopSm });
+  const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });
 
   const sections = buttons.find(button => button.text === activeButton)?.scrollPoints ?? [];
 

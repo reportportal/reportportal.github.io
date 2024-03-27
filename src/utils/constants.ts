@@ -2,7 +2,7 @@ import { isDateBetweenNov25AndJan15GMT3 } from './isDateBetweenNov25AndJan15GMT3
 
 export const LIST_ANIMATION_DELAY = 10000;
 
-export const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
+export const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL as string;
 
 export const SAAS_OFFERS = [
   {
@@ -82,6 +82,11 @@ export const SEO_DATA = {
   blog: {
     title: 'Blog',
     description: "Stay informed by reading ReportPortal's updates, news, and technology articles.",
+  },
+  community: {
+    title: 'Community',
+    description:
+      'Connect, learn, and collaborate with testing enthusiasts. Join the ReportPortal community.',
   },
   terms: {
     title: 'Terms and Conditions',

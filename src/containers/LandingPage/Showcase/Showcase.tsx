@@ -6,7 +6,7 @@ import { Link } from '@app/components/Link';
 import { useClientCarouselItems } from '@app/hooks/useClientCarouselItems';
 import { createBemBlockBuilder, watchProductOverviewAtom } from '@app/utils';
 
-import { Carousel } from './Carousel/Carousel';
+import { OrganizationsCarousel } from './OrganizationsCarousel';
 
 import './Showcase.scss';
 
@@ -70,7 +70,7 @@ export const Showcase: FC = () => {
           <span>Watch video</span>
         </button>
       </div>
-      {isDesktop && <Carousel slides={slides} logoKey="primaryLogo" />}
+      {isDesktop && <OrganizationsCarousel slides={slides} logoKey="primaryLogo" />}
       {!isDesktop && (
         <Marquee
           className={getBlocksWith('__carousel-mobile')}
