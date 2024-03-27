@@ -375,7 +375,7 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
           value: 'RP Community',
         },
       ],
-      isDiscussFieldShown: true,
+      isDiscussFieldShown: false,
     },
   ];
 };
