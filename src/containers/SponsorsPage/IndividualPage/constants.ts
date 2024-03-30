@@ -22,3 +22,5 @@ export const INDIVIDUAL_CARDS = [
     icon: gainRecognitionSvg,
   },
 ];
+
+export const CONTACT_US_LINK = '/contact-us/sponsorship-program/individual';

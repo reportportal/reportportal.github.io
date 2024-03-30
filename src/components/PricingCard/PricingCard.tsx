@@ -68,6 +68,7 @@ export const PricingCard: FC<PricingCardProps> = ({
           <>
             <span className={getBlocksWith('__price-value')}>
               {currency} {formatNumberWithCommas(priceValue[discount])}
+              {isDiamond && '+'}
             </span>
             / {period}
           </>
@@ -76,7 +77,7 @@ export const PricingCard: FC<PricingCardProps> = ({
       {href ? (
         <Link
           className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}
-          to={`${href}/${discount}`}
+          to={`${isAbsoluteURL(href) ? `${href}` : `${href}/${discount}`}`}
         >
           {actionText}
           {isAbsoluteURL(href) && <ArrowIcon />}

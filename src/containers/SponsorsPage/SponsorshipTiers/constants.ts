@@ -83,7 +83,7 @@ export const BUSINESS_SPONSORSHIP = [
       'Quarterly strategic sessions with our development team to discuss your business needs and future integration opportunities',
     ],
     actionText: 'Contact us',
-    href: '/contact-us/sponsorship',
+    href: '/contact-us/sponsorship-program/business/diamond',
     isDiamond: true,
     isFullWidth: true,
     actionVariant: 'outline',
@@ -100,8 +100,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
   {
     key: 'individualBacker' as const,
     title: 'Individual backer',
-    description:
-      'Your name will be listed under the BACKERS.md file of the related ReportPortal GitHub repository',
+    description: "Your name will be featured in ReportPortal's official GitHub repository",
     actionText: 'Become sponsor',
     href: 'https://github.com/sponsors/reportportal',
     actionVariant: 'outline',
@@ -116,7 +115,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
     key: 'generousBacker' as const,
     title: 'Generous backer',
     description:
-      'Your name will be listed under the "Generous Backers" section in the ReportPortal GitHub repository, README.md and BACKERS.md files',
+      'Your name will be displayed under "Generous Backers" section in ReportPortal\'s GitHub repository',
     actionText: 'Become sponsor',
     href: 'https://github.com/sponsors/reportportal',
     actionVariant: 'primary',

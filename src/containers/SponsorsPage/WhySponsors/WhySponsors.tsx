@@ -6,14 +6,14 @@ import { SPONSORS_INFO } from './constants';
 import './WhySponsors.scss';
 
 interface WhySponsorsProps {
-  sponsorKind: string;
+  sponsorshipType: string;
 }
 
-export const WhySponsors: FC<WhySponsorsProps> = ({ sponsorKind }) => (
+export const WhySponsors: FC<WhySponsorsProps> = ({ sponsorshipType }) => (
   <div className="why-sponsors">
     <WhyInstanceBlocks
       title="Why sponsor ReportPortal?"
-      explanations={SPONSORS_INFO[sponsorKind]}
+      explanations={SPONSORS_INFO[sponsorshipType]}
     />
   </div>
 );

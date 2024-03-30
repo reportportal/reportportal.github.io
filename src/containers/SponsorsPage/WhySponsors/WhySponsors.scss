@@ -3,7 +3,7 @@
 
 .why-sponsors {
   .why-instance-blocks {
-    padding: 200px 16px 64px;
+    padding: 120px 16px 64px;
   }
 
   .why-instance-blocks-list {
@@ -32,7 +32,7 @@
         }
 
         @include m.breakpoint(v.$desktop-sm) {
-          max-width: none;
+          width: auto;
         }
       }
     }

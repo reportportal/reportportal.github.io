@@ -14,6 +14,6 @@ export const COMMUNITY_LIST = [
     icon: <SponsorIcon />,
     title: 'Become a sponsor',
     text: 'Support us and get benefits',
-    link: '/sponsors/business',
+    link: '/sponsorship-program/business',
   },
 ];

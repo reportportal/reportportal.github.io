@@ -29,3 +29,5 @@ export const BUSINESS_CARDS = [
     icon: productImprovementSvg,
   },
 ];
+
+export const CONTACT_US_LINK = '/contact-us/sponsorship-program/business';

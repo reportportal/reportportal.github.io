@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { BrandExposure } from './icons/BrandExposure';
-import { CommunityEngagement } from './icons/CommunityEngagement';
-import { DriveInnovation } from './icons/DriveInnovation';
-import { PersonalRecognition } from './icons/PersonalRecognition';
+import BrandExposure from './icons/brand-exposure.inline.svg';
+import CommunityEngagement from './icons/community-engagement.inline.svg';
+import DriveInnovation from './icons/drive-innovation.inline.svg';
+import PersonalRecognition from './icons/personal-recognition.inline.svg';
 
 const COMMON_SPONSORS_INFO = [
   {

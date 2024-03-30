@@ -127,6 +127,27 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
         ${createPriceInfo({ isYearly, ...pricingConfig.onPremises.package160 })}`,
   });
 
+  const createSponsorshipBaseConfig = salesforceSourceName => ({
+    title: 'Contact us',
+    options: [
+      {
+        name: SALESFORCE_SOURCE_NAME,
+        value: `Landing page / Sponsorship Program / ${salesforceSourceName}`,
+      },
+      {
+        name: LEAD_SOURCE,
+        value: 'RP Sponsorship Program',
+      },
+    ],
+    info: `<p>Got questions or need information about ReportPortal?</p>
+        <ul>
+          <li><strong>Quotes:</strong> Request pricing details.</li>
+          <li><strong>Free Trial:</strong> Sign up for a 30-day free trial of ReportPortal.</li>
+          <li><strong>Sponsorship:</strong> Become a Sponsor or inquire about sponsorship tiers.</li>
+        </ul>`,
+    isDiscussFieldShown: true,
+  });
+
   const QaSpaceBaseConfig = {
     title: 'QaSpace',
     options: [
@@ -376,6 +397,18 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
         },
       ],
       isDiscussFieldShown: true,
+    },
+    {
+      ...createSponsorshipBaseConfig('Individual'),
+      url: '/contact-us/sponsorship-program/individual',
+    },
+    {
+      ...createSponsorshipBaseConfig('Business'),
+      url: '/contact-us/sponsorship-program/business',
+    },
+    {
+      ...createSponsorshipBaseConfig('Business / Diamond'),
+      url: '/contact-us/sponsorship-program/business/diamond/yearly',
     },
   ];
 };

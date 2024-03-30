@@ -7,11 +7,11 @@ export const PRICING_BUTTONS = [
   {
     text: 'Business',
     icon: <BusinessIcon />,
-    linkTo: '/sponsors/business',
+    linkTo: '/sponsorship-program/business',
   },
   {
     text: 'Individual',
     icon: <IndividualIcon />,
-    linkTo: '/sponsors/individual',
+    linkTo: '/sponsorship-program/individual',
   },
 ];

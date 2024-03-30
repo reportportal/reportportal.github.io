@@ -19,7 +19,7 @@ export const PRODUCT_LINKS = [
   },
   {
     title: 'Become sponsor',
-    link: '/sponsors/business',
+    link: '/sponsorship-program/business',
   },
   {
     title: 'Pricing',

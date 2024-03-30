@@ -6,10 +6,14 @@ import ArrowIcon from '@app/svg/arrow.inline.svg';
 
 import './HowToBecomeSponsor.scss';
 
+interface HowToBecomeSponsorProps {
+  contactUsLink: string;
+}
+
 const getBlocksWith = createBemBlockBuilder(['how-to-become-sponsor']);
 const getStepsItemWith = createBemBlockBuilder(['steps-item']);
 
-export const HowToBecomeSponsor: FC = () => {
+export const HowToBecomeSponsor: FC<HowToBecomeSponsorProps> = ({ contactUsLink }) => {
   const scrollToTiers = () => {
     const anchorTarget = document.getElementById('sponsorship-tiers');
 
@@ -51,7 +55,7 @@ export const HowToBecomeSponsor: FC = () => {
             <div className={getStepsItemWith('__description')}>
               If you prefer a more personalized approach or have specific questions, please feel
               free to reach out to us using the{' '}
-              <Link className={getStepsItemWith('__link')} to="/contact-us/sponsorship">
+              <Link className={getStepsItemWith('__link')} to={contactUsLink}>
                 Contact us
               </Link>{' '}
               form with your chosen tier and any inquiries. We&lsquo;re here to assist you in every
@@ -75,10 +79,7 @@ export const HowToBecomeSponsor: FC = () => {
               Go to GitHub page
               <ArrowIcon />
             </Link>
-            <Link
-              className={classNames('btn', 'btn--outline', 'btn--large')}
-              to="/contact-us/general"
-            >
+            <Link className={classNames('btn', 'btn--outline', 'btn--large')} to={contactUsLink}>
               Contact us directly
             </Link>
           </div>
