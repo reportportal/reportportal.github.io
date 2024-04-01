@@ -1,12 +1,13 @@
 import React, { FC, useCallback } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Marquee from 'react-fast-marquee';
-import { InView } from 'react-intersection-observer';
 import { useAtom } from 'jotai';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from '@app/components/Link';
 import { useClientCarouselItems } from '@app/hooks/useClientCarouselItems';
 import { COMMON_MARQUEE_PROPS, createBemBlockBuilder, watchProductOverviewAtom } from '@app/utils';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
+import { useInView } from '@app/hooks/useInView';
 
 import { OrganizationsCarousel } from './OrganizationsCarousel';
 
@@ -14,40 +15,25 @@ import './Showcase.scss';
 
 const getBlocksWith = createBemBlockBuilder(['showcase']);
 
-const getMotionAnimation = ({
-  inView,
-  delay = 0,
-  additionalEffects = { hidden: {}, show: {} },
-  shouldReduceMotion = false,
-}: {
-  inView: boolean;
-  delay?: number;
-  additionalEffects?: { hidden: Record<string, number>; show: Record<string, number> };
-  shouldReduceMotion?: boolean | null;
-}) => ({
-  initial: shouldReduceMotion ? 'show' : 'hidden',
-  animate: !shouldReduceMotion && (inView ? 'show' : 'hidden'),
-  exit: 'hidden',
-  variants: {
-    hidden: {
-      scale: 0.5,
-      opacity: 0,
-      ...additionalEffects.hidden,
-    },
-    show: {
-      scale: 1,
-      opacity: 1,
-      ...additionalEffects.show,
-    },
+const commonAnimationProps = {
+  hiddenState: {
+    scale: 0.5,
+    opacity: 0,
   },
-  transition: { type: 'spring', stiffness: 400, damping: 30, mass: 1, delay },
-});
+  enterState: {
+    scale: 1,
+    opacity: 1,
+  },
+  transition: { type: 'spring', stiffness: 400, damping: 30, mass: 1 },
+};
 
 export const Showcase: FC = () => {
   const [, setWatchProductOverviewState] = useAtom(watchProductOverviewAtom);
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
   const { slides, allSlidesItems } = useClientCarouselItems();
-  const shouldReduceMotion = useReducedMotion();
+  const [titleBlockRef, isTitleBlockInView] = useInView({ once: true });
+  const [carouselRef, isCarouselInView] = useInView({ once: true });
+  const getAnimation = useMotionEnterAnimation(commonAnimationProps);
 
   const toggleEmbedVideoOpen = useCallback(
     () => setWatchProductOverviewState(({ isOpen }) => ({ isOpen: !isOpen })),
@@ -72,70 +58,61 @@ export const Showcase: FC = () => {
           Your browser does not support the video tag
         </video>
       </div>
-      <InView triggerOnce>
-        {({ inView, ref }) => (
-          <div ref={ref}>
-            <motion.h1
-              className={getBlocksWith('__title')}
-              {...getMotionAnimation({ inView, shouldReduceMotion })}
+      <div ref={titleBlockRef}>
+        <motion.h1
+          className={getBlocksWith('__title')}
+          {...getAnimation({ inView: isTitleBlockInView })}
+        >
+          AI-powered <br />
+          Test Automation Dashboard
+        </motion.h1>
+        <motion.p
+          className={getBlocksWith('__subtitle')}
+          {...getAnimation({ inView: isTitleBlockInView, delay: 0.1 })}
+        >
+          Aggregate and analyze test reports to ascertain release health
+        </motion.p>
+        <motion.div
+          className={getBlocksWith('__btn-row')}
+          {...getAnimation({ inView: isTitleBlockInView, delay: 0.2 })}
+        >
+          <div className={getBlocksWith('__btn-group')}>
+            <Link
+              className="btn btn--secondary btn--large"
+              to="https://demo.reportportal.io/"
+              data-gtm="start_free_trial"
             >
-              AI-powered <br />
-              Test Automation Dashboard
-            </motion.h1>
-            <motion.p
-              className={getBlocksWith('__subtitle')}
-              {...getMotionAnimation({ inView, delay: 0.1, shouldReduceMotion })}
+              Try Demo
+            </Link>
+            <Link
+              className="btn btn--outline-2 btn--large"
+              to="/contact-us/general"
+              data-gtm="get_a_quote"
             >
-              Aggregate and analyze test reports to ascertain release health
-            </motion.p>
-            <motion.div
-              className={getBlocksWith('__btn-row')}
-              {...getMotionAnimation({ inView, delay: 0.2, shouldReduceMotion })}
-            >
-              <div className={getBlocksWith('__btn-group')}>
-                <Link
-                  className="btn btn--secondary btn--large"
-                  to="https://demo.reportportal.io/"
-                  data-gtm="start_free_trial"
-                >
-                  Try Demo
-                </Link>
-                <Link
-                  className="btn btn--outline-2 btn--large"
-                  to="/contact-us/general"
-                  data-gtm="get_a_quote"
-                >
-                  Get a quote
-                </Link>
-              </div>
-            </motion.div>
-            <motion.div
-              className={getBlocksWith('__watch-video-container')}
-              {...getMotionAnimation({ inView, delay: 0.3, shouldReduceMotion })}
-            >
-              <button className={getBlocksWith('__btn-watch-video')} onClick={toggleEmbedVideoOpen}>
-                <span className={getBlocksWith('__btn-watch-video-icon')} />
-                <span>Watch video</span>
-              </button>
-            </motion.div>
+              Get a quote
+            </Link>
           </div>
-        )}
-      </InView>
+        </motion.div>
+        <motion.div
+          className={getBlocksWith('__watch-video-container')}
+          {...getAnimation({ inView: isTitleBlockInView, delay: 0.3 })}
+        >
+          <button className={getBlocksWith('__btn-watch-video')} onClick={toggleEmbedVideoOpen}>
+            <span className={getBlocksWith('__btn-watch-video-icon')} />
+            <span>Watch video</span>
+          </button>
+        </motion.div>
+      </div>
       {isDesktop && (
-        <InView triggerOnce>
-          {({ inView, ref }) => (
-            <motion.div
-              ref={ref}
-              {...getMotionAnimation({
-                inView,
-                additionalEffects: { hidden: { y: 50 }, show: { y: 0 } },
-                shouldReduceMotion,
-              })}
-            >
-              <OrganizationsCarousel slides={slides} logoKey="primaryLogo" />
-            </motion.div>
-          )}
-        </InView>
+        <motion.div
+          ref={carouselRef}
+          {...getAnimation({
+            inView: isCarouselInView,
+            additionalEffects: { hiddenAdditional: { y: 50 }, enterAdditional: { y: 0 } },
+          })}
+        >
+          <OrganizationsCarousel slides={slides} logoKey="primaryLogo" />
+        </motion.div>
       )}
       {!isDesktop && (
         <Marquee {...COMMON_MARQUEE_PROPS} className={getBlocksWith('__carousel-mobile')}>
