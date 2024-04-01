@@ -1,16 +1,61 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
 .sponsors-hero {
   position: relative;
   z-index: 20;
   margin-top: calc(-1 * var(--header-height));
   padding: calc(72px + var(--header-height)) 16px 56px;
   background: var(--color-primary-600);
-  background-image: url('../../../svg/community/hero.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url('../../../svg/community/hero.svg') no-repeat center 0 / cover;
   color: var(--white);
 
-  .hero-switching__subtitle {
-    max-width: 790px;
-    margin: 16px auto 64px;
+  .hero-switching {
+    &__subtitle {
+      max-width: 790px;
+      margin: 16px auto 48px;
+    }
+
+    &__btn-box {
+      margin-top: 50px;
+    }
+  }
+
+  &__carousel-title {
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(small);
+
+    margin-bottom: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-primary-200);
+  }
+
+  .carousel {
+    margin-bottom: 74px;
+
+    .ant-carousel {
+      width: 852px;
+    }
+
+    .slick-dots {
+      bottom: -8px;
+
+      li button {
+        background-color: rgb(255 255 255 / 0.3);
+      }
+
+      li.slick-active button {
+        background: linear-gradient(to right, var(--white) 50%, rgb(255 255 255 / 0.3) 0);
+        background-position: right;
+        background-size: 200% 100%;
+        animation: progressAnimation 5s forwards;
+      }
+    }
+  }
+
+  &__carousel-logo {
+    padding: 22px 24px;
+    line-height: 0;
   }
 }
