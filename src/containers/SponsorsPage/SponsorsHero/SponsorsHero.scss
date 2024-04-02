@@ -31,6 +31,14 @@
     color: var(--color-primary-200);
   }
 
+  &__slide {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: 80px;
+  }
+
   .carousel {
     margin-bottom: 74px;
 
@@ -52,6 +60,10 @@
         animation: progressAnimation 5s forwards;
       }
     }
+  }
+
+  .marquee {
+    justify-content: center;
   }
 
   &__carousel-logo {
