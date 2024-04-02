@@ -54,8 +54,8 @@ export const Seo: FC<SeoProps> = ({
   const metaImage = image ?? site.siteMetadata?.image;
   const keywords = site.siteMetadata?.keywords;
   const metaSiteName = site.siteMetadata?.siteName;
-  const previewImageUrl =
-    (previewImage && `https:${previewImage}`) || site.siteMetadata?.previewImage;
+  // https added for correct link construction. Without it, Helmet and browser breaks the link.
+  const previewImageUrl = previewImage ? `https:${previewImage}` : site.siteMetadata?.previewImage;
 
   return (
     <Helmet
