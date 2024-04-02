@@ -14,15 +14,26 @@ interface DataProps {
     };
     seoTitle?: string;
     seoDescription?: string;
+    featuredImage?: {
+      file: {
+        url: string;
+      };
+    };
   };
 }
 
 const BlogPostTemplate: FC<PageProps<DataProps>> = ({ data }) => {
-  const { industry, title, seoTitle, seoDescription, author, date, articleBody } =
+  const { industry, title, seoTitle, seoDescription, featuredImage, author, date, articleBody } =
     data.contentfulBlogPost;
 
   return (
-    <Layout seoData={{ title: seoTitle ?? title?.title, description: seoDescription }}>
+    <Layout
+      seoData={{
+        title: seoTitle ?? title?.title,
+        description: seoDescription,
+        previewImage: featuredImage?.file?.url,
+      }}
+    >
       <BlogPostPage {...{ industry, title, author, date, articleBody }} />
     </Layout>
   );
@@ -42,6 +53,11 @@ export const pageQuery = graphql`
       }
       seoTitle
       seoDescription
+      featuredImage {
+        file {
+          url
+        }
+      }
       date(formatString: "MMMM D, YYYY")
       author
       articleBody {

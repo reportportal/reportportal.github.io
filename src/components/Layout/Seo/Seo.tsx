@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 interface SeoProps {
   title?: string;
   image?: string;
+  previewImage?: string;
   description?: string;
   noIndex?: boolean;
   lang?: string;
@@ -19,6 +20,7 @@ interface SeoProps {
 export const Seo: FC<SeoProps> = ({
   title,
   image,
+  previewImage,
   description = '',
   lang = 'en',
   meta = [],
@@ -34,6 +36,7 @@ export const Seo: FC<SeoProps> = ({
             description
             keywords
             image
+            previewImage
             siteName
             siteUrl
           }
@@ -51,6 +54,8 @@ export const Seo: FC<SeoProps> = ({
   const metaImage = image ?? site.siteMetadata?.image;
   const keywords = site.siteMetadata?.keywords;
   const metaSiteName = site.siteMetadata?.siteName;
+  const previewImageUrl =
+    (previewImage && `https:${previewImage}`) || site.siteMetadata?.previewImage;
 
   return (
     <Helmet
@@ -83,7 +88,7 @@ export const Seo: FC<SeoProps> = ({
         },
         {
           property: 'og:image',
-          content: metaImage,
+          content: previewImageUrl || metaImage,
         },
         {
           name: 'twitter:card',
