@@ -15,6 +15,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 500,
     },
+    dataGtm: 'become_sponsor',
   },
   {
     key: 'silver' as const,
@@ -33,6 +34,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 1000,
     },
+    dataGtm: 'become_sponsor',
   },
   {
     key: 'gold' as const,
@@ -52,6 +54,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 2500,
     },
+    dataGtm: 'become_sponsor',
   },
   {
     key: 'platinum' as const,
@@ -70,6 +73,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 5000,
     },
+    dataGtm: 'become_sponsor',
   },
   {
     key: 'diamond ' as const,
@@ -93,6 +97,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 50000,
     },
+    dataGtm: 'contact_us',
   },
 ];
 
@@ -110,6 +115,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
     priceValue: {
       yearly: 5,
     },
+    dataGtm: 'become_sponsor',
   },
   {
     key: 'generousBacker' as const,
@@ -125,6 +131,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
     priceValue: {
       yearly: 50,
     },
+    dataGtm: 'become_sponsor',
   },
 ];
 

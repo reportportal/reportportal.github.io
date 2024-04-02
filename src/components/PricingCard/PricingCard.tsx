@@ -24,6 +24,7 @@ interface PricingCardProps {
   discount: Discount;
   listItems?: string[];
   description?: string;
+  dataGtm?: string;
   isPopular?: boolean;
   isDiamond?: boolean;
   isFullWidth?: boolean;
@@ -45,6 +46,7 @@ export const PricingCard: FC<PricingCardProps> = ({
   actionText,
   isDiamond,
   isFullWidth,
+  dataGtm,
 }) => (
   <div className={classNames(getBlocksWith(), { [getBlocksWith('--full-width')]: isFullWidth })}>
     <div>
@@ -78,12 +80,17 @@ export const PricingCard: FC<PricingCardProps> = ({
         <Link
           className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}
           to={`${isAbsoluteURL(href) ? `${href}` : `${href}/${discount}`}`}
+          {...(dataGtm && { 'data-gtm': dataGtm })}
         >
           {actionText}
           {isAbsoluteURL(href) && <ArrowIcon />}
         </Link>
       ) : (
-        <button type="button" className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}>
+        <button
+          type="button"
+          className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}
+          {...(dataGtm && { 'data-gtm': dataGtm })}
+        >
           {actionText}
           {isAbsoluteURL(href) && <ArrowIcon />}
         </button>

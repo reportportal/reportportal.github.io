@@ -55,7 +55,7 @@ export const HowToBecomeSponsor: FC<HowToBecomeSponsorProps> = ({ contactUsLink 
             <div className={getStepsItemWith('__description')}>
               If you prefer a more personalized approach or have specific questions, please feel
               free to reach out to us using the{' '}
-              <Link className={getStepsItemWith('__link')} to={contactUsLink}>
+              <Link className={getStepsItemWith('__link')} to={contactUsLink} data-gtm="contact_us">
                 Contact us
               </Link>{' '}
               form with your chosen tier and any inquiries. We&lsquo;re here to assist you in every
@@ -79,7 +79,11 @@ export const HowToBecomeSponsor: FC<HowToBecomeSponsorProps> = ({ contactUsLink 
               Go to GitHub page
               <ArrowIcon />
             </Link>
-            <Link className={classNames('btn', 'btn--outline', 'btn--large')} to={contactUsLink}>
+            <Link
+              className={classNames('btn', 'btn--outline', 'btn--large')}
+              to={contactUsLink}
+              data-gtm="contact_us"
+            >
               Contact us directly
             </Link>
           </div>

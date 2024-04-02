@@ -27,6 +27,7 @@ export const BusinessPage: FC = () => (
         title="Still have questions about sponsorship?"
         linkTitle="Contact us"
         link={CONTACT_US_LINK}
+        dataGtm="contact_us"
       />
     </FooterContent>
   </div>
