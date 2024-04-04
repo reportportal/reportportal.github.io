@@ -20,7 +20,7 @@ env:
   DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
   GTM_ID: GTM-MK7ZHTL
   CLOUDFRONT_ID: EILUB1IE9EON0
-  CONTENTFUL_ENV_ID: 'dev'
+  CONTENTFUL_ENV_ID: 'master'
 
 on:
   push:
