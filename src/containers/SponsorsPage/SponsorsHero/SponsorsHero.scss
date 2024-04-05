@@ -18,6 +18,10 @@
 
     &__btn-box {
       margin-top: 50px;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        margin-top: 64px;
+      }
     }
   }
 

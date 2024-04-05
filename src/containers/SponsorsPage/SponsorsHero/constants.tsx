@@ -22,7 +22,7 @@ export const PRICING_BUTTONS = [
     linkTo: '/sponsorship-program/individual',
   },
 ];
-// Only for designer purposes
+// TODO: Only for designer purposes. Replace with actual sponsors when there are enough
 export const SPONSOR_SLIDES = [
   {
     id: 'mastercard',
@@ -53,31 +53,31 @@ export const SPONSOR_SLIDES = [
     src: Walmart,
   },
   {
-    id: 'mastercard',
+    id: 'mastercard1',
     src: MasterCard,
   },
   {
-    id: 'athena-health',
+    id: 'athena-health1',
     src: AthenaHealth,
   },
   {
-    id: 'disney',
+    id: 'disney1',
     src: Disney,
   },
   {
-    id: 'dow-jones',
+    id: 'dow-jones1',
     src: DowJones,
   },
   {
-    id: 'ibm',
+    id: 'ibm1',
     src: Ibm,
   },
   {
-    id: 'nokia',
+    id: 'nokia1',
     src: Nokia,
   },
   {
-    id: 'walmart',
+    id: 'walmart1',
     src: Walmart,
   },
 ];

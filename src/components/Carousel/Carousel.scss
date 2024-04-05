@@ -20,10 +20,6 @@
     &:last-child {
       transform: rotateY(180deg);
     }
-
-    &--hidden {
-      display: none;
-    }
   }
 
   .slick-dots {

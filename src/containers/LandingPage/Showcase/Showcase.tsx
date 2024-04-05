@@ -4,7 +4,7 @@ import Marquee from 'react-fast-marquee';
 import { useAtom } from 'jotai';
 import { Link } from '@app/components/Link';
 import { useClientCarouselItems } from '@app/hooks/useClientCarouselItems';
-import { createBemBlockBuilder, watchProductOverviewAtom } from '@app/utils';
+import { COMMON_MARQUEE_PROPS, createBemBlockBuilder, watchProductOverviewAtom } from '@app/utils';
 
 import { OrganizationsCarousel } from './OrganizationsCarousel';
 
@@ -72,12 +72,7 @@ export const Showcase: FC = () => {
       </div>
       {isDesktop && <OrganizationsCarousel slides={slides} logoKey="primaryLogo" />}
       {!isDesktop && (
-        <Marquee
-          className={getBlocksWith('__carousel-mobile')}
-          speed={25}
-          pauseOnHover
-          gradient={false}
-        >
+        <Marquee {...COMMON_MARQUEE_PROPS} className={getBlocksWith('__carousel-mobile')}>
           {allSlidesItems.map(({ id, primaryLogo }) => (
             <div className={getBlocksWith('__carousel-logo')} key={id}>
               <img src={primaryLogo?.url} alt={primaryLogo?.title} />
