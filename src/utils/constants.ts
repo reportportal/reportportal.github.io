@@ -156,3 +156,9 @@ export const SEO_DATA = {
       'Whether you have questions about our services or need assistance, feel free to connect with us using this form.',
   },
 };
+
+export const COMMON_MARQUEE_PROPS = {
+  speed: 25,
+  pauseOnHover: true,
+  gradient: false,
+};

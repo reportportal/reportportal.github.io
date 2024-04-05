@@ -1,3 +1,6 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
 .sponsors-hero {
   position: relative;
   z-index: 20;
@@ -7,8 +10,68 @@
   background: url('../../../svg/community/hero.svg') no-repeat center 0 / cover;
   color: var(--white);
 
-  .hero-switching__subtitle {
-    max-width: 790px;
-    margin: 16px auto 64px;
+  .hero-switching {
+    &__subtitle {
+      max-width: 790px;
+      margin: 16px auto 48px;
+    }
+
+    &__btn-box {
+      margin-top: 50px;
+
+      @include m.breakpoint(v.$desktop-sm) {
+        margin-top: 64px;
+      }
+    }
+  }
+
+  &__carousel-title {
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(small);
+
+    margin-bottom: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-primary-200);
+  }
+
+  &__slide {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: 80px;
+  }
+
+  .carousel {
+    margin-bottom: 74px;
+
+    .ant-carousel {
+      width: 852px;
+    }
+
+    .slick-dots {
+      bottom: -8px;
+
+      li button {
+        background-color: rgb(255 255 255 / 0.3);
+      }
+
+      li.slick-active button {
+        background: linear-gradient(to right, var(--white) 50%, rgb(255 255 255 / 0.3) 0);
+        background-position: right;
+        background-size: 200% 100%;
+        animation: progressAnimation 5s forwards;
+      }
+    }
+  }
+
+  .marquee {
+    justify-content: center;
+  }
+
+  &__carousel-logo {
+    padding: 22px 24px;
+    line-height: 0;
   }
 }
