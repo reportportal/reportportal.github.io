@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 import { createBemBlockBuilder, LIST_ANIMATION_DELAY } from '@app/utils';
 import { useAnimationInterval } from '@app/hooks/useAnimationInterval';
@@ -16,8 +16,8 @@ interface AnimatedListProps {
   }[];
   title: string;
   subtitle: string;
-  listDesktopPosition: string;
-  children: React.ReactNode;
+  children: ReactNode;
+  listDesktopPosition?: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['animated-list-container']);

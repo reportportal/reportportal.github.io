@@ -1,7 +1,8 @@
 import React, { FC, ReactElement } from 'react';
+import { Helmet } from 'react-helmet';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
-import { ContentfulAsset, createBemBlockBuilder, isContentfulRecord } from '@app/utils';
+import { ContentfulAsset, createBemBlockBuilder, isContentfulRecord, LinkDto } from '@app/utils';
 
 interface SectionItemProps {
   sys: object;
@@ -10,13 +11,13 @@ interface SectionItemProps {
   hoverIcon?: ContentfulAsset;
   iconClass: string;
   text: string;
-  link?: string;
+  link: LinkDto;
   className?: string;
   isDataFromContentful?: boolean;
 }
 
 export const SectionItem: FC<SectionItemProps> = props => {
-  const { title, link = '#', icon, hoverIcon, iconClass, text, className = '' } = props;
+  const { title, link, icon, hoverIcon, iconClass, text, className = '' } = props;
 
   const getBlocksWith = createBemBlockBuilder(['section-item', className]);
 
@@ -26,19 +27,22 @@ export const SectionItem: FC<SectionItemProps> = props => {
 
     if (iconClassName) {
       return (
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        <span
-          className={getBlocksWith('-icon', `-icon--${iconClassName}`)}
-          {...(isDataFromContentful && {
-            style: {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              '--icon': `url('${(icon as ContentfulAsset).url}')`,
-              '--hover-icon': `url('${((hoverIcon ?? icon) as ContentfulAsset).url}')`,
-            },
-          })}
-        />
+        <>
+          {hoverIcon ? (
+            <Helmet>
+              <link rel="preload" as="image" href={hoverIcon.url} />
+            </Helmet>
+          ) : null}
+          <span
+            className={getBlocksWith('-icon', `-icon--${iconClassName}`)}
+            {...(isDataFromContentful && {
+              style: {
+                '--icon': `url('${(icon as ContentfulAsset).url}')`,
+                '--hover-icon': `url('${((hoverIcon ?? icon) as ContentfulAsset).url}')`,
+              },
+            })}
+          />
+        </>
       );
     }
 
@@ -48,7 +52,7 @@ export const SectionItem: FC<SectionItemProps> = props => {
   return (
     <Link
       key={title}
-      to={link}
+      to={link?.url ?? '#'}
       className={classNames(getBlocksWith(), { [getBlocksWith('--no-text')]: !text })}
     >
       {renderIcon()}

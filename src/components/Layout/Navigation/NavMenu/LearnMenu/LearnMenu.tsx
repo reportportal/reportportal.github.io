@@ -21,7 +21,7 @@ export const LearnMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContain
       iconClass: 'youtube',
       title: 'YouTube channel',
       text: 'Subscribe and watch video guides',
-      link: 'https://www.youtube.com/@ReportPortal',
+      link: { url: 'https://www.youtube.com/@ReportPortal' },
     });
   }
 
