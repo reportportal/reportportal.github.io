@@ -86,3 +86,8 @@ export type OnPremisesPricingConfig = PricingConfigShared & {
 };
 
 export type Discount = 'quarterly' | 'yearly';
+
+export enum DataGTM {
+  ContactUs = 'contact_us',
+  BecomeSponsor = 'become_sponsor',
+}

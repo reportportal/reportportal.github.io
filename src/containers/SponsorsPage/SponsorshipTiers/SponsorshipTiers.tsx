@@ -8,7 +8,7 @@ import { SPONSORSHIP_INFO } from './constants';
 import './SponsorshipTiers.scss';
 
 interface SponsorshipTiersProps {
-  sponsorshipType: 'business' | 'individual';
+  sponsorshipType: keyof typeof SPONSORSHIP_INFO;
 }
 
 const getBlocksWith = createBemBlockBuilder(['sponsorship-tiers']);
@@ -20,8 +20,8 @@ export const SponsorshipTiers: FC<SponsorshipTiersProps> = ({ sponsorshipType })
       subtitle="Choose your level of sponsorship using GitHub and gain access to exclusive benefits "
     />
     <div className={getBlocksWith('__card-wrapper')}>
-      {SPONSORSHIP_INFO[sponsorshipType].map(info => (
-        <PricingCard key={info.key} {...info} />
+      {SPONSORSHIP_INFO[sponsorshipType].map(({ key, ...info }) => (
+        <PricingCard key={key} {...info} />
       ))}
     </div>
   </div>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -12,7 +12,7 @@ interface BannerProps {
   linkTitle?: string;
   subtitle?: string;
   dataGtm?: string;
-  children?: React.JSX.Element;
+  children?: ReactNode;
 }
 
 export const Banner: FC<BannerProps> = ({

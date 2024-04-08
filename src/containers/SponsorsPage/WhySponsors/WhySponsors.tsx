@@ -6,7 +6,7 @@ import { SPONSORS_INFO } from './constants';
 import './WhySponsors.scss';
 
 interface WhySponsorsProps {
-  sponsorshipType: string;
+  sponsorshipType: keyof typeof SPONSORS_INFO;
 }
 
 export const WhySponsors: FC<WhySponsorsProps> = ({ sponsorshipType }) => (

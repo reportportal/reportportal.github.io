@@ -1,3 +1,7 @@
+import { DataGTM } from '@app/utils';
+
+export const SPONSORS_REPORT_PORTAL_URL = 'https://github.com/sponsors/reportportal';
+
 export const BUSINESS_SPONSORSHIP = [
   {
     key: 'bronze' as const,
@@ -7,7 +11,7 @@ export const BUSINESS_SPONSORSHIP = [
       'A shoutout on our social media channels to reach all of our followers',
     ],
     actionText: 'Become sponsor',
-    href: 'https://github.com/sponsors/reportportal',
+    href: SPONSORS_REPORT_PORTAL_URL,
     actionVariant: 'outline',
     currency: '$',
     period: 'month',
@@ -15,7 +19,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 500,
     },
-    dataGtm: 'become_sponsor',
+    dataGtm: DataGTM.BecomeSponsor,
   },
   {
     key: 'silver' as const,
@@ -26,7 +30,7 @@ export const BUSINESS_SPONSORSHIP = [
       'Early access to ReportPortal beta features',
     ],
     actionText: 'Become sponsor',
-    href: 'https://github.com/sponsors/reportportal',
+    href: SPONSORS_REPORT_PORTAL_URL,
     actionVariant: 'outline',
     currency: '$',
     period: 'month',
@@ -34,7 +38,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 1000,
     },
-    dataGtm: 'become_sponsor',
+    dataGtm: DataGTM.BecomeSponsor,
   },
   {
     key: 'gold' as const,
@@ -45,7 +49,7 @@ export const BUSINESS_SPONSORSHIP = [
       'Priority support for any issues encountered',
     ],
     actionText: 'Become sponsor',
-    href: 'https://github.com/sponsors/reportportal',
+    href: SPONSORS_REPORT_PORTAL_URL,
     isPopular: true,
     actionVariant: 'primary',
     currency: '$',
@@ -54,7 +58,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 2500,
     },
-    dataGtm: 'become_sponsor',
+    dataGtm: DataGTM.BecomeSponsor,
   },
   {
     key: 'platinum' as const,
@@ -65,7 +69,7 @@ export const BUSINESS_SPONSORSHIP = [
       'Opportunity to influence the product roadmap',
     ],
     actionText: 'Become sponsor',
-    href: 'https://github.com/sponsors/reportportal',
+    href: SPONSORS_REPORT_PORTAL_URL,
     actionVariant: 'outline',
     currency: '$',
     period: 'month',
@@ -73,7 +77,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 5000,
     },
-    dataGtm: 'become_sponsor',
+    dataGtm: DataGTM.BecomeSponsor,
   },
   {
     key: 'diamond ' as const,
@@ -97,7 +101,7 @@ export const BUSINESS_SPONSORSHIP = [
     priceValue: {
       yearly: 50000,
     },
-    dataGtm: 'contact_us',
+    dataGtm: DataGTM.ContactUs,
   },
 ];
 
@@ -107,7 +111,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
     title: 'Individual backer',
     description: "Your name will be featured in ReportPortal's official GitHub repository",
     actionText: 'Become sponsor',
-    href: 'https://github.com/sponsors/reportportal',
+    href: SPONSORS_REPORT_PORTAL_URL,
     actionVariant: 'outline',
     currency: '$',
     period: 'month',
@@ -115,7 +119,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
     priceValue: {
       yearly: 5,
     },
-    dataGtm: 'become_sponsor',
+    dataGtm: DataGTM.BecomeSponsor,
   },
   {
     key: 'generousBacker' as const,
@@ -123,7 +127,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
     description:
       'Your name will be displayed under "Generous Backers" section in ReportPortal\'s GitHub repository',
     actionText: 'Become sponsor',
-    href: 'https://github.com/sponsors/reportportal',
+    href: SPONSORS_REPORT_PORTAL_URL,
     actionVariant: 'primary',
     currency: '$',
     period: 'month',
@@ -131,7 +135,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
     priceValue: {
       yearly: 50,
     },
-    dataGtm: 'become_sponsor',
+    dataGtm: DataGTM.BecomeSponsor,
   },
 ];
 

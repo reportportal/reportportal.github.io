@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
-import { createBemBlockBuilder } from '@app/utils';
+import { createBemBlockBuilder, DataGTM } from '@app/utils';
+import { useScrollIntoViewHandler } from '@app/hooks/useScrollIntoViewHandler';
 import ArrowIcon from '@app/svg/arrow.inline.svg';
+
+import { SPONSORS_REPORT_PORTAL_URL } from '../SponsorshipTiers/constants';
 
 import './HowToBecomeSponsor.scss';
 
@@ -14,13 +17,7 @@ const getBlocksWith = createBemBlockBuilder(['how-to-become-sponsor']);
 const getStepsItemWith = createBemBlockBuilder(['steps-item']);
 
 export const HowToBecomeSponsor: FC<HowToBecomeSponsorProps> = ({ contactUsLink }) => {
-  const scrollToTiers = () => {
-    const anchorTarget = document.getElementById('sponsorship-tiers');
-
-    if (anchorTarget) {
-      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-    }
-  };
+  const scrollIntoViewHandler = useScrollIntoViewHandler();
 
   return (
     <div className={getBlocksWith()}>
@@ -33,7 +30,10 @@ export const HowToBecomeSponsor: FC<HowToBecomeSponsorProps> = ({ contactUsLink 
               Review the sponsorship tiers above to select the one that aligns with your
               organization&lsquo;s goals or your personal commitment to support.
             </div>
-            <div className={getStepsItemWith('__anchor')} onClick={scrollToTiers}>
+            <div
+              className={getStepsItemWith('__anchor')}
+              onClick={() => scrollIntoViewHandler('sponsorship-tiers')}
+            >
               Review tiers <ArrowIcon />
             </div>
           </div>
@@ -42,10 +42,7 @@ export const HowToBecomeSponsor: FC<HowToBecomeSponsorProps> = ({ contactUsLink 
             <div className={getStepsItemWith('__description')}>
               For convenience, you can directly choose and manage your sponsorship through the
               ReportPortal{' '}
-              <Link
-                className={getStepsItemWith('__link')}
-                to="https://github.com/sponsors/reportportal"
-              >
+              <Link className={getStepsItemWith('__link')} to={SPONSORS_REPORT_PORTAL_URL}>
                 GitHub Sponsorship page
                 <ArrowIcon />
               </Link>
@@ -55,7 +52,11 @@ export const HowToBecomeSponsor: FC<HowToBecomeSponsorProps> = ({ contactUsLink 
             <div className={getStepsItemWith('__description')}>
               If you prefer a more personalized approach or have specific questions, please feel
               free to reach out to us using the{' '}
-              <Link className={getStepsItemWith('__link')} to={contactUsLink} data-gtm="contact_us">
+              <Link
+                className={getStepsItemWith('__link')}
+                to={contactUsLink}
+                data-gtm={DataGTM.ContactUs}
+              >
                 Contact us
               </Link>{' '}
               form with your chosen tier and any inquiries. We&lsquo;re here to assist you in every
@@ -74,7 +75,7 @@ export const HowToBecomeSponsor: FC<HowToBecomeSponsorProps> = ({ contactUsLink 
           <div className={getStepsItemWith('__buttons')}>
             <Link
               className={classNames('btn', 'btn--primary', 'btn--large')}
-              to="https://github.com/sponsors/reportportal"
+              to={SPONSORS_REPORT_PORTAL_URL}
             >
               Go to GitHub page
               <ArrowIcon />
@@ -82,7 +83,7 @@ export const HowToBecomeSponsor: FC<HowToBecomeSponsorProps> = ({ contactUsLink 
             <Link
               className={classNames('btn', 'btn--outline', 'btn--large')}
               to={contactUsLink}
-              data-gtm="contact_us"
+              data-gtm={DataGTM.ContactUs}
             >
               Contact us directly
             </Link>

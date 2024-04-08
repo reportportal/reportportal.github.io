@@ -76,25 +76,14 @@ export const PricingCard: FC<PricingCardProps> = ({
           </>
         )}
       </div>
-      {href ? (
-        <Link
-          className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}
-          to={`${isAbsoluteURL(href) ? `${href}` : `${href}/${discount}`}`}
-          {...(dataGtm && { 'data-gtm': dataGtm })}
-        >
-          {actionText}
-          {isAbsoluteURL(href) && <ArrowIcon />}
-        </Link>
-      ) : (
-        <button
-          type="button"
-          className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}
-          {...(dataGtm && { 'data-gtm': dataGtm })}
-        >
-          {actionText}
-          {isAbsoluteURL(href) && <ArrowIcon />}
-        </button>
-      )}
+      <Link
+        className={classNames('btn', `btn--${actionVariant}`, 'btn--large')}
+        to={`${isAbsoluteURL(href) ? `${href}` : `${href}/${discount}`}`}
+        {...(dataGtm && { 'data-gtm': dataGtm })}
+      >
+        {actionText}
+        {isAbsoluteURL(href) && <ArrowIcon />}
+      </Link>
     </div>
   </div>
 );

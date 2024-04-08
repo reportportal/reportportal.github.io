@@ -3,6 +3,7 @@ import { LinkedCardBlock } from '@app/components/LinkedCardBlock';
 import { HowToBecomeSponsor } from '@app/containers/SponsorsPage/HowToBecomeSponsor';
 import { FooterContent } from '@app/components/Layout';
 import { Banner } from '@app/components/Banner';
+import { DataGTM } from '@app/utils';
 
 import { WhySponsors } from '../WhySponsors';
 import { SponsorshipTiers } from '../SponsorshipTiers';
@@ -25,7 +26,7 @@ export const IndividualPage: FC = () => (
         title="Still have questions about sponsorship?"
         linkTitle="Contact us"
         link={CONTACT_US_LINK}
-        dataGtm="contact_us"
+        dataGtm={DataGTM.ContactUs}
       />
     </FooterContent>
   </div>

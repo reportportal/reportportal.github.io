@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { LinkedCardBlock } from '@app/components/LinkedCardBlock';
 import { Banner } from '@app/components/Banner';
 import { FooterContent } from '@app/components/Layout';
+import { DataGTM } from '@app/utils';
 
 import { WhySponsors } from '../WhySponsors';
 import { SponsorshipTiers } from '../SponsorshipTiers';
@@ -27,7 +28,7 @@ export const BusinessPage: FC = () => (
         title="Still have questions about sponsorship?"
         linkTitle="Contact us"
         link={CONTACT_US_LINK}
-        dataGtm="contact_us"
+        dataGtm={DataGTM.ContactUs}
       />
     </FooterContent>
   </div>

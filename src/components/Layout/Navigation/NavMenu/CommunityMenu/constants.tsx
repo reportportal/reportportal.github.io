@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { CommunityIcon } from './icons/CommunityIcon';
-import { SponsorIcon } from './icons/SponsorIcon';
+import CommunityIcon from './icons/community-icon.inline.svg';
+import SponsorIcon from './icons/sponsors-icon.inline.svg';
 
 export const COMMUNITY_LIST = [
   {

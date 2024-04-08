@@ -83,6 +83,7 @@ export const SEO_DATA = {
     title: 'Blog',
     description: "Stay informed by reading ReportPortal's updates, news, and technology articles.",
   },
+  // ToDo: add description for business and individual after it'll be provided
   business: {
     title: 'Business',
     description: 'TBD',
