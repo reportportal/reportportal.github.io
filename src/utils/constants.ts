@@ -83,6 +83,15 @@ export const SEO_DATA = {
     title: 'Blog',
     description: "Stay informed by reading ReportPortal's updates, news, and technology articles.",
   },
+  // ToDo: add description for business and individual after it'll be provided
+  business: {
+    title: 'Business',
+    description: 'TBD',
+  },
+  individual: {
+    title: 'individual',
+    description: 'TBD',
+  },
   community: {
     title: 'Community',
     description:
@@ -147,4 +156,10 @@ export const SEO_DATA = {
     description:
       'Whether you have questions about our services or need assistance, feel free to connect with us using this form.',
   },
+};
+
+export const COMMON_MARQUEE_PROPS = {
+  speed: 25,
+  pauseOnHover: true,
+  gradient: false,
 };

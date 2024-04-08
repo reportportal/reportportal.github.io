@@ -13,48 +13,33 @@
     background-size: cover;
   }
 
-  &__btn-box {
-    display: flex;
-    justify-content: center;
-    margin: 54px 0 0;
-  }
+  .hero-switching {
+    &__title {
+      margin: 0 30px;
+      padding-top: 64px;
+      color: var(--white);
 
-  &__title {
-    @include m.font-poppins(v.$fw-bold);
-    @include m.font-scale(large);
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        margin: 0 11px;
+      }
 
-    margin: 0 30px;
-    padding-top: 64px;
-    text-align: center;
-    color: var(--white);
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      @include m.font-scale(x3-large);
-
-      margin: 0 11px;
+      @include m.breakpoint(v.$desktop-sm) {
+        max-width: var(--size-max-width);
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 80px;
+      }
     }
 
-    @include m.breakpoint(v.$desktop-sm) {
-      @include m.font-scale(x4-large);
-
-      max-width: var(--size-max-width);
-      margin-right: auto;
-      margin-left: auto;
-      padding-top: 80px;
+    &__subtitle {
+      margin-top: 8px;
+      margin-bottom: 0;
+      padding: 0 20px;
+      color: var(--white);
     }
-  }
 
-  &__subtitle {
-    @include m.font-scale(medium);
-
-    margin-top: 8px;
-    margin-bottom: 0;
-    padding: 0 20px;
-    text-align: center;
-    color: var(--white);
-
-    @include m.breakpoint(v.$desktop-sm) {
-      @include m.font-scale(x2-medium);
+    &__btn-box {
+      margin: 54px 0 0;
     }
   }
 

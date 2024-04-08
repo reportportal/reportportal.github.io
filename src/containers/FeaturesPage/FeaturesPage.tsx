@@ -18,6 +18,7 @@ import { Banner } from '@app/components/Banner';
 import { StartTestingWithReportPortal } from '@app/components/StartTestingWithReportPortal';
 import { Faq } from '@app/components/Faq';
 import { FooterContent } from '@app/components/Layout';
+import { useScrollIntoViewHandler } from '@app/hooks/useScrollIntoViewHandler';
 
 import { FEATURES_LIST, NAVIGATION_LIST } from './constants';
 
@@ -25,15 +26,9 @@ import './FeaturesPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['features-page']);
 
-const scrollToAnchor = (anchor: string) => {
-  const anchorTarget = document.getElementById(anchor.slice(1));
-
-  if (anchorTarget) {
-    anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-  }
-};
-
 export const FeaturesPage: FC = () => {
+  const scrollIntoViewHandler = useScrollIntoViewHandler();
+
   const handleScroll = () => {
     const itemList = document.querySelectorAll(
       `.${getBlocksWith('__features-list-item-container')}`,
@@ -104,7 +99,7 @@ export const FeaturesPage: FC = () => {
   const handleNavClick = (event, anchor) => {
     event.preventDefault();
 
-    scrollToAnchor(anchor);
+    scrollIntoViewHandler(anchor.slice(1));
   };
 
   const collapsableList = [
@@ -156,7 +151,7 @@ export const FeaturesPage: FC = () => {
               alt=""
               onLoad={() => {
                 if (activeElement) {
-                  scrollToAnchor(activeElement);
+                  scrollIntoViewHandler(activeElement.slice(1));
                 }
               }}
             />

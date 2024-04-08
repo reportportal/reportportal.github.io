@@ -127,6 +127,28 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
         ${createPriceInfo({ isYearly, ...pricingConfig.onPremises.package160 })}`,
   });
 
+  const createContactUsConfig = ({ salesforceSourceName, leadSource, url }) => ({
+    url,
+    title: 'Contact us',
+    options: [
+      {
+        name: SALESFORCE_SOURCE_NAME,
+        value: `Landing page / ${salesforceSourceName}`,
+      },
+      {
+        name: LEAD_SOURCE,
+        value: leadSource,
+      },
+    ],
+    info: `<p>Got questions or need information about ReportPortal?</p>
+        <ul>
+          <li><strong>Quotes:</strong> Request pricing details.</li>
+          <li><strong>Free Trial:</strong> Sign up for a 30-day free trial of ReportPortal.</li>
+          <li><strong>Sponsorship:</strong> Become a Sponsor or inquire about sponsorship tiers.</li>
+        </ul>`,
+    isDiscussFieldShown: true,
+  });
+
   const QaSpaceBaseConfig = {
     title: 'QaSpace',
     options: [
@@ -160,17 +182,6 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
       },
     ],
     info: '<p>Looking for more details on our offerings?<br />Simply fill out the form.</p>',
-    isDiscussFieldShown: false,
-  };
-
-  const generalAndCommunityBaseConfig = {
-    title: 'Contact us',
-    info: `<p>Got questions or need information about ReportPortal?</p>
-        <ul>
-          <li><strong>Inquiries:</strong> Feel free to ask.</li>
-          <li><strong>Quotes:</strong> Request pricing details.</li>
-          <li><strong>Free Trial:</strong> Get ReportPortal trial.</li>
-        </ul>`,
     isDiscussFieldShown: false,
   };
 
@@ -348,34 +359,30 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
       info: '<p>Looking for quotes on Quality Engineering Consulting Services?<br />Simply fill out the form.</p>',
       isDiscussFieldShown: false,
     },
-    {
-      ...generalAndCommunityBaseConfig,
+    createContactUsConfig({
+      salesforceSourceName: 'General',
+      leadSource: 'RP General',
       url: '/contact-us/general',
-      options: [
-        {
-          name: SALESFORCE_SOURCE_NAME,
-          value: 'Landing page / General',
-        },
-        {
-          name: LEAD_SOURCE,
-          value: 'RP General',
-        },
-      ],
-    },
-    {
-      ...generalAndCommunityBaseConfig,
+    }),
+    createContactUsConfig({
+      salesforceSourceName: 'RP Community',
+      leadSource: 'RP Community',
       url: '/contact-us/community',
-      options: [
-        {
-          name: SALESFORCE_SOURCE_NAME,
-          value: 'Landing page / RP Community',
-        },
-        {
-          name: LEAD_SOURCE,
-          value: 'RP Community',
-        },
-      ],
-      isDiscussFieldShown: true,
-    },
+    }),
+    createContactUsConfig({
+      salesforceSourceName: 'Sponsorship Program / Individual',
+      leadSource: 'RP Sponsorship Program',
+      url: '/contact-us/sponsorship-program/individual',
+    }),
+    createContactUsConfig({
+      salesforceSourceName: 'Sponsorship Program / Business',
+      leadSource: 'RP Sponsorship Program',
+      url: '/contact-us/sponsorship-program/business',
+    }),
+    createContactUsConfig({
+      salesforceSourceName: 'Sponsorship Program / Business / Diamond',
+      leadSource: 'RP Sponsorship Program',
+      url: '/contact-us/sponsorship-program/business/diamond/yearly',
+    }),
   ];
 };

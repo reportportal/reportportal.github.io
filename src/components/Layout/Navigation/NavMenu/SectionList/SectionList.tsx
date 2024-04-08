@@ -7,8 +7,8 @@ import { SectionItem } from './SectionItem';
 import './SectionList.scss';
 
 interface SectionListProps {
-  title: string;
   items: { title: string }[];
+  title?: string;
   className?: string;
   showTitle?: boolean;
   itemsPerRow?: number;
