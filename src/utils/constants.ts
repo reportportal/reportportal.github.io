@@ -83,6 +83,16 @@ export const SEO_DATA = {
     title: 'Blog',
     description: "Stay informed by reading ReportPortal's updates, news, and technology articles.",
   },
+  business: {
+    title: 'Business sponsorship program',
+    description:
+      'Boost brand visibility, enhance your tech influence, and shape the future of end to end testing reporting tools by sponsoring ReportPortal.',
+  },
+  individual: {
+    title: 'Individual sponsorship program',
+    description:
+      'Help maintain a test automation results dashboard by sponsoring ReportPortal. Enjoy the acknowledgment of your efforts.',
+  },
   community: {
     title: 'Community',
     description:
@@ -147,4 +157,10 @@ export const SEO_DATA = {
     description:
       'Whether you have questions about our services or need assistance, feel free to connect with us using this form.',
   },
+};
+
+export const COMMON_MARQUEE_PROPS = {
+  speed: 25,
+  pauseOnHover: true,
+  gradient: false,
 };

@@ -16,6 +16,7 @@ const config: GatsbyConfig = {
       'test automation dashboard, test automation reporting, qa automation dashboard, test automation results dashboard, test report dashboard, qa metrics dashboard, test execution report, end to end testing reporting tools, ReportPortal installation, ReportPortal integration, ReportPortal dashboard',
     siteUrl: 'https://reportportal.io',
     image: 'https://reportportal.io/favicon.ico',
+    previewImage: 'https://reportportal.io/preview.png',
     siteName: 'ReportPortal | AI-powered Test Automaton Dashboard',
   },
   plugins: [

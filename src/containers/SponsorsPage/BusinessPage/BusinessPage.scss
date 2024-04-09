@@ -1,0 +1,9 @@
+.business {
+  .linked-card-block__cards {
+    max-width: var(--size-max-width);
+
+    .linked-card {
+      padding: 24px;
+    }
+  }
+}

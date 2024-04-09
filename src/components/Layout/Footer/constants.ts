@@ -18,6 +18,10 @@ export const PRODUCT_LINKS = [
     link: `${DOCUMENTATION_URL}/category/plugins/`,
   },
   {
+    title: 'Become sponsor',
+    link: '/sponsorship-program/business',
+  },
+  {
     title: 'Pricing',
     link: '/pricing/on-premises',
   },

@@ -33,6 +33,7 @@ interface LayoutProps {
     title?: string;
     description?: string;
     noIndex?: boolean;
+    previewImage?: string;
   };
 }
 
@@ -59,7 +60,12 @@ export const Layout: FC<LayoutProps> = ({ children, className, seoData }) => {
             </div>
           )}
         </AnimatePresence>
-        <Seo description={seoData?.description} title={seoData?.title} noIndex={seoData?.noIndex} />
+        <Seo
+          description={seoData?.description}
+          title={seoData?.title}
+          noIndex={seoData?.noIndex}
+          previewImage={seoData?.previewImage}
+        />
         <Navigation announcementBarRef={announcementBarRef} />
         <main>{children}</main>
         <Footer />

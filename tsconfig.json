@@ -7,14 +7,16 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["src/*"],
+      "@app/*": ["src/*"]
     },
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": ["src", "./gatsby-node.ts", "./gatsby-config.ts", "./plugins/**/*"],
   "exclude": ["node_modules"]

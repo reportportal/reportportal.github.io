@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { ArrowLink } from '../ArrowLink';
 
@@ -7,11 +8,13 @@ import './LinkedCard.scss';
 interface LinkedCardProps {
   itemTitle: string;
   description: string;
-  link: string;
-  linkText: string;
+  link?: string;
+  linkText?: string;
   icon?: string;
   delay?: boolean;
 }
+
+const getBlocksWith = createBemBlockBuilder(['linked-card']);
 
 export const LinkedCard: FC<LinkedCardProps> = ({
   itemTitle,
@@ -22,12 +25,12 @@ export const LinkedCard: FC<LinkedCardProps> = ({
   delay = false,
 }) => {
   return (
-    <div className="linked-card">
-      {icon && <img className="linked-card__image" src={icon} alt="" />}
-      <strong className="linked-card__title">{itemTitle}</strong>
-      <p className="linked-card__description">{description}</p>
-      <ArrowLink mode="primary" to={link} text={linkText} />
-      {delay && <div className="linked-card__progress" />}
+    <div className={getBlocksWith()}>
+      {icon && <img className={getBlocksWith('__image')} src={icon} alt="" />}
+      <strong className={getBlocksWith('__title')}>{itemTitle}</strong>
+      <p className={getBlocksWith('__description')}>{description}</p>
+      {link && <ArrowLink mode="primary" to={link} text={linkText} />}
+      {delay && <div className={getBlocksWith('__progress')} />}
     </div>
   );
 };

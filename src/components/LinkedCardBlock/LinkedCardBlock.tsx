@@ -8,7 +8,6 @@ import { TitleBlock } from '../TitleBlock';
 import './LinkedCardBlock.scss';
 
 interface LinkedCardBlockProps {
-  children: ReactNode;
   title: string;
   subtitle: string;
   cardsInfo: {
@@ -18,6 +17,7 @@ interface LinkedCardBlockProps {
     linkText: string;
     icon: string;
   }[];
+  children?: ReactNode;
   largePadding?: boolean;
 }
 
@@ -32,7 +32,7 @@ export const LinkedCardBlock: FC<LinkedCardBlockProps> = ({
 }) => (
   <div
     className={classNames(getBlocksWith(), {
-      'linked-card-block--large-padding': largePadding,
+      [getBlocksWith('--large-padding')]: largePadding,
     })}
   >
     <div className="container">

@@ -53,7 +53,7 @@ export interface BlogPostsQueryDto {
   allContentfulBlogPost: { nodes: BlogPostDto[] };
 }
 
-interface PricingConfigOptionDto {
+export interface PricingConfigOptionDto {
   yearly: number;
   quarterly: number;
 }
@@ -86,3 +86,8 @@ export type OnPremisesPricingConfig = PricingConfigShared & {
 };
 
 export type Discount = 'quarterly' | 'yearly';
+
+export enum DataGTM {
+  ContactUs = 'contact_us',
+  BecomeSponsor = 'become_sponsor',
+}

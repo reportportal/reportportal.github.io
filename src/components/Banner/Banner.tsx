@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -11,10 +11,18 @@ interface BannerProps {
   link?: string;
   linkTitle?: string;
   subtitle?: string;
-  children?: React.JSX.Element;
+  dataGtm?: string;
+  children?: ReactNode;
 }
 
-export const Banner: FC<BannerProps> = ({ title, subtitle, link, linkTitle, children }) => (
+export const Banner: FC<BannerProps> = ({
+  title,
+  subtitle,
+  link,
+  linkTitle,
+  dataGtm,
+  children,
+}) => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__wrapper')}>
       <div className={getBlocksWith('__inner')}>
@@ -24,7 +32,11 @@ export const Banner: FC<BannerProps> = ({ title, subtitle, link, linkTitle, chil
         </div>
         {link && (
           <div className={getBlocksWith('__btn-wrapper')}>
-            <Link className="btn btn--primary btn--large" to={link}>
+            <Link
+              className="btn btn--primary btn--large"
+              to={link}
+              {...(dataGtm && { 'data-gtm': dataGtm })}
+            >
               {linkTitle}
             </Link>
           </div>

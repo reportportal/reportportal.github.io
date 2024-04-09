@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, memo, FC } from 'react';
+import classNames from 'classnames';
 import { Carousel as AntdCarousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
 import { createBemBlockBuilder } from '@app/utils';
@@ -12,6 +13,7 @@ interface CarouselProps {
   children: React.ReactNode;
   autoplay?: boolean;
   buttonColor?: string;
+  isNavigationVisible?: boolean;
 }
 
 const BUTTON_ICON_MAP = {
@@ -22,7 +24,7 @@ const BUTTON_ICON_MAP = {
 const getBlocksWith = createBemBlockBuilder(['carousel']);
 
 export const Carousel: FC<CarouselProps> = memo(
-  ({ children, buttonColor = 'white', autoplay = true }) => {
+  ({ children, buttonColor = 'white', autoplay = true, isNavigationVisible = true }) => {
     const carouselRef = useRef<CarouselRef | null>(null);
     const ButtonIcon = BUTTON_ICON_MAP[buttonColor];
 
@@ -34,9 +36,13 @@ export const Carousel: FC<CarouselProps> = memo(
       return carouselRef.current?.next();
     }, []);
 
+    const buttonClassName = classNames(getBlocksWith('__button'), {
+      'temporary-hide': !isNavigationVisible,
+    });
+
     return (
       <div className={getBlocksWith()}>
-        <button className={getBlocksWith('__button')} onClick={handlePrevClick}>
+        <button className={buttonClassName} onClick={handlePrevClick}>
           <ButtonIcon />
         </button>
         <AntdCarousel
@@ -47,7 +53,7 @@ export const Carousel: FC<CarouselProps> = memo(
         >
           {children}
         </AntdCarousel>
-        <button className={getBlocksWith('__button')} onClick={handleNextClick}>
+        <button className={buttonClassName} onClick={handleNextClick}>
           <ButtonIcon />
         </button>
       </div>
