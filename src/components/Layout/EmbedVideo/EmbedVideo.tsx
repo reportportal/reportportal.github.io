@@ -5,7 +5,7 @@ import './EmbedVideo.scss';
 
 interface EmbedVideoProps {
   isOpen: boolean;
-  embedId: string;
+  embedId: string | null;
   onClick: () => void;
 }
 

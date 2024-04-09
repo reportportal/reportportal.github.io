@@ -2,7 +2,35 @@ import isUndefined from 'lodash/isUndefined';
 
 const stringifyPeriods = ['year', 'month', 'day', 'hour', 'minute'];
 
-export const prepareYoutubeVideos = videos =>
+type Thumbnail = {
+  [key in 'maxres' | 'medium']: {
+    url: string;
+  };
+};
+
+interface PrepareYoutubeVideosParams {
+  id: string;
+  title: string;
+  duration: string;
+  published_at: string;
+  statistics: {
+    view_count: number;
+  };
+  thumbnail: Partial<Thumbnail>;
+}
+
+interface PrepareYoutubeVideosReturn {
+  id: string;
+  title: string;
+  duration: string;
+  publishedAt: string;
+  viewCount: number;
+  imageSrc?: string;
+}
+
+export const prepareYoutubeVideos = (
+  videos: PrepareYoutubeVideosParams[],
+): PrepareYoutubeVideosReturn[] =>
   videos.map(({ id, title, duration, published_at: publishedAt, statistics, thumbnail }) => ({
     id,
     title,
@@ -12,11 +40,11 @@ export const prepareYoutubeVideos = videos =>
     imageSrc: thumbnail.maxres?.url || thumbnail.medium?.url,
   }));
 
-export const timeSince = dateString => {
+export const timeSince = (dateString: string) => {
   const creationTime = new Date(dateString);
   const currentTime = new Date();
 
-  const seconds = Math.floor((currentTime - creationTime) / 1000);
+  const seconds = Math.floor((currentTime.valueOf() - creationTime.valueOf()) / 1000);
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
@@ -35,7 +63,7 @@ export const timeSince = dateString => {
   return `${currentPeriod} ${stringifyPeriods[currentIndex]}${currentPeriod > 1 ? 's' : ''} ago`;
 };
 
-const getViewDigit = count => {
+const getViewDigit = (count: number) => {
   const truncDigit = Math.trunc(count);
   const floatDigit = count.toFixed(1);
   const fractionalDigit = floatDigit.split('.')[1];
@@ -43,7 +71,7 @@ const getViewDigit = count => {
   return fractionalDigit === '0' ? truncDigit : floatDigit;
 };
 
-export const formatYoutubeViews = viewCount => {
+export const formatYoutubeViews = (viewCount: number) => {
   if (viewCount < 1000) {
     return `${viewCount} views`;
   }
@@ -55,13 +83,13 @@ export const formatYoutubeViews = viewCount => {
   return `${getViewDigit(viewCount / 1000000)}M views`;
 };
 
-const getStringifyValue = value => {
+const getStringifyValue = (value: string) => {
   const numericValue = parseInt(value || '0', 10);
 
   return numericValue.toString().padStart(2, '0');
 };
 
-export const convertDuration = durationStr => {
+export const convertDuration = (durationStr: string) => {
   const match = durationStr.match(/PT(?:(\d+)H)?((\d+)M)?((\d+)S)?/);
 
   if (match) {

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { PricingCard } from '@app/components/PricingCard';
-import { createBemBlockBuilder, SAAS_OFFERS, SassPricingConfig } from '@app/utils';
+import { createBemBlockBuilder, SAAS_OFFERS, SassPricingConfig, Discount } from '@app/utils';
 
 import './PricingCards.scss';
 
@@ -16,7 +16,7 @@ export const PricingCards: FC<PricingCardsProps> = ({ pricing, isDiscount }) => 
     ...offer,
     priceValue: pricing.prices[offer.key],
     currency: pricing.currency,
-    discount: isDiscount ? 'yearly' : 'quarterly',
+    discount: (isDiscount ? 'yearly' : 'quarterly') as Discount,
     period: pricing.period,
   }));
 

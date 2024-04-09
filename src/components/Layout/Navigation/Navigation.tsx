@@ -51,7 +51,7 @@ export const Navigation: FC<NavigationProps> = ({ announcementBarRef }) => {
   const menuLinksRef = useRef<HTMLUListElement | null>(null);
   const scroll = useScroll();
   const [isMobileMenuOpen, { setRight: openMobileMenu, setLeft: closeMobileMenu }] = useToggle();
-  const githubCounter = githubStats.repos.reportportal;
+  const githubCounter = `${githubStats.repos.reportportal}`;
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
   const scrollY = scroll?.top ?? 0;
 
@@ -143,7 +143,7 @@ export const Navigation: FC<NavigationProps> = ({ announcementBarRef }) => {
                   <MenuContainer
                     isOpen={menus[menuItem]}
                     menuLinksRef={menuLinksRef}
-                    onClose={() => updateMenus()}
+                    onClose={() => updateMenus(null)}
                   >
                     <Component />
                   </MenuContainer>

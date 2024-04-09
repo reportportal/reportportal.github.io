@@ -13,9 +13,9 @@ interface LinkedCardBlockProps {
   cardsInfo: {
     itemTitle: string;
     description: string;
-    link: string;
-    linkText: string;
     icon: string;
+    link?: string;
+    linkText?: string;
   }[];
   children?: ReactNode;
   largePadding?: boolean;

@@ -2,13 +2,12 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 import { createBemBlockBuilder } from '@app/utils';
 
+import { TimeScaleData } from '../OfferPageWrapper';
+
 import './TimeScale.scss';
 
 interface TimeScaleProps {
-  data: {
-    items: string[];
-    time: string;
-  }[];
+  data: TimeScaleData[];
   isShifted?: boolean;
 }
 

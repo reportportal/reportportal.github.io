@@ -6,8 +6,8 @@ import { Columns } from '../Columns';
 import '../ComparePlans.scss';
 
 interface ExpandableRowProps {
-  feature: string;
   columnsData: string[];
+  feature?: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['compare']);

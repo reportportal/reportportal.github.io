@@ -204,7 +204,6 @@ export const DATA_PLANS = [
     business: true,
     enterprise: true,
   },
-
   {
     section: 'Premium Features',
   },

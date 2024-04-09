@@ -6,11 +6,11 @@ import { Columns } from '../Columns';
 import '../ComparePlans.scss';
 
 interface ColumnsHeaderProps {
-  title: string;
   columns: string[];
-  mobileColumns: {
+  mobileColumns?: {
     [key: string]: string;
   };
+  title?: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['compare']);
