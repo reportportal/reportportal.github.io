@@ -12,7 +12,7 @@ interface FooterColumnsProps {
     btn: string;
     mode: string;
     href: string;
-    compareHref: string;
+    compareHref?: string;
   }[];
 }
 

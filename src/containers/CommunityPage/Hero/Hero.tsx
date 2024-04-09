@@ -16,7 +16,7 @@ export const Hero: FC = () => {
         if (statistic.entities === 'Stars on GitHub') {
           return {
             ...statistic,
-            quantity: githubStats.repos.reportportal,
+            quantity: `${githubStats.repos.reportportal}`,
           };
         }
 

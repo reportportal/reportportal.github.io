@@ -42,13 +42,13 @@ const validThumbnailKeys = ['default', 'high', 'maxres', 'medium', 'standard'] a
 
 type ValidThumbnailKeysType = (typeof validThumbnailKeys)[number];
 
-interface Thumbnail {
-  [key: ValidThumbnailKeysType]: {
+type Thumbnail = {
+  [key in ValidThumbnailKeysType]: {
     height: number;
     width: number;
     url: string;
   };
-}
+};
 
 interface YoutubeVideoDto {
   id: string;

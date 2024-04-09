@@ -1,6 +1,7 @@
 import React, { useState, useEffect, FC } from 'react';
-import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
+import Icon from '@ant-design/icons';
+import { SetStateAction } from 'jotai';
 import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -9,9 +10,15 @@ import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';
 
+type SubscriptionFormState = {
+  isSubmitted: boolean;
+  isAlreadySubscribed: boolean;
+};
+type SetAtom<Args, Result> = (args: Args) => Result;
+
 interface SubscriptionFormProps {
-  subscriptionFormState: string;
-  setSubscriptionFormState: () => void;
+  subscriptionFormState: SubscriptionFormState;
+  setSubscriptionFormState: SetAtom<SetStateAction<SubscriptionFormState>, void>;
 }
 
 export const SubscriptionForm: FC<SubscriptionFormProps> = ({
@@ -30,7 +37,10 @@ export const SubscriptionForm: FC<SubscriptionFormProps> = ({
       return;
     }
 
-    setSubscriptionFormState(prevState => ({ ...prevState, isSubmitted: true }));
+    setSubscriptionFormState((prevState: SubscriptionFormState) => ({
+      ...prevState,
+      isSubmitted: true,
+    }));
   };
 
   useEffect(() => {

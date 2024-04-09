@@ -9,11 +9,11 @@ import CrossIcon from './icons/cross.inline.svg';
 import '../ComparePlans.scss';
 
 interface ColumnsProps {
-  title: string;
   cols: string[];
-  mobileColumns: {
+  mobileColumns?: {
     [key: string]: string;
   };
+  title?: string;
 }
 
 const getCompareContainer = createBemBlockBuilder(['compare']);

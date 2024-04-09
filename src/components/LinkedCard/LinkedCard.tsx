@@ -11,7 +11,7 @@ interface LinkedCardProps {
   link?: string;
   linkText?: string;
   icon?: string;
-  delay?: boolean;
+  delay?: number;
 }
 
 const getBlocksWith = createBemBlockBuilder(['linked-card']);
@@ -22,15 +22,15 @@ export const LinkedCard: FC<LinkedCardProps> = ({
   link,
   linkText,
   icon,
-  delay = false,
+  delay,
 }) => {
   return (
     <div className={getBlocksWith()}>
       {icon && <img className={getBlocksWith('__image')} src={icon} alt="" />}
       <strong className={getBlocksWith('__title')}>{itemTitle}</strong>
       <p className={getBlocksWith('__description')}>{description}</p>
-      {link && <ArrowLink mode="primary" to={link} text={linkText} />}
-      {delay && <div className={getBlocksWith('__progress')} />}
+      {link && linkText && <ArrowLink mode="primary" to={link} text={linkText} />}
+      {Boolean(delay) && <div className={getBlocksWith('__progress')} />}
     </div>
   );
 };

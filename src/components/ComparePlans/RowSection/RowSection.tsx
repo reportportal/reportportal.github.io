@@ -7,13 +7,13 @@ import { FooterColumns } from './FooterColums';
 import './RowSection.scss';
 
 interface RowSectionProps {
-  footer: string;
   footerButtons: {
     btn: string;
     mode: string;
     href: string;
-    compareHref: string;
+    compareHref?: string;
   }[];
+  footer?: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['row-section']);

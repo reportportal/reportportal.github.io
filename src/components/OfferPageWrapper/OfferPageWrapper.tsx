@@ -18,6 +18,11 @@ import { getDataPlans, getFooterButtons, getOfferLinks } from './utils';
 
 import './OfferPageWrapper.scss';
 
+export interface TimeScaleData {
+  time: number | string;
+  items: string[] | React.ReactNode[];
+}
+
 interface OfferPageWrapperProps {
   hero: {
     title: string;
@@ -27,10 +32,7 @@ interface OfferPageWrapperProps {
   };
   page: string;
   pagePath: 'on-premises' | 'd4j' | 'qasp' | 'hlm';
-  timeScaleData: {
-    time: number | string;
-    items: string[] | React.ReactNode[];
-  }[];
+  timeScaleData: TimeScaleData[];
   faqData: {
     key: number;
     label: string;
@@ -46,7 +48,7 @@ interface OfferPageWrapperProps {
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
 export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
-  hero: { title, subtitle, description, offerType },
+  hero,
   page,
   pagePath,
   timeScaleData,
@@ -58,6 +60,7 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   pricing,
 }) => {
   const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps(page);
+  const { title, subtitle, description, offerType } = hero;
 
   return (
     <>

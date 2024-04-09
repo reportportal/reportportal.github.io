@@ -91,3 +91,9 @@ export enum DataGTM {
   ContactUs = 'contact_us',
   BecomeSponsor = 'become_sponsor',
 }
+
+declare global {
+  interface Window {
+    dataLayer: object[];
+  }
+}

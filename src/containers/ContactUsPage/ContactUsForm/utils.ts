@@ -1,7 +1,13 @@
 const emailValidateRegEx = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 const textFieldRegex = /^[\wa-я.\s-]+$/i;
 
-const validateField = ({ value, regex, message }) => {
+interface ValidateFieldParams {
+  value: string;
+  regex?: RegExp;
+  message?: string;
+}
+
+const validateField = ({ value, regex, message }: ValidateFieldParams) => {
   if (!value) {
     return 'Field is required';
   }

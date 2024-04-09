@@ -6,11 +6,11 @@ import { formatYoutubeViews, timeSince, convertDuration } from '../utils';
 
 interface SlideItemProps {
   openEmbedVideo: () => void;
-  imageSrc: string;
   duration: string;
   title: string;
-  viewCount: string;
+  viewCount: number;
   publishedAt: string;
+  imageSrc?: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['slide']);
