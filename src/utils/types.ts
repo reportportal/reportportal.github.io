@@ -6,6 +6,8 @@ import {
 export interface ContentfulAsset {
   url: string;
   title: string;
+  width?: number;
+  height?: number;
 }
 
 export interface OrganizationDto {
@@ -15,10 +17,14 @@ export interface OrganizationDto {
   secondaryLogo?: ContentfulAsset;
 }
 
+export interface LinkDto {
+  url: string;
+}
+
 export interface ImageWrapperDto {
   title: string;
   description: string;
-  link: string;
+  link: LinkDto;
   icon: ContentfulAsset;
   alt?: string;
   subTitle?: string;

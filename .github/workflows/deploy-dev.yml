@@ -17,7 +17,7 @@ env:
   AWS_REGION_NAME : "eu-central-1"
   BUILD_DIR : "public/"
   CONTACT_US_URL: https://testio--partial.sandbox.my.salesforce-sites.com/leadcapture/services/apexrest/leadservice
-  DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
+  DOCUMENTATION_URL: //reportportal.io/docs
   GTM_ID: GTM-MK7ZHTL
   CLOUDFRONT_ID: EILUB1IE9EON0
   CONTENTFUL_ENV_ID: 'master'

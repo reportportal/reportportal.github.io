@@ -12,19 +12,19 @@ export const PRICING_CONFIG = [
     icon: <SaaSIcon />,
     title: 'SaaS',
     text: 'We host and support an instance for your organization',
-    link: '/pricing/saas',
+    link: { url: '/pricing/saas' },
   },
   {
     icon: <OnPremiseIcon />,
     title: 'On-Premises',
     text: 'Self-hosted instance with support from our team',
-    link: '/pricing/on-premises',
+    link: { url: '/pricing/on-premises' },
   },
   {
     icon: <FreeVersionIcon />,
     title: 'Free version',
     text: 'Install and use ReportPortal for free via self-hosted deployment',
-    link: '/installation',
+    link: { url: '/installation' },
   },
 ];
 
@@ -33,19 +33,19 @@ export const SERVICE_LIST = [
     icon: <TaaSIcon />,
     title: 'Testing as a Service',
     text: 'On-demand testing resources to optimize your testing costs',
-    link: '/testing-as-a-service',
+    link: { url: '/testing-as-a-service' },
   },
   {
     icon: <TAaaSIcon />,
     title: 'Test Automation as a Service',
     text: 'On-demand end-to-end Test Automation services',
-    link: '/test-automation-as-a-service',
+    link: { url: '/test-automation-as-a-service' },
   },
   {
     icon: <QEConsultingIcon />,
     title: 'QE Consulting',
     text: 'Holistic Quality Engineering (QE) transformation',
-    link: '/qe-consulting',
+    link: { url: '/qe-consulting' },
   },
 ];
 
@@ -53,16 +53,16 @@ export const PRICING_FOR_SOLUTIONS_LIST = [
   {
     iconClass: 'drill4j',
     title: 'Drill4J',
-    link: '/accelerators/d4j',
+    link: { url: '/accelerators/d4j' },
   },
   {
     iconClass: 'healenium',
     title: 'Healenium',
-    link: '/accelerators/hlm',
+    link: { url: '/accelerators/hlm' },
   },
   {
     iconClass: 'qa-space',
     title: 'QaSpace',
-    link: '/accelerators/qasp',
+    link: { url: '/accelerators/qasp' },
   },
 ];

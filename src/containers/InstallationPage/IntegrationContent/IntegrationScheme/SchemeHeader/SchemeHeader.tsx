@@ -8,7 +8,7 @@ import { EventNode } from '../EventNode';
 import '../IntegrationScheme.scss';
 
 interface SchemeHeaderProps {
-  state: string;
+  state: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['scheme']);

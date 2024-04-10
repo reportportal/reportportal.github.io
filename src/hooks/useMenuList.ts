@@ -21,7 +21,9 @@ export const useMenuList = (): MenuQuery => {
               __typename
             }
             title
-            link
+            link {
+              url
+            }
             icon {
               url
             }
@@ -34,7 +36,9 @@ export const useMenuList = (): MenuQuery => {
               __typename
             }
             title
-            link
+            link {
+              url
+            }
             icon {
               url
             }
@@ -48,7 +52,9 @@ export const useMenuList = (): MenuQuery => {
             }
             title
             subTitle
-            link
+            link {
+              url
+            }
             description
             icon {
               url

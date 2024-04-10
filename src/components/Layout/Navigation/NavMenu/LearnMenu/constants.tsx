@@ -10,18 +10,18 @@ export const RESOURCES_LIST = [
     icon: <DocumentationIcon />,
     title: 'Documentation',
     text: 'All the technical docs',
-    link: DOCUMENTATION_URL,
+    link: { url: DOCUMENTATION_URL },
   },
   {
     icon: <BlogIcon />,
     title: 'Blog',
     text: 'News, updates and more',
-    link: '/blog',
+    link: { url: '/blog' },
   },
   {
     icon: <SuccessStoriesIcon />,
     title: 'Success stories',
     text: 'Our Case Studies',
-    link: '/case-studies',
+    link: { url: '/case-studies' },
   },
 ];

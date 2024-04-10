@@ -16,12 +16,12 @@ export const GENERAL_LIST = [
   {
     icon: <InstallIcon />,
     title: 'Installation',
-    link: '/installation',
+    link: { url: '/installation' },
   },
   {
     icon: <ReleaseIcon />,
     title: 'Releases',
-    link: `${DOCUMENTATION_URL}/category/releases`,
+    link: { url: `${DOCUMENTATION_URL}/category/releases` },
   },
 ];
 
@@ -30,36 +30,36 @@ export const FEATURES_LIST = [
     icon: <ReportingIcon />,
     title: 'Unified test reporting',
     text: 'Get persistent test reporting in a single entry point',
-    link: '/features/#single-entry',
+    link: { url: '/features/#single-entry' },
   },
   {
     icon: <DefectTypeIcon />,
     title: 'Categorisation of failures',
     text: 'Triage test failures by categorisation of root cause',
-    link: '/features/#categorisation',
+    link: { url: '/features/#categorisation' },
   },
   {
     icon: <AiIcon />,
     title: 'AI failure reason detection',
     text: 'Reduce your manual efforts for failure triaging with Auto-Analyzer',
-    link: '/features/#ai-based',
+    link: { url: '/features/#ai-based' },
   },
   {
     icon: <RtAnalyticsIcon />,
     title: 'Real-time analytics',
     text: 'Save time on early reaction by immediate results availability',
-    link: '/features/#real-time-reporting',
+    link: { url: '/features/#real-time-reporting' },
   },
   {
     icon: <PieChartIcon />,
     title: 'Widgets and Dashboards',
     text: 'Get visibility in QA results and a birds-eye view on the project',
-    link: '/features/#visualisation-of-tests',
+    link: { url: '/features/#visualisation-of-tests' },
   },
   {
     icon: <QualityGatesIcon />,
     title: 'Quality gates',
     text: 'Automate release decisions with Quality Gates rules',
-    link: '/features/#quality-gates',
+    link: { url: '/features/#quality-gates' },
   },
 ];
