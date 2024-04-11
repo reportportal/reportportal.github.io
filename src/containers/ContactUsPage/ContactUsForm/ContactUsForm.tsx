@@ -49,7 +49,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
           ...baseSalesForceValues,
         };
 
-        fetch(process.env.CONTACT_US_URL, {
+        fetch(process.env.CONTACT_US_URL as string, {
           method: 'POST',
           body: JSON.stringify(postData),
           headers: {

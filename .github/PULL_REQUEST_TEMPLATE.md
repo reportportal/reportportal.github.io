@@ -2,9 +2,7 @@
 
 * [ ] Have you verified that the PR is pointing to the correct target branch? (`develop` for features/bugfixes, `master` for release/hotfix)?
 * [ ] Have you followed the guidelines in our [Dev Guide](../#readme)
-* [ ] Have you lint your code locally prior to submission (`npm run lint`)?
 * [ ] Have you run prettier (`npm run format`)?
-* [ ] Have you checked that app can be built (`npm run build`)?
 * [ ] Have you checked that the build output looks according to design (screen, mobile, desktop) in Figma (`npm run serve`)?
 
 ## Visuals

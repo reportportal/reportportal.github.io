@@ -10,7 +10,10 @@ import { SubscriptionFormCard } from './SubscriptionFormCard';
 import './SubscriptionForm.scss';
 
 interface SubscriptionFormProps {
-  subscriptionFormState: string;
+  subscriptionFormState: {
+    isSubmitted: boolean;
+    isAlreadySubscribed: boolean;
+  };
   setSubscriptionFormState: () => void;
 }
 

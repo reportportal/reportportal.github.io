@@ -1,4 +1,5 @@
 import compact from 'lodash/compact';
+import { ComparePlansFooterButton } from '@app/components/ComparePlans';
 import { DOCUMENTATION_URL } from '@app/utils';
 
 import { START_NOW_LINKS } from './constants';
@@ -10,7 +11,7 @@ export const getOfferLinks = page => [
   `/contact-us/${page}/package-160`,
 ];
 
-export const getFooterButtons = page => [
+export const getFooterButtons = (page: string): ComparePlansFooterButton[] => [
   {
     btn: 'Start now',
     href: START_NOW_LINKS[page],

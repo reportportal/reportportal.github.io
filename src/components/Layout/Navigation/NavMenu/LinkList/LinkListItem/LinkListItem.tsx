@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Link } from '@app/components/Link';
-import { ContentfulAsset, createBemBlockBuilder } from '@app/utils';
+import { ContentfulAsset, createBemBlockBuilder, LinkDto } from '@app/utils';
 
 interface LinkListItemProps {
   title: string;
   description: string;
-  link: string;
+  link: LinkDto;
   icon: ContentfulAsset;
   className: string;
   addition?: string;
@@ -22,7 +22,7 @@ export const LinkListItem: FC<LinkListItemProps> = ({
   const getBlocksWith = createBemBlockBuilder(['link-list-item', className]);
 
   return (
-    <Link key={title} to={link} className={getBlocksWith()}>
+    <Link key={title} to={link.url} className={getBlocksWith()}>
       <img src={icon.url} className={getBlocksWith('-icon')} />
       <div>
         <div>

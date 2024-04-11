@@ -7,7 +7,7 @@ import { TOP_REQUEST_LIST, BOTTOM_REQUEST_LIST } from './constants';
 import './CommonRequests.scss';
 
 export const CommonRequests: FC = () => {
-  const requestsWrapper = useRef<null | HTMLElement>(null);
+  const requestsWrapper = useRef<HTMLDivElement | null>(null);
   const scrollDirection = useScrollDirection({ isMenuOpen: false });
 
   useEffect(() => {

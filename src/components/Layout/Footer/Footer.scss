@@ -212,11 +212,17 @@
     }
 
     a {
+      position: relative;
       display: flex;
-      color: var(--text-light-grey);
 
-      &:hover {
-        color: var(--text-service);
+      &:hover::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: var(--hover-icon);
+        content: '';
       }
     }
   }

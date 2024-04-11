@@ -15,18 +15,10 @@ export const useHomePage = (): HomePageQuery => {
       allContentfulHomePage(limit: 1) {
         nodes {
           integrations {
-            sys {
-              __typename
-            }
-            title
-            link
             icon {
               url
             }
             alt
-            hoverIcon {
-              url
-            }
           }
         }
       }

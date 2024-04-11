@@ -7,7 +7,7 @@ interface FooterListProps {
   title: string;
   items: {
     title: string;
-    link: string;
+    url: string;
   }[];
 }
 
@@ -17,9 +17,9 @@ export const FooterList: FC<FooterListProps> = ({ title, items }) => (
     <ul>
       {items.map(item => (
         <li key={item.title}>
-          <Link to={item.link}>
+          <Link to={item.url}>
             {item.title}
-            {isAbsoluteURL(item.link) && <ArrowIcon />}
+            {isAbsoluteURL(item.url) && <ArrowIcon />}
           </Link>
         </li>
       ))}

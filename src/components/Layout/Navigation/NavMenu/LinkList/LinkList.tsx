@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import chunk from 'lodash/chunk';
-import { ContentfulAsset, createBemBlockBuilder } from '@app/utils';
+import { ContentfulAsset, createBemBlockBuilder, LinkDto } from '@app/utils';
 
 import { LinkListItem } from './LinkListItem';
 
@@ -9,7 +9,7 @@ import './LinkList.scss';
 export interface ListItem {
   title: string;
   description: string;
-  link: string;
+  link: LinkDto;
   addition?: string;
   icon: ContentfulAsset;
 }
