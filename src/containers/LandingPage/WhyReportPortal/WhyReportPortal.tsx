@@ -11,6 +11,6 @@ const getBlocksWith = createBemBlockBuilder(['why-report-portal']);
 
 export const WhyReportPortal: FC = () => (
   <section className={classNames(getBlocksWith(), 'container')}>
-    <WhyInstanceBlocks title="Why ReportPortal?" explanations={REPORT_PORTAL_INFO} />
+    <WhyInstanceBlocks title="Why ReportPortal?" explanations={REPORT_PORTAL_INFO} withAnimation />
   </section>
 );
