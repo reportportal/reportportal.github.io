@@ -5,7 +5,13 @@ import { useAtom } from 'jotai';
 import { motion } from 'framer-motion';
 import { Link } from '@app/components/Link';
 import { useClientCarouselItems } from '@app/hooks/useClientCarouselItems';
-import { COMMON_MARQUEE_PROPS, createBemBlockBuilder, watchProductOverviewAtom } from '@app/utils';
+import {
+  COMMON_MARQUEE_PROPS,
+  createBemBlockBuilder,
+  getSpringTransition,
+  opacityScaleAnimationProps,
+  watchProductOverviewAtom,
+} from '@app/utils';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 import { useInView } from '@app/hooks/useInView';
 
@@ -16,15 +22,8 @@ import './Showcase.scss';
 const getBlocksWith = createBemBlockBuilder(['showcase']);
 
 const commonAnimationProps = {
-  hiddenState: {
-    scale: 0.5,
-    opacity: 0,
-  },
-  enterState: {
-    scale: 1,
-    opacity: 1,
-  },
-  transition: { type: 'spring', stiffness: 400, damping: 30, mass: 1 },
+  ...opacityScaleAnimationProps,
+  ...getSpringTransition(400, 30),
 };
 
 export const Showcase: FC = () => {
