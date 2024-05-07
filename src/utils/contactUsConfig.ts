@@ -146,7 +146,7 @@ export const createContactUsConfig = (pricingConfig: PricingConfigDto) => {
           <li><strong>Free Trial:</strong> Sign up for a 30-day free trial of ReportPortal.</li>
           <li><strong>Sponsorship:</strong> Become a Sponsor or inquire about sponsorship tiers.</li>
         </ul>`,
-    isDiscussFieldShown: true,
+    isDiscussFieldShown: false,
   });
 
   const QaSpaceBaseConfig = {
