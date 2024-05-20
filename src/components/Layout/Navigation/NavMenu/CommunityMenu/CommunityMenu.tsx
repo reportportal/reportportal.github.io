@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Link, SubscriptionForm } from '@app/components/SubscriptionForm';
+import { SubscriptionForm } from '@app/components/SubscriptionForm';
 import { useMenuList } from '@app/hooks/useMenuList';
 import { createBemBlockBuilder } from '@app/utils';
 

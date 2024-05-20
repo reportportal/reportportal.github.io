@@ -2,7 +2,6 @@ import React, { useState, useEffect, FC } from 'react';
 import jsonp from 'jsonp';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
-import classNames from 'classnames';
 import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, EMAIL_VALIDATION_REGEX } from '@app/utils';
 
@@ -11,13 +10,6 @@ import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';
 
-interface SubscriptionFormProps {
-  subscriptionFormState: {
-    isSubmitted: boolean;
-    isAlreadySubscribed: boolean;
-  };
-  setSubscriptionFormState: () => void;
-}
 const getBlocksWith = createBemBlockBuilder(['subscription-form']);
 const alreadySubscribedStatusMessage =
   "You're already subscribed, your profile has been updated. Thank you!";
