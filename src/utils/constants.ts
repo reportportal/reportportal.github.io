@@ -164,3 +164,6 @@ export const COMMON_MARQUEE_PROPS = {
   pauseOnHover: true,
   gradient: false,
 };
+
+export const EMAIL_VALIDATION_REGEX =
+  /^(?![.])(?!.*[_.-]{2})[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?<![_\-.])$/;

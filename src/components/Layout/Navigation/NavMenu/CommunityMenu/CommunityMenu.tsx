@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
-import { useAtom } from 'jotai';
 import classNames from 'classnames';
 import { SubscriptionForm } from '@app/components/SubscriptionForm';
 import { useMenuList } from '@app/hooks/useMenuList';
-import { createBemBlockBuilder, subscriptionFormAtom } from '@app/utils';
+import { createBemBlockBuilder } from '@app/utils';
 
 import { COMMUNITY_LIST } from './constants';
 import { MenuProps } from '../../constants';
@@ -13,9 +12,9 @@ import { SectionCard } from '../SectionCard';
 
 import '../Menu.scss';
 
+const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
+
 export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
-  const [subscriptionFormState, setSubscriptionFormState] = useAtom(subscriptionFormAtom);
-  const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-community']);
   const { communities } = useMenuList();
 
   const generalList = (
@@ -44,10 +43,7 @@ export const CommunityMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
   const footer = (
     <div className={classNames(getBlocksWith('__footer'), 'temporary-hide')}>
       <div className={getBlocksWith('__footer-container')}>
-        <SubscriptionForm
-          subscriptionFormState={subscriptionFormState}
-          setSubscriptionFormState={setSubscriptionFormState}
-        />
+        <SubscriptionForm />
       </div>
     </div>
   );

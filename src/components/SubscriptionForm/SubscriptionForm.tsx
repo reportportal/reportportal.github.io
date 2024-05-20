@@ -1,55 +1,78 @@
 import React, { useState, useEffect, FC } from 'react';
+import jsonp from 'jsonp';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
 import { Link } from '@app/components/Link';
-import { createBemBlockBuilder } from '@app/utils';
+import { createBemBlockBuilder, EMAIL_VALIDATION_REGEX } from '@app/utils';
 
 import { EnvelopeIcon } from './icons';
 import { SubscriptionFormCard } from './SubscriptionFormCard';
 
 import './SubscriptionForm.scss';
 
-interface SubscriptionFormProps {
-  subscriptionFormState: {
-    isSubmitted: boolean;
-    isAlreadySubscribed: boolean;
-  };
-  setSubscriptionFormState: () => void;
-}
+const getBlocksWith = createBemBlockBuilder(['subscription-form']);
+const alreadySubscribedStatusMessage =
+  "You're already subscribed, your profile has been updated. Thank you!";
+const thankYouStatusMessage = 'Thank you for subscribing!';
 
-export const SubscriptionForm: FC<SubscriptionFormProps> = ({
-  subscriptionFormState,
-  setSubscriptionFormState,
-}) => {
+export const SubscriptionForm: FC = () => {
   const [form] = Form.useForm();
-  const [isValid, setIsValid] = useState(true);
+  const [validation, setValidation] = useState<{
+    isValid: boolean;
+    message?: string;
+  }>({
+    isValid: true,
+  });
+  const [responseMessage, setResponseMessage] = useState<string>();
   const email = Form.useWatch('email', form);
-  const getBlocksWith = createBemBlockBuilder(['subscription-form']);
+
+  const subscribeUser = (emailToSubscribe: string) => {
+    jsonp(
+      `${process.env.GATSBY_MAILCHIMP_URL}&MERGE0=${emailToSubscribe}`,
+      { param: 'c' },
+      (error, data) => {
+        const { msg, result } = data;
+
+        setResponseMessage(msg);
+
+        if (result === 'error') {
+          setValidation({
+            isValid: false,
+            message:
+              'This email cannot be added to the list. Please enter a different email address.',
+          });
+        }
+      },
+    );
+  };
 
   const handleFinish = () => {
-    if (!email || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
-      setIsValid(false);
+    const isLengthValid = email?.length <= 128;
+    const isFormatValid = EMAIL_VALIDATION_REGEX.test(email);
+
+    if (!email || !isFormatValid || !isLengthValid) {
+      setValidation({
+        isValid: false,
+        message: 'Please use a valid email format',
+      });
 
       return;
     }
 
-    setSubscriptionFormState(prevState => ({ ...prevState, isSubmitted: true }));
+    subscribeUser(email);
   };
 
   useEffect(() => {
-    setIsValid(true);
+    setValidation({
+      isValid: true,
+    });
   }, [email]);
 
-  if (subscriptionFormState.isSubmitted) {
-    return (
-      <SubscriptionFormCard
-        title="Thank you for the request!"
-        subtitle="Please check your inbox to confirm the subscription."
-      />
-    );
+  if (responseMessage === thankYouStatusMessage) {
+    return <SubscriptionFormCard title="Thank you for subscription!" />;
   }
 
-  if (subscriptionFormState.isAlreadySubscribed) {
+  if (responseMessage === alreadySubscribedStatusMessage) {
     return (
       <SubscriptionFormCard
         title="Already subscribed!"
@@ -65,14 +88,16 @@ export const SubscriptionForm: FC<SubscriptionFormProps> = ({
           validateTrigger="onSubmit"
           className={getBlocksWith('__form-input')}
           name={['email']}
-          {...(!isValid && {
+          {...(!validation.isValid && {
             validateStatus: 'error',
-            help: 'Please use a valid email format',
+            help: validation.message,
           })}
         >
           <Input
             placeholder="Email address"
-            prefix={<Icon component={props => <Icon component={EnvelopeIcon} {...props} />} />}
+            prefix={
+              <Icon component={(props: object) => <Icon component={EnvelopeIcon} {...props} />} />
+            }
           />
         </Form.Item>
       </div>
@@ -81,7 +106,7 @@ export const SubscriptionForm: FC<SubscriptionFormProps> = ({
           <button
             type="submit"
             className="btn btn--primary"
-            disabled={form.isFieldsTouched(true) && !isValid}
+            disabled={form.isFieldsTouched(true) && !validation.isValid}
           >
             Subscribe
           </button>

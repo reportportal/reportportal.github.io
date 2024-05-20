@@ -1,4 +1,4 @@
-import { Discount, PricingConfigDto } from '../utils/types';
+import { Discount, PricingConfigDto } from './types';
 import { formatNumberWithCommas } from './formatNumberWithCommas';
 
 interface BaseConfig {

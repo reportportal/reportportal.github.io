@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
 
 import DownloadIcon from '../../svg/download.inline.svg';
 
@@ -562,5 +563,6 @@ export const TermsPage: FC = () => (
         </div>
       </section>
     </div>
+    <SubscriptionBanner />
   </div>
 );
