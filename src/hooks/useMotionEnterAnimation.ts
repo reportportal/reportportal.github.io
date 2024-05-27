@@ -9,7 +9,11 @@ interface UseMotionEnterAnimationProps {
 interface AnimationGetterProps {
   inView: boolean;
   delay?: number;
-  additionalEffects?: { hiddenAdditional: Variant; enterAdditional: Variant };
+  additionalEffects?: Partial<{
+    hiddenAdditional: Variant;
+    enterAdditional: Variant;
+    transitionAdditional: Transition;
+  }>;
 }
 
 type AnimationGetter = (props: AnimationGetterProps) => AnimationProps;
@@ -35,6 +39,7 @@ export const useMotionEnterAnimation = (
     },
     transition: {
       ...transition,
+      ...additionalEffects.transitionAdditional,
       delay,
     },
   });
