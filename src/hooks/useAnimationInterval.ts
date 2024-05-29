@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useInView } from 'react-intersection-observer';
 import { useRafInterval } from 'ahooks';
+import { useInView } from '@app/hooks/useInView';
 
 interface AnimationIntervalProps {
   totalItemsLength: number;
@@ -11,7 +11,7 @@ export const useAnimationInterval = ({
   interval = 10000,
   totalItemsLength,
 }: AnimationIntervalProps) => {
-  const [ref, inView] = useInView();
+  const [ref, inView] = useInView({ once: true });
   const [delay, setDelay] = useState<number | undefined>(undefined);
   const [activeListIndex, setActiveListIndex] = useState<number>(0);
 
