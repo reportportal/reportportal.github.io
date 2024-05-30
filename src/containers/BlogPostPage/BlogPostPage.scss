@@ -253,6 +253,30 @@
     }
   }
 
+  &__ul {
+    padding-left: 12px;
+
+    li {
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        position: absolute;
+        top: 12px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--text-light-grey);
+        content: '';
+      }
+
+      p {
+        margin: 8px 0;
+      }
+    }
+  }
+
   &__blockquote {
     position: relative;
     margin: 24px 0;
