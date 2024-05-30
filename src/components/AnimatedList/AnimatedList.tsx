@@ -1,7 +1,16 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useRef } from 'react';
+import { motion } from 'framer-motion';
 import classNames from 'classnames';
-import { createBemBlockBuilder, LIST_ANIMATION_DELAY } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  easeInOutOpacityScaleAnimationProps,
+  getSpringTransition,
+  LIST_ANIMATION_DELAY,
+  opacityScaleAnimationProps,
+} from '@app/utils';
 import { useAnimationInterval } from '@app/hooks/useAnimationInterval';
+import { AnimatedHeader } from '@app/components/AnimatedHeader';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 
 import { LinkedCard } from '../LinkedCard';
 
@@ -23,6 +32,21 @@ interface AnimatedListProps {
 const getBlocksWith = createBemBlockBuilder(['animated-list-container']);
 const getBlocksWithList = createBemBlockBuilder(['animated-list']);
 
+const cardAnimationProps = {
+  hiddenState: {
+    opacity: 0,
+    x: -50,
+  },
+  enterState: {
+    opacity: 1,
+    x: 0,
+  },
+  transition: {
+    ease: 'easeInOut',
+    duration: 0.7,
+  },
+};
+
 export const AnimatedList: FC<AnimatedListProps> = ({
   data,
   title,
@@ -30,18 +54,32 @@ export const AnimatedList: FC<AnimatedListProps> = ({
   listDesktopPosition = 'left',
   children,
 }) => {
-  const { ref, delay, activeListIndex, setIndexAndResetInterval } = useAnimationInterval({
+  const { ref, inView, delay, activeListIndex, setIndexAndResetInterval } = useAnimationInterval({
     totalItemsLength: data.length,
     interval: LIST_ANIMATION_DELAY,
   });
-
   const image = data[activeListIndex].image;
+  const isFirstImageAnimationPlayed = useRef(false);
+
+  const getSubtitleAnimation = useMotionEnterAnimation(easeInOutOpacityScaleAnimationProps);
+  const getCardAnimation = useMotionEnterAnimation(cardAnimationProps);
+  const getButtonsAnimation = useMotionEnterAnimation({
+    ...opacityScaleAnimationProps,
+    ...getSpringTransition(400, 30),
+  });
+  const getImageAnimation = useMotionEnterAnimation({
+    ...opacityScaleAnimationProps,
+    transition: {
+      ease: 'easeInOut',
+      duration: 1,
+    },
+  });
 
   return (
     <section ref={ref} className={classNames(getBlocksWith(), 'container')}>
       <div>
-        <h2>{title}</h2>
-        <h3>{subtitle}</h3>
+        <AnimatedHeader transition={getSpringTransition(400, 30)}>{title}</AnimatedHeader>
+        <motion.h3 {...getSubtitleAnimation({ delay: 0.1, inView })}>{subtitle}</motion.h3>
       </div>
       <div className={getBlocksWith('__content')}>
         <div
@@ -52,31 +90,59 @@ export const AnimatedList: FC<AnimatedListProps> = ({
           <ul>
             {data.map(({ title: itemTitle, description, link }, index) =>
               index !== activeListIndex ? (
-                <li
+                <motion.li
                   className={getBlocksWithList('__item')}
                   key={itemTitle}
                   onClick={() => setIndexAndResetInterval(index)}
+                  {...getCardAnimation({ inView, delay: 0.2 * index })}
                 >
                   <strong>{itemTitle}</strong>
-                </li>
+                </motion.li>
               ) : (
-                <li className={getBlocksWithList('__item', '__item--active')} key={itemTitle}>
+                <motion.li
+                  className={getBlocksWithList('__item', '__item--active')}
+                  key={itemTitle}
+                  {...getCardAnimation({ inView, delay: 0.2 * index })}
+                >
                   <img src={image} alt="" />
                   <LinkedCard
                     itemTitle={itemTitle}
                     description={description}
                     link={link}
                     linkText="Learn more"
-                    delay={delay}
+                    delay={Boolean(delay)}
                   />
-                </li>
+                </motion.li>
               ),
             )}
           </ul>
-          <img src={image} alt="" />
+          <motion.img
+            src={image}
+            key={image}
+            alt=""
+            {...getImageAnimation({
+              inView,
+              delay: isFirstImageAnimationPlayed.current ? 0 : 0.6,
+              additionalEffects: {
+                transitionAdditional: {
+                  duration: isFirstImageAnimationPlayed.current ? 0.5 : 1,
+                },
+              },
+            })}
+            onAnimationComplete={definition => {
+              if (definition === 'enter') {
+                isFirstImageAnimationPlayed.current = true;
+              }
+            }}
+          />
         </div>
         <div className={getBlocksWith('__leading')}>
-          <div className={getBlocksWith('__leading-button-group')}>{children}</div>
+          <motion.div
+            className={getBlocksWith('__leading-button-group')}
+            {...getButtonsAnimation({ inView, delay: 1.7 })}
+          >
+            {children}
+          </motion.div>
         </div>
       </div>
     </section>

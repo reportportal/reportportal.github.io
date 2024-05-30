@@ -1,9 +1,10 @@
 import React, { FC, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
-import { createBemBlockBuilder } from '@app/utils';
+import { createBemBlockBuilder, easeInOutOpacityScaleAnimationProps } from '@app/utils';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 import { useInView } from '@app/hooks/useInView';
+import { AnimatedHeader } from '@app/components/AnimatedHeader';
 
 import './WhyInstanceBlocks.scss';
 
@@ -22,20 +23,6 @@ export interface WhyInstanceBlocksProps {
 const getBlocksWith = createBemBlockBuilder(['why-instance-blocks']);
 const getBlocksWithList = createBemBlockBuilder(['why-instance-blocks-list']);
 
-const commonAnimationProps = {
-  hiddenState: {
-    opacity: 0,
-    scale: 0.5,
-  },
-  enterState: {
-    opacity: 1,
-    scale: 1,
-  },
-  transition: {
-    ease: 'easeInOut',
-    duration: 0.5,
-  },
-};
 const cardAdditionalAnimationProps = {
   hiddenAdditional: {
     y: 50,
@@ -50,20 +37,14 @@ export const WhyInstanceBlocks: FC<WhyInstanceBlocksProps> = ({
   explanations,
   withAnimation = false,
 }) => {
-  const [titleRef, isTitleInView] = useInView({ once: true });
   const [explanationsRef, areExplanationsInView] = useInView({ once: true, margin: '-20%' });
-
-  const getAnimation = useMotionEnterAnimation(commonAnimationProps, withAnimation);
+  const getAnimation = useMotionEnterAnimation(easeInOutOpacityScaleAnimationProps, withAnimation);
 
   return (
     <section className={classNames(getBlocksWith(), 'container')}>
-      <motion.h2
-        className={getBlocksWith('__title')}
-        ref={titleRef}
-        {...getAnimation({ inView: isTitleInView })}
-      >
+      <AnimatedHeader className={getBlocksWith('__title')} isAnimationEnabled={withAnimation}>
         {title}
-      </motion.h2>
+      </AnimatedHeader>
       <div className={getBlocksWith('__content')}>
         <ul className={getBlocksWithList()} ref={explanationsRef}>
           {explanations.map(({ icon, title, description }) => (

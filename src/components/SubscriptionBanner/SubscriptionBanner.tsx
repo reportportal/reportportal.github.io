@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React from 'react';
 import { FooterContent } from '@app/components/Layout';
 import { SubscriptionForm } from '@app/components/SubscriptionForm';
 import { Banner } from '@app/components/Banner';
@@ -8,12 +8,7 @@ import './SubscriptionBanner.scss';
 
 const getBlocksWith = createBemBlockBuilder(['subscription-banner']);
 
-export const SubscriptionBanner: FC = () => {
-  const [subscriptionFormState, setSubscriptionFormState] = useState({
-    isSubmitted: false,
-    isAlreadySubscribed: false,
-  });
-
+export const SubscriptionBanner = () => {
   // temporary hidden
   return null;
 
@@ -24,10 +19,7 @@ export const SubscriptionBanner: FC = () => {
           title="Stay in the know"
           subtitle="Get the latest ReportPortal news, product updates and articles via email"
         >
-          <SubscriptionForm
-            subscriptionFormState={subscriptionFormState}
-            setSubscriptionFormState={setSubscriptionFormState}
-          />
+          <SubscriptionForm />
         </Banner>
       </div>
     </FooterContent>

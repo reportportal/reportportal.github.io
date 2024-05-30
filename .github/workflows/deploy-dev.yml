@@ -21,6 +21,7 @@ env:
   GTM_ID: GTM-MK7ZHTL
   CLOUDFRONT_ID: EILUB1IE9EON0
   CONTENTFUL_ENV_ID: 'master'
+  GATSBY_MAILCHIMP_URL: https://reportportal.us18.list-manage.com/subscribe/post-json?u=6ea28d10d9a89b360d8649a4c&id=ca6d0eec5b
 
 on:
   push:
@@ -66,6 +67,7 @@ jobs:
           echo GTM_ID=${{ env.GTM_ID }} >> .env.production
           echo CONTACT_US_URL=${{ env.CONTACT_US_URL }} >> .env.production
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production
+          echo GATSBY_MAILCHIMP_URL=${{ env.GATSBY_MAILCHIMP_URL }} >> .env.production
 
       - name: Build the source code
         run: npm run build

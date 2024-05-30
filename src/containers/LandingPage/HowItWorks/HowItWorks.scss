@@ -1,6 +1,18 @@
 @use 'src/styles/mixins' as m;
 @use 'src/styles/variables' as v;
 
+@keyframes stepsAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
 .how-it-works {
   display: flex;
   flex-direction: column;
@@ -76,10 +88,12 @@
       content: '';
     }
 
-    &.has-interval {
-      .ant-steps-item-tail::before {
-        display: block !important;
-      }
+    &::after,
+    .ant-steps-item-icon,
+    .ant-steps-item-tail::after,
+    .ant-steps-item-content {
+      opacity: 0;
+      transform: translateX(-50px) scale(0.5);
     }
 
     .ant-steps-item {
@@ -192,12 +206,29 @@
             background: linear-gradient(to bottom, var(--color-primary-500) 50%, transparent 0);
             background-position: bottom;
             background-size: 100% 200%;
-            transition: background 0.3s;
-            animation: progressAnimationBottom linear 10s forwards;
+            transition: background 0.3s, opacity 0.5s;
+            animation: progressAnimationBottom linear 10s forwards 0.6s,
+              stepsAnimation 0.6s ease-in-out forwards;
             content: '';
           }
         }
       }
+    }
+
+    &.has-interval {
+      .ant-steps-item-tail::before {
+        display: block !important;
+      }
+    }
+
+    &--in-view .ant-steps-item-icon,
+    &--in-view .ant-steps-item-content {
+      animation: stepsAnimation 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+    }
+
+    &--in-view::after,
+    &--in-view .ant-steps-item-tail::after {
+      animation: stepsAnimation 0.5s ease-in-out forwards;
     }
   }
 
