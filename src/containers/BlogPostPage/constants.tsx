@@ -33,6 +33,7 @@ export const OPTIONS = {
       return <p className="blog-post-page__paragraph">{children}</p>;
     },
     [BLOCKS.OL_LIST]: (node, children) => <ol className="blog-post-page__ol">{children}</ol>,
+    [BLOCKS.UL_LIST]: (node, children) => <ul className="blog-post-page__ul">{children}</ul>,
     [BLOCKS.QUOTE]: (node, children) => (
       <blockquote className="blog-post-page__blockquote">{children}</blockquote>
     ),
