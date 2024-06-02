@@ -1,12 +1,17 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import { createBemBlockBuilder, OnPremisesPricingConfig } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  FormattedComparePlansDto,
+  OnPremisesPricingConfig,
+} from '@app/utils';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 import { FooterContent } from '@app/components/Layout';
 import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
 import { Banner } from '@app/components/Banner';
 import { Link } from '@app/components/Link';
 import { PricingHero } from '@app/components/PricingHero';
+import { ComparePlans } from '@app/components/ComparePlans';
 import { Faq } from '@app/components/Faq';
 import InfoIcon from '@app/svg/infoIcon.inline.svg';
 
@@ -30,6 +35,7 @@ interface OfferPageWrapperProps {
     time: number | string;
     items: string[] | React.ReactNode[];
   }[];
+  comparePlans: FormattedComparePlansDto;
   faqData: {
     key: number;
     label: string;
@@ -49,6 +55,7 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   page,
   pagePath,
   timeScaleData,
+  comparePlans,
   faqData,
   contactUsLink,
   utilizationDescription,
@@ -106,13 +113,7 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
           </div>
         </div>
       </div>
-      {/* <ComparePlans */}
-      {/*  dataPlans={getDataPlans(pagePath)} */}
-      {/*  columns={COLUMNS} */}
-      {/*  footerButtons={getFooterButtons(pagePath)} */}
-      {/*  isCollapsibleOnMobile={false} */}
-      {/*  mobileColumns={MOBILE_COLUMNS} */}
-      {/* /> */}
+      <ComparePlans plans={comparePlans} isCollapsibleOnMobile={false} />
       {page === 'pricing' && (
         <div
           className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}
