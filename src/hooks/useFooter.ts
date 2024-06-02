@@ -36,8 +36,7 @@ export const useFooter = (): FooterQuery => {
           sections {
             title
             items {
-              title
-              url
+              ...LinkFields
             }
           }
           terms {

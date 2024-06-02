@@ -10,6 +10,9 @@ import camelCase from 'lodash/camelCase';
 
 import { createContactUsConfig } from './src/utils/contactUsConfig';
 import { PricingConfigDto } from './src/utils/types';
+// importing GraphQL fragments to be available in the app
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import * as fragments from './src/fragments';
 
 interface Slug {
   slug: string;

@@ -7,14 +7,13 @@ import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
 import { Banner } from '@app/components/Banner';
 import { Link } from '@app/components/Link';
 import { PricingHero } from '@app/components/PricingHero';
-import { ComparePlans } from '@app/components/ComparePlans';
 import { Faq } from '@app/components/Faq';
 import InfoIcon from '@app/svg/infoIcon.inline.svg';
 
 import { TimeScale } from './TimeScale';
 import { PentagonCard } from './PentagonCard';
-import { COLUMNS, MOBILE_COLUMNS, OFFER_HOURS } from './constants';
-import { getDataPlans, getFooterButtons, getOfferLinks } from './utils';
+import { OFFER_HOURS } from './constants';
+import { getOfferLinks } from './utils';
 
 import './OfferPageWrapper.scss';
 
@@ -107,13 +106,13 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
           </div>
         </div>
       </div>
-      <ComparePlans
-        dataPlans={getDataPlans(pagePath)}
-        columns={COLUMNS}
-        footerButtons={getFooterButtons(pagePath)}
-        isCollapsibleOnMobile={false}
-        mobileColumns={MOBILE_COLUMNS}
-      />
+      {/* <ComparePlans */}
+      {/*  dataPlans={getDataPlans(pagePath)} */}
+      {/*  columns={COLUMNS} */}
+      {/*  footerButtons={getFooterButtons(pagePath)} */}
+      {/*  isCollapsibleOnMobile={false} */}
+      {/*  mobileColumns={MOBILE_COLUMNS} */}
+      {/* /> */}
       {page === 'pricing' && (
         <div
           className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}

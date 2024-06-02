@@ -1,7 +1,7 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import isBoolean from 'lodash/isBoolean';
-import { createBemBlockBuilder, MEDIA_DESKTOP_SM } from '@app/utils';
+import { createBemBlockBuilder, FormattedComparePlansItemDto, MEDIA_DESKTOP_SM } from '@app/utils';
 
 import MarkIcon from './icons/mark.inline.svg';
 import CrossIcon from './icons/cross.inline.svg';
@@ -9,56 +9,39 @@ import CrossIcon from './icons/cross.inline.svg';
 import '../ComparePlans.scss';
 
 interface ColumnsProps {
-  title: string;
-  cols: string[];
-  mobileColumns: {
-    [key: string]: string;
-  };
+  cols: FormattedComparePlansItemDto['plans'];
+  title?: string;
+  mobileColumns?: FormattedComparePlansItemDto['plans'];
 }
 
-const getCompareContainer = createBemBlockBuilder(['compare']);
+const getBlocksWith = createBemBlockBuilder(['compare']);
 
-export const Columns: FC<ColumnsProps> = ({ title = '', cols, mobileColumns = {} }) => {
+export const Columns: FC<ColumnsProps> = ({ title = '', cols, mobileColumns = [] }) => {
   const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });
-  const [isVisibility, setIsVisibility] = useState(true);
 
-  useEffect(() => {
-    const shouldShow = (title && isDesktop) || (!title && !isDesktop);
-
-    setIsVisibility(shouldShow);
-  }, [isDesktop, title]);
-
-  const constructElementKey = (item: string, index: number) => {
-    let str = String(item);
-
-    if (str.length < 3) {
-      str = str.repeat(3);
-    }
-
-    return str.substring(0, index + 1);
-  };
-
-  const getMark = (value: string) =>
+  const getMark = (value: boolean) =>
     value ? (
-      <div className={getCompareContainer('__mark-icon')}>
+      <div className={getBlocksWith('__mark-icon')}>
         <MarkIcon />
       </div>
     ) : (
-      <div className={getCompareContainer('__cross-icon')}>
+      <div className={getBlocksWith('__cross-icon')}>
         <CrossIcon />
       </div>
     );
 
+  const isColumnsVisible = (title && isDesktop) || (!title && !isDesktop);
+
   return (
-    <div className={getCompareContainer('__row-title-wrapper')}>
-      {title && <div className={getCompareContainer('__row-title')}>{title}</div>}
-      {isVisibility && (
-        <div className={getCompareContainer('__row-title-cols')}>
+    <div className={getBlocksWith('__row-title-wrapper')}>
+      {title && <div className={getBlocksWith('__row-title')}>{title}</div>}
+      {isColumnsVisible && (
+        <div className={getBlocksWith('__row-title-cols')}>
           {cols.map((columnValue, index) => (
             <div
-              key={constructElementKey(columnValue, index)}
-              className={getCompareContainer('__row-title-col')}
-              data-short={mobileColumns[columnValue] ?? columnValue}
+              key={index}
+              className={getBlocksWith('__row-title-col')}
+              data-short={mobileColumns[index] ?? columnValue}
             >
               {!isBoolean(columnValue) ? <div>{columnValue}</div> : getMark(columnValue)}
             </div>

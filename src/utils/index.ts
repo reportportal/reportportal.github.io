@@ -1,6 +1,7 @@
 export * from './atoms';
 export * from './createBemBlockBuilder';
 export * from './formatNumberWithCommas';
+export * from './formatComparePlan';
 export * from './framerAnimationProps';
 export * from './isAbsoluteURL';
 export * from './isContentfulRecord';

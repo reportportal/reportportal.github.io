@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import classNames from 'classnames';
 import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
 import { ComparePlans } from '@app/components/ComparePlans';
@@ -7,10 +8,15 @@ import { Banner } from '@app/components/Banner';
 import { PricingHero } from '@app/components/PricingHero';
 import { FooterContent } from '@app/components/Layout';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
-import { createBemBlockBuilder, SassPricingConfig } from '@app/utils';
+import {
+  ComparePlansQuery,
+  createBemBlockBuilder,
+  SassPricingConfig,
+  formatComparePlans,
+} from '@app/utils';
 
 import { PricingCards } from './PricingCards';
-import { BUTTONS_DATA, COLUMNS, DATA_PLANS, FAQ_ITEMS } from './constants';
+import { FAQ_ITEMS } from './constants';
 
 import '@app/components/OfferPageWrapper/OfferPageWrapper.scss';
 
@@ -18,6 +24,17 @@ const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
 export const SaasPage: FC<SassPricingConfig> = pricing => {
   const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps('pricing');
+  const comparePlans = formatComparePlans(
+    useStaticQuery<ComparePlansQuery>(graphql`
+      query {
+        allContentfulComparePlan(filter: { internalTitle: { eq: "SasS Compare Plan" } }) {
+          nodes {
+            ...ComparePlanFields
+          }
+        }
+      }
+    `),
+  );
 
   return (
     <>
@@ -38,7 +55,7 @@ export const SaasPage: FC<SassPricingConfig> = pricing => {
         }}
       />
       <PricingCards pricing={pricing} isDiscount={isDiscount} />
-      <ComparePlans dataPlans={DATA_PLANS} columns={COLUMNS} footerButtons={BUTTONS_DATA} />
+      <ComparePlans plans={comparePlans} />
       <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
         <TrustedOrganizations />
       </div>

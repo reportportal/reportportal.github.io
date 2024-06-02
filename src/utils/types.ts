@@ -2,6 +2,7 @@ import {
   ContentfulRichTextGatsbyReference,
   RenderRichTextData,
 } from 'gatsby-source-contentful/rich-text';
+import { Required } from 'utility-types';
 
 export interface ContentfulAsset {
   url: string;
@@ -19,6 +20,7 @@ export interface OrganizationDto {
 
 export interface LinkDto {
   url: string;
+  title: string;
 }
 
 export interface ImageWrapperDto {
@@ -83,6 +85,32 @@ export interface PricingConfigDto extends PricingConfigShared {
     package60: PricingConfigOptionDto;
     package160: PricingConfigOptionDto;
   };
+}
+
+export interface ComparePlansQuery {
+  allContentfulComparePlan: { nodes: ComparePlansDto[] };
+}
+
+export interface CTA {
+  type: string;
+  name?: string;
+  link?: LinkDto;
+}
+
+export interface ComparePlansItemDto {
+  name: string;
+  description: {
+    raw: string;
+  };
+  plans: string;
+}
+
+export interface ComparePlansDto {
+  note: string;
+  ctas: Required<CTA, 'link'>[];
+  columns: string;
+  mobileColumns: string;
+  sections: { title: string; items: ComparePlansItemDto[] }[];
 }
 
 export type SassPricingConfig = PricingConfigShared & { prices: PricingConfigDto['saas'] };
