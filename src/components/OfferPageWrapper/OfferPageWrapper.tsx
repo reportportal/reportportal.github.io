@@ -87,17 +87,11 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
 
           return (
             <PentagonCard
+              plan={plan}
               key={plan.title}
-              title={plan.title}
-              description={plan.description}
-              pricingInfo={plan.pricingInfo}
-              priceValue={plan.price?.[discount]}
-              currency={plan.price?.currency as string}
-              period={plan.price?.period as string}
               progressNumber={index + 1}
-              actionText={plan.cta.link.title}
+              pricingValue={pricingValue as number}
               contactLink={actionLink}
-              actionVariant={plan.cta.type}
             />
           );
         })}

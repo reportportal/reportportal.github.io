@@ -2,49 +2,37 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 import { IconBlock } from '@app/components/IconBlock';
 import { Link } from '@app/components/Link';
-import { createBemBlockBuilder, formatNumberWithCommas } from '@app/utils';
+import { createBemBlockBuilder, formatNumberWithCommas, OfferingPlanDto } from '@app/utils';
 
 import './PentagonCard.scss';
 
 interface PentagonCardProps {
-  title: string;
-  description?: string;
-  pricingInfo?: string;
-  priceValue?: number;
-  currency: string;
-  period: string;
+  plan: OfferingPlanDto;
   progressNumber: number;
   contactLink: string;
-  actionText: string;
-  actionVariant: string;
+  pricingValue: number;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pentagon-card']);
 
 export const PentagonCard: FC<PentagonCardProps> = ({
-  pricingInfo,
-  title,
-  description,
-  priceValue,
-  currency,
-  period,
+  plan,
   contactLink,
   progressNumber,
-  actionText,
-  actionVariant,
+  pricingValue,
 }) => (
   <div className={getBlocksWith('__wrapper')}>
     <IconBlock
-      title={title}
-      description={description}
+      title={plan.title}
+      description={plan.description}
       type="pentagon"
       progressNumber={progressNumber}
     />
     <div className={getBlocksWith('__price')}>
-      {pricingInfo ?? (
+      {plan.pricingInfo ?? (
         <>
-          {currency}
-          {formatNumberWithCommas(priceValue as number)} <span>/ {period}</span>
+          {plan.price?.currency}
+          {formatNumberWithCommas(pricingValue)} <span>/ {plan.price?.period}</span>
         </>
       )}
     </div>
@@ -54,11 +42,11 @@ export const PentagonCard: FC<PentagonCardProps> = ({
         className={classNames(
           getBlocksWith('__contact-button'),
           'btn',
-          `btn--${actionVariant}`,
+          `btn--${plan.cta.type}`,
           'btn--large',
         )}
       >
-        {actionText}
+        {plan.cta.link.title}
       </button>
     </Link>
   </div>
