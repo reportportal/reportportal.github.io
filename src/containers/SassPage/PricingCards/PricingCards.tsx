@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 import { PricingCard } from '@app/components/PricingCard';
-import { createBemBlockBuilder, OfferingPlansDto, SassPricingConfig } from '@app/utils';
+import { createBemBlockBuilder, OfferingPlansDto } from '@app/utils';
 
 import './PricingCards.scss';
 
 interface PricingCardsProps {
   plans: OfferingPlansDto;
-  pricing: SassPricingConfig;
   isDiscount: boolean;
 }
 

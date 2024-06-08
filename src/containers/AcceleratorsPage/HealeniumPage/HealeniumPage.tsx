@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
-import { formatOfferingPlans, OfferingPlansQuery, OnPremisesPricingConfig } from '@app/utils';
+import { formatOfferingPlans, OfferingPlansQuery } from '@app/utils';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { TIME_SCALE_DATA, FAQ_DATA } from './constants';
 
-export const HealeniumPage: FC<OnPremisesPricingConfig> = () => {
+export const HealeniumPage: FC = () => {
   const { plans, comparePlans } = formatOfferingPlans(
     useStaticQuery<OfferingPlansQuery>(graphql`
       query {

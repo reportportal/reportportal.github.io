@@ -61,32 +61,6 @@ export interface BlogPostsQueryDto {
   allContentfulBlogPost: { nodes: BlogPostDto[] };
 }
 
-export interface PricingConfigOptionDto {
-  yearly: number;
-  quarterly: number;
-}
-
-export interface PricingConfigShared {
-  currency: string;
-  period: string;
-}
-
-export interface PricingConfigDto extends PricingConfigShared {
-  currency: string;
-  period: string;
-  saas: {
-    startup: PricingConfigOptionDto;
-    business: PricingConfigOptionDto;
-    enterprise: string;
-  };
-  onPremises: {
-    openSource: string;
-    package25: PricingConfigOptionDto;
-    package60: PricingConfigOptionDto;
-    package160: PricingConfigOptionDto;
-  };
-}
-
 export interface OfferingPlansQuery {
   allContentfulComparePlan: { nodes: ComparePlansDto[] };
   allContentfulSection: { nodes: OfferingPlansDto[] };
@@ -135,15 +109,29 @@ export interface OfferingPlansDto {
   items: OfferingPlanDto[];
 }
 
-export type SassPricingConfig = PricingConfigShared & { prices: PricingConfigDto['saas'] };
-
-export type OnPremisesPricingConfig = PricingConfigShared & {
-  prices: PricingConfigDto['onPremises'];
-};
-
 export type Discount = 'quarterly' | 'yearly';
 
 export enum DataGTM {
   ContactUs = 'contact_us',
   BecomeSponsor = 'become_sponsor',
 }
+
+export interface ContactUsBaseConfig {
+  id: string;
+  url: string;
+  options: {
+    name: string;
+    value: string;
+  }[];
+  discount?: Discount;
+  isDiscussFieldShown?: boolean;
+}
+
+export interface ContactUsContentfulConfig {
+  title: string;
+  message: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  messagePosition: string;
+  price?: Omit<OfferingPlanPrice, 'title'>;
+}
+
+export type ContactUsConfig = ContactUsBaseConfig & ContactUsContentfulConfig;

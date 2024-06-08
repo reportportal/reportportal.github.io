@@ -7,7 +7,7 @@ import {
   Discount,
   formatNumberWithCommas,
   isAbsoluteURL,
-  formatTextFromContentfulWithLineBreaks,
+  formatTextFromContentfulTextFieldWithLineBreaks,
   OfferingPlanDto,
 } from '@app/utils';
 import ArrowIcon from '@app/svg/arrow.inline.svg';
@@ -43,7 +43,7 @@ export const PricingCard: FC<PricingCardProps> = ({
         <div className={getBlocksWith('__title')}>{plan.title}</div>
         {plan.description && (
           <div className={getBlocksWith('__description')}>
-            {formatTextFromContentfulWithLineBreaks(plan.description)}
+            {formatTextFromContentfulTextFieldWithLineBreaks(plan.description)}
           </div>
         )}
         {listItems && (
