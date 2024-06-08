@@ -87,8 +87,9 @@ export interface PricingConfigDto extends PricingConfigShared {
   };
 }
 
-export interface ComparePlansQuery {
+export interface OfferingPlansQuery {
   allContentfulComparePlan: { nodes: ComparePlansDto[] };
+  allContentfulSection: { nodes: OfferingPlansDto[] };
 }
 
 export interface CTA {
@@ -99,10 +100,26 @@ export interface CTA {
 
 export interface ComparePlansItemDto {
   name: string;
-  description: {
-    raw: string;
-  };
+  description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   plans: string;
+}
+
+export interface OfferingPlanPrice {
+  title: string;
+  currency: string;
+  period: string;
+  quarterly: number;
+  yearly: number;
+}
+
+export interface OfferingPlanDto {
+  title: string;
+  isPopular: boolean;
+  description?: string;
+  features?: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  pricingInfo?: string;
+  price?: OfferingPlanPrice;
+  cta: Required<CTA, 'link'>;
 }
 
 export interface ComparePlansDto {
@@ -111,6 +128,11 @@ export interface ComparePlansDto {
   columns: string;
   mobileColumns: string;
   sections: { title: string; items: ComparePlansItemDto[] }[];
+}
+
+export interface OfferingPlansDto {
+  title: string;
+  items: OfferingPlanDto[];
 }
 
 export type SassPricingConfig = PricingConfigShared & { prices: PricingConfigDto['saas'] };

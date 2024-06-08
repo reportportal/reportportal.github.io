@@ -116,9 +116,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
     currency: '$',
     period: 'month',
     discount: 'yearly',
-    priceValue: {
-      yearly: 5,
-    },
+    priceValue: 5,
     dataGtm: DataGTM.BecomeSponsor,
   },
   {
@@ -132,9 +130,7 @@ export const INDIVIDUAL_SPONSORSHIP = [
     currency: '$',
     period: 'month',
     discount: 'yearly',
-    priceValue: {
-      yearly: 50,
-    },
+    priceValue: 50,
     dataGtm: DataGTM.BecomeSponsor,
   },
 ];

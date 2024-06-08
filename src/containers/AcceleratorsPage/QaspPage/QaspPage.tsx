@@ -1,18 +1,23 @@
 import React, { FC } from 'react';
 import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
-import { ComparePlansQuery, formatComparePlans, OnPremisesPricingConfig } from '@app/utils';
+import { OfferingPlansQuery, formatOfferingPlans, OnPremisesPricingConfig } from '@app/utils';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { FAQ_DATA } from '../D4jPage/constants';
 import { TIME_SCALE_DATA } from './constants';
 
 export const QaspPage: FC<OnPremisesPricingConfig> = pricing => {
-  const comparePlans = formatComparePlans(
-    useStaticQuery<ComparePlansQuery>(graphql`
+  const { plans, comparePlans } = formatOfferingPlans(
+    useStaticQuery<OfferingPlansQuery>(graphql`
       query {
         allContentfulComparePlan(filter: { internalTitle: { eq: "QaSpace Compare Plan" } }) {
           nodes {
             ...ComparePlanFields
+          }
+        }
+        allContentfulSection(filter: { internalTitle: { eq: "[Offering Plan] QaSpace" } }) {
+          nodes {
+            ...OfferingPlansFields
           }
         }
       }
@@ -31,6 +36,7 @@ export const QaspPage: FC<OnPremisesPricingConfig> = pricing => {
       pagePath="qasp"
       timeScaleData={TIME_SCALE_DATA}
       contactUsLink="/contact-us/qasp"
+      offeringPlans={plans}
       comparePlans={comparePlans}
       faqData={FAQ_DATA}
       pricing={pricing}

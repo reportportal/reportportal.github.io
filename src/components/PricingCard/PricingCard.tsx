@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
-import isString from 'lodash/isString';
 import classNames from 'classnames';
+import {
+  ContentfulRichTextGatsbyReference,
+  renderRichText,
+  RenderRichTextData,
+} from 'gatsby-source-contentful/rich-text';
 import { Link } from '@app/components/Link';
 import {
   createBemBlockBuilder,
   Discount,
   formatNumberWithCommas,
   isAbsoluteURL,
-  PricingConfigOptionDto,
+  formatTextFromContentfulWithLineBreaks,
 } from '@app/utils';
 import ArrowIcon from '@app/svg/arrow.inline.svg';
 
@@ -16,13 +20,15 @@ import './PricingCard.scss';
 interface PricingCardProps {
   title: string;
   currency: string;
-  priceValue: string | PricingConfigOptionDto;
   period: string;
   actionVariant: string;
   actionText: string;
   href: string;
   discount: Discount;
+  pricingInfo?: string;
+  priceValue?: number;
   listItems?: string[];
+  features?: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   description?: string;
   dataGtm?: string;
   isPopular?: boolean;
@@ -37,11 +43,13 @@ export const PricingCard: FC<PricingCardProps> = ({
   title,
   description,
   listItems,
+  features,
   priceValue,
   currency,
   discount,
   period,
   href,
+  pricingInfo,
   actionVariant,
   actionText,
   isDiamond,
@@ -53,7 +61,11 @@ export const PricingCard: FC<PricingCardProps> = ({
       {isPopular && <div className={getBlocksWith('__popular')}>Most popular</div>}
       {isDiamond && <div className={getBlocksWith('__diamond')} />}
       <div className={getBlocksWith('__title')}>{title}</div>
-      {description && <div className={getBlocksWith('__description')}>{description}</div>}
+      {description && (
+        <div className={getBlocksWith('__description')}>
+          {formatTextFromContentfulWithLineBreaks(description)}
+        </div>
+      )}
       {listItems && (
         <ul>
           {listItems.map(item => (
@@ -61,15 +73,16 @@ export const PricingCard: FC<PricingCardProps> = ({
           ))}
         </ul>
       )}
+      {features && renderRichText(features)}
     </div>
     <div className={getBlocksWith('__bottom-panel')}>
       <div className={getBlocksWith('__price')}>
-        {isString(priceValue) ? (
-          <span className={getBlocksWith('__price-value')}>{priceValue}</span>
+        {pricingInfo ? (
+          <span className={getBlocksWith('__price-value')}>{pricingInfo}</span>
         ) : (
           <>
             <span className={getBlocksWith('__price-value')}>
-              {currency} {formatNumberWithCommas(priceValue[discount])}
+              {currency} {formatNumberWithCommas(priceValue as number)}
               {isDiamond && '+'}
             </span>
             / {period}

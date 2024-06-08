@@ -9,10 +9,10 @@ import { PricingHero } from '@app/components/PricingHero';
 import { FooterContent } from '@app/components/Layout';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 import {
-  ComparePlansQuery,
+  OfferingPlansQuery,
   createBemBlockBuilder,
   SassPricingConfig,
-  formatComparePlans,
+  formatOfferingPlans,
 } from '@app/utils';
 
 import { PricingCards } from './PricingCards';
@@ -24,17 +24,24 @@ const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
 export const SaasPage: FC<SassPricingConfig> = pricing => {
   const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps('pricing');
-  const comparePlans = formatComparePlans(
-    useStaticQuery<ComparePlansQuery>(graphql`
+  const { plans, comparePlans } = formatOfferingPlans(
+    useStaticQuery<OfferingPlansQuery>(graphql`
       query {
         allContentfulComparePlan(filter: { internalTitle: { eq: "SasS Compare Plan" } }) {
           nodes {
             ...ComparePlanFields
           }
         }
+        allContentfulSection(filter: { internalTitle: { eq: "[Offering Plan] SaaS" } }) {
+          nodes {
+            ...OfferingPlansFields
+          }
+        }
       }
     `),
   );
+
+  console.log(plans);
 
   return (
     <>
@@ -54,7 +61,7 @@ export const SaasPage: FC<SassPricingConfig> = pricing => {
           messageActive: 'Yearly (Save 5%)',
         }}
       />
-      <PricingCards pricing={pricing} isDiscount={isDiscount} />
+      <PricingCards plans={plans} pricing={pricing} isDiscount={isDiscount} />
       <ComparePlans plans={comparePlans} />
       <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
         <TrustedOrganizations />

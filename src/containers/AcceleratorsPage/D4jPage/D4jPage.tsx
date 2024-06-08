@@ -1,17 +1,22 @@
 import React, { FC } from 'react';
 import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
-import { ComparePlansQuery, formatComparePlans, OnPremisesPricingConfig } from '@app/utils';
+import { OfferingPlansQuery, formatOfferingPlans, OnPremisesPricingConfig } from '@app/utils';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { TIME_SCALE_DATA, FAQ_DATA } from './constants';
 
 export const D4jPage: FC<OnPremisesPricingConfig> = pricing => {
-  const comparePlans = formatComparePlans(
-    useStaticQuery<ComparePlansQuery>(graphql`
+  const { plans, comparePlans } = formatOfferingPlans(
+    useStaticQuery<OfferingPlansQuery>(graphql`
       query {
         allContentfulComparePlan(filter: { internalTitle: { eq: "Drill4J Compare Plan" } }) {
           nodes {
             ...ComparePlanFields
+          }
+        }
+        allContentfulSection(filter: { internalTitle: { eq: "[Offering Plan] Drill4J" } }) {
+          nodes {
+            ...OfferingPlansFields
           }
         }
       }
@@ -29,6 +34,7 @@ export const D4jPage: FC<OnPremisesPricingConfig> = pricing => {
       page="accelerators"
       pagePath="d4j"
       timeScaleData={TIME_SCALE_DATA}
+      offeringPlans={plans}
       comparePlans={comparePlans}
       faqData={FAQ_DATA}
       pricing={pricing}

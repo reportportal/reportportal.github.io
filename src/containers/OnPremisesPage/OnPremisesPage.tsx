@@ -1,17 +1,22 @@
 import React, { FC } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { OfferPageWrapper } from '@app/components/OfferPageWrapper';
-import { ComparePlansQuery, formatComparePlans, OnPremisesPricingConfig } from '@app/utils';
+import { OfferingPlansQuery, formatOfferingPlans, OnPremisesPricingConfig } from '@app/utils';
 
 import { FAQ_DATA, TIME_SCALE_DATA } from './constants';
 
 export const OnPremisesPage: FC<OnPremisesPricingConfig> = pricing => {
-  const comparePlans = formatComparePlans(
-    useStaticQuery<ComparePlansQuery>(graphql`
+  const { plans, comparePlans } = formatOfferingPlans(
+    useStaticQuery<OfferingPlansQuery>(graphql`
       query {
         allContentfulComparePlan(filter: { internalTitle: { eq: "On-Premises Compare Plan" } }) {
           nodes {
             ...ComparePlanFields
+          }
+        }
+        allContentfulSection(filter: { internalTitle: { eq: "[Offering Plan] On Premises" } }) {
+          nodes {
+            ...OfferingPlansFields
           }
         }
       }
@@ -30,6 +35,7 @@ export const OnPremisesPage: FC<OnPremisesPricingConfig> = pricing => {
       page="pricing"
       pagePath="on-premises"
       timeScaleData={TIME_SCALE_DATA}
+      offeringPlans={plans}
       comparePlans={comparePlans}
       faqData={FAQ_DATA}
       pricing={pricing}

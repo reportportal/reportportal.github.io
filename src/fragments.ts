@@ -42,3 +42,30 @@ export const ComparePlanFragment = graphql`
     note
   }
 `;
+
+export const OfferingPlansFragment = graphql`
+  fragment OfferingPlansFields on ContentfulSection {
+    title
+    items {
+      ... on ContentfulOfferingPlan {
+        title
+        description
+        isPopular
+        pricingInfo
+        features {
+          raw
+        }
+        price {
+          title
+          currency
+          period
+          quarterly
+          yearly
+        }
+        cta {
+          ...CTAFields
+        }
+      }
+    }
+  }
+`;

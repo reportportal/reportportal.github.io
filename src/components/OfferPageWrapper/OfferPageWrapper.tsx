@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import {
   createBemBlockBuilder,
   FormattedComparePlansDto,
+  OfferingPlansDto,
   OnPremisesPricingConfig,
 } from '@app/utils';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
@@ -35,6 +36,7 @@ interface OfferPageWrapperProps {
     time: number | string;
     items: string[] | React.ReactNode[];
   }[];
+  offeringPlans: OfferingPlansDto;
   comparePlans: FormattedComparePlansDto;
   faqData: {
     key: number;
