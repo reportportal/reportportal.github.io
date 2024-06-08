@@ -2,64 +2,64 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 import { IconBlock } from '@app/components/IconBlock';
 import { Link } from '@app/components/Link';
-import {
-  createBemBlockBuilder,
-  Discount,
-  formatNumberWithCommas,
-  OnPremisesPricingConfig,
-} from '@app/utils';
-
-import { OFFER_HOURS } from '../constants';
+import { createBemBlockBuilder, formatNumberWithCommas } from '@app/utils';
 
 import './PentagonCard.scss';
 
 interface PentagonCardProps {
+  title: string;
+  description?: string;
+  pricingInfo?: string;
+  priceValue?: number;
+  currency: string;
+  period: string;
   progressNumber: number;
-  hours: (typeof OFFER_HOURS)[number];
-  pricing: OnPremisesPricingConfig;
   contactLink: string;
-  discount: Discount;
+  actionText: string;
+  actionVariant: string;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pentagon-card']);
 
 export const PentagonCard: FC<PentagonCardProps> = ({
-  hours,
-  discount,
-  pricing: { currency, period, prices },
+  pricingInfo,
+  title,
+  description,
+  priceValue,
+  currency,
+  period,
   contactLink,
   progressNumber,
-}) => {
-  const iconBlockProps = hours
-    ? { value: hours, text: 'Professional', benefit: 'Service Points' }
-    : { value: 'Open Source' };
-
-  return (
-    <div className={getBlocksWith('__wrapper')}>
-      <IconBlock type="pentagon" progressNumber={progressNumber} {...iconBlockProps} />
-      <div className={getBlocksWith('__price')}>
-        {!hours ? (
-          prices.openSource
-        ) : (
-          <>
-            {currency}
-            {formatNumberWithCommas(prices[`package${hours}`][discount])} <span>/ {period}</span>
-          </>
-        )}
-      </div>
-      <Link to={contactLink}>
-        <button
-          type="button"
-          className={classNames(
-            getBlocksWith('__contact-button'),
-            'btn',
-            `btn--${hours ? 'primary' : 'outline'}`,
-            'btn--large',
-          )}
-        >
-          {hours ? 'Contact us' : 'Start now'}
-        </button>
-      </Link>
+  actionText,
+  actionVariant,
+}) => (
+  <div className={getBlocksWith('__wrapper')}>
+    <IconBlock
+      title={title}
+      description={description}
+      type="pentagon"
+      progressNumber={progressNumber}
+    />
+    <div className={getBlocksWith('__price')}>
+      {pricingInfo ?? (
+        <>
+          {currency}
+          {formatNumberWithCommas(priceValue as number)} <span>/ {period}</span>
+        </>
+      )}
     </div>
-  );
-};
+    <Link to={contactLink}>
+      <button
+        type="button"
+        className={classNames(
+          getBlocksWith('__contact-button'),
+          'btn',
+          `btn--${actionVariant}`,
+          'btn--large',
+        )}
+      >
+        {actionText}
+      </button>
+    </Link>
+  </div>
+);

@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { FAQ_DATA } from '../D4jPage/constants';
 import { TIME_SCALE_DATA } from './constants';
 
-export const QaspPage: FC<OnPremisesPricingConfig> = pricing => {
+export const QaspPage: FC<OnPremisesPricingConfig> = () => {
   const { plans, comparePlans } = formatOfferingPlans(
     useStaticQuery<OfferingPlansQuery>(graphql`
       query {
@@ -36,11 +36,11 @@ export const QaspPage: FC<OnPremisesPricingConfig> = pricing => {
       pagePath="qasp"
       timeScaleData={TIME_SCALE_DATA}
       contactUsLink="/contact-us/qasp"
-      offeringPlans={plans}
+      plans={plans}
       comparePlans={comparePlans}
       faqData={FAQ_DATA}
-      pricing={pricing}
       utilizationDescription="Our team will provide services in support of Client's use of QaSpace plugin. Such services will vary based on Client's needs. The table below describes the different support services we customarily provide."
+      isAccelerator
     />
   );
 };

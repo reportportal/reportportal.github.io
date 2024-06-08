@@ -1,11 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
-import {
-  createBemBlockBuilder,
-  FormattedComparePlansDto,
-  OfferingPlansDto,
-  OnPremisesPricingConfig,
-} from '@app/utils';
+import { createBemBlockBuilder, FormattedComparePlansDto, OfferingPlansDto } from '@app/utils';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 import { FooterContent } from '@app/components/Layout';
 import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
@@ -18,8 +13,6 @@ import InfoIcon from '@app/svg/infoIcon.inline.svg';
 
 import { TimeScale } from './TimeScale';
 import { PentagonCard } from './PentagonCard';
-import { OFFER_HOURS } from './constants';
-import { getOfferLinks } from './utils';
 
 import './OfferPageWrapper.scss';
 
@@ -36,7 +29,7 @@ interface OfferPageWrapperProps {
     time: number | string;
     items: string[] | React.ReactNode[];
   }[];
-  offeringPlans: OfferingPlansDto;
+  plans: OfferingPlansDto;
   comparePlans: FormattedComparePlansDto;
   faqData: {
     key: number;
@@ -44,10 +37,10 @@ interface OfferPageWrapperProps {
     children: React.ReactNode;
   }[];
   contactUsLink: string;
-  pricing: OnPremisesPricingConfig;
   utilizationDescription: string;
   faqLink?: string;
   isScaleShifted?: boolean;
+  isAccelerator?: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
@@ -57,15 +50,18 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   page,
   pagePath,
   timeScaleData,
+  plans,
   comparePlans,
   faqData,
   contactUsLink,
   utilizationDescription,
   faqLink,
   isScaleShifted = false,
-  pricing,
+  isAccelerator = false,
 }) => {
   const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps(page);
+
+  const discount = isDiscount ? 'yearly' : 'quarterly';
 
   return (
     <>
@@ -84,20 +80,24 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
         }}
       />
       <div className={getBlocksWith('__pentagons')}>
-        {getOfferLinks(pagePath).map((href, index) => {
-          const hours = OFFER_HOURS[index];
-          const discount = isDiscount ? 'yearly' : 'quarterly';
-          const contactUsURL =
-            pagePath !== 'on-premises' || !OFFER_HOURS[index] ? href : `${href}/${discount}`;
+        {plans.items.map((plan, index) => {
+          const pricingValue = plan.price?.[discount];
+          const href = plan.cta.link.url;
+          const actionLink = !isAccelerator && pricingValue ? `${href}/${discount}` : href;
 
           return (
             <PentagonCard
-              key={hours}
-              pricing={pricing}
-              hours={hours}
-              discount={discount}
+              key={plan.title}
+              title={plan.title}
+              description={plan.description}
+              pricingInfo={plan.pricingInfo}
+              priceValue={plan.price?.[discount]}
+              currency={plan.price?.currency as string}
+              period={plan.price?.period as string}
               progressNumber={index + 1}
-              contactLink={contactUsURL}
+              actionText={plan.cta.link.title}
+              contactLink={actionLink}
+              actionVariant={plan.cta.type}
             />
           );
         })}

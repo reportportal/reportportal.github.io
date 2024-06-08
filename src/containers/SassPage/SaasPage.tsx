@@ -41,8 +41,6 @@ export const SaasPage: FC<SassPricingConfig> = pricing => {
     `),
   );
 
-  console.log(plans);
-
   return (
     <>
       <PricingHero

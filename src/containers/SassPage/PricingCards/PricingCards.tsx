@@ -31,7 +31,7 @@ export const PricingCards: FC<PricingCardsProps> = ({ plans, isDiscount }) => {
           href={plan.cta.link.url}
           discount={discount}
           pricingInfo={plan.pricingInfo}
-          priceValue={isDiscount ? plan.price?.yearly : plan.price?.quarterly}
+          priceValue={plan.price?.[discount]}
         />
       ))}
     </div>

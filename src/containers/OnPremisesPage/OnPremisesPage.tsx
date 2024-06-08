@@ -5,7 +5,7 @@ import { OfferingPlansQuery, formatOfferingPlans, OnPremisesPricingConfig } from
 
 import { FAQ_DATA, TIME_SCALE_DATA } from './constants';
 
-export const OnPremisesPage: FC<OnPremisesPricingConfig> = pricing => {
+export const OnPremisesPage: FC<OnPremisesPricingConfig> = () => {
   const { plans, comparePlans } = formatOfferingPlans(
     useStaticQuery<OfferingPlansQuery>(graphql`
       query {
@@ -35,10 +35,9 @@ export const OnPremisesPage: FC<OnPremisesPricingConfig> = pricing => {
       page="pricing"
       pagePath="on-premises"
       timeScaleData={TIME_SCALE_DATA}
-      offeringPlans={plans}
+      plans={plans}
       comparePlans={comparePlans}
       faqData={FAQ_DATA}
-      pricing={pricing}
       contactUsLink="/contact-us/general"
       utilizationDescription="Professional Service Point is the minimum for any support request. Unless otherwise noted, a Professional Service Point is equal to an hour of work or fraction thereof"
     />
