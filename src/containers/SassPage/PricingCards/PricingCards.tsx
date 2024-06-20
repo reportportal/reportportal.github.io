@@ -1,29 +1,23 @@
 import React, { FC } from 'react';
 import { PricingCard } from '@app/components/PricingCard';
-import { createBemBlockBuilder, SAAS_OFFERS, SassPricingConfig } from '@app/utils';
+import { createBemBlockBuilder, OfferingPlansDto } from '@app/utils';
 
 import './PricingCards.scss';
 
 interface PricingCardsProps {
-  pricing: SassPricingConfig;
+  plans: OfferingPlansDto;
   isDiscount: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pricing-cards']);
 
-export const PricingCards: FC<PricingCardsProps> = ({ pricing, isDiscount }) => {
-  const convertedPriceList = SAAS_OFFERS.map(offer => ({
-    ...offer,
-    priceValue: pricing.prices[offer.key],
-    currency: pricing.currency,
-    discount: isDiscount ? 'yearly' : 'quarterly',
-    period: pricing.period,
-  }));
+export const PricingCards: FC<PricingCardsProps> = ({ plans, isDiscount }) => {
+  const discount = isDiscount ? 'yearly' : 'quarterly';
 
   return (
     <div className={getBlocksWith()}>
-      {convertedPriceList.map(({ key, ...offer }) => (
-        <PricingCard key={key} {...offer} />
+      {plans.items.map(plan => (
+        <PricingCard key={plan.title} plan={plan} discount={discount} />
       ))}
     </div>
   );

@@ -33,8 +33,9 @@ export const MenuContainer: FC<MenuContainerProps> = ({
     }
 
     const handleClick = (event: MouseEvent<HTMLElement>) => {
-      const shouldCloseMenu = ['a', 'button'].some(tagName => event.currentTarget.closest(tagName));
-      const isSubmitButton = event.currentTarget.getAttribute('type') === 'submit';
+      const target = event.target as HTMLElement;
+      const shouldCloseMenu = ['a', 'button'].some(tagName => target.closest(tagName));
+      const isSubmitButton = target.getAttribute('type') === 'submit';
 
       if (shouldCloseMenu && !isSubmitButton) {
         onClose();
