@@ -5,11 +5,17 @@ import path from 'node:path';
 
 import { GatsbyNode, NodePluginArgs } from 'gatsby';
 import axios from 'axios';
-import pick from 'lodash/pick';
-import camelCase from 'lodash/camelCase';
+import keyBy from 'lodash/keyBy';
+import {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from 'gatsby-source-contentful/rich-text';
 
-import { createContactUsConfig } from './src/utils/contactUsConfig';
-import { PricingConfigDto } from './src/utils/types';
+import { ContactUsConfig, OfferingPlanDto } from './src/utils/types';
+import { contactUsBaseConfigs } from './src/utils/contactUsConfig';
+// importing GraphQL fragments to be available in the app
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import * as fragments from './src/fragments';
 
 interface Slug {
   slug: string;
@@ -32,9 +38,17 @@ interface Repos {
   repos: Record<string, string>;
 }
 
-interface PricingConfigTypeDto {
-  allContentfulPricingConfig: {
-    nodes: PricingConfigDto[];
+interface ContactUsDto {
+  internalTitle: string;
+  title: string;
+  message: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  messagePosition: string;
+  offeringPlan?: OfferingPlanDto;
+}
+
+interface ContactUsQuery {
+  allContentfulContactUs: {
+    nodes: ContactUsDto[];
   };
 }
 
@@ -123,39 +137,25 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
 
   const ContactUsPage = path.resolve('./src/templates/contact-us/contact-us.tsx');
 
-  const pricingConfigResponse = await graphql<PricingConfigTypeDto>(
+  const contactUsResponse = await graphql<ContactUsQuery>(
     `
       {
-        allContentfulPricingConfig(
-          filter: { title: { eq: "SaaS and On-Premises pricing configs" } }
-        ) {
+        allContentfulContactUs {
           nodes {
-            currency
-            period
-            saas {
-              startup {
-                yearly
-                quarterly
+            ... on ContentfulContactUs {
+              internalTitle
+              title
+              messagePosition
+              message {
+                raw
               }
-              business {
-                yearly
-                quarterly
-              }
-              enterprise
-            }
-            onPremises {
-              openSource
-              package25 {
-                yearly
-                quarterly
-              }
-              package60 {
-                yearly
-                quarterly
-              }
-              package160 {
-                yearly
-                quarterly
+              offeringPlan {
+                price {
+                  currency
+                  period
+                  yearly
+                  quarterly
+                }
               }
             }
           }
@@ -164,25 +164,34 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     `,
   );
 
-  if (pricingConfigResponse.errors) {
+  if (contactUsResponse.errors) {
     reporter.panicOnBuild(
-      'There was an error loading Contentful pricing config',
-      pricingConfigResponse.errors,
+      'There was an error loading Contentful contact us configs',
+      contactUsResponse.errors,
     );
 
     return;
   }
 
-  const pricingConfig = pricingConfigResponse.data?.allContentfulPricingConfig
-    .nodes[0] as PricingConfigDto;
+  const contactUsConfigs = keyBy(
+    contactUsResponse.data?.allContentfulContactUs.nodes as ContactUsDto[],
+    'internalTitle',
+  );
 
-  createContactUsConfig(pricingConfig).forEach((config: { url: string }) => {
+  contactUsBaseConfigs.forEach(config => {
+    const contentfulConfig = contactUsConfigs[config.id];
+    const contactUsProps: ContactUsConfig = {
+      ...config,
+      title: contentfulConfig.title,
+      message: contentfulConfig.message,
+      messagePosition: contentfulConfig.messagePosition,
+      price: contentfulConfig.offeringPlan?.price,
+    };
+
     createPage({
       path: config.url,
       component: ContactUsPage,
-      context: {
-        config,
-      },
+      context: contactUsProps,
     });
   });
 
@@ -220,18 +229,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     });
   });
 
-  const sharedPricingContext = pick(pricingConfig, 'currency', 'period');
-
   fs.readdirSync(acceleratorsTemplatesPath).forEach(file => {
     const key = path.basename(file, '.tsx');
 
     createPage({
       path: `/accelerators/${key}/`,
       component: path.resolve(path.join(acceleratorsTemplatesPath, file)),
-      context: {
-        ...sharedPricingContext,
-        prices: pricingConfig.onPremises,
-      },
     });
   });
 
@@ -241,10 +244,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     createPage({
       path: `/pricing/${key}/`,
       component: path.resolve(path.join(pricingTemplatesPath, file)),
-      context: {
-        ...sharedPricingContext,
-        prices: pricingConfig[camelCase(key) as keyof PricingConfigDto],
-      },
     });
   });
 

@@ -222,6 +222,10 @@
         align-self: start;
       }
 
+      p {
+        display: contents;
+      }
+
       li + li {
         margin-top: 4px;
       }

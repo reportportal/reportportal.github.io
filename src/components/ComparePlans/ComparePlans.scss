@@ -51,6 +51,8 @@
     .ant-tablet-header {
       @include title();
 
+      margin-bottom: 24px;
+
       .ant-tablet-header-text {
         flex: 0 1 auto !important;
         margin: 0 !important;
@@ -156,12 +158,15 @@
     }
   }
 
+  .ant-collapse-item-disabled .ant-collapse-header {
+    cursor: auto;
+  }
+
   .ant-collapse-header:has(.row-section) {
     @include m.font-noto-sans(v.$fw-semi-bold);
     @include m.font-scale(base);
 
     align-items: center;
-    cursor: auto;
   }
 
   .ant-collapse-header:has(.row-section__row-title-footer) {
@@ -219,17 +224,6 @@
           font-weight: v.$fw-regular;
         }
       }
-    }
-
-    &-title {
-      @include m.font-noto-sans(v.$fw-semi-bold);
-      @include m.font-scale(base);
-
-      margin-bottom: 43px;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-primary);
     }
 
     &-header {

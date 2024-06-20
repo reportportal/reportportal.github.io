@@ -2,64 +2,52 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 import { IconBlock } from '@app/components/IconBlock';
 import { Link } from '@app/components/Link';
-import {
-  createBemBlockBuilder,
-  Discount,
-  formatNumberWithCommas,
-  OnPremisesPricingConfig,
-} from '@app/utils';
-
-import { OFFER_HOURS } from '../constants';
+import { createBemBlockBuilder, formatNumberWithCommas, OfferingPlanDto } from '@app/utils';
 
 import './PentagonCard.scss';
 
 interface PentagonCardProps {
+  plan: OfferingPlanDto;
   progressNumber: number;
-  hours: (typeof OFFER_HOURS)[number];
-  pricing: OnPremisesPricingConfig;
   contactLink: string;
-  discount: Discount;
+  pricingValue: number;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pentagon-card']);
 
 export const PentagonCard: FC<PentagonCardProps> = ({
-  hours,
-  discount,
-  pricing: { currency, period, prices },
+  plan,
   contactLink,
   progressNumber,
-}) => {
-  const iconBlockProps = hours
-    ? { value: hours, text: 'Professional', benefit: 'Service Points' }
-    : { value: 'Open Source' };
-
-  return (
-    <div className={getBlocksWith('__wrapper')}>
-      <IconBlock type="pentagon" progressNumber={progressNumber} {...iconBlockProps} />
-      <div className={getBlocksWith('__price')}>
-        {!hours ? (
-          prices.openSource
-        ) : (
-          <>
-            {currency}
-            {formatNumberWithCommas(prices[`package${hours}`][discount])} <span>/ {period}</span>
-          </>
-        )}
-      </div>
-      <Link to={contactLink}>
-        <button
-          type="button"
-          className={classNames(
-            getBlocksWith('__contact-button'),
-            'btn',
-            `btn--${hours ? 'primary' : 'outline'}`,
-            'btn--large',
-          )}
-        >
-          {hours ? 'Contact us' : 'Start now'}
-        </button>
-      </Link>
+  pricingValue,
+}) => (
+  <div className={getBlocksWith('__wrapper')}>
+    <IconBlock
+      title={plan.title}
+      description={plan.description}
+      type="pentagon"
+      progressNumber={progressNumber}
+    />
+    <div className={getBlocksWith('__price')}>
+      {plan.pricingInfo ?? (
+        <>
+          {plan.price?.currency}
+          {formatNumberWithCommas(pricingValue)} <span>/ {plan.price?.period}</span>
+        </>
+      )}
     </div>
-  );
-};
+    <Link to={contactLink}>
+      <button
+        type="button"
+        className={classNames(
+          getBlocksWith('__contact-button'),
+          'btn',
+          `btn--${plan.cta.type}`,
+          'btn--large',
+        )}
+      >
+        {plan.cta.link.title}
+      </button>
+    </Link>
+  </div>
+);
