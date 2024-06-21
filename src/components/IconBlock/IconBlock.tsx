@@ -5,24 +5,27 @@ import './IconBlock.scss';
 
 interface IconBlockProps {
   type: string;
-  value: string | number;
+  title: string;
   progressNumber?: number;
-  text?: string;
-  benefit?: string;
+  description?: string;
 }
 
-export const IconBlock: FC<IconBlockProps> = ({ type, value, text, benefit, progressNumber }) => (
-  <div
-    className={classNames('icon-block', type, { [`${type}-${progressNumber}`]: progressNumber })}
-  >
-    <span
-      className={classNames('icon-block__number', {
-        'icon-block__number--only': !(text && benefit),
-      })}
+export const IconBlock: FC<IconBlockProps> = ({ type, title, description, progressNumber }) => {
+  const [text, benefit] = description?.split('\\n') ?? [];
+
+  return (
+    <div
+      className={classNames('icon-block', type, { [`${type}-${progressNumber}`]: progressNumber })}
     >
-      {value}
-    </span>
-    <span className="icon-block__text">{text}</span>
-    <span className="icon-block__benefit">{benefit}</span>
-  </div>
-);
+      <span
+        className={classNames('icon-block__number', {
+          'icon-block__number--only': !description,
+        })}
+      >
+        {title}
+      </span>
+      {text && <span className="icon-block__text">{text}</span>}
+      {benefit && <span className="icon-block__benefit">{benefit}</span>}
+    </div>
+  );
+};

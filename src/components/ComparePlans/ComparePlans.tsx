@@ -1,65 +1,97 @@
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Collapse } from 'antd';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { INLINES } from '@contentful/rich-text-types';
+import isEmpty from 'lodash/isEmpty';
+import size from 'lodash/size';
 import classNames from 'classnames';
-import { createBemBlockBuilder, iconsCommon, MEDIA_DESKTOP_SM } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  FormattedComparePlansDto,
+  FormattedComparePlansItemDto,
+  iconsCommon,
+  MEDIA_DESKTOP_SM,
+} from '@app/utils';
+import { Link } from '@app/components/Link';
 
 import { Columns } from './Columns';
-import { RowSection } from './RowSection';
-import { Description } from './Description';
-import { ExpandableRow } from './ExpandableRow';
-import { ColumnsHeader } from './ColumnsHeader';
+import { FooterColumn, RowSection } from './RowSection';
 
 import './ComparePlans.scss';
 
 interface ComparePlansProps {
-  dataPlans: {
-    feature: string;
-    section: string;
-    description: string;
-    footer: string;
-    href: string;
-  }[];
-  columns: string;
-  footerButtons: string;
-  isCollapsibleOnMobile: boolean;
-  mobileColumns: string;
+  plans: FormattedComparePlansDto;
+  isCollapsibleOnMobile?: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['compare']);
 
 export const ComparePlans: FC<ComparePlansProps> = ({
-  dataPlans,
-  columns,
-  footerButtons,
+  plans: { sections, columns, mobileColumns, ctas, note },
   isCollapsibleOnMobile = true,
-  mobileColumns,
 }) => {
   const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });
   const { Panel } = Collapse;
-  const columnsNames = Object.values(columns);
+  const [featureColumn, ...plansColumns] = columns;
+  const [, ...plansColumnsMobile] = mobileColumns;
 
-  const prepareColumnData = (row: string) => Object.values(row);
+  const getRowKey = (sectionIndex: number, itemIndex: number) =>
+    `${sections[sectionIndex].title}${sections[sectionIndex].items[itemIndex].name}`;
 
-  const constructElementKey = (index: number, feature: string, section: string) =>
-    feature ? feature.substring(0, index + 1) : `key${section}` || '';
+  const renderRow = (row: FormattedComparePlansItemDto, key: string) => {
+    return (
+      <Panel
+        key={key}
+        showArrow
+        header={
+          <div className={getBlocksWith('__row')}>
+            <Columns title={row.name} cols={row.plans} />
+          </div>
+        }
+      >
+        <div className={getBlocksWith('__content')}>
+          <div
+            className={classNames(getBlocksWith('__description'), {
+              [getBlocksWith('__description-full-width')]: isDesktop,
+            })}
+          >
+            {renderRichText(row.description, {
+              renderNode: {
+                // eslint-disable-next-line react/no-multi-comp
+                [INLINES.HYPERLINK]: (node, children) => (
+                  <Link className={getBlocksWith('__description-anchor')} to={node.data.uri}>
+                    {children}
+                  </Link>
+                ),
+              },
+            })}
+          </div>
+          <div className={getBlocksWith('__tab-data')}>
+            {!isDesktop && (
+              <div className={getBlocksWith('__tab-header')}>
+                <Columns cols={isEmpty(plansColumnsMobile) ? plansColumns : plansColumnsMobile} />
+              </div>
+            )}
+            <div className={getBlocksWith('__tab-data-last-item')}>
+              <Columns cols={row.plans} />
+            </div>
+          </div>
+        </div>
+      </Panel>
+    );
+  };
 
-  const isRow = (section: string, footer: string) => !(section || footer);
-
-  const getColumnsHeader = () => <ColumnsHeader title="Features" columns={columnsNames} />;
-
-  const getComparePlans = () => (
+  const comparePlans = (
     <>
-      {!isCollapsibleOnMobile && isDesktop && getColumnsHeader()}
-      {isCollapsibleOnMobile &&
-        (isDesktop ? (
-          getColumnsHeader()
-        ) : (
-          <div className={getBlocksWith('__tab-title')}>Main functionality</div>
-        ))}
+      {isDesktop && (
+        <div className={getBlocksWith('__tab-header')}>
+          <Columns title={featureColumn} cols={plansColumns} />
+        </div>
+      )}
       <div className={getBlocksWith('__container')}>
         <Collapse
-          defaultActiveKey={[constructElementKey(0, dataPlans[0].feature, dataPlans[0].section)]}
+          defaultActiveKey={[getRowKey(0, 0)]}
           ghost
           expandIconPosition={isDesktop ? 'start' : 'end'}
           expandIcon={({ isActive }) => (
@@ -70,58 +102,44 @@ export const ComparePlans: FC<ComparePlansProps> = ({
             />
           )}
         >
-          {dataPlans.map(({ description, feature, section, footer, href, ...rowData }, index) => (
-            <Panel
-              showArrow={isRow(section, footer)}
-              collapsible={!isRow(section, footer) ? 'disabled' : undefined}
-              header={
-                isRow(section, footer) ? (
-                  <ExpandableRow
-                    feature={feature}
-                    columnsData={prepareColumnData(rowData as string)}
-                  />
-                ) : (
-                  <RowSection footer={footer} footerButtons={footerButtons} />
-                )
-              }
-              key={constructElementKey(index, feature, section)}
-            >
-              {isRow(section, footer) && (
-                <div className={getBlocksWith('__content')}>
-                  <div
-                    className={classNames(getBlocksWith('__description'), {
-                      [getBlocksWith('__description-full-width')]: isDesktop,
-                    })}
-                  >
-                    <Description text={description} href={href} />
-                  </div>
-                  <div className={getBlocksWith('__tab-data')}>
-                    {!isDesktop && (
-                      <ColumnsHeader columns={columnsNames} mobileColumns={mobileColumns} />
-                    )}
-                    <div className={getBlocksWith('__tab-data-last-item')}>
-                      <Columns cols={prepareColumnData(rowData as string)} />
-                    </div>
-                  </div>
-                </div>
+          {sections.map((section, sectionIndex) => (
+            <Fragment key={sectionIndex}>
+              {((isDesktop && sectionIndex !== 0) || (!isDesktop && size(sections) > 1)) && (
+                <Panel
+                  key={section.title}
+                  showArrow={false}
+                  collapsible="disabled"
+                  header={<RowSection title={section.title} />}
+                />
               )}
-            </Panel>
+              {section.items.map((item, itemIndex) =>
+                renderRow(item, getRowKey(sectionIndex, itemIndex)),
+              )}
+            </Fragment>
           ))}
+          <Panel
+            key="Footer"
+            showArrow={false}
+            collapsible="disabled"
+            header={<FooterColumn note={note} ctas={ctas} />}
+          />
         </Collapse>
       </div>
     </>
   );
 
+  const isCollapsable = !isDesktop && isCollapsibleOnMobile;
+
   return (
     <div
       className={classNames(getBlocksWith(), 'container', {
-        [getBlocksWith('-narrow')]: columnsNames.length === 4,
+        [getBlocksWith('-narrow')]: plansColumns.length === 4,
       })}
     >
-      {isDesktop || !isCollapsibleOnMobile ? (
+      {!isCollapsable ? (
         <>
           <div className={getBlocksWith('__title')}>Compare plans</div>
-          {getComparePlans()}
+          {comparePlans}
         </>
       ) : (
         <Collapse
@@ -142,7 +160,7 @@ export const ComparePlans: FC<ComparePlansProps> = ({
             {
               label: 'Compare plans',
               key: 1,
-              children: getComparePlans(),
+              children: comparePlans,
             },
           ]}
         />

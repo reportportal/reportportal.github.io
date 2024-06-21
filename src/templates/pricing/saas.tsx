@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import { PageProps } from 'gatsby';
 import { Layout } from '@app/components/Layout';
 import { SaasPage } from '@app/containers/SassPage';
-import { SassPricingConfig, SEO_DATA } from '@app/utils';
+import { SEO_DATA } from '@app/utils';
 
-const Saas: FC<PageProps<null, SassPricingConfig>> = ({ pageContext }) => (
+const Saas: FC = () => (
   <Layout seoData={SEO_DATA.saas} className="offer-page-wrapper">
-    <SaasPage {...pageContext} />
+    <SaasPage />
   </Layout>
 );
 
