@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FC } from 'react';
-import jsonp from 'jsonp';
+import axios from 'axios';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
 import { Link } from '@app/components/Link';
@@ -11,39 +11,53 @@ import { SubscriptionFormCard } from './SubscriptionFormCard';
 import './SubscriptionForm.scss';
 
 const getBlocksWith = createBemBlockBuilder(['subscription-form']);
-const alreadySubscribedStatusMessage =
-  "You're already subscribed, your profile has been updated. Thank you!";
-const thankYouStatusMessage = 'Thank you for subscribing!';
+
+enum SubscriptionStatus {
+  success,
+  alreadySubscribed,
+  error,
+}
 
 export const SubscriptionForm: FC = () => {
   const [form] = Form.useForm();
   const [validation, setValidation] = useState<{
     isValid: boolean;
+    status?: SubscriptionStatus;
     message?: string;
   }>({
     isValid: true,
   });
-  const [responseMessage, setResponseMessage] = useState<string>();
   const email = Form.useWatch('email', form);
 
   const subscribeUser = (emailToSubscribe: string) => {
-    jsonp(
-      `${process.env.GATSBY_MAILCHIMP_URL}&MERGE0=${emailToSubscribe}`,
-      { param: 'c' },
-      (error, data) => {
-        const { msg, result } = data;
-
-        setResponseMessage(msg);
-
-        if (result === 'error') {
+    axios
+      .post(
+        `https://status.reportportal.io/mailchimp/lists/${process.env.GATSBY_MAILCHIMP_LIST_ID}/members`,
+        {
+          email_address: emailToSubscribe,
+        },
+      )
+      .then(() => {
+        setValidation({
+          isValid: true,
+          status: SubscriptionStatus.success,
+        });
+      })
+      .catch(error => {
+        if (error.response.data.error === 'email address already subscribed') {
+          setValidation({
+            isValid: true,
+            status: SubscriptionStatus.alreadySubscribed,
+          });
+        } else {
           setValidation({
             isValid: false,
+            status: SubscriptionStatus.error,
             message:
               'This email cannot be added to the list. Please enter a different email address.',
           });
         }
-      },
-    );
+      });
   };
 
   const handleFinish = () => {
@@ -68,11 +82,11 @@ export const SubscriptionForm: FC = () => {
     });
   }, [email]);
 
-  if (responseMessage === thankYouStatusMessage) {
+  if (validation.status === SubscriptionStatus.success) {
     return <SubscriptionFormCard title="Thank you for subscription!" />;
   }
 
-  if (responseMessage === alreadySubscribedStatusMessage) {
+  if (validation.status === SubscriptionStatus.alreadySubscribed) {
     return (
       <SubscriptionFormCard
         title="Already subscribed!"
