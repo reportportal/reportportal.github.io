@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useState } from 'react';
 import { PageProps, graphql } from 'gatsby';
-import { Layout } from '@app/components/Layout';
+import { Layout, Seo } from '@app/components/Layout';
 import { BlogPage } from '@app/containers/BlogPage';
 import { BlogPostsQueryDto, BlogPostDto, SEO_DATA } from '@app/utils';
 
@@ -17,7 +17,7 @@ const BlogIndex: FC<PageProps<BlogPostsQueryDto>> = ({ data: { allContentfulBlog
   );
 
   return (
-    <Layout seoData={SEO_DATA.blog}>
+    <Layout>
       <BlogPage visiblePosts={visiblePosts} allPosts={allPosts} loadMorePosts={loadMorePosts} />
     </Layout>
   );
@@ -53,3 +53,10 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+// eslint-disable-next-line react/no-multi-comp
+export const Head = () => {
+  const { title, description } = SEO_DATA.blog;
+
+  return <Seo title={title} description={description} />;
+};

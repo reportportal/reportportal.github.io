@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FC } from 'react';
 import { PageProps, graphql } from 'gatsby';
-import { Layout } from '@app/components/Layout';
+import { Layout, Seo } from '@app/components/Layout';
 import { Case, CasesPage } from '@app/containers/CasesPage';
 import { SEO_DATA } from '@app/utils';
 
@@ -27,7 +27,7 @@ const Cases: FC<PageProps<CasesProps>> = ({ data }) => {
   }, [displayCount, nodes]);
 
   return (
-    <Layout seoData={SEO_DATA.caseStudies} className="cases-page-layout">
+    <Layout className="cases-page-layout">
       <CasesPage
         cases={caseStudies}
         handleLoadMore={handleLoadMore}
@@ -63,3 +63,10 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+// eslint-disable-next-line react/no-multi-comp
+export const Head = () => {
+  const { title, description } = SEO_DATA.caseStudies;
+
+  return <Seo title={title} description={description} />;
+};

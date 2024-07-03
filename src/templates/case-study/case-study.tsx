@@ -4,7 +4,7 @@ import {
   RenderRichTextData,
   ContentfulRichTextGatsbyReference,
 } from 'gatsby-source-contentful/rich-text';
-import { Layout } from '@app/components/Layout';
+import { Layout, Seo } from '@app/components/Layout';
 import { CaseStudyPage } from '@app/containers/CaseStudyPage';
 
 export interface CaseStudyProps {
@@ -20,11 +20,10 @@ export interface CaseStudyProps {
 }
 
 const CaseStudyTemplate: FC<PageProps<CaseStudyProps>> = ({ data }) => {
-  const { title, seoTitle, seoDescription, industry, challenges, highlights, benefitsResults } =
-    data.contentfulCaseStudy;
+  const { title, industry, challenges, highlights, benefitsResults } = data.contentfulCaseStudy;
 
   return (
-    <Layout seoData={{ title: seoTitle ?? title, description: seoDescription }}>
+    <Layout>
       <CaseStudyPage {...{ title, industry, challenges, highlights, benefitsResults }} />
     </Layout>
   );
@@ -59,3 +58,10 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+// eslint-disable-next-line react/no-multi-comp
+export const Head = ({ data }) => {
+  const { title, seoTitle, seoDescription } = data.contentfulCaseStudy;
+
+  return <Seo title={seoTitle ?? title} description={seoDescription} />;
+};

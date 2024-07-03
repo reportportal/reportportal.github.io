@@ -1,12 +1,19 @@
 import React, { FC } from 'react';
-import { Layout } from '@app/components/Layout';
+import { Layout, Seo } from '@app/components/Layout';
 import { HealeniumPage } from '@app/containers/AcceleratorsPage';
 import { SEO_DATA } from '@app/utils';
 
 const Hlm: FC = () => (
-  <Layout seoData={SEO_DATA.hlm} className="offer-page-wrapper">
+  <Layout className="offer-page-wrapper">
     <HealeniumPage />
   </Layout>
 );
 
 export default Hlm;
+
+// eslint-disable-next-line react/no-multi-comp
+export const Head = () => {
+  const { title, description } = SEO_DATA.hlm;
+
+  return <Seo title={title} description={description} />;
+};

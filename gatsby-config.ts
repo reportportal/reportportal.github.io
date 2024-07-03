@@ -23,7 +23,6 @@ const config: GatsbyConfig = {
     'gatsby-plugin-svgr-svgo',
     'gatsby-plugin-sass',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
@@ -79,12 +78,6 @@ const config: GatsbyConfig = {
             url: path,
           };
         },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-react-helmet-canonical-urls',
-      options: {
-        siteUrl: 'https://reportportal.io',
       },
     },
   ],

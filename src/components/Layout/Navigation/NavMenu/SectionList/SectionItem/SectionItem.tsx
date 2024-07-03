@@ -1,5 +1,4 @@
 import React, { FC, ReactElement } from 'react';
-import { Helmet } from 'react-helmet';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
 import { ContentfulAsset, createBemBlockBuilder, isContentfulRecord, LinkDto } from '@app/utils';
@@ -27,22 +26,15 @@ export const SectionItem: FC<SectionItemProps> = props => {
 
     if (iconClassName) {
       return (
-        <>
-          {hoverIcon ? (
-            <Helmet>
-              <link rel="preload" as="image" href={hoverIcon.url} />
-            </Helmet>
-          ) : null}
-          <span
-            className={getBlocksWith('-icon', `-icon--${iconClassName}`)}
-            {...(isDataFromContentful && {
-              style: {
-                '--icon': `url('${(icon as ContentfulAsset).url}')`,
-                '--hover-icon': `url('${((hoverIcon ?? icon) as ContentfulAsset).url}')`,
-              },
-            })}
-          />
-        </>
+        <span
+          className={getBlocksWith('-icon', `-icon--${iconClassName}`)}
+          {...(isDataFromContentful && {
+            style: {
+              '--icon': `url('${(icon as ContentfulAsset).url}')`,
+              '--hover-icon': `url('${((hoverIcon ?? icon) as ContentfulAsset).url}')`,
+            },
+          })}
+        />
       );
     }
 

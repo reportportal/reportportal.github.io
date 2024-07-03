@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { BlogPostPage } from '@app/containers/BlogPostPage';
-import { Layout } from '@app/components/Layout';
+import { Layout, Seo } from '@app/components/Layout';
 
 interface DataProps {
   contentfulBlogPost: {
@@ -23,17 +23,10 @@ interface DataProps {
 }
 
 const BlogPostTemplate: FC<PageProps<DataProps>> = ({ data }) => {
-  const { industry, title, seoTitle, seoDescription, featuredImage, author, date, articleBody } =
-    data.contentfulBlogPost;
+  const { industry, title, author, date, articleBody } = data.contentfulBlogPost;
 
   return (
-    <Layout
-      seoData={{
-        title: seoTitle ?? title?.title,
-        description: seoDescription,
-        previewImage: featuredImage?.file?.url,
-      }}
-    >
+    <Layout>
       <BlogPostPage {...{ industry, title, author, date, articleBody }} />
     </Layout>
   );
@@ -74,3 +67,16 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+// eslint-disable-next-line react/no-multi-comp
+export const Head = ({ data }) => {
+  const { title, seoTitle, seoDescription, featuredImage } = data.contentfulBlogPost;
+
+  return (
+    <Seo
+      title={seoTitle ?? title?.title}
+      description={seoDescription}
+      previewImage={featuredImage?.file?.url}
+    />
+  );
+};

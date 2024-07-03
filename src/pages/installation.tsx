@@ -1,12 +1,19 @@
 import React, { FC } from 'react';
-import { Layout } from '@app/components/Layout';
+import { Layout, Seo } from '@app/components/Layout';
 import { InstallationPage } from '@app/containers/InstallationPage';
 import { SEO_DATA } from '@app/utils';
 
 const Installation: FC = () => (
-  <Layout seoData={SEO_DATA.installation}>
+  <Layout>
     <InstallationPage />
   </Layout>
 );
 
 export default Installation;
+
+// eslint-disable-next-line react/no-multi-comp
+export const Head = () => {
+  const { title, description } = SEO_DATA.installation;
+
+  return <Seo title={title} description={description} />;
+};
