@@ -93,7 +93,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     });
 
   await axios
-    .get('https://status.reportportal.io/youtube?count=10')
+    .get('https://status.reportportal.io/youtube?count=12')
     .then((response: { data: YoutubeVideoDto[] }) => response.data)
     .then(data => {
       fs.writeFileSync('static/youtube.json', JSON.stringify(data));

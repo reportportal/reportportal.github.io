@@ -68,7 +68,6 @@ export const pageQuery = graphql`
   }
 `;
 
-// eslint-disable-next-line react/no-multi-comp
 export const Head = ({ data }) => {
   const { title, seoTitle, seoDescription, featuredImage } = data.contentfulBlogPost;
 

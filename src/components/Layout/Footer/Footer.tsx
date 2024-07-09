@@ -1,6 +1,8 @@
 import React, { FC, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Divider } from 'antd';
 import classNames from 'classnames';
+import { useInView } from 'framer-motion';
 import { Link } from '@app/components/Link';
 import { useFooter } from '@app/hooks/useFooter';
 import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
@@ -15,6 +17,7 @@ const getBlocksWith = createBemBlockBuilder(['footer']);
 export const Footer: FC = () => {
   const { text, sections, terms, socials, testedOn } = useFooter();
   const containerRef = useRef<HTMLElement | null>(null);
+  const isInView = useInView(containerRef, { once: true });
 
   return (
     <footer ref={containerRef} className={getBlocksWith()}>
@@ -64,6 +67,12 @@ export const Footer: FC = () => {
                       '--hover-icon': `url('${hoverIcon.url}')`,
                     }}
                   >
+                    {typeof document !== 'undefined' &&
+                      isInView &&
+                      createPortal(
+                        <link rel="preload" as="image" href={hoverIcon.url} />,
+                        document.head,
+                      )}
                     <img src={icon.url} width={icon.width} height={icon.height} alt={alt} />
                   </Link>
                 </li>
@@ -76,6 +85,12 @@ export const Footer: FC = () => {
                 '--hover-icon': `url('${testedOn.hoverIcon.url}')`,
               }}
             >
+              {typeof document !== 'undefined' &&
+                isInView &&
+                createPortal(
+                  <link rel="preload" as="image" href={testedOn.hoverIcon.url} />,
+                  document.head,
+                )}
               <img src={testedOn.icon.url} alt={testedOn.alt} />
             </Link>
           </div>

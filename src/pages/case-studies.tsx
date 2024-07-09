@@ -64,7 +64,6 @@ export const pageQuery = graphql`
   }
 `;
 
-// eslint-disable-next-line react/no-multi-comp
 export const Head = () => {
   const { title, description } = SEO_DATA.caseStudies;
 

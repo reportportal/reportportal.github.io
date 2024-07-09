@@ -11,7 +11,6 @@ const Terms: FC = () => (
 
 export default Terms;
 
-// eslint-disable-next-line react/no-multi-comp
 export const Head = () => {
   const { title, description } = SEO_DATA.terms;
 

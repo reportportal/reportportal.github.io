@@ -11,7 +11,6 @@ const Root: FC = () => (
 
 export default Root;
 
-// eslint-disable-next-line react/no-multi-comp
 export const Head = () => {
   const { title, description } = SEO_DATA.index;
 

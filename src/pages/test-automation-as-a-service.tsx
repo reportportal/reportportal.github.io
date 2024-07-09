@@ -11,7 +11,6 @@ export const TestAutomationAsService: FC = () => (
 
 export default TestAutomationAsService;
 
-// eslint-disable-next-line react/no-multi-comp
 export const Head = () => {
   const { title, description } = SEO_DATA.testAutomationAsAService;
 

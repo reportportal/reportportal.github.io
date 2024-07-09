@@ -16,7 +16,6 @@ const ContactUs: FC<PageProps<null, ContactUsConfig>> = ({ pageContext: config }
 
 export default ContactUs;
 
-// eslint-disable-next-line react/no-multi-comp
 export const Head = ({ location }) => {
   const { title, description } = SEO_DATA.contactUsGeneral;
   const noIndex = location.pathname !== CONTACT_US_GENERAL_PATH;

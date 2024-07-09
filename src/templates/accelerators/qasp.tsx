@@ -11,7 +11,6 @@ const Qasp: FC = () => (
 
 export default Qasp;
 
-// eslint-disable-next-line react/no-multi-comp
 export const Head = () => {
   const { title, description } = SEO_DATA.qasp;
 

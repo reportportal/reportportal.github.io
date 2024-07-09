@@ -11,7 +11,6 @@ const Features: FC = () => (
 
 export default Features;
 
-// eslint-disable-next-line react/no-multi-comp
 export const Head = () => {
   const { title, description } = SEO_DATA.features;
 

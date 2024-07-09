@@ -11,7 +11,6 @@ const Community: FC = () => (
 
 export default Community;
 
-// eslint-disable-next-line react/no-multi-comp
 export const Head = () => {
   const { title, description } = SEO_DATA.community;
 
