@@ -1,5 +1,5 @@
 import React, { FC, useRef } from 'react';
-import { Helmet } from 'react-helmet';
+import { createPortal } from 'react-dom';
 import { Divider } from 'antd';
 import classNames from 'classnames';
 import { useInView } from 'framer-motion';
@@ -67,11 +67,12 @@ export const Footer: FC = () => {
                       '--hover-icon': `url('${hoverIcon.url}')`,
                     }}
                   >
-                    {isInView && (
-                      <Helmet>
-                        <link rel="preload" as="image" href={hoverIcon.url} />
-                      </Helmet>
-                    )}
+                    {typeof document !== 'undefined' &&
+                      isInView &&
+                      createPortal(
+                        <link rel="preload" as="image" href={hoverIcon.url} />,
+                        document.head,
+                      )}
                     <img src={icon.url} width={icon.width} height={icon.height} alt={alt} />
                   </Link>
                 </li>
@@ -84,11 +85,12 @@ export const Footer: FC = () => {
                 '--hover-icon': `url('${testedOn.hoverIcon.url}')`,
               }}
             >
-              {isInView && (
-                <Helmet>
-                  <link rel="preload" as="image" href={testedOn.hoverIcon.url} />
-                </Helmet>
-              )}
+              {typeof document !== 'undefined' &&
+                isInView &&
+                createPortal(
+                  <link rel="preload" as="image" href={testedOn.hoverIcon.url} />,
+                  document.head,
+                )}
               <img src={testedOn.icon.url} alt={testedOn.alt} />
             </Link>
           </div>

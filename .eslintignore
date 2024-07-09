@@ -2,3 +2,4 @@
 /public
 /.cache
 /src/containers/LandingPage/HowItWorks/animations
+/static/abtesting.js
