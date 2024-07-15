@@ -1,2 +1,3 @@
 User-agent: *
-Disallow:
+Sitemap: https://reportportal.io/sitemap-0.xml
+Sitemap: https://reportportal.io/docs/sitemap.xml
