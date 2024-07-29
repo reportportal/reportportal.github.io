@@ -1,29 +1,24 @@
 import React, { FC } from 'react';
 import { PageProps } from 'gatsby';
-import { Layout } from '@app/components/Layout';
+import { Layout, Seo } from '@app/components/Layout';
 import { ContactUsPage } from '@app/containers/ContactUsPage';
-import { SEO_DATA } from '@app/utils';
+import { ContactUsConfig, SEO_DATA } from '@app/utils';
 
 const CONTACT_US_GENERAL_PATH = '/contact-us/general';
 
-interface ContextProps {
-  config: {
-    info: string;
-    isDiscussFieldShown: boolean;
-    options: string;
-    title: string;
-    url: string;
-  };
-}
-
-const ContactUs: FC<PageProps<null, ContextProps>> = ({ pageContext: { config } }) => {
-  const noIndex = config?.url !== CONTACT_US_GENERAL_PATH;
-
+const ContactUs: FC<PageProps<null, ContactUsConfig>> = ({ pageContext: config }) => {
   return (
-    <Layout seoData={{ noIndex, ...SEO_DATA.contactUsGeneral }} className="features-page-layout">
-      <ContactUsPage config={config} />
+    <Layout className="features-page-layout">
+      <ContactUsPage {...config} />
     </Layout>
   );
 };
 
 export default ContactUs;
+
+export const Head = ({ location }) => {
+  const { title, description } = SEO_DATA.contactUsGeneral;
+  const noIndex = location.pathname !== CONTACT_US_GENERAL_PATH;
+
+  return <Seo title={title} description={description} noIndex={noIndex} />;
+};

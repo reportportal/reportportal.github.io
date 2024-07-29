@@ -20,13 +20,15 @@ env:
   DOCUMENTATION_URL: //reportportal.io/docs
   GTM_ID: GTM-MK7ZHTL
   CLOUDFRONT_ID: EILUB1IE9EON0
-  CONTENTFUL_ENV_ID: 'master'
+  CONTENTFUL_ENV_ID: 'dev'
   GATSBY_MAILCHIMP_LIST_ID: ca6d0eec5b
 
 on:
   push:
     branches:
       - develop
+    paths-ignore:
+      - README.md
   workflow_dispatch:
 
 jobs:

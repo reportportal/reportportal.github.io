@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import { Helmet } from 'react-helmet';
+import { createPortal } from 'react-dom';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
 import { ContentfulAsset, createBemBlockBuilder, isContentfulRecord, LinkDto } from '@app/utils';
@@ -28,11 +28,9 @@ export const SectionItem: FC<SectionItemProps> = props => {
     if (iconClassName) {
       return (
         <>
-          {hoverIcon ? (
-            <Helmet>
-              <link rel="preload" as="image" href={hoverIcon.url} />
-            </Helmet>
-          ) : null}
+          {typeof document !== 'undefined' &&
+            hoverIcon &&
+            createPortal(<link rel="preload" as="image" href={hoverIcon.url} />, document.head)}
           <span
             className={getBlocksWith('-icon', `-icon--${iconClassName}`)}
             {...(isDataFromContentful && {

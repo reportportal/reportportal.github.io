@@ -68,6 +68,12 @@
       "rules": {
         "import/no-default-export": 0
       }
+    },
+    {
+      "files": ["src/pages/**/*.tsx", "src/templates/**/*.tsx"],
+      "rules": {
+        "react/no-multi-comp": 0
+      }
     }
   ]
 }
