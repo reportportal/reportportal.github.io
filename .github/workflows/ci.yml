@@ -15,7 +15,7 @@ name: CI Build
 env:
   GTM_ID: GTM-MK7ZHTL
   DOCUMENTATION_URL: http://rpp-docs.s3-website.eu-central-1.amazonaws.com
-  CONTENTFUL_ENV_ID: 'master'
+  CONTENTFUL_ENV_ID: 'dev'
 
 on:
   pull_request:
