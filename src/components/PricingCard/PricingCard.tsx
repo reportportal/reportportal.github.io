@@ -34,6 +34,10 @@ export const PricingCard: FC<PricingCardProps> = ({
   dataGtm,
 }) => {
   const href = plan.cta.link.url;
+  const priceDescription = plan.price?.[`${discount}Description`]?.replace(
+    '{{currency}}',
+    plan.price.currency,
+  );
 
   return (
     <div className={classNames(getBlocksWith(), { [getBlocksWith('--full-width')]: isFullWidth })}>
@@ -68,6 +72,7 @@ export const PricingCard: FC<PricingCardProps> = ({
               / {plan.price?.period}
             </>
           )}
+          {<div className={getBlocksWith('__price-description')}>{priceDescription}</div>}
         </div>
         <Link
           className={classNames('btn', `btn--${plan.cta.type}`, 'btn--large')}

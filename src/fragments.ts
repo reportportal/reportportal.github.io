@@ -60,7 +60,9 @@ export const OfferingPlansFragment = graphql`
           currency
           period
           quarterly
+          quarterlyDescription
           yearly
+          yearlyDescription
         }
         cta {
           ...CTAFields
