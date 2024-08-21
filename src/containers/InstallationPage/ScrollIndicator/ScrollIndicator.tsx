@@ -1,7 +1,14 @@
 import React, { useEffect, useState, useRef, FC } from 'react';
-import { Link } from 'react-scroll';
+import { motion } from 'framer-motion';
 import { useScroll, useSize } from 'ahooks';
-import { createBemBlockBuilder } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  getEaseInOutTransition,
+  opacityScaleAnimationProps,
+} from '@app/utils';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
+
+import { ScrollItem } from './ScrollItem';
 
 import '../InstallationPage.scss';
 import './ScrollIndicator.scss';
@@ -17,9 +24,10 @@ const HEADER_HEIGHT = 76;
 
 interface ScrollIndicatorProps {
   sections: { id: string; title: string; step?: string }[];
+  isInView: boolean;
 }
 
-export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ sections }) => {
+export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ sections, isInView }) => {
   const [offset, setOffset] = useState(-FIRST_POSITION_OFFSET);
   const [indicatorTopPosition, setIndicatorTopPosition] = useState(HEADER_HEIGHT);
   const scroll = useScroll();
@@ -32,6 +40,10 @@ export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ sections }) => {
   const pathRef = useRef(null);
   const pathSize = useSize(pathRef);
   const indicatorySize = useSize(indicatoryRef);
+  const getLineAnimation = useMotionEnterAnimation({
+    ...opacityScaleAnimationProps,
+    ...getEaseInOutTransition(0.3),
+  });
 
   useEffect(() => {
     const top = (indicatoryScrollPosition?.top ?? 0) + HERO_HEIGHT;
@@ -45,7 +57,7 @@ export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ sections }) => {
   }, [indicatoryScrollPosition?.top]);
 
   useEffect(() => {
-    setOffset(scroll?.top < FIRST_POSITION_OFFSET ? -FIRST_POSITION_OFFSET : -OFFSET);
+    setOffset((scroll?.top ?? 0) < FIRST_POSITION_OFFSET ? -FIRST_POSITION_OFFSET : -OFFSET);
   }, [scroll]);
 
   useEffect(() => {
@@ -60,24 +72,19 @@ export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ sections }) => {
     <div ref={pathRef} className={getBlocksWith()} style={{ top: `${indicatorTopPosition}px` }}>
       <div ref={indicatoryRef} className={getBlocksWith('__path')}>
         <div className={getBlocksWith('__box')}>
-          <div
+          <motion.div
             className={getBlocksWith('__box-item-line')}
-            style={{ top: `${topPosition}px`, bottom: `${bottomPosition}px` }}
+            style={{ bottom: `${bottomPosition}px` }}
+            {...getLineAnimation({
+              inView: isInView,
+              additionalEffects: {
+                hiddenAdditional: { top: 0 },
+                enterAdditional: { top: topPosition },
+              },
+            })}
           />
           {sections.map(section => (
-            <div key={section.id} className={getBlocksWith('__box-item')}>
-              <Link
-                className={getBlocksWith('__link')}
-                activeClass="active"
-                to={section.id}
-                spy
-                smooth
-                offset={offset}
-              >
-                {section.step && <span>{section.step}</span>}
-                <span className={getBlocksWith('__box-item-substring')}>{section.title}</span>
-              </Link>
-            </div>
+            <ScrollItem section={section} offset={offset} key={section.id} />
           ))}
         </div>
       </div>

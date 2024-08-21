@@ -1,6 +1,12 @@
 import React, { FC } from 'react';
+import { motion } from 'framer-motion';
 import classNames from 'classnames';
-import { createBemBlockBuilder, FormattedComparePlansDto, OfferingPlansDto } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  easeInOutOpacityScaleAnimationProps,
+  FormattedComparePlansDto,
+  OfferingPlansDto,
+} from '@app/utils';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 import { FooterContent } from '@app/components/Layout';
 import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
@@ -10,9 +16,12 @@ import { PricingHero } from '@app/components/PricingHero';
 import { ComparePlans } from '@app/components/ComparePlans';
 import { Faq } from '@app/components/Faq';
 import InfoIcon from '@app/svg/infoIcon.inline.svg';
+import { useInView } from '@app/hooks/useInView';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
+import { useAnimationEnabledForSiblingRoutes } from '@app/hooks/useAnimationEnabledForSiblingRoutes';
 
-import { TimeScale } from './TimeScale';
 import { PentagonCard } from './PentagonCard';
+import { TimeScale } from './TimeScale';
 
 import './OfferPageWrapper.scss';
 
@@ -60,8 +69,15 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   isAccelerator = false,
 }) => {
   const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps(page);
+  const [cardsRef, areCardsInView] = useInView();
+  const isAnimationEnabled = useAnimationEnabledForSiblingRoutes();
 
   const discount = isDiscount ? 'yearly' : 'quarterly';
+
+  const getCardsAnimation = useMotionEnterAnimation(
+    easeInOutOpacityScaleAnimationProps,
+    isAnimationEnabled,
+  );
 
   return (
     <>
@@ -78,8 +94,24 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
           messageInactive: 'Quarterly',
           messageActive: 'Yearly (Save 5%)',
         }}
+        isAnimationEnabled={isAnimationEnabled}
       />
-      <div className={getBlocksWith('__pentagons')}>
+      <motion.div
+        className={getBlocksWith('__pentagons')}
+        ref={cardsRef}
+        {...getCardsAnimation({
+          inView: areCardsInView,
+          delay: 0.6,
+          additionalEffects: {
+            hiddenAdditional: {
+              y: 50,
+            },
+            enterAdditional: {
+              y: 0,
+            },
+          },
+        })}
+      >
         {plans.items.map((plan, index) => {
           const pricingValue = plan.price?.[discount];
           const href = plan.cta.link.url;
@@ -95,7 +127,7 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
             />
           );
         })}
-      </div>
+      </motion.div>
       <div className={getBlocksWith('__utilization')}>
         <h2>Indicative Professional Service Point utilization</h2>
         <div className={getBlocksWith('__utilization-subtitle')}>{utilizationDescription}</div>

@@ -10,4 +10,5 @@ export * from './breakpoints';
 export * from './constants';
 export * from './imageSource';
 export * from './formatTextFromContentfulWithLineBreaks';
+export * from './isSameParentRoute';
 export * from './types';

@@ -9,6 +9,7 @@ import { PricingHero } from '@app/components/PricingHero';
 import { FooterContent } from '@app/components/Layout';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 import { OfferingPlansQuery, createBemBlockBuilder, formatOfferingPlans } from '@app/utils';
+import { useAnimationEnabledForSiblingRoutes } from '@app/hooks/useAnimationEnabledForSiblingRoutes';
 
 import { PricingCards } from './PricingCards';
 import { FAQ_ITEMS } from './constants';
@@ -19,6 +20,7 @@ const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
 export const SaasPage: FC = () => {
   const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps('pricing');
+  const isAnimationEnabled = useAnimationEnabledForSiblingRoutes();
   const { plans, comparePlans } = formatOfferingPlans(
     useStaticQuery<OfferingPlansQuery>(graphql`
       query {
@@ -53,8 +55,9 @@ export const SaasPage: FC = () => {
           messageInactive: 'Quarterly',
           messageActive: 'Yearly (Save 5%)',
         }}
+        isAnimationEnabled={isAnimationEnabled}
       />
-      <PricingCards plans={plans} isDiscount={isDiscount} />
+      <PricingCards plans={plans} isDiscount={isDiscount} isAnimationEnabled={isAnimationEnabled} />
       <ComparePlans plans={comparePlans} />
       <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
         <TrustedOrganizations />
