@@ -77,13 +77,19 @@ export const SubscriptionForm: FC = () => {
   };
 
   useEffect(() => {
-    setValidation({
+    setValidation(prevState => ({
+      ...prevState,
       isValid: true,
-    });
+    }));
   }, [email]);
 
   if (validation.status === SubscriptionStatus.success) {
-    return <SubscriptionFormCard title="Thank you for subscription!" />;
+    return (
+      <SubscriptionFormCard
+        title="Thank you for subscribing!"
+        subtitle="Check your email and if our confirmation letter landed in your spam folder, please mark it as “Not spam” to continue receiving our updates."
+      />
+    );
   }
 
   if (validation.status === SubscriptionStatus.alreadySubscribed) {
@@ -101,7 +107,7 @@ export const SubscriptionForm: FC = () => {
         <Form.Item
           validateTrigger="onSubmit"
           className={getBlocksWith('__form-input')}
-          name={['email']}
+          name="email"
           {...(!validation.isValid && {
             validateStatus: 'error',
             help: validation.message,
@@ -115,16 +121,14 @@ export const SubscriptionForm: FC = () => {
           />
         </Form.Item>
       </div>
-      <Form.Item shouldUpdate>
-        {() => (
-          <button
-            type="submit"
-            className="btn btn--primary"
-            disabled={form.isFieldsTouched(true) && !validation.isValid}
-          >
-            Subscribe
-          </button>
-        )}
+      <Form.Item>
+        <button
+          type="submit"
+          className="btn btn--primary"
+          disabled={form.isFieldsTouched(true) && !validation.isValid}
+        >
+          Subscribe
+        </button>
       </Form.Item>
       <span className={getBlocksWith('__form-info')}>
         By subscribing, you agree to receive marketing emails from ReportPortal team and associated
