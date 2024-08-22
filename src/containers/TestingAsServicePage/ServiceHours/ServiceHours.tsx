@@ -22,13 +22,12 @@ export const ServiceHours: FC = () => (
       <div className="service-hours__equals-images">
         <IconBlock
           type="pentagon"
-          value={1}
-          text="Professional"
-          benefit="Service Point"
+          title="1"
+          description="Professional\nService Point"
           progressNumber={5}
         />
         <div className="service-hours__equals-images--equal" />
-        <IconBlock type="circle" value={1} text="Hour of" benefit="testing" />
+        <IconBlock type="circle" title="1" description="Hour of\ntesting" />
       </div>
       <UnorderedList list={SERVICE_HOURS_LIST} />
     </div>
