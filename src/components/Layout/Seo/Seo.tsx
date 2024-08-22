@@ -75,18 +75,6 @@ export const Seo: FC<SeoProps> = ({
       <meta id="meta-keywords" content={keywords} name="keywords" />
       <meta id="meta-ogsite-name" content={metaSiteName} name="og:site_name" />
       <meta id="meta-robots" content={noIndex ? 'noindex' : ''} name="robots" />
-      <script
-        type="text/javascript"
-        src="https://cookie-cdn.cookiepro.com/consent/77055ecd-ec2c-461a-bf1c-3e84d715e668/OtAutoBlock.js"
-      />
-      <script
-        type="text/javascript"
-        src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"
-        data-domain-script="77055ecd-ec2c-461a-bf1c-3e84d715e668"
-      />
-      <script type="text/javascript">{'function OptanonWrapper() { }'}</script>
-      <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
-      <script type="text/javascript" id="vwoCode" src="/abtesting.js" />
     </>
   );
 };
