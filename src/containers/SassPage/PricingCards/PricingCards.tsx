@@ -13,14 +13,18 @@ import './PricingCards.scss';
 
 interface PricingCardsProps {
   plans: OfferingPlansDto;
-  isDiscount: boolean;
+  isYearlyPlanType: boolean;
   isAnimationEnabled?: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pricing-cards']);
 
-export const PricingCards: FC<PricingCardsProps> = ({ plans, isDiscount, isAnimationEnabled }) => {
-  const discount = isDiscount ? 'yearly' : 'quarterly';
+export const PricingCards: FC<PricingCardsProps> = ({
+  plans,
+  isYearlyPlanType,
+  isAnimationEnabled,
+}) => {
+  const planType = isYearlyPlanType ? 'yearly' : 'quarterly';
   const [cardsRef, isInView] = useInView();
 
   const getAnimation = useMotionEnterAnimation(
@@ -46,7 +50,7 @@ export const PricingCards: FC<PricingCardsProps> = ({ plans, isDiscount, isAnima
       })}
     >
       {plans.items.map(plan => (
-        <PricingCard key={plan.title} plan={plan} discount={discount} />
+        <PricingCard key={plan.title} plan={plan} planType={planType} />
       ))}
     </motion.div>
   );

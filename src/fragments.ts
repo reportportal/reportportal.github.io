@@ -51,6 +51,7 @@ export const OfferingPlansFragment = graphql`
         title
         description
         isPopular
+        isContactUsURLEndsWithPlanType
         pricingInfo
         features {
           raw

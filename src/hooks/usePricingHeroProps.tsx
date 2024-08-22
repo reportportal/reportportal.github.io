@@ -39,11 +39,11 @@ export const acceleratorsButtons = [
 ];
 
 export const usePricingHeroProps = (page: string) => {
-  const [isDiscount, { toggle: toggleDiscount }] = useToggle(true);
+  const [isYearlyPlanType, { toggle: togglePlanType }] = useToggle(true);
 
   return {
-    isDiscount,
+    isYearlyPlanType,
     buttons: page === 'pricing' ? pricingButtons : acceleratorsButtons,
-    toggleDiscount,
+    togglePlanType,
   };
 };

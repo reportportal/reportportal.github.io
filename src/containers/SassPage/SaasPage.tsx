@@ -19,7 +19,7 @@ import '@app/components/OfferPageWrapper/OfferPageWrapper.scss';
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
 
 export const SaasPage: FC = () => {
-  const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps('pricing');
+  const { buttons, isYearlyPlanType, togglePlanType } = usePricingHeroProps('pricing');
   const isAnimationEnabled = useAnimationEnabledForSiblingRoutes();
   const { plans, comparePlans } = formatOfferingPlans(
     useStaticQuery<OfferingPlansQuery>(graphql`
@@ -50,14 +50,18 @@ export const SaasPage: FC = () => {
           about infrastructure, availability, backups, monitoring and version updates and provides
           support by request."
         switcherProps={{
-          toggleDiscount,
-          isDiscount,
+          togglePlanType,
+          isYearlyPlanType,
           messageInactive: 'Quarterly',
           messageActive: 'Yearly (Save 5%)',
         }}
         isAnimationEnabled={isAnimationEnabled}
       />
-      <PricingCards plans={plans} isDiscount={isDiscount} isAnimationEnabled={isAnimationEnabled} />
+      <PricingCards
+        plans={plans}
+        isYearlyPlanType={isYearlyPlanType}
+        isAnimationEnabled={isAnimationEnabled}
+      />
       <ComparePlans plans={comparePlans} />
       <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
         <TrustedOrganizations />

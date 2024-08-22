@@ -22,11 +22,10 @@ export const BUSINESS_SPONSORSHIP = [
       price: {
         currency: '$',
         period: 'month',
-        yearly: 500,
-        quarterly: 500,
+        monthly: 500,
       },
-      discount: 'yearly',
     },
+    planType: 'monthly',
   },
   {
     key: 'silver' as const,
@@ -48,10 +47,10 @@ export const BUSINESS_SPONSORSHIP = [
       price: {
         currency: '$',
         period: 'month',
-        yearly: 1000,
-        quarterly: 1000,
+        monthly: 1000,
       },
     },
+    planType: 'monthly',
   },
   {
     key: 'gold' as const,
@@ -73,11 +72,11 @@ export const BUSINESS_SPONSORSHIP = [
       price: {
         currency: '$',
         period: 'month',
-        yearly: 2500,
-        quarterly: 2500,
+        monthly: 2500,
       },
       isPopular: true,
     },
+    planType: 'monthly',
   },
   {
     key: 'platinum' as const,
@@ -99,10 +98,10 @@ export const BUSINESS_SPONSORSHIP = [
       price: {
         currency: '$',
         period: 'month',
-        yearly: 5000,
-        quarterly: 5000,
+        monthly: 5000,
       },
     },
+    planType: 'monthly',
   },
   {
     key: 'diamond ' as const,
@@ -129,10 +128,10 @@ export const BUSINESS_SPONSORSHIP = [
       price: {
         currency: '$',
         period: 'month',
-        yearly: 50000,
-        quarterly: 50000,
+        monthly: 50000,
       },
     },
+    planType: 'monthly',
   },
 ];
 
@@ -152,10 +151,10 @@ export const INDIVIDUAL_SPONSORSHIP = [
       price: {
         currency: '$',
         period: 'month',
-        yearly: 5,
-        quarterly: 5,
+        monthly: 5,
       },
     },
+    planType: 'monthly',
     dataGtm: DataGTM.BecomeSponsor,
   },
   {
@@ -174,10 +173,10 @@ export const INDIVIDUAL_SPONSORSHIP = [
       price: {
         currency: '$',
         period: 'month',
-        yearly: 50,
-        quarterly: 50,
+        monthly: 50,
       },
     },
+    planType: 'monthly',
     dataGtm: DataGTM.BecomeSponsor,
   },
 ];

@@ -4,7 +4,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from '@app/components/Link';
 import {
   createBemBlockBuilder,
-  Discount,
+  PlanType,
   formatNumberWithCommas,
   isAbsoluteURL,
   formatTextFromContentfulTextFieldWithLineBreaks,
@@ -16,7 +16,7 @@ import './PricingCard.scss';
 
 interface PricingCardProps {
   plan: OfferingPlanDto;
-  discount: Discount;
+  planType: PlanType;
   listItems?: string[];
   dataGtm?: string;
   isDiamond?: boolean;
@@ -28,13 +28,13 @@ const getBlocksWith = createBemBlockBuilder(['pricing-card']);
 export const PricingCard: FC<PricingCardProps> = ({
   plan,
   listItems,
-  discount,
-  isDiamond,
+  planType,
   isFullWidth,
   dataGtm,
+  isDiamond = false,
 }) => {
   const href = plan.cta.link.url;
-  const priceDescription = plan.price?.[`${discount}Description`]?.replace(
+  const priceDescription = plan.price?.[`${planType}Description`]?.replace(
     '{{currency}}',
     plan.price.currency,
   );
@@ -66,7 +66,7 @@ export const PricingCard: FC<PricingCardProps> = ({
           ) : (
             <>
               <span className={getBlocksWith('__price-value')}>
-                {plan.price?.currency} {formatNumberWithCommas(plan.price?.[discount] as number)}
+                {plan.price?.currency} {formatNumberWithCommas(plan.price?.[planType] as number)}
                 {isDiamond && '+'}
               </span>
               / {plan.price?.period}
@@ -76,7 +76,7 @@ export const PricingCard: FC<PricingCardProps> = ({
         </div>
         <Link
           className={classNames('btn', `btn--${plan.cta.type}`, 'btn--large')}
-          to={`${isAbsoluteURL(href) ? `${href}` : `${href}/${discount}`}`}
+          to={plan.isContactUsURLEndsWithPlanType ? `${href}/${planType}` : href}
           {...(dataGtm && { 'data-gtm': dataGtm })}
         >
           {plan.cta.link.title}
