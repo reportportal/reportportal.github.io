@@ -20,10 +20,7 @@ export const ProcessIntegration = forwardRef((props, ref) => {
           already use and others so as to streamline the development and testing processes
         </h3>
         <div className={getBlocksWith('__link-container')}>
-          <Link
-            className="btn btn--outline btn--large"
-            to={`${DOCUMENTATION_URL}/category/plugins/`}
-          >
+          <Link className="btn btn--outline btn--large" to={`${DOCUMENTATION_URL}/plugins/`}>
             See all integrations
           </Link>
         </div>

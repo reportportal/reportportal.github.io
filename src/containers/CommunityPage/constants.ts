@@ -39,7 +39,7 @@ export const DOCUMENTATION_CARDS = [
     itemTitle: 'Installation guides',
     description:
       'Your roadmap to successfully setting up ReportPortal. Learn how to install, configure, and optimize our platform for your specific needs.',
-    link: `${DOCUMENTATION_URL}/category/installation-steps`,
+    link: `${DOCUMENTATION_URL}/installation-steps`,
     linkText: 'Open in Documentation',
     icon: installationGuideSvg,
   },
@@ -47,7 +47,7 @@ export const DOCUMENTATION_CARDS = [
     itemTitle: 'Developer’s guide',
     description:
       "In-depth documentation tailored to developers, offering insights into ReportPortal's architecture, APIs, and customization options to maximize its potential.",
-    link: `${DOCUMENTATION_URL}/category/developers-guides`,
+    link: `${DOCUMENTATION_URL}/developers-guides`,
     linkText: 'Open in Documentation',
     icon: developerGuideSvg,
   },
@@ -55,7 +55,7 @@ export const DOCUMENTATION_CARDS = [
     itemTitle: 'Release notes',
     description:
       'Stay informed about the latest updates with our detailed release notes. Discover the newest features and improvements in each ReportPortal version.',
-    link: `${DOCUMENTATION_URL}/category/releases`,
+    link: `${DOCUMENTATION_URL}/releases`,
     linkText: 'Open in Documentation',
     icon: releaseNotesSvg,
   },
