@@ -7,10 +7,10 @@ import { HeroSwitching } from '@app/components/HeroSwitching';
 import { createBemBlockBuilder, MEDIA_DESKTOP_SM } from '@app/utils';
 
 import DockerIcon from './icons/docker.inline.svg';
-import GoogleCloudIcon from './icons/googleCloud.inline.svg';
+// import GoogleCloudIcon from './icons/googleCloud.inline.svg';
 import KubernetesIcon from './icons/kubernetes.inline.svg';
 import { KubernetesContent } from './KubernetesContent';
-import { GoogleCloudContent, GoogleCloudLaunchPortal } from './GoogleCloudContent';
+// import { GoogleCloudContent, GoogleCloudLaunchPortal } from './GoogleCloudContent';
 import { LaunchPortal } from './LaunchPortal';
 import { DockerDeployingStep, DockerInstall } from './DockerContent';
 import { IntegrationContent } from './IntegrationContent';
@@ -18,9 +18,9 @@ import { ScrollIndicator } from './ScrollIndicator';
 import {
   KUBERNETES_SECTIONS,
   DOCKER_SECTIONS,
-  GOOGLE_CLOUD_SECTIONS,
+  // GOOGLE_CLOUD_SECTIONS,
   DOCKER,
-  GOOGLE_CLOUD,
+  // GOOGLE_CLOUD,
   KUBERNETES,
 } from './constants';
 
@@ -39,11 +39,12 @@ const buttons = [
     icon: <KubernetesIcon />,
     scrollPoints: KUBERNETES_SECTIONS,
   },
-  {
-    text: GOOGLE_CLOUD,
-    icon: <GoogleCloudIcon />,
-    scrollPoints: GOOGLE_CLOUD_SECTIONS,
-  },
+  // Temporarily hidden due to issues with GCM installation
+  // {
+  //   text: GOOGLE_CLOUD,
+  //   icon: <GoogleCloudIcon />,
+  //   scrollPoints: GOOGLE_CLOUD_SECTIONS,
+  // },
 ];
 
 const ACTIVE_BUTTON = buttons[0].text;
@@ -53,7 +54,7 @@ const sectionsContent: {
 } = {
   [DOCKER]: [DockerInstall, DockerDeployingStep, LaunchPortal, IntegrationContent],
   [KUBERNETES]: [KubernetesContent, LaunchPortal, IntegrationContent],
-  [GOOGLE_CLOUD]: [GoogleCloudContent, GoogleCloudLaunchPortal, IntegrationContent],
+  // [GOOGLE_CLOUD]: [GoogleCloudContent, GoogleCloudLaunchPortal, IntegrationContent],
 };
 
 export const InstallationPage: FC = () => {
