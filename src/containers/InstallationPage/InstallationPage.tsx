@@ -77,7 +77,7 @@ export const InstallationPage: FC = () => {
             activeButton={activeButton}
             buttons={buttons}
             title="Installation guide"
-            subtitle="Discover 3 pathways to install ReportPortal with"
+            subtitle="Discover 2 pathways to install ReportPortal with"
             switchActiveBtn={switchActiveBtn}
           />
         </div>
