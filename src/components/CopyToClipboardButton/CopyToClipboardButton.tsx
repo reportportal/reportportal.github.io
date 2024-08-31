@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import classNames from 'classnames';
+import { Tooltip } from 'antd';
 import { createBemBlockBuilder } from '@app/utils';
 
 import CopyToClipboardIcon from './icons/copy-to-clipboard.inline.svg';
@@ -15,6 +16,7 @@ interface CopyToClipboardButtonProps {
 
 export const CopyToClipboardButton: FC<CopyToClipboardButtonProps> = ({ text }) => {
   const [isCopied, setCopied] = useState(false);
+  const tooltipText = isCopied ? 'Copied' : 'Copy';
 
   useEffect(() => {
     if (!isCopied) {
@@ -32,16 +34,21 @@ export const CopyToClipboardButton: FC<CopyToClipboardButtonProps> = ({ text }) 
   }, [isCopied]);
 
   const onClick = () => {
-    navigator.clipboard.writeText(text).then(() => setCopied(true));
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        setCopied(true);
+      })
+      .catch(error => {
+        console.error('Failed to copy text: ', error);
+      });
   };
 
   return (
-    <button
-      className={classNames(getBlocksWith(), { 'copy-to-clipboard-button--copied': isCopied })}
-      onClick={onClick}
-      title="Copy to clipboard"
-    >
-      {isCopied ? <CheckIcon /> : <CopyToClipboardIcon />}
-    </button>
+    <Tooltip title={tooltipText}>
+      <button className={classNames(getBlocksWith())} onClick={onClick} title="Copy to clipboard">
+        {isCopied ? <CheckIcon /> : <CopyToClipboardIcon />}
+      </button>
+    </Tooltip>
   );
 };

@@ -7,14 +7,12 @@ import { CopyToClipboardButton } from '@app/components/CopyToClipboardButton';
 export const OPTIONS = {
   renderMark: {
     [MARKS.BOLD]: text => <b className="blog-post-page__bold-text">{text}</b>,
-    [MARKS.CODE]: text => {
-      return (
-        <pre>
-          <code>{text}</code>
-          <CopyToClipboardButton text={text} />
-        </pre>
-      );
-    },
+    [MARKS.CODE]: text => (
+      <pre>
+        <code>{text}</code>
+        <CopyToClipboardButton text={text} />
+      </pre>
+    ),
   },
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: node => {
