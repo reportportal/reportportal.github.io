@@ -30,3 +30,7 @@ exports.shouldUpdateScroll = ({
 
   return true;
 };
+
+exports.onPreRouteUpdate = ({ prevLocation }) => {
+  window.prevLocation = prevLocation;
+};

@@ -3,7 +3,7 @@ import { useInView as useFramerInView } from 'framer-motion';
 
 type InViewOptions = Parameters<typeof useFramerInView>[1];
 
-export const useInView = (options: InViewOptions = {}) => {
+export const useInView = (options: InViewOptions = { once: true }) => {
   const ref = useRef(null);
   const isInView = useFramerInView(ref, options);
 

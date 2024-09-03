@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation } from '@gatsbyjs/reach-router';
 import { useScroll } from 'ahooks';
+import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import { useScrollDirection } from '@app/hooks/useScrollDirection';
 import {
@@ -9,6 +10,9 @@ import {
   MEDIA_DESKTOP_SM,
   iconsCommon,
   DOCUMENTATION_URL,
+  easeInOutOpacityScaleAnimationProps,
+  heroBackgroundAnimationProps,
+  getEaseInOutTransition,
 } from '@app/utils';
 import { Link } from '@app/components/Link';
 import { ProcessIntegration } from '@app/components/ProcessIntegration';
@@ -19,6 +23,9 @@ import { StartTestingWithReportPortal } from '@app/components/StartTestingWithRe
 import { Faq } from '@app/components/Faq';
 import { FooterContent } from '@app/components/Layout';
 import { useScrollIntoViewHandler } from '@app/hooks/useScrollIntoViewHandler';
+import { AnimatedHeader } from '@app/components/AnimatedHeader';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
+import { useInView } from '@app/hooks/useInView';
 
 import { FEATURES_LIST, NAVIGATION_LIST } from './constants';
 
@@ -28,6 +35,10 @@ const getBlocksWith = createBemBlockBuilder(['features-page']);
 
 export const FeaturesPage: FC = () => {
   const scrollIntoViewHandler = useScrollIntoViewHandler();
+  const [heroImageRef, isHeroImageInView] = useInView();
+
+  const getHeroImageAnimation = useMotionEnterAnimation(easeInOutOpacityScaleAnimationProps);
+  const getBackgroundAnimation = useMotionEnterAnimation(heroBackgroundAnimationProps);
 
   const handleScroll = () => {
     const itemList = document.querySelectorAll(
@@ -139,16 +150,33 @@ export const FeaturesPage: FC = () => {
 
   return (
     <div className={getBlocksWith()}>
-      <div className={getBlocksWith('__hero')}>
+      <motion.div
+        className={getBlocksWith('__hero')}
+        {...getBackgroundAnimation({ inView: isHeroImageInView })}
+      >
         <div className="container">
           <div className={getBlocksWith('__hero-heading')}>
-            <h1>Features</h1>
-            <h2>Empower your testing process with ReportPortal</h2>
+            <AnimatedHeader headerLevel={1} delay={0.3}>
+              Features
+            </AnimatedHeader>
+            <AnimatedHeader
+              delay={0.3}
+              transition={{
+                ...getEaseInOutTransition(0.7),
+              }}
+            >
+              Empower your testing process with ReportPortal
+            </AnimatedHeader>
           </div>
           <div className={getBlocksWith('__hero-dashboard')}>
-            <img
+            <motion.img
               src={iconsCommon.dashboard}
+              ref={heroImageRef}
               alt=""
+              {...getHeroImageAnimation({
+                delay: 0.3,
+                inView: isHeroImageInView,
+              })}
               onLoad={() => {
                 if (activeElement) {
                   scrollIntoViewHandler(activeElement.slice(1));
@@ -157,7 +185,7 @@ export const FeaturesPage: FC = () => {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
       <div
         className={getBlocksWith('__features-explorer')}
         style={{

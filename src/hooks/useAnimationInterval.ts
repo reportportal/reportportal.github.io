@@ -11,7 +11,7 @@ export const useAnimationInterval = ({
   interval = 10000,
   totalItemsLength,
 }: AnimationIntervalProps) => {
-  const [ref, inView] = useInView({ once: true });
+  const [ref, inView] = useInView();
   const [delay, setDelay] = useState<number | undefined>(undefined);
   const [activeListIndex, setActiveListIndex] = useState<number>(0);
 

@@ -10,8 +10,8 @@ import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 import { AnimatedHeader } from '@app/components/AnimatedHeader';
 import {
   createBemBlockBuilder,
+  defaultSpringTransition,
   easeInOutTransition,
-  getSpringTransition,
   LIST_ANIMATION_DELAY,
   opacityScaleAnimationProps,
   opacityScaleEnterState,
@@ -58,13 +58,13 @@ export const HowItWorks = () => {
     totalItemsLength: sections.length,
     interval: LIST_ANIMATION_DELAY,
   });
-  const [stepsRef, areStepsInView] = useInView({ once: true });
-  const [buttonRef, isButtonInView] = useInView({ once: true });
+  const [stepsRef, areStepsInView] = useInView();
+  const [buttonRef, isButtonInView] = useInView();
 
   const getStepsAnimation = useMotionEnterAnimation(stepContentAnimationProps);
   const getButtonAnimation = useMotionEnterAnimation({
     ...opacityScaleAnimationProps,
-    ...getSpringTransition(400, 30),
+    ...defaultSpringTransition,
   });
 
   return (
