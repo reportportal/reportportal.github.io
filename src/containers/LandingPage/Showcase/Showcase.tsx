@@ -60,20 +60,20 @@ export const Showcase: FC = () => {
       <div ref={titleBlockRef}>
         <motion.h1
           className={getBlocksWith('__title')}
-          {...getAnimation({ inView: isTitleBlockInView })}
+          {...getAnimation({ isInView: isTitleBlockInView })}
         >
           AI-powered <br />
           Test Automation Dashboard
         </motion.h1>
         <motion.p
           className={getBlocksWith('__subtitle')}
-          {...getAnimation({ inView: isTitleBlockInView, delay: 0.1 })}
+          {...getAnimation({ isInView: isTitleBlockInView, delay: 0.1 })}
         >
           Aggregate and analyze test reports to ascertain release health
         </motion.p>
         <motion.div
           className={getBlocksWith('__btn-row')}
-          {...getAnimation({ inView: isTitleBlockInView, delay: 0.2 })}
+          {...getAnimation({ isInView: isTitleBlockInView, delay: 0.2 })}
         >
           <div className={getBlocksWith('__btn-group')}>
             <Link
@@ -94,7 +94,7 @@ export const Showcase: FC = () => {
         </motion.div>
         <motion.div
           className={getBlocksWith('__watch-video-container')}
-          {...getAnimation({ inView: isTitleBlockInView, delay: 0.3 })}
+          {...getAnimation({ isInView: isTitleBlockInView, delay: 0.3 })}
         >
           <button className={getBlocksWith('__btn-watch-video')} onClick={toggleEmbedVideoOpen}>
             <span className={getBlocksWith('__btn-watch-video-icon')} />
@@ -106,7 +106,7 @@ export const Showcase: FC = () => {
         <motion.div
           ref={carouselRef}
           {...getAnimation({
-            inView: isCarouselInView,
+            isInView: isCarouselInView,
             additionalEffects: { hiddenAdditional: { y: 50 }, enterAdditional: { y: 0 } },
           })}
         >
