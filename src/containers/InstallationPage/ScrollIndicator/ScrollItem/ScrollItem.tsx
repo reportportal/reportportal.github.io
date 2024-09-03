@@ -30,7 +30,7 @@ export const ScrollItem: FC<ScrollItemProps> = ({ section, offset }) => {
       className={getBlocksWith('__box-item')}
       ref={ref}
       {...getAnimation({
-        inView: isInView,
+        isInView,
         additionalEffects: {
           hiddenAdditional: { x: -50, scale: 1 },
           enterAdditional: { x: 0 },
