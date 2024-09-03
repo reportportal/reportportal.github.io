@@ -6,8 +6,8 @@ import './TimeScale.scss';
 
 interface TimeScaleProps {
   data: {
-    items: string[];
-    time: string;
+    items: string[] | React.ReactNode[];
+    time: string | number;
   }[];
   isShifted?: boolean;
 }

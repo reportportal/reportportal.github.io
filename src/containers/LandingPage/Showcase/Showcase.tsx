@@ -8,7 +8,7 @@ import { useClientCarouselItems } from '@app/hooks/useClientCarouselItems';
 import {
   COMMON_MARQUEE_PROPS,
   createBemBlockBuilder,
-  getSpringTransition,
+  defaultSpringTransition,
   opacityScaleAnimationProps,
   watchProductOverviewAtom,
 } from '@app/utils';
@@ -23,15 +23,15 @@ const getBlocksWith = createBemBlockBuilder(['showcase']);
 
 const commonAnimationProps = {
   ...opacityScaleAnimationProps,
-  ...getSpringTransition(400, 30),
+  ...defaultSpringTransition,
 };
 
 export const Showcase: FC = () => {
   const [, setWatchProductOverviewState] = useAtom(watchProductOverviewAtom);
   const isDesktop = useMediaQuery({ query: '(min-width: 1124px)' });
   const { slides, allSlidesItems } = useClientCarouselItems();
-  const [titleBlockRef, isTitleBlockInView] = useInView({ once: true });
-  const [carouselRef, isCarouselInView] = useInView({ once: true });
+  const [titleBlockRef, isTitleBlockInView] = useInView();
+  const [carouselRef, isCarouselInView] = useInView();
   const getAnimation = useMotionEnterAnimation(commonAnimationProps);
 
   const toggleEmbedVideoOpen = useCallback(
