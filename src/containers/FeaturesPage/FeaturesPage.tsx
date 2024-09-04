@@ -152,7 +152,7 @@ export const FeaturesPage: FC = () => {
     <div className={getBlocksWith()}>
       <motion.div
         className={getBlocksWith('__hero')}
-        {...getBackgroundAnimation({ inView: isHeroImageInView })}
+        {...getBackgroundAnimation({ isInView: isHeroImageInView })}
       >
         <div className="container">
           <div className={getBlocksWith('__hero-heading')}>
@@ -175,7 +175,7 @@ export const FeaturesPage: FC = () => {
               alt=""
               {...getHeroImageAnimation({
                 delay: 0.3,
-                inView: isHeroImageInView,
+                isInView: isHeroImageInView,
               })}
               onLoad={() => {
                 if (activeElement) {

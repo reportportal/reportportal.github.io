@@ -90,13 +90,13 @@ export const HowItWorks = () => {
             <div className={getBlocksWith('__step-content-text')}>
               <motion.div
                 className={getBlocksWith('__step-content-text-title')}
-                {...getStepsAnimation({ inView: areStepsInView, delay: 0.3 })}
+                {...getStepsAnimation({ isInView: areStepsInView, delay: 0.3 })}
               >
                 {sections[activeListIndex].title}
               </motion.div>
               <motion.div
                 className={getBlocksWith('__step-content-text-description')}
-                {...getStepsAnimation({ inView: areStepsInView, delay: 0.35 })}
+                {...getStepsAnimation({ isInView: areStepsInView, delay: 0.35 })}
               >
                 {sections[activeListIndex].content}
               </motion.div>
@@ -106,7 +106,7 @@ export const HowItWorks = () => {
       </div>
       <div className={getBlocksWith('__button-group')} ref={buttonRef}>
         {isButtonInView && (
-          <motion.div {...getButtonAnimation({ inView: isButtonInView })}>
+          <motion.div {...getButtonAnimation({ isInView: isButtonInView })}>
             <Link className="btn btn--primary btn--large" to="/installation">
               Learn how to install
             </Link>
