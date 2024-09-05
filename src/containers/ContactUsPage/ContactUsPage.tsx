@@ -17,7 +17,7 @@ export const ContactUsPage: FC<ContactUsConfig> = config => {
     message,
     messagePosition,
     options,
-    discount = undefined,
+    planType = undefined,
     isDiscussFieldShown = false,
   } = config;
 
@@ -30,7 +30,7 @@ export const ContactUsPage: FC<ContactUsConfig> = config => {
             message={message}
             messagePosition={messagePosition}
             price={price}
-            discount={discount}
+            planType={planType}
           />
         </div>
       </div>

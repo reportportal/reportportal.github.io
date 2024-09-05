@@ -94,6 +94,7 @@ export interface OfferingPlanDto {
   pricingInfo?: string;
   price?: OfferingPlanPrice;
   cta: Required<CTA, 'link'>;
+  isContactUsURLEndsWithPlanType?: boolean;
 }
 
 export interface ComparePlansDto {
@@ -109,7 +110,7 @@ export interface OfferingPlansDto {
   items: OfferingPlanDto[];
 }
 
-export type Discount = 'quarterly' | 'yearly';
+export type PlanType = 'quarterly' | 'yearly';
 
 export enum DataGTM {
   ContactUs = 'contact_us',
@@ -123,7 +124,7 @@ export interface ContactUsBaseConfig {
     name: string;
     value: string;
   }[];
-  discount?: Discount;
+  planType?: PlanType;
   isDiscussFieldShown?: boolean;
 }
 

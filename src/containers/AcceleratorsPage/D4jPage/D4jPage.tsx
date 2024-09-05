@@ -41,7 +41,6 @@ export const D4jPage: FC = () => {
       utilizationDescription="Our team will provide services in support of Client's use of Drill4J plugin. Such services will vary based on Client's needs. The table below describes the different support services we customarily provide"
       faqLink="https://drill4j.github.io/docs/faq"
       isScaleShifted
-      isAccelerator
     />
   );
 };

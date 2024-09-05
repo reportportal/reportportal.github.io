@@ -51,6 +51,7 @@ export const OfferingPlansFragment = graphql`
         title
         description
         isPopular
+        isContactUsURLEndsWithPlanType
         pricingInfo
         features {
           raw
@@ -60,7 +61,9 @@ export const OfferingPlansFragment = graphql`
           currency
           period
           quarterly
+          quarterlyDescription
           yearly
+          yearlyDescription
         }
         cta {
           ...CTAFields

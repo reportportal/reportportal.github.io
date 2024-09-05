@@ -91,7 +91,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             />
           )}
           <FormFieldWrapper name="wouldLikeToReceiveAds">
-            <CustomCheckbox label="Subscribe to ReportPortal news" />
+            <CustomCheckbox label="Subscribe to ReportPortal newsletter" />
           </FormFieldWrapper>
           <FormFieldWrapper name="termsAgree">
             <CustomCheckbox

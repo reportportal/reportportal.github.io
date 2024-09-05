@@ -49,7 +49,6 @@ interface OfferPageWrapperProps {
   utilizationDescription: string;
   faqLink?: string;
   isScaleShifted?: boolean;
-  isAccelerator?: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['offer-page-wrapper']);
@@ -66,13 +65,12 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   utilizationDescription,
   faqLink,
   isScaleShifted = false,
-  isAccelerator = false,
 }) => {
-  const { buttons, isDiscount, toggleDiscount } = usePricingHeroProps(page);
+  const { buttons, isYearlyPlanType, togglePlanType } = usePricingHeroProps(page);
   const [cardsRef, areCardsInView] = useInView();
   const isAnimationEnabled = useAnimationEnabledForSiblingRoutes();
 
-  const discount = isDiscount ? 'yearly' : 'quarterly';
+  const planType = isYearlyPlanType ? 'yearly' : 'quarterly';
 
   const getCardsAnimation = useMotionEnterAnimation(
     easeInOutOpacityScaleAnimationProps,
@@ -89,8 +87,8 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
         offerType={offerType}
         description={description}
         switcherProps={{
-          isDiscount,
-          toggleDiscount,
+          isYearlyPlanType,
+          togglePlanType,
           messageInactive: 'Quarterly',
           messageActive: 'Yearly (Save 5%)',
         }}
@@ -113,9 +111,9 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
         })}
       >
         {plans.items.map((plan, index) => {
-          const pricingValue = plan.price?.[discount];
+          const pricingValue = plan.price?.[planType];
           const href = plan.cta.link.url;
-          const actionLink = !isAccelerator && pricingValue ? `${href}/${discount}` : href;
+          const actionLink = plan.isContactUsURLEndsWithPlanType ? `${href}/${planType}` : href;
 
           return (
             <PentagonCard

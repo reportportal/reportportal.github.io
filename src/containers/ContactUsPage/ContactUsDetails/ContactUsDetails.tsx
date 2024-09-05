@@ -13,17 +13,17 @@ import '../ContactUsPage.scss';
 const getBlocksWith = createBemBlockBuilder(['contact-us']);
 
 export const ContactUsDetails: FC<
-  Pick<ContactUsConfig, 'discount' | 'price' | 'message' | 'messagePosition'>
-> = ({ message, messagePosition, price, discount }) => {
+  Pick<ContactUsConfig, 'planType' | 'price' | 'message' | 'messagePosition'>
+> = ({ message, messagePosition, price, planType }) => {
   const priceInfo =
-    discount && price ? (
+    planType && price ? (
       <p>
         <span>
           <strong>Price:</strong> {price.currency}
-          {formatNumberWithCommas(price[discount])}/{price.period}
+          {formatNumberWithCommas(price[planType])}/{price.period}
         </span>
         <span>
-          <strong>Billing period:</strong> {capitalize(discount)}
+          <strong>Billing period:</strong> {capitalize(planType)}
         </span>
       </p>
     ) : null;
