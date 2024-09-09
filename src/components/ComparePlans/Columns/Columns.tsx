@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import isBoolean from 'lodash/isBoolean';
+import isString from 'lodash/isString';
 import { createBemBlockBuilder, FormattedComparePlansItemDto, MEDIA_DESKTOP_SM } from '@app/utils';
 
 import MarkIcon from './icons/mark.inline.svg';
 import CrossIcon from './icons/cross.inline.svg';
+import { TextWithColor } from './TextWithColor';
 
 import '../ComparePlans.scss';
 
@@ -37,15 +39,29 @@ export const Columns: FC<ColumnsProps> = ({ title = '', cols, mobileColumns = []
       {title && <div className={getBlocksWith('__row-title')}>{title}</div>}
       {isColumnsVisible && (
         <div className={getBlocksWith('__row-title-cols')}>
-          {cols.map((columnValue, index) => (
-            <div
-              key={index}
-              className={getBlocksWith('__row-title-col')}
-              data-short={mobileColumns[index] ?? columnValue}
-            >
-              {!isBoolean(columnValue) ? <div>{columnValue}</div> : getMark(columnValue)}
-            </div>
-          ))}
+          {cols.map((columnValue, index) => {
+            const getRenderedValue = () => {
+              if (isBoolean(columnValue)) {
+                return getMark(columnValue);
+              }
+
+              if (isString(columnValue)) {
+                return <TextWithColor text={columnValue} />;
+              }
+
+              return <div>{columnValue}</div>;
+            };
+
+            return (
+              <div
+                key={index}
+                className={getBlocksWith('__row-title-col')}
+                data-short={mobileColumns[index] ?? columnValue}
+              >
+                {getRenderedValue()}
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

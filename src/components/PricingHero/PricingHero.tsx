@@ -11,7 +11,7 @@ import {
 import { useInView } from '@app/hooks/useInView';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 
-import { DiscountSwitcher, DiscountSwitcherProps } from './DiscountSwitcher';
+import { PlanTypeSwitcher, PlanTypeSwitcherProps } from './PlanTypeSwitcher';
 
 import './PricingHero.scss';
 
@@ -21,7 +21,7 @@ interface PricingHeroProps {
   activeButton: string;
   offerType: string;
   description: string;
-  switcherProps: DiscountSwitcherProps;
+  switcherProps: PlanTypeSwitcherProps;
   subtitle?: string;
   isAnimationEnabled?: boolean;
 }
@@ -89,7 +89,7 @@ export const PricingHero: FC<PricingHeroProps> = ({
         <div className={getBlocksWith('__wrapper-subtitle')}>{description}</div>
       </motion.div>
       <motion.div
-        className={getBlocksWith('__discount-switcher')}
+        className={getBlocksWith('__plan-type-switcher')}
         {...getDiscountSwitcherAnimation({
           inView: isHeroInView,
           delay: 0.5,
@@ -103,7 +103,7 @@ export const PricingHero: FC<PricingHeroProps> = ({
           },
         })}
       >
-        <DiscountSwitcher {...switcherProps} />
+        <PlanTypeSwitcher {...switcherProps} />
       </motion.div>
     </motion.div>
   );

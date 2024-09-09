@@ -1,15 +1,15 @@
-import { ContactUsBaseConfig, Discount } from './types';
+import { ContactUsBaseConfig, PlanType } from './types';
 
 const SALESFORCE_SOURCE_NAME = 'ReportPortalSource';
 const LEAD_SOURCE = 'lead_source';
 const packageNumbers = [25, 60, 160];
-const availableOptions: Discount[] = ['quarterly', 'yearly'];
+const availableOptions: PlanType[] = ['quarterly', 'yearly'];
 
 const createConfig = ({
   baseConfig,
   source,
   url,
-  discount,
+  planType,
   ...rest
 }: {
   baseConfig: {
@@ -21,7 +21,7 @@ const createConfig = ({
   };
   url: string;
   source: string;
-  discount?: Discount;
+  planType?: PlanType;
 }) => ({
   ...baseConfig,
   options: baseConfig.options.concat({
@@ -29,11 +29,11 @@ const createConfig = ({
     value: source,
   }),
   // eslint-disable-next-line no-nested-ternary
-  url: typeof discount === 'undefined' ? url : `${url}/${discount}`,
+  url: typeof planType === 'undefined' ? url : `${url}/${planType}`,
   ...rest,
 });
 
-const createStartupPlanBaseConfig = (discount: Discount) => ({
+const createStartupPlanBaseConfig = (planType: PlanType) => ({
   id: '[SaaS] Startup Plan',
   options: [
     {
@@ -41,10 +41,10 @@ const createStartupPlanBaseConfig = (discount: Discount) => ({
       value: 'RP SaaS',
     },
   ],
-  discount,
+  planType,
 });
 
-const createBusinessPlanBaseConfig = (discount: Discount) => ({
+const createBusinessPlanBaseConfig = (planType: PlanType) => ({
   id: '[SaaS] Business Plan',
   options: [
     {
@@ -52,7 +52,7 @@ const createBusinessPlanBaseConfig = (discount: Discount) => ({
       value: 'RP SaaS',
     },
   ],
-  discount,
+  planType,
 });
 
 const createEnterprisePlanBaseConfig = () => ({
@@ -65,7 +65,7 @@ const createEnterprisePlanBaseConfig = () => ({
   ],
 });
 
-const createPackage25BaseConfig = (discount: Discount) => ({
+const createPackage25BaseConfig = (planType: PlanType) => ({
   id: '[On-Premises] Package 25',
   options: [
     {
@@ -73,10 +73,10 @@ const createPackage25BaseConfig = (discount: Discount) => ({
       value: 'RP Service',
     },
   ],
-  discount,
+  planType,
 });
 
-const createPackage60BaseConfig = (discount: Discount) => ({
+const createPackage60BaseConfig = (planType: PlanType) => ({
   id: '[On-Premises] Package 60',
   options: [
     {
@@ -84,10 +84,10 @@ const createPackage60BaseConfig = (discount: Discount) => ({
       value: 'RP Service',
     },
   ],
-  discount,
+  planType,
 });
 
-const createPackage160BaseConfig = (discount: Discount) => ({
+const createPackage160BaseConfig = (planType: PlanType) => ({
   id: '[On-Premises] Package 160',
   options: [
     {
@@ -95,7 +95,7 @@ const createPackage160BaseConfig = (discount: Discount) => ({
       value: 'RP Service',
     },
   ],
-  discount,
+  planType,
 });
 
 const createContactUsConfig = ({ salesforceSourceName, leadSource, url }) => ({
@@ -146,42 +146,42 @@ const HealeniumBaseConfig = {
 };
 
 export const contactUsBaseConfigs: ContactUsBaseConfig[] = [
-  ...availableOptions.flatMap(discount => [
+  ...availableOptions.flatMap(planType => [
     createConfig({
-      baseConfig: createStartupPlanBaseConfig(discount),
+      baseConfig: createStartupPlanBaseConfig(planType),
       url: '/contact-us/saas/startup-plan',
       source: 'Landing page / SaaS / Request "Startup Plan"',
-      discount,
+      planType,
     }),
     createConfig({
-      baseConfig: createBusinessPlanBaseConfig(discount),
+      baseConfig: createBusinessPlanBaseConfig(planType),
       url: '/contact-us/saas/business-plan',
       source: 'Landing page / SaaS / Request "Business Plan"',
-      discount,
+      planType,
     }),
     createConfig({
-      baseConfig: createPackage25BaseConfig(discount),
+      baseConfig: createPackage25BaseConfig(planType),
       url: '/contact-us/on-premises/package-25',
       source: 'Landing page / On-Premises / Request Support "Package 25"',
-      discount,
+      planType,
     }),
     createConfig({
-      baseConfig: createPackage60BaseConfig(discount),
+      baseConfig: createPackage60BaseConfig(planType),
       url: '/contact-us/on-premises/package-60',
       source: 'Landing page / On-Premises / Request Support "Package 60"',
-      discount,
+      planType,
     }),
     createConfig({
-      baseConfig: createPackage160BaseConfig(discount),
+      baseConfig: createPackage160BaseConfig(planType),
       url: '/contact-us/on-premises/package-160',
       source: 'Landing page / On-Premises / Request Support "Package 160"',
-      discount,
+      planType,
     }),
     createConfig({
       baseConfig: createEnterprisePlanBaseConfig(),
       url: '/contact-us/saas/enterprise-plan',
       source: 'Landing page / SaaS / Request "Enterprise Plan"',
-      discount,
+      planType,
     }),
   ]),
   createConfig({
@@ -339,6 +339,6 @@ export const contactUsBaseConfigs: ContactUsBaseConfig[] = [
   createContactUsConfig({
     salesforceSourceName: 'Sponsorship Program / Business / Diamond',
     leadSource: 'RP Sponsorship Program',
-    url: '/contact-us/sponsorship-program/business/diamond/yearly',
+    url: '/contact-us/sponsorship-program/business/diamond',
   }),
 ];

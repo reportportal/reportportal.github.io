@@ -18,6 +18,7 @@ const TRUSTED_DOMAINS = [
   'https://healenium.io',
   'https://merch.reportportal.io',
   'https://console.cloud.google.com/marketplace/product/epam-mp-rp/reportportal?project=epam-mp-rp',
+  'https://reportportal.io',
   'https://demo.reportportal.io',
   DOCUMENTATION_URL,
 ];

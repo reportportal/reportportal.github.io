@@ -2,30 +2,30 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 import { createBemBlockBuilder } from '@app/utils';
 
-import './DiscountSwitcher.scss';
+import './PlanTypeSwitcher.scss';
 
-export interface DiscountSwitcherProps {
+export interface PlanTypeSwitcherProps {
   messageActive: string;
   messageInactive: string;
-  isDiscount: boolean;
-  toggleDiscount: () => void;
+  isYearlyPlanType: boolean;
+  togglePlanType: () => void;
 }
 
-const getBlocksWith = createBemBlockBuilder(['switcher']);
+const getBlocksWith = createBemBlockBuilder(['plan-type-switcher']);
 
-export const DiscountSwitcher: FC<DiscountSwitcherProps> = ({
+export const PlanTypeSwitcher: FC<PlanTypeSwitcherProps> = ({
   messageActive,
   messageInactive,
-  toggleDiscount,
-  isDiscount,
+  isYearlyPlanType,
+  togglePlanType,
 }) => (
   <div className={getBlocksWith()}>
     <div className={getBlocksWith('__option')}>{messageInactive}</div>
     <div
       className={classNames(getBlocksWith('__switcher'), {
-        [getBlocksWith('__switcher-active')]: isDiscount,
+        [getBlocksWith('__switcher-active')]: isYearlyPlanType,
       })}
-      onClick={toggleDiscount}
+      onClick={togglePlanType}
     />
     <div className={getBlocksWith('__option')}>{messageActive}</div>
   </div>

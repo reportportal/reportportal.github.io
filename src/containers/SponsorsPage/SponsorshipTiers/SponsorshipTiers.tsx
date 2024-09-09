@@ -21,7 +21,7 @@ export const SponsorshipTiers: FC<SponsorshipTiersProps> = ({ sponsorshipType })
     />
     <div className={getBlocksWith('__card-wrapper')}>
       {SPONSORSHIP_INFO[sponsorshipType].map(({ key, ...info }) => (
-        <PricingCard key={key} {...info} discount="yearly" />
+        <PricingCard key={key} {...info} />
       ))}
     </div>
   </div>

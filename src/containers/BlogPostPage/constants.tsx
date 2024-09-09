@@ -2,6 +2,7 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { Link } from '@app/components/Link';
 import { CopyToClipboardButton } from '@app/components/CopyToClipboardButton';
 
 export const OPTIONS = {
@@ -52,9 +53,9 @@ export const OPTIONS = {
       <blockquote className="blog-post-page__blockquote">{children}</blockquote>
     ),
     [INLINES.HYPERLINK]: (node, children) => (
-      <a className="blog-post-page__hyperlink" href={node.data.uri}>
+      <Link to={node.data.uri} className="blog-post-page__hyperlink">
         {children}
-      </a>
+      </Link>
     ),
   },
 };

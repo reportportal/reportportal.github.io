@@ -94,6 +94,11 @@
           white-space: normal;
           font-weight: v.$fw-regular;
         }
+
+        .green {
+          color: #00b884;
+          font-weight: v.$fw-bold;
+        }
       }
 
       > .ant-collapse-header {
