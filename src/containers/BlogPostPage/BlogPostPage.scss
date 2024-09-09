@@ -346,4 +346,19 @@
     margin-top: 48px;
     margin-bottom: 64px;
   }
+
+  &__code-block {
+    position: relative;
+
+    code {
+      @include m.roboto-mono();
+      @include m.font-scale();
+
+      border: 1px solid var(--purple-grey);
+      border-radius: 8px;
+      padding: 20px 60px 20px 20px !important;
+      background-color: var(--bg-light-grey);
+      line-height: 24px;
+    }
+  }
 }
