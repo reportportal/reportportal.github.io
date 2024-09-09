@@ -16,6 +16,7 @@ enum SubscriptionStatus {
   success,
   alreadySubscribed,
   error,
+  checkEmail,
 }
 
 export const SubscriptionForm: FC = () => {
@@ -37,17 +38,26 @@ export const SubscriptionForm: FC = () => {
           email_address: emailToSubscribe,
         },
       )
-      .then(() => {
+      .then(response => {
         setValidation({
           isValid: true,
-          status: SubscriptionStatus.success,
+          status:
+            response.data.status === 'pending'
+              ? SubscriptionStatus.checkEmail
+              : SubscriptionStatus.success,
         });
       })
       .catch(error => {
-        if (error.response.data.error === 'email address already subscribed') {
+        const shouldCheckEmail = error.response.data.error === 'email address already pending';
+        const isAlreadySubscribed =
+          error.response.data.error === 'email address already subscribed';
+
+        if (shouldCheckEmail || isAlreadySubscribed) {
           setValidation({
             isValid: true,
-            status: SubscriptionStatus.alreadySubscribed,
+            status: shouldCheckEmail
+              ? SubscriptionStatus.checkEmail
+              : SubscriptionStatus.alreadySubscribed,
           });
         } else {
           setValidation({
@@ -97,6 +107,15 @@ export const SubscriptionForm: FC = () => {
       <SubscriptionFormCard
         title="Already subscribed!"
         subtitle="You already have a subscription linked to this email address."
+      />
+    );
+  }
+
+  if (validation.status === SubscriptionStatus.checkEmail) {
+    return (
+      <SubscriptionFormCard
+        title="Almost there! Confirm your subsciption."
+        subtitle="Confirmation email sent. Please check your inbox and click the link to complete your subscription. If absent, check your spam or junk folder."
       />
     );
   }
