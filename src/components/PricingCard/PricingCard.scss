@@ -100,6 +100,8 @@
   }
 
   &__price-description {
+    display: none;
+
     @include m.breakpoint(v.$desktop-sm) {
       min-height: 1rem;
     }
