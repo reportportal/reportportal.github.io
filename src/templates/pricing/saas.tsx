@@ -4,7 +4,7 @@ import { SaasPage } from '@app/containers/SassPage';
 import { SEO_DATA } from '@app/utils';
 
 const Saas: FC = () => (
-  <Layout className="offer-page-wrapper">
+  <Layout className="offer-page-wrapper saas-page-wrapper">
     <SaasPage />
   </Layout>
 );

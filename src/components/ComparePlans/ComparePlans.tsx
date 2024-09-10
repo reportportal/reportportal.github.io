@@ -42,6 +42,7 @@ export const ComparePlans: FC<ComparePlansProps> = ({
   const renderRow = (row: FormattedComparePlansItemDto, key: string) => {
     return (
       <Panel
+        forceRender
         key={key}
         showArrow
         header={
@@ -106,6 +107,7 @@ export const ComparePlans: FC<ComparePlansProps> = ({
             <Fragment key={sectionIndex}>
               {((isDesktop && sectionIndex !== 0) || (!isDesktop && size(sections) > 1)) && (
                 <Panel
+                  forceRender
                   key={section.title}
                   showArrow={false}
                   collapsible="disabled"
