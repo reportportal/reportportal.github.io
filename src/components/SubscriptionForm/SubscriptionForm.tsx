@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FC } from 'react';
-import jsonp from 'jsonp';
+import axios from 'axios';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
 import { Link } from '@app/components/Link';
@@ -11,39 +11,63 @@ import { SubscriptionFormCard } from './SubscriptionFormCard';
 import './SubscriptionForm.scss';
 
 const getBlocksWith = createBemBlockBuilder(['subscription-form']);
-const alreadySubscribedStatusMessage =
-  "You're already subscribed, your profile has been updated. Thank you!";
-const thankYouStatusMessage = 'Thank you for subscribing!';
+
+enum SubscriptionStatus {
+  success,
+  alreadySubscribed,
+  error,
+  checkEmail,
+}
 
 export const SubscriptionForm: FC = () => {
   const [form] = Form.useForm();
   const [validation, setValidation] = useState<{
     isValid: boolean;
+    status?: SubscriptionStatus;
     message?: string;
   }>({
     isValid: true,
   });
-  const [responseMessage, setResponseMessage] = useState<string>();
   const email = Form.useWatch('email', form);
 
   const subscribeUser = (emailToSubscribe: string) => {
-    jsonp(
-      `${process.env.GATSBY_MAILCHIMP_URL}&MERGE0=${emailToSubscribe}`,
-      { param: 'c' },
-      (error, data) => {
-        const { msg, result } = data;
+    axios
+      .post(
+        `https://status.reportportal.io/mailchimp/lists/${process.env.GATSBY_MAILCHIMP_LIST_ID}/members`,
+        {
+          email_address: emailToSubscribe,
+        },
+      )
+      .then(response => {
+        setValidation({
+          isValid: true,
+          status:
+            response.data.status === 'pending'
+              ? SubscriptionStatus.checkEmail
+              : SubscriptionStatus.success,
+        });
+      })
+      .catch(error => {
+        const shouldCheckEmail = error.response.data.error === 'email address already pending';
+        const isAlreadySubscribed =
+          error.response.data.error === 'email address already subscribed';
 
-        setResponseMessage(msg);
-
-        if (result === 'error') {
+        if (shouldCheckEmail || isAlreadySubscribed) {
+          setValidation({
+            isValid: true,
+            status: shouldCheckEmail
+              ? SubscriptionStatus.checkEmail
+              : SubscriptionStatus.alreadySubscribed,
+          });
+        } else {
           setValidation({
             isValid: false,
+            status: SubscriptionStatus.error,
             message:
               'This email cannot be added to the list. Please enter a different email address.',
           });
         }
-      },
-    );
+      });
   };
 
   const handleFinish = () => {
@@ -63,20 +87,35 @@ export const SubscriptionForm: FC = () => {
   };
 
   useEffect(() => {
-    setValidation({
+    setValidation(prevState => ({
+      ...prevState,
       isValid: true,
-    });
+    }));
   }, [email]);
 
-  if (responseMessage === thankYouStatusMessage) {
-    return <SubscriptionFormCard title="Thank you for subscription!" />;
+  if (validation.status === SubscriptionStatus.success) {
+    return (
+      <SubscriptionFormCard
+        title="Thank you for subscribing!"
+        subtitle="Check your email and if our confirmation letter landed in your spam folder, please mark it as “Not spam” to continue receiving our updates."
+      />
+    );
   }
 
-  if (responseMessage === alreadySubscribedStatusMessage) {
+  if (validation.status === SubscriptionStatus.alreadySubscribed) {
     return (
       <SubscriptionFormCard
         title="Already subscribed!"
         subtitle="You already have a subscription linked to this email address."
+      />
+    );
+  }
+
+  if (validation.status === SubscriptionStatus.checkEmail) {
+    return (
+      <SubscriptionFormCard
+        title="Almost there! Confirm your subsciption."
+        subtitle="Confirmation email sent. Please check your inbox and click the link to complete your subscription. If absent, check your spam or junk folder."
       />
     );
   }
@@ -87,7 +126,7 @@ export const SubscriptionForm: FC = () => {
         <Form.Item
           validateTrigger="onSubmit"
           className={getBlocksWith('__form-input')}
-          name={['email']}
+          name="email"
           {...(!validation.isValid && {
             validateStatus: 'error',
             help: validation.message,
@@ -101,16 +140,14 @@ export const SubscriptionForm: FC = () => {
           />
         </Form.Item>
       </div>
-      <Form.Item shouldUpdate>
-        {() => (
-          <button
-            type="submit"
-            className="btn btn--primary"
-            disabled={form.isFieldsTouched(true) && !validation.isValid}
-          >
-            Subscribe
-          </button>
-        )}
+      <Form.Item>
+        <button
+          type="submit"
+          className="btn btn--primary"
+          disabled={form.isFieldsTouched(true) && !validation.isValid}
+        >
+          Subscribe
+        </button>
       </Form.Item>
       <span className={getBlocksWith('__form-info')}>
         By subscribing, you agree to receive marketing emails from ReportPortal team and associated
