@@ -9,9 +9,6 @@ import './SubscriptionBanner.scss';
 const getBlocksWith = createBemBlockBuilder(['subscription-banner']);
 
 export const SubscriptionBanner = () => {
-  // temporary hidden
-  return null;
-
   return (
     <FooterContent>
       <div className={getBlocksWith()}>
