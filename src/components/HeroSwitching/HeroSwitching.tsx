@@ -1,6 +1,13 @@
 import React, { FC, ReactNode } from 'react';
+import { motion } from 'framer-motion';
 import { ButtonSwitcher, ButtonSwitcherProps } from '@app/components/ButtonSwitcher';
-import { createBemBlockBuilder } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  defaultSpringTransition,
+  opacityScaleAnimationProps,
+} from '@app/utils';
+import { AnimatedHeader } from '@app/components/AnimatedHeader';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 
 import './HeroSwitching.scss';
 
@@ -10,6 +17,8 @@ interface HeroSwitchingProps {
   buttons: ButtonSwitcherProps['buttons'];
   switchActiveBtn?: (text: string) => void;
   subtitle?: string;
+  isHeroInView?: boolean;
+  isAnimationEnabled?: boolean;
   children?: ReactNode;
 }
 
@@ -21,14 +30,43 @@ export const HeroSwitching: FC<HeroSwitchingProps> = ({
   buttons,
   activeButton,
   switchActiveBtn,
+  isHeroInView = true,
+  isAnimationEnabled = true,
   children,
-}) => (
-  <>
-    <h1 className={getBlocksWith('__title')}>{title}</h1>
-    {subtitle && <p className={getBlocksWith('__subtitle')}>{subtitle}</p>}
-    {children}
-    <div className={getBlocksWith('__btn-box')}>
-      <ButtonSwitcher buttons={buttons} activeBtnName={activeButton} onSwitch={switchActiveBtn} />
-    </div>
-  </>
-);
+}) => {
+  const getSubtitleAnimation = useMotionEnterAnimation(
+    {
+      ...opacityScaleAnimationProps,
+      ...defaultSpringTransition,
+    },
+    isAnimationEnabled,
+  );
+
+  return (
+    <>
+      <AnimatedHeader
+        headerLevel={1}
+        transition={defaultSpringTransition}
+        className={getBlocksWith('__title')}
+        isAnimationEnabled={isAnimationEnabled}
+      >
+        {title}
+      </AnimatedHeader>
+      {subtitle && (
+        <motion.p
+          className={getBlocksWith('__subtitle')}
+          {...getSubtitleAnimation({ delay: 0.1, inView: isHeroInView })}
+        >
+          {subtitle}
+        </motion.p>
+      )}
+      {children}
+      <motion.div
+        className={getBlocksWith('__btn-box')}
+        {...getSubtitleAnimation({ delay: 0.2, inView: isHeroInView })}
+      >
+        <ButtonSwitcher buttons={buttons} activeBtnName={activeButton} onSwitch={switchActiveBtn} />
+      </motion.div>
+    </>
+  );
+};

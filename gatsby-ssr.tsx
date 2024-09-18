@@ -18,5 +18,11 @@ export const onRenderBody = ({ setHeadComponents }) => {
     <script key="OptanonWrapper" type="text/javascript">
       {'function OptanonWrapper() { }'}
     </script>,
+    <link
+      key="visualwebsiteoptimizer"
+      rel="preconnect"
+      href="https://dev.visualwebsiteoptimizer.com"
+    />,
+    <script key="vwoCode" type="text/javascript" id="vwoCode" src="/abtesting.js" />,
   ]);
 };

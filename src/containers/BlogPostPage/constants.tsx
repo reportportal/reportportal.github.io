@@ -2,10 +2,18 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { Link } from '@app/components/Link';
+import { CopyToClipboardButton } from '@app/components/CopyToClipboardButton';
 
 export const OPTIONS = {
   renderMark: {
     [MARKS.BOLD]: text => <b className="blog-post-page__bold-text">{text}</b>,
+    [MARKS.CODE]: text => (
+      <pre>
+        <code>{text}</code>
+        <CopyToClipboardButton text={text} />
+      </pre>
+    ),
   },
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: node => {
@@ -24,10 +32,17 @@ export const OPTIONS = {
       <h4 className="blog-post-page__forth-heading">{children}</h4>
     ),
     [BLOCKS.PARAGRAPH]: (node, children) => {
+      const isCodeBlock =
+        children?.[0]?.type === 'pre' && children?.[0]?.props?.children?.[0]?.type === 'code';
+
       if (children?.[0].startsWith?.('blueBg')) {
         children[0] = children[0].replace('blueBg ', '');
 
         return <p className="blog-post-page__colorful-paragraph">{children}</p>;
+      }
+
+      if (isCodeBlock) {
+        return <div className="blog-post-page__code-block">{children}</div>;
       }
 
       return <p className="blog-post-page__paragraph">{children}</p>;
@@ -38,9 +53,9 @@ export const OPTIONS = {
       <blockquote className="blog-post-page__blockquote">{children}</blockquote>
     ),
     [INLINES.HYPERLINK]: (node, children) => (
-      <a className="blog-post-page__hyperlink" href={node.data.uri}>
+      <Link to={node.data.uri} className="blog-post-page__hyperlink">
         {children}
-      </a>
+      </Link>
     ),
   },
 };

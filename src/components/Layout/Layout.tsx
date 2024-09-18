@@ -12,7 +12,6 @@ import { AnnouncementBar } from '@app/components/AnnouncementBar';
 import '../../../static/antd.min.css'; // Will be generated at build time
 import '../../styles/global.scss';
 
-import { Seo } from './Seo';
 import { Navigation } from './Navigation';
 import { Footer } from './Footer';
 import { EmbedVideo } from './EmbedVideo';
@@ -29,15 +28,9 @@ const snowfallProps = {
 interface LayoutProps {
   children: ReactElement;
   className?: string;
-  seoData?: {
-    title?: string;
-    description?: string;
-    noIndex?: boolean;
-    previewImage?: string;
-  };
 }
 
-export const Layout: FC<LayoutProps> = ({ children, className, seoData }) => {
+export const Layout: FC<LayoutProps> = ({ children, className }) => {
   const location = useLocation();
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
@@ -60,12 +53,6 @@ export const Layout: FC<LayoutProps> = ({ children, className, seoData }) => {
             </div>
           )}
         </AnimatePresence>
-        <Seo
-          description={seoData?.description}
-          title={seoData?.title}
-          noIndex={seoData?.noIndex}
-          previewImage={seoData?.previewImage}
-        />
         <Navigation announcementBarRef={announcementBarRef} />
         <main>{children}</main>
         <Footer />

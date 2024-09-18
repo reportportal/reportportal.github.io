@@ -4,3 +4,7 @@ declare module '*.svg' {
   // eslint-disable-next-line import/no-default-export
   export default FC<SVGProps<SVGSVGElement>>;
 }
+
+interface Window {
+  prevLocation: Location | null;
+}

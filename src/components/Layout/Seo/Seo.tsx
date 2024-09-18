@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -23,7 +22,6 @@ export const Seo: FC<SeoProps> = ({
   previewImage,
   description = '',
   lang = 'en',
-  meta = [],
   noIndex = false,
 }) => {
   const { site } = useStaticQuery(
@@ -54,75 +52,29 @@ export const Seo: FC<SeoProps> = ({
   const metaImage = image ?? site.siteMetadata?.image;
   const keywords = site.siteMetadata?.keywords;
   const metaSiteName = site.siteMetadata?.siteName;
-  // https added for correct link construction. Without it, Helmet and browser breaks the link.
+  // https added for correct link construction. Without it, Gatsby and Browser break the link.
   const previewImageUrl = previewImage ? `https:${previewImage}` : site.siteMetadata?.previewImage;
+  const twitter = site.siteMetadata?.social?.twitter || '';
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      defaultTitle={defaultTitle}
-      titleTemplate={titlePS && `%s | ${titlePS}`}
-      meta={[
-        {
-          name: 'description',
-          content: metaDescription,
-        },
-        {
-          name: 'image',
-          content: metaImage,
-        },
-        {
-          property: 'og:title',
-          content: combinedTitle,
-        },
-        {
-          property: 'og:description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          property: 'og:image',
-          content: previewImageUrl || metaImage,
-        },
-        {
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          name: 'twitter:creator',
-          content: site.siteMetadata?.social?.twitter || '',
-        },
-        {
-          name: 'twitter:title',
-          content: combinedTitle,
-        },
-        {
-          name: 'twitter:description',
-          content: metaDescription,
-        },
-        {
-          name: 'keywords',
-          content: keywords,
-        },
-        {
-          name: 'og:site_name',
-          content: metaSiteName,
-        },
-        {
-          name: 'og:url',
-          content: url,
-        },
-        {
-          name: 'robots',
-          content: noIndex ? 'noindex' : '',
-        },
-      ].concat(meta)}
-    />
+    <>
+      <html lang={lang} />
+      <title id="meta-title">{combinedTitle}</title>
+      <link id="canonicalUrl" rel="canonical" href={url} />
+      <meta id="meta-ogurl" content={url} name="og:url" />
+      <meta id="meta-description" content={metaDescription} name="description" />
+      <meta id="meta-ogdescription" content={metaDescription} property="og:description" />
+      <meta id="meta-twitterdescription" content={metaDescription} name="twitter:description" />
+      <meta id="meta-ogtitle" content={combinedTitle} property="og:title" />
+      <meta id="meta-twittertitle" content={combinedTitle} name="twitter:title" />
+      <meta id="meta-image" content={metaImage} name="image" />
+      <meta id="meta-ogimage" content={previewImageUrl || metaImage} property="og:image" />
+      <meta id="meta-twittercard" content="summary_large_image" name="twitter:card" />
+      <meta id="meta-twittertype" content="website" property="og:type" />
+      <meta id="meta-twitter-creator" content={twitter} name="twitter:creator" />
+      <meta id="meta-keywords" content={keywords} name="keywords" />
+      <meta id="meta-ogsite-name" content={metaSiteName} name="og:site_name" />
+      <meta id="meta-robots" content={noIndex ? 'noindex' : ''} name="robots" />
+    </>
   );
 };

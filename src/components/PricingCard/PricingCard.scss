@@ -99,6 +99,14 @@
     margin-right: 5px;
   }
 
+  &__price-description {
+    display: none;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      min-height: 1rem;
+    }
+  }
+
   &__bottom-panel {
     text-align: center;
   }

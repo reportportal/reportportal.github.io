@@ -41,7 +41,6 @@ export const HealeniumPage: FC = () => {
       utilizationDescription="Our team will provide services in support of Client's use of Healenium plugin. Such services will vary based on Client's needs. The table below describes the different support services we customarily provide"
       faqLink="https://healenium.io/#rec639241711"
       isScaleShifted
-      isAccelerator
     />
   );
 };

@@ -1,10 +1,18 @@
 import React, { FC, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import { Banner } from '@app/components/Banner';
 import { FooterContent } from '@app/components/Layout';
 import { HeroSwitching } from '@app/components/HeroSwitching';
-import { createBemBlockBuilder, MEDIA_DESKTOP_SM } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  getEaseInOutTransition,
+  MEDIA_DESKTOP_SM,
+  opacityScaleAnimationProps,
+} from '@app/utils';
+import { useInView } from '@app/hooks/useInView';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 
 import DockerIcon from './icons/docker.inline.svg';
 import GoogleCloudIcon from './icons/googleCloud.inline.svg';
@@ -58,9 +66,15 @@ const sectionsContent: {
 
 export const InstallationPage: FC = () => {
   const [activeButton, setActiveButton] = useState(ACTIVE_BUTTON);
+  const [heroRef, isHeroInView] = useInView();
+  const [contentRef, isContentInView] = useInView({ once: true, margin: '120%' });
   const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });
 
   const sections = buttons.find(button => button.text === activeButton)?.scrollPoints ?? [];
+  const getContentAnimation = useMotionEnterAnimation({
+    ...opacityScaleAnimationProps,
+    ...getEaseInOutTransition(0.7),
+  });
 
   const switchActiveBtn = (btnName: string) => {
     if (btnName !== activeButton) {
@@ -70,33 +84,43 @@ export const InstallationPage: FC = () => {
 
   return (
     <div>
-      <div className={getBlocksWith()}>
+      <div className={getBlocksWith()} ref={heroRef}>
         <div className="container">
           <HeroSwitching
             activeButton={activeButton}
             buttons={buttons}
             title="Installation guide"
             subtitle="Discover 3 pathways to install ReportPortal with"
+            isHeroInView={isHeroInView}
             switchActiveBtn={switchActiveBtn}
           />
         </div>
       </div>
-
       <div className="container">
         <div className={getBlocksWith('__main')}>
           <div className={getBlocksWith('__main-indicator')}>
-            {isDesktop && <ScrollIndicator sections={sections} />}
+            {isDesktop && <ScrollIndicator sections={sections} isInView={isContentInView} />}
           </div>
-
-          <div className={getBlocksWith('__main-content')}>
+          <motion.div
+            className={getBlocksWith('__main-content')}
+            ref={contentRef}
+            {...getContentAnimation({
+              inView: isContentInView,
+              additionalEffects: {
+                hiddenAdditional: { y: 50 },
+                enterAdditional: { y: 0 },
+              },
+            })}
+          >
             <div className={classNames({ [getBlocksWith('__main-inner')]: !isDesktop })}>
               {sectionsContent[activeButton].map((SectionComponent, index) => (
+                // @ts-expect-error name
                 <div key={activeButton + index} name={`section-${index}`}>
                   <SectionComponent />
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       <FooterContent>

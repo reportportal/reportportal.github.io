@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import {
   createBemBlockBuilder,
+  defaultSpringTransition,
   easeInOutOpacityScaleAnimationProps,
-  getSpringTransition,
+  getEaseInOutTransition,
   LIST_ANIMATION_DELAY,
   opacityScaleAnimationProps,
 } from '@app/utils';
@@ -41,10 +42,7 @@ const cardAnimationProps = {
     opacity: 1,
     x: 0,
   },
-  transition: {
-    ease: 'easeInOut',
-    duration: 0.7,
-  },
+  ...getEaseInOutTransition(0.7),
 };
 
 export const AnimatedList: FC<AnimatedListProps> = ({
@@ -65,20 +63,17 @@ export const AnimatedList: FC<AnimatedListProps> = ({
   const getCardAnimation = useMotionEnterAnimation(cardAnimationProps);
   const getButtonsAnimation = useMotionEnterAnimation({
     ...opacityScaleAnimationProps,
-    ...getSpringTransition(400, 30),
+    ...defaultSpringTransition,
   });
   const getImageAnimation = useMotionEnterAnimation({
     ...opacityScaleAnimationProps,
-    transition: {
-      ease: 'easeInOut',
-      duration: 1,
-    },
+    ...getEaseInOutTransition(1),
   });
 
   return (
     <section ref={ref} className={classNames(getBlocksWith(), 'container')}>
       <div>
-        <AnimatedHeader transition={getSpringTransition(400, 30)}>{title}</AnimatedHeader>
+        <AnimatedHeader transition={defaultSpringTransition}>{title}</AnimatedHeader>
         <motion.h3 {...getSubtitleAnimation({ delay: 0.1, inView })}>{subtitle}</motion.h3>
       </div>
       <div className={getBlocksWith('__content')}>

@@ -1,12 +1,18 @@
 import React, { FC } from 'react';
-import { Layout } from '@app/components/Layout';
+import { Layout, Seo } from '@app/components/Layout';
 import { SaasPage } from '@app/containers/SassPage';
 import { SEO_DATA } from '@app/utils';
 
 const Saas: FC = () => (
-  <Layout seoData={SEO_DATA.saas} className="offer-page-wrapper">
+  <Layout className="offer-page-wrapper saas-page-wrapper">
     <SaasPage />
   </Layout>
 );
 
 export default Saas;
+
+export const Head = () => {
+  const { title, description } = SEO_DATA.saas;
+
+  return <Seo title={title} description={description} />;
+};

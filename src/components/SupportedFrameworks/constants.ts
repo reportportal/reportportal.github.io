@@ -37,6 +37,8 @@ import silktest from '@app/svg/icon_framework_silktest.svg';
 import testcafe from '@app/svg/icon_framework_testcafe.svg';
 import testng from '@app/svg/icon_framework_testng.svg';
 import unitnet from '@app/svg/icon_framework_unitnet.svg';
+import reqnroll from '@app/svg/icon_framework_reqnroll.svg';
+import vitest from '@app/svg/icon_framework_vitest.svg';
 import vstest from '@app/svg/icon_framework_vstest.svg';
 import webdriver from '@app/svg/icon_framework_webdriver.svg';
 import xctest from '@app/svg/icon_framework_xctest2.svg';
@@ -177,6 +179,11 @@ export const FRAMEWORK_ICONS_DOT_NET = [
     badge: false,
     href: 'https://github.com/reportportal/agent-net-xunit',
   },
+  {
+    icon: reqnroll,
+    badge: false,
+    href: 'https://github.com/reportportal/agent-dotnet-reqnroll',
+  },
 ];
 
 export const FRAMEWORK_ICONS_JAVASCRIPT = [
@@ -234,6 +241,11 @@ export const FRAMEWORK_ICONS_JAVASCRIPT = [
     icon: playwright,
     badge: false,
     href: 'https://github.com/reportportal/agent-js-playwright',
+  },
+  {
+    icon: vitest,
+    badge: false,
+    href: 'https://github.com/reportportal/agent-js-vitest',
   },
 ];
 

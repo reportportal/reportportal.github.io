@@ -86,7 +86,7 @@
     }
   }
 
-  &__discount-switcher {
+  &__plan-type-switcher {
     margin: 80px auto 12px;
 
     @include m.breakpoint(v.$desktop-sm) {

@@ -40,7 +40,6 @@ export const QaspPage: FC = () => {
       comparePlans={comparePlans}
       faqData={FAQ_DATA}
       utilizationDescription="Our team will provide services in support of Client's use of QaSpace plugin. Such services will vary based on Client's needs. The table below describes the different support services we customarily provide."
-      isAccelerator
     />
   );
 };
