@@ -29,6 +29,12 @@ on:
     secrets:
       CONTENTFUL_ACCESS_TOKEN:
         required: true
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      CONTENTFUL_SPACE_ID_DEV:
+        required: true
 
 jobs:
   empty-s3-bucket:
