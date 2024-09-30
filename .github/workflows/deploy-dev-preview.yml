@@ -11,18 +11,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Deploy to dev in Contentful production mode (AWS S3)
+name: Deploy to dev in Contentful preview mode (AWS S3)
 
 on:
-  push:
-    branches:
-      - develop
-    paths-ignore:
-      - README.md
   workflow_dispatch:
 
 jobs:
   use-base:
     uses: ./.github/workflows/deploy-dev-base.yml
     with:
-      CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_DEV }}
+      CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN_DEV }}
+    env:
+      CONTENTFUL_HOST: preview.contentful.com
