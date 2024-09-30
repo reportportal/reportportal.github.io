@@ -24,7 +24,7 @@ export const SaasPage: FC = () => {
   const { plans, comparePlans } = formatOfferingPlans(
     useStaticQuery<OfferingPlansQuery>(graphql`
       query {
-        allContentfulComparePlan(filter: { internalTitle: { eq: "SasS Compare Plan" } }) {
+        allContentfulComparePlan(filter: { internalTitle: { eq: "SaaS Compare Plan" } }) {
           nodes {
             ...ComparePlanFields
           }
