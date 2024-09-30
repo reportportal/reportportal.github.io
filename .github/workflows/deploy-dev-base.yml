@@ -28,7 +28,6 @@ on:
   workflow_call:
     secrets:
       CONTENTFUL_ACCESS_TOKEN:
-        type: string
         required: true
 
 jobs:
