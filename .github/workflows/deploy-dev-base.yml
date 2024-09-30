@@ -23,14 +23,9 @@ env:
   CONTENTFUL_ENV_ID: master
   CONTENTFUL_HOST: cdn.contentful.com
   GATSBY_MAILCHIMP_LIST_ID: ca6d0eec5b
-  CONTENTFUL_ACCESS_TOKEN: ${{ inputs.CONTENTFUL_ACCESS_TOKEN }}
 
 on:
   workflow_call:
-    inputs:
-      CONTENTFUL_ACCESS_TOKEN:
-        type: string
-        required: true
 
 jobs:
   empty-s3-bucket:
@@ -64,7 +59,7 @@ jobs:
       - name: create env file
         run: |
           touch .env.production
-          echo CONTENTFUL_ACCESS_TOKEN=${{ env.CONTENTFUL_ACCESS_TOKEN }} >> .env.production
+          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} >> .env.production
           echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID_DEV }} >> .env.production
           echo CONTENTFUL_ENV_ID=${{ env.CONTENTFUL_ENV_ID }} >> .env.production
           echo CONTENTFUL_HOST=${{ env.CONTENTFUL_HOST }} >> .env.production
