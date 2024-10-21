@@ -7,6 +7,7 @@ import {
   easeInOutOpacityScaleAnimationProps,
   easeInOutTransition,
   heroBackgroundAnimationProps,
+  PropsWithAnimation,
 } from '@app/utils';
 import { useInView } from '@app/hooks/useInView';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
@@ -23,7 +24,6 @@ interface PricingHeroProps {
   description: string;
   switcherProps: PlanTypeSwitcherProps;
   subtitle?: string;
-  isAnimationEnabled?: boolean;
 }
 
 const getBlocksWith = createBemBlockBuilder(['pricing-hero']);
@@ -40,7 +40,7 @@ const offerDescriptionAnimation = {
   ...easeInOutTransition,
 };
 
-export const PricingHero: FC<PricingHeroProps> = ({
+export const PricingHero: FC<PropsWithAnimation<PricingHeroProps>> = ({
   title,
   subtitle,
   buttons,
@@ -69,7 +69,7 @@ export const PricingHero: FC<PricingHeroProps> = ({
     <motion.div
       className={getBlocksWith()}
       ref={heroRef}
-      {...getBackgroundAnimation({ inView: isHeroInView })}
+      {...getBackgroundAnimation({ isInView: isHeroInView })}
     >
       <HeroSwitching
         activeButton={activeButton}
@@ -82,7 +82,7 @@ export const PricingHero: FC<PricingHeroProps> = ({
       <motion.div
         className={getBlocksWith('__wrapper')}
         {...getOfferDescriptionAnimation({
-          inView: isHeroInView,
+          isInView: isHeroInView,
         })}
       >
         <div className={getBlocksWith('__wrapper-title')}>{offerType}</div>
@@ -91,7 +91,7 @@ export const PricingHero: FC<PricingHeroProps> = ({
       <motion.div
         className={getBlocksWith('__plan-type-switcher')}
         {...getDiscountSwitcherAnimation({
-          inView: isHeroInView,
+          isInView: isHeroInView,
           delay: 0.5,
           additionalEffects: {
             hiddenAdditional: {
