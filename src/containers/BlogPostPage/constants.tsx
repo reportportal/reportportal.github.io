@@ -57,5 +57,30 @@ export const OPTIONS = {
         {children}
       </Link>
     ),
+    [BLOCKS.TABLE]: (node, children) => (
+      <table className="blog-post-page__table">
+        <tbody>{children}</tbody>
+      </table>
+    ),
+    [BLOCKS.TABLE_ROW]: (node, children) => (
+      <tr className="blog-post-page__table-row">{children}</tr>
+    ),
+    [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
+      <th className="blog-post-page__table-header-cell">{children}</th>
+    ),
+    [BLOCKS.TABLE_CELL]: (node, children) => (
+      <td className="blog-post-page__table-cell">{children}</td>
+    ),
   },
+  renderText: text =>
+    text
+      .split('\n')
+      .reduce(
+        (children, textSegment, index) => [
+          ...children,
+          index > 0 && <br key={index} />,
+          textSegment,
+        ],
+        [],
+      ),
 };
