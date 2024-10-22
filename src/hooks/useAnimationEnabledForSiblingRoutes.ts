@@ -5,7 +5,7 @@ export const useAnimationEnabledForSiblingRoutes = () => {
   const { pathname } = useLocation();
 
   if (typeof window === 'undefined') {
-    return false;
+    return true;
   }
 
   return !isSameParentRoute(pathname, window.prevLocation?.pathname);
