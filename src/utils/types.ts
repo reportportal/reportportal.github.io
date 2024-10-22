@@ -136,3 +136,5 @@ export interface ContactUsContentfulConfig {
 }
 
 export type ContactUsConfig = ContactUsBaseConfig & ContactUsContentfulConfig;
+
+export type PropsWithAnimation<P = object> = P & { isAnimationEnabled?: boolean };

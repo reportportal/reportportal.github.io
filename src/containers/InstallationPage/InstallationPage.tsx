@@ -105,7 +105,7 @@ export const InstallationPage: FC = () => {
             className={getBlocksWith('__main-content')}
             ref={contentRef}
             {...getContentAnimation({
-              inView: isContentInView,
+              isInView: isContentInView,
               additionalEffects: {
                 hiddenAdditional: { y: 50 },
                 enterAdditional: { y: 0 },
