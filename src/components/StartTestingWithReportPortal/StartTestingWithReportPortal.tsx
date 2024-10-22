@@ -1,7 +1,16 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 import { Link } from '@app/components/Link';
-import { createBemBlockBuilder, iconsCommon } from '@app/utils';
+import {
+  createBemBlockBuilder,
+  getEaseInOutTransition,
+  iconsCommon,
+  opacityScaleAnimationProps,
+  PropsWithAnimation,
+} from '@app/utils';
+import { useInView } from '@app/hooks/useInView';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 
 import './StartTestingWithReportPortal.scss';
 
@@ -11,37 +20,68 @@ interface StartTestingWithReportPortalProps {
 
 const getBlocksWith = createBemBlockBuilder(['start-testing-with-report-portal']);
 
-export const StartTestingWithReportPortal: FC<StartTestingWithReportPortalProps> = ({
-  startFreeTrialUrl = '/contact-us/general',
-}) => (
-  <section className={classNames(getBlocksWith(), 'container')}>
-    <div className={getBlocksWith('__leading')}>
-      <div className={getBlocksWith('__leading-heading')}>
-        <h2>Start testing with ReportPortal</h2>
-        <h3>
-          Ready to get the most of ReportPortal features? Start your <b>30-day free trial</b> or get
-          in touch with us to learn more about our offer.
-        </h3>
-      </div>
-      <div className={getBlocksWith('__leading-button-group')}>
-        <Link
-          className="btn btn--primary btn--large"
-          to={startFreeTrialUrl}
-          data-gtm="start_free_trial"
+export const StartTestingWithReportPortal: FC<
+  PropsWithAnimation<StartTestingWithReportPortalProps>
+> = ({ startFreeTrialUrl = '/contact-us/general', isAnimationEnabled = false }) => {
+  const [ref, isInView] = useInView();
+
+  const getContentAnimation = useMotionEnterAnimation(
+    {
+      hiddenState: {
+        opacity: 0,
+        x: -50,
+      },
+      enterState: {
+        opacity: 1,
+        x: 0,
+      },
+      ...getEaseInOutTransition(0.7),
+    },
+    isAnimationEnabled,
+  );
+  const getImageAnimation = useMotionEnterAnimation(
+    {
+      ...opacityScaleAnimationProps,
+      ...getEaseInOutTransition(1),
+    },
+    isAnimationEnabled,
+  );
+
+  return (
+    <section className={classNames(getBlocksWith(), 'container')} ref={ref}>
+      <div className={getBlocksWith('__leading')}>
+        <div className={getBlocksWith('__leading-heading')}>
+          <motion.h2 {...getContentAnimation({ isInView, delay: 0.5 })}>
+            Start testing with ReportPortal
+          </motion.h2>
+          <motion.h3 {...getContentAnimation({ isInView, delay: 0.5 })}>
+            Ready to get the most of ReportPortal features? Start your <b>30-day free trial</b> or
+            get in touch with us to learn more about our offer.
+          </motion.h3>
+        </div>
+        <motion.div
+          className={getBlocksWith('__leading-button-group')}
+          {...getContentAnimation({ isInView, delay: 0.5 })}
         >
-          Start free trial
-        </Link>
-        <Link
-          className="btn btn--outline btn--large temporary-hide"
-          to="/contact-us/general"
-          data-gtm="get_a_quote"
-        >
-          Get a quote
-        </Link>
+          <Link
+            className="btn btn--primary btn--large"
+            to={startFreeTrialUrl}
+            data-gtm="start_free_trial"
+          >
+            Start free trial
+          </Link>
+          <Link
+            className="btn btn--outline btn--large temporary-hide"
+            to="/contact-us/general"
+            data-gtm="get_a_quote"
+          >
+            Get a quote
+          </Link>
+        </motion.div>
       </div>
-    </div>
-    <div className={getBlocksWith('__trailing')}>
-      <img src={iconsCommon.subscription} alt="" />
-    </div>
-  </section>
-);
+      <div className={getBlocksWith('__trailing')}>
+        <motion.img src={iconsCommon.subscription} alt="" {...getImageAnimation({ isInView })} />
+      </div>
+    </section>
+  );
+};

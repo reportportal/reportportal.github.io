@@ -98,7 +98,7 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
         className={getBlocksWith('__pentagons')}
         ref={cardsRef}
         {...getCardsAnimation({
-          inView: areCardsInView,
+          isInView: areCardsInView,
           delay: 0.6,
           additionalEffects: {
             hiddenAdditional: {
