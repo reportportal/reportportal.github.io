@@ -126,6 +126,7 @@ export interface ContactUsBaseConfig {
   }[];
   planType?: PlanType;
   isDiscussFieldShown?: boolean;
+  areCertificatesShown?: boolean;
 }
 
 export interface ContactUsContentfulConfig {

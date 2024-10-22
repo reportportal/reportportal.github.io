@@ -123,6 +123,7 @@ const QaSpaceBaseConfig = {
     },
   ],
   isDiscussFieldShown: false,
+  areCertificatesShown: false,
 };
 const Drill4JBaseConfig = {
   id: 'Drill4J',
@@ -133,6 +134,7 @@ const Drill4JBaseConfig = {
     },
   ],
   isDiscussFieldShown: false,
+  areCertificatesShown: false,
 };
 const HealeniumBaseConfig = {
   id: 'Healenium',
@@ -143,6 +145,7 @@ const HealeniumBaseConfig = {
     },
   ],
   isDiscussFieldShown: false,
+  areCertificatesShown: false,
 };
 
 export const contactUsBaseConfigs: ContactUsBaseConfig[] = [

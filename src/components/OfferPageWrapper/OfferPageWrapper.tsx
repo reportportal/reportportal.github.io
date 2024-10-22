@@ -15,6 +15,7 @@ import { Link } from '@app/components/Link';
 import { PricingHero } from '@app/components/PricingHero';
 import { ComparePlans } from '@app/components/ComparePlans';
 import { Faq } from '@app/components/Faq';
+import { CertificationCard } from '@app/components/CertificationCard';
 import InfoIcon from '@app/svg/infoIcon.inline.svg';
 import { useInView } from '@app/hooks/useInView';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
@@ -71,6 +72,7 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   const isAnimationEnabled = useAnimationEnabledForSiblingRoutes();
 
   const planType = isYearlyPlanType ? 'yearly' : 'quarterly';
+  const isPricingPage = page === 'pricing';
 
   const getCardsAnimation = useMotionEnterAnimation(
     easeInOutOpacityScaleAnimationProps,
@@ -140,12 +142,20 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
         </div>
       </div>
       <ComparePlans plans={comparePlans} isCollapsibleOnMobile={false} />
-      {page === 'pricing' && (
-        <div
-          className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}
-        >
-          <TrustedOrganizations />
-        </div>
+      {isPricingPage && (
+        <>
+          <div
+            className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}
+          >
+            <TrustedOrganizations />
+          </div>
+          <div className={classNames(getBlocksWith('__certificates-container'), 'container')}>
+            <CertificationCard
+              subtitle="Ensuring the highest security standards"
+              shouldDisplayLink
+            />
+          </div>
+        </>
       )}
       <div className={getBlocksWith('__faq-container')}>
         <Faq

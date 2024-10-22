@@ -237,4 +237,28 @@
       margin-top: 0;
     }
   }
+
+  &__certificates {
+    gap: 16px;
+    margin-top: 24px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-bottom: 4px;
+
+      svg {
+        width: 72px;
+        height: 72px;
+      }
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      margin-top: 32px;
+      margin-bottom: 0;
+    }
+
+    svg {
+      width: 64px;
+      height: 64px;
+    }
+  }
 }

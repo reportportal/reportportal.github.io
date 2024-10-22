@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
+import { CertificationCard } from '@app/components/CertificationCard';
 import { ContactUsConfig, createBemBlockBuilder } from '@app/utils';
 
 import { ContactUsForm } from './ContactUsForm';
@@ -19,6 +20,7 @@ export const ContactUsPage: FC<ContactUsConfig> = config => {
     options,
     planType = undefined,
     isDiscussFieldShown = false,
+    areCertificatesShown = true,
   } = config;
 
   return (
@@ -36,8 +38,9 @@ export const ContactUsPage: FC<ContactUsConfig> = config => {
       </div>
       <div className={classNames(getBlocksWith('__content-container'), 'container')}>
         <ContactUsForm title={title} options={options} isDiscussFieldShown={isDiscussFieldShown} />
-        <div className={getBlocksWith('__trusted-organizations-container')}>
+        <div className={getBlocksWith('__additional-info-container')}>
           <TrustedOrganizations />
+          {areCertificatesShown && <CertificationCard />}
         </div>
       </div>
     </div>

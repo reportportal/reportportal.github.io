@@ -1,0 +1,55 @@
+@use 'src/styles/mixins' as m;
+@use 'src/styles/variables' as v;
+
+.certification-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    @include m.font-poppins(v.$fw-semi-bold);
+    @include m.font-scale(medium);
+
+    margin: 0;
+    color: var(--text-primary);
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      @include m.font-poppins(v.$fw-bold);
+      @include m.font-scale(x3-medium);
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      @include m.font-scale(large);
+    }
+  }
+
+  &__subtitle {
+    @include m.font-scale(base);
+
+    margin-top: 16px;
+    color: var(--text-service);
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-top: 14px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      @include m.font-scale(x2-medium);
+    }
+  }
+
+  &__certificates {
+    margin-top: 40px;
+  }
+
+  &__link {
+    margin-top: 64px;
+
+    svg {
+      position: static;
+      margin-right: 0;
+      margin-left: 8px;
+      transform: none;
+    }
+  }
+}
