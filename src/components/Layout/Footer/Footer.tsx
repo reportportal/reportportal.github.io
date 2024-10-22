@@ -4,6 +4,7 @@ import { Divider } from 'antd';
 import classNames from 'classnames';
 import { useInView } from 'framer-motion';
 import { Link } from '@app/components/Link';
+import { Certificates } from '@app/components/CertificationCard/Certificates';
 import { useFooter } from '@app/hooks/useFooter';
 import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
 
@@ -24,12 +25,15 @@ export const Footer: FC = () => {
       <div className={classNames(getBlocksWith('__container'), 'container')}>
         <section id="footer-content" />
         <section className={getBlocksWith('__navigation')}>
-          <div className={getBlocksWith('__purpose')}>
-            <Link to="/" className={getBlocksWith('__logo')}>
-              {isNewYearMode ? <NewYearNavLogoIcon /> : <NavLogoIcon />}
-            </Link>
-            <span>{text}</span>
-            <span>© {new Date().getFullYear()} ReportPortal</span>
+          <div>
+            <div className={getBlocksWith('__purpose')}>
+              <Link to="/" className={getBlocksWith('__logo')}>
+                {isNewYearMode ? <NewYearNavLogoIcon /> : <NavLogoIcon />}
+              </Link>
+              <span>{text}</span>
+              <span>© {new Date().getFullYear()} ReportPortal</span>
+            </div>
+            <Certificates className={getBlocksWith('__certificates')} />
           </div>
           <div className={getBlocksWith('__navigation-links')}>
             {sections.map(({ title, items }) => (
