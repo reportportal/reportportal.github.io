@@ -51,7 +51,7 @@ export const WhyInstanceBlocks: FC<WhyInstanceBlocksProps> = ({
             <li key={title}>
               <motion.div
                 {...getAnimation({
-                  isInView: areExplanationsInView,
+                  inView: areExplanationsInView,
                   additionalEffects: cardAdditionalAnimationProps,
                 })}
               >
@@ -59,7 +59,7 @@ export const WhyInstanceBlocks: FC<WhyInstanceBlocksProps> = ({
               </motion.div>
               <motion.h3
                 {...getAnimation({
-                  isInView: areExplanationsInView,
+                  inView: areExplanationsInView,
                   additionalEffects: cardAdditionalAnimationProps,
                   delay: 0.1,
                 })}
@@ -68,7 +68,7 @@ export const WhyInstanceBlocks: FC<WhyInstanceBlocksProps> = ({
               </motion.h3>
               <motion.span
                 {...getAnimation({
-                  isInView: areExplanationsInView,
+                  inView: areExplanationsInView,
                   additionalEffects: cardAdditionalAnimationProps,
                   delay: 0.2,
                 })}

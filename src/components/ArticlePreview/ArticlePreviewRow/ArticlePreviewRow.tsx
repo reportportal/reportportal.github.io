@@ -5,7 +5,6 @@ import {
   createBemBlockBuilder,
   getEaseInOutTransition,
   opacityScaleAnimationProps,
-  PropsWithAnimation,
 } from '@app/utils';
 import { useInView } from '@app/hooks/useInView';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
@@ -18,25 +17,19 @@ interface ArticlePreviewRowProps {
 
 const getBlocksWith = createBemBlockBuilder(['article-preview-list']);
 
-export const ArticlePreviewRow: FC<PropsWithAnimation<ArticlePreviewRowProps>> = ({
-  row,
-  isAnimationEnabled = false,
-}) => {
+export const ArticlePreviewRow: FC<ArticlePreviewRowProps> = ({ row }) => {
   const [rowRef, isInView] = useInView();
-  const getAnimation = useMotionEnterAnimation(
-    {
-      ...opacityScaleAnimationProps,
-      ...getEaseInOutTransition(0.7),
-    },
-    isAnimationEnabled,
-  );
+  const getAnimation = useMotionEnterAnimation({
+    ...opacityScaleAnimationProps,
+    ...getEaseInOutTransition(0.7),
+  });
 
   return (
     <motion.div
       ref={rowRef}
       className={getBlocksWith()}
       {...getAnimation({
-        isInView,
+        inView: isInView,
         additionalEffects: {
           hiddenAdditional: {
             y: 150,

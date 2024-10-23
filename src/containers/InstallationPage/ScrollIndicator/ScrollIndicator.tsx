@@ -76,7 +76,7 @@ export const ScrollIndicator: FC<ScrollIndicatorProps> = ({ sections, isInView }
             className={getBlocksWith('__box-item-line')}
             style={{ bottom: `${bottomPosition}px` }}
             {...getLineAnimation({
-              isInView,
+              inView: isInView,
               additionalEffects: {
                 hiddenAdditional: { top: 0 },
                 enterAdditional: { top: topPosition },

@@ -19,9 +19,9 @@ export const LandingPage: FC = () => (
     <BenefitsForBusiness />
     <FeaturesForEngineers />
     <CustomersStatistics />
-    <ProcessIntegration isAnimationEnabled />
-    <StartTestingWithReportPortal isAnimationEnabled />
-    <LatestFromOurBlog isAnimationEnabled />
-    <SubscriptionBanner isAnimationEnabled />
+    <ProcessIntegration />
+    <StartTestingWithReportPortal />
+    <LatestFromOurBlog />
+    <SubscriptionBanner />
   </>
 );

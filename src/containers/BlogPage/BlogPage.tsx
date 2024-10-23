@@ -26,7 +26,7 @@ export const BlogPage: FC<BlogPageProps> = ({ visiblePosts, allPosts, loadMorePo
 
   return (
     <>
-      <motion.div className={getBlocksWith()} {...getBackgroundAnimation({ isInView: true })}>
+      <motion.div className={getBlocksWith()} {...getBackgroundAnimation({ inView: true })}>
         <div className="container">
           <AnimatedHeader
             headerLevel={1}
@@ -42,7 +42,7 @@ export const BlogPage: FC<BlogPageProps> = ({ visiblePosts, allPosts, loadMorePo
           >
             Product updates, news and technology articles
           </AnimatedHeader>
-          <ArticlePreview posts={visiblePosts} isAnimationEnabled />
+          <ArticlePreview posts={visiblePosts} />
           {visiblePosts.length < allPosts.length && (
             <div className={getBlocksWith('__footer')}>
               <button className="btn btn--outline btn--large" onClick={loadMorePosts}>

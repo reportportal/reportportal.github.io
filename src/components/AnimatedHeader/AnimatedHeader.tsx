@@ -2,16 +2,17 @@ import { createElement, FC, PropsWithChildren } from 'react';
 import { motion, Transition } from 'framer-motion';
 import { useInView } from '@app/hooks/useInView';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
-import { easeInOutTransition, opacityScaleAnimationProps, PropsWithAnimation } from '@app/utils';
+import { easeInOutTransition, opacityScaleAnimationProps } from '@app/utils';
 
 interface AnimatedHeaderProps {
   transition?: Transition;
   delay?: number;
   headerLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   className?: string;
+  isAnimationEnabled?: boolean;
 }
 
-export const AnimatedHeader: FC<PropsWithChildren<PropsWithAnimation<AnimatedHeaderProps>>> = ({
+export const AnimatedHeader: FC<PropsWithChildren<AnimatedHeaderProps>> = ({
   transition = easeInOutTransition,
   delay,
   headerLevel = 2,
@@ -28,7 +29,7 @@ export const AnimatedHeader: FC<PropsWithChildren<PropsWithAnimation<AnimatedHea
 
   return createElement(
     motion[`h${headerLevel}`],
-    { className, ref: titleRef, ...getAnimation({ isInView: isTitleInView, delay }) },
+    { className, ref: titleRef, ...getAnimation({ inView: isTitleInView, delay }) },
     children,
   );
 };

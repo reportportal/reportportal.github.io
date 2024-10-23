@@ -20,7 +20,7 @@ export const LinkedCard: FC<LinkedCardProps> = ({
   itemTitle,
   description,
   link,
-  linkText = '',
+  linkText,
   icon,
   delay = false,
 }) => {

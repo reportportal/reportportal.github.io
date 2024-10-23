@@ -7,7 +7,7 @@ interface UseMotionEnterAnimationProps {
 }
 
 interface AnimationGetterProps {
-  isInView: boolean;
+  inView: boolean;
   delay?: number;
   additionalEffects?: Partial<{
     hiddenAdditional: Variant;
@@ -26,12 +26,12 @@ export const useMotionEnterAnimation = (
   const shouldAnimate = !shouldReduceMotion && isEnabled;
 
   return ({
-    isInView,
+    inView,
     delay = 0,
     additionalEffects = { hiddenAdditional: {}, enterAdditional: {} },
   }) => ({
     initial: shouldAnimate ? 'hidden' : 'enter',
-    animate: shouldAnimate && (isInView ? 'enter' : 'hidden'),
+    animate: shouldAnimate && (inView ? 'enter' : 'hidden'),
     exit: 'hidden',
     variants: {
       hidden: { ...hiddenState, ...additionalEffects.hiddenAdditional },

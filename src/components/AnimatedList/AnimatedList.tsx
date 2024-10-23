@@ -74,9 +74,7 @@ export const AnimatedList: FC<AnimatedListProps> = ({
     <section ref={ref} className={classNames(getBlocksWith(), 'container')}>
       <div>
         <AnimatedHeader transition={defaultSpringTransition}>{title}</AnimatedHeader>
-        <motion.h3 {...getSubtitleAnimation({ delay: 0.1, isInView: inView })}>
-          {subtitle}
-        </motion.h3>
+        <motion.h3 {...getSubtitleAnimation({ delay: 0.1, inView })}>{subtitle}</motion.h3>
       </div>
       <div className={getBlocksWith('__content')}>
         <div
@@ -91,7 +89,7 @@ export const AnimatedList: FC<AnimatedListProps> = ({
                   className={getBlocksWithList('__item')}
                   key={itemTitle}
                   onClick={() => setIndexAndResetInterval(index)}
-                  {...getCardAnimation({ isInView: inView, delay: 0.2 * index })}
+                  {...getCardAnimation({ inView, delay: 0.2 * index })}
                 >
                   <strong>{itemTitle}</strong>
                 </motion.li>
@@ -99,7 +97,7 @@ export const AnimatedList: FC<AnimatedListProps> = ({
                 <motion.li
                   className={getBlocksWithList('__item', '__item--active')}
                   key={itemTitle}
-                  {...getCardAnimation({ isInView: inView, delay: 0.2 * index })}
+                  {...getCardAnimation({ inView, delay: 0.2 * index })}
                 >
                   <img src={image} alt="" />
                   <LinkedCard
@@ -118,7 +116,7 @@ export const AnimatedList: FC<AnimatedListProps> = ({
             key={image}
             alt=""
             {...getImageAnimation({
-              isInView: inView,
+              inView,
               delay: isFirstImageAnimationPlayed.current ? 0 : 0.6,
               additionalEffects: {
                 transitionAdditional: {
@@ -136,7 +134,7 @@ export const AnimatedList: FC<AnimatedListProps> = ({
         <div className={getBlocksWith('__leading')}>
           <motion.div
             className={getBlocksWith('__leading-button-group')}
-            {...getButtonsAnimation({ isInView: inView, delay: 1.7 })}
+            {...getButtonsAnimation({ inView, delay: 1.7 })}
           >
             {children}
           </motion.div>

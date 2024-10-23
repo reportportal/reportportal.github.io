@@ -5,7 +5,6 @@ import {
   createBemBlockBuilder,
   defaultSpringTransition,
   opacityScaleAnimationProps,
-  PropsWithAnimation,
 } from '@app/utils';
 import { AnimatedHeader } from '@app/components/AnimatedHeader';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
@@ -19,12 +18,13 @@ interface HeroSwitchingProps {
   switchActiveBtn?: (text: string) => void;
   subtitle?: string;
   isHeroInView?: boolean;
+  isAnimationEnabled?: boolean;
   children?: ReactNode;
 }
 
 const getBlocksWith = createBemBlockBuilder(['hero-switching']);
 
-export const HeroSwitching: FC<PropsWithAnimation<HeroSwitchingProps>> = ({
+export const HeroSwitching: FC<HeroSwitchingProps> = ({
   title,
   subtitle,
   buttons,
@@ -55,7 +55,7 @@ export const HeroSwitching: FC<PropsWithAnimation<HeroSwitchingProps>> = ({
       {subtitle && (
         <motion.p
           className={getBlocksWith('__subtitle')}
-          {...getSubtitleAnimation({ delay: 0.1, isInView: isHeroInView })}
+          {...getSubtitleAnimation({ delay: 0.1, inView: isHeroInView })}
         >
           {subtitle}
         </motion.p>
@@ -63,7 +63,7 @@ export const HeroSwitching: FC<PropsWithAnimation<HeroSwitchingProps>> = ({
       {children}
       <motion.div
         className={getBlocksWith('__btn-box')}
-        {...getSubtitleAnimation({ delay: 0.2, isInView: isHeroInView })}
+        {...getSubtitleAnimation({ delay: 0.2, inView: isHeroInView })}
       >
         <ButtonSwitcher buttons={buttons} activeBtnName={activeButton} onSwitch={switchActiveBtn} />
       </motion.div>
