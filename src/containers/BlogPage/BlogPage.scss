@@ -5,11 +5,16 @@
   position: relative;
   z-index: 20;
   margin-top: calc(-1 * var(--header-height));
+  margin-bottom: 60px;
   padding: calc(72px + var(--header-height)) 16px 180px;
   background-image: url('./icons/background_blog-page.svg');
   background-position: center 0;
   background-repeat: no-repeat;
   color: var(--white);
+
+  @include m.breakpoint(v.$tablet-sm-exact) {
+    margin-bottom: 0;
+  }
 
   @include m.breakpoint(v.$desktop-md) {
     background-size: cover;
@@ -73,9 +78,5 @@
     display: flex;
     justify-content: center;
     padding: calc(6 * var(--base-spacing)) 0 0;
-  }
-
-  .subscription-banner {
-    margin-top: 180px;
   }
 }

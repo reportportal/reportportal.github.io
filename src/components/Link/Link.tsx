@@ -28,7 +28,7 @@ const TRUSTED_DOMAINS = [
 // pass it only to GatsbyLink
 export const Link: FC<LinkProps> = ({
   children,
-  to,
+  to = '',
   activeClassName,
   partiallyActive,
   ...other
