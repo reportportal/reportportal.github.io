@@ -1,4 +1,7 @@
 import React, { FC } from 'react';
+import { motion } from 'framer-motion';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
+import { getEaseInOutTransition, PropsWithAnimation } from '@app/utils';
 
 import './StatisticList.scss';
 
@@ -8,16 +11,42 @@ interface StatisticListProps {
     entities: string;
     achievement?: string;
   }[];
+  isInView?: boolean;
 }
 
-export const StatisticList: FC<StatisticListProps> = ({ statistics }) => (
-  <ul className="statistic-list">
-    {statistics.map(({ quantity, entities, achievement }) => (
-      <li key={quantity} className="white-border">
-        <strong>{quantity}</strong>
-        <strong>{entities}</strong>
-        {achievement && <span>{achievement}</span>}
-      </li>
-    ))}
-  </ul>
-);
+export const StatisticList: FC<PropsWithAnimation<StatisticListProps>> = ({
+  statistics,
+  isInView = true,
+  isAnimationEnabled = false,
+}) => {
+  const getAnimation = useMotionEnterAnimation(
+    {
+      hiddenState: {
+        opacity: 0,
+        x: -150,
+      },
+      enterState: {
+        opacity: 1,
+        x: 0,
+      },
+      ...getEaseInOutTransition(0.5),
+    },
+    isAnimationEnabled,
+  );
+
+  return (
+    <ul className="statistic-list">
+      {statistics.map(({ quantity, entities, achievement }, index) => (
+        <motion.li
+          key={quantity}
+          className="white-border"
+          {...getAnimation({ isInView, delay: 0.5 + index * 0.1 })}
+        >
+          <strong>{quantity}</strong>
+          <strong>{entities}</strong>
+          {achievement && <span>{achievement}</span>}
+        </motion.li>
+      ))}
+    </ul>
+  );
+};

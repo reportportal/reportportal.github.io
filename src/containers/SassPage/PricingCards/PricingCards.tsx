@@ -5,6 +5,7 @@ import {
   createBemBlockBuilder,
   easeInOutOpacityScaleAnimationProps,
   OfferingPlansDto,
+  PropsWithAnimation,
 } from '@app/utils';
 import { useInView } from '@app/hooks/useInView';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
@@ -19,7 +20,7 @@ interface PricingCardsProps {
 
 const getBlocksWith = createBemBlockBuilder(['pricing-cards']);
 
-export const PricingCards: FC<PricingCardsProps> = ({
+export const PricingCards: FC<PropsWithAnimation<PricingCardsProps>> = ({
   plans,
   isYearlyPlanType,
   isAnimationEnabled,
@@ -37,7 +38,7 @@ export const PricingCards: FC<PricingCardsProps> = ({
       className={getBlocksWith()}
       ref={cardsRef}
       {...getAnimation({
-        inView: isInView,
+        isInView,
         delay: 0.6,
         additionalEffects: {
           hiddenAdditional: {

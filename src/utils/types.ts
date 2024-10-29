@@ -126,6 +126,7 @@ export interface ContactUsBaseConfig {
   }[];
   planType?: PlanType;
   isDiscussFieldShown?: boolean;
+  areCertificatesShown?: boolean;
 }
 
 export interface ContactUsContentfulConfig {
@@ -136,3 +137,5 @@ export interface ContactUsContentfulConfig {
 }
 
 export type ContactUsConfig = ContactUsBaseConfig & ContactUsContentfulConfig;
+
+export type PropsWithAnimation<P = object> = P & { isAnimationEnabled?: boolean };

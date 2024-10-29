@@ -1,4 +1,6 @@
 import { AnimationProps, Transition, useReducedMotion, Variant } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
+import { MEDIA_TABLET_SM } from '@app/utils';
 
 interface UseMotionEnterAnimationProps {
   hiddenState: Variant;
@@ -7,7 +9,7 @@ interface UseMotionEnterAnimationProps {
 }
 
 interface AnimationGetterProps {
-  inView: boolean;
+  isInView: boolean;
   delay?: number;
   additionalEffects?: Partial<{
     hiddenAdditional: Variant;
@@ -23,15 +25,19 @@ export const useMotionEnterAnimation = (
   isEnabled = true,
 ): AnimationGetter => {
   const shouldReduceMotion = useReducedMotion();
-  const shouldAnimate = !shouldReduceMotion && isEnabled;
+  const isTablet = useMediaQuery(
+    { query: MEDIA_TABLET_SM },
+    typeof window === 'undefined' ? { width: 800 } : undefined,
+  );
+  const shouldAnimate = !shouldReduceMotion && isEnabled && isTablet;
 
   return ({
-    inView,
+    isInView,
     delay = 0,
     additionalEffects = { hiddenAdditional: {}, enterAdditional: {} },
   }) => ({
     initial: shouldAnimate ? 'hidden' : 'enter',
-    animate: shouldAnimate && (inView ? 'enter' : 'hidden'),
+    animate: shouldAnimate && (isInView ? 'enter' : 'hidden'),
     exit: 'hidden',
     variants: {
       hidden: { ...hiddenState, ...additionalEffects.hiddenAdditional },

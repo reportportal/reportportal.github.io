@@ -242,9 +242,14 @@
     }
   }
 
-  &__trusted-organizations-container {
+  &__additional-info-container {
     margin-top: 104px;
     padding-bottom: 40px;
+
+    .certification-card {
+      margin-top: 64px;
+      margin-bottom: 80px;
+    }
 
     @include m.breakpoint(v.$tablet-sm-exact) {
       margin-top: 160px;
@@ -259,6 +264,11 @@
           width: unset;
         }
       }
+
+      .certification-card {
+        margin-top: 80px;
+        margin-bottom: 40px;
+      }
     }
 
     @include m.breakpoint(v.$desktop-sm) {
@@ -272,6 +282,10 @@
         &__icons {
           justify-content: left;
         }
+      }
+
+      .certification-card {
+        align-items: start;
       }
     }
   }
