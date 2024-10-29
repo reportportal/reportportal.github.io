@@ -25,7 +25,10 @@ export const useMotionEnterAnimation = (
   isEnabled = true,
 ): AnimationGetter => {
   const shouldReduceMotion = useReducedMotion();
-  const isTablet = useMediaQuery({ query: MEDIA_TABLET_SM });
+  const isTablet = useMediaQuery(
+    { query: MEDIA_TABLET_SM },
+    typeof window === 'undefined' ? { width: 800 } : undefined,
+  );
   const shouldAnimate = !shouldReduceMotion && isEnabled && isTablet;
 
   return ({

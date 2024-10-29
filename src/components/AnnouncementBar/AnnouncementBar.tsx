@@ -10,6 +10,7 @@ import {
 } from '@app/utils';
 import { CrossIcon } from '@app/components/Layout/Navigation/icons';
 import { ArrowLink } from '@app/components/ArrowLink';
+import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 
 import MerchIcon from './MerchIcon.inline.svg';
 
@@ -26,6 +27,12 @@ export const AnnouncementBar: FC = () => {
   const bannerHeight = isTablet ? desktopBannerHeight : mobileBannerHeight;
   const heightAnimation = { y: bannerHeight * -1, height: 0 };
 
+  const getAnimation = useMotionEnterAnimation({
+    hiddenState: heightAnimation,
+    enterState: { y: 0, height: bannerHeight },
+    transition: { duration: 0.5 },
+  });
+
   const onClose = () => {
     sessionStorage.setItem(ANNOUNCEMENT_CLOSED_KEY, 'true');
     setAnnouncementOpen(false);
@@ -34,11 +41,9 @@ export const AnnouncementBar: FC = () => {
   return (
     <motion.div
       className={getBlocksWith('__container')}
-      initial={heightAnimation}
-      animate={{ y: 0, height: bannerHeight }}
-      exit={heightAnimation}
-      transition={{ duration: 0.5 }}
       key="announcement-bar"
+      {...getAnimation({ isInView: true })}
+      exit={heightAnimation}
     >
       <div className={getBlocksWith('__body')}>
         <div className={getBlocksWith('__text-cross-wrapper')}>
