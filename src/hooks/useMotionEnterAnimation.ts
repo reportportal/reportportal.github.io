@@ -1,4 +1,6 @@
 import { AnimationProps, Transition, useReducedMotion, Variant } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
+import { MEDIA_TABLET_SM } from '@app/utils';
 
 interface UseMotionEnterAnimationProps {
   hiddenState: Variant;
@@ -23,7 +25,8 @@ export const useMotionEnterAnimation = (
   isEnabled = true,
 ): AnimationGetter => {
   const shouldReduceMotion = useReducedMotion();
-  const shouldAnimate = !shouldReduceMotion && isEnabled;
+  const isTablet = useMediaQuery({ query: MEDIA_TABLET_SM });
+  const shouldAnimate = !shouldReduceMotion && isEnabled && isTablet;
 
   return ({
     isInView,
