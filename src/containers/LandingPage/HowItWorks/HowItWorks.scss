@@ -92,8 +92,10 @@
     .ant-steps-item-icon,
     .ant-steps-item-tail::after,
     .ant-steps-item-content {
-      opacity: 0;
-      transform: translateX(-50px) scale(0.5);
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        opacity: 0;
+        transform: translateX(-50px) scale(0.5);
+      }
     }
 
     .ant-steps-item {
@@ -207,9 +209,13 @@
             background-position: bottom;
             background-size: 100% 200%;
             transition: background 0.3s, opacity 0.5s;
-            animation: progressAnimationBottom linear 10s forwards 0.6s,
-              stepsAnimation 0.6s ease-in-out forwards;
+            animation: progressAnimationBottom linear 10s forwards 0.6s;
             content: '';
+
+            @include m.breakpoint(v.$tablet-sm-exact) {
+              animation: progressAnimationBottom linear 10s forwards 0.6s,
+                stepsAnimation 0.6s ease-in-out forwards;
+            }
           }
         }
       }
@@ -223,12 +229,16 @@
 
     &--in-view .ant-steps-item-icon,
     &--in-view .ant-steps-item-content {
-      animation: stepsAnimation 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        animation: stepsAnimation 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+      }
     }
 
     &--in-view::after,
     &--in-view .ant-steps-item-tail::after {
-      animation: stepsAnimation 0.5s ease-in-out forwards;
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        animation: stepsAnimation 0.5s ease-in-out forwards;
+      }
     }
   }
 
