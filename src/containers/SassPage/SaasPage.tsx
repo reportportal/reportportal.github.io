@@ -9,6 +9,7 @@ import { PricingHero } from '@app/components/PricingHero';
 import { FooterContent } from '@app/components/Layout';
 import { usePricingHeroProps } from '@app/hooks/usePricingHeroProps';
 import { OfferingPlansQuery, createBemBlockBuilder, formatOfferingPlans } from '@app/utils';
+import { CertificationCard } from '@app/components/CertificationCard';
 import { useAnimationEnabledForSiblingRoutes } from '@app/hooks/useAnimationEnabledForSiblingRoutes';
 
 import { PricingCards } from './PricingCards';
@@ -65,6 +66,9 @@ export const SaasPage: FC = () => {
       <ComparePlans plans={comparePlans} />
       <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
         <TrustedOrganizations />
+      </div>
+      <div className={classNames(getBlocksWith('__certificates-container'), 'container')}>
+        <CertificationCard subtitle="Ensuring the highest security standards" shouldDisplayLink />
       </div>
       <div className={getBlocksWith('__faq-container')}>
         <Faq items={FAQ_ITEMS} />
