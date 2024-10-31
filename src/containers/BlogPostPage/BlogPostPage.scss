@@ -24,10 +24,6 @@
     padding: calc(72px + var(--header-height)) 120px 8px 120px;
   }
 
-  p {
-    white-space: pre-wrap;
-  }
-
   &__head {
     @include m.breakpoint(v.$desktop-sm) {
       width: 1200px;
@@ -161,6 +157,10 @@
     @include m.breakpoint(v.$desktop-sm) {
       max-width: 790px;
       margin-bottom: 164px;
+    }
+
+    p {
+      white-space: pre-wrap;
     }
 
     .blog-post-page__second-heading:first-child,
@@ -390,6 +390,7 @@
 
         margin: 8px 0 0;
         line-height: 24px;
+        white-space: pre-wrap;
         color: var(--dark);
 
         &:first-child {
