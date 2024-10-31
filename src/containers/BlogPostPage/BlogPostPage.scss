@@ -159,6 +159,10 @@
       margin-bottom: 164px;
     }
 
+    p {
+      white-space: pre-wrap;
+    }
+
     .blog-post-page__second-heading:first-child,
     .blog-post-page__paragraph:first-child {
       margin-top: 0;
@@ -386,6 +390,7 @@
 
         margin: 8px 0 0;
         line-height: 24px;
+        white-space: pre-wrap;
         color: var(--dark);
 
         &:first-child {

@@ -72,15 +72,4 @@ export const OPTIONS = {
       <td className="blog-post-page__table-cell">{children}</td>
     ),
   },
-  renderText: text =>
-    text
-      .split('\n')
-      .reduce(
-        (children, textSegment, index) => [
-          ...children,
-          index > 0 && <br key={index} />,
-          textSegment,
-        ],
-        [],
-      ),
 };
