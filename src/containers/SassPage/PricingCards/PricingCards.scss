@@ -4,8 +4,7 @@
 .pricing-cards {
   display: flex;
   flex-flow: column wrap;
-  align-content: center;
-  justify-content: center;
+  place-content: center center;
   gap: 40px 20px;
   margin: -244px 16px 0;
 

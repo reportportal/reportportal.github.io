@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { isAbsoluteURL, DOCUMENTATION_URL } from '@app/utils';
 
 export interface LinkProps {
-  children: string | React.ReactNode;
+  children: ReactNode;
   to: string;
   className?: string;
   activeClassName?: string;

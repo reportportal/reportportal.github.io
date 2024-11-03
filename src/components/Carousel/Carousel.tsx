@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, memo, FC } from 'react';
+import React, { ReactNode, useCallback, useRef, memo, FC } from 'react';
 import classNames from 'classnames';
 import { Carousel as AntdCarousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
@@ -10,7 +10,7 @@ import ArrowBlackIcon from './icons/arrow-black.inline.svg';
 import './Carousel.scss';
 
 interface CarouselProps {
-  children: React.ReactNode;
+  children: ReactNode;
   autoplay?: boolean;
   buttonColor?: string;
   isNavigationVisible?: boolean;

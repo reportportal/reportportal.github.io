@@ -12,8 +12,8 @@ export const prepareYoutubeVideos = videos =>
     imageSrc: thumbnail.maxres?.url || thumbnail.medium?.url,
   }));
 
-export const timeSince = dateString => {
-  const creationTime = new Date(dateString);
+export const timeSince = (date: string) => {
+  const creationTime = new Date(date);
   const currentTime = new Date();
 
   const seconds = Math.floor((currentTime - creationTime) / 1000);
@@ -61,8 +61,8 @@ const getStringifyValue = value => {
   return numericValue.toString().padStart(2, '0');
 };
 
-export const convertDuration = durationStr => {
-  const match = durationStr.match(/PT(?:(\d+)H)?((\d+)M)?((\d+)S)?/);
+export const convertDuration = (duration: string) => {
+  const match = duration.match(/PT(?:(\d+)H)?((\d+)M)?((\d+)S)?/);
 
   if (match) {
     const hours = getStringifyValue(match[1]);

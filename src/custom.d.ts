@@ -6,5 +6,6 @@ declare module '*.svg' {
 }
 
 interface Window {
+  dataLayer: object[];
   prevLocation: Location | null;
 }

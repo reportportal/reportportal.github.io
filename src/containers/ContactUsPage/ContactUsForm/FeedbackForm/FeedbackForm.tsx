@@ -12,10 +12,10 @@ import '../../ContactUsPage.scss';
 const getBlocksWith = createBemBlockBuilder(['contact-us-form', 'how-did-you-hear']);
 
 export const FeedbackForm = ({ title }) => {
-  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = tag => setSelectedTags(xor(selectedTags, [tag]));
+  const handleChange = (tag: string) => setSelectedTags(xor(selectedTags, [tag]));
 
   const handleSubmit = () => {
     setIsSubmitted(true);

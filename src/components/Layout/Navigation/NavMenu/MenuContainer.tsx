@@ -1,11 +1,11 @@
-import React, { FC, useEffect, useRef, MouseEvent } from 'react';
+import React, { FC, ReactNode, useEffect, useRef, MouseEvent } from 'react';
 import { useClickAway } from 'ahooks';
 import { BasicTarget } from 'ahooks/lib/utils/domTarget';
 
 interface MenuContainerProps {
   isOpen: boolean;
   menuLinksRef: BasicTarget;
-  children: React.ReactNode;
+  children: ReactNode;
   onClose: () => void;
 }
 
