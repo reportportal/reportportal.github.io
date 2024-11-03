@@ -1,4 +1,13 @@
-import React, { FC, ReactNode, useEffect, useRef, MouseEvent } from 'react';
+import React, {
+  FC,
+  ReactNode,
+  useEffect,
+  useRef,
+  MouseEvent,
+  Children,
+  ReactElement,
+  RefObject,
+} from 'react';
 import { useClickAway } from 'ahooks';
 import { BasicTarget } from 'ahooks/lib/utils/domTarget';
 
@@ -55,10 +64,18 @@ export const MenuContainer: FC<MenuContainerProps> = ({
       );
   }, [isOpen, menuContainerRef, onClose]);
 
-  return React.Children.map(children, child =>
-    React.cloneElement(child, {
-      isOpen,
-      menuContainerRef,
-    }),
+  return Children.map(children, child =>
+    React.isValidElement(child)
+      ? React.cloneElement(
+          child as ReactElement<{
+            isOpen: boolean;
+            menuContainerRef?: RefObject<HTMLDivElement>;
+          }>,
+          {
+            isOpen,
+            menuContainerRef,
+          },
+        )
+      : null,
   );
 };

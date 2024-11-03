@@ -24,8 +24,9 @@ export const BUSINESS_SPONSORSHIP = [
         period: 'month',
         monthly: 500,
       },
+      isPopular: false,
     },
-    planType: 'monthly',
+    planType: 'monthly' as const,
   },
   {
     key: 'silver' as const,
@@ -49,8 +50,9 @@ export const BUSINESS_SPONSORSHIP = [
         period: 'month',
         monthly: 1000,
       },
+      isPopular: false,
     },
-    planType: 'monthly',
+    planType: 'monthly' as const,
   },
   {
     key: 'gold' as const,
@@ -76,7 +78,7 @@ export const BUSINESS_SPONSORSHIP = [
       },
       isPopular: true,
     },
-    planType: 'monthly',
+    planType: 'monthly' as const,
   },
   {
     key: 'platinum' as const,
@@ -100,11 +102,12 @@ export const BUSINESS_SPONSORSHIP = [
         period: 'month',
         monthly: 5000,
       },
+      isPopular: false,
     },
-    planType: 'monthly',
+    planType: 'monthly' as const,
   },
   {
-    key: 'diamond ' as const,
+    key: 'diamond' as const,
     isDiamond: true,
     isFullWidth: true,
     dataGtm: DataGTM.ContactUs,
@@ -130,8 +133,9 @@ export const BUSINESS_SPONSORSHIP = [
         period: 'month',
         monthly: 50000,
       },
+      isPopular: false,
     },
-    planType: 'monthly',
+    planType: 'monthly' as const,
   },
 ];
 
@@ -153,8 +157,9 @@ export const INDIVIDUAL_SPONSORSHIP = [
         period: 'month',
         monthly: 5,
       },
+      isPopular: false,
     },
-    planType: 'monthly',
+    planType: 'monthly' as const,
     dataGtm: DataGTM.BecomeSponsor,
   },
   {
@@ -175,8 +180,9 @@ export const INDIVIDUAL_SPONSORSHIP = [
         period: 'month',
         monthly: 50,
       },
+      isPopular: false,
     },
-    planType: 'monthly',
+    planType: 'monthly' as const,
     dataGtm: DataGTM.BecomeSponsor,
   },
 ];
@@ -184,4 +190,6 @@ export const INDIVIDUAL_SPONSORSHIP = [
 export const SPONSORSHIP_INFO = {
   business: BUSINESS_SPONSORSHIP,
   individual: INDIVIDUAL_SPONSORSHIP,
-};
+} as const;
+
+export type SponsorshipPlan = (typeof SPONSORSHIP_INFO)[keyof typeof SPONSORSHIP_INFO][number];

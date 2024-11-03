@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import chunk from 'lodash/chunk';
-import { createBemBlockBuilder, LinkDto } from '@app/utils';
+import { createBemBlockBuilder } from '@app/utils';
 
-import { SectionItem } from './SectionItem';
+import { SectionItem, SectionItemProps } from './SectionItem';
 
 import './SectionList.scss';
 
 interface SectionListProps {
-  items: { title: string; link: LinkDto }[];
+  items: SectionItemProps[];
   title?: string;
   className?: string;
   showTitle?: boolean;

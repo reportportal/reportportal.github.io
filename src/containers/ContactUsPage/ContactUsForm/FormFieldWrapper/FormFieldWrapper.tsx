@@ -1,10 +1,23 @@
-import React from 'react';
+import { Children, cloneElement, FC, ReactElement } from 'react';
 import { useField } from 'formik';
 
-export const FormFieldWrapper = ({ children, ...props }) => {
-  const [field, meta] = useField(props);
+export interface BaseFieldProps {
+  name: string;
+  label: string;
+  placeholder?: string;
+  className?: string;
+  maxLength?: number;
+  value?: string;
+  InputElement?: 'input' | 'textarea';
+}
 
-  return React.Children.map(children, child =>
-    React.cloneElement(child, { ...props, ...field, ...meta }),
+export const FormFieldWrapper: FC<{ name: string; children: ReactElement }> = ({
+  children,
+  name,
+}) => {
+  const [field, meta] = useField(name);
+
+  return Children.map(children, child =>
+    cloneElement(child, { ...field, error: meta.touched && meta.error }),
   );
 };

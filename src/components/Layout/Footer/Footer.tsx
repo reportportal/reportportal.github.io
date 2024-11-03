@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { CSSProperties, FC, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Divider } from 'antd';
 import classNames from 'classnames';
@@ -65,11 +65,11 @@ export const Footer: FC = () => {
                 <li key={link.url}>
                   <Link
                     to={link.url}
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    style={{
-                      '--hover-icon': `url('${hoverIcon.url}')`,
-                    }}
+                    style={
+                      {
+                        '--hover-icon': `url('${hoverIcon.url}')`,
+                      } as CSSProperties
+                    }
                   >
                     {typeof document !== 'undefined' &&
                       isInView &&
@@ -83,11 +83,12 @@ export const Footer: FC = () => {
               ))}
             </ul>
             <Link
-              to={testedOn.link.url} // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              style={{
-                '--hover-icon': `url('${testedOn.hoverIcon.url}')`,
-              }}
+              to={testedOn.link.url}
+              style={
+                {
+                  '--hover-icon': `url('${testedOn.hoverIcon.url}')`,
+                } as CSSProperties
+              }
             >
               {typeof document !== 'undefined' &&
                 isInView &&

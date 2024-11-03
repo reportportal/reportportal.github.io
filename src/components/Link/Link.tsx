@@ -1,14 +1,14 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, MouseEvent, HTMLAttributes } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { isAbsoluteURL, DOCUMENTATION_URL } from '@app/utils';
 
-export interface LinkProps {
+export interface LinkProps extends HTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
   to: string;
   className?: string;
   activeClassName?: string;
   partiallyActive?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }
 
 // These links are considered SEO trusted, they should be opened in the new tab without "rel" attribute set

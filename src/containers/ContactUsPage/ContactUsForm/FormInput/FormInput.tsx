@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import { FormFieldWrapper } from '../FormFieldWrapper';
+import { BaseFieldProps, FormFieldWrapper } from '../FormFieldWrapper';
 import { InputField } from './InputField';
 
-export const FormInput = ({ name, ...props }) => (
+interface FormInputProps extends BaseFieldProps {
+  type?: string;
+}
+
+export const FormInput: FC<FormInputProps> = ({ name, ...props }) => (
   <FormFieldWrapper name={name}>
     <InputField {...props} />
   </FormFieldWrapper>

@@ -12,13 +12,13 @@
     "setup": "node ./bin/setup.js",
     "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN",
     "lint": "eslint . --ext .js,.ts,.tsx --cache",
+    "tsc": "tsc --noEmit",
     "format:eslint": "npm run lint -- --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "stylefix": "npm run stylelint -- --fix",
     "format:prettier": "prettier --write \"src/**/*.{ts,tsx,scss,json,gql,md}\"",
     "prepare": "husky install"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.1",
@@ -97,8 +97,14 @@
     "node": ">=18.0.0"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "npm run format:eslint",
-    "*.{ts,tsx,css,scss,json,gql,md}": "prettier --write",
-    "*.{css,scss}": "npm run stylefix"
+    "*.{json,md,html}": "prettier --write",
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

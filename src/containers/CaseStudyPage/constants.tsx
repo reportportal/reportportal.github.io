@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import React from 'react';
+import React, { Children } from 'react';
 import { BLOCKS } from '@contentful/rich-text-types';
 import compact from 'lodash/compact';
 import { createBemBlockBuilder } from '@app/utils';
@@ -9,7 +9,7 @@ const getBlocksWith = createBemBlockBuilder(['case-page']);
 export const OPTIONS = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => {
-      const childrenArray = React.Children.toArray(children);
+      const childrenArray = Children.toArray(children);
 
       if (!compact(childrenArray).length) {
         return null;
