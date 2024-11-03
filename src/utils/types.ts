@@ -102,7 +102,6 @@ export interface ComparePlansDto {
   note: string;
   ctas: Required<CTA, 'link'>[];
   columns: string;
-  mobileColumns: string;
   sections: { title: string; items: ComparePlansItemDto[] }[];
 }
 

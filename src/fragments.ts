@@ -29,7 +29,6 @@ export const ComparePlanItemFragment = graphql`
 export const ComparePlanFragment = graphql`
   fragment ComparePlanFields on ContentfulComparePlan {
     columns
-    mobileColumns
     sections {
       title
       items {

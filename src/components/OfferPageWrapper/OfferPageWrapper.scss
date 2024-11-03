@@ -2,21 +2,59 @@
 @use 'src/styles/variables' as v;
 
 .offer-page-wrapper {
-  &__pentagons {
+  &__plans-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-top: -239px;
+    align-items: center;
+    padding-bottom: 80px;
+    opacity: 1;
+    transform: none;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      margin-top: -271px;
-      margin-bottom: 80px;
+      padding-bottom: 120px;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      flex-direction: row;
-      margin-top: -288px;
-      margin-bottom: 120px;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    h2 {
+      @include m.font-poppins(v.$fw-bold);
+      @include m.font-scale(x4-medium);
+
+      margin-top: 88px;
+      margin-bottom: 0;
+      text-align: center;
+      color: var(--white);
+
+      @include m.breakpoint(v.$tablet-sm-exact) {
+        @include m.font-scale(large);
+
+        margin: 72px 80px 0;
+      }
+    }
+
+    .info-card {
+      margin: 40px 16px 0;
+    }
+  }
+
+  &__plans {
+    display: flex;
+    flex-flow: column wrap;
+    place-content: center center;
+    gap: 40px 24px;
+    margin-top: 64px;
+
+    @include m.breakpoint(v.$tablet-sm-exact) {
+      margin-top: 40px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      flex-flow: row nowrap;
+      width: 995px;
+      margin-top: 40px;
     }
 
     button:last-child {
@@ -26,17 +64,65 @@
         margin-bottom: 0;
       }
     }
+
+    .pricing-card {
+      max-width: 348px;
+      height: 504px;
+
+      ul {
+        margin: 0;
+      }
+    }
+
+    .pricing-card__description {
+      height: 48px;
+      margin-bottom: 24px;
+    }
+
+    .pricing-card__price-description {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--text-service);
+    }
+
+    .pricing-card__popular {
+      border: 1px solid var(--white);
+      background: var(--graphics-jade);
+    }
+  }
+
+  &__plans-topology {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    max-width: 348px;
+    margin-top: 40px;
+
+    @include m.breakpoint(v.$desktop-sm) {
+      width: 995px;
+      max-width: unset;
+      margin-top: 24px;
+    }
+
+    > div {
+      justify-content: start;
+    }
   }
 
   &__utilization {
-    padding-left: 16px;
-    background: var(
-      --gradients-light-grey,
-      linear-gradient(180deg, #f4f5fa 0%, rgb(244 245 250 / 0) 100%)
-    );
+    padding: 80px 16px 48px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      padding: 0;
+      padding-right: 24px;
+      padding-bottom: 80px;
+      padding-left: 24px;
+    }
+
+    @include m.breakpoint(v.$desktop-sm) {
+      padding-top: 120px;
+      padding-bottom: 120px;
     }
 
     h2 {
@@ -44,17 +130,12 @@
       @include m.font-scale(x3-medium);
 
       margin: 0;
-      padding-top: 80px;
       padding-bottom: 24px;
       color: var(--text-primary);
 
       @include m.breakpoint(v.$tablet-sm-exact) {
         padding-bottom: 16px;
         text-align: center;
-      }
-
-      @include m.breakpoint(v.$desktop-sm) {
-        padding-top: 120px;
       }
     }
 
@@ -74,14 +155,8 @@
 
   &__subscription-info {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 0 16px;
     color: var(--text-primary);
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      padding: 0 32px;
-    }
 
     @include m.breakpoint(v.$desktop-sm) {
       padding: 0;
@@ -89,32 +164,30 @@
     }
 
     svg {
-      min-width: 28px;
-      margin-right: 16px;
-
-      @include m.breakpoint(v.$desktop-sm) {
-        margin-right: 4px;
-      }
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      margin-top: -2px;
+      margin-right: 14px;
     }
 
     a {
       @include m.font-poppins(v.$fw-medium);
 
       margin-left: 4px;
-      color: var(--text-service);
+      color: var(--color-primary-600);
 
       &:hover {
-        color: var(--text-grey);
+        color: var(--color-primary-500);
       }
     }
   }
 
   &__faq-container {
-    margin-top: 160px;
     margin-bottom: 153px;
+    padding-top: 80px;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
-      margin-top: 200px;
       margin-bottom: 168px;
     }
 
@@ -124,25 +197,19 @@
     }
   }
 
-  &__trusted-organizations-container {
-    margin-top: 130px;
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      margin-top: 160px;
-    }
+  &__gradient-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: linear-gradient(180deg, #f4f5fa 0%, #fff 100%);
 
     @include m.breakpoint(v.$desktop-sm) {
-      margin-top: 240px;
+      padding-top: 120px;
     }
-  }
 
-  &__certificates-container {
-    margin-top: 80px;
-    margin-bottom: 0;
-
-    @include m.breakpoint(v.$tablet-sm-exact) {
-      margin-top: 120px;
-      margin-bottom: 80px;
+    .container {
+      display: flex;
+      flex-flow: column;
+      row-gap: 80px;
     }
   }
 }

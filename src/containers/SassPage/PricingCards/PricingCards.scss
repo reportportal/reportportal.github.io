@@ -6,7 +6,8 @@
   flex-flow: column wrap;
   place-content: center center;
   gap: 40px 20px;
-  margin: -244px 16px 0;
+  margin: 40px 16px 0;
+  padding-bottom: 80px;
 
   @include m.breakpoint(v.$desktop-sm) {
     flex-flow: row nowrap;

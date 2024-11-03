@@ -13,12 +13,11 @@ import '../ComparePlans.scss';
 interface ColumnsProps {
   cols: FormattedComparePlansItemDto['plans'];
   title?: string;
-  mobileColumns?: FormattedComparePlansItemDto['plans'];
 }
 
 const getBlocksWith = createBemBlockBuilder(['compare']);
 
-export const Columns: FC<ColumnsProps> = ({ title = '', cols, mobileColumns = [] }) => {
+export const Columns: FC<ColumnsProps> = ({ title = '', cols }) => {
   const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });
 
   const getMark = (value: boolean) =>
@@ -56,7 +55,7 @@ export const Columns: FC<ColumnsProps> = ({ title = '', cols, mobileColumns = []
               <div
                 key={index}
                 className={getBlocksWith('__row-title-col')}
-                data-short={mobileColumns[index] ?? columnValue}
+                data-short={columnValue}
               >
                 {getRenderedValue()}
               </div>

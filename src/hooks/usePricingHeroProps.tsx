@@ -14,7 +14,7 @@ const pricingButtons = [
     linkTo: '/pricing/saas',
   },
   {
-    text: 'On-Premises',
+    text: 'On-Prem Services',
     icon: <ServerIcon />,
     linkTo: '/pricing/on-premises',
   },
