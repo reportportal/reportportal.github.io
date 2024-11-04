@@ -5,12 +5,14 @@ import { getEaseInOutTransition, PropsWithAnimation } from '@app/utils';
 
 import './StatisticList.scss';
 
+export interface StatisticsEntry {
+  quantity: string;
+  entities: string;
+  achievement?: string;
+}
+
 interface StatisticListProps {
-  statistics: {
-    quantity: string;
-    entities: string;
-    achievement?: string;
-  }[];
+  statistics: StatisticsEntry[];
   isInView?: boolean;
 }
 

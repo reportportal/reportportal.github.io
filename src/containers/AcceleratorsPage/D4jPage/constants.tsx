@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 export type TimeScaleData = {
   time: number;
@@ -8,7 +8,7 @@ export type TimeScaleData = {
 export type FaqData = {
   key: number;
   label: string;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const TIME_SCALE_DATA: TimeScaleData = [

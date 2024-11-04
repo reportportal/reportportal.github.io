@@ -1,9 +1,11 @@
+import { LinkedCardProps } from '@app/components/LinkedCard';
+
 import brandVisibilityIcon from './icons/brand-visibility.svg';
 import communityEngagementIcon from './icons/community-engagement.svg';
 import productImprovementIcon from './icons/product-improvement.svg';
 import talentAttractionIcon from './icons/talent-attraction.svg';
 
-export const BUSINESS_CARDS = [
+export const BUSINESS_CARDS: LinkedCardProps[] = [
   {
     itemTitle: 'Brand visibility',
     description:

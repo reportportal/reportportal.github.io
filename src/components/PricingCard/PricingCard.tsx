@@ -44,7 +44,7 @@ export const PricingCard: FC<PricingCardProps> = ({
       <div>
         {plan.isPopular && <div className={getBlocksWith('__popular')}>Most popular</div>}
         {isDiamond && <div className={getBlocksWith('__diamond')} />}
-        <div className={getBlocksWith('__title')}>{plan.title}</div>
+        {plan.title && <div className={getBlocksWith('__title')}>{plan.title}</div>}
         {plan.description && (
           <div className={getBlocksWith('__description')}>
             {formatTextFromContentfulTextFieldWithLineBreaks(plan.description)}

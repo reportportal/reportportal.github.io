@@ -13,7 +13,6 @@ import {
   TAB_LIST,
   $colorPrimary600,
   $textService,
-  $colorPrimary500,
   $poppinsFont,
 } from './constants';
 
@@ -55,7 +54,6 @@ export const SupportedFrameworks: FC = () => {
               token: {
                 colorPrimary: $colorPrimary600,
                 colorText: $textService,
-                colorHover: $colorPrimary500,
                 fontFamily: $poppinsFont,
                 fontSize: 16,
               },

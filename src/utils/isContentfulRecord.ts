@@ -1,1 +1,1 @@
-export const isContentfulRecord = (record?: { sys: object }) => Boolean(record?.sys);
+export const isContentfulRecord = (record?: { sys?: object }) => Boolean(record?.sys);

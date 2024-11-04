@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 import { Typography } from 'antd';
 import { createBemBlockBuilder } from '@app/utils';
 
-import { formatYoutubeViews, timeSince, convertDuration } from '../utils';
+import { formatYoutubeViews, getTimeSince, convertDuration } from '../utils';
 
 interface SlideItemProps {
-  openEmbedVideo: () => void;
   imageSrc: string;
   duration: string;
   title: string;
-  viewCount: string;
+  viewCount: number;
   publishedAt: string;
+  openEmbedVideo: () => void;
 }
 
 const getBlocksWith = createBemBlockBuilder(['slide']);
@@ -34,7 +34,7 @@ export const SlideItem: FC<SlideItemProps> = ({
       </Typography.Paragraph>
       <div className={getBlocksWith('__info')}>
         <span className={getBlocksWith('__info--views')}>{formatYoutubeViews(viewCount)}</span>
-        <span className={getBlocksWith('__info--published')}>{timeSince(publishedAt)}</span>
+        <span className={getBlocksWith('__info--published')}>{getTimeSince(publishedAt)}</span>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 import { Heading } from '../Heading';
 import { ApplyOurService } from './ApplyOurService';
@@ -6,7 +6,7 @@ import { ApplyOurService } from './ApplyOurService';
 import './TestingBottomBlock.scss';
 
 interface TestingBottomBlockProps {
-  children: React.ReactNode;
+  children: ReactNode;
   title: string;
   description?: string;
   url: string;

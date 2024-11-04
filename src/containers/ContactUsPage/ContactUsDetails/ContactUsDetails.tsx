@@ -16,11 +16,11 @@ export const ContactUsDetails: FC<
   Pick<ContactUsConfig, 'planType' | 'price' | 'message' | 'messagePosition'>
 > = ({ message, messagePosition, price, planType }) => {
   const priceInfo =
-    planType && price ? (
+    planType && price && price[planType] ? (
       <p>
         <span>
           <strong>Price:</strong> {price.currency}
-          {formatNumberWithCommas(price[planType])}/{price.period}
+          {formatNumberWithCommas(price[planType] as number)}/{price.period}
         </span>
         <span>
           <strong>Billing period:</strong> {capitalize(planType)}

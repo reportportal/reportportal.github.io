@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode, ReactElement } from 'react';
 import { createBemBlockBuilder } from '@app/utils';
 
 import './SectionCard.scss';
 
 interface SectionCardProps {
   title: string;
-  cover: React.ReactElement;
-  children: React.ReactNode;
+  cover: ReactElement;
+  children: ReactNode;
   text?: string;
   className?: string;
 }
