@@ -1,5 +1,9 @@
 import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
+import {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from 'gatsby-source-contentful/rich-text';
 import { BlogPostPage } from '@app/containers/BlogPostPage';
 import { Layout, Seo } from '@app/components/Layout';
 
@@ -8,7 +12,7 @@ interface DataProps {
     industry: string;
     author: string;
     date: string;
-    articleBody: string;
+    articleBody: RenderRichTextData<ContentfulRichTextGatsbyReference>;
     title?: {
       title: string;
     };

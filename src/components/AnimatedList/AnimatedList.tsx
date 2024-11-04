@@ -107,7 +107,7 @@ export const AnimatedList: FC<AnimatedListProps> = ({
                     description={description}
                     link={link}
                     linkText="Learn more"
-                    delay={Boolean(delay)}
+                    delay={delay}
                   />
                 </motion.li>
               ),

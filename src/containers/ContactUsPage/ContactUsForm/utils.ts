@@ -2,7 +2,15 @@ import { EMAIL_VALIDATION_REGEX } from '@app/utils';
 
 const textFieldRegex = /^[\wa-я.\s-]+$/i;
 
-const validateField = ({ value, regex, message }) => {
+const validateField = ({
+  value,
+  regex,
+  message,
+}: {
+  value?: string;
+  regex?: RegExp;
+  message?: string;
+}) => {
   if (!value) {
     return 'Field is required';
   }

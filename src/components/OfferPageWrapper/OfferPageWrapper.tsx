@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import {
@@ -37,14 +37,14 @@ interface OfferPageWrapperProps {
   pagePath: 'on-premises' | 'd4j' | 'qasp' | 'hlm';
   timeScaleData: {
     time: number | string;
-    items: string[] | React.ReactNode[];
+    items: string[] | ReactNode[];
   }[];
   plans: OfferingPlansDto;
   comparePlans: FormattedComparePlansDto;
   faqData: {
     key: number;
     label: string;
-    children: React.ReactNode;
+    children: ReactNode;
   }[];
   contactUsLink: string;
   utilizationDescription: string;

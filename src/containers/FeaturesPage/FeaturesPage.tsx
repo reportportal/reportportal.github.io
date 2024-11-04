@@ -73,7 +73,7 @@ export const FeaturesPage: FC = () => {
   const location = useLocation();
   const [isFeaturesMenuSticky, setIsFeaturesMenuSticky] = useState(false);
   const [activeElement, setActiveElement] = useState(location.hash);
-  const processIntegrationRef = useRef<null | HTMLElement>(null);
+  const processIntegrationRef = useRef<null | HTMLDivElement>(null);
   const scrollDirection = useScrollDirection({ callbackFn: handleScroll, isMenuOpen: false });
   const scroll = useScroll();
   const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });

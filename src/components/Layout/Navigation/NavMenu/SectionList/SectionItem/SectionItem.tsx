@@ -1,20 +1,24 @@
-import React, { FC, ReactElement } from 'react';
+import React, { CSSProperties, FC, ReactElement } from 'react';
 import { createPortal } from 'react-dom';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
 import { ContentfulAsset, createBemBlockBuilder, isContentfulRecord, LinkDto } from '@app/utils';
 
-interface SectionItemProps {
-  sys: object;
+interface SectionItemBaseProps {
   title: string;
-  icon: ContentfulAsset | ReactElement | string;
-  hoverIcon?: ContentfulAsset;
-  iconClass: string;
-  text: string;
   link: LinkDto;
+  icon?: ContentfulAsset | ReactElement | string;
+  text?: string;
+  sys?: object;
+  hoverIcon?: ContentfulAsset;
+  iconClass?: string;
   className?: string;
   isDataFromContentful?: boolean;
 }
+
+export type SectionItemProps =
+  | (SectionItemBaseProps & { iconClass: string; icon?: never })
+  | (SectionItemBaseProps & { icon: ContentfulAsset | ReactElement | string; iconClass?: never });
 
 export const SectionItem: FC<SectionItemProps> = props => {
   const { title, link, icon, hoverIcon, iconClass, text, className = '' } = props;
@@ -37,7 +41,7 @@ export const SectionItem: FC<SectionItemProps> = props => {
               style: {
                 '--icon': `url('${(icon as ContentfulAsset).url}')`,
                 '--hover-icon': `url('${((hoverIcon ?? icon) as ContentfulAsset).url}')`,
-              },
+              } as CSSProperties,
             })}
           />
         </>
@@ -50,7 +54,7 @@ export const SectionItem: FC<SectionItemProps> = props => {
   return (
     <Link
       key={title}
-      to={link?.url ?? '#'}
+      to={link.url}
       className={classNames(getBlocksWith(), { [getBlocksWith('--no-text')]: !text })}
     >
       {renderIcon()}

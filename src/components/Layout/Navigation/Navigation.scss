@@ -64,8 +64,7 @@ $desktop-sm-header: 1124px;
 .top-header-navigation {
   position: relative;
   display: flex;
-  align-content: flex-end;
-  justify-content: space-between;
+  place-content: flex-end space-between;
   width: 100%;
 
   &__logo-link {

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 import { createBemBlockBuilder } from '@app/utils';
 
@@ -6,7 +6,7 @@ import './TimeScale.scss';
 
 interface TimeScaleProps {
   data: {
-    items: string[] | React.ReactNode[];
+    items: string[] | ReactNode[];
     time: string | number;
   }[];
   isShifted?: boolean;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 interface GithubIconProps {
-  text: string;
+  text: string | number;
 }
 
 export const GithubIcon: FC<GithubIconProps> = ({ text }) => (

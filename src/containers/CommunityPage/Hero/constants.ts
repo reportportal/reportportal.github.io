@@ -1,3 +1,5 @@
+import { StatisticsEntry } from '@app/components/StatisticList';
+
 export const STATISTICS = [
   {
     quantity: '2,0M+',
@@ -13,5 +15,5 @@ export const STATISTICS = [
   },
   {
     entities: 'Stars on GitHub',
-  },
+  } as StatisticsEntry,
 ];
