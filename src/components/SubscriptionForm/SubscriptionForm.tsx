@@ -7,6 +7,7 @@ import { createBemBlockBuilder, EMAIL_VALIDATION_REGEX } from '@app/utils';
 
 import { EnvelopeIcon } from './icons';
 import { SubscriptionFormCard } from './SubscriptionFormCard';
+import { SUBSCRIPTION_URL } from './constants';
 
 import './SubscriptionForm.scss';
 
@@ -32,12 +33,9 @@ export const SubscriptionForm: FC = () => {
 
   const subscribeUser = (emailToSubscribe: string) => {
     axios
-      .post(
-        `https://status.reportportal.io/mailchimp/lists/${process.env.GATSBY_MAILCHIMP_LIST_ID}/members`,
-        {
-          email_address: emailToSubscribe,
-        },
-      )
+      .post(SUBSCRIPTION_URL, {
+        email_address: emailToSubscribe,
+      })
       .then(response => {
         setValidation({
           isValid: true,

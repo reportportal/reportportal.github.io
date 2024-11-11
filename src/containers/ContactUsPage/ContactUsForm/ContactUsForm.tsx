@@ -3,6 +3,7 @@ import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
 import isEmpty from 'lodash/isEmpty';
 import { Link } from '@app/components/Link';
+import { SUBSCRIPTION_URL } from '@app/components/SubscriptionForm/constants';
 import { createBemBlockBuilder } from '@app/utils';
 
 import { validate, getBaseSalesForceValues } from './utils';
@@ -43,6 +44,16 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             ...values,
             ...baseSalesForceValues,
           };
+
+          if (values.wouldLikeToReceiveAds) {
+            fetch(SUBSCRIPTION_URL as string, {
+              method: 'POST',
+              body: JSON.stringify({ email_address: values.email }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+          }
 
           fetch(process.env.CONTACT_US_URL as string, {
             method: 'POST',
