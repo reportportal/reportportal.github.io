@@ -3,8 +3,9 @@ import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
 import isEmpty from 'lodash/isEmpty';
 import { Link } from '@app/components/Link';
-import { SUBSCRIPTION_URL } from '@app/components/SubscriptionForm/constants';
+import { subscribeUser } from '@app/components/SubscriptionForm/utils';
 import { createBemBlockBuilder } from '@app/utils';
+import axios from 'axios';
 
 import { validate, getBaseSalesForceValues } from './utils';
 import { FormFieldWrapper } from './FormFieldWrapper';
@@ -46,25 +47,16 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
           };
 
           if (values.wouldLikeToReceiveAds) {
-            fetch(SUBSCRIPTION_URL as string, {
-              method: 'POST',
-              body: JSON.stringify({ email_address: values.email }),
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            });
+            subscribeUser(values.email).catch(console.error);
           }
 
-          fetch(process.env.CONTACT_US_URL as string, {
-            method: 'POST',
-            body: JSON.stringify(postData),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }).finally(() => {
-            showFeedbackForm();
-            setIsLoading(false);
-          });
+          axios
+            .post(`${process.env.CONTACT_US_URL}`, postData)
+            .catch(console.error)
+            .finally(() => {
+              showFeedbackForm();
+              setIsLoading(false);
+            });
         }
       });
     },
