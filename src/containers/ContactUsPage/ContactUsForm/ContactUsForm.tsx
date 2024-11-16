@@ -70,7 +70,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   return (
     <FormikProvider value={formik}>
       <div className={getBlocksWith('-container')}>
-        <form className={getBlocksWith()} onSubmit={formik.handleSubmit}>
+        <form noValidate className={getBlocksWith()} onSubmit={formik.handleSubmit}>
           <FormInput name="first_name" label="First name" placeholder="John" maxLength={40} />
           <FormInput name="last_name" label="Last name" placeholder="Smith" maxLength={80} />
           <FormInput

@@ -1,18 +1,19 @@
 import React, { FC } from 'react';
 import { StartTestingWithReportPortal } from '@app/components/StartTestingWithReportPortal';
 import { Link } from '@app/components/Link';
+import { InfoCard } from '@app//components/InfoCard';
 import { LinkedCardBlock } from '@app/components/LinkedCardBlock';
 import { SubscriptionBanner } from '@app/components/SubscriptionBanner';
 import { DOCUMENTATION_URL } from '@app/utils';
 
 import { Hero } from './Hero';
-import { CodeOfConduct } from './CodeOfConduct';
 import { JoinOurCommunity } from './JoinOurCommunity';
 import { Sponsors } from './Sponsors';
 import { StyleMeets } from './StyleMeets';
 import { YouTube } from './YouTube';
 import { LatestFromOurBlog } from '../LandingPage/LatestFromOurBlog';
 import { GITHUB_CONTRIBUTION_CARDS, DOCUMENTATION_CARDS } from './constants';
+import codeOfConductSvg from './icons/code-of-conduct.svg';
 
 import './CommunityPage.scss';
 
@@ -25,7 +26,16 @@ export const CommunityPage: FC = () => (
           of test automation"
       cardsInfo={GITHUB_CONTRIBUTION_CARDS}
     >
-      <CodeOfConduct />
+      <InfoCard
+        title="Code of conduct"
+        description="Learn about our guidelines for fostering an inclusive and respectful environment within the
+        ReportPortal community. "
+        icon={codeOfConductSvg}
+        link={{
+          title: 'Open on GitHub',
+          url: 'https://github.com/reportportal/reportportal/wiki/Contribution',
+        }}
+      />
     </LinkedCardBlock>
     <JoinOurCommunity />
     <Sponsors />

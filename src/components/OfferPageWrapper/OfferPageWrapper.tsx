@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useRef } from 'react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import {
@@ -14,14 +14,18 @@ import { Banner } from '@app/components/Banner';
 import { Link } from '@app/components/Link';
 import { PricingHero } from '@app/components/PricingHero';
 import { ComparePlans } from '@app/components/ComparePlans';
+import { PricingCard } from '@app/components/PricingCard';
 import { Faq } from '@app/components/Faq';
 import { CertificationCard } from '@app/components/CertificationCard';
-import InfoIcon from '@app/svg/infoIcon.inline.svg';
+import { InfoCard } from '@app/components/InfoCard';
 import { useInView } from '@app/hooks/useInView';
 import { useMotionEnterAnimation } from '@app/hooks/useMotionEnterAnimation';
 import { useAnimationEnabledForSiblingRoutes } from '@app/hooks/useAnimationEnabledForSiblingRoutes';
+import ToolIcon from '@app/svg/tool.inline.svg';
+import HeadphonesIcon from '@app/svg/headphones.inline.svg';
+import InfoIcon from '@app/svg/infoIcon.inline.svg';
 
-import { PentagonCard } from './PentagonCard';
+import openSourceIcon from './icons/opensource.svg';
 import { TimeScale } from './TimeScale';
 
 import './OfferPageWrapper.scss';
@@ -67,17 +71,25 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
   faqLink,
   isScaleShifted = false,
 }) => {
-  const { buttons, isYearlyPlanType, togglePlanType } = usePricingHeroProps(page);
+  const { buttons } = usePricingHeroProps(page);
   const [cardsRef, areCardsInView] = useInView();
+  const utilizationRef = useRef<HTMLDivElement>(null);
   const isAnimationEnabled = useAnimationEnabledForSiblingRoutes();
-
-  const planType = isYearlyPlanType ? 'yearly' : 'quarterly';
-  const isPricingPage = page === 'pricing';
-
   const getCardsAnimation = useMotionEnterAnimation(
     easeInOutOpacityScaleAnimationProps,
     isAnimationEnabled,
   );
+
+  const isPricingPage = page === 'pricing';
+  const pricingCardsAnimation = getCardsAnimation({
+    isInView: areCardsInView,
+    delay: 0.6,
+    additionalEffects: {
+      hiddenAdditional: { y: 50 },
+      enterAdditional: { y: 0 },
+    },
+  });
+  const [openSourcePlan, ...paidPlans] = plans.items;
 
   return (
     <>
@@ -88,47 +100,62 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
         activeButton={offerType}
         offerType={offerType}
         description={description}
-        switcherProps={{
-          isYearlyPlanType,
-          togglePlanType,
-          messageInactive: 'Quarterly',
-          messageActive: 'Yearly (Save 5%)',
-        }}
         isAnimationEnabled={isAnimationEnabled}
       />
-      <motion.div
-        className={getBlocksWith('__pentagons')}
+      <motion.section
+        className={classNames(getBlocksWith('__plans-container'), 'container')}
         ref={cardsRef}
-        {...getCardsAnimation({
-          isInView: areCardsInView,
-          delay: 0.6,
-          additionalEffects: {
-            hiddenAdditional: {
-              y: 50,
-            },
-            enterAdditional: {
-              y: 0,
-            },
-          },
-        })}
+        {...pricingCardsAnimation}
       >
-        {plans.items.map((plan, index) => {
-          const pricingValue = plan.price?.[planType];
-          const href = plan.cta.link.url;
-          const actionLink = plan.isContactUsURLEndsWithPlanType ? `${href}/${planType}` : href;
-
-          return (
-            <PentagonCard
-              plan={plan}
-              key={plan.title}
-              progressNumber={index + 1}
-              pricingValue={pricingValue as number}
-              contactLink={actionLink}
+        <h2>Get a full year of benefits with our service packages</h2>
+        <div className={getBlocksWith('__plans')}>
+          {paidPlans.map(paidPlan => (
+            <PricingCard
+              key={paidPlan.title}
+              plan={paidPlan}
+              isTotalYearPriceShown
+              planType="yearly"
             />
-          );
-        })}
-      </motion.div>
-      <div className={getBlocksWith('__utilization')}>
+          ))}
+        </div>
+        <div className={getBlocksWith('__plans-topology')}>
+          <div className={getBlocksWith('__subscription-info')}>
+            <HeadphonesIcon />
+            <div>
+              Technical Support Points (hours) refer to the duration of the available technical
+              consultations.
+            </div>
+          </div>
+          <div className={getBlocksWith('__subscription-info')}>
+            <ToolIcon />
+            <div>
+              Professional Service Points (hours) reflect our specialists&apos; efforts on feature
+              development, integrations, etc.{' '}
+              <Link
+                to="#"
+                onClick={event => {
+                  event.preventDefault();
+
+                  utilizationRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+              >
+                Learn more
+              </Link>
+            </div>
+          </div>
+        </div>
+        <InfoCard
+          icon={openSourceIcon}
+          title={openSourcePlan.title}
+          description={openSourcePlan.description as string}
+          link={{
+            title: openSourcePlan.cta.link.title,
+            url: openSourcePlan.cta.link.url,
+          }}
+        />
+      </motion.section>
+      <ComparePlans plans={comparePlans} isCollapsibleOnMobile={false} />
+      <div ref={utilizationRef} className={getBlocksWith('__utilization')}>
         <h2>Indicative Professional Service Point utilization</h2>
         <div className={getBlocksWith('__utilization-subtitle')}>{utilizationDescription}</div>
         <TimeScale data={timeScaleData} isShifted={isScaleShifted} />
@@ -141,21 +168,16 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
           </div>
         </div>
       </div>
-      <ComparePlans plans={comparePlans} isCollapsibleOnMobile={false} />
       {isPricingPage && (
-        <>
-          <div
-            className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}
-          >
+        <div className={getBlocksWith('__gradient-container')}>
+          <div className="container">
             <TrustedOrganizations />
-          </div>
-          <div className={classNames(getBlocksWith('__certificates-container'), 'container')}>
             <CertificationCard
               subtitle="Ensuring the highest security standards"
               shouldDisplayLink
             />
           </div>
-        </>
+        </div>
       )}
       <div className={getBlocksWith('__faq-container')}>
         <Faq

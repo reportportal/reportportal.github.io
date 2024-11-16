@@ -39,7 +39,7 @@ export const D4jPage: FC = () => {
       faqData={FAQ_DATA}
       contactUsLink="/contact-us/d4j"
       utilizationDescription="Our team will provide services in support of Client's use of Drill4J plugin. Such services will vary based on Client's needs. The table below describes the different support services we customarily provide"
-      faqLink="https://drill4j.github.io/docs/faq"
+      faqLink="https://drill4j.github.io/docs/what-is-drill4j"
       isScaleShifted
     />
   );

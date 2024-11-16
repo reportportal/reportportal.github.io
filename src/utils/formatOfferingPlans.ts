@@ -12,7 +12,6 @@ export const formatOfferingPlans = (dto: OfferingPlansQuery) => {
     comparePlans: {
       ...comparePlans,
       columns: JSON.parse(comparePlans.columns) as string[],
-      mobileColumns: JSON.parse(comparePlans.mobileColumns) as string[],
       sections: comparePlans.sections.map(section => ({
         ...section,
         items: section.items.map(item => ({
