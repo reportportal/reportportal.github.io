@@ -3,7 +3,6 @@ import { useMediaQuery } from 'react-responsive';
 import { Collapse } from 'antd';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { INLINES } from '@contentful/rich-text-types';
-import isEmpty from 'lodash/isEmpty';
 import size from 'lodash/size';
 import classNames from 'classnames';
 import {
@@ -28,13 +27,12 @@ interface ComparePlansProps {
 const getBlocksWith = createBemBlockBuilder(['compare']);
 
 export const ComparePlans: FC<ComparePlansProps> = ({
-  plans: { sections, columns, mobileColumns, ctas, note },
+  plans: { sections, columns, ctas, note },
   isCollapsibleOnMobile = true,
 }) => {
   const isDesktop = useMediaQuery({ query: MEDIA_DESKTOP_SM });
   const { Panel } = Collapse;
   const [featureColumn, ...plansColumns] = columns;
-  const [, ...plansColumnsMobile] = mobileColumns;
 
   const getRowKey = (sectionIndex: number, itemIndex: number) =>
     `${sections[sectionIndex].title}${sections[sectionIndex].items[itemIndex].name}`;
@@ -71,7 +69,7 @@ export const ComparePlans: FC<ComparePlansProps> = ({
           <div className={getBlocksWith('__tab-data')}>
             {!isDesktop && (
               <div className={getBlocksWith('__tab-header')}>
-                <Columns cols={isEmpty(plansColumnsMobile) ? plansColumns : plansColumnsMobile} />
+                <Columns cols={plansColumns} />
               </div>
             )}
             <div className={getBlocksWith('__tab-data-last-item')}>
@@ -134,39 +132,41 @@ export const ComparePlans: FC<ComparePlansProps> = ({
 
   return (
     <div
-      className={classNames(getBlocksWith(), 'container', {
+      className={classNames(getBlocksWith(), {
         [getBlocksWith('-narrow')]: plansColumns.length === 4,
       })}
     >
-      {!isCollapsable ? (
-        <>
-          <div className={getBlocksWith('__title')}>Compare plans</div>
-          {comparePlans}
-        </>
-      ) : (
-        <Collapse
-          ghost
-          expandIconPosition="end"
-          prefixCls="ant-tablet"
-          defaultActiveKey={['1']}
-          expandIcon={({ isActive }) => (
-            <img
-              className={classNames(getBlocksWith('__title-arrow'), {
-                [classNames(getBlocksWith('__title-arrow--active'))]: isActive,
-              })}
-              src={iconsCommon.arrowDark}
-              alt={isActive ? 'Collapse' : 'Expand'}
-            />
-          )}
-          items={[
-            {
-              label: 'Compare plans',
-              key: 1,
-              children: comparePlans,
-            },
-          ]}
-        />
-      )}
+      <div className="container">
+        {!isCollapsable ? (
+          <>
+            <div className={getBlocksWith('__title')}>Compare packages</div>
+            {comparePlans}
+          </>
+        ) : (
+          <Collapse
+            ghost
+            expandIconPosition="end"
+            prefixCls="ant-tablet"
+            defaultActiveKey={['1']}
+            expandIcon={({ isActive }) => (
+              <img
+                className={classNames(getBlocksWith('__title-arrow'), {
+                  [classNames(getBlocksWith('__title-arrow--active'))]: isActive,
+                })}
+                src={iconsCommon.arrowDark}
+                alt={isActive ? 'Collapse' : 'Expand'}
+              />
+            )}
+            items={[
+              {
+                label: 'Compare plans',
+                key: 1,
+                children: comparePlans,
+              },
+            ]}
+          />
+        )}
+      </div>
     </div>
   );
 };

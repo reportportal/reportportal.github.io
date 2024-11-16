@@ -58,7 +58,7 @@
 
   &__title {
     @include m.font-poppins(v.$fw-semi-bold);
-    @include m.font-scale(x3-medium);
+    @include m.font-scale(large);
 
     text-align: center;
     color: var(--dark);
@@ -70,7 +70,7 @@
   }
 
   &__description {
-    @include m.font-noto-sans(base);
+    @include m.font-noto-sans();
 
     height: 80px;
     margin-top: 8px;
@@ -81,7 +81,7 @@
   }
 
   &__price {
-    @include m.font-noto-sans(base);
+    @include m.font-noto-sans();
 
     margin-bottom: 18px;
     color: var(--text-primary);
@@ -111,6 +111,24 @@
     text-align: center;
   }
 
+  &__features {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+    b {
+      color: var(--text-primary);
+    }
+
+    > p:empty {
+      display: none;
+    }
+
+    > p {
+      margin: 0;
+    }
+  }
+
   ul {
     position: relative;
     margin: 40px 0 44px 10px;
@@ -126,12 +144,17 @@
       padding-left: 12px;
     }
 
+    &:has(.with-icon) {
+      margin-left: 0;
+      padding-left: 0;
+    }
+
     li {
       @include m.font-poppins(v.$fw-medium);
       @include m.font-scale(base);
 
       position: relative;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       padding-left: 26px;
       color: var(--text-primary);
 
@@ -150,6 +173,23 @@
         display: contents;
       }
     }
+
+    li.with-icon {
+      margin-bottom: 10px;
+      padding-left: 36px;
+
+      &::before {
+        content: none;
+      }
+
+      svg {
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 
   .btn {
@@ -164,4 +204,9 @@
       margin-left: 8px;
     }
   }
+}
+
+.price-description-tooltip .ant-tooltip-inner {
+  border-radius: 8px;
+  padding: 16px;
 }
