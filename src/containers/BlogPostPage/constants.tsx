@@ -7,7 +7,7 @@ import { CopyToClipboardButton } from '@app/components/CopyToClipboardButton';
 
 export const OPTIONS = {
   renderMark: {
-    [MARKS.BOLD]: text => <b className="blog-post-page__bold-text">{text}</b>,
+    [MARKS.BOLD]: text => <strong className="blog-post-page__bold-text">{text}</strong>,
     [MARKS.CODE]: text => (
       <pre>
         <code>{text}</code>
