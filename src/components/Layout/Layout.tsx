@@ -1,12 +1,9 @@
 import React, { FC, ReactElement, useCallback, useRef } from 'react';
-import { useLocation } from '@reach/router';
 import Snowfall from 'react-snowfall';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { useAtom } from 'jotai';
-import { AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
-import { announcementOpenAtom, isNewYearMode, watchProductOverviewAtom } from '@app/utils';
-import { AnnouncementBar } from '@app/components/AnnouncementBar';
+import { isNewYearMode, watchProductOverviewAtom } from '@app/utils';
 
 // eslint-disable-next-line import/no-unresolved
 import '../../../static/antd.min.css'; // Will be generated at build time
@@ -31,12 +28,9 @@ interface LayoutProps {
 }
 
 export const Layout: FC<LayoutProps> = ({ children, className }) => {
-  const location = useLocation();
   const [watchProductOverviewState, setWatchProductOverviewState] =
     useAtom(watchProductOverviewAtom);
-  const [isAnnouncementBarOpen] = useAtom(announcementOpenAtom);
   const announcementBarRef = useRef<HTMLDivElement>(null);
-  const isIndexPage = location.pathname === '/';
 
   const toggleEmbedVideoOpen = useCallback(
     () => setWatchProductOverviewState(({ isOpen }) => ({ isOpen: !isOpen })),
@@ -46,13 +40,6 @@ export const Layout: FC<LayoutProps> = ({ children, className }) => {
   return (
     <StyleProvider hashPriority="high">
       <div className={classNames(className, { 'new-year-mode': isNewYearMode })}>
-        <AnimatePresence>
-          {isAnnouncementBarOpen && isIndexPage && (
-            <div ref={announcementBarRef}>
-              <AnnouncementBar />
-            </div>
-          )}
-        </AnimatePresence>
         <Navigation announcementBarRef={announcementBarRef} />
         <main>{children}</main>
         <Footer />
