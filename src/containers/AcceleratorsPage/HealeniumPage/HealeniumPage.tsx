@@ -28,7 +28,7 @@ export const HealeniumPage: FC = () => {
       hero={{
         title: 'Explore pricing packages for our accelerators',
         description:
-          'is a language agnostic proxy solution which enables self-healing capabilities by means of ML for selenium-based test cases aimed at minimization of UI fluctuations',
+          'is a language agnostic proxy solution which enables self-healing capabilities by means of ML for selenium-based test cases aimed at minimization of UI fluctuations.',
         offerType: 'Healenium',
       }}
       page="accelerators"

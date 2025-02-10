@@ -56,9 +56,7 @@ const buttons = [
 
 const ACTIVE_BUTTON = buttons[0].text;
 
-const sectionsContent: {
-  [key: string]: React.FC[];
-} = {
+const sectionsContent: Record<string, FC[]> = {
   [DOCKER]: [DockerInstall, DockerDeployingStep, LaunchPortal, IntegrationContent],
   [KUBERNETES]: [KubernetesContent, LaunchPortal, IntegrationContent],
   [GOOGLE_CLOUD]: [GoogleCloudContent, GoogleCloudLaunchPortal, IntegrationContent],

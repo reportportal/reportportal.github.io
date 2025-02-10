@@ -1,8 +1,10 @@
+import kebabCase from 'lodash/kebabCase';
+
 import { ContactUsBaseConfig, PlanType } from './types';
 
 const SALESFORCE_SOURCE_NAME = 'ReportPortalSource';
 const LEAD_SOURCE = 'lead_source';
-const packageNumbers = [25, 60, 160];
+const onPremisesAndAcceleratorsPlans = ['Lite', 'Service Pro', 'Advanced'];
 const availableOptions: PlanType[] = ['quarterly', 'yearly'];
 
 const createConfig = ({
@@ -35,115 +37,46 @@ const createConfig = ({
 
 const createStartupPlanBaseConfig = (planType: PlanType) => ({
   id: '[SaaS] Startup Plan',
-  options: [
-    {
-      name: LEAD_SOURCE,
-      value: 'RP SaaS',
-    },
-  ],
+  options: [{ name: LEAD_SOURCE, value: 'RP SaaS' }],
   planType,
 });
 
 const createBusinessPlanBaseConfig = (planType: PlanType) => ({
   id: '[SaaS] Business Plan',
-  options: [
-    {
-      name: LEAD_SOURCE,
-      value: 'RP SaaS',
-    },
-  ],
+  options: [{ name: LEAD_SOURCE, value: 'RP SaaS' }],
   planType,
 });
 
 const createEnterprisePlanBaseConfig = () => ({
   id: '[SaaS] Enterprise Plan',
-  options: [
-    {
-      name: LEAD_SOURCE,
-      value: 'RP SaaS',
-    },
-  ],
-});
-
-const createPackage25BaseConfig = (planType: PlanType) => ({
-  id: '[On-Premises] Package 25',
-  options: [
-    {
-      name: LEAD_SOURCE,
-      value: 'RP Service',
-    },
-  ],
-  planType,
-});
-
-const createPackage60BaseConfig = (planType: PlanType) => ({
-  id: '[On-Premises] Package 60',
-  options: [
-    {
-      name: LEAD_SOURCE,
-      value: 'RP Service',
-    },
-  ],
-  planType,
-});
-
-const createPackage160BaseConfig = (planType: PlanType) => ({
-  id: '[On-Premises] Package 160',
-  options: [
-    {
-      name: LEAD_SOURCE,
-      value: 'RP Service',
-    },
-  ],
-  planType,
+  options: [{ name: LEAD_SOURCE, value: 'RP SaaS' }],
 });
 
 const createContactUsConfig = ({ salesforceSourceName, leadSource, url }) => ({
   id: 'Contact us',
   url,
   options: [
-    {
-      name: SALESFORCE_SOURCE_NAME,
-      value: `Landing page / ${salesforceSourceName}`,
-    },
-    {
-      name: LEAD_SOURCE,
-      value: leadSource,
-    },
+    { name: SALESFORCE_SOURCE_NAME, value: `Landing page / ${salesforceSourceName}` },
+    { name: LEAD_SOURCE, value: leadSource },
   ],
   isDiscussFieldShown: false,
 });
 
 const QaSpaceBaseConfig = {
   id: 'QaSpace',
-  options: [
-    {
-      name: LEAD_SOURCE,
-      value: 'RP QASP',
-    },
-  ],
+  options: [{ name: LEAD_SOURCE, value: 'RP QASP' }],
   isDiscussFieldShown: false,
   areCertificatesShown: false,
 };
 const Drill4JBaseConfig = {
   id: 'Drill4J',
-  options: [
-    {
-      name: LEAD_SOURCE,
-      value: 'RP D4J',
-    },
-  ],
+  options: [{ name: LEAD_SOURCE, value: 'RP D4J' }],
   isDiscussFieldShown: false,
   areCertificatesShown: false,
 };
 const HealeniumBaseConfig = {
   id: 'Healenium',
-  options: [
-    {
-      name: LEAD_SOURCE,
-      value: 'RP HLM',
-    },
-  ],
+  options: [{ name: LEAD_SOURCE, value: 'RP HLM' }],
   isDiscussFieldShown: false,
   areCertificatesShown: false,
 };
@@ -160,24 +93,6 @@ export const contactUsBaseConfigs: ContactUsBaseConfig[] = [
       baseConfig: createBusinessPlanBaseConfig(planType),
       url: '/contact-us/saas/business-plan',
       source: 'Landing page / SaaS / Request "Business Plan"',
-      planType,
-    }),
-    createConfig({
-      baseConfig: createPackage25BaseConfig(planType),
-      url: '/contact-us/on-premises/package-25',
-      source: 'Landing page / On-Premises / Request Support "Package 25"',
-      planType,
-    }),
-    createConfig({
-      baseConfig: createPackage60BaseConfig(planType),
-      url: '/contact-us/on-premises/package-60',
-      source: 'Landing page / On-Premises / Request Support "Package 60"',
-      planType,
-    }),
-    createConfig({
-      baseConfig: createPackage160BaseConfig(planType),
-      url: '/contact-us/on-premises/package-160',
-      source: 'Landing page / On-Premises / Request Support "Package 160"',
       planType,
     }),
     createConfig({
@@ -203,77 +118,76 @@ export const contactUsBaseConfigs: ContactUsBaseConfig[] = [
     source: 'Landing page / SaaS / Compare Plan / Request "Enterprise Plan"',
   }),
   createConfig({
-    baseConfig: createPackage25BaseConfig('yearly'),
-    url: '/contact-us/on-premises/compare/package-25',
-    source: 'Landing page / On-Premises / Compare Plan / Request Support "Package 25"',
-  }),
-  createConfig({
-    baseConfig: createPackage60BaseConfig('yearly'),
-    url: '/contact-us/on-premises/compare/package-60',
-    source: 'Landing page / On-Premises / Compare Plan / Request Support "Package 60"',
-  }),
-  createConfig({
-    baseConfig: createPackage160BaseConfig('yearly'),
-    url: '/contact-us/on-premises/compare/package-160',
-    source: 'Landing page / On-Premises / Compare Plan / Request Support "Package 160"',
-  }),
-  createConfig({
     baseConfig: QaSpaceBaseConfig,
     url: '/contact-us/qasp',
     source: 'Landing page / RP QASP',
   }),
-  ...packageNumbers.map(packageNumber =>
-    createConfig({
-      baseConfig: QaSpaceBaseConfig,
-      url: `/contact-us/qasp/package-${packageNumber}`,
-      source: `Landing page / QASP / Request Support "Package ${packageNumber}"`,
-    }),
-  ),
-  ...packageNumbers.map(packageNumber =>
-    createConfig({
-      baseConfig: QaSpaceBaseConfig,
-      url: `/contact-us/qasp/compare/package-${packageNumber}`,
-      source: `Landing page / QASP / Compare Plan / Request Support "Package ${packageNumber}"`,
-    }),
-  ),
   createConfig({
     baseConfig: Drill4JBaseConfig,
     url: '/contact-us/d4j',
     source: 'Landing page / RP D4J',
   }),
-  ...packageNumbers.map(packageNumber =>
-    createConfig({
-      baseConfig: Drill4JBaseConfig,
-      url: `/contact-us/d4j/package-${packageNumber}`,
-      source: `Landing page / D4J / Request Support "Package ${packageNumber}"`,
-    }),
-  ),
-  ...packageNumbers.map(packageNumber =>
-    createConfig({
-      baseConfig: Drill4JBaseConfig,
-      url: `/contact-us/d4j/compare/package-${packageNumber}`,
-      source: `Landing page / D4J / Compare Plan / Request Support "Package ${packageNumber}"`,
-    }),
-  ),
   createConfig({
     baseConfig: HealeniumBaseConfig,
     url: '/contact-us/hlm',
     source: 'Landing page / RP HLM',
   }),
-  ...packageNumbers.map(packageNumber =>
+  ...onPremisesAndAcceleratorsPlans.flatMap(plan => [
+    {
+      id: `[On-Premises] ${plan}`,
+      options: [
+        { name: LEAD_SOURCE, value: 'RP Service' },
+        {
+          name: SALESFORCE_SOURCE_NAME,
+          value: `Landing page / On-Premises / Request Support "${plan} Plan"`,
+        },
+      ],
+      url: `/contact-us/on-premises/${kebabCase(plan)}`,
+      planType: 'yearly',
+    },
+    {
+      id: `[On-Premises] ${plan}`,
+      options: [
+        { name: LEAD_SOURCE, value: 'RP Service' },
+        {
+          name: SALESFORCE_SOURCE_NAME,
+          value: `Landing page / On-Premises / Compare Plan / Request Support "${plan} Plan"`,
+        },
+      ],
+      url: `/contact-us/on-premises/compare/${kebabCase(plan)}`,
+      planType: 'yearly',
+    },
+    createConfig({
+      baseConfig: QaSpaceBaseConfig,
+      url: `/contact-us/qasp/${kebabCase(plan)}`,
+      source: `Landing page / QASP / Request Support "${plan} Plan"`,
+    }),
+    createConfig({
+      baseConfig: QaSpaceBaseConfig,
+      url: `/contact-us/qasp/compare/${kebabCase(plan)}`,
+      source: `Landing page / QASP / Compare Plan / Request Support "${plan} Plan"`,
+    }),
+    createConfig({
+      baseConfig: Drill4JBaseConfig,
+      url: `/contact-us/d4j/${kebabCase(plan)}`,
+      source: `Landing page / D4J / Request Support "${plan} Plan"`,
+    }),
+    createConfig({
+      baseConfig: Drill4JBaseConfig,
+      url: `/contact-us/d4j/compare/${kebabCase(plan)}`,
+      source: `Landing page / D4J / Compare Plan / Request Support "${plan} Plan"`,
+    }),
     createConfig({
       baseConfig: HealeniumBaseConfig,
-      url: `/contact-us/hlm/package-${packageNumber}`,
-      source: `Landing page / HLM / Request Support "Package ${packageNumber}"`,
+      url: `/contact-us/hlm/${kebabCase(plan)}`,
+      source: `Landing page / HLM / Request Support "${plan} Plan"`,
     }),
-  ),
-  ...packageNumbers.map(packageNumber =>
     createConfig({
       baseConfig: HealeniumBaseConfig,
-      url: `/contact-us/hlm/compare/package-${packageNumber}`,
-      source: `Landing page / HLM / Compare Plan / Request Support "Package ${packageNumber}"`,
+      url: `/contact-us/hlm/compare/${kebabCase(plan)}`,
+      source: `Landing page / HLM / Compare Plan / Request Support "${plan} Plan"`,
     }),
-  ),
+  ]),
   {
     id: 'TaaS',
     url: '/contact-us/taas',

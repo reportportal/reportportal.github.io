@@ -14,16 +14,17 @@ import './LearnMenu.scss';
 const getBlocksWith = createBemBlockBuilder(['menu-dialog']);
 
 export const LearnMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
-  let resourcesItems = RESOURCES_LIST;
-
-  if (!isDesktop) {
-    resourcesItems = resourcesItems.concat({
-      iconClass: 'youtube',
-      title: 'YouTube channel',
-      text: 'Subscribe and watch video guides',
-      link: { url: 'https://www.youtube.com/@ReportPortal' },
-    });
-  }
+  const resourcesItems = isDesktop
+    ? RESOURCES_LIST
+    : [
+        ...RESOURCES_LIST,
+        {
+          iconClass: 'youtube',
+          title: 'YouTube channel',
+          text: 'Subscribe and watch video guides',
+          link: { title: 'YouTube channel', url: 'https://www.youtube.com/@ReportPortal' },
+        },
+      ];
 
   const resourcesList = (
     <SectionList

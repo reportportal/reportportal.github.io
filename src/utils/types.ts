@@ -79,11 +79,12 @@ export interface ComparePlansItemDto {
 }
 
 export interface OfferingPlanPrice {
-  title: string;
   currency: string;
   period: string;
-  quarterly: number;
-  yearly: number;
+  title?: string;
+  monthly?: number;
+  quarterly?: number;
+  yearly?: number;
 }
 
 export interface OfferingPlanDto {
@@ -101,7 +102,6 @@ export interface ComparePlansDto {
   note: string;
   ctas: Required<CTA, 'link'>[];
   columns: string;
-  mobileColumns: string;
   sections: { title: string; items: ComparePlansItemDto[] }[];
 }
 
@@ -110,7 +110,7 @@ export interface OfferingPlansDto {
   items: OfferingPlanDto[];
 }
 
-export type PlanType = 'quarterly' | 'yearly';
+export type PlanType = 'quarterly' | 'yearly' | 'monthly';
 
 export enum DataGTM {
   ContactUs = 'contact_us',
@@ -139,3 +139,29 @@ export interface ContactUsContentfulConfig {
 export type ContactUsConfig = ContactUsBaseConfig & ContactUsContentfulConfig;
 
 export type PropsWithAnimation<P = object> = P & { isAnimationEnabled?: boolean };
+
+const validThumbnailKeys = ['default', 'high', 'maxres', 'medium', 'standard'] as const;
+
+type ValidThumbnailKeysType = (typeof validThumbnailKeys)[number];
+
+type Thumbnail = Record<
+  ValidThumbnailKeysType,
+  {
+    height: number;
+    width: number;
+    url: string;
+  }
+>;
+
+export interface YoutubeVideoDto {
+  id: string;
+  title: string;
+  duration: string;
+  published_at: string;
+  statistics: {
+    comment_count: number;
+    like_count: number;
+    view_count: number;
+  };
+  thumbnail: Partial<Thumbnail>;
+}

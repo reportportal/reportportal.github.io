@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import classNames from 'classnames';
 import { TrustedOrganizations } from '@app/components/TrustedOrganizations';
 import { ComparePlans } from '@app/components/ComparePlans';
 import { Faq } from '@app/components/Faq';
@@ -64,11 +63,11 @@ export const SaasPage: FC = () => {
         isAnimationEnabled={isAnimationEnabled}
       />
       <ComparePlans plans={comparePlans} />
-      <div className={classNames(getBlocksWith('__trusted-organizations-container'), 'container')}>
-        <TrustedOrganizations />
-      </div>
-      <div className={classNames(getBlocksWith('__certificates-container'), 'container')}>
-        <CertificationCard subtitle="Ensuring the highest security standards" shouldDisplayLink />
+      <div className={getBlocksWith('__gradient-container')}>
+        <div className="container">
+          <TrustedOrganizations />
+          <CertificationCard subtitle="Ensuring the highest security standards" shouldDisplayLink />
+        </div>
       </div>
       <div className={getBlocksWith('__faq-container')}>
         <Faq items={FAQ_ITEMS} />

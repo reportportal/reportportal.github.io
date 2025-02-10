@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useCallback, useRef } from 'react';
-import Snowfall from 'react-snowfall';
+import Snowfall, { SnowfallProps } from 'react-snowfall';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { useAtom } from 'jotai';
 import classNames from 'classnames';
@@ -13,7 +13,7 @@ import { Navigation } from './Navigation';
 import { Footer } from './Footer';
 import { EmbedVideo } from './EmbedVideo';
 
-const snowfallProps = {
+const snowfallProps: SnowfallProps = {
   color: '#dee4fd',
   snowflakeCount: 197,
   speed: [1, 3],

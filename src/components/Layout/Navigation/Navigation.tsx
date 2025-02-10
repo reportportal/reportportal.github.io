@@ -8,7 +8,8 @@ import { Link } from '@app/components/Link';
 import { createBemBlockBuilder, isNewYearMode } from '@app/utils';
 import { useScrollDirection } from '@app/hooks/useScrollDirection';
 
-// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import githubStats from '../../../../static/github.json'; // Will be generated at build time
 import {
   SolutionsMenu,
@@ -151,7 +152,7 @@ export const Navigation: FC<NavigationProps> = ({ announcementBarRef }) => {
                   <MenuContainer
                     isOpen={menus[menuItem]}
                     menuLinksRef={menuLinksRef}
-                    onClose={() => updateMenus()}
+                    onClose={() => updateMenus({})}
                   >
                     <Component />
                   </MenuContainer>
