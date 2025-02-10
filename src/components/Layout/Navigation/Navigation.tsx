@@ -28,18 +28,26 @@ import {
   CrossIcon,
   ArrowIconMobile,
 } from './icons';
-import { MENU_INITIAL_STATE, MENU_ORDER } from './constants';
+import {
+  MENU_INITIAL_STATE,
+  MENU_ORDER,
+  OFFERINGS,
+  LEARN,
+  COMMUNITY,
+  PRODUCT,
+  SOLUTIONS,
+} from './constants';
 
 import './Navigation.scss';
 
 const { Panel } = Collapse;
 
 const menuItems = {
-  product: { Component: ProductMenu },
-  solutions: { Component: SolutionsMenu },
-  offerings: { Component: OfferingsMenu },
-  learn: { Component: LearnMenu },
-  community: { Component: CommunityMenu },
+  [PRODUCT]: { Component: ProductMenu },
+  [SOLUTIONS]: { Component: SolutionsMenu },
+  [OFFERINGS]: { Component: OfferingsMenu },
+  [LEARN]: { Component: LearnMenu },
+  [COMMUNITY]: { Component: CommunityMenu },
 };
 
 const getBlocksWith = createBemBlockBuilder(['top-header']);
