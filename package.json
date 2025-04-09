@@ -5,7 +5,7 @@
   "scripts": {
     "prestart": "node ./bin/gen-antd-css.js",
     "start": "gatsby develop -p 8080",
-    "config-watch": "gatsby clean && nodemon --watch src --watch gatsby-config.ts --ext ts,tsx --exec \"npm run start\"",
+    "start:watch-config": "gatsby clean && nodemon --watch src --watch gatsby-config.ts --ext ts,tsx --exec \"npm run start\"",
     "graphql:win": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "prebuild": "cross-env NODE_ENV=production node ./bin/gen-antd-css.js",
     "build": "gatsby build",

@@ -95,7 +95,7 @@ const config: GatsbyConfig = {
             "'self' data: 'unsafe-inline' *.googleapis.com *.visualwebsiteoptimizer.com https://*.clarity.ms",
           'style-src': "'self' 'unsafe-inline'",
           'connect-src':
-            "'self' https://status.reportportal.io https://www.google-analytics.com https://*.clarity.ms https://www.googletagmanager.com *.visualwebsiteoptimizer.com app.vwo.com",
+            "'self' https://status.reportportal.io https://www.google-analytics.com https://*.clarity.ms https://www.googletagmanager.com *.visualwebsiteoptimizer.com app.vwo.com https://*.salesforce-sites.com",
           'img-src':
             "'self' https://www.google-analytics.com https://*.clarity.ms https://www.google.com *.visualwebsiteoptimizer.com app.vwo.com  data: blob: http: https:",
           'worker-src': "'self' blob:",
