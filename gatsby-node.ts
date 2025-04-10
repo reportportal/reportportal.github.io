@@ -156,7 +156,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     const contentfulConfig = contactUsConfigs[config.id];
     const contactUsProps: ContactUsConfig = {
       ...config,
-      title: contentfulConfig.title,
+      title: contentfulConfig?.title || '',
       message: contentfulConfig.message,
       messagePosition: contentfulConfig.messagePosition,
       price: contentfulConfig.offeringPlan?.price,
