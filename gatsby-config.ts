@@ -84,18 +84,18 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-csp',
       options: {
-        disableOnDev: false,
+        disableOnDev: true,
         reportOnly: false,
         mergeStyleHashes: false,
         mergeScriptHashes: false,
         directives: {
           'script-src':
-            "'self' 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://www.bing.com https://www.google.com *.visualwebsiteoptimizer.com app.vwo.com",
+            "'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://www.bing.com https://www.google.com *.visualwebsiteoptimizer.com app.vwo.com https://www.youtube.com",
           'script-src-elem':
-            "'self' data: 'unsafe-inline' *.googleapis.com *.visualwebsiteoptimizer.com https://*.clarity.ms",
+            "'self' data: 'unsafe-inline' *.googleapis.com *.visualwebsiteoptimizer.com https://*.clarity.ms https://www.googletagmanager.com https://www.youtube.com",
           'style-src': "'self' 'unsafe-inline'",
           'connect-src':
-            "'self' https://status.reportportal.io https://www.google-analytics.com https://*.clarity.ms https://www.googletagmanager.com *.visualwebsiteoptimizer.com app.vwo.com https://*.salesforce-sites.com",
+            "'self' https://status.reportportal.io https://www.google-analytics.com https://*.clarity.ms https://www.googletagmanager.com *.visualwebsiteoptimizer.com app.vwo.com https://*.salesforce-sites.com https://*.analytics.google.com https://stats.g.doubleclick.net",
           'img-src':
             "'self' https://www.google-analytics.com https://*.clarity.ms https://www.google.com *.visualwebsiteoptimizer.com app.vwo.com  data: blob: http: https:",
           'worker-src': "'self' blob:",
