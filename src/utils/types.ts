@@ -84,6 +84,8 @@ export interface OfferingPlanPrice {
   period: string;
   quarterly: number;
   yearly: number;
+  quarterlyDescription?: string;
+  yearlyDescription?: string;
 }
 
 export interface OfferingPlanDto {
