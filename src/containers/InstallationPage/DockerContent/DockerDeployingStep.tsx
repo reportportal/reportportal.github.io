@@ -3,8 +3,6 @@ import { Typography } from 'antd';
 import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
 
-import { Notice } from '../Notice';
-
 import '../InstallationPage.scss';
 
 const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
@@ -53,46 +51,18 @@ export const DockerDeployingStep: FC = () => {
           docker-compose -p reportportal up -d --force-recreate
         </Text>
 
-        <p>Where:</p>
         <p>
-          <span className={getBlocksWith('__code-text')}>-p reportportal</span> — adds project
-          prefix {"'reportportal'"} to all containers
-        </p>
-        <p>
-          <span className={getBlocksWith('__code-text')}>up</span> — creates and starts containers
-        </p>
-        <p>
-          <span className={getBlocksWith('__code-text')}>-d</span> — daemon mode
-        </p>
-        <p>
-          {' '}
-          <span className={getBlocksWith('__code-text')}>--force-recreate</span> — re-creates
-          containers
+          For detailed instructions, advanced configuration, backup/restore, and production
+          recommendations, see the full guide:{' '}
+          <Link
+            className={getBlocksWith('__link')}
+            to={`${DOCUMENTATION_URL}/installation-steps/DeployWithDocker/`}
+          >
+            How to deploy with Docker
+          </Link>
+          .
         </p>
       </div>
-
-      <Notice title="Useful commands">
-        <span className={getBlocksWith('__code-text')}>docker-compose logs</span> — shows logs from
-        all containers <br />
-        <span className={getBlocksWith('__code-text')}>docker logs &lt;container_name&gt;</span> —
-        shows logs from selected container <br />
-        <p className={getBlocksWith('__code-text')}>
-          docker ps -a | grep {'"reportportal_"'} | awk {"'{print $1}'"} | xargs <br />
-          docker rm -f
-        </p>{' '}
-        <br />— deletes all ReportPortal containers
-      </Notice>
-
-      <p>
-        For a more comprehensive installation guide, please refer to the{' '}
-        <Link
-          className={getBlocksWith('__link')}
-          to={`${DOCUMENTATION_URL}/installation-steps/DeployWithDocker/`}
-        >
-          link
-        </Link>
-        .
-      </p>
     </>
   );
 };

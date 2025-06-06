@@ -7,8 +7,6 @@ import { Notice } from '../Notice';
 
 import '../InstallationPage.scss';
 
-const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
-
 export const DockerInstall: FC = () => {
   const getBlocksWith = createBemBlockBuilder(['installation']);
   const { Text } = Typography;
@@ -49,27 +47,6 @@ export const DockerInstall: FC = () => {
       <h4>Resources</h4>
 
       <Notice importance>Allocate ≥ 2 CPUs & 6 GB RAM to Docker; ≥ 20 GB free disk space</Notice>
-
-      <p className={getBlocksWith('__text-content')}>
-        Instead of using Docker for deployment you can follow the steps described{' '}
-        <Link
-          className={getBlocksWith('__link')}
-          to={`${DOCUMENTATION_URL}/installation-steps/DeployWithoutDocker`}
-        >
-          here
-        </Link>
-        .
-      </p>
-      <p className={getBlocksWith('__text-content')}>
-        Details about production deployment and system capacity are{' '}
-        <Link
-          className={getBlocksWith('__link')}
-          to={`${DOCUMENTATION_URL}/installation-steps/OptimalPerformanceHardwareSetup/`}
-        >
-          here
-        </Link>
-        .
-      </p>
     </div>
   );
 };
