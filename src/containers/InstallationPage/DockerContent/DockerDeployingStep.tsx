@@ -12,6 +12,10 @@ const DOCUMENTATION_URL = process.env.DOCUMENTATION_URL;
 export const DockerDeployingStep: FC = () => {
   const { Text } = Typography;
   const getBlocksWith = createBemBlockBuilder(['installation']);
+  const dockerSnippet = `services:
+  uat:
+    environment:
+      RP_INITIAL_ADMIN_PASSWORD: "YourSecurePass"`;
 
   return (
     <>
@@ -35,9 +39,13 @@ export const DockerDeployingStep: FC = () => {
           https://raw.githubusercontent.com/reportportal/reportportal/master/docker-compose.yml
         </Text>
         <p>
-          Ensure you override the UAT Service environment variable{' '}
-          <span className={getBlocksWith('__code-text')}>RP_INITIAL_ADMIN_PASSWORD</span>
+          Open <span className={getBlocksWith('__code-text')}>docker-compose.yml</span> and set a
+          strong admin password:
         </p>
+
+        <Text className={getBlocksWith('__code')} code copyable>
+          {dockerSnippet}
+        </Text>
 
         <p>2. Start the application using the following command:</p>
 
