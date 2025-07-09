@@ -139,7 +139,7 @@ export const contactUsBaseConfigs: ContactUsBaseConfig[] = [
         { name: LEAD_SOURCE, value: 'RP Service' },
         {
           name: SALESFORCE_SOURCE_NAME,
-          value: `Landing page / On-Premises / Request Support "${plan} Plan"`,
+          value: `Landing page / On-Premises / Request Support "${plan} Package"`,
         },
       ],
       url: `/contact-us/on-premises/${kebabCase(plan)}`,
