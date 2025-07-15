@@ -22,7 +22,7 @@ interface PricingHeroProps {
   activeButton: string;
   offerType: string;
   description: string;
-  switcherProps: PlanTypeSwitcherProps;
+  switcherProps?: PlanTypeSwitcherProps;
   subtitle?: string;
 }
 
@@ -88,23 +88,25 @@ export const PricingHero: FC<PropsWithAnimation<PricingHeroProps>> = ({
         <div className={getBlocksWith('__wrapper-title')}>{offerType}</div>
         <div className={getBlocksWith('__wrapper-subtitle')}>{description}</div>
       </motion.div>
-      <motion.div
-        className={getBlocksWith('__plan-type-switcher')}
-        {...getDiscountSwitcherAnimation({
-          isInView: isHeroInView,
-          delay: 0.5,
-          additionalEffects: {
-            hiddenAdditional: {
-              y: 50,
+      {switcherProps && (
+        <motion.div
+          className={getBlocksWith('__plan-type-switcher')}
+          {...getDiscountSwitcherAnimation({
+            isInView: isHeroInView,
+            delay: 0.5,
+            additionalEffects: {
+              hiddenAdditional: {
+                y: 50,
+              },
+              enterAdditional: {
+                y: 0,
+              },
             },
-            enterAdditional: {
-              y: 0,
-            },
-          },
-        })}
-      >
-        <PlanTypeSwitcher {...switcherProps} />
-      </motion.div>
+          })}
+        >
+          <PlanTypeSwitcher {...switcherProps} />
+        </motion.div>
+      )}
     </motion.div>
   );
 };

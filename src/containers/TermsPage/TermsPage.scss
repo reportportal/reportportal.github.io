@@ -8,7 +8,7 @@
     justify-content: space-between;
     height: 468px;
     margin-top: calc(-1 * var(--header-height));
-    padding: calc(146px + var(--header-height)) 16px 0 16px;
+    padding: calc(146px + var(--header-height)) 16px 0;
     background: var(--color-primary-600);
     background-image: url('../../svg/headBg.svg');
     background-repeat: no-repeat;

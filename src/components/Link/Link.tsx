@@ -1,25 +1,27 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode, MouseEvent, HTMLAttributes } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { isAbsoluteURL, DOCUMENTATION_URL } from '@app/utils';
 
-export interface LinkProps {
-  children: string | React.ReactNode;
+export interface LinkProps extends HTMLAttributes<HTMLAnchorElement> {
+  children: ReactNode;
   to: string;
   className?: string;
   activeClassName?: string;
   partiallyActive?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }
 
 // These links are considered SEO trusted, they should be opened in the new tab without "rel" attribute set
 const TRUSTED_DOMAINS = [
+  'https://merch.reportportal.io',
+  'https://reportportal.io',
+  'https://demo.reportportal.io',
   'https://tdspora.ai',
   'https://drill4j.github.io',
   'https://healenium.io',
-  'https://merch.reportportal.io',
+  'https://mobitru.com',
+  'https://display.test.io',
   'https://console.cloud.google.com/marketplace/product/epam-mp-rp/reportportal?project=epam-mp-rp',
-  'https://reportportal.io',
-  'https://demo.reportportal.io',
   DOCUMENTATION_URL,
 ];
 

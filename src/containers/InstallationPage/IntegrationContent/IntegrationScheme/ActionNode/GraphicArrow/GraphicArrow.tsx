@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, ReactNode, useRef } from 'react';
 import { useClickAway, useToggle } from 'ahooks';
 import { Button } from 'antd';
 
@@ -6,7 +6,7 @@ import { Arrow } from '../../Arrow';
 import { PopupContent } from './PopupContent';
 
 interface GraphicArrowProps {
-  children: React.ReactNode;
+  children: ReactNode;
   info?: {
     type: string;
     scheme: string;

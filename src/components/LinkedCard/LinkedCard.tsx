@@ -5,13 +5,13 @@ import { ArrowLink } from '../ArrowLink';
 
 import './LinkedCard.scss';
 
-interface LinkedCardProps {
+export interface LinkedCardProps {
   itemTitle: string;
   description: string;
   link?: string;
   linkText?: string;
   icon?: string;
-  delay?: boolean;
+  delay?: number;
 }
 
 const getBlocksWith = createBemBlockBuilder(['linked-card']);

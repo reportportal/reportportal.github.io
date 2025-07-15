@@ -1,5 +1,4 @@
 import React, { FC, Fragment } from 'react';
-import capitalize from 'lodash/capitalize';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import {
   ContactUsConfig,
@@ -16,14 +15,11 @@ export const ContactUsDetails: FC<
   Pick<ContactUsConfig, 'planType' | 'price' | 'message' | 'messagePosition'>
 > = ({ message, messagePosition, price, planType }) => {
   const priceInfo =
-    planType && price ? (
+    planType && price && price[planType] ? (
       <p>
         <span>
           <strong>Price:</strong> {price.currency}
-          {formatNumberWithCommas(price[planType])}/{price.period}
-        </span>
-        <span>
-          <strong>Billing period:</strong> {capitalize(planType)}
+          {formatNumberWithCommas(price[planType] as number)} per {price.period} (billed {planType})
         </span>
       </p>
     ) : null;

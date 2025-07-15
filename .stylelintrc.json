@@ -1,8 +1,6 @@
 {
   "extends": "stylelint-config-standard-scss",
-  "plugins": [
-    "stylelint-order"
-  ],
+  "plugins": ["stylelint-order"],
   "rules": {
     "selector-class-pattern": [
       "^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
@@ -14,12 +12,18 @@
     "scss/at-mixin-argumentless-call-parentheses": "always",
     "no-descending-specificity": null,
     "alpha-value-notation": "number",
-    "value-keyword-case": ["lower", {
-      "camelCaseSvgKeywords": true
-    }],
-    "property-no-vendor-prefix": [true, {
-      "ignoreProperties": ["background-clip"]
-    }],
+    "value-keyword-case": [
+      "lower",
+      {
+        "camelCaseSvgKeywords": true
+      }
+    ],
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["background-clip"]
+      }
+    ],
     "keyframes-name-pattern": "[a-z]+([A-Z])?",
     "scss/at-extend-no-missing-placeholder": null,
     "selector-not-notation": "simple",
@@ -52,25 +56,15 @@
       "rules"
     ],
     "order/properties-order": [
-      ["all",
+      [
+        "all",
         {
           "groupName": "Position",
-          "properties": [
-            "position",
-            "inset",
-            "top",
-            "right",
-            "bottom",
-            "left",
-            "z-index"
-          ]
+          "properties": ["position", "inset", "top", "right", "bottom", "left", "z-index"]
         },
         {
           "groupName": "BoxModel",
-          "properties": [
-            "box-sizing",
-            "display"
-          ]
+          "properties": ["box-sizing", "display"]
         },
         {
           "groupName": "Layout",
@@ -92,6 +86,7 @@
             "justify-content",
             "justify-items",
             "justify-self",
+            "place-content",
             "order"
           ]
         },
@@ -251,12 +246,7 @@
         },
         {
           "groupName": "ListStyle",
-          "properties": [
-            "list-style",
-            "list-style-type",
-            "list-style-position",
-            "list-style-image"
-          ]
+          "properties": ["list-style", "list-style-type", "list-style-position", "list-style-image"]
         },
         {
           "groupName": "Table",

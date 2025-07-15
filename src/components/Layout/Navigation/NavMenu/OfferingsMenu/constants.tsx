@@ -12,19 +12,19 @@ export const PRICING_CONFIG = [
     icon: <SaaSIcon />,
     title: 'SaaS',
     text: 'We host and support an instance for your organization',
-    link: { url: '/pricing/saas' },
+    link: { title: 'SaaS', url: '/pricing/saas' },
   },
   {
     icon: <OnPremiseIcon />,
     title: 'On-Premises',
     text: 'Self-hosted instance with support from our team',
-    link: { url: '/pricing/on-premises' },
+    link: { title: 'On-Premises', url: '/pricing/on-premises' },
   },
   {
     icon: <FreeVersionIcon />,
     title: 'Free version',
     text: 'Install and use ReportPortal for free via self-hosted deployment',
-    link: { url: '/installation' },
+    link: { title: 'Free version', url: '/installation' },
   },
 ];
 
@@ -33,19 +33,19 @@ export const SERVICE_LIST = [
     icon: <TaaSIcon />,
     title: 'Testing as a Service',
     text: 'On-demand testing resources to optimize your testing costs',
-    link: { url: '/testing-as-a-service' },
+    link: { title: 'Testing as a Service', url: '/testing-as-a-service' },
   },
   {
     icon: <TAaaSIcon />,
     title: 'Test Automation as a Service',
     text: 'On-demand end-to-end Test Automation services',
-    link: { url: '/test-automation-as-a-service' },
+    link: { title: 'Test Automation as a Service', url: '/test-automation-as-a-service' },
   },
   {
     icon: <QEConsultingIcon />,
     title: 'QE Consulting',
     text: 'Holistic Quality Engineering (QE) transformation',
-    link: { url: '/qe-consulting' },
+    link: { title: 'Test Automation as a Service', url: '/qe-consulting' },
   },
 ];
 
@@ -53,16 +53,16 @@ export const PRICING_FOR_SOLUTIONS_LIST = [
   {
     iconClass: 'drill4j',
     title: 'Drill4J',
-    link: { url: '/accelerators/d4j' },
+    link: { title: 'Drill4J', url: '/accelerators/d4j' },
   },
   {
     iconClass: 'healenium',
     title: 'Healenium',
-    link: { url: '/accelerators/hlm' },
+    link: { title: 'Healenium', url: '/accelerators/hlm' },
   },
   {
     iconClass: 'qa-space',
     title: 'QaSpace',
-    link: { url: '/accelerators/qasp' },
+    link: { title: 'QaSpace', url: '/accelerators/qasp' },
   },
 ];

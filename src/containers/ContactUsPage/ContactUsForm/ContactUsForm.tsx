@@ -3,7 +3,9 @@ import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
 import isEmpty from 'lodash/isEmpty';
 import { Link } from '@app/components/Link';
+import { subscribeUser } from '@app/components/SubscriptionForm/utils';
 import { createBemBlockBuilder } from '@app/utils';
+import axios from 'axios';
 
 import { validate, getBaseSalesForceValues } from './utils';
 import { FormFieldWrapper } from './FormFieldWrapper';
@@ -33,35 +35,33 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
     validateOnBlur: false,
     validateOnChange: false,
     validate,
+    onSubmit: async values => {
+      validateForm().then(errors => {
+        if (isEmpty(errors)) {
+          setIsLoading(true);
+
+          const baseSalesForceValues = getBaseSalesForceValues(options);
+          const postData = {
+            ...values,
+            ...baseSalesForceValues,
+          };
+
+          if (values.wouldLikeToReceiveAds) {
+            subscribeUser(values.email).catch(console.error);
+          }
+
+          axios
+            .post(`${process.env.CONTACT_US_URL}`, postData)
+            .catch(console.error)
+            .finally(() => {
+              showFeedbackForm();
+              setIsLoading(false);
+            });
+        }
+      });
+    },
   });
-  const { getFieldProps, validateForm, values } = formik;
-
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    validateForm().then(errors => {
-      if (isEmpty(errors)) {
-        setIsLoading(true);
-
-        const baseSalesForceValues = getBaseSalesForceValues(options);
-        const postData = {
-          ...values,
-          ...baseSalesForceValues,
-        };
-
-        fetch(process.env.CONTACT_US_URL as string, {
-          method: 'POST',
-          body: JSON.stringify(postData),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).finally(() => {
-          showFeedbackForm();
-          setIsLoading(false);
-        });
-      }
-    });
-  };
+  const { getFieldProps, validateForm } = formik;
 
   if (isFeedbackFormVisible) {
     return <FeedbackForm title={title} />;
@@ -70,7 +70,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   return (
     <FormikProvider value={formik}>
       <div className={getBlocksWith('-container')}>
-        <form className={getBlocksWith()}>
+        <form noValidate className={getBlocksWith()} onSubmit={formik.handleSubmit}>
           <FormInput name="first_name" label="First name" placeholder="John" maxLength={40} />
           <FormInput name="last_name" label="Last name" placeholder="Smith" maxLength={80} />
           <FormInput
@@ -111,7 +111,6 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             type="submit"
             data-gtm="send_request"
             disabled={!getFieldProps('termsAgree').value || isLoading}
-            onClick={handleSubmit}
           >
             Send request
           </button>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, FC } from 'react';
-import axios from 'axios';
 import Icon from '@ant-design/icons';
 import { Input, Form } from 'antd';
 import { Link } from '@app/components/Link';
@@ -7,6 +6,7 @@ import { createBemBlockBuilder, EMAIL_VALIDATION_REGEX } from '@app/utils';
 
 import { EnvelopeIcon } from './icons';
 import { SubscriptionFormCard } from './SubscriptionFormCard';
+import { subscribeUser } from './utils';
 
 import './SubscriptionForm.scss';
 
@@ -30,14 +30,8 @@ export const SubscriptionForm: FC = () => {
   });
   const email = Form.useWatch('email', form);
 
-  const subscribeUser = (emailToSubscribe: string) => {
-    axios
-      .post(
-        `https://status.reportportal.io/mailchimp/lists/${process.env.GATSBY_MAILCHIMP_LIST_ID}/members`,
-        {
-          email_address: emailToSubscribe,
-        },
-      )
+  const handleSubscribeUser = (emailToSubscribe: string) => {
+    subscribeUser(emailToSubscribe)
       .then(response => {
         setValidation({
           isValid: true,
@@ -83,7 +77,7 @@ export const SubscriptionForm: FC = () => {
       return;
     }
 
-    subscribeUser(email);
+    handleSubscribeUser(email);
   };
 
   useEffect(() => {

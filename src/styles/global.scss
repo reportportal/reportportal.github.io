@@ -98,10 +98,6 @@ input:-webkit-autofill {
     padding-right: 24px;
     padding-left: 24px;
   }
-
-  @include m.breakpoint(v.$desktop-sm) {
-    width: calc(var(--size-max-width) + 48px);
-  }
 }
 
 .temporary-hide {

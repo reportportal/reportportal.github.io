@@ -11,7 +11,7 @@ import {
   RenderRichTextData,
 } from 'gatsby-source-contentful/rich-text';
 
-import { ContactUsConfig, OfferingPlanDto } from './src/utils/types';
+import { ContactUsConfig, OfferingPlanDto, YoutubeVideoDto } from './src/utils/types';
 import { contactUsBaseConfigs } from './src/utils/contactUsConfig';
 // importing GraphQL fragments to be available in the app
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -50,32 +50,6 @@ interface ContactUsQuery {
   allContentfulContactUs: {
     nodes: ContactUsDto[];
   };
-}
-
-const validThumbnailKeys = ['default', 'high', 'maxres', 'medium', 'standard'] as const;
-
-type ValidThumbnailKeysType = (typeof validThumbnailKeys)[number];
-
-type Thumbnail = Record<
-  ValidThumbnailKeysType,
-  {
-    height: number;
-    width: number;
-    url: string;
-  }
->;
-
-interface YoutubeVideoDto {
-  id: string;
-  title: string;
-  duration: string;
-  published_at: string;
-  statistics: {
-    comment_count: number;
-    like_count: number;
-    view_count: number;
-  };
-  thumbnail: Partial<Thumbnail>;
 }
 
 const acceleratorsTemplatesPath = './src/templates/accelerators';

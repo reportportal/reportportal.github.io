@@ -51,6 +51,9 @@ jobs:
           echo GTM_ID=${{ env.GTM_ID }} >> .env.production
           echo DOCUMENTATION_URL=${{ env.DOCUMENTATION_URL }} >> .env.production
 
+      - name: Run tsc
+        run: npm run tsc
+
       - name: Run eslint
         run: npm run lint
 

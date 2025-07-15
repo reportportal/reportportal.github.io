@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: calc(-1 * var(--header-height));
-  padding: calc(116px + var(--header-height)) 16px 8px 16px;
+  padding: calc(116px + var(--header-height)) 16px 8px;
   background: var(--color-primary-600);
   background-image: url('../../svg/headBg.svg');
   background-repeat: no-repeat;
@@ -17,11 +17,11 @@
   color: var(--white);
 
   @include m.breakpoint(v.$tablet-sm-exact) {
-    padding: calc(72px + var(--header-height)) 24px 8px 24px;
+    padding: calc(72px + var(--header-height)) 24px 8px;
   }
 
   @include m.breakpoint(v.$desktop-sm) {
-    padding: calc(72px + var(--header-height)) 120px 8px 120px;
+    padding: calc(72px + var(--header-height)) 120px 8px;
   }
 
   &__head {

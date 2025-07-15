@@ -1,22 +1,23 @@
 import isUndefined from 'lodash/isUndefined';
+import { YoutubeVideoDto } from '@app/utils';
 
 const stringifyPeriods = ['year', 'month', 'day', 'hour', 'minute'];
 
-export const prepareYoutubeVideos = videos =>
+export const prepareYoutubeVideos = (videos: YoutubeVideoDto[]) =>
   videos.map(({ id, title, duration, published_at: publishedAt, statistics, thumbnail }) => ({
     id,
     title,
     duration,
     publishedAt,
     viewCount: statistics.view_count,
-    imageSrc: thumbnail.maxres?.url || thumbnail.medium?.url,
+    imageSrc: (thumbnail.maxres?.url || thumbnail.medium?.url) as string,
   }));
 
-export const timeSince = dateString => {
-  const creationTime = new Date(dateString);
+export const getTimeSince = (date: string) => {
+  const creationTime = new Date(date);
   const currentTime = new Date();
 
-  const seconds = Math.floor((currentTime - creationTime) / 1000);
+  const seconds = Math.floor((currentTime.getTime() - creationTime.getTime()) / 1000);
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
@@ -43,7 +44,7 @@ const getViewDigit = count => {
   return fractionalDigit === '0' ? truncDigit : floatDigit;
 };
 
-export const formatYoutubeViews = viewCount => {
+export const formatYoutubeViews = (viewCount: number) => {
   if (viewCount < 1000) {
     return `${viewCount} views`;
   }
@@ -55,14 +56,14 @@ export const formatYoutubeViews = viewCount => {
   return `${getViewDigit(viewCount / 1000000)}M views`;
 };
 
-const getStringifyValue = value => {
+const getStringifyValue = (value: string) => {
   const numericValue = parseInt(value || '0', 10);
 
   return numericValue.toString().padStart(2, '0');
 };
 
-export const convertDuration = durationStr => {
-  const match = durationStr.match(/PT(?:(\d+)H)?((\d+)M)?((\d+)S)?/);
+export const convertDuration = (duration: string) => {
+  const match = duration.match(/PT(?:(\d+)H)?((\d+)M)?((\d+)S)?/);
 
   if (match) {
     const hours = getStringifyValue(match[1]);
