@@ -22,7 +22,11 @@ export const CertificationCard: FC<CertificationCardProps> = ({
     <div className={getBlocksWith()}>
       <h2>ReportPortal certifications</h2>
       {subtitle && <div className={getBlocksWith('__subtitle')}>{subtitle}</div>}
-      <div className={getBlocksWith('__certificates')}>
+      <div
+        className={cn(getBlocksWith('__certificates'), {
+          [getBlocksWith('__certificates--desktop-start-aligned')]: !subtitle,
+        })}
+      >
         <Certificates />
       </div>
       {shouldDisplayLink && (
