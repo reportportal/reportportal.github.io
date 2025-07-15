@@ -90,7 +90,7 @@ const config: GatsbyConfig = {
         mergeScriptHashes: false,
         directives: {
           'script-src':
-            "'self' 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://www.bing.com https://www.google.com *.visualwebsiteoptimizer.com app.vwo.com https://www.youtube.com",
+            "'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://www.bing.com https://www.google.com *.visualwebsiteoptimizer.com app.vwo.com https://www.youtube.com",
           'script-src-elem':
             "'self' data: 'unsafe-inline' *.googleapis.com *.visualwebsiteoptimizer.com https://*.clarity.ms https://www.googletagmanager.com https://www.youtube.com",
           'style-src': "'self' 'unsafe-inline'",
