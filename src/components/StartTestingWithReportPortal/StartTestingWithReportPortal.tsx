@@ -75,7 +75,7 @@ export const StartTestingWithReportPortal: FC<
             to="/contact-us/general"
             data-gtm="get_a_quote"
           >
-            Get a quote
+            Contact us
           </Link>
         </motion.div>
       </div>

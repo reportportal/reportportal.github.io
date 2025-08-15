@@ -60,7 +60,7 @@ export const ProductMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuConta
             to="/contact-us/general"
             data-gtm="get_a_quote_product"
           >
-            Get a quote
+            Contact us
           </Link>
         </div>
         <button
