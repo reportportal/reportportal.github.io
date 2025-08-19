@@ -88,7 +88,7 @@ export const Showcase: FC = () => {
               to="/contact-us/general"
               data-gtm="get_a_quote"
             >
-              Get a quote
+              Contact us
             </Link>
           </div>
         </motion.div>

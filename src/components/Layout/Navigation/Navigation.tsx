@@ -252,7 +252,7 @@ export const Navigation: FC<NavigationProps> = ({ announcementBarRef }) => {
             to="/contact-us/general"
             data-gtm="get_a_quote_header"
           >
-            Get a quote
+            Contact us
           </Link>
           <Link
             key="signup"
