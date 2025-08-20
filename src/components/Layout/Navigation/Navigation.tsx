@@ -193,7 +193,7 @@ export const Navigation: FC<NavigationProps> = ({ announcementBarRef }) => {
                     className={getBlocksWith('-navigation__signup-button')}
                     to="/contact-us/general"
                   >
-                    Get a quote
+                    Contact us
                   </Link>
                 </div>
               </div>
