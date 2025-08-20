@@ -18,7 +18,7 @@ export const BenefitsForBusiness: FC = () => (
       Start free trial
     </Link>
     <Link className="btn btn--outline btn--large" to="/contact-us/general" data-gtm="get_a_quote">
-      Get a quote
+      Contact us
     </Link>
   </AnimatedList>
 );

@@ -68,14 +68,7 @@ export const StartTestingWithReportPortal: FC<
             to={startFreeTrialUrl}
             data-gtm="start_free_trial"
           >
-            Start free trial
-          </Link>
-          <Link
-            className="btn btn--outline btn--large temporary-hide"
-            to="/contact-us/general"
-            data-gtm="get_a_quote"
-          >
-            Get a quote
+            Contact us
           </Link>
         </motion.div>
       </div>

@@ -50,11 +50,13 @@
     padding: 72px 0;
 
     @include m.breakpoint(v.$tablet-sm-exact) {
+      flex-flow: row;
+      gap: initial;
+      width: 100%;
       padding: 80px 24px 75px;
     }
 
     @include m.breakpoint(v.$desktop-sm) {
-      gap: 81.33px;
       padding: 72px 24px;
     }
 
