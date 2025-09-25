@@ -2,15 +2,17 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from '@app/components/Link';
 import { createBemBlockBuilder } from '@app/utils';
+import { useMenuList } from '@app/hooks/useMenuList';
 
 import { MenuProps } from '../../constants';
 import { SectionList } from '../SectionList';
-import { PRICING_CONFIG, SERVICE_LIST, PRICING_FOR_SOLUTIONS_LIST } from './constants';
+import { PRICING_CONFIG, SERVICE_LIST } from './constants';
 
 import '../Menu.scss';
-import './OfferingsMenu.scss';
 
 export const OfferingsMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
+  const { pricing } = useMenuList();
+
   const getBlocksWith = createBemBlockBuilder(['menu-dialog', 'menu-dialog-offerings']);
 
   const pricingList = (
@@ -25,7 +27,7 @@ export const OfferingsMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
     <SectionList
       className={classNames('pricing-solutions-list', { 'section-list-secondary': isDesktop })}
       title="Pricing for Solutions"
-      items={PRICING_FOR_SOLUTIONS_LIST}
+      items={pricing}
     />
   );
 
