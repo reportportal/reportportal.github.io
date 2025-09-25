@@ -5,6 +5,7 @@ interface MenuQuery {
   communities: Required<ImageWrapperDto>[];
   integrations: Required<ImageWrapperDto>[];
   solutions: ImageWrapperDto[];
+  pricing: Required<ImageWrapperDto>[];
 }
 
 interface MenuQueryDto {
@@ -57,6 +58,23 @@ export const useMenuList = (): MenuQuery => {
             }
             description
             icon {
+              url
+            }
+          }
+          pricing {
+            sys {
+              __typename
+            }
+            title
+            subTitle
+            link {
+              url
+            }
+            description
+            icon {
+              url
+            }
+            hoverIcon {
               url
             }
           }

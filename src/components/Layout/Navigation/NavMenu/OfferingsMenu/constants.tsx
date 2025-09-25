@@ -48,21 +48,3 @@ export const SERVICE_LIST = [
     link: { title: 'Test Automation as a Service', url: '/qe-consulting' },
   },
 ];
-
-export const PRICING_FOR_SOLUTIONS_LIST = [
-  {
-    iconClass: 'drill4j',
-    title: 'Drill4J',
-    link: { title: 'Drill4J', url: '/accelerators/d4j' },
-  },
-  {
-    iconClass: 'healenium',
-    title: 'Healenium',
-    link: { title: 'Healenium', url: '/accelerators/hlm' },
-  },
-  {
-    iconClass: 'qa-space',
-    title: 'QaSpace',
-    link: { title: 'QaSpace', url: '/accelerators/qasp' },
-  },
-];
