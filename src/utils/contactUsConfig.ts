@@ -258,4 +258,9 @@ export const contactUsBaseConfigs: ContactUsBaseConfig[] = [
     leadSource: 'RP Sponsorship Program',
     url: '/contact-us/sponsorship-program/business/diamond',
   }),
+  createContactUsConfig({
+    salesforceSourceName: 'RP Pricing For Solutions',
+    leadSource: 'RP Pricing For Solutions',
+    url: '/contact-us/pricing-for-solutions',
+  }),
 ];
