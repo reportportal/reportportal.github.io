@@ -55,7 +55,7 @@ export const OfferingsMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
               <Link
                 className="btn btn--outline"
                 to="/contact-us/pricing-for-solutions"
-                data-gtm="get_a_quote_header"
+                data-gtm="get_a_quote_pricing"
               >
                 Contact us
               </Link>
