@@ -9,6 +9,7 @@ import { SectionList } from '../SectionList';
 import { PRICING_CONFIG, SERVICE_LIST } from './constants';
 
 import '../Menu.scss';
+import './OfferingsMenu.scss';
 
 export const OfferingsMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuContainerRef }) => {
   const { pricing } = useMenuList();
@@ -31,22 +32,6 @@ export const OfferingsMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
     />
   );
 
-  const footer = (
-    <div className={classNames(getBlocksWith('__footer'), 'temporary-hide')}>
-      <div className={getBlocksWith('__footer-container')}>
-        <div className={getBlocksWith('__btn-group')}>
-          <Link
-            className="btn btn--outline"
-            to="/contact-us/general"
-            data-gtm="get_a_quote_offerings"
-          >
-            Get a quote
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-
   if (!isDesktop) {
     return (
       <div className={getBlocksWith()}>
@@ -61,16 +46,27 @@ export const OfferingsMenu: FC<MenuProps> = ({ isDesktop = true, isOpen, menuCon
     <div hidden={!isOpen} ref={menuContainerRef} className={getBlocksWith()}>
       <div className={getBlocksWith('__body')}>
         <div className={getBlocksWith('__body-row')}>
-          <div className={classNames(getBlocksWith('__body-col--lf'), 'row')}>
-            {pricingList}
-            {servicesList}
+          <div className={getBlocksWith('__body-col--lf')}>
+            <div className="row">
+              {pricingList}
+              {servicesList}
+            </div>
+            <div className={getBlocksWith('__cta')}>
+              <Link
+                className="btn btn--outline"
+                to="/contact-us/pricing-for-solutions"
+                data-gtm="get_a_quote_pricing"
+              >
+                Contact us
+              </Link>
+              <span>Customize your plan and unlock the benefits! Get your quote now.</span>
+            </div>
           </div>
           <div className={getBlocksWith('__body-col--rt', '__body-col--flex-column')}>
             {pricingForSolutionsList}
           </div>
         </div>
       </div>
-      {footer}
     </div>
   );
 };

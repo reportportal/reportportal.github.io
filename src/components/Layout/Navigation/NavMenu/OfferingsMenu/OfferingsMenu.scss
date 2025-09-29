@@ -1,0 +1,30 @@
+@use 'src/styles/variables' as v;
+@use 'src/styles/mixins' as m;
+
+.menu-dialog-offerings__body-col--lf {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-dialog-offerings__cta {
+  $margin: 24px;
+
+  display: flex;
+  align-items: center;
+  column-gap: $margin;
+  margin-right: -$margin;
+  margin-left: -$margin;
+  border-top: 1px solid var(--purple-grey);
+  padding: $margin $margin 0;
+
+  a {
+    display: inline-flex;
+  }
+
+  span {
+    @include m.font-scale(small);
+
+    color: var(--text-service);
+  }
+}
