@@ -110,12 +110,7 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
         <h2>Get a full year of benefits with our service packages</h2>
         <div className={getBlocksWith('__plans')}>
           {paidPlans.map(paidPlan => (
-            <PricingCard
-              key={paidPlan.title}
-              plan={paidPlan}
-              isTotalYearPriceShown
-              planType="yearly"
-            />
+            <PricingCard key={paidPlan.title} plan={paidPlan} planType="yearly" />
           ))}
         </div>
         <div className={getBlocksWith('__plans-topology')}>
