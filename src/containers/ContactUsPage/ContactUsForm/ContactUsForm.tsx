@@ -74,10 +74,14 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
         }
 
         const response = await axios.post(CONTACT_US_URL, postData);
-
+        console.log('response', response);
         if (response.data.success) {
           showFeedbackForm();
-        } else if (response.data.reason === 'low_score') {
+        } else if (
+          response.data.reason === 'low_score' ||
+          response.data.score < 0.5 ||
+          response.data.reason === 'failed_verification'
+        ) {
           setChallengeToken(null);
           setShowChallenge(true);
           setIsLoading(false);
