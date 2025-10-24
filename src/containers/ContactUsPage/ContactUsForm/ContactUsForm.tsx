@@ -76,10 +76,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
         const response = await axios.post(CONTACT_US_URL, postData);
         console.log('response', response);
 
-        const responseData =
-          typeof response.data === 'string' ? JSON.parse(response.data) : response.data;
-
-        if (responseData.success) {
+        if (response.data.success) {
           showFeedbackForm();
         } else if (
           response.data.reason === 'low_score' ||
@@ -90,11 +87,30 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
           setShowChallenge(true);
           setIsLoading(false);
         } else {
-          console.error('Form submission failed:', responseData);
+          console.error('Form submission failed:', response.data);
           setIsLoading(false);
         }
       } catch (error) {
         console.error('Form submission error:', error);
+
+        if (error.response?.status === 403) {
+          const responseData =
+            typeof error.response.data === 'string'
+              ? JSON.parse(error.response.data)
+              : error.response.data;
+
+          if (
+            responseData.reason === 'failed_verification' ||
+            responseData.reason === 'low_score' ||
+            responseData.score < 0.5
+          ) {
+            setChallengeToken(null);
+            setShowChallenge(true);
+            setIsLoading(false);
+            return;
+          }
+        }
+
         setIsLoading(false);
       }
     },
