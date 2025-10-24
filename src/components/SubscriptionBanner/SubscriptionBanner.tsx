@@ -27,6 +27,9 @@ export const SubscriptionBanner: FC<PropsWithAnimation> = ({ isAnimationEnabled 
     isAnimationEnabled,
   );
 
+  // temporary hidden
+  return null;
+
   return (
     <div ref={ref}>
       <FooterContent>
