@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
 import isEmpty from 'lodash/isEmpty';
@@ -19,9 +19,16 @@ import '../ContactUsPage.scss';
 
 const getBlocksWith = createBemBlockBuilder(['contact-us-form']);
 
+const MIN_FORM_INTERACTION_TIME = 3000;
+
 export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
   const [isFeedbackFormVisible, { setTrue: showFeedbackForm }] = useBoolean(false);
   const [isLoading, setIsLoading] = useState(false);
+  const formMountTimeRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    formMountTimeRef.current = Date.now();
+  }, []);
   const formik = useFormik({
     initialValues: {
       first_name: '',
@@ -30,19 +37,38 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
       company: '',
       termsAgree: false,
       wouldLikeToReceiveAds: false,
+      website: '', // Honeypot field - should remain empty
       ...(isDiscussFieldShown && { discuss: '' }),
     },
     validateOnBlur: false,
     validateOnChange: false,
     validate,
     onSubmit: async values => {
+      // Bot detection: Check honeypot field
+      if (values.website) {
+        console.warn('Bot detected: honeypot field filled');
+        return;
+      }
+
+      // Bot detection: Check if form was submitted too quickly
+      if (formMountTimeRef.current !== null) {
+        const timeSinceMount = Date.now() - formMountTimeRef.current;
+        if (timeSinceMount < MIN_FORM_INTERACTION_TIME) {
+          console.warn('Bot detected: form submitted too quickly');
+          return;
+        }
+      }
+
       validateForm().then(errors => {
         if (isEmpty(errors)) {
           setIsLoading(true);
 
           const baseSalesForceValues = getBaseSalesForceValues(options);
+          // Remove honeypot field before submitting
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { website, ...cleanValues } = values;
           const postData = {
-            ...values,
+            ...cleanValues,
             ...baseSalesForceValues,
           };
 
@@ -81,6 +107,20 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             maxLength={80}
           />
           <FormInput name="company" label="Company name" placeholder="ABC" maxLength={MAX_LENGTH} />
+          {/* Honeypot field - hidden from users but visible to bots */}
+          <div
+            style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+            aria-hidden="true"
+          >
+            <FormInput
+              name="website"
+              label="Website"
+              placeholder="https://example.com"
+              maxLength={MAX_LENGTH}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
           {isDiscussFieldShown && (
             <FormInput
               name="discuss"
