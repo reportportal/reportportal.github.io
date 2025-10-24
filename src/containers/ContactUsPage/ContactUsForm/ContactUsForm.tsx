@@ -75,7 +75,11 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
 
         const response = await axios.post(CONTACT_US_URL, postData);
         console.log('response', response);
-        if (response.data.success) {
+
+        const responseData =
+          typeof response.data === 'string' ? JSON.parse(response.data) : response.data;
+
+        if (responseData.success) {
           showFeedbackForm();
         } else if (
           response.data.reason === 'low_score' ||
@@ -86,7 +90,7 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
           setShowChallenge(true);
           setIsLoading(false);
         } else {
-          console.error('Form submission failed:', response.data);
+          console.error('Form submission failed:', responseData);
           setIsLoading(false);
         }
       } catch (error) {
