@@ -3,7 +3,7 @@ import { FormikProvider, useFormik } from 'formik';
 import { useBoolean } from 'ahooks';
 import isEmpty from 'lodash/isEmpty';
 import { Link } from '@app/components/Link';
-import { subscribeUser } from '@app/components/SubscriptionForm/utils';
+// import { subscribeUser } from '@app/components/SubscriptionForm/utils';
 import { createBemBlockBuilder } from '@app/utils';
 import axios from 'axios';
 
@@ -72,9 +72,9 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
             ...baseSalesForceValues,
           };
 
-          if (values.wouldLikeToReceiveAds) {
-            subscribeUser(values.email).catch(console.error);
-          }
+          // if (values.wouldLikeToReceiveAds) {
+          //   subscribeUser(values.email).catch(console.error);
+          // }
 
           axios
             .post(`${process.env.CONTACT_US_URL}`, postData)
@@ -130,9 +130,9 @@ export const ContactUsForm = ({ title, options, isDiscussFieldShown }) => {
               maxLength={MAX_LENGTH}
             />
           )}
-          <FormFieldWrapper name="wouldLikeToReceiveAds">
-            <CustomCheckbox label="Subscribe to ReportPortal newsletter" />
-          </FormFieldWrapper>
+          {/* <FormFieldWrapper name="wouldLikeToReceiveAds"> */}
+          {/*   <CustomCheckbox label="Subscribe to ReportPortal newsletter" /> */}
+          {/* </FormFieldWrapper> */}
           <FormFieldWrapper name="termsAgree">
             <CustomCheckbox
               label={
