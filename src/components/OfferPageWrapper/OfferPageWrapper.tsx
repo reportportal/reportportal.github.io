@@ -44,7 +44,7 @@ interface OfferPageWrapperProps {
     items: string[] | ReactNode[];
   }[];
   plans: OfferingPlansDto;
-  comparePlans: FormattedComparePlansDto;
+  comparePlans: FormattedComparePlansDto | null;
   faqData: {
     key: number;
     label: string;
@@ -149,7 +149,7 @@ export const OfferPageWrapper: FC<OfferPageWrapperProps> = ({
           }}
         />
       </motion.section>
-      <ComparePlans plans={comparePlans} isCollapsibleOnMobile={false} />
+      {comparePlans && <ComparePlans plans={comparePlans} isCollapsibleOnMobile={false} />}
       <div ref={utilizationRef} className={getBlocksWith('__utilization')}>
         <h2>Indicative Professional Service Point utilization</h2>
         <div className={getBlocksWith('__utilization-subtitle')}>{utilizationDescription}</div>

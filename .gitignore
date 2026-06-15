@@ -78,3 +78,7 @@ Thumbs.db
 
 # Visual Studio Code files
 .vscode/*
+.vercel
+
+# Local Claude / agent settings
+.claude/

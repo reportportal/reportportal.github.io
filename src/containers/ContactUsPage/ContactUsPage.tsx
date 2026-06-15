@@ -27,7 +27,10 @@ export const ContactUsPage: FC<ContactUsConfig> = config => {
     <div className={getBlocksWith()}>
       <div className={getBlocksWith('__hero')}>
         <div className="container">
-          <h1 className={getBlocksWith('__title')}>{title}</h1>
+          {/* TODO: remove override once Contentful title is updated */}
+          <h1 className={getBlocksWith('__title')}>
+            {!planType ? 'Talk to our team' : title}
+          </h1>
           <ContactUsDetails
             message={message}
             messagePosition={messagePosition}

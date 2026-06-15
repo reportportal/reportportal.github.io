@@ -1,6 +1,6 @@
 import { OfferingPlansQuery } from '@app/utils/types';
 
-export type FormattedComparePlansDto = ReturnType<typeof formatOfferingPlans>['comparePlans'];
+export type FormattedComparePlansDto = NonNullable<ReturnType<typeof formatOfferingPlans>['comparePlans']>;
 export type FormattedComparePlansItemDto = FormattedComparePlansDto['sections'][0]['items'][0];
 
 export const formatOfferingPlans = (dto: OfferingPlansQuery) => {
@@ -9,16 +9,18 @@ export const formatOfferingPlans = (dto: OfferingPlansQuery) => {
 
   return {
     plans,
-    comparePlans: {
-      ...comparePlans,
-      columns: JSON.parse(comparePlans.columns) as string[],
-      sections: comparePlans.sections.map(section => ({
-        ...section,
-        items: section.items.map(item => ({
-          ...item,
-          plans: JSON.parse(item.plans) as (string | number | boolean)[],
-        })),
-      })),
-    },
+    comparePlans: comparePlans
+      ? {
+          ...comparePlans,
+          columns: JSON.parse(comparePlans.columns) as string[],
+          sections: comparePlans.sections.map(section => ({
+            ...section,
+            items: section.items.map(item => ({
+              ...item,
+              plans: JSON.parse(item.plans) as (string | number | boolean)[],
+            })),
+          })),
+        }
+      : null,
   };
 };
